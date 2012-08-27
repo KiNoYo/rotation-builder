@@ -1,0 +1,7 @@
+enable-nolib-creation: no
+
+ignore:
+	- .pkgmeta
+	- .docmeta
+
+package-as: RotationHelper

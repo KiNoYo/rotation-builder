@@ -1,0 +1,53 @@
+<Bindings>
+  <Binding name="ROB_TOGGLE" description="Toggle Rotation Builder" header="ROB">
+    ROB_OnToggle();
+  </Binding>
+    <Binding name="Toggle Icons" description="Toggle Icons">
+    ROB_ToggleIconsFrame();
+  </Binding>
+  <Binding name="Use rotation 1" description="Use Rotation 1">
+    ROB_SwitchRotation(1);
+  </Binding>
+  <Binding name="Use rotation 2" description="Use Rotation 2">
+    ROB_SwitchRotation(2);
+  </Binding>
+  <Binding name="Use rotation 3" description="Use Rotation 3">
+    ROB_SwitchRotation(3);
+  </Binding>
+  <Binding name="Use rotation 4" description="Use Rotation 4">
+    ROB_SwitchRotation(4);
+  </Binding>
+  <Binding name="Use rotation 5" description="Use Rotation 5">
+    ROB_SwitchRotation(5);
+  </Binding>
+  <Binding name="Use rotation 6" description="Use Rotation 6">
+    ROB_SwitchRotation(6);
+  </Binding>
+  <Binding name="Use rotation 7" description="Use Rotation 7">
+    ROB_SwitchRotation(7);
+  </Binding>
+  <Binding name="Use rotation 8" description="Use Rotation 8">
+    ROB_SwitchRotation(8);
+  </Binding>
+  <Binding name="Use rotation 9" description="Use Rotation 9">
+    ROB_SwitchRotation(9);
+  </Binding>
+  <Binding name="Use rotation 10" description="Use Rotation 10">
+    ROB_SwitchRotation(10);
+  </Binding>
+  <Binding name="Toggle 1" description="Toggle 1 for any action">
+    ROB_ToggleToggle(1);
+  </Binding>
+  <Binding name="Toggle 2" description="Toggle 2 for any action">
+    ROB_ToggleToggle(2);
+  </Binding>
+  <Binding name="Toggle 3" description="Toggle 3 for any action">
+    ROB_ToggleToggle(3);
+  </Binding>
+  <Binding name="Toggle 4" description="Toggle 4 for any action">
+    ROB_ToggleToggle(4);
+  </Binding>
+  <Binding name="Toggle Debug" description="Toggle Rotation Builder Debug">
+    ROB_ToggleDebugState();
+  </Binding>
+</Bindings>
