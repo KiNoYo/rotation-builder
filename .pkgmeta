@@ -4,4 +4,4 @@ ignore:
 	- .pkgmeta
 	- .docmeta
 
-package-as: RotationHelper
+package-as: RotationBuilder
