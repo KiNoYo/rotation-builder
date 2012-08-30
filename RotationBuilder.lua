@@ -21,7 +21,7 @@
 local ROB_VERSION                   = GetAddOnMetadata("RotationBuilder", "Version");
 BINDING_HEADER_ROB                  = "Rotation Builder";
 BINDING_NAME_ROB_TOGGLE             = "Show/Hide Rotation Builder";
-ROB_UPDATE_INTERVAL                 = 0.2      -- How often the OnUpdate code will run (in seconds)
+ROB_UPDATE_INTERVAL                 = 0.2;      -- How often the OnUpdate code will run (in seconds)
 
 local ROB_ROTATION_TYPE             = { EDITING=1, SELECTED=2 };
 
@@ -320,7 +320,6 @@ local ROB_LM_BG_TOGGLE2             = nil;     -- Toggle2 button group for libMa
 local ROB_LM_BG_TOGGLE3             = nil;     -- Toggle3 button group for libMasque
 local ROB_LM_BG_TOGGLE4             = nil;     -- Toggle4 button group for libMasque
 
-
 -- Ignore these debbuffs for debuff type checking
 local ROB_ArcaneExclusions = {
 	[GetSpellInfo(15822)]   = true,                -- Dreamless Sleep
@@ -607,7 +606,6 @@ function ROB_OnEvent(self, event, ...)
 	local arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15, arg16 = ...;
 	local _spellname = nil
 
-
 	local _eventSpellname = nil
 	local _eventEvent = nil
 	local _sourceFlags = nil
@@ -615,13 +613,78 @@ function ROB_OnEvent(self, event, ...)
 	--4.0.6 COMBAT_LOG_EVENT_UNFILTERED(timestamp, event, sourceGUID, sourceName, sourceFlags, destGUID,    destName,        destFlags, ...)
 	--4.1   COMBAT_LOG_EVENT_UNFILTERED(timestamp, event, hideCaster, sourceGUID, sourceName,  sourceFlags, destGUID,        destName,  destFlags, ...)
 	--4.2   COMBAT_LOG_EVENT_UNFILTERED(timestamp, event, hideCaster, sourceGUID, sourceName,  sourceFlags, sourceRaidFlags, destGUID,  destName,  destFlags, destRaidFlags, ...)
-	if tonumber((select(4, GetBuildInfo()))) >= 40200 then
+	if tonumber((select(4, GetBuildInfo()))) >= 50001 then
 		_eventSpellname = arg12
 		_eventEvent = arg2
 		_sourceFlags = arg6
 	end
+	
+	if (event == "ADDON_LOADED") then
+		ROB_ADDON_Load(...);
+	elseif (event == "PLAYER_ENTERING_WORLD") then
+		ROB_PLAYER_Enter();
+	elseif (event == "UNIT_SPELLCAST_SUCCEEDED" or event == "UNIT_SPELLCAST_START" or event == "UNIT_SPELLCAST_CHANNEL_START") then
+		if (arg1 == "player") then
+			if (ROB_SpellIsInRotation(arg2)) then
+				--if we update the count in the START event then dont update the count in the SUCCEEDED event
+				if (event == "UNIT_SPELLCAST_START" or event == "UNIT_SPELLCAST_CHANNEL_START") then
+					if (arg2 == ROB_LAST_CASTED) then
+						--increment the last casted count
+						ROB_LAST_CASTED_COUNT = ROB_LAST_CASTED_COUNT + 1
+						if (ROB_SpellIsInRotation(arg2)) then ROB_LAST_CASTED = arg2; end
+					else
+						--start the count over
+						ROB_LAST_CASTED_COUNT = 1
+						if (ROB_SpellIsInRotation(arg2)) then ROB_LAST_CASTED = arg2; end
+					end
+					--end
+					if (event == "UNIT_SPELLCAST_START") then
+						ROB_LAST_CASTED_TYPE = "NORMAL"
+					else
+						ROB_LAST_CASTED_TYPE = "CHANNEL"
+					end
+				end
+				if (event == "UNIT_SPELLCAST_SUCCEEDED" or event == "UNIT_SPELLCAST_CHANNEL_STOP") then
+					if (not ROB_LAST_CASTED_TYPE) then
+						if (arg2 == ROB_LAST_CASTED) then
+							--increment the last casted count
+							ROB_LAST_CASTED_COUNT = ROB_LAST_CASTED_COUNT + 1
+							if (ROB_SpellIsInRotation(arg2)) then ROB_LAST_CASTED = arg2; end
+						else
+							--start the count over
+							ROB_LAST_CASTED_COUNT = 1
+							if (ROB_SpellIsInRotation(arg2)) then ROB_LAST_CASTED = arg2; end
+						end
+					else
+					--The last casted type was something besides nil but for spells that have a UNIT_SPELLCAST_START or UNIT_SPELLCAST_CHANNEL_START
+					--they get their count incremented in those events so dont do it here
+					end
 
-	if (event == "COMBAT_LOG_EVENT_UNFILTERED") then
+					if (event == "UNIT_SPELLCAST_SUCCEEDED" and ROB_LAST_CASTED_TYPE and ROB_LAST_CASTED_TYPE == "CHANNEL") then
+					--If ROB_LAST_CASTED_TYPE was CHANNEL then dont update the last casted because blizzard fires a UNIT_SPELLCAST_SUCCEEDED while channel is still going
+					else
+						ROB_LAST_CASTED_TYPE = nil
+					end
+				end
+
+				-- Turn off the toggle if this toggleoff is enabled
+				if (ROB_SelectedRotationName and ROB_Rotations[ROB_SelectedRotationName] ~= nil and ROB_Rotations[ROB_SelectedRotationName].SortedActions ~= nil) then
+					for key, value in pairs(ROB_Rotations[ROB_SelectedRotationName].SortedActions) do
+						if (ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname == ROB_LAST_CASTED and ROB_Rotations[ROB_SelectedRotationName].ActionList[value].b_toggle and ROB_Rotations[ROB_SelectedRotationName].ActionList[value].b_toggleoff) then
+							_G["ROB_TOGGLE_"..string.sub(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_togglename, 8)] = 0
+						end
+						--Set the last casted for the duration checking
+						if (ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname == arg2) then
+							ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_durationstartedtime = GetTime()
+						end
+						if (GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname) and GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname) == arg2) then
+							ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_durationstartedtime = GetTime()
+						end
+					end
+				end
+			end
+		end
+	elseif (event == "COMBAT_LOG_EVENT_UNFILTERED" and arg4 == UnitGUID("player")) then
 		--First check if we need to add to the ROB_LOCAL_UNITS
 		local _unitguid   = nil
 		local member = UnitGUID("player")
@@ -698,72 +761,8 @@ function ROB_OnEvent(self, event, ...)
 			_message = (""..GetSpellLink(_eventSpellname).." "..ROB_UI_INTERRUPTED_MSG.." "..GetSpellLink(arg15))
 			print(_message)
 		end
-	elseif (event == "ADDON_LOADED") then
-		ROB_ADDON_Load(...);
-	elseif (event == "PLAYER_ENTERING_WORLD") then
-		ROB_PLAYER_Enter();
-	elseif (event == "UNIT_SPELLCAST_SUCCEEDED" or event == "UNIT_SPELLCAST_START" or event == "UNIT_SPELLCAST_CHANNEL_START") then
-		if (arg1 == "player") then
-			if (ROB_SpellIsInRotation(arg2)) then
-				--if we update the count in the START event then dont update the count in the SUCCEEDED event
-				if (event == "UNIT_SPELLCAST_START" or event == "UNIT_SPELLCAST_CHANNEL_START") then
-					if (arg2 == ROB_LAST_CASTED) then
-						--increment the last casted count
-						ROB_LAST_CASTED_COUNT = ROB_LAST_CASTED_COUNT + 1
-						if (ROB_SpellIsInRotation(arg2)) then ROB_LAST_CASTED = arg2; end
-					else
-						--start the count over
-						ROB_LAST_CASTED_COUNT = 1
-						if (ROB_SpellIsInRotation(arg2)) then ROB_LAST_CASTED = arg2; end
-					end
-					--end
-					if (event == "UNIT_SPELLCAST_START") then
-						ROB_LAST_CASTED_TYPE = "NORMAL"
-					else
-						ROB_LAST_CASTED_TYPE = "CHANNEL"
-					end
-				end
-				if (event == "UNIT_SPELLCAST_SUCCEEDED" or event == "UNIT_SPELLCAST_CHANNEL_STOP") then
-					if (not ROB_LAST_CASTED_TYPE) then
-						if (arg2 == ROB_LAST_CASTED) then
-							--increment the last casted count
-							ROB_LAST_CASTED_COUNT = ROB_LAST_CASTED_COUNT + 1
-							if (ROB_SpellIsInRotation(arg2)) then ROB_LAST_CASTED = arg2; end
-						else
-							--start the count over
-							ROB_LAST_CASTED_COUNT = 1
-							if (ROB_SpellIsInRotation(arg2)) then ROB_LAST_CASTED = arg2; end
-						end
-					else
-					--The last casted type was something besides nil but for spells that have a UNIT_SPELLCAST_START or UNIT_SPELLCAST_CHANNEL_START
-					--they get their count incremented in those events so dont do it here
-					end
-
-					if (event == "UNIT_SPELLCAST_SUCCEEDED" and ROB_LAST_CASTED_TYPE and ROB_LAST_CASTED_TYPE == "CHANNEL") then
-					--If ROB_LAST_CASTED_TYPE was CHANNEL then dont update the last casted because blizzard fires a UNIT_SPELLCAST_SUCCEEDED while channel is still going
-					else
-						ROB_LAST_CASTED_TYPE = nil
-					end
-				end
-
-				-- Turn off the toggle if this toggleoff is enabled
-				if (ROB_SelectedRotationName and ROB_Rotations[ROB_SelectedRotationName] ~= nil and ROB_Rotations[ROB_SelectedRotationName].SortedActions ~= nil) then
-					for key, value in pairs(ROB_Rotations[ROB_SelectedRotationName].SortedActions) do
-						if (ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname == ROB_LAST_CASTED and ROB_Rotations[ROB_SelectedRotationName].ActionList[value].b_toggle and ROB_Rotations[ROB_SelectedRotationName].ActionList[value].b_toggleoff) then
-							_G["ROB_TOGGLE_"..string.sub(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_togglename, 8)] = 0
-						end
-						--Set the last casted for the duration checking
-						if (ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname == arg2) then
-							ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_durationstartedtime = GetTime()
-						end
-						if (GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname) and GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname) == arg2) then
-							ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_durationstartedtime = GetTime()
-						end
-					end
-				end
-			end
-		end
 	end
+
 end
 
 function ROB_CheckLocalUnits()
@@ -977,7 +976,7 @@ function ROB_PLAYER_Enter()
 	ROB_OptionsTabExportBindsButton:SetChecked(ROB_Options.ExportBinds);
 	ROB_OptionsTabHideCooldownsButton:SetChecked(ROB_Options.HideCD);
 
-	ROB_UPDATE_INTERVAL = ((100/ROB_Options.updaterate)*(1/100))
+	ROB_UPDATE_INTERVAL = 1 / ROB_Options.updaterate
 	ROB_OptionsTabUpdateRateSlider:SetValue(ROB_Options.updaterate);
 	ROB_OptionsTabUpdateRateSliderText:SetText(ROB_Options.updaterate);
 
@@ -2465,10 +2464,9 @@ end
 function ROB_Option_UpdateRate_OnValueChanged(self)
 	-- retrieve value
 	ROB_Options.updaterate = tonumber(self:GetValue())
-
 	-- update slidertext
 	ROB_OptionsTabUpdateRateSliderText:SetText(ROB_Options.updaterate)
-	ROB_UPDATE_INTERVAL = ((100/ROB_Options.updaterate)*(1/100))
+	ROB_UPDATE_INTERVAL = 1 / ROB_Options.updaterate
 	-- update the scale
 end
 
@@ -5610,6 +5608,15 @@ function ROB_OnUpdate(self, elapsed)
 			--=============================================================================================================================
 			--=============================================================================================================================
 			ROB_GetNextAction()
+			
+			--[[TODO Tylor : Should remove button when no actions so that the warrior heroic leap doesn't appear anymore
+			if ROB_CURRENT_ACTION == nil then
+				ROB_CurrentActionButton:Hide()
+			end
+			if ROB_NEXT_ACTION == nil then
+				ROB_NextActionButton:Hide()
+			end
+			Tylor END--]]
 		else
 			--No rotation selected so hide both icon frames
 			ROB_CurrentActionButton:Hide()

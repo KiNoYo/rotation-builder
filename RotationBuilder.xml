@@ -8,6 +8,7 @@
 	<Script file="localization\ruRU.lua" />
 	<Script file="localization\esES.lua" />
 	<Script file="localization\esMX.lua" />
+	<Script file="localization\itIT.lua" />
 	<Script file="RotationBuilder.lua" />
 	<Script file="debug.lua" />
 
@@ -8088,6 +8089,14 @@
 		<Scripts>
 			<OnLoad>
 				self:SetBackdropColor(0, 0, 0, 1);
+				
+				self:RegisterEvent("ADDON_LOADED");
+				self:RegisterEvent("PLAYER_ENTERING_WORLD");
+				self:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED");
+				self:RegisterEvent("UNIT_SPELLCAST_START");
+				self:RegisterEvent("UNIT_SPELLCAST_CHANNEL_START");
+				self:RegisterEvent("UNIT_SPELLCAST_CHANNEL_STOP");
+				self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED");
 
 				ROB_MiniMapButton:Hide();
 

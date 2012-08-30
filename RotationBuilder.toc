@@ -1,7 +1,7 @@
-## Interface: 40300
+## Interface: 50001
 ## Title: RotationBuilder
-## Version: 1.47
-## Author: Main Soulwhip, Pelerinage, Edit Gnomelock
+## Version: 1.48
+## Author: Main Soulwhip, Pelerinage, Tylorcaptain Edit Gnomelock
 ## Notes: Builds rotations for any class or spec
 ## SavedVariables: ROB_Lists
 ## SavedVariablesPerCharacter: ROB_Options ROB_Rotations
