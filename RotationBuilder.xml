@@ -501,7 +501,7 @@
 		toplevel="true" movable="true" enableKeyboard="true" enableMouse="true"
 		hidden="true">
 		<Size>
-			<AbsDimension x="780" y="720" />
+			<AbsDimension x="780" y="740" />
 		</Size>
 		<Anchors>
 			<Anchor point="CENTER">
@@ -1058,7 +1058,7 @@
 					</Button>
 					<ScrollFrame name="ROB_ActionListScrollFrame" inherits="FauxScrollFrameTemplate">
 						<Size>
-							<AbsDimension x="220" y="420" />
+							<AbsDimension x="220" y="440" />
 						</Size>
 						<Anchors>
 							<Anchor point="TOPLEFT" relativeTo="ROB_ActionNamesListColumnHeader1"
@@ -1076,7 +1076,7 @@
 					</ScrollFrame>
 					<Frame name="ROB_ActionListScrollFrameBackground">
 						<Size>
-							<AbsDimension x="250" y="460" />
+							<AbsDimension x="250" y="480" />
 						</Size>
 						<Anchors>
 							<Anchor point="TOPLEFT" relativeTo="ROB_ActionNamesListColumnHeader1">
@@ -1553,7 +1553,7 @@
 					<Frame name="ROB_GeneralActionOptionsTab" toplevel="false"
 						hidden="true">
 						<Size>
-							<AbsDimension x="520" y="460" />
+							<AbsDimension x="520" y="480" />
 						</Size>
 						<Anchors>
 							<Anchor point="TOPLEFT" relativeTo="ROB_Frame"
@@ -2443,8 +2443,7 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</CheckButton>
-
-							<CheckButton name="ROB_AO_GUnitPowerCheckButton"
+							<CheckButton name="ROB_AO_KnowSpellCheckButton"
 								inherits="ROB_CheckButtonTemplate">
 								<Size>
 									<AbsDimension x="20" y="20" />
@@ -2454,6 +2453,52 @@
 										relativePoint="TOPLEFT">
 										<Offset>
 											<AbsDimension x="5" y="-320" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>ROB_AO_KnowSpellCheckButtonText:SetText(ROB_UI_AO_G_KNOWSPELL)
+									</OnLoad>
+									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_knowspell");
+									</OnClick>
+									<OnEnter>GameTooltip:SetOwner(self,
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(ROB_UI_AO_G_KNOWSPELL_TT);
+									</OnEnter>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</CheckButton>
+							<EditBox name="ROB_AO_KnowSpellInputBox" inherits="InputBoxTemplate"
+								autoFocus="false">
+								<Size>
+									<AbsDimension x="150" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_AO_KnowSpellCheckButton"
+										relativePoint="TOPRIGHT">
+										<Offset>
+											<AbsDimension x="145" y="0" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnEnter>GameTooltip:SetOwner(self,
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(ROB_UI_AO_G_KNOWSPELLIB_TT);
+									</OnEnter>
+									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_knowspell")
+									</OnTextChanged>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</EditBox>
+							<CheckButton name="ROB_AO_GUnitPowerCheckButton"
+								inherits="ROB_CheckButtonTemplate">
+								<Size>
+									<AbsDimension x="20" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab"
+										relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="5" y="-340" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2521,7 +2566,7 @@
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab"
 										relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-340" />
+											<AbsDimension x="5" y="-360" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2567,7 +2612,7 @@
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab"
 										relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-360" />
+											<AbsDimension x="5" y="-380" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2613,7 +2658,7 @@
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab"
 										relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-380" />
+											<AbsDimension x="5" y="-400" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2659,7 +2704,7 @@
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab"
 										relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-400" />
+											<AbsDimension x="5" y="-420" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2705,7 +2750,7 @@
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab"
 										relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-420" />
+											<AbsDimension x="5" y="-440" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2747,7 +2792,7 @@
 
 					<Frame name="ROB_PlayerActionOptionsTab">
 						<Size>
-							<AbsDimension x="520" y="460" />
+							<AbsDimension x="520" y="480" />
 						</Size>
 						<Anchors>
 							<Anchor point="TOPLEFT" relativeTo="ROB_Frame"
@@ -4677,7 +4722,7 @@
 
 					<Frame name="ROB_TargetActionOptionsTab">
 						<Size>
-							<AbsDimension x="520" y="460" />
+							<AbsDimension x="520" y="480" />
 						</Size>
 						<Anchors>
 							<Anchor point="TOPLEFT" relativeTo="ROB_Frame"
@@ -5128,12 +5173,35 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</CheckButton>
+							<CheckButton name="ROB_AO_TargetBossCheckButton"
+								inherits="ROB_CheckButtonTemplate">
+								<Size>
+									<AbsDimension x="20" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_TargetActionOptionsTab"
+										relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="5" y="-200" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>ROB_AO_TargetBossCheckButtonText:SetText(ROB_UI_AO_T_BOSS)
+									</OnLoad>
+									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_boss");</OnClick>
+									<OnEnter>GameTooltip:SetOwner(self,
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(ROB_UI_AO_T_BOSS_TT);
+									</OnEnter>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</CheckButton>
 						</Frames>
 					</Frame>
 
 					<Frame name="ROB_PetActionOptionsTab">
 						<Size>
-							<AbsDimension x="520" y="460" />
+							<AbsDimension x="520" y="480" />
 						</Size>
 						<Anchors>
 							<Anchor point="TOPLEFT" relativeTo="ROB_Frame"
@@ -5524,7 +5592,7 @@
 
 					<Frame name="ROB_FocusActionOptionsTab">
 						<Size>
-							<AbsDimension x="520" y="460" />
+							<AbsDimension x="520" y="480" />
 						</Size>
 						<Anchors>
 							<Anchor point="TOPLEFT" relativeTo="ROB_Frame"
@@ -5981,7 +6049,7 @@
 
 					<Frame name="ROB_CustomActionOptionsTab">
 						<Size>
-							<AbsDimension x="520" y="460" />
+							<AbsDimension x="520" y="480" />
 						</Size>
 						<Anchors>
 							<Anchor point="TOPLEFT" relativeTo="ROB_Frame"
@@ -8089,14 +8157,6 @@
 		<Scripts>
 			<OnLoad>
 				self:SetBackdropColor(0, 0, 0, 1);
-				
-				self:RegisterEvent("ADDON_LOADED");
-				self:RegisterEvent("PLAYER_ENTERING_WORLD");
-				self:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED");
-				self:RegisterEvent("UNIT_SPELLCAST_START");
-				self:RegisterEvent("UNIT_SPELLCAST_CHANNEL_START");
-				self:RegisterEvent("UNIT_SPELLCAST_CHANNEL_STOP");
-				self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED");
 
 				ROB_MiniMapButton:Hide();
 
@@ -8123,7 +8183,7 @@
 			<OnShow>
 				self:RegisterForDrag("LeftButton");
 			</OnShow>
-
+			
 			<OnEvent>
 				ROB_OnEvent(self, event, ...);
 			</OnEvent>
