@@ -118,8 +118,6 @@ local ROB_NewActionDefaults = {
 	v_duration="",
 	v_durationstartedtime=0,
 	b_notaspell=false,
-	b_knowspell=false,
-	v_knowspell="",
 	v_oorspell="",
 	b_oorspell=false,
 	b_debug=false,
@@ -192,6 +190,14 @@ local ROB_NewActionDefaults = {
 	v_p_stance="",
 	b_p_ooc=false,
 	b_p_ic=false,
+	b_p_knowspell=false,
+	v_p_knowspell="",
+	b_p_knownotspell=false,
+	v_p_knownotspell="",
+	b_p_isglyphed=false,
+	v_p_isglyphed="",
+	b_p_notglyphed=false,
+	v_p_notglyphed="",
 	--Target Options---------------
 	b_t_hp=false,
 	v_t_hp="",
@@ -3005,10 +3011,6 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetChecked("ROB_AO_DurationCheckButton",_ActionDB.b_duration,false)
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_NotASpellCheckButton",_ActionDB.b_notaspell,false)
-			
-			--Tylorcaptain : New know spell button
-			ROB_Rotation_GUI_SetChecked("ROB_AO_KnowSpellCheckButton",_ActionDB.b_knowspell,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_KnowSpellInputBox",_ActionDB.v_knowspell,"")
 
 			ROB_Rotation_GUI_SetText("ROB_AO_OORInputBox",_ActionDB.v_oorspell,"")
 			ROB_Rotation_GUI_SetChecked("ROB_AO_OORCheckButton",_ActionDB.b_oorspell,false)
@@ -3118,6 +3120,18 @@ function ROB_Rotation_Edit_UpdateUI()
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_OOCombatCheckButton",_ActionDB.b_p_ooc,false)
 			ROB_Rotation_GUI_SetChecked("ROB_AO_ICombatCheckButton",_ActionDB.b_p_ic,false)
+			
+			ROB_Rotation_GUI_SetChecked("ROB_AO_KnowSpellCheckButton",_ActionDB.b_p_knowspell,false)
+			ROB_Rotation_GUI_SetText("ROB_AO_KnowSpellInputBox",_ActionDB.v_p_knowspell,"")
+			
+			ROB_Rotation_GUI_SetChecked("ROB_AO_KnowNotSpellCheckButton",_ActionDB.b_p_knownotspell,false)
+			ROB_Rotation_GUI_SetText("ROB_AO_KnowNotSpellInputBox",_ActionDB.v_p_knownotspell,"")
+			
+			ROB_Rotation_GUI_SetChecked("ROB_AO_IsGlyphedCheckButton",_ActionDB.b_p_isglyphed,false)
+			ROB_Rotation_GUI_SetText("ROB_AO_IsGlyphedInputBox",_ActionDB.v_p_isglyphed,"")
+			
+			ROB_Rotation_GUI_SetChecked("ROB_AO_NotGlyphedCheckButton",_ActionDB.b_p_notglyphed,false)
+			ROB_Rotation_GUI_SetText("ROB_AO_NotGlyphedInputBox",_ActionDB.v_p_notglyphed,"")
 			--Target options-------------------------
 			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetHPCheckButton",_ActionDB.b_t_hp,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_TargetHPInputBox",_ActionDB.v_t_hp,"")
@@ -4908,20 +4922,84 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	end
 
 	-- CHECK: Other spell known
-	if (_ActionDB.b_knowspell and _ActionDB.v_knowspell ~= nil and _ActionDB.v_knowspell ~= "") then
-		if(nil ~= tonumber(_ActionDB.v_knowspell)) then
+	if (_ActionDB.b_p_knowspell and _ActionDB.v_p_knowspell ~= nil and _ActionDB.v_p_knowspell ~= "") then
+		if(nil ~= tonumber(_ActionDB.v_p_knowspell)) then
 			-- We are using the spellID to identify our spell. But GetSpellInfo will return the spell name even though we don't know it. So, we must call it twice to get the name of the spell, then verifying the knowledge of it.
-			_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(GetSpellInfo(tonumber(_ActionDB.v_knowspell)))
+			_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(GetSpellInfo(tonumber(_ActionDB.v_p_knowspell)))
 		else
 			-- If the spellname isn't an Integer, then it is the true spellname and not it's spellID.
-			_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(_ActionDB.v_knowspell)
+			_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(_ActionDB.v_p_knowspell)
 		end
 		if (_name == nil) then
-			-- If the name isn't foud, then we don't know the spell.
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._ActionDB.v_spellname.." because this spellname is not available or does not exist due to talents or something. Check spelling or try using the spellid from wowhead instead.",_getnextspell,_debugon)
+			-- If the name isn't found, then we don't know the spell.
 			return false
 		end
 	end
+
+	-- CHECK: Other spell unknown
+	if (_ActionDB.b_p_knownotspell and _ActionDB.v_p_knownotspell ~= nil and _ActionDB.v_p_knownotspell ~= "") then
+		if(nil ~= tonumber(_ActionDB.v_p_knownotspell)) then
+			-- We are using the spellID to identify our spell. But GetSpellInfo will return the spell name even though we don't know it. So, we must call it twice to get the name of the spell, then verifying the knowledge of it.
+			_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(GetSpellInfo(tonumber(_ActionDB.v_p_knownotspell)))
+		else
+			-- If the spellname isn't an Integer, then it is the true spellname and not it's spellID.
+			_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(_ActionDB.v_p_knownotspell)
+		end
+		if (_name ~= nil) then
+			-- If the name is found, then we know the spell.
+			return false
+		end
+	end
+	
+	--CHECK: Is Glyphed
+	if (_ActionDB.b_p_isglyphed and _ActionDB.v_p_isglyphed ~= nil and _ActionDB.v_p_isglyphed ~= "") then
+		local count = 1
+		local found = false
+		local glyph = nil
+		if(nil ~= tonumber(_ActionDB.v_p_isglyphed)) then
+			glyph = tonumber(_ActionDB.v_p_isglyphed)
+		else
+			glyph = _ActionDB.v_p_isglyphed
+		end
+		while(count ~= 7 and (not found)) do
+			_enabled, _glyphType, _glyphTooltipIndex, _glyphSpell, _icon = GetGlyphSocketInfo(count)
+			_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(_glyphSpell)
+			if (glyph == _glyphSpell or glyph == _name) then
+				found = true
+			else
+				count = count + 1
+			end
+		end
+		if (not found) then
+			return false
+		end
+	end
+	
+	--CHECK: Not Glyphed
+	if (_ActionDB.b_p_notglyphed and _ActionDB.v_p_notglyphed ~= nil and _ActionDB.v_p_notglyphed ~= "") then
+		local count = 1
+		local found = false
+		local glyph = nil
+		if(nil ~= tonumber(_ActionDB.v_p_notglyphed)) then
+			glyph = tonumber(_ActionDB.v_p_notglyphed)
+		else
+			glyph = _ActionDB.v_p_notglyphed
+		end
+		while(count ~= 7 and (not found)) do
+			_enabled, _glyphType, _glyphTooltipIndex, _glyphSpell, _icon = GetGlyphSocketInfo(count)
+			_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(_glyphSpell)
+			if (glyph == _glyphSpell or glyph == _name) then
+				found = true
+			else
+				count = count + 1
+			end
+		end
+		if (found) then
+			return false
+		end
+	end
+	
+	
 	--[[ TODO : Tylorcaptain : Disabled interrupt casting check for now to fluidify spellcasters rotation
 	-- CHECK: Check interrupt casting-----------------------------------------------------------------------------------------------------------------------------
 	_channeling, _, _, _, _, _ = UnitCastingInfo("player")

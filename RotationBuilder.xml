@@ -2443,52 +2443,6 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</CheckButton>
-							<CheckButton name="ROB_AO_KnowSpellCheckButton"
-								inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab"
-										relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-320" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_KnowSpellCheckButtonText:SetText(ROB_UI_AO_G_KNOWSPELL)
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_knowspell");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(ROB_UI_AO_G_KNOWSPELL_TT);
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_KnowSpellInputBox" inherits="InputBoxTemplate"
-								autoFocus="false">
-								<Size>
-									<AbsDimension x="150" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_KnowSpellCheckButton"
-										relativePoint="TOPRIGHT">
-										<Offset>
-											<AbsDimension x="145" y="0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(ROB_UI_AO_G_KNOWSPELLIB_TT);
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_knowspell")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
 							<CheckButton name="ROB_AO_GUnitPowerCheckButton"
 								inherits="ROB_CheckButtonTemplate">
 								<Size>
@@ -2498,7 +2452,7 @@
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab"
 										relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-340" />
+											<AbsDimension x="5" y="-320" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2566,7 +2520,7 @@
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab"
 										relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-360" />
+											<AbsDimension x="5" y="-340" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2612,7 +2566,7 @@
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab"
 										relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-380" />
+											<AbsDimension x="5" y="-360" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2658,7 +2612,7 @@
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab"
 										relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-400" />
+											<AbsDimension x="5" y="-380" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2704,7 +2658,7 @@
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab"
 										relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-420" />
+											<AbsDimension x="5" y="-400" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2750,7 +2704,7 @@
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab"
 										relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-440" />
+											<AbsDimension x="5" y="-420" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -4712,6 +4666,190 @@
 										"ANCHOR_TOPLEFT");GameTooltip:SetText(ROB_UI_AO_P_AIRTTLIB_TT);
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_airtotemtimeleft")
+									</OnTextChanged>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</EditBox>
+							<CheckButton name="ROB_AO_KnowSpellCheckButton"
+								inherits="ROB_CheckButtonTemplate">
+								<Size>
+									<AbsDimension x="20" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab"
+										relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="290" y="-360" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>ROB_AO_KnowSpellCheckButtonText:SetText(ROB_UI_AO_P_KNOWSPELL)
+									</OnLoad>
+									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_knowspell");
+									</OnClick>
+									<OnEnter>GameTooltip:SetOwner(self,
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(ROB_UI_AO_P_KNOWSPELL_TT);
+									</OnEnter>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</CheckButton>
+							<EditBox name="ROB_AO_KnowSpellInputBox" inherits="InputBoxTemplate"
+								autoFocus="false">
+								<Size>
+									<AbsDimension x="100" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_AO_KnowSpellCheckButton"
+										relativePoint="TOPRIGHT">
+										<Offset>
+											<AbsDimension x="105" y="0" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnEnter>GameTooltip:SetOwner(self,
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(ROB_UI_AO_P_KNOWSPELLIB_TT);
+									</OnEnter>
+									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_knowspell")
+									</OnTextChanged>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</EditBox>
+							<CheckButton name="ROB_AO_KnowNotSpellCheckButton"
+								inherits="ROB_CheckButtonTemplate">
+								<Size>
+									<AbsDimension x="20" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab"
+										relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="290" y="-380" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>ROB_AO_KnowNotSpellCheckButtonText:SetText(ROB_UI_AO_P_KNOWNOTSPELL)
+									</OnLoad>
+									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_knownotspell");
+									</OnClick>
+									<OnEnter>GameTooltip:SetOwner(self,
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(ROB_UI_AO_P_KNOWNOTSPELL_TT);
+									</OnEnter>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</CheckButton>
+							<EditBox name="ROB_AO_KnowNotSpellInputBox" inherits="InputBoxTemplate"
+								autoFocus="false">
+								<Size>
+									<AbsDimension x="100" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_AO_KnowNotSpellCheckButton"
+										relativePoint="TOPRIGHT">
+										<Offset>
+											<AbsDimension x="105" y="0" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnEnter>GameTooltip:SetOwner(self,
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(ROB_UI_AO_P_KNOWNOTSPELLIB_TT);
+									</OnEnter>
+									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_knownotspell")
+									</OnTextChanged>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</EditBox>
+							<CheckButton name="ROB_AO_IsGlyphedCheckButton"
+								inherits="ROB_CheckButtonTemplate">
+								<Size>
+									<AbsDimension x="20" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab"
+										relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="290" y="-400" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>ROB_AO_IsGlyphedCheckButtonText:SetText(ROB_UI_AO_P_ISGLYPHED)
+									</OnLoad>
+									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_isglyphed");
+									</OnClick>
+									<OnEnter>GameTooltip:SetOwner(self,
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(ROB_UI_AO_P_ISGLYPHED_TT);
+									</OnEnter>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</CheckButton>
+							<EditBox name="ROB_AO_IsGlyphedInputBox" inherits="InputBoxTemplate"
+								autoFocus="false">
+								<Size>
+									<AbsDimension x="100" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_AO_IsGlyphedCheckButton"
+										relativePoint="TOPRIGHT">
+										<Offset>
+											<AbsDimension x="105" y="0" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnEnter>GameTooltip:SetOwner(self,
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(ROB_UI_AO_P_ISGLYPHEDIB_TT);
+									</OnEnter>
+									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_isglyphed")
+									</OnTextChanged>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</EditBox>
+							<CheckButton name="ROB_AO_NotGlyphedCheckButton"
+								inherits="ROB_CheckButtonTemplate">
+								<Size>
+									<AbsDimension x="20" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab"
+										relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="290" y="-420" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>ROB_AO_NotGlyphedCheckButtonText:SetText(ROB_UI_AO_P_NOTGLYPHED)
+									</OnLoad>
+									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_notglyphed");
+									</OnClick>
+									<OnEnter>GameTooltip:SetOwner(self,
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(ROB_UI_AO_P_NOTGLYPHED_TT);
+									</OnEnter>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</CheckButton>
+							<EditBox name="ROB_AO_NotGlyphedInputBox" inherits="InputBoxTemplate"
+								autoFocus="false">
+								<Size>
+									<AbsDimension x="100" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_AO_NotGlyphedCheckButton"
+										relativePoint="TOPRIGHT">
+										<Offset>
+											<AbsDimension x="105" y="0" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnEnter>GameTooltip:SetOwner(self,
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(ROB_UI_AO_P_NOTGLYPHEDIB_TT);
+									</OnEnter>
+									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_notglyphed")
 									</OnTextChanged>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
