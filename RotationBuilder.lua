@@ -554,9 +554,8 @@ function ROB_OnLoad(self)
 	self:RegisterEvent("UNIT_SPELLCAST_START");
 	self:RegisterEvent("UNIT_SPELLCAST_CHANNEL_START");
 	self:RegisterEvent("UNIT_SPELLCAST_CHANNEL_STOP");
-	--[[ TODO : Tylorcaptain : Disabled combat log management for now until we find out what make wow lag so much compared to what happened before patch day
-	self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED");
-	]]--
+	-- TODO : Tylorcaptain : Disabled combat log management for now until we find out what make wow lag so much compared to what happened before patch day
+	--	self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED");
 
 	-- hook command handler
 	SLASH_ROB1 = "/rob";
@@ -624,7 +623,7 @@ function ROB_OnEvent(self, event, ...)
 	local _sourceFlags = arg6
 	--                                  arg1       arg2   arg3        arg4        arg5         arg6         arg7             arg8       arg9       arg10      arg11          arg12
 	--4.2   COMBAT_LOG_EVENT_UNFILTERED(timestamp, event, hideCaster, sourceGUID, sourceName,  sourceFlags, sourceRaidFlags, destGUID,  destName,  destFlags, destRaidFlags, ...)
-	
+
 	if (event == "ADDON_LOADED") then
 		ROB_ADDON_Load(...);
 	elseif (event == "PLAYER_ENTERING_WORLD") then
@@ -690,7 +689,8 @@ function ROB_OnEvent(self, event, ...)
 				end
 			end
 		end
-	--[[ TODO : Tylorcaptain : Disabled combat log analysing due to severe lag until we find out the cause
+		-- TODO Tylorcaptain : Disabled combat log analysing due to severe lag until we find out the cause
+		--[[
 		elseif (event == "COMBAT_LOG_EVENT_UNFILTERED" and arg4 == UnitGUID("player")) then
 		--First check if we need to add to the ROB_LOCAL_UNITS
 		local _unitguid   = nil
@@ -710,31 +710,31 @@ function ROB_OnEvent(self, event, ...)
 		--if the destination is a friendly pet and the source is a npc _unitguid = sourceguid
 		--if (arg8 == member and arg4 and _sourceisnpc) then _unitguid = arg4; end
 		if GetNumRaidMembers() > 0 then
-			for i = 1, GetNumRaidMembers() do
-				member = UnitGUID("raid" .. i)
-				--if the source is a friendly and the destination is a npc _unitguid = destinationguid
-				if (arg4 == member and arg8 and _destisnpc) then _unitguid = arg8;break; end
-				--if the destination is a friendly and the source is a npc _unitguid = sourceguid
-				--if (arg8 == member and arg4 and _sourceisnpc) then _unitguid = arg4;break; end
-				member = UnitGUID("raid" .. i.."pet")
-				--if the source is a friendly and the destination is a npc _unitguid = destinationguid
-				if (arg4 == member and arg8 and _destisnpc) then _unitguid = arg8;break; end
-				--if the destination is a friendly pet and the source is a npc _unitguid = sourceguid
-				--if (arg8 == member and arg4 and _sourceisnpc) then _unitguid = arg4;break; end
-			end
+		for i = 1, GetNumRaidMembers() do
+		member = UnitGUID("raid" .. i)
+		--if the source is a friendly and the destination is a npc _unitguid = destinationguid
+		if (arg4 == member and arg8 and _destisnpc) then _unitguid = arg8;break; end
+		--if the destination is a friendly and the source is a npc _unitguid = sourceguid
+		--if (arg8 == member and arg4 and _sourceisnpc) then _unitguid = arg4;break; end
+		member = UnitGUID("raid" .. i.."pet")
+		--if the source is a friendly and the destination is a npc _unitguid = destinationguid
+		if (arg4 == member and arg8 and _destisnpc) then _unitguid = arg8;break; end
+		--if the destination is a friendly pet and the source is a npc _unitguid = sourceguid
+		--if (arg8 == member and arg4 and _sourceisnpc) then _unitguid = arg4;break; end
+		end
 		else
-			for i = 1, GetNumPartyMembers() do
-				member = UnitGUID("party" .. i)
-				--if the source is a friendly and the destination is a npc _unitguid = destinationguid
-				if (arg4 == member and arg8 and _destisnpc) then _unitguid = arg8;break; end
-				--if the destination is a friendly and the source is a npc _unitguid = sourceguid
-				--if (arg8 == member and arg4 and _sourceisnpc) then _unitguid = arg4;break; end
-				member = UnitGUID("party" .. i.."pet")
-				--if the source is a friendly pet and the destination is a npc _unitguid = destinationguid
-				if (arg4 == member and arg8 and _destisnpc) then _unitguid = arg8;break; end
-				--if the destination is a friendly pet and the source is a npc _unitguid = sourceguid
-				--if (arg8 == member and arg4 and _sourceisnpc) then _unitguid = arg4;break; end
-			end
+		for i = 1, GetNumPartyMembers() do
+		member = UnitGUID("party" .. i)
+		--if the source is a friendly and the destination is a npc _unitguid = destinationguid
+		if (arg4 == member and arg8 and _destisnpc) then _unitguid = arg8;break; end
+		--if the destination is a friendly and the source is a npc _unitguid = sourceguid
+		--if (arg8 == member and arg4 and _sourceisnpc) then _unitguid = arg4;break; end
+		member = UnitGUID("party" .. i.."pet")
+		--if the source is a friendly pet and the destination is a npc _unitguid = destinationguid
+		if (arg4 == member and arg8 and _destisnpc) then _unitguid = arg8;break; end
+		--if the destination is a friendly pet and the source is a npc _unitguid = sourceguid
+		--if (arg8 == member and arg4 and _sourceisnpc) then _unitguid = arg4;break; end
+		end
 		end
 		--Dont count certain things like totems
 		if (string.find(tostring(arg9),"Totem")) then _unitguid = nil; end
@@ -742,31 +742,31 @@ function ROB_OnEvent(self, event, ...)
 		--print("_eventEvent=".._eventEvent)
 		--if ((not string.find(tostring(arg5),"Totem")) and (not string.find(tostring(arg9),"Totem")) and _unitguid and (not ROB_LOCAL_UNITS[_unitguid])) then
 		if ( string.find(tostring(_eventEvent),"DAMAGE") and _unitguid and (not ROB_LOCAL_UNITS[_unitguid])) then
-			ROB_LOCAL_UNITS[_unitguid] = {}
-			ROB_LOCAL_UNITS[_unitguid]["LastUpdate"] = GetTime()
-			--print("adding "..tostring(arg5).."|"..tostring(arg9)..":"..tostring(_unitguid)..":".._eventEvent.." time="..tostring(ROB_LOCAL_UNITS[_unitguid]["LastUpdate"]))
-			--elseif ((not string.find(tostring(arg5),"Totem")) and (not string.find(tostring(arg9),"Totem")) and _unitguid and ROB_LOCAL_UNITS[_unitguid]) then
+		ROB_LOCAL_UNITS[_unitguid] = {}
+		ROB_LOCAL_UNITS[_unitguid]["LastUpdate"] = GetTime()
+		--print("adding "..tostring(arg5).."|"..tostring(arg9)..":"..tostring(_unitguid)..":".._eventEvent.." time="..tostring(ROB_LOCAL_UNITS[_unitguid]["LastUpdate"]))
+		--elseif ((not string.find(tostring(arg5),"Totem")) and (not string.find(tostring(arg9),"Totem")) and _unitguid and ROB_LOCAL_UNITS[_unitguid]) then
 		elseif (string.find(tostring(_eventEvent),"DAMAGE") and _unitguid and ROB_LOCAL_UNITS[_unitguid]) then
-			ROB_LOCAL_UNITS[_unitguid]["LastUpdate"] = GetTime()
+		ROB_LOCAL_UNITS[_unitguid]["LastUpdate"] = GetTime()
 
-			--print("updating time for "..tostring(_unitguid)..":"..tostring(ROB_LOCAL_UNITS[_unitguid]["LastUpdate"]))
+		--print("updating time for "..tostring(_unitguid)..":"..tostring(ROB_LOCAL_UNITS[_unitguid]["LastUpdate"]))
 		end
 
 		if (_eventEvent == "UNIT_DIED" or _eventEvent == "UNIT_DESTROYED") then
-			--print("unit ".._eventEvent..arg8.." died")
-			--print("removing="..arg9)
-			ROB_LOCAL_UNITS[arg8] = nil
+		--print("unit ".._eventEvent..arg8.." died")
+		--print("removing="..arg9)
+		ROB_LOCAL_UNITS[arg8] = nil
 		end
 		if (not ROB_SelectedRotationName) then
-			--If we cant compare spells to a rotation to get the interrupt then exit
-			return
+		--If we cant compare spells to a rotation to get the interrupt then exit
+		return
 		end
 		if _eventEvent == "SPELL_INTERRUPT" then
-			if arg5 ~= UnitName("player") then return end
-			if not GetSpellLink(arg15) then return end
-			if not GetSpellLink(_eventSpellname) then return end
-			_message = (""..GetSpellLink(_eventSpellname).." "..ROB_UI_INTERRUPTED_MSG.." "..GetSpellLink(arg15))
-			print(_message)
+		if arg5 ~= UnitName("player") then return end
+		if not GetSpellLink(arg15) then return end
+		if not GetSpellLink(_eventSpellname) then return end
+		_message = (""..GetSpellLink(_eventSpellname).." "..ROB_UI_INTERRUPTED_MSG.." "..GetSpellLink(arg15))
+		print(_message)
 		end]]--
 	end
 
@@ -867,7 +867,7 @@ function ROB_ADDON_Load(addon)
 
 	-- Initialize
 	ROB_CLASS, ROB_CLASS_NAME = UnitClass("player");
-	
+
 	for key, value in pairs(ROB_Options_Default) do
 		if (ROB_Options[key] == nil) then
 			ROB_Options[key] = value;
@@ -3120,16 +3120,16 @@ function ROB_Rotation_Edit_UpdateUI()
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_OOCombatCheckButton",_ActionDB.b_p_ooc,false)
 			ROB_Rotation_GUI_SetChecked("ROB_AO_ICombatCheckButton",_ActionDB.b_p_ic,false)
-			
+
 			ROB_Rotation_GUI_SetChecked("ROB_AO_KnowSpellCheckButton",_ActionDB.b_p_knowspell,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_KnowSpellInputBox",_ActionDB.v_p_knowspell,"")
-			
+
 			ROB_Rotation_GUI_SetChecked("ROB_AO_KnowNotSpellCheckButton",_ActionDB.b_p_knownotspell,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_KnowNotSpellInputBox",_ActionDB.v_p_knownotspell,"")
-			
+
 			ROB_Rotation_GUI_SetChecked("ROB_AO_IsGlyphedCheckButton",_ActionDB.b_p_isglyphed,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_IsGlyphedInputBox",_ActionDB.v_p_isglyphed,"")
-			
+
 			ROB_Rotation_GUI_SetChecked("ROB_AO_NotGlyphedCheckButton",_ActionDB.b_p_notglyphed,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_NotGlyphedInputBox",_ActionDB.v_p_notglyphed,"")
 			--Target options-------------------------
@@ -3161,7 +3161,7 @@ function ROB_Rotation_Edit_UpdateUI()
 			UIDropDownMenu_SetText(ROB_AO_T_InterruptDropDownButton, _ActionDB.v_t_interrupt)
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetDRCheckButton",_ActionDB.b_t_dr,false)
-			
+
 			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetBossCheckButton",_ActionDB.b_t_boss,false)
 
 			--Pet options-------------------------
@@ -4950,7 +4950,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 			return false
 		end
 	end
-	
+
 	--CHECK: Is Glyphed
 	if (_ActionDB.b_p_isglyphed and _ActionDB.v_p_isglyphed ~= nil and _ActionDB.v_p_isglyphed ~= "") then
 		local count = 1
@@ -4974,7 +4974,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 			return false
 		end
 	end
-	
+
 	--CHECK: Not Glyphed
 	if (_ActionDB.b_p_notglyphed and _ActionDB.v_p_notglyphed ~= nil and _ActionDB.v_p_notglyphed ~= "") then
 		local count = 1
@@ -4998,21 +4998,21 @@ function ROB_SpellReady(_actionname,_getnextspell)
 			return false
 		end
 	end
-	
-	
-	--[[ TODO : Tylorcaptain : Disabled interrupt casting check for now to fluidify spellcasters rotation
+
+	-- TODO : Tylorcaptain : Disabled interrupt casting check for now to fluidify spellcasters rotation
+	--[[
 	-- CHECK: Check interrupt casting-----------------------------------------------------------------------------------------------------------------------------
 	_channeling, _, _, _, _, _ = UnitCastingInfo("player")
 	if (not _channeling) then
-		_channeling, _, _, _, _, _, _, _, _ = UnitChannelInfo("player")
+	_channeling, _, _, _, _, _, _, _, _ = UnitChannelInfo("player")
 	end
 	if (_channeling and (not _getnextspell)) then
-		if (_ActionDB.b_breakchanneling and ROB_UnitIsCasting("player", _ActionDB.v_breakchanneling)) then
-		--dont return false because player is casting a spell allowed in the breachanneling list
-		else
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._ActionDB.v_spellname.." player is casting: "..tostring(_channeling).." which is not found the spell list: "..tostring(_ActionDB.v_breakchanneling),_getnextspell,_debugon)
-			return false
-		end
+	if (_ActionDB.b_breakchanneling and ROB_UnitIsCasting("player", _ActionDB.v_breakchanneling)) then
+	--dont return false because player is casting a spell allowed in the breachanneling list
+	else
+	ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._ActionDB.v_spellname.." player is casting: "..tostring(_channeling).." which is not found the spell list: "..tostring(_ActionDB.v_breakchanneling),_getnextspell,_debugon)
+	return false
+	end
 	end
 	]]--
 
@@ -5456,7 +5456,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 			return false
 		end
 	end
-	
+
 	--CHECK: Check Boss
 	if (_ActionDB.b_t_boss ) then
 		if (UnitClassification("target") ~= "worldboss") then
@@ -5464,7 +5464,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 			return false
 		end
 	end
-	
+
 	if (_ActionDB.b_pet_dr ) then
 		if (CheckInteractDistance("pet", 3) == nil) then
 			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." because pet is not in duel range",_getnextspell,_debugon)
@@ -5700,7 +5700,7 @@ function ROB_GetNextAction()
 		end
 		ROB_SetActionCooldown("ROB_NextActionButtonCooldown", _foundReadyActionCD)
 	else
-		ROB_SetActionCooldown("ROB_NextActionButtonCooldown", nil)  
+		ROB_SetActionCooldown("ROB_NextActionButtonCooldown", nil)
 	end
 end
 
@@ -5720,7 +5720,7 @@ function ROB_OnUpdate(self, elapsed)
 			--=============================================================================================================================
 			--=============================================================================================================================
 			ROB_GetNextAction()
-			
+
 		else
 			--No rotation selected so hide both icon frames
 			ROB_CurrentActionButton:Hide()
@@ -5756,11 +5756,17 @@ function ROB_OnUpdate(self, elapsed)
 	end
 end
 
+---[[
+-- Allow us to log some debug information.
+-- @param #string msg the message to send
+-- @param #boolean validate the condition for which logging information. If true, no need to log anything.
+-- @param #boolean spellhasdebug true if we put the spell in debug mode. If false, we don't log anything.
+--]]
 function ROB_Debug1(msg,validate,spellhasdebug)
-	if (validate ~= nil and validate == true) then
+	if (validate) then
 		return
 	end
-	if (spellhasdebug == nil or spellhasdebug == false) then
+	if (not spellhasdebug) then
 		return
 	end
 	if (ROB_ROTATION_STATE == 0) then
