@@ -1,6 +1,6 @@
 <Bindings>
   <Binding name="ROB_TOGGLE" description="Toggle Rotation Builder" header="ROB">
-    ROB_OnToggle();
+	ROB_OnToggle();
   </Binding>
     <Binding name="Toggle Icons" description="Toggle Icons">
     ROB_ToggleIconsFrame();

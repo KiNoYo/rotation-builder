@@ -84,6 +84,12 @@ To load the latest rotation just click on the options tab in the top left and cl
     A: The next action prediction logic ignores power type checks such as mana, energy ,rage by default. This gives you the option to show what is coming up regardless if you have the power to cast it. If you don't like to see next actions when you dont have the power to cast them you can specify a power requirement on the action in the player tab and the action will no longer show up in the next action if you dont meet the specified power.
 
 [/list]
+1.47
+-Updated some rotations to 4.3
+
+1.46
+-Changed TOC file to remove out of date message
+ 
 1.45
 -Updated Shadow Priest rotation to 4.2
 -Updated Hunter rotations to 4.2

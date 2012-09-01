@@ -1,7 +1,7 @@
 ## Interface: 50001
 ## Title: RotationBuilder
 ## Version: 1.48
-## Author: Main Soulwhip, Pelerinage, Tylorcaptain Edit Gnomelock
+## Author: Previous : Soulwhip, Current : Pelerinage, Tylorcaptain
 ## Notes: Builds rotations for any class or spec
 ## SavedVariables: ROB_Lists
 ## SavedVariablesPerCharacter: ROB_Options ROB_Rotations

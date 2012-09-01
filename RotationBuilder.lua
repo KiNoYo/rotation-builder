@@ -4512,7 +4512,7 @@ function ROB_SetNextActionTexture(_compareaction)
 				else
 					--range check turned on : action oor : no tint color specified : set the texture to the oor texture
 					--print("Next Action Texuture ActionName:"..tostring(_compareaction).." has range check turned on action oor : no tint color specified : set the texture to the oor texture")
-					if (ROB_NextActionButtonIcon:GetTexture() ~= GetTexturePath("6544")) then ROB_SetButtonTexture(ROB_NextActionButton, GetTexturePath("6544")); end
+					if (ROB_NextActionButtonIcon:GetTexture() ~= GetTexturePath("6544")) then ROB_SetButtonTexture(ROB_NextActionButton, GetTexturePath("")); end
 				end
 			end
 		else
@@ -5634,7 +5634,7 @@ function ROB_GetCurrentAction()
 		end
 		ROB_SetActionCooldown("ROB_CurrentActionButtonCooldown", _foundReadyActionCD)
 	else
-		-- TODO : Tylorcaptain : test what happend when you add this line ROB_CURRENT_ACTION = nil
+		ROB_CURRENT_ACTION = nil
 		ROB_SetActionCooldown("ROB_CurrentActionButtonCooldown", nil)
 	end
 end
@@ -5700,8 +5700,7 @@ function ROB_GetNextAction()
 		end
 		ROB_SetActionCooldown("ROB_NextActionButtonCooldown", _foundReadyActionCD)
 	else
-		ROB_NEXT_ACTION = nil
-		ROB_SetActionCooldown("ROB_NextActionButtonCooldown", nil)
+		ROB_SetActionCooldown("ROB_NextActionButtonCooldown", nil)  
 	end
 end
 
