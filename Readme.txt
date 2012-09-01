@@ -1,24 +1,29 @@
 [b]Description:[/b]
+Please do not trust any links to any other versions of this addon. We have seen copies that include malicious code.
+
+As the original author soulwhip discontinued this addon and we simply loved it, we decided to bring it back. There is a lot of work to do before it's ready to be released for WoW 5.0.4 but we're on it. You can still use the last alpha release at least for those classes that are up to date (new mechanisms included if they do have some).
+
 Rotation Builder allows you to build rotations dynamically without having to understand the Lua script language. The built rotation then displays the current action and the next action on your screen to tell you what to push next. Actions can be heavily customized with the General, Player, Target, Pet, and Focus tabs. The priority of actions can also be changed dynamically just by clicking the up and down arrows next to the action name in the Action list.
 
-Included Rotations:
-[B][COLOR="Orange"]DRUID[/COLOR][/B] 4.2 Cat, 4.2 Balance
-[B][COLOR="Green"]HUNTER[/COLOR][/B] 4.0.6 MM, 4.0.6 Survival
-[B][COLOR="Cyan"]MAGE[/COLOR][/B] 4.2 Fire, 4.2 Arcane
-[B][COLOR="pink"]PALADIN[/COLOR][/B] 4.2 Ret, 4.2 Ret 4.2 Ret NoAE, 4.2 Tank AE, 4.2 Tank - Single Break CC, 4.2 Tank NoAE
-[B][COLOR="White"]PRIEST[/COLOR][/B] 4.0.6 Shadow
-[B][COLOR="Yellow"]ROGUE[/COLOR][/B] 4.0.3 Combat
-[B][COLOR=#5877d4]SHAMAN[/COLOR][/B] 4.0.6 Enhancement, 4.0.6 Elemental
-[B][COLOR="Purple"]WARLOCK[/COLOR][/B] 4.0.6 Destro, 4.0.6 Affliction, 4.0.6 Affliction Drain
-[B][COLOR="Brown"]WARRIOR[/COLOR][/B] 4.0.6 Arms, 4.0.6 Arms AE, 4.0.6 Fury, 4.0.6 Fury AE
-[B][COLOR="Red"]DEATHKNIGHT[/COLOR][/B] 4.2 Frost 1H, 4.2 Frost 2H, 4.2 Unholy 2H
+Included Rotations in the latest alpha version:
+[B][COLOR="Orange"]DRUID[/COLOR][/B] in progress
+[B][COLOR="Green"]HUNTER[/COLOR][/B] 5.0.4 Beast mastery, Marksmanship and Survival
+[B][COLOR="Cyan"]MAGE[/COLOR][/B] in progress
+[B][COLOR="pink"]PALADIN[/COLOR][/B] in progress
+[B][COLOR="cecece"]PRIEST[/COLOR][/B] in progress
+[B][COLOR="Yellow"]ROGUE[/COLOR][/B] 5.0.4 Assassination, Combat and Subtlety
+[B][COLOR=#5877d4]SHAMAN[/COLOR][/B] 5.0.4 Enhancement and Elemental
+[B][COLOR="Purple"]WARLOCK[/COLOR][/B] in progress
+[B][COLOR="Brown"]WARRIOR[/COLOR][/B] in progress
+[B][COLOR="Red"]DEATHKNIGHT[/COLOR][/B] in progress
+[B][COLOR="Mediumspringgreen"]MONK[/COLOR][/B] unavailable
 
 To load the latest rotation just click on the options tab in the top left and click the LOAD button. The latest version of the rotation will be imported.
 
 [b]How to build a rotation:[/b]
 [list=1]Open your blizzard keybinds window and scroll down to find Rotation Builders keybinds
 [*]For now just bind the Toggle 1 through Toggle 4 to some keys. This will be explained later.
-[*]Show the Rotation Builder window with /rob show or using the minimap button
+[*]Show the rotation builder window with /rob show or using the minimap button
 [*]Default rotations should be provided for your class under the Rotation Name box in
     the upper left. If there are no rotations then I haven't gotten around to making a default
     one for you yet ;)
@@ -29,8 +34,8 @@ To load the latest rotation just click on the options tab in the top left and cl
 [*]You need to set the keybind that selects this rotation by left clicking the keybind
     button at the top of the window under the rotation name box.
 [*]To select a Action just left click the action name in the top right Action list box.
-[*]All the options for the selected action are in the tabs to the right
-    If you mouseover any option it will tell you what it does.
+[*]All the options for the selected action are in the three tabs below General,Player,Target
+    If you mouseover each option it will tell you what it does.
 [*]Once you are done editing your Actions and Rotation click the Save button.
 [*]You can close the rotation window now and to select that rotation hit the button you bound
     in step 8.
