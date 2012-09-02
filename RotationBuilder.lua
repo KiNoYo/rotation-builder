@@ -218,6 +218,7 @@ local ROB_NewActionDefaults = {
 	v_t_interrupt="",
 	b_t_dr=false,
 	b_t_boss=false,
+	b_t_notaboss=false,
 	--Pet Options---------------
 	b_pet_hp=false,
 	v_pet_hp="",
@@ -601,13 +602,17 @@ end
 
 function ROB_SpellIsInRotation(_spellname)
 	local _foundspell = false
-	if (ROB_SelectedRotationName and ROB_Rotations[ROB_SelectedRotationName] ~= nil and ROB_Rotations[ROB_SelectedRotationName].SortedActions ~= nil) then
+	local _spellname2 = nil
+	if (ROB_SelectedRotationName and (ROB_Rotations[ROB_SelectedRotationName] ~= nil) and (ROB_Rotations[ROB_SelectedRotationName].SortedActions ~= nil)) then
 		for key, value in pairs(ROB_Rotations[ROB_SelectedRotationName].SortedActions) do
 			if (string.find(tostring(_spellname), tostring(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname))) then
 				_foundspell = true
 			end
-			if (GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname) and (string.find(tostring(GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname)), tostring(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname)))) then
-				_foundspell = true
+			if (GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname)) then
+				_spellname2 = select(1 , GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname))
+				if (string.find(tostring(_spellname), tostring(_spellname2))) then
+					_foundspell = true
+				end
 			end
 		end
 	end
@@ -617,6 +622,7 @@ end
 function ROB_OnEvent(self, event, ...)
 	local arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15, arg16 = ...;
 	local _spellname = nil
+	local _channelstart = false
 
 	local _eventSpellname = arg12
 	local _eventEvent = arg2
@@ -628,11 +634,16 @@ function ROB_OnEvent(self, event, ...)
 		ROB_ADDON_Load(...);
 	elseif (event == "PLAYER_ENTERING_WORLD") then
 		ROB_PLAYER_Enter();
-	elseif (event == "UNIT_SPELLCAST_SUCCEEDED" or event == "UNIT_SPELLCAST_START" or event == "UNIT_SPELLCAST_CHANNEL_START") then
+	elseif (event == "UNIT_SPELLCAST_SUCCEEDED" or event == "UNIT_SPELLCAST_START" or event == "UNIT_SPELLCAST_CHANNEL_START" or event == "UNIT_SPELLCAST_CHANNEL_STOP") then
 		if (arg1 == "player") then
 			if (ROB_SpellIsInRotation(arg2)) then
-				--if we update the count in the START event then dont update the count in the SUCCEEDED event
-				if (event == "UNIT_SPELLCAST_START" or event == "UNIT_SPELLCAST_CHANNEL_START") then
+				if (event == "UNIT_SPELLCAST_START") then
+					ROB_LAST_CASTED_TYPE = "NORMAL"
+				end
+				if (event == "UNIT_SPELLCAST_CHANNEL_START") then
+					ROB_LAST_CASTED_TYPE = "CHANNEL"
+				end
+				if ((event == "UNIT_SPELLCAST_SUCCEEDED" and ROB_LAST_CASTED_TYPE == nil) or (event == "UNIT_SPELLCAST_SUCCEEDED" and ROB_LAST_CASTED_TYPE == "NORMAL") or (event == "UNIT_SPELLCAST_SUCCEEDED" and ROB_LAST_CASTED_TYPE == "CHANNEL" and _channelstart == false)) then
 					if (arg2 == ROB_LAST_CASTED) then
 						--increment the last casted count
 						ROB_LAST_CASTED_COUNT = ROB_LAST_CASTED_COUNT + 1
@@ -642,34 +653,15 @@ function ROB_OnEvent(self, event, ...)
 						ROB_LAST_CASTED_COUNT = 1
 						if (ROB_SpellIsInRotation(arg2)) then ROB_LAST_CASTED = arg2; end
 					end
-					--end
-					if (event == "UNIT_SPELLCAST_START") then
-						ROB_LAST_CASTED_TYPE = "NORMAL"
-					else
-						ROB_LAST_CASTED_TYPE = "CHANNEL"
-					end
-				end
-				if (event == "UNIT_SPELLCAST_SUCCEEDED" or event == "UNIT_SPELLCAST_CHANNEL_STOP") then
-					if (not ROB_LAST_CASTED_TYPE) then
-						if (arg2 == ROB_LAST_CASTED) then
-							--increment the last casted count
-							ROB_LAST_CASTED_COUNT = ROB_LAST_CASTED_COUNT + 1
-							if (ROB_SpellIsInRotation(arg2)) then ROB_LAST_CASTED = arg2; end
-						else
-							--start the count over
-							ROB_LAST_CASTED_COUNT = 1
-							if (ROB_SpellIsInRotation(arg2)) then ROB_LAST_CASTED = arg2; end
-						end
-					else
-					--The last casted type was something besides nil but for spells that have a UNIT_SPELLCAST_START or UNIT_SPELLCAST_CHANNEL_START
-					--they get their count incremented in those events so dont do it here
-					end
-
+					_channelstart = true
 					if (event == "UNIT_SPELLCAST_SUCCEEDED" and ROB_LAST_CASTED_TYPE and ROB_LAST_CASTED_TYPE == "CHANNEL") then
 					--If ROB_LAST_CASTED_TYPE was CHANNEL then dont update the last casted because blizzard fires a UNIT_SPELLCAST_SUCCEEDED while channel is still going
 					else
 						ROB_LAST_CASTED_TYPE = nil
 					end
+				end
+				if (event == "UNIT_SPELLCAST_CHANNEL_STOP") then
+					_channelstart = false
 				end
 
 				-- Turn off the toggle if this toggleoff is enabled
@@ -3163,6 +3155,7 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetDRCheckButton",_ActionDB.b_t_dr,false)
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetBossCheckButton",_ActionDB.b_t_boss,false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetNotABossCheckButton",_ActionDB.b_t_notaboss,false)
 
 			--Pet options-------------------------
 			ROB_Rotation_GUI_SetChecked("ROB_AO_PetHPCheckButton",_ActionDB.b_pet_hp,false)
@@ -4892,7 +4885,6 @@ function ROB_SpellReady(_actionname,_getnextspell)
 		end
 	end
 
-	--if ((_ActionDB.v_gcdspell ~= 0) and (_cooldownLeft > _GCDleft) and (not _ActionDB.b_notaspell) and (not _spellincdbuffer)) then
 	if ((_ActionDB.v_gcdspell ~= 0) and (_cooldownLeft > _GCDleft) and (not _spellincdbuffer)) then
 		--print("_cooldownLeft1="..tostring(_cooldownLeft))
 
@@ -4906,8 +4898,6 @@ function ROB_SpellReady(_actionname,_getnextspell)
 		--	return false
 		--end
 		else
-			--print("_cooldownLeft2="..tostring(_cooldownLeft))
-			--ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." is on cooldown cooldownleft:".._cooldownLeft..":".._GCDleft,_getnextspell,_debugon)
 			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." is in cooldown",_getnextspell,_debugon)
 			return false
 		end
@@ -5237,14 +5227,13 @@ function ROB_SpellReady(_actionname,_getnextspell)
 
 	-- CHECK: Last Casted    -----------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_lastcasted and _ActionDB.v_lastcasted ~= nil and _ActionDB.v_lastcasted ~= "") then
-		if ((not _getnextspell) and ROB_LAST_CASTED ~= _ActionDB.v_lastcasted and ROB_LAST_CASTED and GetSpellInfo(ROB_LAST_CASTED) and GetSpellInfo(ROB_LAST_CASTED) ~= _ActionDB.v_lastcasted) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." lastcasted spell is not ".._ActionDB.v_lastcasted,_getnextspell,_debugon)
-			return false
-		end
-		if (_getnextspell and ROB_CURRENT_ACTION and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_spellname ~= _ActionDB.v_lastcasted) then
-			--We failed to match the spell name to last casted try to match the getspellinfo spell id to last casted and if that fails then we dont match last casted
-			if (_getnextspell and ROB_CURRENT_ACTION and GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_spellname) and GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_spellname) ~= _ActionDB.v_lastcasted) then
-				return false
+		local _spellname
+		if (tostring(_ActionDB.v_lastcasted) ~= tostring(ROB_LAST_CASTED)) then
+			if (GetSpellInfo(_ActionDB.v_lastcasted)) then
+				_spellname = select(1 , GetSpellInfo(_ActionDB.v_lastcasted))
+				if (tostring(_spellname) ~= tostring(ROB_LAST_CASTED)) then
+					return false
+				end
 			end
 		end
 	end
@@ -5460,7 +5449,13 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	--CHECK: Check Boss
 	if (_ActionDB.b_t_boss ) then
 		if (UnitClassification("target") ~= "worldboss") then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." because target is not in duel range",_getnextspell,_debugon)
+			return false
+		end
+	end
+	
+	--CHECK: Check Not A Boss
+	if (_ActionDB.b_t_notaboss ) then
+		if (UnitClassification("target") == "worldboss") then
 			return false
 		end
 	end
@@ -5486,7 +5481,6 @@ function ROB_SpellReady(_actionname,_getnextspell)
 
 
 	-- CHECK: Weapon Enchants ----------------------------------------------------------------------------------------------------------------------------------------------------
-	--local hasMainHandEnchant, mainHandExpiration, mainHandCharges, hasOffHandEnchant, offHandExpiration, offHandCharges = GetWeaponEnchantInfo();
 	if (_ActionDB.b_p_nmh and _ActionDB.v_p_nmh ~= nil and _ActionDB.v_p_nmh ~= "") then
 		if (ROB_CheckForWeaponEnchant(16, _ActionDB.v_p_nmh)) then
 			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." because player has ".._ActionDB.v_p_nmh.." on mainhand already",_getnextspell,_debugon)
@@ -5604,16 +5598,13 @@ function ROB_GetCurrentAction()
 	local _foundReadyActionCD = nil
 	local _foundReadyActionTimeleft = 86400
 
-	--ROB_Debug1("ROB_GetCurrentAction",false,true)
-	--if (ROB_SelectedRotationName and ROB_Rotations[ROB_SelectedRotationName] ~= nil and ROB_Rotations[ROB_SelectedRotationName].SortedActions ~= nil) then
-	--First get the next ready action name
 	for _, _CurrentActionName in pairs(ROB_Rotations[ROB_SelectedRotationName].SortedActions) do
-		--ROB_Debug1("Checking if ".._CurrentActionName.." is ready",false,ROB_Rotations[ROB_SelectedRotationName].ActionList[_CurrentActionName].b_debug)
 		if (ROB_SpellReady(_CurrentActionName,false) and (not _foundReadyAction)) then
 			ROB_Debug1("Action:".._CurrentActionName.." is ready",false,ROB_Rotations[ROB_SelectedRotationName].ActionList[_CurrentActionName].b_debug)
 			_foundReadyAction = true
 			_foundReadyActionName = _CurrentActionName
 			_foundReadyActionCD = ROB_ACTION_CD
+			break
 		elseif (_foundReadyAction) then
 			ROB_Debug1("Action:".._CurrentActionName.." is not showing because it is waiting for ready Action:".._foundReadyActionName.." to be cast",false,ROB_Rotations[ROB_SelectedRotationName].ActionList[_CurrentActionName].b_debug)
 		end
@@ -5627,10 +5618,6 @@ function ROB_GetCurrentAction()
 	if (_foundReadyAction) then
 		if (_foundReadyActionName ~= ROB_CURRENT_ACTION) then
 			ROB_CURRENT_ACTION = _foundReadyActionName
-			--		ROB_SetActionCooldown("ROB_CurrentActionButtonCooldown", _foundReadyActionCD)
-			--else
-			--If we have to cast the same spell twice in a row then we need to update the GCD on the spell
-			--ROB_SetActionCooldown("ROB_CurrentActionButtonCooldown", _foundReadyActionCD)
 		end
 		ROB_SetActionCooldown("ROB_CurrentActionButtonCooldown", _foundReadyActionCD)
 	else
@@ -5646,11 +5633,8 @@ function ROB_GetNextAction()
 	local _foundReadyActionCD = nil
 	local _foundReadyActionTimeleft = 86400
 
-	--ROB_Debug1("ROB_GetNextAction",false,true)
-	--if (ROB_SelectedRotationName and ROB_Rotations[ROB_SelectedRotationName] ~= nil and ROB_Rotations[ROB_SelectedRotationName].SortedActions ~= nil) then
 	--First get the next ready action name
 	for _, _NextActionName in pairs(ROB_Rotations[ROB_SelectedRotationName].SortedActions) do
-		--ROB_Debug1("Checking if ".._NextActionName.." is the next ready action",false,true)
 		-- Logic to verify the next action spell name does not match the current action spell name
 		local _SpellName1 = nil
 		local _SpellName2 = nil
@@ -5661,39 +5645,21 @@ function ROB_GetNextAction()
 
 		--Dont pick next actions that have the same aciton name or spell name as the current action
 		if (ROB_SpellReady(_NextActionName, true) and (_NextActionName ~= ROB_CURRENT_ACTION) and _SpellsAreDifferent) then
-			--ROB_Debug1("Action:".._NextActionName.." was ready but checking <.5",false,true)
 			--Check to make sure this cooldown is less than .5 seconds more than previous next action before setting it to prevent the multiple spell spinning in next action
-			--if (ROB_Rotations[ROB_SelectedRotationName].ActionList[_NextActionName].v_spellname and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_spellname and ROB_ACTION_TIMELEFT < _foundReadyActionTimeleft and ((_foundReadyActionTimeleft - ROB_ACTION_CD) > .5) and (ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_spellname ~= ROB_Rotations[ROB_SelectedRotationName].ActionList[_NextActionName].v_spellname)) then
 			if (ROB_Rotations[ROB_SelectedRotationName].ActionList[_NextActionName].v_spellname and ROB_ACTION_TIMELEFT < _foundReadyActionTimeleft and ((_foundReadyActionTimeleft - ROB_ACTION_CD) > .5)) then
-				--ROB_Debug1("Action:".._NextActionName.." is < .5 and is ready",false,true)
 				_foundReadyAction = true
 				_foundReadyActionName = _NextActionName
 				_foundReadyActionTimeleft = ROB_ACTION_TIMELEFT
 				_foundReadyActionCD = ROB_ACTION_CD
-				--print("_NextActionName=".._NextActionName)
-				--print("ROB_ACTION_TIMELEFT="..ROB_ACTION_TIMELEFT)
-				--print("_foundReadyActionCD=".._foundReadyActionCD)
-			end
-		else
-			--ROB_Debug1(_NextActionName.." was not next ready action",false,ROB_Rotations[ROB_SelectedRotationName].ActionList[_NextActionName].b_debug)
-			if (_foundReadyAction) then
-			--ROB_Debug1("Action:".._NextActionName.." is not showing as next ready action because Action:".._foundReadyActionName.." is higher priority",false,ROB_Rotations[ROB_SelectedRotationName].ActionList[_NextActionName].b_debug)
+				break
 			end
 		end
 	end
-	--end
 
 	ROB_SetNextActionTexture(_foundReadyActionName)
 	ROB_SetNextActionTint(_foundReadyActionName)
 	ROB_SetNextActionLabel(_foundReadyActionName)
-	--ROB_SetActionCooldown("ROB_NextActionButtonCooldown", _foundReadyActionCD)
 
-	--if (_foundReadyAction and _foundReadyActionName ~= ROB_NEXT_ACTION) then
-	--print("setting next action cooldown to ".._foundReadyActionCD)
-	--need to find a way to clear next action cooldown because this is only set when we find a next action the first time
-
-	--ROB_SetActionCooldown("ROB_NextActionButtonCooldown", _foundReadyActionCD)
-	--ROB_NEXT_ACTION = _foundReadyActionName
 	if (_foundReadyAction) then
 		if (_foundReadyActionName ~= ROB_NEXT_ACTION) then
 			ROB_NEXT_ACTION = _foundReadyActionName
@@ -5773,7 +5739,6 @@ function ROB_Debug1(msg,validate,spellhasdebug)
 		return
 	end
 	if (tostring(msg) ~= tostring(ROB_LAST_DEBUG_MSG)) then
-		--print(ROB_UI_DEBUG_PREFIX..GetTime()..":"..msg)
 		print(ROB_UI_DEBUG_PREFIX..":"..msg)
 		ROB_LAST_DEBUG = GetTime()
 		ROB_LAST_DEBUG_MSG = msg
