@@ -8454,12 +8454,10 @@
 				self.Response = true;
 				else
 				-- reset queried
-				and ready flag
 				self.Queried = nil
 				self.Response = nil;
 
 				-- update lists
-				edit
 				ROB_ActionList_Update();
 				end
 				end
