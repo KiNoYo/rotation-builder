@@ -13,7 +13,7 @@ Included Rotations in the latest alpha version:
 [B][COLOR="cecece"]PRIEST[/COLOR][/B] 5.0.4 Shadow
 [B][COLOR="Yellow"]ROGUE[/COLOR][/B] 5.0.4 Assassination, Combat and Subtlety
 [B][COLOR=#5877d4]SHAMAN[/COLOR][/B] 5.0.4 Enhancement and Elemental
-[B][COLOR="Purple"]WARLOCK[/COLOR][/B] in progress
+[B][COLOR="Purple"]WARLOCK[/COLOR][/B] 5.0.4 Affliction, Demonology and Destruction
 [B][COLOR="Brown"]WARRIOR[/COLOR][/B] in progress
 [B][COLOR="Red"]DEATHKNIGHT[/COLOR][/B] in progress
 [B][COLOR="Mediumspringgreen"]MONK[/COLOR][/B] unavailable
