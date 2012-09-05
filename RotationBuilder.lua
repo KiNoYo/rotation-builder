@@ -188,6 +188,8 @@ local ROB_NewActionDefaults = {
 	v_p_noh="",
 	b_p_stance=false,
 	v_p_stance="",
+	b_p_notstance=false,
+	v_p_notstance="",
 	b_p_ooc=false,
 	b_p_ic=false,
 	b_p_knowspell=false,
@@ -3110,6 +3112,9 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetChecked("ROB_AO_StanceCheckButton",_ActionDB.b_p_stance,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_StanceInputBox",_ActionDB.v_p_stance,"")
 
+			ROB_Rotation_GUI_SetChecked("ROB_AO_NotStanceCheckButton",_ActionDB.b_p_notstance,false)
+			ROB_Rotation_GUI_SetText("ROB_AO_NotStanceInputBox",_ActionDB.v_p_notstance,"")
+
 			ROB_Rotation_GUI_SetChecked("ROB_AO_OOCombatCheckButton",_ActionDB.b_p_ooc,false)
 			ROB_Rotation_GUI_SetChecked("ROB_AO_ICombatCheckButton",_ActionDB.b_p_ic,false)
 
@@ -4419,6 +4424,190 @@ function ROB_UnitHasBuff(_buffNeeded, _unitName, _getnextspell)
 	return _unithasbuffs
 end
 
+function ROB_UnitKnowSpell(_spellneeded, _getnextspell)
+	local _unitknowspell = false
+
+	local _unparsedspell = nil
+	local _remainingspells = _spellneeded
+	local _spellcount = 0
+	local _spellsfound = 0
+	local _doneparsing = false
+	local _name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange
+	local _stringtype = 0
+	
+	while not _doneparsing do
+		_unparsedspell = nil
+		if (string.find(_remainingspells, "|")) then
+			_unparsedspell   = string.sub(_remainingspells,1,string.find(_remainingspells, "|")-1)
+			_spellcount      = _spellcount + 1
+			_remainingspells = string.sub(_remainingspells,string.find(_remainingspells, "|")+2)
+			_stringtype = 1
+		elseif (string.find(_remainingspells, "&")) then
+			_unparsedspell   = string.sub(_remainingspells,1,string.find(_remainingspells, "&")-1)
+			_spellcount      = _spellcount + 1
+			_remainingspells = string.sub(_remainingspells,string.find(_remainingspells, "&")+1)
+			_stringtype = 2
+		else
+			_unparsedspell   = _remainingspells
+			_spellcount      = _spellcount + 1
+			_doneparsing    = true
+		end
+
+		if (_unparsedspell ~= nil) then
+			if(nil ~= tonumber(_unparsedspell)) then
+				-- We are using the spellID to identify our spell. But GetSpellInfo will return the spell name even though we don't know it. So, we must call it twice to get the name of the spell, then verifying the knowledge of it.
+				_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(GetSpellInfo(tonumber(_unparsedspell)))
+			else
+				-- If the spellname isn't an Integer, then it is the true spellname and not it's spellID.
+				_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(_unparsedspell)
+			end
+			if (_name ~= nil) then
+				_spellsfound = _spellsfound +1
+			end
+		else
+		--spellparsed does not exist maybe warn the player in the future
+		end
+	end
+
+	if (_stringtype == 0 and (_spellsfound >= 1)) then
+		_unitknowspell = true
+	end
+	if (_stringtype == 1 and (_spellsfound >= 1)) then
+		_unitknowspell = true
+	end
+	if (_stringtype == 2 and (_spellsfound == _spellcount)) then
+		_unitknowspell = true
+	end
+
+	return _unitknowspell
+end
+
+function ROB_UnitIsGlyphed(_glyphneeded, _getnextspell)
+	local _unitisglyphed = false
+
+	local _unparsedglyph = nil
+	local _remainingglyphs = _glyphneeded
+	local _glyphcount = 0
+	local _glyphsfound = 0
+	local _doneparsing = false
+	local _name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange, _enabled, _glyphType, _glyphTooltipIndex, _glyphSpell
+	local _stringtype = 0
+	local count = 1
+	local found = false
+	local glyph = nil
+	
+	while not _doneparsing do
+		_unparsedglyph = nil
+		if (string.find(_remainingglyphs, "|")) then
+			_unparsedglyph   = string.sub(_remainingglyphs,1,string.find(_remainingglyphs, "|")-1)
+			_glyphcount      = _glyphcount + 1
+			_remainingglyphs = string.sub(_remainingglyphs,string.find(_remainingglyphs, "|")+2)
+			_stringtype = 1
+		elseif (string.find(_remainingglyphs, "&")) then
+			_unparsedglyph   = string.sub(_remainingglyphs,1,string.find(_remainingglyphs, "&")-1)
+			_glyphcount      = _glyphcount + 1
+			_remainingglyphs = string.sub(_remainingglyphs,string.find(_remainingglyphs, "&")+1)
+			_stringtype = 2
+		else
+			_unparsedglyph   = _remainingglyphs
+			_glyphcount      = _glyphcount + 1
+			_doneparsing    = true
+		end
+
+		count = 1
+		found = false
+		glyph = nil
+
+		if (_unparsedglyph ~= nil) then
+			if(nil ~= tonumber(_unparsedglyph)) then
+				glyph = tonumber(_unparsedglyph)
+			else
+				glyph = _unparsedglyph
+			end
+			while(count ~= 7 and (not found)) do
+				_enabled, _glyphType, _glyphTooltipIndex, _glyphSpell, _icon = GetGlyphSocketInfo(count)
+				_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(_glyphSpell)
+				if (glyph == _glyphSpell or glyph == _name) then
+					found = true
+					_glyphsfound = _glyphsfound +1
+				else
+					count = count + 1
+				end
+			end
+		else
+		--spellparsed does not exist maybe warn the player in the future
+		end
+	end
+
+	if (_stringtype == 0 and (_glyphsfound >= 1)) then
+		_unitisglyphed = true
+	end
+	if (_stringtype == 1 and (_glyphsfound >= 1)) then
+		_unitisglyphed = true
+	end
+	if (_stringtype == 2 and (_glyphsfound == _glyphcount)) then
+		_unitisglyphed = true
+	end
+
+	return _unitisglyphed
+end
+
+function ROB_PlayerInStance(_stanceneeded, _getnextspell)
+	local _playerinstance = false
+
+	local _unparsedstance = nil
+	local _remainingstances = _stanceneeded
+	local _stancecount = 0
+	local _stancesfound = 0
+	local _doneparsing = false
+	local _stringtype = 0
+	local _shape = 0
+	
+	while not _doneparsing do
+		_unparsedstance = nil
+		if (string.find(_remainingstances, "|")) then
+			_unparsedstance   = string.sub(_remainingstances,1,string.find(_remainingstances, "|")-1)
+			_stancecount      = _stancecount + 1
+			_remainingstances = string.sub(_remainingstances,string.find(_remainingstances, "|")+2)
+			_stringtype = 1
+		elseif (string.find(_remainingstances, "&")) then
+			_unparsedstance   = string.sub(_remainingstances,1,string.find(_remainingstances, "&")-1)
+			_stancecount      = _stancecount + 1
+			_remainingstances = string.sub(_remainingstances,string.find(_remainingstances, "&")+1)
+			_stringtype = 2
+		else
+			_unparsedstance   = _remainingstances
+			_stancecount      = _stancecount + 1
+			_doneparsing    = true
+		end
+
+		_shape = 0
+
+		if (_unparsedstance ~= nil) then
+			if(tonumber(_unparsedstance) < tonumber(GetNumShapeshiftForms())+1) then
+				if (tonumber(GetShapeshiftForm()) ~= nil) then
+					_shape = tonumber(GetShapeshiftForm())
+				end
+				if (tonumber(_shape) == tonumber(_unparsedstance)) then
+					_stancesfound = _stancesfound + 1
+				end
+			end
+		end
+	end
+
+	if (_stringtype == 0 and (_stancesfound >= 1)) then
+		_playerinstance = true
+	end
+	if (_stringtype == 1 and (_stancesfound >= 1)) then
+		_playerinstance = true
+	end
+	if (_stringtype == 2 and (_stancesfound == _stancecount)) then
+		_playerinstance = true
+	end
+
+	return _playerinstance
+end
+
 function ROB_GetActionTintColor(_actionname)
 	local _ActionDB = ROB_Rotations[ROB_SelectedRotationName].ActionList[_actionname]
 	local _r = nil
@@ -4913,78 +5102,28 @@ function ROB_SpellReady(_actionname,_getnextspell)
 
 	-- CHECK: Other spell known
 	if (_ActionDB.b_p_knowspell and _ActionDB.v_p_knowspell ~= nil and _ActionDB.v_p_knowspell ~= "") then
-		if(nil ~= tonumber(_ActionDB.v_p_knowspell)) then
-			-- We are using the spellID to identify our spell. But GetSpellInfo will return the spell name even though we don't know it. So, we must call it twice to get the name of the spell, then verifying the knowledge of it.
-			_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(GetSpellInfo(tonumber(_ActionDB.v_p_knowspell)))
-		else
-			-- If the spellname isn't an Integer, then it is the true spellname and not it's spellID.
-			_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(_ActionDB.v_p_knowspell)
-		end
-		if (_name == nil) then
-			-- If the name isn't found, then we don't know the spell.
+		if(not ROB_UnitKnowSpell(_ActionDB.v_p_knowspell, _getnextspell)) then
 			return false
 		end
 	end
 
 	-- CHECK: Other spell unknown
 	if (_ActionDB.b_p_knownotspell and _ActionDB.v_p_knownotspell ~= nil and _ActionDB.v_p_knownotspell ~= "") then
-		if(nil ~= tonumber(_ActionDB.v_p_knownotspell)) then
-			-- We are using the spellID to identify our spell. But GetSpellInfo will return the spell name even though we don't know it. So, we must call it twice to get the name of the spell, then verifying the knowledge of it.
-			_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(GetSpellInfo(tonumber(_ActionDB.v_p_knownotspell)))
-		else
-			-- If the spellname isn't an Integer, then it is the true spellname and not it's spellID.
-			_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(_ActionDB.v_p_knownotspell)
-		end
-		if (_name ~= nil) then
-			-- If the name is found, then we know the spell.
+		if(ROB_UnitKnowSpell(_ActionDB.v_p_knowspell, _getnextspell)) then
 			return false
 		end
 	end
 
 	--CHECK: Is Glyphed
 	if (_ActionDB.b_p_isglyphed and _ActionDB.v_p_isglyphed ~= nil and _ActionDB.v_p_isglyphed ~= "") then
-		local count = 1
-		local found = false
-		local glyph = nil
-		if(nil ~= tonumber(_ActionDB.v_p_isglyphed)) then
-			glyph = tonumber(_ActionDB.v_p_isglyphed)
-		else
-			glyph = _ActionDB.v_p_isglyphed
-		end
-		while(count ~= 7 and (not found)) do
-			_enabled, _glyphType, _glyphTooltipIndex, _glyphSpell, _icon = GetGlyphSocketInfo(count)
-			_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(_glyphSpell)
-			if (glyph == _glyphSpell or glyph == _name) then
-				found = true
-			else
-				count = count + 1
-			end
-		end
-		if (not found) then
+		if(not ROB_UnitIsGlyphed(_ActionDB.v_p_isglyphed, _getnextspell)) then
 			return false
 		end
 	end
 
 	--CHECK: Not Glyphed
 	if (_ActionDB.b_p_notglyphed and _ActionDB.v_p_notglyphed ~= nil and _ActionDB.v_p_notglyphed ~= "") then
-		local count = 1
-		local found = false
-		local glyph = nil
-		if(nil ~= tonumber(_ActionDB.v_p_notglyphed)) then
-			glyph = tonumber(_ActionDB.v_p_notglyphed)
-		else
-			glyph = _ActionDB.v_p_notglyphed
-		end
-		while(count ~= 7 and (not found)) do
-			_enabled, _glyphType, _glyphTooltipIndex, _glyphSpell, _icon = GetGlyphSocketInfo(count)
-			_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(_glyphSpell)
-			if (glyph == _glyphSpell or glyph == _name) then
-				found = true
-			else
-				count = count + 1
-			end
-		end
-		if (found) then
+		if(ROB_UnitIsGlyphed(_ActionDB.v_p_isglyphed, _getnextspell)) then
 			return false
 		end
 	end
@@ -5496,9 +5635,14 @@ function ROB_SpellReady(_actionname,_getnextspell)
 
 	-- CHECK: Stance ----------------------------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_p_stance and _ActionDB.v_p_stance ~= nil and _ActionDB.v_p_stance ~= "") then
-		local _, _, _active, _ = GetShapeshiftFormInfo(GetShapeshiftForm());
-		if (_active == 0 or (tonumber(GetShapeshiftForm()) ~= tonumber(_ActionDB.v_p_stance))) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." because player is not in the ".._ActionDB.v_p_stance.." stance",_getnextspell,_debugon)
+		if(not ROB_PlayerInStance(_ActionDB.v_p_stance, _getnextspell)) then
+			return false
+		end
+	end
+	
+	-- CHECK: Not in Stance ----------------------------------------------------------------------------------------------------------------------------------------------
+	if (_ActionDB.b_p_notstance and _ActionDB.v_p_notstance ~= nil and _ActionDB.v_p_notstance ~= "") then
+		if(ROB_PlayerInStance(_ActionDB.v_p_notstance, _getnextspell)) then
 			return false
 		end
 	end

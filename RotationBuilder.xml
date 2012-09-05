@@ -3822,7 +3822,7 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</EditBox>
-							<CheckButton name="ROB_AO_OOCombatCheckButton"
+							<CheckButton name="ROB_AO_NotStanceCheckButton"
 								inherits="ROB_CheckButtonTemplate">
 								<Size>
 									<AbsDimension x="20" y="20" />
@@ -3832,6 +3832,69 @@
 										relativePoint="TOPLEFT">
 										<Offset>
 											<AbsDimension x="5" y="-400" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Layers>
+									<Layer level="ARTWORK">
+										<Texture name="$parentIcon" file="">
+											<Anchors>
+												<Anchor point="TOPLEFT" relativeTo="$parent"
+													relativePoint="TOPLEFT">
+													<Offset>
+														<AbsDimension x="99" y="0" />
+													</Offset>
+												</Anchor>
+											</Anchors>
+											<Size>
+												<AbsDimension x="20" y="20" />
+											</Size>
+										</Texture>
+									</Layer>
+								</Layers>
+								<Scripts>
+									<OnLoad>ROB_AO_NotStanceCheckButtonText:SetText(ROB_UI_AO_P_NOTSTANCE)
+									</OnLoad>
+									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_notstance");
+									</OnClick>
+									<OnEnter>GameTooltip:SetOwner(self,
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(ROB_UI_AO_P_NOTSTANCE_TT);
+									</OnEnter>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</CheckButton>
+							<EditBox name="ROB_AO_NotStanceInputBox" inherits="InputBoxTemplate"
+								autoFocus="false">
+								<Size>
+									<AbsDimension x="30" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_AO_NotStanceCheckButton"
+										relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="125" y="-0" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnEnter>GameTooltip:SetOwner(self,
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(ROB_UI_AO_P_STANCEIB_TT);
+									</OnEnter>
+									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_notstance")
+									</OnTextChanged>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</EditBox>
+							<CheckButton name="ROB_AO_OOCombatCheckButton"
+								inherits="ROB_CheckButtonTemplate">
+								<Size>
+									<AbsDimension x="20" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab"
+										relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="5" y="-420" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -3871,7 +3934,7 @@
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab"
 										relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-420" />
+											<AbsDimension x="5" y="-440" />
 										</Offset>
 									</Anchor>
 								</Anchors>

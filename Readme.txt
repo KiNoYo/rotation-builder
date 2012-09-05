@@ -9,7 +9,7 @@ Included Rotations in the latest alpha version:
 [B][COLOR="Orange"]DRUID[/COLOR][/B] 5.0.4 Balance, Feral and Guardian
 [B][COLOR="Green"]HUNTER[/COLOR][/B] 5.0.4 Beast mastery, Marksmanship and Survival
 [B][COLOR="Cyan"]MAGE[/COLOR][/B] 5.0.4 Arcane, Fire and Frost
-[B][COLOR="pink"]PALADIN[/COLOR][/B] in progress
+[B][COLOR="pink"]PALADIN[/COLOR][/B] 5.0.4 Protection, Retribution
 [B][COLOR="cecece"]PRIEST[/COLOR][/B] 5.0.4 Shadow
 [B][COLOR="Yellow"]ROGUE[/COLOR][/B] 5.0.4 Assassination, Combat and Subtlety
 [B][COLOR=#5877d4]SHAMAN[/COLOR][/B] 5.0.4 Enhancement and Elemental
