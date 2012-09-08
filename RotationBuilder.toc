@@ -5,4 +5,25 @@
 ## Notes: Builds rotations for any class or spec
 ## SavedVariables: ROB_Lists
 ## SavedVariablesPerCharacter: ROB_Options ROB_Rotations
+
+-- Library
+libs\AceLocale-3.0\AceLocale-3.0.xml
+
+-- Localization
+localization\enUS.lua
+localization\zhCN.lua
+localization\frFR.lua
+localization\deDE.lua
+localization\koKR.lua
+localization\zhTW.lua
+localization\ruRU.lua
+localization\esES.lua
+localization\esMX.lua
+localization\itIT.lua
+
+-- Core
+RotationBuilder.lua
+debug.lua
+
+-- Interface
 RotationBuilder.xml

@@ -16,14 +16,11 @@
 -- 7. Add retrieve rotation settings search for "RETRIEVE_ROTATION_SETTINGS"
 -- 8. Make sure your script calls in XML dont call the wrong functions
 
-
+-- Localization
+L = LibStub("AceLocale-3.0"):GetLocale("RotationBuilder")
 
 local ROB_VERSION                   = GetAddOnMetadata("RotationBuilder", "Version");
-BINDING_HEADER_ROB                  = "Rotation Builder";
-BINDING_NAME_ROB_TOGGLE             = "Show/Hide Rotation Builder";
 ROB_UPDATE_INTERVAL                 = 0.2;      -- How often the OnUpdate code will run (in seconds)
-
-local ROB_ROTATION_TYPE             = { EDITING=1, SELECTED=2 };
 
 -- Scroll Frame Lines
 local ROB_ROTATION_LIST_LINES       = 9;
@@ -376,55 +373,55 @@ end
 
 function ROB_LoadDefaultRotations()
 	if (ROB_CLASS_NAME == "DEATHKNIGHT") then
-		ROB_ImportRotation(ROB_DEATHKNIGHT_BLOOD)
-		ROB_ImportRotation(ROB_DEATHKNIGHT_FROST)
-		ROB_ImportRotation(ROB_DEATHKNIGHT_UNHOLY)
+		ROB_ImportRotation(L['ROB_DEATHKNIGHT_BLOOD'])
+		ROB_ImportRotation(L['ROB_DEATHKNIGHT_FROST'])
+		ROB_ImportRotation(L['ROB_DEATHKNIGHT_UNHOLY'])
 	end
 	if (ROB_CLASS_NAME == "DRUID") then
-		ROB_ImportRotation(ROB_DRUID_BALANCE)
-		ROB_ImportRotation(ROB_DRUID_FERAL)
-		ROB_ImportRotation(ROB_DRUID_GUARDIAN)
+		ROB_ImportRotation(L['ROB_DRUID_BALANCE'])
+		ROB_ImportRotation(L['ROB_DRUID_FERAL'])
+		ROB_ImportRotation(L['ROB_DRUID_GUARDIAN'])
 	end
 	if (ROB_CLASS_NAME == "HUNTER") then
-		ROB_ImportRotation(ROB_HUNTER_BEASTMASTERY)
-		ROB_ImportRotation(ROB_HUNTER_MARKSMANSHIP)
-		ROB_ImportRotation(ROB_HUNTER_SURVIVAL)
+		ROB_ImportRotation(L['ROB_HUNTER_BEASTMASTERY'])
+		ROB_ImportRotation(L['ROB_HUNTER_MARKSMANSHIP'])
+		ROB_ImportRotation(L['ROB_HUNTER_SURVIVAL'])
 	end
 	if (ROB_CLASS_NAME == "MAGE") then
-		ROB_ImportRotation(ROB_MAGE_ARCANE)
-		ROB_ImportRotation(ROB_MAGE_FIRE)
-		ROB_ImportRotation(ROB_MAGE_FROST)
+		ROB_ImportRotation(L['ROB_MAGE_ARCANE'])
+		ROB_ImportRotation(L['ROB_MAGE_FIRE'])
+		ROB_ImportRotation(L['ROB_MAGE_FROST'])
 	end
 	if (ROB_CLASS_NAME == "MONK") then
 		ROB_ImportRotation(ROB_MONK_BREWMASTER)
 		ROB_ImportRotation(ROB_MONK_WINDWALKER)
 	end
 	if (ROB_CLASS_NAME == "PALADIN") then
-		ROB_ImportRotation(ROB_PALADIN_PROTECTION)
-		ROB_ImportRotation(ROB_PALADIN_RETRIBUTION)
+		ROB_ImportRotation(L['ROB_PALADIN_PROTECTION'])
+		ROB_ImportRotation(L['ROB_PALADIN_RETRIBUTION'])
 	end
 	if (ROB_CLASS_NAME == "PRIEST") then
-		ROB_ImportRotation(ROB_PRIEST_SHADOW)
+		ROB_ImportRotation(L['ROB_PRIEST_SHADOW'])
 	end
 	if (ROB_CLASS_NAME == "ROGUE") then
-		ROB_ImportRotation(ROB_ROGUE_ASSASSINATION)
-		ROB_ImportRotation(ROB_ROGUE_COMBAT)
-		ROB_ImportRotation(ROB_ROGUE_SUBTLETY)
+		ROB_ImportRotation(L['ROB_ROGUE_ASSASSINATION'])
+		ROB_ImportRotation(L['ROB_ROGUE_COMBAT'])
+		ROB_ImportRotation(L['ROB_ROGUE_SUBTLETY'])
 	end
 	if (ROB_CLASS_NAME == "SHAMAN") then
-		ROB_ImportRotation(ROB_SHAMAN_ELEMENTAL)
-		ROB_ImportRotation(ROB_SHAMAN_ENHANCEMENT)
+		ROB_ImportRotation(L['ROB_SHAMAN_ELEMENTAL'])
+		ROB_ImportRotation(L['ROB_SHAMAN_ENHANCEMENT'])
 	end
 	if (ROB_CLASS_NAME == "WARLOCK") then
-		ROB_ImportRotation(ROB_WARLOCK_AFFLICTION)
-		ROB_ImportRotation(ROB_WARLOCK_DEMONOLOGY)
-		ROB_ImportRotation(ROB_WARLOCK_DESTRUCTION)
+		ROB_ImportRotation(L['ROB_WARLOCK_AFFLICTION'])
+		ROB_ImportRotation(L['ROB_WARLOCK_DEMONOLOGY'])
+		ROB_ImportRotation(L['ROB_WARLOCK_DESTRUCTION'])
 	end
 	if (ROB_CLASS_NAME == "WARRIOR") then
-		ROB_ImportRotation(ROB_WARRIOR_ARMS)
-		ROB_ImportRotation(ROB_WARRIOR_FURY_1_HAND)
-		ROB_ImportRotation(ROB_WARRIOR_FURY_2_HAND)
-		ROB_ImportRotation(ROB_WARRIOR_PROTECTION)
+		ROB_ImportRotation(L['ROB_WARRIOR_ARMS'])
+		ROB_ImportRotation(L['ROB_WARRIOR_FURY_1_HAND'])
+		ROB_ImportRotation(L['ROB_WARRIOR_FURY_2_HAND'])
+		ROB_ImportRotation(L['ROB_WARRIOR_PROTECTION'])
 	end
 	-- update rotation list
 	ROB_SortRotationList()
@@ -488,16 +485,16 @@ function ROB_MenuOnClick(self, button)
 end
 
 function ROB_LoadDataBrokerPlugin()
-	LibStub:GetLibrary('LibDataBroker-1.1'):NewDataObject(ROB_ADDON_NAME, {
+	LibStub:GetLibrary('LibDataBroker-1.1'):NewDataObject(L['ROB_ADDON_NAME'], {
 		type = 'launcher',
-		text = ROB_ADDON_NAME,
+		text = L['ROB_ADDON_NAME'],
 		icon = 'Interface\\Icons\\Spell_Arcane_PortalOrgrimmar',
 		OnClick = ROB_MenuOnClick,
 		OnTooltipShow = function(tooltip)
 			if not tooltip or not tooltip.AddLine then return end
-			tooltip:AddLine(ROB_UI_TITLE)
-			tooltip:AddLine(ROB_UI_LDB_TT1)
-			tooltip:AddLine(ROB_UI_LDB_TT2)
+			tooltip:AddLine(L['ROB_UI_TITLE'])
+			tooltip:AddLine(L['ROB_UI_LDB_TT1'])
+			tooltip:AddLine(L['ROB_UI_LDB_TT2'])
 		end,
 	})
 end
@@ -532,22 +529,22 @@ function ROB_LoadMasquePlugin()
 		ROB_LM = LibMasque("Button")
 	else
 		ROB_LM = LibStub('LibButtonFacade', true)
-		ROB_LM:RegisterSkinCallback(ROB_ADDON_NAME, ROB_OnSkin, _skinid, _gloss, _backdrop, _group, _button, _colors)
+		ROB_LM:RegisterSkinCallback(L['ROB_ADDON_NAME'], ROB_OnSkin, _skinid, _gloss, _backdrop, _group, _button, _colors)
 	end
 
-	ROB_LM:Group(ROB_ADDON_NAME, 'Current Action'):AddButton(ROB_CurrentActionButton)
-	ROB_LM:Group(ROB_ADDON_NAME, 'Current Action'):AddButton(ROB_NextActionButton)
-	ROB_LM:Group(ROB_ADDON_NAME, 'Toggle1'):AddButton(ROB_RotationToggle1Button)
-	ROB_LM:Group(ROB_ADDON_NAME, 'Toggle2'):AddButton(ROB_RotationToggle2Button)
-	ROB_LM:Group(ROB_ADDON_NAME, 'Toggle3'):AddButton(ROB_RotationToggle3Button)
-	ROB_LM:Group(ROB_ADDON_NAME, 'Toggle4'):AddButton(ROB_RotationToggle4Button)
+	ROB_LM:Group(L['ROB_ADDON_NAME'], 'Current Action'):AddButton(ROB_CurrentActionButton)
+	ROB_LM:Group(L['ROB_ADDON_NAME'], 'Current Action'):AddButton(ROB_NextActionButton)
+	ROB_LM:Group(L['ROB_ADDON_NAME'], 'Toggle1'):AddButton(ROB_RotationToggle1Button)
+	ROB_LM:Group(L['ROB_ADDON_NAME'], 'Toggle2'):AddButton(ROB_RotationToggle2Button)
+	ROB_LM:Group(L['ROB_ADDON_NAME'], 'Toggle3'):AddButton(ROB_RotationToggle3Button)
+	ROB_LM:Group(L['ROB_ADDON_NAME'], 'Toggle4'):AddButton(ROB_RotationToggle4Button)
 
-	if ROB_Options['CABSkin'] then ROB_LM:Group(ROB_ADDON_NAME, 'Current Action'):Skin(unpack(ROB_Options["CABSkin"])) end
-	if ROB_Options['NABSkin'] then ROB_LM:Group(ROB_ADDON_NAME, 'Next Action'):Skin(unpack(ROB_Options['NABSkin'])) end
-	if ROB_Options['T1Skin'] then ROB_LM:Group(ROB_ADDON_NAME, 'Toggle1'):Skin(unpack(ROB_Options['T1Skin'])) end
-	if ROB_Options['T2Skin'] then ROB_LM:Group(ROB_ADDON_NAME, 'Toggle2'):Skin(unpack(ROB_Options['T2Skin'])) end
-	if ROB_Options['T3Skin'] then ROB_LM:Group(ROB_ADDON_NAME, 'Toggle3'):Skin(unpack(ROB_Options['T3Skin'])) end
-	if ROB_Options['T4Skin'] then ROB_LM:Group(ROB_ADDON_NAME, 'Toggle4'):Skin(unpack(ROB_Options['T4Skin'])) end
+	if ROB_Options['CABSkin'] then ROB_LM:Group(L['ROB_ADDON_NAME'], 'Current Action'):Skin(unpack(ROB_Options["CABSkin"])) end
+	if ROB_Options['NABSkin'] then ROB_LM:Group(L['ROB_ADDON_NAME'], 'Next Action'):Skin(unpack(ROB_Options['NABSkin'])) end
+	if ROB_Options['T1Skin'] then ROB_LM:Group(L['ROB_ADDON_NAME'], 'Toggle1'):Skin(unpack(ROB_Options['T1Skin'])) end
+	if ROB_Options['T2Skin'] then ROB_LM:Group(L['ROB_ADDON_NAME'], 'Toggle2'):Skin(unpack(ROB_Options['T2Skin'])) end
+	if ROB_Options['T3Skin'] then ROB_LM:Group(L['ROB_ADDON_NAME'], 'Toggle3'):Skin(unpack(ROB_Options['T3Skin'])) end
+	if ROB_Options['T4Skin'] then ROB_LM:Group(L['ROB_ADDON_NAME'], 'Toggle4'):Skin(unpack(ROB_Options['T4Skin'])) end
 end
 
 function ROB_OnLoad(self)
@@ -568,7 +565,7 @@ function ROB_OnLoad(self)
 	-- create a dialog for list deletion
 	StaticPopupDialogs["ROB_PROMPT_LIST_DELETE"] =
 	{
-		text                 = TEXT(ROB_PROMPT_LIST_DELETE),
+		text                 = TEXT(L['ROB_PROMPT_LIST_DELETE']),
 		button1              = TEXT(YES),
 		button2              = TEXT(CANCEL),
 		OnAccept             =  function(self)
@@ -585,7 +582,7 @@ function ROB_OnLoad(self)
 
 	StaticPopupDialogs["ROB_PROMPT_SPELLLIST_DELETE"] =
 	{
-		text                 = TEXT(ROB_PROMPT_SPELLLIST_DELETE),
+		text                 = TEXT(L['ROB_PROMPT_SPELLLIST_DELETE']),
 		button1              = TEXT(YES),
 		button2              = TEXT(CANCEL),
 		OnAccept             =  function(self)
@@ -599,7 +596,7 @@ function ROB_OnLoad(self)
 		whileDead            = 1,
 		hideOnEscape         = 1
 	}
-	print(string.format(ROB_LOADED, ROB_VERSION));
+	print(string.format(L["ROB_LOADED"], ROB_VERSION));
 end
 
 function ROB_SpellIsInRotation(_spellname)
@@ -759,7 +756,7 @@ function ROB_OnEvent(self, event, ...)
 		if arg5 ~= UnitName("player") then return end
 		if not GetSpellLink(arg15) then return end
 		if not GetSpellLink(_eventSpellname) then return end
-		_message = (""..GetSpellLink(_eventSpellname).." "..ROB_UI_INTERRUPTED_MSG.." "..GetSpellLink(arg15))
+		_message = (""..GetSpellLink(_eventSpellname).." "..L['ROB_UI_INTERRUPTED_MSG'].." "..GetSpellLink(arg15))
 		print(_message)
 		end]]--
 	end
@@ -1191,7 +1188,7 @@ function ROB_SwitchRotation(RotationID,_byName)
 			end
 		end
 		if (_MatchingRotationName == nil) then
-			print(ROB_UI_DEBUG_PREFIX..ROB_UI_ROTATION_E1)
+			print(L['ROB_UI_DEBUG_PREFIX']..L['ROB_UI_ROTATION_E1'])
 			return;
 		end
 		ROB_SelectedRotationName = _MatchingRotationName
@@ -1230,7 +1227,7 @@ function ROB_SwitchRotation(RotationID,_byName)
 
 		ROB_Options["lastrotation"] = ROB_SelectedRotationName
 	else
-		print(ROB_UI_DEBUG_PREFIX..RotationID.." "..ROB_UI_ROTATION_E2)
+		print(L['ROB_UI_DEBUG_PREFIX']..RotationID.." "..L['ROB_UI_ROTATION_E2'])
 	end
 
 	ROB_RotationModifyButtons_UpdateUI()
@@ -1422,7 +1419,7 @@ end
 function ROB_SpellListNameInputBox_OnTextChanged(self)
 	local _text = self:GetText()
 	if (string.find(_text, "%[") or string.find(_text, "%]") or string.find(_text, ",")) then
-		print(ROB_UI_ADD_ROTATION_CFAIL)
+		print(L['ROB_UI_ADD_ROTATION_CFAIL'])
 		return
 	end
 	ROB_SelectedSpellListName = ROB_SpellListNameInputBox:GetText();
@@ -1432,7 +1429,7 @@ end
 function ROB_RotationNameInputBox_OnTextChanged(self)
 	local _text = self:GetText()
 	if (string.find(_text, "%[") or string.find(_text, "%]") or string.find(_text, ",")) then
-		print(ROB_UI_ADD_ROTATION_CFAIL)
+		print(L['ROB_UI_ADD_ROTATION_CFAIL'])
 		return
 	end
 	ROB_SelectedRotationName = ROB_RotationNameInputBox:GetText();
@@ -1632,7 +1629,7 @@ function ROB_PasteActionOnAccept(_text)
 	end
 
 	if (string.find(_text, "%[") or string.find(_text, "%]") or string.find(_text, ",") or string.find(_text, "=")) then
-		print(ROB_UI_ADD_ACTION_CFAIL)
+		print(L['ROB_UI_ADD_ACTION_CFAIL'])
 	end
 
 	for key, value in pairs(ROB_EditingRotationTable.SortedActions) do
@@ -1809,7 +1806,7 @@ function ROB_SpellValidate(_spell)
 		GameTooltip:SetHyperlink(_link)
 	else
 		ROB_SpellNameInputBoxIcon:SetTexture("Interface\\RaidFrame\\ReadyCheck-NotReady")
-		ROB_SpellNameValidateText:SetText(ROB_UI_AO_G_SID_VFAIL)
+		ROB_SpellNameValidateText:SetText(L['ROB_UI_AO_G_SID_VFAIL'])
 	end
 end
 
@@ -1894,11 +1891,11 @@ function ROB_GetString(_prompt, _defaultvalue, _cancelable, _okcallback, _cancel
 	ROB_StringDialog_TextBox:SetText(_defaultvalue)
 	if _cancelable then
 		ROB_StringDialog_OKButton:Show()
-		ROB_StringDialog_OKButton:SetText(ROB_UI_OK_BUTTON)
-		ROB_StringDialog_CancelButton:SetText(ROB_UI_CANCEL_BUTTON)
+		ROB_StringDialog_OKButton:SetText(L['ROB_UI_OK_BUTTON'])
+		ROB_StringDialog_CancelButton:SetText(L['ROB_UI_CANCEL_BUTTON'])
 	else
 		ROB_StringDialog_OKButton:Hide()
-		ROB_StringDialog_CancelButton:SetText(ROB_UI_CLOSE_BUTTON)
+		ROB_StringDialog_CancelButton:SetText(L['ROB_UI_CLOSE_BUTTON'])
 	end
 	ROB_StringDialog.OKCallbackFunction = _okcallback
 	ROB_StringDialog.CancelCallbackFunction = _cancelcallback
@@ -2157,7 +2154,7 @@ function ROB_ActionKeyBindButton_OnClick(self, button)
 			}
 
 			if keyPressed == "ESCAPE" then
-				keyPressed = ROB_UI_KEYBIND
+				keyPressed = L['ROB_UI_KEYBIND']
 			else
 				if ignoreKeys[keyPressed] then return end
 				if IsAltKeyDown() then
@@ -2198,7 +2195,7 @@ function ROB_ActionKeyBindButton_OnClick(self, button)
 		else
 			_G["ROB_AO_ActionKeyBindButton"]:EnableKeyboard(true)
 			_G["ROB_AO_ActionKeyBindButton"]:LockHighlight()
-			_G["ROB_AO_ActionKeyBindButton"]:SetText(ROB_UI_PRESSKEY)
+			_G["ROB_AO_ActionKeyBindButton"]:SetText(L['ROB_UI_PRESSKEY'])
 			self.waitingForKey = true
 		end
 	end
@@ -2219,7 +2216,7 @@ function ROB_RotationKeyBindButton_OnClick(self)
 		else
 			_G["ROB_RotationKeyBindButton"]:EnableKeyboard(true)
 			_G["ROB_RotationKeyBindButton"]:LockHighlight()
-			_G["ROB_RotationKeyBindButton"]:SetText(ROB_UI_PRESSKEY)
+			_G["ROB_RotationKeyBindButton"]:SetText(L['ROB_UI_PRESSKEY'])
 			self.waitingForKey = true
 		end
 	end
@@ -2247,7 +2244,7 @@ function ROB_RotationKeyBindButton_OnKeyDown(self, key)
 		if (ROB_EditingRotationTable ~= nil) then
 
 			if keyPressed == "ESCAPE" then
-				keyPressed = ROB_UI_KEYBIND
+				keyPressed = L['ROB_UI_KEYBIND']
 			else
 				if ignoreKeys[keyPressed] then return end
 				if IsAltKeyDown() then
@@ -2292,7 +2289,7 @@ function ROB_RotationKeyBindButton_OnKeyDown(self, key)
 				end
 			end
 
-			if (keyPressed == ROB_UI_KEYBIND) then
+			if (keyPressed == L['ROB_UI_KEYBIND']) then
 				ClearBindings(ROB_EditingRotationTable.keybind);
 				_G["ROB_RotationKeyBindButton"]:SetText(keyPressed)
 				ROB_EditingRotationTable.keybind = keyPressed
@@ -2350,7 +2347,7 @@ function ROB_AO_ActionKeyBindButton_OnKeyDown(self, key)
 		}
 
 		if keyPressed == "ESCAPE" then
-			keyPressed = ROB_UI_KEYBIND
+			keyPressed = L['ROB_UI_KEYBIND']
 		else
 			if ignoreKeys[keyPressed] then return end
 			if IsAltKeyDown() then
@@ -2958,7 +2955,7 @@ function ROB_Rotation_Edit_UpdateUI()
 		if (ROB_EditingRotationTable.ActionList[ROB_CurrentActionName] ~= nil) then
 			local _ActionDB = ROB_EditingRotationTable.ActionList[ROB_CurrentActionName]
 			-- RETRIEVE_NEW_OPTIONS_BELOW
-			ROB_Rotation_GUI_SetText("ROB_AO_ActionKeyBindButton",_ActionDB.v_keybind,ROB_UI_KEYBIND)
+			ROB_Rotation_GUI_SetText("ROB_AO_ActionKeyBindButton",_ActionDB.v_keybind,L['ROB_UI_KEYBIND'])
 			ROB_Rotation_GUI_SetText("ROB_SpellNameInputBox",_ActionDB.v_spellname,"<spellname>")
 			ROB_SpellValidate(_ActionDB.v_spellname)
 
@@ -3297,11 +3294,11 @@ function ROB_Rotation_Edit_UpdateUI()
 	-- update the menu
 	if (LibStub and LibStub:GetLibrary('LibDataBroker-1.1', true)) then
 		local ldb = LibStub:GetLibrary("LibDataBroker-1.1")
-		local mymenu = ldb:GetDataObjectByName(ROB_ADDON_NAME)
+		local mymenu = ldb:GetDataObjectByName(L['ROB_ADDON_NAME'])
 		if (ROB_SelectedRotationName and mymenu) then
-			mymenu.label = ROB_ADDON_NAME.." ["..ROB_SelectedRotationName.."]"
+			mymenu.label = L['ROB_ADDON_NAME'].." ["..ROB_SelectedRotationName.."]"
 		elseif (not ROB_SelectedRotationName and mymenu) then
-			mymenu.label = ROB_ADDON_NAME
+			mymenu.label = L['ROB_ADDON_NAME']
 		end
 	end
 end
@@ -3342,7 +3339,7 @@ function ROB_AddSpell(_SpellID, _SpellName)
 end
 
 function ROB_RotationImportButton_OnClick()
-	ROB_GetString(ROB_UI_IMPORT_MESSAGE, "", true, ROB_RotationImport)
+	ROB_GetString(L['ROB_UI_IMPORT_MESSAGE'], "", true, ROB_RotationImport)
 end
 
 function ROB_RotationImport(_RotationBuild)
@@ -3359,7 +3356,7 @@ function ROB_ImportRotation(_RotationBuild)
 		--First check that the import string is from Rotation Builder or Rotation Builder for down compatibility purpose.
 		-- TODO PEL : find a better way to match a correct import.
 		if (string.sub(_RotationBuild, 1,15) ~= "RotationBuilder") then
-			print(ROB_UI_IMPORT_ERROR3)
+			print(L['ROB_UI_IMPORT_ERROR3'])
 			return
 		end
 
@@ -3368,7 +3365,7 @@ function ROB_ImportRotation(_RotationBuild)
 	end
 
 	if ((not _parsedRotationName) or _parsedRotationName == "" or (not _RotationBuild) or _RotationBuild == "") then
-		print(ROB_UI_IMPORT_ERROR1)
+		print(L['ROB_UI_IMPORT_ERROR1'])
 		return
 	end
 
@@ -3380,7 +3377,7 @@ function ROB_ImportRotation(_RotationBuild)
 	--Removed overwrite ability, it was confusing better to just not allow import overwriting
 	--if (_AlreadyExists and not ROB_Options.AllowOverwrite) then
 	if (_AlreadyExists) then
-		print(ROB_UI_DEBUG_PREFIX.._parsedRotationName..":"..ROB_UI_IMPORT_ERROR2)
+		print(L['ROB_UI_DEBUG_PREFIX'].._parsedRotationName..":"..L['ROB_UI_IMPORT_ERROR2'])
 		return
 		--elseif (_AlreadyExists and ROB_Options.AllowOverwrite) then
 		--   ROB_Rotations[_parsedRotationName].rangespell = {}
@@ -3388,7 +3385,7 @@ function ROB_ImportRotation(_RotationBuild)
 	elseif (not _AlreadyExists) then
 		ROB_Rotations[_parsedRotationName] = {}
 		ROB_Rotations[_parsedRotationName]["keybind"] = {}
-		ROB_Rotations[_parsedRotationName]["keybind"] = ROB_UI_KEYBIND
+		ROB_Rotations[_parsedRotationName]["keybind"] = L['ROB_UI_KEYBIND']
 		ROB_Rotations[_parsedRotationName]["rangespell"] = {}
 		ROB_Rotations[_parsedRotationName]["rangespell"] = _parsedRangeSpell
 		ROB_Rotations[_parsedRotationName]["SortedActions"] = {}
@@ -3495,13 +3492,13 @@ function ROB_ImportRotation(_RotationBuild)
 	-- update rotation ui stuff
 	ROB_Rotation_Edit_UpdateUI();
 
-	print(ROB_UI_IMPORT_SUCCESS..":".._parsedRotationName)
+	print(L['ROB_UI_IMPORT_SUCCESS']..":".._parsedRotationName)
 end
 
 function ROB_RotationExportButton_OnClick()
 	local RotationBuild = ROB_ExportRotation(ROB_SortedRotations[ROB_SelectedRotationIndex])
 	if RotationBuild then
-		ROB_GetString(ROB_UI_EXPORT_MESSAGE, RotationBuild)
+		ROB_GetString(L['ROB_UI_EXPORT_MESSAGE'], RotationBuild)
 	end
 end
 
@@ -4798,13 +4795,13 @@ function ROB_SetNextActionLabel(_compareaction)
 			--range check turned on : have ready next action : determine if _compareaction is in range
 			if (ROB_ActionInRange(_compareaction,"target")) then
 				--range check turned on : action in range
-				if (ROB_NextActionButtonHotKey:GetText() ~= _ActionDB.v_keybind and _ActionDB.v_keybind ~= ROB_UI_KEYBIND) then ROB_NextActionButtonHotKey:SetText(_ActionDB.v_keybind); end
+				if (ROB_NextActionButtonHotKey:GetText() ~= _ActionDB.v_keybind and _ActionDB.v_keybind ~= L['ROB_UI_KEYBIND']) then ROB_NextActionButtonHotKey:SetText(_ActionDB.v_keybind); end
 			else
 				--range check turned on : action oor : determine if we display tint or oor texture
 				_r, _g, _b = ROB_GetActionTintColor(_compareaction)
 				if (_r) then
 					--range check turned on : action oor : tint color specified : set the text to the action keybind
-					if (ROB_NextActionButtonHotKey:GetText() ~= _ActionDB.v_keybind and _ActionDB.v_keybind ~= ROB_UI_KEYBIND) then ROB_NextActionButtonHotKey:SetText(_ActionDB.v_keybind); end
+					if (ROB_NextActionButtonHotKey:GetText() ~= _ActionDB.v_keybind and _ActionDB.v_keybind ~= L['ROB_UI_KEYBIND']) then ROB_NextActionButtonHotKey:SetText(_ActionDB.v_keybind); end
 				else
 					--range check turned on : action oor : no tint color specified : clear the text
 					ROB_NextActionButtonHotKey:SetText()
@@ -4812,7 +4809,7 @@ function ROB_SetNextActionLabel(_compareaction)
 			end
 		else
 			--range check turned off : display action keybind
-			if (ROB_NextActionButtonHotKey:GetText() ~= _ActionDB.v_keybind and _ActionDB.v_keybind ~= ROB_UI_KEYBIND) then ROB_NextActionButtonHotKey:SetText(_ActionDB.v_keybind); end
+			if (ROB_NextActionButtonHotKey:GetText() ~= _ActionDB.v_keybind and _ActionDB.v_keybind ~= L['ROB_UI_KEYBIND']) then ROB_NextActionButtonHotKey:SetText(_ActionDB.v_keybind); end
 		end
 	end
 end
@@ -4832,7 +4829,7 @@ function ROB_SetCurrentActionLabel(_compareaction)
 			ROB_CurrentActionButtonHotKey:SetText()
 			return
 		end
-		if (ROB_CurrentActionButtonHotKey:GetText() ~= _ActionDB.v_keybind and _ActionDB.v_keybind ~= ROB_UI_KEYBIND) then ROB_CurrentActionButtonHotKey:SetText(_ActionDB.v_keybind); end
+		if (ROB_CurrentActionButtonHotKey:GetText() ~= _ActionDB.v_keybind and _ActionDB.v_keybind ~= L['ROB_UI_KEYBIND']) then ROB_CurrentActionButtonHotKey:SetText(_ActionDB.v_keybind); end
 	end
 end
 
@@ -4970,25 +4967,25 @@ function ROB_SpellReady(_actionname,_getnextspell)
 
 			if (ROB_TOGGLE_1 == 0) then
 				_ready = false;
-				ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." T:".._ActionDB.v_togglename.." is off",_ready,_debugon)
+				ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." T:".._ActionDB.v_togglename.." is off",_ready,_debugon)
 			end
 		elseif (_ActionDB.v_togglename == "Toggle 2") then
 			ROB_SetButtonTexture(ROB_RotationToggle2Button, GetTexturePath(_ActionDB.v_toggleicon))
 			if (ROB_TOGGLE_2 == 0) then
 				_ready = false;
-				ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." T:".._ActionDB.v_togglename.." is off",_ready,_debugon)
+				ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." T:".._ActionDB.v_togglename.." is off",_ready,_debugon)
 			end
 		elseif (_ActionDB.v_togglename == "Toggle 3") then
 			ROB_SetButtonTexture(ROB_RotationToggle3Button, GetTexturePath(_ActionDB.v_toggleicon))
 			if (ROB_TOGGLE_3 == 0) then
 				_ready = false;
-				ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." T:".._ActionDB.v_togglename.." is off",_ready,_debugon)
+				ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." T:".._ActionDB.v_togglename.." is off",_ready,_debugon)
 			end
 		elseif (_ActionDB.v_togglename == "Toggle 4") then
 			ROB_SetButtonTexture(ROB_RotationToggle4Button, GetTexturePath(_ActionDB.v_toggleicon))
 			if (ROB_TOGGLE_4 == 0) then
 				_ready = false;
-				ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." T:".._ActionDB.v_togglename.." is off",_ready,_debugon)
+				ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." T:".._ActionDB.v_togglename.." is off",_ready,_debugon)
 			end
 		end
 	end
@@ -4998,7 +4995,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	end
 	-- CHECK: if the action is enabled---------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_disabled) then
-		ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." because the action is disabled",_getnextspell,_debugon)
+		ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." because the action is disabled",_getnextspell,_debugon)
 		return false
 	end
 
@@ -5013,15 +5010,15 @@ function ROB_SpellReady(_actionname,_getnextspell)
 		end
 		if (_name == nil) then
 			-- If the name isn't foud, then we don't know the spell.
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._ActionDB.v_spellname.." because this spellname is not available or does not exist due to talents or something. Check spelling or try using the spellid from wowhead instead.",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._ActionDB.v_spellname.." because this spellname is not available or does not exist due to talents or something. Check spelling or try using the spellid from wowhead instead.",_getnextspell,_debugon)
 			return false
 		end
 		_usable, _nomana = IsUsableSpell(_ActionDB.v_spellname)
 		--The default is to show spells even if you dont have mana/rage/ whatever power to cast it, if player wants a power check they can use the power check in player tab
 		if (not _usable and not _nomana) then
 			--Even when we are getting the next spell we dont want to say its ready when its not usable because not usable means we dont have the spell
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._ActionDB.v_spellname.." because this spellname is not available or does not exist due to talents or something. Check spelling or try using the spellid from wowhead instead.",_getnextspell,_debugon)
-			--ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." is not usable or you dont have enough power. Check the spellname in the General Tab.",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._ActionDB.v_spellname.." because this spellname is not available or does not exist due to talents or something. Check spelling or try using the spellid from wowhead instead.",_getnextspell,_debugon)
+			--ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." is not usable or you dont have enough power. Check the spellname in the General Tab.",_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5083,11 +5080,11 @@ function ROB_SpellReady(_actionname,_getnextspell)
 		--Should never need to check this because getNextSpell sorts be what spell is coming up next with the shortest cooldown or shortest time left on the dot
 		--we are trying to determine if we should show the next spell coming up but we dont want to show spells with cooldowns more than 5 seconds, who cares about those
 		--if (_cooldownLeft > 5) then
-		--	ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." has a cooldown longer than 5 seconds",_getnextspell,_debugon)
+		--	ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." has a cooldown longer than 5 seconds",_getnextspell,_debugon)
 		--	return false
 		--end
 		else
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." is in cooldown",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." is in cooldown",_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5095,7 +5092,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	-- CHECK: Other Cooldown-----------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_checkothercd and _ActionDB.v_checkothercdname and _ActionDB.v_checkothercdname ~= "" and _ActionDB.v_checkothercdvalue and _ActionDB.v_checkothercdvalue ~= "") then
 		if (not ROB_SpellPassesOtherCooldownCheck(_ActionDB.v_checkothercdname,_ActionDB.v_checkothercdvalue)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._ActionDB.v_spellname.." other cooldown check ".._ActionDB.v_checkothercdname.._ActionDB.v_checkothercdvalue.." failed",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._ActionDB.v_spellname.." other cooldown check ".._ActionDB.v_checkothercdname.._ActionDB.v_checkothercdvalue.." failed",_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5139,7 +5136,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	if (_ActionDB.b_breakchanneling and ROB_UnitIsCasting("player", _ActionDB.v_breakchanneling)) then
 	--dont return false because player is casting a spell allowed in the breachanneling list
 	else
-	ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._ActionDB.v_spellname.." player is casting: "..tostring(_channeling).." which is not found the spell list: "..tostring(_ActionDB.v_breakchanneling),_getnextspell,_debugon)
+	ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._ActionDB.v_spellname.." player is casting: "..tostring(_channeling).." which is not found the spell list: "..tostring(_ActionDB.v_breakchanneling),_getnextspell,_debugon)
 	return false
 	end
 	end
@@ -5147,31 +5144,31 @@ function ROB_SpellReady(_actionname,_getnextspell)
 
 	-- CHECK: Check Moving-----------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_moving and GetUnitSpeed("player") == 0) then
-		ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._ActionDB.v_spellname.." because player is not moving",_ready,_debugon)
+		ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._ActionDB.v_spellname.." because player is not moving",_ready,_debugon)
 		return false
 	end
 	if (not _ActionDB.b_moving and _castTime and _castTime > 0 and GetUnitSpeed("player") > 0) then
 
-		ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._ActionDB.v_spellname.." because player can not cast "..tostring(_name).." while moving",_ready,_debugon)
+		ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._ActionDB.v_spellname.." because player can not cast "..tostring(_name).." while moving",_ready,_debugon)
 		return false
 	end
 	-- CHECK: Not Moving-----------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_notmoving and GetUnitSpeed("player") > 0) then
-		ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._ActionDB.v_spellname.." because player is moving",_ready,_debugon)
+		ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._ActionDB.v_spellname.." because player is moving",_ready,_debugon)
 		return false
 	end
 
 
 	-- CHECK: Range-------------------------------------------------------------------------------------------
 	if (_ActionDB.b_rangecheck and (not ROB_ActionInRange(_actionname,"target")) and (not _getnextspell)) then
-		ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." has range checking turned on and is out of range of your target (make sure to uncheck range for self buffs)",_getnextspell,_debugon)
+		ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." has range checking turned on and is out of range of your target (make sure to uncheck range for self buffs)",_getnextspell,_debugon)
 		return false
 	end
 
 	-- CHECK: Out of Range-------------------------------------------------------------------------------------------
 	if (_ActionDB.b_oorspell and _ActionDB.v_oorspell ~=nil and _ActionDB.v_oorspell ~= "") then
 		if (ROB_ActionInRange(_actionname, "target") and (not _getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." because target is in range of ".._ActionDB.v_oorspell,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." because target is in range of ".._ActionDB.v_oorspell,_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5179,7 +5176,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	-- CHECK: Maximum sequential casts---------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_maxcasts and _ActionDB.v_maxcasts ~= nil and _ActionDB.v_maxcasts ~= "" and tonumber(_ActionDB.v_maxcasts) >= 0) then
 		if (ROB_LAST_CASTED == _name and ROB_LAST_CASTED_COUNT >= tonumber(_ActionDB.v_maxcasts)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." has reached max cast count of ".._ActionDB.v_maxcasts,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." has reached max cast count of ".._ActionDB.v_maxcasts,_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5187,7 +5184,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	-- CHECK: Duration -----------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_duration and _ActionDB.v_durationstartedtime ~=nil and _ActionDB.v_duration ~= nil and _ActionDB.v_duration ~= "") then
 		if (GetTime() - tonumber(_ActionDB.v_durationstartedtime) < tonumber(_ActionDB.v_duration)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." player already casted this spell before duration ".._ActionDB.v_duration.." has expired",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." player already casted this spell before duration ".._ActionDB.v_duration.." has expired",_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5195,7 +5192,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	-- CHECK: Need Buff-----------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_p_needbuff and _ActionDB.v_p_needbuff ~= nil and _ActionDB.v_p_needbuff ~= "") then
 		if (ROB_UnitHasBuff(_ActionDB.v_p_needbuff, "player",_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." player had these buffs ".._ActionDB.v_p_needbuff,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." player had these buffs ".._ActionDB.v_p_needbuff,_getnextspell,_debugon)
 			-- Dont allow _getnextspell bypassing because it causes next action to display actions that depend on buffs missing
 			return false
 		end
@@ -5203,7 +5200,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 
 	if (_ActionDB.b_t_needsbuff and _ActionDB.v_t_needsbuff ~= nil and _ActionDB.v_t_needsbuff ~= "") then
 		if (ROB_UnitHasBuff(_ActionDB.v_t_needsbuff, "target",_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." target had these buffs ".._ActionDB.v_t_needsbuff,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." target had these buffs ".._ActionDB.v_t_needsbuff,_getnextspell,_debugon)
 			-- Dont allow _getnextspell bypassing because it causes next action to display actions that depend on buffs missing
 			return false
 		end
@@ -5211,7 +5208,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 
 	if (_ActionDB.b_pet_needsbuff and _ActionDB.v_pet_needsbuff ~= nil and _ActionDB.v_pet_needsbuff ~= "") then
 		if (ROB_UnitHasBuff(_ActionDB.v_pet_needsbuff, "pet",_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." pet had these buffs ".._ActionDB.v_pet_needsbuff,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." pet had these buffs ".._ActionDB.v_pet_needsbuff,_getnextspell,_debugon)
 			-- Dont allow _getnextspell bypassing because it causes next action to display actions that depend on buffs missing
 			return false
 		end
@@ -5219,7 +5216,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 
 	if (_ActionDB.b_f_needsbuff and _ActionDB.v_f_needsbuff ~= nil and _ActionDB.v_f_needsbuff ~= "") then
 		if (ROB_UnitHasBuff(_ActionDB.v_f_needsbuff, "focus",_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." focus had these buffs ".._ActionDB.v_f_needsbuff,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." focus had these buffs ".._ActionDB.v_f_needsbuff,_getnextspell,_debugon)
 			-- Dont allow _getnextspell bypassing because it causes next action to display actions that depend on buffs missing
 			return false
 		end
@@ -5228,28 +5225,28 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	-- CHECK: Have Buff-----------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_p_havebuff and _ActionDB.v_p_havebuff ~= nil and _ActionDB.v_p_havebuff ~= "") then
 		if (not ROB_UnitHasBuff(_ActionDB.v_p_havebuff, "player",_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." player did not have these buffs ".._ActionDB.v_p_havebuff,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." player did not have these buffs ".._ActionDB.v_p_havebuff,_getnextspell,_debugon)
 			-- dont allow _allowreturn bypassing because it causes next action to display actions that are depend on buffs procing
 			return false
 		end
 	end
 	if (_ActionDB.b_t_hasbuff and _ActionDB.v_t_hasbuff ~= nil and _ActionDB.v_t_hasbuff ~= "") then
 		if (not ROB_UnitHasBuff(_ActionDB.v_t_hasbuff, "target",_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." target did not have these buffs ".._ActionDB.v_t_hasbuff,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." target did not have these buffs ".._ActionDB.v_t_hasbuff,_getnextspell,_debugon)
 			-- dont allow _allowreturn bypassing because it causes next action to display actions that are depend on buffs procing
 			return false
 		end
 	end
 	if (_ActionDB.b_pet_hasbuff and _ActionDB.v_pet_hasbuff ~= nil and _ActionDB.v_pet_hasbuff ~= "") then
 		if (not ROB_UnitHasBuff(_ActionDB.v_pet_hasbuff, "pet",_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." pet did not have these buffs ".._ActionDB.v_pet_hasbuff,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." pet did not have these buffs ".._ActionDB.v_pet_hasbuff,_getnextspell,_debugon)
 			-- dont allow _allowreturn bypassing because it causes next action to display actions that are depend on buffs procing
 			return false
 		end
 	end
 	if (_ActionDB.b_f_hasbuff and _ActionDB.v_f_hasbuff ~= nil and _ActionDB.v_f_hasbuff ~= "") then
 		if (not ROB_UnitHasBuff(_ActionDB.v_f_hasbuff, "focus",_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." focus did not have these buffs ".._ActionDB.v_f_hasbuff,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." focus did not have these buffs ".._ActionDB.v_f_hasbuff,_getnextspell,_debugon)
 			-- dont allow _allowreturn bypassing because it causes next action to display actions that are depend on buffs procing
 			return false
 		end
@@ -5257,93 +5254,93 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	-- CHECK: Needs Debuff-----------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_p_needdebuff and _ActionDB.v_p_needdebuff ~= nil and _ActionDB.v_p_needdebuff ~= "") then
 		if (ROB_UnitHasDebuff(_ActionDB.v_p_needdebuff, "player",_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." player has one of these debuffs ".._ActionDB.v_p_needdebuff,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." player has one of these debuffs ".._ActionDB.v_p_needdebuff,_getnextspell,_debugon)
 			-- dont allow _getnextspell bypassing because it causes next action to display actions that depend on needing a debuff
 			return false
 		end
 	end
 	if (_ActionDB.b_t_needsdebuff and _ActionDB.v_t_needsdebuff ~= nil and _ActionDB.v_t_needsdebuff ~= "") then
 		if (ROB_UnitHasDebuff(_ActionDB.v_t_needsdebuff, "target",_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." target has one of these debuffs ".._ActionDB.v_t_needsdebuff,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." target has one of these debuffs ".._ActionDB.v_t_needsdebuff,_getnextspell,_debugon)
 			return false
 		end
 	end
 	if (_ActionDB.b_pet_needsdebuff and _ActionDB.v_pet_needsdebuff ~= nil and _ActionDB.v_pet_needsdebuff ~= "") then
 		if (ROB_UnitHasDebuff(_ActionDB.v_pet_needsdebuff, "pet",_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." pet has one of these debuffs ".._ActionDB.v_pet_needsdebuff,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." pet has one of these debuffs ".._ActionDB.v_pet_needsdebuff,_getnextspell,_debugon)
 			return false
 		end
 	end
 	if (_ActionDB.b_f_needsdebuff and _ActionDB.v_f_needsdebuff ~= nil and _ActionDB.v_f_needsdebuff ~= "") then
 		if (ROB_UnitHasDebuff(_ActionDB.v_f_needsdebuff, "focus",_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." focus has one of these debuffs ".._ActionDB.v_f_needsdebuff,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." focus has one of these debuffs ".._ActionDB.v_f_needsdebuff,_getnextspell,_debugon)
 			return false
 		end
 	end
 	-- CHECK: Have Debuff-----------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_p_havedebuff and _ActionDB.v_p_havedebuff ~= nil and _ActionDB.v_p_havedebuff ~= "") then
 		if (not ROB_UnitHasDebuff(_ActionDB.v_p_havedebuff, "player",_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." player does not have one of these debuffs ".._ActionDB.v_p_havedebuff,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." player does not have one of these debuffs ".._ActionDB.v_p_havedebuff,_getnextspell,_debugon)
 			-- dont allow _getnextspell bypassing because it causes next action to display actions that depend on having a debuff
 			return false
 		end
 	end
 	if (_ActionDB.b_t_hasdebuff and _ActionDB.v_t_hasdebuff ~= nil and _ActionDB.v_t_hasdebuff ~= "") then
 		if (not ROB_UnitHasDebuff(_ActionDB.v_t_hasdebuff, "target",_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." target does not have one of these debuffs ".._ActionDB.v_t_hasdebuff,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." target does not have one of these debuffs ".._ActionDB.v_t_hasdebuff,_getnextspell,_debugon)
 			return false
 		end
 	end
 	if (_ActionDB.b_pet_hasdebuff and _ActionDB.v_pet_hasdebuff ~= nil and _ActionDB.v_pet_hasdebuff ~= "") then
 		if (not ROB_UnitHasDebuff(_ActionDB.v_pet_hasdebuff, "pet",_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." pet does not have one of these debuffs ".._ActionDB.v_pet_hasdebuff,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." pet does not have one of these debuffs ".._ActionDB.v_pet_hasdebuff,_getnextspell,_debugon)
 			return false
 		end
 	end
 	if (_ActionDB.b_f_hasdebuff and _ActionDB.v_f_hasdebuff ~= nil and _ActionDB.v_f_hasdebuff ~= "") then
 		if (not ROB_UnitHasDebuff(_ActionDB.v_f_hasdebuff, "focus",_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." focus does not have one of these debuffs ".._ActionDB.v_f_hasdebuff,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." focus does not have one of these debuffs ".._ActionDB.v_f_hasdebuff,_getnextspell,_debugon)
 			return false
 		end
 	end
 	-- CHECK: Life -----------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_p_hp and _ActionDB.v_p_hp ~= nil and _ActionDB.v_p_hp ~= "") then
 		if (not ROB_UnitPassesLifeCheck(_ActionDB.v_p_hp,"player")) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." player did not pass life check ".._ActionDB.v_p_hp,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." player did not pass life check ".._ActionDB.v_p_hp,_getnextspell,_debugon)
 			return false
 		end
 	end
 	if (_ActionDB.b_t_hp and _ActionDB.v_t_hp ~= nil and _ActionDB.v_t_hp ~= "") then
 		if (not ROB_UnitPassesLifeCheck(_ActionDB.v_t_hp,"target")) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." target did not pass HP check ".._ActionDB.v_t_hp,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." target did not pass HP check ".._ActionDB.v_t_hp,_getnextspell,_debugon)
 			return false
 		end
 	end
 
 	if (_ActionDB.b_t_maxhp and _ActionDB.v_t_maxhp ~= nil and _ActionDB.v_t_maxhp ~= "") then
 		if (not ROB_UnitPassesLifeCheck(_ActionDB.v_t_maxhp,"target",true)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." target did not pass maximum HP check ".._ActionDB.v_t_maxhp,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." target did not pass maximum HP check ".._ActionDB.v_t_maxhp,_getnextspell,_debugon)
 			return false
 		end
 	end
 
 	if (_ActionDB.b_f_maxhp and _ActionDB.v_f_maxhp ~= nil and _ActionDB.v_f_maxhp ~= "") then
 		if (not ROB_UnitPassesLifeCheck(_ActionDB.v_f_maxhp,"focus",true)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." focus did not pass maximum HP check ".._ActionDB.v_f_maxhp,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." focus did not pass maximum HP check ".._ActionDB.v_f_maxhp,_getnextspell,_debugon)
 			return false
 		end
 	end
 
 	if (_ActionDB.b_pet_hp and _ActionDB.v_pet_hp ~= nil and _ActionDB.v_pet_hp ~= "") then
 		if (not ROB_UnitPassesLifeCheck(_ActionDB.v_pet_hp,"pet")) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." pet did not pass HP check ".._ActionDB.v_pet_hp,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." pet did not pass HP check ".._ActionDB.v_pet_hp,_getnextspell,_debugon)
 			return false
 		end
 	end
 
 	if (_ActionDB.b_f_hp and _ActionDB.v_f_hp ~= nil and _ActionDB.v_f_hp ~= "") then
 		if (not ROB_UnitPassesLifeCheck(_ActionDB.v_f_hp,"focus")) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." focus did not pass HP check ".._ActionDB.v_f_hp,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." focus did not pass HP check ".._ActionDB.v_f_hp,_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5351,7 +5348,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	-- CHECK: Unitpower      -----------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_p_unitpower and _ActionDB.v_p_unitpowertype ~= nil and _ActionDB.v_p_unitpowertype ~= "") then
 		if (not ROB_UnitPassesPowerCheck(_ActionDB.v_p_unitpower,"player",_ActionDB.v_p_unitpowertype,_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." player does not meet power requirement ".._ActionDB.v_p_unitpower.." of type ".._ActionDB.v_p_unitpowertype,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." player does not meet power requirement ".._ActionDB.v_p_unitpower.." of type ".._ActionDB.v_p_unitpowertype,_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5359,7 +5356,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	-- CHECK: MOB Count   -----------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_mobcount and _ActionDB.v_mobcount ~= nil and _ActionDB.v_mobcount ~= "") then
 		if (not ROB_MOBsInArea(_ActionDB.v_mobcount)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." MOB Count check failed. There are "..ROB_NUM_MOBS.." mobs in area, not ".._ActionDB.v_mobcount,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." MOB Count check failed. There are "..ROB_NUM_MOBS.." mobs in area, not ".._ActionDB.v_mobcount,_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5381,28 +5378,28 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	--Blood
 	if (_ActionDB.b_p_bloodrunes and _ActionDB.v_p_bloodrunes ~= nil and _ActionDB.v_p_bloodrunes ~= "") then
 		if (not ROB_UnitPassesRuneCheck(_ActionDB.v_p_bloodrunes,nil,nil,nil,_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." player did not meet blood rune requirement of ".._ActionDB.v_p_bloodrunes,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." player did not meet blood rune requirement of ".._ActionDB.v_p_bloodrunes,_getnextspell,_debugon)
 			return false
 		end
 	end
 	--Frost
 	if (_ActionDB.b_p_frostrunes and _ActionDB.v_p_frostrunes ~= nil and _ActionDB.v_p_frostrunes ~= "") then
 		if (not ROB_UnitPassesRuneCheck(nil,_ActionDB.v_p_frostrunes,nil,nil,_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." player did not meet frost rune requirement of ".._ActionDB.v_p_frostrunes,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." player did not meet frost rune requirement of ".._ActionDB.v_p_frostrunes,_getnextspell,_debugon)
 			return false
 		end
 	end
 	--Unholy
 	if (_ActionDB.b_p_unholyrunes and _ActionDB.v_p_unholyrunes ~= nil and _ActionDB.v_p_unholyrunes ~= "") then
 		if (not ROB_UnitPassesRuneCheck(nil,nil,_ActionDB.v_p_unholyrunes,nil,_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." player did not meet unholy rune requirement of ".._ActionDB.v_p_unholyrunes,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." player did not meet unholy rune requirement of ".._ActionDB.v_p_unholyrunes,_getnextspell,_debugon)
 			return false
 		end
 	end
 	--Death
 	if (_ActionDB.b_p_deathrunes and _ActionDB.v_p_deathrunes ~= nil and _ActionDB.v_p_deathrunes ~= "") then
 		if (not ROB_UnitPassesRuneCheck(nil,nil,nil,_ActionDB.v_p_deathrunes,_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." player did not meet death rune requirement of ".._ActionDB.v_p_deathrunes,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." player did not meet death rune requirement of ".._ActionDB.v_p_deathrunes,_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5415,14 +5412,14 @@ function ROB_SpellReady(_actionname,_getnextspell)
 
 	if (_checkmagic == true or _checkpoison == true or _checkdisease == true or _checkcurse == true) then
 		if (not ROB_CheckForDebuffType("player",_checkmagic, _checkpoison, _checkdisease, _checkcurse)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." did not find any debuff types on player",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." did not find any debuff types on player",_getnextspell,_debugon)
 			return false
 		end
 	end
 
 	-- CHECK: Target Interrupt ----------------------------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_t_interrupt and (ROB_UnitIsCasting("target", _ActionDB.v_t_interrupt)) == false) then
-		ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." target is not casting a spell in the ".._ActionDB.v_t_interrupt.." list",_getnextspell,_debugon)
+		ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." target is not casting a spell in the ".._ActionDB.v_t_interrupt.." list",_getnextspell,_debugon)
 		return false
 	end
 
@@ -5435,35 +5432,35 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	if (_focusCasting and _ActionDB.b_f_casting) then
 	_timeLeft =  (_endTime/1000) - GetTime()
 	if (not string.find(_ActionDB.v_f_castingname, _focusCasting)) then
-	ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." focus is not casting the spell ".._ActionDB.v_f_castingname,_getnextspell,_debugon)
+	ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." focus is not casting the spell ".._ActionDB.v_f_castingname,_getnextspell,_debugon)
 	return false
 	end
 	if (_timeLeft > _ActionDB.v_f_castingvalue) then
-	ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." focus casting is not less than ".._ActionDB.v_f_castingvalue,_getnextspell,_debugon)
+	ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." focus casting is not less than ".._ActionDB.v_f_castingvalue,_getnextspell,_debugon)
 	return false
 	end
 	elseif (_focusCasting == nil and _ActionDB.b_f_casting) then
-	--ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." focus is not casting anything",_getnextspell,_debugon)
+	--ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." focus is not casting anything",_getnextspell,_debugon)
 	return false
 	end--]]
 
 	-- CHECK: Focus Interrupt ----------------------------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_f_interrupt and (ROB_UnitIsCasting("focus", _ActionDB.v_f_interrupt)) == false) then
-		ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." focus is not casting a spell in the ".._ActionDB.v_f_interrupt.." list",_getnextspell,_debugon)
+		ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." focus is not casting a spell in the ".._ActionDB.v_f_interrupt.." list",_getnextspell,_debugon)
 		return false
 	end
 
 	-- CHECK: Class ----------------------------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_t_class and _ActionDB.v_t_class ~= nil and _ActionDB.v_t_class ~= "" and UnitExists("target")) then
 		if (not string.find(string.upper(_ActionDB.v_t_class), select(2, UnitClass("target")))) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." target class:"..select(2, UnitClass("target")).." is not one of these ".._ActionDB.v_t_class,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." target class:"..select(2, UnitClass("target")).." is not one of these ".._ActionDB.v_t_class,_getnextspell,_debugon)
 			return false
 		end
 	end
 
 	if (_ActionDB.b_f_class and _ActionDB.v_f_class ~= nil and _ActionDB.v_f_class ~= "" and UnitExists("focus")) then
 		if (not string.find(string.upper(_ActionDB.v_f_class), select(2, UnitClass("focus")))) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." focus class:"..select(2, UnitClass("focus")).." is not one of these ".._ActionDB.v_f_class,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." focus class:"..select(2, UnitClass("focus")).." is not one of these ".._ActionDB.v_f_class,_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5471,7 +5468,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	-- CHECK: Combo Points----------------------------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_p_combopoints and _ActionDB.v_p_combopoints ~= nil and _ActionDB.v_p_combopoints ~= "") then
 		if (not ROB_PlayerHasComboPoints(_ActionDB.v_p_combopoints,_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." player does not have ".._ActionDB.v_p_combopoints.." combo points",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." player does not have ".._ActionDB.v_p_combopoints.." combo points",_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5479,7 +5476,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	-- CHECK: Eclipse Direction----------------------------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_p_eclipse and _ActionDB.v_p_eclipse ~= nil and _ActionDB.v_p_eclipse ~= "") then
 		if (not ROB_EclipseDirection(_ActionDB.v_p_eclipse,_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." player eclipse is not heading towards ".._ActionDB.v_p_eclipse,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." player eclipse is not heading towards ".._ActionDB.v_p_eclipse,_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5487,25 +5484,25 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	-- CHECK: Check TotemActive ----------------------------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_p_firetotemactive and _ActionDB.v_p_firetotemactive ~= nil and _ActionDB.v_p_firetotemactive ~= "") then
 		if (not ROB_TotemActive(_ActionDB.v_p_firetotemactive, 1,_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." Fire totem ".._ActionDB.v_p_firetotemactive.." is not active",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." Fire totem ".._ActionDB.v_p_firetotemactive.." is not active",_getnextspell,_debugon)
 			return false
 		end
 	end
 	if (_ActionDB.b_p_earthtotemactive and _ActionDB.v_p_earthtotemactive ~= nil and _ActionDB.v_p_earthtotemactive ~= "") then
 		if (not ROB_TotemActive(_ActionDB.v_p_earthtotemactive, 2,_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." Earth totem ".._ActionDB.v_p_earthtotemactive.." is not active",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." Earth totem ".._ActionDB.v_p_earthtotemactive.." is not active",_getnextspell,_debugon)
 			return false
 		end
 	end
 	if (_ActionDB.b_p_watertotemactive and _ActionDB.v_p_watertotemactive ~= nil and _ActionDB.v_p_watertotemactive ~= "") then
 		if (not ROB_TotemActive(_ActionDB.v_p_watertotemactive, 3,_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." Water totem ".._ActionDB.v_p_watertotemactive.." is not active",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." Water totem ".._ActionDB.v_p_watertotemactive.." is not active",_getnextspell,_debugon)
 			return false
 		end
 	end
 	if (_ActionDB.b_p_airtotemactive and _ActionDB.v_p_airtotemactive ~= nil and _ActionDB.v_p_airtotemactive ~= "") then
 		if (not ROB_TotemActive(_ActionDB.v_p_airtotemactive, 4,_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." Air totem ".._ActionDB.v_p_airtotemactive.." is not active",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." Air totem ".._ActionDB.v_p_airtotemactive.." is not active",_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5513,25 +5510,25 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	-- CHECK: Check TotemInactive ----------------------------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_p_firetoteminactive and _ActionDB.v_p_firetoteminactive ~= nil and _ActionDB.v_p_firetoteminactive ~= "") then
 		if (ROB_TotemActive(_ActionDB.v_p_firetoteminactive, 1,_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." Fire totem ".._ActionDB.v_p_firetoteminactive.." is active",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." Fire totem ".._ActionDB.v_p_firetoteminactive.." is active",_getnextspell,_debugon)
 			return false
 		end
 	end
 	if (_ActionDB.b_p_earthtoteminactive and _ActionDB.v_p_earthtoteminactive ~= nil and _ActionDB.v_p_earthtoteminactive ~= "") then
 		if (ROB_TotemActive(_ActionDB.v_p_earthtoteminactive, 2,_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." Earth totem ".._ActionDB.v_p_earthtoteminactive.." is active",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." Earth totem ".._ActionDB.v_p_earthtoteminactive.." is active",_getnextspell,_debugon)
 			return false
 		end
 	end
 	if (_ActionDB.b_p_watertoteminactive and _ActionDB.v_p_watertoteminactive ~= nil and _ActionDB.v_p_watertoteminactive ~= "") then
 		if (ROB_TotemActive(_ActionDB.v_p_watertoteminactive, 3,_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." Water totem ".._ActionDB.v_p_watertoteminactive.." is active",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." Water totem ".._ActionDB.v_p_watertoteminactive.." is active",_getnextspell,_debugon)
 			return false
 		end
 	end
 	if (_ActionDB.b_p_airtoteminactive and _ActionDB.v_p_airtoteminactive ~= nil and _ActionDB.v_p_airtoteminactive ~= "") then
 		if (ROB_TotemActive(_ActionDB.v_p_airtoteminactive, 4,_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." Air totem ".._ActionDB.v_p_airtoteminactive.." is active",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." Air totem ".._ActionDB.v_p_airtoteminactive.." is active",_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5539,25 +5536,25 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	-- CHECK: Check TotemTimeleft ----------------------------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_p_firetotemtimeleft and _ActionDB.v_p_firetotemtimeleft ~= nil and _ActionDB.v_p_firetotemtimeleft ~= "") then
 		if (not ROB_TotemTimeleft(_ActionDB.v_p_firetotemtimeleft, 1,_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." Fire totem timeleft is not ".._ActionDB.v_p_firetotemtimeleft,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." Fire totem timeleft is not ".._ActionDB.v_p_firetotemtimeleft,_getnextspell,_debugon)
 			return false
 		end
 	end
 	if (_ActionDB.b_p_earthtotemtimeleft and _ActionDB.v_p_earthtotemtimeleft ~= nil and _ActionDB.v_p_earthtotemtimeleft ~= "") then
 		if (not ROB_TotemTimeleft(_ActionDB.v_p_earthtotemtimeleft, 2,_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." Earth totem timeleft is not ".._ActionDB.v_p_earthtotemtimeleft,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." Earth totem timeleft is not ".._ActionDB.v_p_earthtotemtimeleft,_getnextspell,_debugon)
 			return false
 		end
 	end
 	if (_ActionDB.b_p_watertotemtimeleft and _ActionDB.v_p_watertotemtimeleft ~= nil and _ActionDB.v_p_watertotemtimeleft ~= "") then
 		if (not ROB_TotemTimeleft(_ActionDB.v_p_watertotemtimeleft, 3,_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." Water totem timeleft is not ".._ActionDB.v_p_watertotemtimeleft,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." Water totem timeleft is not ".._ActionDB.v_p_watertotemtimeleft,_getnextspell,_debugon)
 			return false
 		end
 	end
 	if (_ActionDB.b_p_airtotemtimeleft and _ActionDB.v_p_airtotemtimeleft ~= nil and _ActionDB.v_p_airtotemtimeleft ~= "") then
 		if (not ROB_TotemTimeleft(_ActionDB.v_p_airtotemtimeleft, 4,_getnextspell)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." Air totem timeleft is not ".._ActionDB.v_p_airtotemtimeleft,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." Air totem timeleft is not ".._ActionDB.v_p_airtotemtimeleft,_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5565,14 +5562,14 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	-- CHECK: Check Player Controlled ----------------------------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_t_pc ) then
 		if (not UnitPlayerControlled("target")) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." because target is not player controlled",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." because target is not player controlled",_getnextspell,_debugon)
 			return false
 		end
 	end
 
 	if (_ActionDB.b_f_pc ) then
 		if (not UnitPlayerControlled("focus")) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." because focus is not player controlled",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." because focus is not player controlled",_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5580,7 +5577,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	-- CHECK: Check Duel Range ----------------------------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_t_dr ) then
 		if (CheckInteractDistance("target", 3) == nil) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." because target is not in duel range",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." because target is not in duel range",_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5601,19 +5598,19 @@ function ROB_SpellReady(_actionname,_getnextspell)
 
 	if (_ActionDB.b_pet_dr ) then
 		if (CheckInteractDistance("pet", 3) == nil) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." because pet is not in duel range",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." because pet is not in duel range",_getnextspell,_debugon)
 			return false
 		end
 	end
 	if (_ActionDB.b_f_dr ) then
 		if (CheckInteractDistance("focus", 3) == nil) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." because focus is not in duel range",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." because focus is not in duel range",_getnextspell,_debugon)
 			return false
 		end
 	end
 	if (_ActionDB.b_c_dr and _ActionDB.v_c_unitname and _ActionDB.v_c_unitname ~=nil and _ActionDB.v_c_unitname ~= "") then
 		if (CheckInteractDistance(_ActionDB.v_c_unitname, 3) == nil) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." because "..tostring(_ActionDB.v_c_unitname).." is not in duel range",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." because "..tostring(_ActionDB.v_c_unitname).." is not in duel range",_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5622,13 +5619,13 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	-- CHECK: Weapon Enchants ----------------------------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_p_nmh and _ActionDB.v_p_nmh ~= nil and _ActionDB.v_p_nmh ~= "") then
 		if (ROB_CheckForWeaponEnchant(16, _ActionDB.v_p_nmh)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." because player has ".._ActionDB.v_p_nmh.." on mainhand already",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." because player has ".._ActionDB.v_p_nmh.." on mainhand already",_getnextspell,_debugon)
 			return false
 		end
 	end
 	if (_ActionDB.b_p_noh and _ActionDB.v_p_noh ~= nil and _ActionDB.v_p_noh ~= "") then
 		if (ROB_CheckForWeaponEnchant(17, _ActionDB.v_p_noh)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." because player has ".._ActionDB.v_p_noh.." on offhad already",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." because player has ".._ActionDB.v_p_noh.." on offhad already",_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5649,11 +5646,11 @@ function ROB_SpellReady(_actionname,_getnextspell)
 
 	-- CHECK: Combat ----------------------------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_p_ooc and UnitAffectingCombat("player")) then
-		ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." because player is in combat and you have out of combat checked",_getnextspell,_debugon)
+		ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." because player is in combat and you have out of combat checked",_getnextspell,_debugon)
 		return false
 	end
 	if (_ActionDB.b_p_ic and not UnitAffectingCombat("player")) then
-		ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." because player is out of combat and you have in combat checked",_getnextspell,_debugon)
+		ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." because player is out of combat and you have in combat checked",_getnextspell,_debugon)
 		return false
 	end
 
@@ -5661,14 +5658,14 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	-- CHECK: Check Pet Autocasting ----------------------------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_pet_isac and _ActionDB.v_pet_isac ~= nil and _ActionDB.v_pet_isac ~= "") then
 		if (not ROB_PetIsAutocasting(_ActionDB.v_pet_isac)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." because pet is not autocasting ".._ActionDB.v_pet_isac,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." because pet is not autocasting ".._ActionDB.v_pet_isac,_getnextspell,_debugon)
 			return false
 		end
 	end
 
 	if (_ActionDB.b_pet_nac and _ActionDB.v_pet_nac ~= nil and _ActionDB.v_pet_nac ~= "") then
 		if (ROB_PetIsAutocasting(_ActionDB.v_pet_nac)) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." because pet is autocasting ".._ActionDB.v_pet_nac,_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." because pet is autocasting ".._ActionDB.v_pet_nac,_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5678,55 +5675,55 @@ function ROB_SpellReady(_actionname,_getnextspell)
 		if (UnitExists(_ActionDB.v_c_unitname)) then
 
 		else
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." because custom unit "..tostring(_ActionDB.v_c_unitname).." does not exist",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." because custom unit "..tostring(_ActionDB.v_c_unitname).." does not exist",_getnextspell,_debugon)
 			return false
 		end
 		if (_ActionDB.b_c_hp and _ActionDB.v_c_hp ~= nil and _ActionDB.v_c_hp ~= "") then
 			if (not ROB_UnitPassesLifeCheck(_ActionDB.v_c_hp,_ActionDB.v_c_unitname)) then
-				ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." did not pass HP check ".._ActionDB.v_c_hp,_getnextspell,_debugon)
+				ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." did not pass HP check ".._ActionDB.v_c_hp,_getnextspell,_debugon)
 				return false
 			end
 		end
 		if (_ActionDB.b_c_maxhp and _ActionDB.v_c_maxhp ~= nil and _ActionDB.v_c_maxhp ~= "") then
 			if (not ROB_UnitPassesLifeCheck(_ActionDB.v_c_maxhp,_ActionDB.v_c_unitname,true)) then
-				ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." did not pass maximum HP check ".._ActionDB.v_c_maxhp,_getnextspell,_debugon)
+				ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." did not pass maximum HP check ".._ActionDB.v_c_maxhp,_getnextspell,_debugon)
 				return false
 			end
 		end
 		if (_ActionDB.b_c_needsbuff and _ActionDB.v_c_needsbuff ~= nil and _ActionDB.v_c_needsbuff ~= "") then
 			if (ROB_UnitHasBuff(_ActionDB.v_c_needsbuff, _ActionDB.v_c_unitname,_getnextspell)) then
-				ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." had these buffs ".._ActionDB.v_c_needsbuff,_getnextspell,_debugon)
+				ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." had these buffs ".._ActionDB.v_c_needsbuff,_getnextspell,_debugon)
 				-- Dont allow _getnextspell bypassing because it causes next action to display actions that depend on buffs missing
 				return false
 			end
 		end
 		if (_ActionDB.b_c_hasbuff and _ActionDB.v_c_hasbuff ~= nil and _ActionDB.v_c_hasbuff ~= "") then
 			if (not ROB_UnitHasBuff(_ActionDB.v_c_hasbuff, _ActionDB.v_c_unitname,_getnextspell)) then
-				ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." did not have these buffs ".._ActionDB.v_c_hasbuff,_getnextspell,_debugon)
+				ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." did not have these buffs ".._ActionDB.v_c_hasbuff,_getnextspell,_debugon)
 				-- dont allow _allowreturn bypassing because it causes next action to display actions that are depend on buffs procing
 				return false
 			end
 		end
 		if (_ActionDB.b_c_needsdebuff and _ActionDB.v_c_needsdebuff ~= nil and _ActionDB.v_c_needsdebuff ~= "") then
 			if (ROB_UnitHasDebuff(_ActionDB.v_c_needsdebuff, _ActionDB.v_c_unitname,_getnextspell)) then
-				ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." has one of these debuffs ".._ActionDB.v_c_needsdebuff,_getnextspell,_debugon)
+				ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." has one of these debuffs ".._ActionDB.v_c_needsdebuff,_getnextspell,_debugon)
 				return false
 			end
 		end
 		if (_ActionDB.b_c_hasdebuff and _ActionDB.v_c_hasdebuff ~= nil and _ActionDB.v_c_hasdebuff ~= "") then
 			if (not ROB_UnitHasDebuff(_ActionDB.v_c_hasdebuff, _ActionDB.v_c_unitname,_getnextspell)) then
-				ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." does not have one of these debuffs ".._ActionDB.v_c_hasdebuff,_getnextspell,_debugon)
+				ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." does not have one of these debuffs ".._ActionDB.v_c_hasdebuff,_getnextspell,_debugon)
 				return false
 			end
 		end
 		if (_ActionDB.b_c_class and _ActionDB.v_c_class ~= nil and _ActionDB.v_c_class ~= "") then
 			if (not string.find(string.upper(_ActionDB.v_c_class), select(2, UnitClass(_ActionDB.v_c_unitname)))) then
-				ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." class:"..select(2, UnitClass(_ActionDB.v_c_unitname)).." is not one of these ".._ActionDB.v_c_class,_getnextspell,_debugon)
+				ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." class:"..select(2, UnitClass(_ActionDB.v_c_unitname)).." is not one of these ".._ActionDB.v_c_class,_getnextspell,_debugon)
 				return false
 			end
 		end
 		if (_ActionDB.b_c_interrupt and (ROB_UnitIsCasting(_ActionDB.v_c_unitname, _ActionDB.v_c_interrupt)) == false) then
-			ROB_Debug1(ROB_UI_DEBUG_E1.._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." is not casting a spell in the ".._ActionDB.v_c_interrupt.." list",_getnextspell,_debugon)
+			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." is not casting a spell in the ".._ActionDB.v_c_interrupt.." list",_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5883,7 +5880,7 @@ function ROB_Debug1(msg,validate,spellhasdebug)
 		return
 	end
 	if (tostring(msg) ~= tostring(ROB_LAST_DEBUG_MSG)) then
-		print(ROB_UI_DEBUG_PREFIX..":"..msg)
+		print(L['ROB_UI_DEBUG_PREFIX']..":"..msg)
 		ROB_LAST_DEBUG = GetTime()
 		ROB_LAST_DEBUG_MSG = msg
 	end
