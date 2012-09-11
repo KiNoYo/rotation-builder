@@ -7,7 +7,8 @@
 ## SavedVariablesPerCharacter: ROB_Options ROB_Rotations
 
 -- Library
-libs\AceLocale-3.0\AceLocale-3.0.xml
+libs\LibStub\LibStub.lua
+libs\AceLocale-3.0\AceLocale-3.0.lua
 
 -- Localization
 localization\enUS.lua

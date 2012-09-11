@@ -1,8 +1,11 @@
 enable-nolib-creation: no
 
 externals:
+    libs/LibStub:
+        url: svn://svn.wowace.com/wow/ace3/mainline/tags/Release-r1061/LibStub
+        tag: latest
     libs/AceLocale-3.0:
-        url: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceLocale-3.0
+        url: svn://svn.wowace.com/wow/ace3/mainline/tags/Release-r1061/AceLocale-3.0
         tag: latest
 
 ignore:
