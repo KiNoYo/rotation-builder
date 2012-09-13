@@ -1,5 +1,9 @@
 [b]Description:[/b]
-Please do not trust any links to any other versions of this addon. We have seen copies that include malicious code.
+[b][color=red]Please do not trust any links to any other versions of this addon. We have seen copies that include malicious code.[/color][/b]
+
+[b][color=red]Also be reminded to not use the last released version (1.46) as it's out of date and completely bugged, use the latest alpha instead until we're done updating all classes and get the new MoP ready release out[/color][/b]
+
+[b][color="Orange"]You can help us with localizations by going there : [url]http://wow.curseforge.com/addons/rotation-builder/localization/|RotationBuilder Localization page[/url]. Be careful when translating phrases from the overview interface : rotations localizations are too big to be shown properly in it. You will have to edit them [url]http://wow.curseforge.com/addons/rotation-builder/localization/phrases/|individually[/url].[/color][/b]
 
 As the original author soulwhip discontinued this addon and we simply loved it, we decided to bring it back. There is a lot of work to do before it's ready to be released for WoW 5.0.4 but we're on it. You can still use the last alpha release at least for those classes that are up to date (new mechanisms included if they do have some).
 
@@ -11,14 +15,27 @@ Included Rotations in the latest alpha version:
 [B][COLOR="Cyan"]MAGE[/COLOR][/B] 5.0.4 Arcane, Fire and Frost
 [B][COLOR="pink"]PALADIN[/COLOR][/B] 5.0.4 Protection, Retribution
 [B][COLOR="cecece"]PRIEST[/COLOR][/B] 5.0.4 Shadow
-[B][COLOR="Yellow"]ROGUE[/COLOR][/B] 5.0.4 Assassination, Combat and Subtlety
+[B][COLOR="Yellow"]ROGUE[/COLOR][/B] 5.0.4 Assassination, Combat and 5.0.4-1 Subtlety
 [B][COLOR=#5877d4]SHAMAN[/COLOR][/B] 5.0.4 Enhancement and Elemental
 [B][COLOR="Purple"]WARLOCK[/COLOR][/B] 5.0.4 Affliction, Demonology and Destruction
-[B][COLOR="Brown"]WARRIOR[/COLOR][/B] in progress
-[B][COLOR="Red"]DEATHKNIGHT[/COLOR][/B] in progress
+[B][COLOR="Brown"]WARRIOR[/COLOR][/B] 5.0.4 Arms, Fury and Protection
+[B][COLOR="Red"]DEATHKNIGHT[/COLOR][/B] 5.0.4 Blood, Frost and Unholy
 [B][COLOR="Mediumspringgreen"]MONK[/COLOR][/B] unavailable
 
-To load the latest rotation just click on the options tab in the top left and click the LOAD button. The latest version of the rotation will be imported.
+To load the latest rotation just click on the options tab in the top left and click the LOAD button. The latest version of the rotations will be imported.
+
+[b]TO DO List :[/b]
+[list=1]Make a second pass on every single rotations to make sure they're all working properly and to use all those new features we added in recently before getting the new release out
+[*]Add a new column to rotation builder display where we'll put high cooldown spells in a list so that the player know they're available instead of forcing there use on bosses and bosses only. Maybe make those icons flash if rotationnal conditions are present to alert the player that the spell is ready and is at optimal efficiency while still giving player freedom to use them or not
+[*]Get the "Not a spell" option to work so that mages can use there mana gem in there rotations
+[*]Get rid of the "Duel range" option, instead replace it with a brand new option to check if the target is in the inputed range (with min and max values)
+[*]Change the current spell range check to work the same way instead of only checking max range.
+[*]Add a new option to alert mages that they can use their Spellsteal spell to steal a buff on target
+[*]Add a new option to alert players that they can dispell buffs or enrage on target
+[*]Maybe add new options to dispell diseases, curses, poisons and magics on self/focus/pet
+[*]Try to find a way to bring back the "Mob count" option so that it doent make the framerate drop to 0 and to make it smarter (check a specified range around player or around mouse pointer for ennemies to cast aoe spells)
+[*]Make a complete overhaul of the addon once it's up to date to make it more efficient, use less framerate, easier to understand, ...
+[/list]
 
 [b]How to build a rotation:[/b]
 [list=1]Open your blizzard keybinds window and scroll down to find Rotation Builders keybinds
@@ -82,8 +99,8 @@ To load the latest rotation just click on the options tab in the top left and cl
           
 [*]Q: Why is the next action showing spells ready when they are not ready?
     A: The next action prediction logic ignores power type checks such as mana, energy ,rage by default. This gives you the option to show what is coming up regardless if you have the power to cast it. If you don't like to see next actions when you dont have the power to cast them you can specify a power requirement on the action in the player tab and the action will no longer show up in the next action if you dont meet the specified power.
-
 [/list]
+
 1.47
 -Updated some rotations to 4.3
 

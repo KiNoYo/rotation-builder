@@ -334,37 +334,37 @@ local ROB_LM_BG_TOGGLE4             = nil;     -- Toggle4 button group for libMa
 
 -- Ignore these debbuffs for debuff type checking
 local ROB_ArcaneExclusions = {
-[GetSpellInfo(15822)]   = true,                -- Dreamless Sleep
-[GetSpellInfo(24360)]   = true,                -- Greater Dreamless Sleep
-[GetSpellInfo(28504)]   = true,                -- Major Dreamless Sleep
-[GetSpellInfo(24306)]   = true,                -- Delusions of Jin'do
-[GetSpellInfo(46543)]   = true,                -- Ignite Mana
-[GetSpellInfo(16567)]   = true,                -- Tainted Mind
-[GetSpellInfo(39052)]   = true,                -- Sonic Burst
-[GetSpellInfo(30129)]   = true,                -- Charred Earth - Nightbane debuff, can't be cleansed, but shows as magic
-[GetSpellInfo(31651)]   = true,                -- Banshee Curse, Melee hit rating debuff
+	[GetSpellInfo(15822)]   = true,                -- Dreamless Sleep
+	[GetSpellInfo(24360)]   = true,                -- Greater Dreamless Sleep
+	[GetSpellInfo(28504)]   = true,                -- Major Dreamless Sleep
+	[GetSpellInfo(24306)]   = true,                -- Delusions of Jin'do
+	[GetSpellInfo(46543)]   = true,                -- Ignite Mana
+	[GetSpellInfo(16567)]   = true,                -- Tainted Mind
+	[GetSpellInfo(39052)]   = true,                -- Sonic Burst
+	[GetSpellInfo(30129)]   = true,                -- Charred Earth - Nightbane debuff, can't be cleansed, but shows as magic
+	[GetSpellInfo(31651)]   = true,                -- Banshee Curse, Melee hit rating debuff
 }
 
 local _InvSlots = {
-["HeadSlot"] = 1,
-["NeckSlot"] = 2,
-["ShoulderSlot"] = 3,
-["ShirtSlot"] = 4,
-["ChestSlot"] = 5,
-["WaistSlot"] = 6,
-["LegsSlot"] = 7,
-["FeetSlot"] = 8,
-["WristSlot"] = 9,
-["HandsSlot"] = 10,
-["Finger0Slot"] = 11,
-["Finger1Slot"] = 12,
-["Trinket0Slot"] = 13,
-["Trinket1Slot"] = 14,
-["BackSlot"] = 15,
-["MainHandSlot"] = 16,
-["SecondaryHandSlot"] = 17,
-["RangedSlot"] = 18,
-["TabardSlot"] = 19
+	["HeadSlot"] = 1,
+	["NeckSlot"] = 2,
+	["ShoulderSlot"] = 3,
+	["ShirtSlot"] = 4,
+	["ChestSlot"] = 5,
+	["WaistSlot"] = 6,
+	["LegsSlot"] = 7,
+	["FeetSlot"] = 8,
+	["WristSlot"] = 9,
+	["HandsSlot"] = 10,
+	["Finger0Slot"] = 11,
+	["Finger1Slot"] = 12,
+	["Trinket0Slot"] = 13,
+	["Trinket1Slot"] = 14,
+	["BackSlot"] = 15,
+	["MainHandSlot"] = 16,
+	["SecondaryHandSlot"] = 17,
+	["RangedSlot"] = 18,
+	["TabardSlot"] = 19
 }
 
 function ROB_NewRotation()
@@ -374,7 +374,8 @@ end
 function ROB_LoadDefaultRotations()
 	if (ROB_CLASS_NAME == "DEATHKNIGHT") then
 		ROB_ImportRotation(L['ROB_DEATHKNIGHT_BLOOD'])
-		ROB_ImportRotation(L['ROB_DEATHKNIGHT_FROST'])
+		ROB_ImportRotation(L['ROB_DEATHKNIGHT_FROST_1_HAND'])
+		ROB_ImportRotation(L['ROB_DEATHKNIGHT_FROST_2_HAND'])
 		ROB_ImportRotation(L['ROB_DEATHKNIGHT_UNHOLY'])
 	end
 	if (ROB_CLASS_NAME == "DRUID") then
@@ -653,7 +654,7 @@ function ROB_OnEvent(self, event, ...)
 					end
 					_channelstart = true
 					if (event == "UNIT_SPELLCAST_SUCCEEDED" and ROB_LAST_CASTED_TYPE and ROB_LAST_CASTED_TYPE == "CHANNEL") then
-						--If ROB_LAST_CASTED_TYPE was CHANNEL then dont update the last casted because blizzard fires a UNIT_SPELLCAST_SUCCEEDED while channel is still going
+					--If ROB_LAST_CASTED_TYPE was CHANNEL then dont update the last casted because blizzard fires a UNIT_SPELLCAST_SUCCEEDED while channel is still going
 					else
 						ROB_LAST_CASTED_TYPE = nil
 					end
@@ -2147,9 +2148,9 @@ function ROB_ActionKeyBindButton_OnClick(self, button)
 			}--]]
 
 			local ignoreKeys = {
-			["UNKNOWN"] = true,
-			["LSHIFT"] = true, ["LCTRL"] = true, ["LALT"] = true,
-			["RSHIFT"] = true, ["RCTRL"] = true, ["RALT"] = true,
+				["UNKNOWN"] = true,
+				["LSHIFT"] = true, ["LCTRL"] = true, ["LALT"] = true,
+				["RSHIFT"] = true, ["RCTRL"] = true, ["RALT"] = true,
 			}
 
 			if keyPressed == "ESCAPE" then
@@ -2234,9 +2235,9 @@ function ROB_RotationKeyBindButton_OnKeyDown(self, key)
 		["RSHIFT"] = true, ["RCTRL"] = true, ["RALT"] = true,
 		}--]]
 		local ignoreKeys = {
-		["UNKNOWN"] = true,
-		["LSHIFT"] = true, ["LCTRL"] = true, ["LALT"] = true,
-		["RSHIFT"] = true, ["RCTRL"] = true, ["RALT"] = true,
+			["UNKNOWN"] = true,
+			["LSHIFT"] = true, ["LCTRL"] = true, ["LALT"] = true,
+			["RSHIFT"] = true, ["RCTRL"] = true, ["RALT"] = true,
 		}
 
 
@@ -2340,9 +2341,9 @@ function ROB_AO_ActionKeyBindButton_OnKeyDown(self, key)
 		}--]]
 
 		local ignoreKeys = {
-		["UNKNOWN"] = true,
-		["LSHIFT"] = true, ["LCTRL"] = true, ["LALT"] = true,
-		["RSHIFT"] = true, ["RCTRL"] = true, ["RALT"] = true,
+			["UNKNOWN"] = true,
+			["LSHIFT"] = true, ["LCTRL"] = true, ["LALT"] = true,
+			["RSHIFT"] = true, ["RCTRL"] = true, ["RALT"] = true,
 		}
 
 		if keyPressed == "ESCAPE" then
@@ -2814,13 +2815,13 @@ function ROB_SortSpells()
 		table.sort(ROB_Lists[ROB_SelectedSpellListName].SortedSpells, ROB_SortTest);
 		for key, value in pairs(ROB_Lists[ROB_SelectedSpellListName].SortedSpells) do
 			ROB_SortedSpells[#ROB_SortedSpells + 1] = value;
-			--print("Creating row in ROB_SortedSpells:"..value)
+		--print("Creating row in ROB_SortedSpells:"..value)
 		end
 		-- resort the lists list.  We use a sorted indirection table
 		--print("ROB_SortSpells sorted the ROB_SortedSpells table ")
 		table.sort(ROB_SortedSpells, ROB_SortTest);
-		-- and update screen
-		--ROB_SpellList_Update()
+	-- and update screen
+	--ROB_SpellList_Update()
 	end
 	if ROB_EditingSpellListTable ~= nil then
 		table.sort(ROB_EditingSpellListTable.SortedSpells, ROB_SortTest)
@@ -3333,8 +3334,8 @@ function ROB_AddSpell(_SpellID, _SpellName)
 	-- first, add Action's key to sort
 	--print("adding new spell at end:".._SpellID..":".._SpellName)
 	table.insert(ROB_EditingSpellListTable.SortedSpells, _SpellID, _SpellName);
-	--table.insert(SortedSpells, _SpellID, _SpellName);
-	--ROB_EditingSpellListTable.SortedSpells[_SpellName] = true
+--table.insert(SortedSpells, _SpellID, _SpellName);
+--ROB_EditingSpellListTable.SortedSpells[_SpellName] = true
 end
 
 function ROB_RotationImportButton_OnClick()
@@ -3406,7 +3407,7 @@ function ROB_ImportRotation(_RotationBuild)
 
 			--Check if spell list exists if it does not create it
 			if (ROB_Lists[_spelllistname]) then
-				--Spell list exists no need to create it
+			--Spell list exists no need to create it
 			else
 				--print("create spell list:".._spelllistname)
 				ROB_Lists[_spelllistname] = {}
@@ -3569,7 +3570,7 @@ function ROB_ExportRotation(_RotationName)
 					end
 				end
 			else
-				--print("skipping value:"..DefaultKey)
+			--print("skipping value:"..DefaultKey)
 			end
 		end
 	end
@@ -3665,14 +3666,14 @@ function ROB_PetIsAutocasting(_spellname,_getnextspell)
 		_spellID = nil
 
 		if (not GetSpellBookItemInfo(i, BOOKTYPE_PET)) then
-				do break end
+			do break end
 		end
 
 		_spellType, _spellID = GetSpellBookItemInfo(i, BOOKTYPE_PET);
 		if (_spellID) then
 			if (GetSpellInfo(_spellID) == _convertedSpellName) then
 				_spellslot = i;
-					do break end
+				do break end
 			end
 		end
 		i=i+1;
@@ -4118,6 +4119,7 @@ function ROB_UnitHasDebuff(_debuffNeeded, _unitName, _getnextspell)
 	local _doneparsing = false
 	local _stringtype = 0
 	local _name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId
+	local _name2, _rank2, _icon2, _cost2, _isFunnel2, _powerType2, _castTime2, _minRange2, _maxRange2
 
 	while not _doneparsing do
 		_unparsedDebuff = nil
@@ -4173,51 +4175,61 @@ function ROB_UnitHasDebuff(_debuffNeeded, _unitName, _getnextspell)
 		end
 
 		if (_unparsedDebuff ~= nil) then
-			for i = 1, 40 do
-				_name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId = UnitDebuff(_unitName, i)
-				if (_name ~= nil and ROB_SpellsMatch(_name, _unparsedDebuff)) then
-					_spellexists = true
-
-					if (_sourceunitparsed ~= nil) then
-						if (_sourceunitparsed == _unitCaster) then
-							_sourcecheckpassed = true
-						end
-					else
-						_sourcecheckpassed = true
-					end
-
-					if (_spellparsedstacks > 0) then
-						if (_count and _count >= _spellparsedstacks) then
-							_stackcheckpassed = true
-						end
-					else
-						_stackcheckpassed = true
-					end
-
-					_timeleft = _expirationTime - GetTime()
-					if _timeleft < 0 then _timeleft = 0; end
-
-					--set the action cooldown to the time left on the debuff minus the refresh time specified
-					--print(_spellparsedseconds)
-					if (_timeleft < _spellparsedseconds) then
-						ROB_ACTION_TIMELEFT = _timeleft
-					else
-						ROB_ACTION_TIMELEFT = _timeleft - _spellparsedseconds
-					end
-
-					if (_spellparsedseconds > 0) then
-						if (_timeleft >= _spellparsedseconds) then
-							_timeleftcheckpassed = true
-						end
-					else
-						_timeleftcheckpassed = true
-					end
-
-					if (_spellexists and _sourcecheckpassed and _stackcheckpassed and _timeleftcheckpassed) then  _debuffsfound = _debuffsfound +1; end
+			if(_sourceunitparsed ~= nil) then
+				_name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId = UnitDebuff(_unitName, _unparsedDebuff, "player")
+				if (not _name and GetSpellInfo(_unparsedDebuff)) then
+					_name2, _rank2, _icon2, _cost2, _isFunnel2, _powerType2, _castTime2, _minRange2, _maxRange2 = GetSpellInfo(_unparsedDebuff)
+					_name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId = UnitDebuff(_unitName, GetSpellInfo(_unparsedDebuff), _rank2, "player")
+				end
+			else
+				_name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId = UnitDebuff(_unitName, _unparsedDebuff)
+				if (not _name and GetSpellInfo(_unparsedDebuff)) then
+					_name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId = UnitDebuff(_unitName, GetSpellInfo(_unparsedDebuff))
 				end
 			end
+
+			if (_name ~= nil and ROB_SpellsMatch(_name, _unparsedDebuff)) then
+				_spellexists = true
+
+				if (_sourceunitparsed ~= nil) then
+					if (_sourceunitparsed == _unitCaster) then
+						_sourcecheckpassed = true
+					end
+				else
+					_sourcecheckpassed = true
+				end
+
+				if (_spellparsedstacks > 0) then
+					if (_count and _count >= _spellparsedstacks) then
+						_stackcheckpassed = true
+					end
+				else
+					_stackcheckpassed = true
+				end
+
+				_timeleft = _expirationTime - GetTime()
+				if _timeleft < 0 then _timeleft = 0; end
+
+				--set the action cooldown to the time left on the debuff minus the refresh time specified
+				--print(_spellparsedseconds)
+				if (_timeleft < _spellparsedseconds) then
+					ROB_ACTION_TIMELEFT = _timeleft
+				else
+					ROB_ACTION_TIMELEFT = _timeleft - _spellparsedseconds
+				end
+
+				if (_spellparsedseconds > 0) then
+					if (_timeleft >= _spellparsedseconds) then
+						_timeleftcheckpassed = true
+					end
+				else
+					_timeleftcheckpassed = true
+				end
+
+				if (_spellexists and _sourcecheckpassed and _stackcheckpassed and _timeleftcheckpassed) then  _debuffsfound = _debuffsfound +1; end
+			end
 		else
-			--spellparsed does not exist maybe warn the player in the future they need to retype in the debuffs field
+		--spellparsed does not exist maybe warn the player in the future they need to retype in the debuffs field
 		end
 	end
 
@@ -4403,7 +4415,7 @@ function ROB_UnitHasBuff(_buffNeeded, _unitName, _getnextspell)
 			end
 
 		else
-			--spellparsed does not exist maybe warn the player in the future
+		--spellparsed does not exist maybe warn the player in the future
 		end
 	end
 
@@ -4461,7 +4473,7 @@ function ROB_UnitKnowSpell(_spellneeded, _getnextspell)
 				_spellsfound = _spellsfound +1
 			end
 		else
-			--spellparsed does not exist maybe warn the player in the future
+		--spellparsed does not exist maybe warn the player in the future
 		end
 	end
 
@@ -4531,7 +4543,7 @@ function ROB_UnitIsGlyphed(_glyphneeded, _getnextspell)
 				end
 			end
 		else
-			--spellparsed does not exist maybe warn the player in the future
+		--spellparsed does not exist maybe warn the player in the future
 		end
 	end
 
@@ -4621,7 +4633,7 @@ function ROB_GetActionTintColor(_actionname)
 				_i = _i + 1
 			end
 		else
-			--no hex color code in the rangespell so let the function return nil
+		--no hex color code in the rangespell so let the function return nil
 		end
 	end
 	return _r, _g, _b
@@ -4898,7 +4910,7 @@ function ROB_ActionInRange(_actionname,_unit)
 			--remove the next line to allow range checking in tinted actions
 			--return true
 		else
-			--rangespell does not have tint color but is already set to v_rangespell so no further actions necessary
+		--rangespell does not have tint color but is already set to v_rangespell so no further actions necessary
 		end
 	else
 		--rangespell is blank but checkrange is true set the range spell to the spellname
@@ -5075,13 +5087,13 @@ function ROB_SpellReady(_actionname,_getnextspell)
 
 		if (_getnextspell) then
 
-			--Need to fix this, whats happening is the next spell bypasses cooldown check but the timeleft on a debuff is short but the cooldown is long more than 5 seconds so we do actually need this check
-			--Should never need to check this because getNextSpell sorts be what spell is coming up next with the shortest cooldown or shortest time left on the dot
-			--we are trying to determine if we should show the next spell coming up but we dont want to show spells with cooldowns more than 5 seconds, who cares about those
-			--if (_cooldownLeft > 5) then
-			--	ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." has a cooldown longer than 5 seconds",_getnextspell,_debugon)
-			--	return false
-			--end
+		--Need to fix this, whats happening is the next spell bypasses cooldown check but the timeleft on a debuff is short but the cooldown is long more than 5 seconds so we do actually need this check
+		--Should never need to check this because getNextSpell sorts be what spell is coming up next with the shortest cooldown or shortest time left on the dot
+		--we are trying to determine if we should show the next spell coming up but we dont want to show spells with cooldowns more than 5 seconds, who cares about those
+		--if (_cooldownLeft > 5) then
+		--	ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." has a cooldown longer than 5 seconds",_getnextspell,_debugon)
+		--	return false
+		--end
 		else
 			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." is in cooldown",_getnextspell,_debugon)
 			return false
