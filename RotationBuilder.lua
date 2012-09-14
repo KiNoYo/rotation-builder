@@ -4123,22 +4123,17 @@ function ROB_UnitHasDebuff(_debuffNeeded, _unitName, _getnextspell)
 
 	while not _doneparsing do
 		_unparsedDebuff = nil
-		--print("parsing _remainingDebuffs=".._remainingDebuffs)
 		if (string.find(_remainingDebuffs, "|")) then
 			_unparsedDebuff   = string.sub(_remainingDebuffs,1,string.find(_remainingDebuffs, "|")-1)
-			--print("  found| so _unparsedDebuff=".._unparsedDebuff)
 			_debuffcount      = _debuffcount + 1
-			_remainingDebuffs = string.sub(_remainingDebuffs,string.find(_remainingDebuffs, "|")+2)
-			--print("  found| so _remainingDebuffs=".._remainingDebuffs)
+			_remainingDebuffs = string.sub(_remainingDebuffs,string.find(_remainingDebuffs, "|")+1)
 			_stringtype = 1
 		elseif (string.find(_remainingDebuffs, "&")) then
-			--print("  found & so _remainingDebuffs=".._remainingDebuffs)
 			_unparsedDebuff   = string.sub(_remainingDebuffs,1,string.find(_remainingDebuffs, "&")-1)
 			_debuffcount      = _debuffcount + 1
 			_remainingDebuffs = string.sub(_remainingDebuffs,string.find(_remainingDebuffs, "&")+1)
 			_stringtype = 2
 		else
-			--print("  foundnothing so we are done")
 			_unparsedDebuff   = _remainingDebuffs
 			_debuffcount      = _debuffcount + 1
 			_doneparsing      = true
@@ -4321,7 +4316,7 @@ function ROB_UnitHasBuff(_buffNeeded, _unitName, _getnextspell)
 		if (string.find(_remainingBuffs, "|")) then
 			_unparsedBuff   = string.sub(_remainingBuffs,1,string.find(_remainingBuffs, "|")-1)
 			_buffcount      = _buffcount + 1
-			_remainingBuffs = string.sub(_remainingBuffs,string.find(_remainingBuffs, "|")+2)
+			_remainingBuffs = string.sub(_remainingBuffs,string.find(_remainingBuffs, "|")+1)
 			_stringtype = 1
 		elseif (string.find(_remainingBuffs, "&")) then
 			_unparsedBuff   = string.sub(_remainingBuffs,1,string.find(_remainingBuffs, "&")-1)
@@ -4448,7 +4443,7 @@ function ROB_UnitKnowSpell(_spellneeded, _getnextspell)
 		if (string.find(_remainingspells, "|")) then
 			_unparsedspell   = string.sub(_remainingspells,1,string.find(_remainingspells, "|")-1)
 			_spellcount      = _spellcount + 1
-			_remainingspells = string.sub(_remainingspells,string.find(_remainingspells, "|")+2)
+			_remainingspells = string.sub(_remainingspells,string.find(_remainingspells, "|")+1)
 			_stringtype = 1
 		elseif (string.find(_remainingspells, "&")) then
 			_unparsedspell   = string.sub(_remainingspells,1,string.find(_remainingspells, "&")-1)
@@ -4509,7 +4504,7 @@ function ROB_UnitIsGlyphed(_glyphneeded, _getnextspell)
 		if (string.find(_remainingglyphs, "|")) then
 			_unparsedglyph   = string.sub(_remainingglyphs,1,string.find(_remainingglyphs, "|")-1)
 			_glyphcount      = _glyphcount + 1
-			_remainingglyphs = string.sub(_remainingglyphs,string.find(_remainingglyphs, "|")+2)
+			_remainingglyphs = string.sub(_remainingglyphs,string.find(_remainingglyphs, "|")+1)
 			_stringtype = 1
 		elseif (string.find(_remainingglyphs, "&")) then
 			_unparsedglyph   = string.sub(_remainingglyphs,1,string.find(_remainingglyphs, "&")-1)
@@ -4576,7 +4571,7 @@ function ROB_PlayerInStance(_stanceneeded, _getnextspell)
 		if (string.find(_remainingstances, "|")) then
 			_unparsedstance   = string.sub(_remainingstances,1,string.find(_remainingstances, "|")-1)
 			_stancecount      = _stancecount + 1
-			_remainingstances = string.sub(_remainingstances,string.find(_remainingstances, "|")+2)
+			_remainingstances = string.sub(_remainingstances,string.find(_remainingstances, "|")+1)
 			_stringtype = 1
 		elseif (string.find(_remainingstances, "&")) then
 			_unparsedstance   = string.sub(_remainingstances,1,string.find(_remainingstances, "&")-1)
