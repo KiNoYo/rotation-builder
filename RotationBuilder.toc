@@ -29,7 +29,7 @@ localization\esMX.lua
 localization\itIT.lua
 
 -- Core
-RBConstantes.lua
+RBConstants.lua
 RotationBuilder.lua
 utils\ImportExportUtils.lua
 debug.lua
