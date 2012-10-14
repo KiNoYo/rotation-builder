@@ -1467,7 +1467,7 @@
 												</Anchor>
 											</Anchors>
 										</FontString>
-										<Texture name="$parentIcon" file="Interface\RaidFrame\ReadyCheck-NotReady">
+										<Texture name="$parentIcon" file="Interface\RAIDFRAME\ReadyCheck-NotReady">
 											<Anchors>
 												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPRIGHT">
 													<Offset>

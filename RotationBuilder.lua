@@ -4,7 +4,7 @@
 -- 2. Create the gui control in RotationBuilder.xml search for "ADD_OPTIONS_BELOW_THIS_LINE"
 -- 3. Create the on click, on_update functions for new option search IF NEEDED for "ADD_OPTION_FUNCTIONS_BELOW_THIS"
 -- 4. Have to retrieve and set gui values search for "RETRIEVE_NEW_OPTIONS_BELOW"
--- 5. Make sure your script calls in XML dont call the wrong functions
+-- 5. Make sure your script calls in XML dont call the wrong functions 
 
 -- Rotation Options
 -- 1. Create the new option/gui in xml search for "ROB_RotationNameInputBox" as example
@@ -19,7 +19,8 @@
 -- Localization
 L = LibStub("AceLocale-3.0"):GetLocale("RotationBuilder")
 
-local ROB_VERSION                   = GetAddOnMetadata("RotationBuilder", "Version");
+-- TODO PEL : Put globals in another file for better code separation.
+ROB_VERSION = GetAddOnMetadata(ROR_PROJECT_NAME, "Version");
 ROB_UPDATE_INTERVAL                 = 0.2;      -- How often the OnUpdate code will run (in seconds)
 
 -- Scroll Frame Lines
@@ -65,7 +66,7 @@ local ROB_Options_Default           =
 	T4Skin                           = {};
 }
 
-local ROB_NewActionDefaults = {
+ROB_NewActionDefaults = {
 	--General Options---------------
 	b_toggle=false,
 	v_togglename="Toggle 1",
@@ -854,7 +855,7 @@ end
 function ROB_ADDON_Load(addon)
 	local key, value;
 
-	if (addon ~= "RotationBuilder") then return end
+	if (addon ~= ROR_PROJECT_NAME) then return end
 
 	-- Initialize
 	ROB_CLASS, ROB_CLASS_NAME = UnitClass("player");
@@ -3339,160 +3340,7 @@ function ROB_AddSpell(_SpellID, _SpellName)
 end
 
 function ROB_RotationImportButton_OnClick()
-	ROB_GetString(L['ROB_UI_IMPORT_MESSAGE'], "", true, ROB_RotationImport)
-end
-
-function ROB_RotationImport(_RotationBuild)
-	ROB_ImportRotation(_RotationBuild)
-end
-
-function ROB_ImportRotation(_RotationBuild)
-	local _parsedRotationName = nil
-	local _parsedRangeSpell = nil
-	local _AlreadyExists = false
-	local _RotationBuildRemaining = nil
-
-	if (_RotationBuild) then
-		--First check that the import string is from Rotation Builder or Rotation Builder for down compatibility purpose.
-		-- TODO PEL : find a better way to match a correct import.
-		if (string.sub(_RotationBuild, 1,15) ~= "RotationBuilder") then
-			print(L['ROB_UI_IMPORT_ERROR3'])
-			return
-		end
-
-		_parsedRotationName = string.sub(_RotationBuild, string.find(_RotationBuild,"%[")+1,string.find(_RotationBuild,"%]")-1)
-		_RotationBuildRemaining = string.sub(_RotationBuild, string.find(_RotationBuild,"%]")+2)
-	end
-
-	if ((not _parsedRotationName) or _parsedRotationName == "" or (not _RotationBuild) or _RotationBuild == "") then
-		print(L['ROB_UI_IMPORT_ERROR1'])
-		return
-	end
-
-	if (ROB_Rotations[_parsedRotationName]) then
-		_AlreadyExists = true
-
-	end
-
-	--Removed overwrite ability, it was confusing better to just not allow import overwriting
-	--if (_AlreadyExists and not ROB_Options.AllowOverwrite) then
-	if (_AlreadyExists) then
-		print(L['ROB_UI_DEBUG_PREFIX'].._parsedRotationName..":"..L['ROB_UI_IMPORT_ERROR2'])
-		return
-		--elseif (_AlreadyExists and ROB_Options.AllowOverwrite) then
-		--   ROB_Rotations[_parsedRotationName].rangespell = {}
-		--   ROB_Rotations[_parsedRotationName]["rangespell"] = _parsedRangeSpell
-	elseif (not _AlreadyExists) then
-		ROB_Rotations[_parsedRotationName] = {}
-		ROB_Rotations[_parsedRotationName]["keybind"] = {}
-		ROB_Rotations[_parsedRotationName]["keybind"] = L['ROB_UI_KEYBIND']
-		ROB_Rotations[_parsedRotationName]["rangespell"] = {}
-		ROB_Rotations[_parsedRotationName]["rangespell"] = _parsedRangeSpell
-		ROB_Rotations[_parsedRotationName]["SortedActions"] = {}
-		ROB_Rotations[_parsedRotationName]["ActionList"] = {}
-	end
-
-	local _data = { strsplit(",", _RotationBuildRemaining) }
-	local _actionname = nil
-	local _keyname = nil
-	local _keyvalue = nil
-	local _spelllistname = nil
-	_AlreadyExists = false
-	for _key,_value in pairs(_data) do
-		--print("   _value=".._value)
-		if (string.sub(_value,1,2) == "[[" and string.find(_value,"%]")) then
-			--we found a value that has a subtable that needs importing
-			_spelllistname = string.sub(_value, 3, string.find(_value,"%]")-1)
-			--print("_spelllistname=".._spelllistname)
-
-			--Check if spell list exists if it does not create it
-			if (ROB_Lists[_spelllistname]) then
-			--Spell list exists no need to create it
-			else
-				--print("create spell list:".._spelllistname)
-				ROB_Lists[_spelllistname] = {}
-				ROB_Lists[_spelllistname]["SortedSpells"] ={}
-			end
-		elseif (_value ~= "" and (not (string.sub(_value,1,1) == "[")) and (not(string.find(_value,"=")))) then
-			--print("Spell :".._value.." needs to go into the ".._spelllistname.." spell list")
-			local spellexistscheck = false
-			for _key1, _value1 in pairs(ROB_Lists[_spelllistname]["SortedSpells"]) do
-				--we found our new spell so we cant use it because it already exists
-				if (_value1 == _value) then
-					--we found the spell already exists in the spell list dont add it
-					--print("Spell already exists")
-					spellexistscheck = true
-				end
-			end
-			if (not spellexistscheck) then
-				--print("Adding spell ".._value.." to "..)
-				--if (#ROB_Lists[_spelllistname]["SortedSpells"]) then
-				local _spellindex = (#ROB_Lists[_spelllistname]["SortedSpells"] + 1)
-				--else
-				--ROB_SelectedSpellIndex = 1
-				--end
-				table.insert(ROB_Lists[_spelllistname]["SortedSpells"], _spellindex, _value);
-
-			end
-
-			--print("_spelllistname=".._spelllistname)
-		elseif (string.sub(_value,1,1) == "[" and string.find(_value,"%]")) then
-			_actionname = string.sub(_value, 2, string.find(_value,"%]")-1)
-			--print("   Found Actionname=".._actionname)
-			if (ROB_Rotations[_parsedRotationName]["SortedActions"][_actionname]) then _AlreadyExists = true; end
-			if (not _AlreadyExists) then
-				table.insert(ROB_Rotations[_parsedRotationName].SortedActions, _actionname);
-				ROB_Rotations[_parsedRotationName].ActionList[_actionname] = {}
-				for _defaultskey, _defaultsval in pairs(ROB_NewActionDefaults) do
-					ROB_Rotations[_parsedRotationName].ActionList[_actionname][_defaultskey] = _defaultsval
-				end
-			end
-		elseif (string.sub(_value,1,1) == "[" and (not string.find(_value,"%]"))) then
-			--Added some robustness to deal with a new action that doesnt have the ending bracket ]
-			_actionname = string.sub(_value, 2)
-			--print("   Found bad Actionname=".._actionname)
-			if (ROB_Rotations[_parsedRotationName]["SortedActions"][_actionname]) then _AlreadyExists = true; end
-			if (not _AlreadyExists) then
-				table.insert(ROB_Rotations[_parsedRotationName].SortedActions, _actionname);
-				ROB_Rotations[_parsedRotationName].ActionList[_actionname] = {}
-				for _defaultskey, _defaultsval in pairs(ROB_NewActionDefaults) do
-					ROB_Rotations[_parsedRotationName].ActionList[_actionname][_defaultskey] = _defaultsval
-				end
-			end
-		elseif (_actionname and _value ~= "" and string.find(_value,"=")) then
-			--print("trying _value=".._value)
-			_keyname = string.sub(_value,1,string.find(_value,"=")-1)
-			_keyvalue = string.sub(_value,string.find(_value,"=")+1)
-			_keyvalue = string.gsub(_keyvalue, "\\n", "\n")
-			if (_keyvalue == "true") then _keyvalue = true; end
-			if (_keyvalue == "false") then _keyvalue = false; end
-			--this value is a setting for the actionname
-			ROB_Rotations[_parsedRotationName].ActionList[_actionname][_keyname] = _keyvalue
-		end
-	end
-
-	-- update rotation list
-	ROB_SortRotationList();
-
-	-- update the action list
-	ROB_ActionList_Update();
-
-	-- sort spell lists
-	ROB_SortSpellLists();
-
-	-- sort spells
-	ROB_SortSpells();
-
-	-- update the spells list
-	ROB_SpellList_Update();
-
-	-- update rotation modify buttons
-	ROB_RotationModifyButtons_UpdateUI();
-
-	-- update rotation ui stuff
-	ROB_Rotation_Edit_UpdateUI();
-
-	print(L['ROB_UI_IMPORT_SUCCESS']..":".._parsedRotationName)
+	ROB_GetString(L['ROB_UI_IMPORT_MESSAGE'], "", true, ROB_ImportRotation)
 end
 
 function ROB_RotationExportButton_OnClick()
@@ -3500,83 +3348,6 @@ function ROB_RotationExportButton_OnClick()
 	if RotationBuild then
 		ROB_GetString(L['ROB_UI_EXPORT_MESSAGE'], RotationBuild)
 	end
-end
-
-function ROB_ExportRotation(_RotationName)
-	if (not _RotationName) or (_RotationName == "") then
-		print("No rotation name specified for export")
-		return
-	elseif not ROB_Rotations[_RotationName] then
-		print("Rotation name must be the name of an rotation build, and is case-sensitive.")
-		return
-	end
-
-	-- Concatenate the rotation
-	local RotationBuild = "RotationBuilder,v" .. ROB_VERSION .. ",[" .. _RotationName .. "]"
-
-	local AddComma = false
-	local SkipValue = false
-
-	for ActionIndex, ActionName in pairs(ROB_Rotations[_RotationName].SortedActions) do
-		RotationBuild = RotationBuild..",["..ActionName.."]"
-		--print("Actionname:"..ActionName)
-		for DefaultKey, DefaultValue in pairs(ROB_NewActionDefaults) do
-			--print("DefaultKey:"..DefaultKey)
-
-			SkipValue = false
-			if (ROB_Rotations[_RotationName].ActionList[ActionName][DefaultKey] == DefaultValue) then
-				SkipValue = true
-				--if (string.find(DefaultKey,"b_rangecheck")) then print("    DefaultKey:"..DefaultKey.."=DefaultValue"); end
-				--print("  DefaultKey:"..DefaultKey.."=DefaultValue")
-			end
-			if (ROB_Rotations[_RotationName].ActionList[ActionName][DefaultKey] == nil) then
-				SkipValue = true
-			end
-			if (DefaultKey == "v_durationstartedtime" or DefaultKey == "b_debug") then
-				SkipValue = true
-			end
-			if (DefaultKey == "v_keybind" and (not ROB_Options.ExportBinds)) then
-				SkipValue = true
-			end
-			if (not SkipValue) then
-				if (string.sub(DefaultKey,1,2) == "b_") then
-					if (ROB_Rotations[_RotationName].ActionList[ActionName][DefaultKey] == true) then
-						--print("    DefaultKey:"..DefaultKey.."getting set to true")
-						RotationBuild = RotationBuild..","..DefaultKey.."=true"
-					else
-						--print("    DefaultKey:"..DefaultKey.."getting set to false")
-						RotationBuild = RotationBuild..","..DefaultKey.."=false"
-					end
-				else
-					--Check if the DefaultKey value matches the name of a spell list, if so export it
-					--print("DefaultKey1="..DefaultKey)
-					if (ROB_Lists[ROB_Rotations[_RotationName].ActionList[ActionName][DefaultKey]]) then
-						RotationBuild = RotationBuild..","..DefaultKey.."="..ROB_Rotations[_RotationName].ActionList[ActionName][DefaultKey]
-						RotationBuild = RotationBuild..",[["..ROB_Rotations[_RotationName].ActionList[ActionName][DefaultKey].."]]"
-						for key, value in pairs(ROB_Lists[ROB_Rotations[_RotationName].ActionList[ActionName][DefaultKey]].SortedSpells) do
-							RotationBuild = RotationBuild..","..value
-							--print("DefaultKey2="..ROB_Rotations[_RotationName].ActionList[ActionName][DefaultKey])
-							--print("value="..value)
-							--[[if (value == "*" and _notInterruptible == false) then
-							return true
-							elseif ROB_SpellsMatch(value,_unitCasting) then
-							return true
-							end]]--
-						end
-					else
-						--print("    DefaultKey:"..DefaultKey)
-						--print("    DefaultKey:"..DefaultKey.."getting set to"..ROB_Rotations[_RotationName].ActionList[ActionName][DefaultKey])
-						RotationBuild = RotationBuild..","..DefaultKey.."="..ROB_Rotations[_RotationName].ActionList[ActionName][DefaultKey]
-					end
-				end
-			else
-			--print("skipping value:"..DefaultKey)
-			end
-		end
-	end
-
-	RotationBuild = RotationBuild
-	return RotationBuild
 end
 
 function ROB_CopyTable(object)
@@ -4121,6 +3892,7 @@ function ROB_UnitHasDebuff(_debuffNeeded, _unitName, _getnextspell)
 	local _name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId
 	local _name2, _rank2, _icon2, _cost2, _isFunnel2, _powerType2, _castTime2, _minRange2, _maxRange2
 
+	-- TODO PEL : Change the way to analyse the debuff string.
 	while not _doneparsing do
 		_unparsedDebuff = nil
 		if (string.find(_remainingDebuffs, "|")) then
@@ -4310,7 +4082,7 @@ function ROB_UnitHasBuff(_buffNeeded, _unitName, _getnextspell)
 	local _doneparsing = false
 	local _name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId
 	local _stringtype = 0
-
+	-- TODO PEL : Change the way to analyse the buff string.
 	while not _doneparsing do
 		_unparsedBuff = nil
 		if (string.find(_remainingBuffs, "|")) then
