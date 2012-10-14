@@ -11,5 +11,6 @@ externals:
 ignore:
 	- .pkgmeta
 	- .docmeta
+	- RotationBuilder_dev.toc
 
 package-as: RotationBuilder
