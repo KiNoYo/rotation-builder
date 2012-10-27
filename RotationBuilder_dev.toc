@@ -29,9 +29,16 @@ localization\esMX.lua
 localization\itIT.lua
 
 -- Core
-RBConstantes.lua
-RotationBuilder.lua
+RBConstants.lua
+Core.lua
 utils\ImportExportUtils.lua
+
+-- Default Rotations
+rotations\DefaultRogueRotations.lua
+rotations\DefaultDruidRotations.lua
+
+-- Rotation Builder
+RotationBuilder.lua
 debug.lua
 
 -- Interface

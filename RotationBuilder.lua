@@ -16,11 +16,8 @@
 -- 7. Add retrieve rotation settings search for "RETRIEVE_ROTATION_SETTINGS"
 -- 8. Make sure your script calls in XML dont call the wrong functions
 
--- Localization
-L = LibStub("AceLocale-3.0"):GetLocale("RotationBuilder")
-
 -- TODO PEL : Put globals in another file for better code separation.
-ROB_VERSION = GetAddOnMetadata(ROR_PROJECT_NAME, "Version");
+ROB_VERSION = GetAddOnMetadata(ROB_PROJECT_NAME, "Version");
 ROB_UPDATE_INTERVAL                 = 0.2;      -- How often the OnUpdate code will run (in seconds)
 
 -- Scroll Frame Lines
@@ -373,16 +370,14 @@ function ROB_NewRotation()
 end
 
 function ROB_LoadDefaultRotations()
+	-- Load default rotations for the class. Only ROGUE available like that.
+	RotationBuilder:loadDefaultRotations(ROB_CLASS_NAME);
+	
 	if (ROB_CLASS_NAME == "DEATHKNIGHT") then
 		ROB_ImportRotation(L['ROB_DEATHKNIGHT_BLOOD'])
 		ROB_ImportRotation(L['ROB_DEATHKNIGHT_FROST_1_HAND'])
 		ROB_ImportRotation(L['ROB_DEATHKNIGHT_FROST_2_HAND'])
 		ROB_ImportRotation(L['ROB_DEATHKNIGHT_UNHOLY'])
-	end
-	if (ROB_CLASS_NAME == "DRUID") then
-		ROB_ImportRotation(L['ROB_DRUID_BALANCE'])
-		ROB_ImportRotation(L['ROB_DRUID_FERAL'])
-		ROB_ImportRotation(L['ROB_DRUID_GUARDIAN'])
 	end
 	if (ROB_CLASS_NAME == "HUNTER") then
 		ROB_ImportRotation(L['ROB_HUNTER_BEASTMASTERY'])
@@ -405,11 +400,6 @@ function ROB_LoadDefaultRotations()
 	if (ROB_CLASS_NAME == "PRIEST") then
 		ROB_ImportRotation(L['ROB_PRIEST_SHADOW'])
 	end
-	if (ROB_CLASS_NAME == "ROGUE") then
-		ROB_ImportRotation(L['ROB_ROGUE_ASSASSINATION'])
-		ROB_ImportRotation(L['ROB_ROGUE_COMBAT'])
-		ROB_ImportRotation(L['ROB_ROGUE_SUBTLETY'])
-	end
 	if (ROB_CLASS_NAME == "SHAMAN") then
 		ROB_ImportRotation(L['ROB_SHAMAN_ELEMENTAL'])
 		ROB_ImportRotation(L['ROB_SHAMAN_ENHANCEMENT'])
@@ -424,6 +414,8 @@ function ROB_LoadDefaultRotations()
 		ROB_ImportRotation(L['ROB_WARRIOR_FURY'])
 		ROB_ImportRotation(L['ROB_WARRIOR_PROTECTION'])
 	end
+	-- TODO PEL : localize this message.
+	print("Default rotations loaded !");
 	-- update rotation list
 	ROB_SortRotationList()
 	-- update the action list
@@ -855,7 +847,7 @@ end
 function ROB_ADDON_Load(addon)
 	local key, value;
 
-	if (addon ~= ROR_PROJECT_NAME) then return end
+	if (addon ~= ROB_PROJECT_NAME) then return end
 
 	-- Initialize
 	ROB_CLASS, ROB_CLASS_NAME = UnitClass("player");

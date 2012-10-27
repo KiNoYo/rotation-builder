@@ -1,7 +1,10 @@
----[[
+--- Import a Rotation.
 -- Deserialyze a string as a Rotation and import it.
 -- @param #string _RotationBuild the serialyze Rotation to import.
---]]
+function ROB_ImportRotation_Old(_RotationBuild)
+	RotationBuilder:importRotation(_RotationBuild);
+end
+
 function ROB_ImportRotation(_RotationBuild)
 	-- TODO PEL : We will use the AceSerializer-3.0 lib to deserialyze the data.
 	local _parsedRotationName = nil
@@ -52,7 +55,7 @@ function ROB_ImportRotation(_RotationBuild)
 
 			--Check if spell list exists if it does not create it
 			if (ROB_Lists[_spelllistname]) then
-			--Spell list exists no need to create it
+				--Spell list exists no need to create it
 			else
 				ROB_Lists[_spelllistname] = {}
 				ROB_Lists[_spelllistname]["SortedSpells"] ={}
@@ -128,10 +131,13 @@ function ROB_ImportRotation(_RotationBuild)
 	print(L['ROB_UI_IMPORT_SUCCESS']..":".._parsedRotationName)
 end
 
----[[
+--- Export rotations.
 -- Serialyze a Rotation as a string for export purpose.
 -- @param #string _RotationName the name of the rotation to export.
---]]
+function ROB_ExportRotation_Old(_RotationName)
+	return RotationBuilder:exportRotation(_RotationName)
+end
+
 function ROB_ExportRotation(_RotationName)
 	-- TODO PEL : We will use the AceSerializer-3.0 lib to serialyze the data.
 	if (not _RotationName) or (_RotationName == "") then
