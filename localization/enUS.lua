@@ -776,4 +776,4 @@ L.defaultRotation = {
 	["rotation.default.rogue.vendetta"] = "Vendetta",
 }
 --@end-do-not-package@
---@localization(locale="enUS", format="lua_additive_table")@
+--@localization(locale="enUS", format="lua_additive_table", handle-subnamespaces="subtable")@
