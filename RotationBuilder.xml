@@ -7420,7 +7420,6 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</CheckButton>
-
 							<CheckButton name="ROB_OptionsTabAllowOverwriteButton" inherits="ROB_CheckButtonTemplate" hidden="true">
 								<Size>
 									<AbsDimension x="20" y="20" />
@@ -7428,7 +7427,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_OptionsTabImportExportOptionsFrame" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-35" />
+											<AbsDimension x="5" y="-40" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -7440,6 +7439,27 @@
 									<OnEnter>
 										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
 										GameTooltip:SetText(L['ROB_OPTION_OVERWRITE_TT']);
+									</OnEnter>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</CheckButton>
+							<CheckButton name="ROB_OptionsTabUseOldImportExportButton" inherits="ROB_CheckButtonTemplate">
+								<Size>
+									<AbsDimension x="20" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_OptionsTabImportExportOptionsFrame" relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="5" y="-25" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>ROB_OptionsTabUseOldImportExportButtonText:SetText(L['ui/options/importExport/useOld/text'])</OnLoad>
+									<OnClick>ROB_OptionsTabUseOldImportExportButton_OnToggle(self);</OnClick>
+									<OnEnter>
+										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
+										GameTooltip:SetText(L['ui/options/importExport/useOld/tooltip']);
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>

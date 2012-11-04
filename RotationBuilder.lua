@@ -4,7 +4,7 @@
 -- 2. Create the gui control in RotationBuilder.xml search for "ADD_OPTIONS_BELOW_THIS_LINE"
 -- 3. Create the on click, on_update functions for new option search IF NEEDED for "ADD_OPTION_FUNCTIONS_BELOW_THIS"
 -- 4. Have to retrieve and set gui values search for "RETRIEVE_NEW_OPTIONS_BELOW"
--- 5. Make sure your script calls in XML dont call the wrong functions 
+-- 5. Make sure your script calls in XML dont call the wrong functions
 
 -- Rotation Options
 -- 1. Create the new option/gui in xml search for "ROB_RotationNameInputBox" as example
@@ -43,6 +43,7 @@ local ROB_Options_Default           =
 	LockIcons                        = true;
 	AllowOverwrite                   = false;
 	ExportBinds                      = false;
+	OldImportExport                  = false;
 	HideCD                           = false;
 	IconsX                           = 0;
 	IconsY                           = 0;
@@ -276,6 +277,10 @@ ROB_NewActionDefaults = {
 ROB_Options                         = {};
 ROB_Rotations                       = {};
 ROB_Lists                           = {};
+--@do-not-package@
+-- Register minified rotation on export for development purpose.
+ROB_Exports                         = {};
+--@end-do-not-package@
 ROB_ActionClipboard                 = nil;
 
 local ROB_Initialized               = false
@@ -385,37 +390,37 @@ function ROB_LoadDefaultRotations()
 		ROB_ImportRotation(L['ROB_HUNTER_SURVIVAL'])
 	end
 	if (ROB_CLASS_NAME == "MAGE") then
-		ROB_ImportRotation(L['ROB_MAGE_ARCANE'])
-		ROB_ImportRotation(L['ROB_MAGE_FIRE'])
-		ROB_ImportRotation(L['ROB_MAGE_FROST'])
+		ROB_ImportRotation(L['ROB_MAGE_ARCANE'], true)
+		ROB_ImportRotation(L['ROB_MAGE_FIRE'], true)
+		ROB_ImportRotation(L['ROB_MAGE_FROST'], true)
 	end
 	if (ROB_CLASS_NAME == "MONK") then
-		ROB_ImportRotation(L['ROB_MONK_BREWMASTER'])
-		ROB_ImportRotation(L['ROB_MONK_WINDWALKER'])
+		ROB_ImportRotation(L['ROB_MONK_BREWMASTER'], true)
+		ROB_ImportRotation(L['ROB_MONK_WINDWALKER'], true)
 	end
 	if (ROB_CLASS_NAME == "PALADIN") then
-		ROB_ImportRotation(L['ROB_PALADIN_PROTECTION'])
-		ROB_ImportRotation(L['ROB_PALADIN_RETRIBUTION'])
+		ROB_ImportRotation(L['ROB_PALADIN_PROTECTION'], true)
+		ROB_ImportRotation(L['ROB_PALADIN_RETRIBUTION'], true)
 	end
 	if (ROB_CLASS_NAME == "PRIEST") then
-		ROB_ImportRotation(L['ROB_PRIEST_SHADOW'])
+		ROB_ImportRotation(L['ROB_PRIEST_SHADOW'], true)
 	end
 	if (ROB_CLASS_NAME == "SHAMAN") then
-		ROB_ImportRotation(L['ROB_SHAMAN_ELEMENTAL'])
-		ROB_ImportRotation(L['ROB_SHAMAN_ENHANCEMENT'])
+		ROB_ImportRotation(L['ROB_SHAMAN_ELEMENTAL'], true)
+		ROB_ImportRotation(L['ROB_SHAMAN_ENHANCEMENT'], true)
 	end
 	if (ROB_CLASS_NAME == "WARLOCK") then
-		ROB_ImportRotation(L['ROB_WARLOCK_AFFLICTION'])
-		ROB_ImportRotation(L['ROB_WARLOCK_DEMONOLOGY'])
-		ROB_ImportRotation(L['ROB_WARLOCK_DESTRUCTION'])
+		ROB_ImportRotation(L['ROB_WARLOCK_AFFLICTION'], true)
+		ROB_ImportRotation(L['ROB_WARLOCK_DEMONOLOGY'], true)
+		ROB_ImportRotation(L['ROB_WARLOCK_DESTRUCTION'], true)
 	end
 	if (ROB_CLASS_NAME == "WARRIOR") then
-		ROB_ImportRotation(L['ROB_WARRIOR_ARMS'])
-		ROB_ImportRotation(L['ROB_WARRIOR_FURY'])
-		ROB_ImportRotation(L['ROB_WARRIOR_PROTECTION'])
+		ROB_ImportRotation(L['ROB_WARRIOR_ARMS'], true)
+		ROB_ImportRotation(L['ROB_WARRIOR_FURY'], true)
+		ROB_ImportRotation(L['ROB_WARRIOR_PROTECTION'], true)
 	end
 	-- TODO PEL : localize this message.
-	print("Default rotations loaded !");
+	print("Default rotations loaded!");
 	-- update rotation list
 	ROB_SortRotationList()
 	-- update the action list
@@ -1165,20 +1170,17 @@ function ROB_SwitchRotation(RotationID,_byName)
 		ROB_Save_OnClick(self)
 	end
 
-
+	-- Select a rotation by its name or its index.
 	if (_byName) then
 		ROB_SelectedRotationName = RotationID
 	else
-		for _RotationName,_value in pairs(ROB_Rotations) do
-			if (not ROB_Rotations[_RotationName].bindindex) then
-				ROB_Rotations[_RotationName]["bindindex"] = 0
-			else
-				--this rotation has a bind index so check if it matches the one we pressed
-				if (ROB_Rotations[_RotationName].bindindex == RotationID) then
-					_MatchingRotationName = _RotationName
-					break
-				end
+		local index = 1;
+		for key, value in pairs(ROB_Rotations) do
+			if (index == RotationID) then
+				_MatchingRotationName = key
+				break
 			end
+			index = index + 1;
 		end
 		if (_MatchingRotationName == nil) then
 			print(L['ROB_UI_DEBUG_PREFIX']..L['ROB_UI_ROTATION_E1'])
@@ -2221,18 +2223,11 @@ function ROB_RotationKeyBindButton_OnKeyDown(self, key)
 		local keyPressed = key
 		local _BindSlotAvailable = true
 		local _BindSlotAvailableID = 0
-		--[[local ignoreKeys = {
-		["BUTTON1"] = true, ["BUTTON2"] = true,
-		["UNKNOWN"] = true,
-		["LSHIFT"] = true, ["LCTRL"] = true, ["LALT"] = true,
-		["RSHIFT"] = true, ["RCTRL"] = true, ["RALT"] = true,
-		}--]]
 		local ignoreKeys = {
 			["UNKNOWN"] = true,
 			["LSHIFT"] = true, ["LCTRL"] = true, ["LALT"] = true,
 			["RSHIFT"] = true, ["RCTRL"] = true, ["RALT"] = true,
 		}
-
 
 		if (ROB_EditingRotationTable ~= nil) then
 
@@ -2325,13 +2320,6 @@ function ROB_AO_ActionKeyBindButton_OnKeyDown(self, key)
 	if self.waitingForKey then
 		local keyPressed = key
 		local selectedrotation = ROB_EditingRotationTable
-
-		--[[local ignoreKeys = {
-		["BUTTON1"] = true, ["BUTTON2"] = true,
-		["UNKNOWN"] = true,
-		["LSHIFT"] = true, ["LCTRL"] = true, ["LALT"] = true,
-		["RSHIFT"] = true, ["RCTRL"] = true, ["RALT"] = true,
-		}--]]
 
 		local ignoreKeys = {
 			["UNKNOWN"] = true,

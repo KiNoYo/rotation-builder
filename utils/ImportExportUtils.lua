@@ -1,19 +1,25 @@
---- Import a Rotation.
--- Deserialyze a string as a Rotation and import it.
--- @param #string _RotationBuild the serialyze Rotation to import.
-function ROB_ImportRotation_Old(_RotationBuild)
-	RotationBuilder:importRotation(_RotationBuild);
+function ROB_OptionsTabUseOldImportExportButton_OnToggle(self)
+	ROB_Options.OldImportExport = (self:GetChecked() ~= nil);
 end
 
-function ROB_ImportRotation(_RotationBuild)
-	-- TODO PEL : We will use the AceSerializer-3.0 lib to deserialyze the data.
+--- Import a Rotation.
+-- Deserialize a string as a Rotation and import it.
+-- @param #string _RotationBuild the serialized Rotation to import.
+function ROB_ImportRotation(_RotationBuild, useOld)
+	if(useOld or ROB_Options.OldImportExport) then
+		ROB_ImportRotation_Old(_RotationBuild)
+	else
+		RotationBuilder:importRotation(_RotationBuild);
+	end
+end
+
+function ROB_ImportRotation_Old(_RotationBuild)
 	local _parsedRotationName = nil
 	local _parsedRangeSpell = nil
 	local _RotationBuildRemaining = nil
 
 	if (_RotationBuild) then
 		--First check that the import string is from Rotation Builder or Rotation Builder for down compatibility purpose.
-		-- TODO PEL : find a better way to match a correct import.
 		if (string.sub(_RotationBuild, 1,15) ~= "RotationBuilder") then
 			print(L['ROB_UI_IMPORT_ERROR3'])
 			return
@@ -63,9 +69,9 @@ function ROB_ImportRotation(_RotationBuild)
 		elseif (_value ~= "" and (not (string.sub(_value,1,1) == "[")) and (not(string.find(_value,"=")))) then
 			local spellexistscheck = false
 			for _key1, _value1 in pairs(ROB_Lists[_spelllistname]["SortedSpells"]) do
-				--we found our new spell so we cant use it because it already exists
+				--we found our new spell so we can't use it because it already exists
 				if (_value1 == _value) then
-					--we found the spell already exists in the spell list dont add it
+					--we found the spell already exists in the spell list don't add it
 					spellexistscheck = true
 				end
 			end
@@ -86,7 +92,7 @@ function ROB_ImportRotation(_RotationBuild)
 				end
 			end
 		elseif (string.sub(_value,1,1) == "[" and (not string.find(_value,"%]"))) then
-			--Added some robustness to deal with a new action that doesnt have the ending bracket ]
+			--Added some robustness to deal with a new action that doesn't have the ending bracket ]
 			_actionname = string.sub(_value, 2)
 			if (ROB_Rotations[_parsedRotationName]["SortedActions"][_actionname]) then _AlreadyExists = true; end
 			if (not _AlreadyExists) then
@@ -102,7 +108,7 @@ function ROB_ImportRotation(_RotationBuild)
 			_keyvalue = string.gsub(_keyvalue, "\\n", "\n")
 			if (_keyvalue == "true") then _keyvalue = true; end
 			if (_keyvalue == "false") then _keyvalue = false; end
-			--this value is a setting for the actionname
+			--this value is a setting for the action name
 			ROB_Rotations[_parsedRotationName].ActionList[_actionname][_keyname] = _keyvalue
 		end
 	end
@@ -132,14 +138,19 @@ function ROB_ImportRotation(_RotationBuild)
 end
 
 --- Export rotations.
--- Serialyze a Rotation as a string for export purpose.
+-- Serialize a Rotation as a string for export purpose.
 -- @param #string _RotationName the name of the rotation to export.
-function ROB_ExportRotation_Old(_RotationName)
-	return RotationBuilder:exportRotation(_RotationName)
+function ROB_ExportRotation(_RotationName, useOld)
+	local rotation;
+	if(useOld or ROB_Options.OldImportExport) then
+		rotation = ROB_ExportRotation_Old(_RotationName)
+	else
+		rotation = RotationBuilder:exportRotation(_RotationName);
+	end
+	return rotation;
 end
 
-function ROB_ExportRotation(_RotationName)
-	-- TODO PEL : We will use the AceSerializer-3.0 lib to serialyze the data.
+function ROB_ExportRotation_Old(_RotationName)
 	if (not _RotationName) or (_RotationName == "") then
 		print("No rotation name specified for export")
 		return

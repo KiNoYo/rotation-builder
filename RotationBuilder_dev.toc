@@ -1,19 +1,15 @@
 ## Interface: 50001
-## Title: RotationBuilder
-#@do-not-package@
-#For development purpose.
 ## Title: RotationBuilder_dev
-#@end-do-not-package@
 ## Version: 1.49
 ## Author: Previous : Soulwhip, Current : Pelerinage, Tylorcaptain
 ## Notes: Builds rotations for any class or spec
 ## SavedVariables: ROB_Lists
-## SavedVariablesPerCharacter: ROB_Options ROB_Rotations
+## SavedVariablesPerCharacter: ROB_Options ROB_Rotations ROB_Exports
 
 -- Library
 libs\LibStub\LibStub.lua
 libs\AceLocale-3.0\AceLocale-3.0.lua
-#libs\AceSerializer-3.0\AceSerializer-3.0.lua
+libs\AceSerializer-3.0\AceSerializer-3.0.lua
 #libs\LibCompress\LibCompress.lua
 
 -- Localization
@@ -30,6 +26,7 @@ localization\itIT.lua
 
 -- Core
 RBConstants.lua
+utils\RotationBuilderUtils.lua
 Core.lua
 utils\ImportExportUtils.lua
 
