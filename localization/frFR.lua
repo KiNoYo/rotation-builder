@@ -530,4 +530,4 @@ L["defaultRotation/rogue/vendetta"] = "Vendetta"
 L["ui/options/importExport/useOld/text"] = "Ancien import/export"
 L["ui/options/importExport/useOld/tooltip"] = "Utilisez l'ancien système d'import/export (Pour des raisons de compatibilité)"
 --@end-do-not-package@
---@localization(locale="frFR", format="lua_additive_table", handle-subnamespaces="subtable")@
+--@localization(locale="frFR", format="lua_additive_table", handle-subnamespaces="concat")@
