@@ -394,20 +394,12 @@ function ROB_LoadDefaultRotations()
 		ROB_ImportRotation(L['ROB_MAGE_FIRE'], true)
 		ROB_ImportRotation(L['ROB_MAGE_FROST'], true)
 	end
-	if (ROB_CLASS_NAME == "MONK") then
-		ROB_ImportRotation(L['ROB_MONK_BREWMASTER'], true)
-		ROB_ImportRotation(L['ROB_MONK_WINDWALKER'], true)
-	end
 	if (ROB_CLASS_NAME == "PALADIN") then
 		ROB_ImportRotation(L['ROB_PALADIN_PROTECTION'], true)
 		ROB_ImportRotation(L['ROB_PALADIN_RETRIBUTION'], true)
 	end
 	if (ROB_CLASS_NAME == "PRIEST") then
 		ROB_ImportRotation(L['ROB_PRIEST_SHADOW'], true)
-	end
-	if (ROB_CLASS_NAME == "SHAMAN") then
-		ROB_ImportRotation(L['ROB_SHAMAN_ELEMENTAL'], true)
-		ROB_ImportRotation(L['ROB_SHAMAN_ENHANCEMENT'], true)
 	end
 	if (ROB_CLASS_NAME == "WARLOCK") then
 		ROB_ImportRotation(L['ROB_WARLOCK_AFFLICTION'], true)
