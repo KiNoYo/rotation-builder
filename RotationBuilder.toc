@@ -33,6 +33,8 @@ utils\ImportExportUtils.lua
 -- Default Rotations
 rotations\DefaultRogueRotations.lua
 rotations\DefaultDruidRotations.lua
+rotations\DefaultMonkRotations.lua
+rotations\DefaultShamanRotations.lua
 
 -- Rotation Builder
 RotationBuilder.lua

@@ -448,4 +448,4 @@ local shamanRotationsGenerator = function ()
 	return rotation;
 end
 
-RotationBuilder:addDefaultRotationsGenerator("shaman", shamanRotationsGenerator);
+RotationBuilder:addDefaultRotationsGenerator("SHAMAN", shamanRotationsGenerator);

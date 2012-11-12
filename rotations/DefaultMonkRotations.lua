@@ -226,7 +226,7 @@ local monkRotationsGenerator = function ()
 					["v_gunitpower"] = "60",
 					["v_durationstartedtime"] = 0,
 				},
-				[L["defaultRotation/monk/fist_of_fury"]] = {
+				[L["defaultRotation/monk/fists_of_fury"]] = {
 					["v_gcdspell"] = "115921",
 					["v_durationstartedtime"] = 0,
 					["v_actionicon"] = "113656",
