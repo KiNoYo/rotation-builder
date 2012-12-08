@@ -81,12 +81,8 @@ ROB_NewActionDefaults = {
 	v_rangespell="",
 	b_maxcasts=false,
 	v_maxcasts="",
-	b_mobcount=false,
-	v_mobcount="",
 	b_lastcasted=false,
 	v_lastcasted="",
-	b_breakchanneling=false,
-	v_breakchanneling="",
 	b_moving=false,
 	b_notmoving=false,
 
@@ -178,10 +174,6 @@ ROB_NewActionDefaults = {
 	b_p_airtotemtimeleft=false,
 	v_p_airtotemtimeleft="",
 
-	b_p_nmh=false,
-	v_p_nmh="",
-	b_p_noh=false,
-	v_p_noh="",
 	b_p_stance=false,
 	v_p_stance="",
 	b_p_notstance=false,
@@ -217,6 +209,8 @@ ROB_NewActionDefaults = {
 	b_t_dr=false,
 	b_t_boss=false,
 	b_t_notaboss=false,
+	b_t_has_stealable_buff=false,
+	b_t_magic=false,
 	--Pet Options---------------
 	b_pet_hp=false,
 	v_pet_hp="",
@@ -315,9 +309,6 @@ local ROB_TARGET_LAST_CASTED        = nil;     -- Used to output what spell was 
 local ROB_FOCUS_LAST_CASTED         = nil;     -- Used to output what spell was itnerrupted
 local ROB_ACTION_GCD                = false;   -- ROB_ACTION_GCD is not used for anything yet but its there for future options that may need it
 
-local ROB_LOCAL_UNITS               = {};      -- List of local units in the area, used for AoE stuff
-local ROB_NUM_MOBS                  = 0        -- The number of attacking mobs in the area
-
 --libDataBroker stuff
 local ROB_MENU_FRAME                = nil;
 local ROB_MENU                      = {};
@@ -375,19 +366,14 @@ function ROB_NewRotation()
 end
 
 function ROB_LoadDefaultRotations()
-	-- Load default rotations for the class. Only ROGUE available like that.
+	-- Load default rotations for the class.
 	RotationBuilder:loadDefaultRotations(ROB_CLASS_NAME);
 	
 	if (ROB_CLASS_NAME == "DEATHKNIGHT") then
-		ROB_ImportRotation(L['ROB_DEATHKNIGHT_BLOOD'])
-		ROB_ImportRotation(L['ROB_DEATHKNIGHT_FROST_1_HAND'])
-		ROB_ImportRotation(L['ROB_DEATHKNIGHT_FROST_2_HAND'])
-		ROB_ImportRotation(L['ROB_DEATHKNIGHT_UNHOLY'])
-	end
-	if (ROB_CLASS_NAME == "HUNTER") then
-		ROB_ImportRotation(L['ROB_HUNTER_BEASTMASTERY'])
-		ROB_ImportRotation(L['ROB_HUNTER_MARKSMANSHIP'])
-		ROB_ImportRotation(L['ROB_HUNTER_SURVIVAL'])
+		ROB_ImportRotation(L['ROB_DEATHKNIGHT_BLOOD'], true)
+		ROB_ImportRotation(L['ROB_DEATHKNIGHT_FROST_1_HAND'], true)
+		ROB_ImportRotation(L['ROB_DEATHKNIGHT_FROST_2_HAND'], true)
+		ROB_ImportRotation(L['ROB_DEATHKNIGHT_UNHOLY'], true)
 	end
 	if (ROB_CLASS_NAME == "MAGE") then
 		ROB_ImportRotation(L['ROB_MAGE_ARCANE'], true)
@@ -544,8 +530,6 @@ function ROB_OnLoad(self)
 	self:RegisterEvent("UNIT_SPELLCAST_START");
 	self:RegisterEvent("UNIT_SPELLCAST_CHANNEL_START");
 	self:RegisterEvent("UNIT_SPELLCAST_CHANNEL_STOP");
-	-- TODO : Tylorcaptain : Disabled combat log management for now until we find out what make wow lag so much compared to what happened before patch day
-	--	self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED");
 
 	-- hook command handler
 	SLASH_ROB1 = "/rob";
@@ -616,8 +600,6 @@ function ROB_OnEvent(self, event, ...)
 	local _eventSpellname = arg12
 	local _eventEvent = arg2
 	local _sourceFlags = arg6
-	--                                  arg1       arg2   arg3        arg4        arg5         arg6         arg7             arg8       arg9       arg10      arg11          arg12
-	--4.2   COMBAT_LOG_EVENT_UNFILTERED(timestamp, event, hideCaster, sourceGUID, sourceName,  sourceFlags, sourceRaidFlags, destGUID,  destName,  destFlags, destRaidFlags, ...)
 
 	if (event == "ADDON_LOADED") then
 		ROB_ADDON_Load(...);
@@ -670,106 +652,7 @@ function ROB_OnEvent(self, event, ...)
 				end
 			end
 		end
-		-- TODO Tylorcaptain : Disabled combat log analysing due to severe lag until we find out the cause
-		--[[
-		elseif (event == "COMBAT_LOG_EVENT_UNFILTERED" and arg4 == UnitGUID("player")) then
-		--First check if we need to add to the ROB_LOCAL_UNITS
-		local _unitguid   = nil
-		local member = UnitGUID("player")
-		local _sourceisnpc = false
-		local _destisnpc = false
-		if (string.sub(arg4,9,11)~="000") then _sourceisnpc = true; end
-		if (string.sub(arg8,9,11)~="000") then _destisnpc = true; end
-
-		--if the source is a friendly and the destination is a npc _unitguid = destinationguid
-		if (arg4 == member and arg8 and _destisnpc) then _unitguid = arg8; end
-		--if the destination is a friendly and the source is a npc _unitguid = sourceguid
-		--if (arg8 == member and arg4 and _sourceisnpc) then _unitguid = arg4; end
-		member = UnitGUID("pet")
-		--if the source is a friendly pet and the destination is a npc _unitguid = destinationguid
-		if (arg4 == member and arg8 and _destisnpc) then _unitguid = arg8; end
-		--if the destination is a friendly pet and the source is a npc _unitguid = sourceguid
-		--if (arg8 == member and arg4 and _sourceisnpc) then _unitguid = arg4; end
-		if GetNumRaidMembers() > 0 then
-		for i = 1, GetNumRaidMembers() do
-		member = UnitGUID("raid" .. i)
-		--if the source is a friendly and the destination is a npc _unitguid = destinationguid
-		if (arg4 == member and arg8 and _destisnpc) then _unitguid = arg8;break; end
-		--if the destination is a friendly and the source is a npc _unitguid = sourceguid
-		--if (arg8 == member and arg4 and _sourceisnpc) then _unitguid = arg4;break; end
-		member = UnitGUID("raid" .. i.."pet")
-		--if the source is a friendly and the destination is a npc _unitguid = destinationguid
-		if (arg4 == member and arg8 and _destisnpc) then _unitguid = arg8;break; end
-		--if the destination is a friendly pet and the source is a npc _unitguid = sourceguid
-		--if (arg8 == member and arg4 and _sourceisnpc) then _unitguid = arg4;break; end
-		end
-		else
-		for i = 1, GetNumPartyMembers() do
-		member = UnitGUID("party" .. i)
-		--if the source is a friendly and the destination is a npc _unitguid = destinationguid
-		if (arg4 == member and arg8 and _destisnpc) then _unitguid = arg8;break; end
-		--if the destination is a friendly and the source is a npc _unitguid = sourceguid
-		--if (arg8 == member and arg4 and _sourceisnpc) then _unitguid = arg4;break; end
-		member = UnitGUID("party" .. i.."pet")
-		--if the source is a friendly pet and the destination is a npc _unitguid = destinationguid
-		if (arg4 == member and arg8 and _destisnpc) then _unitguid = arg8;break; end
-		--if the destination is a friendly pet and the source is a npc _unitguid = sourceguid
-		--if (arg8 == member and arg4 and _sourceisnpc) then _unitguid = arg4;break; end
-		end
-		end
-		--Dont count certain things like totems
-		if (string.find(tostring(arg9),"Totem")) then _unitguid = nil; end
-
-		--print("_eventEvent=".._eventEvent)
-		--if ((not string.find(tostring(arg5),"Totem")) and (not string.find(tostring(arg9),"Totem")) and _unitguid and (not ROB_LOCAL_UNITS[_unitguid])) then
-		if ( string.find(tostring(_eventEvent),"DAMAGE") and _unitguid and (not ROB_LOCAL_UNITS[_unitguid])) then
-		ROB_LOCAL_UNITS[_unitguid] = {}
-		ROB_LOCAL_UNITS[_unitguid]["LastUpdate"] = GetTime()
-		--print("adding "..tostring(arg5).."|"..tostring(arg9)..":"..tostring(_unitguid)..":".._eventEvent.." time="..tostring(ROB_LOCAL_UNITS[_unitguid]["LastUpdate"]))
-		--elseif ((not string.find(tostring(arg5),"Totem")) and (not string.find(tostring(arg9),"Totem")) and _unitguid and ROB_LOCAL_UNITS[_unitguid]) then
-		elseif (string.find(tostring(_eventEvent),"DAMAGE") and _unitguid and ROB_LOCAL_UNITS[_unitguid]) then
-		ROB_LOCAL_UNITS[_unitguid]["LastUpdate"] = GetTime()
-
-		--print("updating time for "..tostring(_unitguid)..":"..tostring(ROB_LOCAL_UNITS[_unitguid]["LastUpdate"]))
-		end
-
-		if (_eventEvent == "UNIT_DIED" or _eventEvent == "UNIT_DESTROYED") then
-		--print("unit ".._eventEvent..arg8.." died")
-		--print("removing="..arg9)
-		ROB_LOCAL_UNITS[arg8] = nil
-		end
-		if (not ROB_SelectedRotationName) then
-		--If we cant compare spells to a rotation to get the interrupt then exit
-		return
-		end
-		if _eventEvent == "SPELL_INTERRUPT" then
-		if arg5 ~= UnitName("player") then return end
-		if not GetSpellLink(arg15) then return end
-		if not GetSpellLink(_eventSpellname) then return end
-		_message = (""..GetSpellLink(_eventSpellname).." "..L['ROB_UI_INTERRUPTED_MSG'].." "..GetSpellLink(arg15))
-		print(_message)
-		end]]--
 	end
-
-end
-
-function ROB_CheckLocalUnits()
-	--ROB_LOCAL_UNITS
-	--print("unitcount="..tostring(#ROB_LOCAL_UNITS))
-	for i,v  in pairs(ROB_LOCAL_UNITS) do
-		--print("timesince="..(GetTime() - ROB_LOCAL_UNITS[i]["LastUpdate"]))
-		if (GetTime() - ROB_LOCAL_UNITS[i]["LastUpdate"] > 12) then
-			--table.remove(ROB_LOCAL_UNITS, i)
-			--print("removing from timeout 12 seconds"..tostring(i))
-			ROB_LOCAL_UNITS[i] = nil
-		end
-		--		print("time="..ROB_LOCAL_UNITS[i]["LastUpdate"])
-	end
-
-	local _ROB_NUM_MOBS = 0
-	for k,v  in pairs(ROB_LOCAL_UNITS) do    _ROB_NUM_MOBS = _ROB_NUM_MOBS + 1 end
-	ROB_NUM_MOBS = _ROB_NUM_MOBS
-	--print("unitcount1="..ROB_NUM_MOBS)
 end
 
 function ROB_LoadDefaultInterruptList()
@@ -1927,25 +1810,6 @@ function ROB_AO_ToggleDropDownButton_OnLoad(frame)
 	end
 end
 
-function ROB_AO_BreakChannelingDropDownButton_OnLoad(frame)
-	if (not ROB_Lists) then
-		return
-	end
-	local ToggleName = ""
-	UIDropDownMenu_SetWidth(frame, 75)
-	UIDropDownMenu_JustifyText(frame, "LEFT");
-
-	ROB_DropDownStoreToTemp = "v_breakchanneling"
-
-	for key, value in pairs(ROB_Lists) do
-		table.wipe(ROB_DropDownTableTemp)
-		ROB_DropDownTableTemp.text  = key
-		ROB_DropDownTableTemp.value = key
-		ROB_DropDownTableTemp.func  = ROB_BreakChannelingDropDown_Selected
-		UIDropDownMenu_AddButton(ROB_DropDownTableTemp);
-	end
-end
-
 function ROB_AO_T_InterruptDropDownButton_OnLoad(frame)
 	if (not ROB_Lists) then
 		return
@@ -2007,13 +1871,6 @@ function ROB_ActionOptionDropDown_Selected(self)
 	if (ROB_EditingRotationTable ~= nil and ROB_CurrentActionName ~= nil and ROB_DropDownStoreToTemp ~= nil) then
 		ROB_EditingRotationTable.ActionList[ROB_CurrentActionName][ROB_DropDownStoreToTemp] = self.value
 		UIDropDownMenu_SetSelectedValue(ROB_AO_ToggleDropDownButton, ROB_EditingRotationTable.ActionList[ROB_CurrentActionName][ROB_DropDownStoreToTemp]);
-	end
-end
-
-function ROB_BreakChannelingDropDown_Selected(self)
-	if (ROB_EditingRotationTable ~= nil and ROB_CurrentActionName ~= nil and ROB_DropDownStoreToTemp ~= nil) then
-		ROB_EditingRotationTable.ActionList[ROB_CurrentActionName][ROB_DropDownStoreToTemp] = self.value
-		UIDropDownMenu_SetSelectedValue(ROB_AO_BreakChannelingDropDownButton, ROB_EditingRotationTable.ActionList[ROB_CurrentActionName][ROB_DropDownStoreToTemp]);
 	end
 end
 
@@ -2126,13 +1983,6 @@ function ROB_ActionKeyBindButton_OnClick(self, button)
 		if self.waitingForKey then
 			local keyPressed = button
 			local selectedrotation = ROB_EditingRotationTable
-
-			--[[local ignoreKeys = {
-			["BUTTON1"] = true, ["BUTTON2"] = true,
-			["UNKNOWN"] = true,
-			["LSHIFT"] = true, ["LCTRL"] = true, ["LALT"] = true,
-			["RSHIFT"] = true, ["RCTRL"] = true, ["RALT"] = true,
-			}--]]
 
 			local ignoreKeys = {
 				["UNKNOWN"] = true,
@@ -2953,15 +2803,8 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetChecked("ROB_AO_MaxCastsCheckButton",_ActionDB.b_maxcasts,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_MaxCastsInputBox",_ActionDB.v_maxcasts,"")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_MobCountCheckButton",_ActionDB.b_mobcount,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_MobCountInputBox",_ActionDB.v_mobcount,"")
-
 			ROB_Rotation_GUI_SetChecked("ROB_AO_LastCastedCheckButton",_ActionDB.b_lastcasted,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_LastCastedInputBox",_ActionDB.v_lastcasted,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_BreakChannelingCheckButton",_ActionDB.b_breakchanneling,false)
-			UIDropDownMenu_SetSelectedValue(ROB_AO_BreakChannelingDropDownButton, _ActionDB.v_breakchanneling)
-			UIDropDownMenu_SetText(ROB_AO_BreakChannelingDropDownButton, _ActionDB.v_breakchanneling)
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_MovingCheckButton",_ActionDB.b_moving,false)
 
@@ -3073,12 +2916,6 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetChecked("ROB_AO_AirTotemTimeleftCheckButton",_ActionDB.b_p_airtotemtimeleft,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_AirTotemTimeleftInputBox",_ActionDB.v_p_airtotemtimeleft,"")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_NeedMainhandEnchantCheckButton",_ActionDB.b_p_nmh,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_NeedMainhandEnchantInputBox",_ActionDB.v_p_nmh,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_NeedOffhandEnchantCheckButton",_ActionDB.b_p_noh,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_NeedOffhandEnchantInputBox",_ActionDB.v_p_noh,"")
-
 			ROB_Rotation_GUI_SetChecked("ROB_AO_StanceCheckButton",_ActionDB.b_p_stance,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_StanceInputBox",_ActionDB.v_p_stance,"")
 
@@ -3131,6 +2968,9 @@ function ROB_Rotation_Edit_UpdateUI()
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetBossCheckButton",_ActionDB.b_t_boss,false)
 			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetNotABossCheckButton",_ActionDB.b_t_notaboss,false)
+			
+			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetHasStealableBuffCheckButton",_ActionDB.b_t_has_stealable_buff,false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetMagicCheckButton",_ActionDB.b_t_magic,false)
 
 			--Pet options-------------------------
 			ROB_Rotation_GUI_SetChecked("ROB_AO_PetHPCheckButton",_ActionDB.b_pet_hp,false)
@@ -3361,33 +3201,6 @@ function ROB_TotemActive(_totemname,_totemslot,_getnextspell)
 	return false
 end
 
-function ROB_MOBsInArea(_checkstring)
-	local _mobcountparsed = _checkstring
-
-	if (string.sub(_checkstring,1,1) == "<" and string.sub(_checkstring,1,2) ~= "<=") then
-		_mobcountparsed = tonumber(string.sub(_checkstring,2))
-		if (ROB_NUM_MOBS < _mobcountparsed) then return true; end
-	end
-	if (string.sub(_checkstring,1,1) == ">" and string.sub(_checkstring,1,2) ~= ">=") then
-		_mobcountparsed = tonumber(string.sub(_checkstring,2))
-		if (ROB_NUM_MOBS > _mobcountparsed) then return true; end
-	end
-	if (string.sub(_checkstring,1,2) == ">=") then
-		_mobcountparsed = tonumber(string.sub(_checkstring,3))
-		if (ROB_NUM_MOBS >= _mobcountparsed) then return true; end
-	end
-	if (string.sub(_checkstring,1,2) == "<=") then
-		_mobcountparsed = tonumber(string.sub(_checkstring,3))
-		if (ROB_NUM_MOBS <= _mobcountparsed) then return true; end
-	end
-	if (string.sub(_checkstring,1,1) == "=") then
-		_mobcountparsed = tonumber(string.sub(_checkstring,2))
-		if (ROB_NUM_MOBS == _mobcountparsed) then return true; end
-	end
-
-	return false
-end
-
 function ROB_PetIsAutocasting(_spellname,_getnextspell)
 	-- Iterate through the spells in the pet spellbook, if we have one.
 	local i = 1;
@@ -3589,6 +3402,26 @@ function ROB_CheckForDebuffType(_unitName,_magic,_poison,_disease,_curse)
 	else
 		return false
 	end
+end
+
+function ROB_CheckForMagicBuff(_unitName)
+	local _unithasmagicbuff = false
+
+	local _name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId
+	local i = 1
+
+	_name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId = UnitBuff(_unitName, i)
+	
+	while _name and (_debuffType ~= "Magic") do
+		i = i + 1;
+		_name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId = UnitBuff(_unitName, i)
+	end
+	
+	if _debuffType == "Magic" then
+		_unithasmagicbuff = true
+	end
+	
+	return _unithasmagicbuff
 end
 
 function ROB_UnitIsCasting(_unitName, _spelllist)
@@ -3985,60 +3818,6 @@ function ROB_UnitHasDebuff(_debuffNeeded, _unitName, _getnextspell)
 	return _unithasdebuffs
 end
 
-function ROB_CheckForWeaponEnchant(_slot, _checkstring)
-	local _enchantparsedseconds = 0
-	local _timeleftpassed = false
-	local _timeleft = 0
-	local _enchantpassed = false
-	local _enchantparsed = _checkstring
-
-
-	local _hasMainHandEnchant, _mainHandExpiration, _mainHandCharges, _hasOffHandEnchant, _offHandExpiration, _offHandCharges = GetWeaponEnchantInfo()
-
-	if (_slot == 16 and (not _hasMainHandEnchant)) then return false; end
-	if (_slot == 17 and (not _hasOffHandEnchant)) then return false; end
-
-	if (_slot == 16) then _timeleft = GetTime() + _mainHandExpiration / 1000; end
-	if (_slot == 17) then _timeleft = GetTime() + _offHandExpiration / 1000; end
-
-	if (string.find(_enchantparsed, "%^")) then
-		_enchantparsedseconds = tonumber(string.sub(_spellparsed,(string.find(_spellparsed, "%^")+1)))
-		_enchantparsed = string.sub(_enchantparsed,1,(string.find(_enchantparsed, "%^")-1))
-	else
-		_enchantparsedseconds = 0
-	end
-
-	ROB_Tooltip:SetOwner(UIParent, "ANCHOR_NONE");
-	ROB_Tooltip:SetInventoryItem("player", _slot);
-
-	local _lefttext = nil
-	local _righttext = nil
-	local _parsedline = nil
-	for _ttline = 1, ROB_Tooltip:NumLines() do
-		_lefttext = getglobal("ROB_TooltipTextLeft".._ttline);
-		_lefttext = _lefttext:GetText()
-		if _lefttext then _parsedline = "".._lefttext; end
-
-		_righttext = getglobal("ROB_TooltipTextLeft".._ttline);
-		_righttext = _righttext:GetText()
-		if _righttext then _parsedline = _parsedline.._righttext; end
-
-		if (_parsedline ~= "") then
-			if (string.find(_parsedline, _enchantparsed)) then
-				ROB_Tooltip:Hide();
-				_enchantpassed = true
-			end
-		end
-	end
-	ROB_Tooltip:Hide();
-
-	if (_timeleft >= _enchantparsedseconds and _enchantpassed) then
-		return true;
-	end
-
-	return false;
-end
-
 function ROB_UnitHasBuff(_buffNeeded, _unitName, _getnextspell)
 	local _unithasbuffs = false
 	local _spellexists = false
@@ -4169,6 +3948,26 @@ function ROB_UnitHasBuff(_buffNeeded, _unitName, _getnextspell)
 	end
 
 	return _unithasbuffs
+end
+
+function ROB_UnitHasStealableBuff(_unitName, _getnextspell)
+	local _unithasstealablebuff = false
+
+	local _name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId
+	local i = 1
+
+	_name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId = UnitBuff(_unitName, i)
+	
+	while _name and not _isStealable do
+		i = i + 1;
+		_name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId = UnitBuff(_unitName, i)
+	end
+	
+	if _isStealable then
+		_unithasstealablebuff = true
+	end
+
+	return _unithasstealablebuff
 end
 
 function ROB_UnitKnowSpell(_spellneeded, _getnextspell)
@@ -4875,23 +4674,6 @@ function ROB_SpellReady(_actionname,_getnextspell)
 		end
 	end
 
-	-- TODO : Tylorcaptain : Disabled interrupt casting check for now to fluidify spellcasters rotation
-	--[[
-	-- CHECK: Check interrupt casting-----------------------------------------------------------------------------------------------------------------------------
-	_channeling, _, _, _, _, _ = UnitCastingInfo("player")
-	if (not _channeling) then
-	_channeling, _, _, _, _, _, _, _, _ = UnitChannelInfo("player")
-	end
-	if (_channeling and (not _getnextspell)) then
-	if (_ActionDB.b_breakchanneling and ROB_UnitIsCasting("player", _ActionDB.v_breakchanneling)) then
-	--dont return false because player is casting a spell allowed in the breachanneling list
-	else
-	ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._ActionDB.v_spellname.." player is casting: "..tostring(_channeling).." which is not found the spell list: "..tostring(_ActionDB.v_breakchanneling),_getnextspell,_debugon)
-	return false
-	end
-	end
-	]]--
-
 	-- CHECK: Check Moving-----------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_moving and GetUnitSpeed("player") == 0) then
 		ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._ActionDB.v_spellname.." because player is not moving",_ready,_debugon)
@@ -5053,6 +4835,12 @@ function ROB_SpellReady(_actionname,_getnextspell)
 			return false
 		end
 	end
+	-- CHECK: Have Stealable Buff --------------------------------------------------------------------------------------------------------------------
+	if (_ActionDB.b_t_has_stealable_buff) then
+		if (not ROB_UnitHasStealableBuff("target",_getnextspell)) then
+			return false
+		end
+	end
 	-- CHECK: Life -----------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_p_hp and _ActionDB.v_p_hp ~= nil and _ActionDB.v_p_hp ~= "") then
 		if (not ROB_UnitPassesLifeCheck(_ActionDB.v_p_hp,"player")) then
@@ -5099,14 +4887,6 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	if (_ActionDB.b_p_unitpower and _ActionDB.v_p_unitpowertype ~= nil and _ActionDB.v_p_unitpowertype ~= "") then
 		if (not ROB_UnitPassesPowerCheck(_ActionDB.v_p_unitpower,"player",_ActionDB.v_p_unitpowertype,_getnextspell)) then
 			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." player does not meet power requirement ".._ActionDB.v_p_unitpower.." of type ".._ActionDB.v_p_unitpowertype,_getnextspell,_debugon)
-			return false
-		end
-	end
-
-	-- CHECK: MOB Count   -----------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_mobcount and _ActionDB.v_mobcount ~= nil and _ActionDB.v_mobcount ~= "") then
-		if (not ROB_MOBsInArea(_ActionDB.v_mobcount)) then
-			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." MOB Count check failed. There are "..ROB_NUM_MOBS.." mobs in area, not ".._ActionDB.v_mobcount,_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5163,6 +4943,13 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	if (_checkmagic == true or _checkpoison == true or _checkdisease == true or _checkcurse == true) then
 		if (not ROB_CheckForDebuffType("player",_checkmagic, _checkpoison, _checkdisease, _checkcurse)) then
 			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." did not find any debuff types on player",_getnextspell,_debugon)
+			return false
+		end
+	end
+	
+	--Check: Target as magic buff
+	if (_ActionDB.b_t_magic) then
+		if (not ROB_CheckForMagicBuff("target")) then
 			return false
 		end
 	end
@@ -5361,21 +5148,6 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	if (_ActionDB.b_c_dr and _ActionDB.v_c_unitname and _ActionDB.v_c_unitname ~=nil and _ActionDB.v_c_unitname ~= "") then
 		if (CheckInteractDistance(_ActionDB.v_c_unitname, 3) == nil) then
 			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." because "..tostring(_ActionDB.v_c_unitname).." is not in duel range",_getnextspell,_debugon)
-			return false
-		end
-	end
-
-
-	-- CHECK: Weapon Enchants ----------------------------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_p_nmh and _ActionDB.v_p_nmh ~= nil and _ActionDB.v_p_nmh ~= "") then
-		if (ROB_CheckForWeaponEnchant(16, _ActionDB.v_p_nmh)) then
-			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." because player has ".._ActionDB.v_p_nmh.." on mainhand already",_getnextspell,_debugon)
-			return false
-		end
-	end
-	if (_ActionDB.b_p_noh and _ActionDB.v_p_noh ~= nil and _ActionDB.v_p_noh ~= "") then
-		if (ROB_CheckForWeaponEnchant(17, _ActionDB.v_p_noh)) then
-			ROB_Debug1(L['ROB_UI_DEBUG_E1'].._actionname.." S:".._spellname.." because player has ".._ActionDB.v_p_noh.." on offhad already",_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5604,9 +5376,6 @@ function ROB_OnUpdate(self, elapsed)
 		else
 			ROB_RotationToggle4Button:Hide()
 		end
-
-		--Update the AoE unit count
-		ROB_CheckLocalUnits()
 
 		ROB_DebugOnUpdate()
 		self.TimeSinceLastUpdate = self.TimeSinceLastUpdate - ROB_UPDATE_INTERVAL

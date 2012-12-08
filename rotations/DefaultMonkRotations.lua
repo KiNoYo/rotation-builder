@@ -36,7 +36,7 @@ local monkRotationsGenerator = function ()
 					["b_rangecheck"] = true,
 				},
 				[L["defaultRotation/monk/tiger_palm_buffs"]] = {
-					["v_p_needbuff"] = "_125359#3^3&_118636#3^3",
+					["v_p_needbuff"] = "_125359^3&_118636^3",
 					["b_p_needbuff"] = true,
 					["v_gcdspell"] = "115921",
 					["v_togglename"] = "Toggle 1",
@@ -189,7 +189,7 @@ local monkRotationsGenerator = function ()
 					["v_checkothercdname"] = "123904",
 				},
 				[L["defaultRotation/monk/tiger_palm"]] = {
-					["v_p_needbuff"] = "125359#3^5",
+					["v_p_needbuff"] = "125359^5",
 					["b_p_needbuff"] = true,
 					["v_gcdspell"] = "115921",
 					["v_actionicon"] = "100787",
@@ -283,7 +283,7 @@ local monkRotationsGenerator = function ()
 					["b_rangecheck"] = true,
 				},
 				[L["defaultRotation/monk/tiger_palm_combo_breaker"]] = {
-					["v_p_needbuff"] = "125359#3^5",
+					["v_p_needbuff"] = "125359^5",
 					["b_p_needbuff"] = true,
 					["v_gcdspell"] = "115921",
 					["v_actionicon"] = "100787",

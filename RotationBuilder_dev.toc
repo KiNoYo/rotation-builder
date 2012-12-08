@@ -1,4 +1,4 @@
-## Interface: 50001
+## Interface: 50100
 ## Title: RotationBuilder_dev
 ## Version: 1.49
 ## Author: Previous : Soulwhip, Current : Pelerinage, Tylorcaptain
