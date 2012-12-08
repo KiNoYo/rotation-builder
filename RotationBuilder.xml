@@ -249,7 +249,7 @@
 					<OnClick>ROB_ActionListTrash_OnClick(self);</OnClick>
 					<OnEnter>
 						GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-						GameTooltip:SetText(L['ROB_ACTION_REMOVE_TT']);
+						GameTooltip:SetText(RotationBuilderUtils:localize('ROB_ACTION_REMOVE_TT'));
 					</OnEnter>
 					<OnLeave>GameTooltip:Hide();</OnLeave>
 				</Scripts>
@@ -321,7 +321,7 @@
 					<OnClick>ROB_SpellListTrash_OnClick(self);</OnClick>
 					<OnEnter>
 						GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-						GameTooltip:SetText(L['ROB_UI_S_REMOVE_TT']);
+						GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_S_REMOVE_TT'));
 					</OnEnter>
 					<OnLeave>GameTooltip:Hide();</OnLeave>
 				</Scripts>
@@ -535,7 +535,7 @@
 					<OnClick>ROB_OnToggle(self);</OnClick>
 					<OnEnter>
 						GameTooltip:SetOwner(self, "ANCHOR_LEFT");
-						GameTooltip:SetText(L['ROB_UI_TOGGLE']);
+						GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_TOGGLE'));
 					</OnEnter>
 					<OnLeave>GameTooltip:Hide();</OnLeave>
 				</Scripts>
@@ -587,7 +587,7 @@
 
 					<OnEnter>
 						GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-						GameTooltip:SetText(L['ROB_FRAME_CLOSE_TT']);
+						GameTooltip:SetText(RotationBuilderUtils:localize('ROB_FRAME_CLOSE_TT'));
 					</OnEnter>
 
 					<OnLeave>
@@ -638,7 +638,7 @@
 					</Layer>
 				</Layers>
 				<Scripts>
-					<OnLoad>ROB_FrameVersionFrameVersionLabel:SetText(L['ROB_UI_VERSION_LABEL']);</OnLoad>
+					<OnLoad>ROB_FrameVersionFrameVersionLabel:SetText(RotationBuilderUtils:localize('ROB_UI_VERSION_LABEL'));</OnLoad>
 				</Scripts>
 			</Frame>
 			<!-- Rotation Tab -->
@@ -661,7 +661,7 @@
 				<Frames>
 					<Button name="ROB_RotationListColumnHeader" inherits="ROB_ColumnHeaderTemplateL1">
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_RCOLUMNHEADER']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_RCOLUMNHEADER'));</OnLoad>
 						</Scripts>
 						<Size>
 							<AbsDimension x="200" y="20" />
@@ -815,11 +815,11 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_CREATE']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_CREATE'));</OnLoad>
 							<OnClick>ROB_RotationCreateButton_OnClick(self);</OnClick>
 							<OnEnter>
 								GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-								GameTooltip:SetText(L['ROB_UI_CREATE_TT']);
+								GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_CREATE_TT'));
 							</OnEnter>
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
@@ -836,11 +836,11 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_MODIFY']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_MODIFY'));</OnLoad>
 							<OnClick>ROB_ModifyRotationButton_OnClick(self);</OnClick>
 							<OnEnter>
 								GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-								GameTooltip:SetText(L['ROB_UI_MODIFY_TT']);
+								GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_MODIFY_TT'));
 							</OnEnter>
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
@@ -857,11 +857,11 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_SAVE']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_SAVE'));</OnLoad>
 							<OnClick>ROB_Save_OnClick(self);</OnClick>
 							<OnEnter>
 								GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-								GameTooltip:SetText(L['ROB_UI_SAVE_TT']);
+								GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_SAVE_TT'));
 							</OnEnter>
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
@@ -878,11 +878,11 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_DISCARD']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_DISCARD'));</OnLoad>
 							<OnClick>ROB_Discard_OnClick(self);</OnClick>
 							<OnEnter>
 								GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-								GameTooltip:SetText(L['ROB_UI_DISCARD_TT']);
+								GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_DISCARD_TT'));
 							</OnEnter>
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
@@ -899,11 +899,11 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_DELETE']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_DELETE'));</OnLoad>
 							<OnClick>ROB_RotationListDeleteButton_OnClick(self);</OnClick>
 							<OnEnter>
 								GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-								GameTooltip:SetText(L['ROB_UI_DELETE_TT']);
+								GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_DELETE_TT'));
 							</OnEnter>
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
@@ -920,11 +920,11 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_IMPORT']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_IMPORT'));</OnLoad>
 							<OnClick>ROB_RotationImportButton_OnClick(self);</OnClick>
 							<OnEnter>
 								GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-								GameTooltip:SetText(L['ROB_UI_IMPORT_TT']);
+								GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_IMPORT_TT'));
 							</OnEnter>
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
@@ -941,11 +941,11 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_EXPORT']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_EXPORT'));</OnLoad>
 							<OnClick>ROB_RotationExportButton_OnClick(self);</OnClick>
 							<OnEnter>
 								GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-								GameTooltip:SetText(L['ROB_UI_EXPORT_TT']);
+								GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_EXPORT_TT'));
 							</OnEnter>
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
@@ -954,7 +954,7 @@
 					<!-- USE ListColumnHeader1 to move whole action list block -->
 					<Button name="ROB_ActionNamesListColumnHeader1" inherits="ROB_ColumnHeaderTemplateL2">
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_ACTION_COLUMN']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_ACTION_COLUMN'));</OnLoad>
 						</Scripts>
 						<Size>
 							<AbsDimension x="200" y="32" />
@@ -1217,7 +1217,7 @@
 						<Scripts>
 							<OnClick>ROB_Lists_Edit_MoveUp(self);</OnClick>
 							<OnEnter>GameTooltip:SetOwner(self,
-								"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_ACTION_MOVEUP_TT']);
+								"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_ACTION_MOVEUP_TT'));
 							</OnEnter>
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
@@ -1240,7 +1240,7 @@
 						<Scripts>
 							<OnClick>ROB_Lists_Edit_MoveDown(self);</OnClick>
 							<OnEnter>GameTooltip:SetOwner(self,
-								"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_ACTION_MOVEDOWN_TT']);
+								"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_ACTION_MOVEDOWN_TT'));
 							</OnEnter>
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
@@ -1275,7 +1275,7 @@
 							</Layer>
 						</Layers>
 						<Scripts>
-							<OnLoad>ROB_RotationNameLabel:SetText(L['ROB_UI_RN_LABEL']);</OnLoad>
+							<OnLoad>ROB_RotationNameLabel:SetText(RotationBuilderUtils:localize('ROB_UI_RN_LABEL'));</OnLoad>
 							<OnTextChanged>ROB_RotationNameInputBox_OnTextChanged(self);</OnTextChanged>
 						</Scripts>
 					</EditBox>
@@ -1313,7 +1313,7 @@
 							</Layer>
 						</Layers>
 						<Scripts>
-							<OnLoad>ROB_RotationNameROLabel:SetText(L['ROB_UI_RN_LABEL']);</OnLoad>
+							<OnLoad>ROB_RotationNameROLabel:SetText(RotationBuilderUtils:localize('ROB_UI_RN_LABEL'));</OnLoad>
 						</Scripts>
 					</Frame>
 					<Button name="ROB_RotationKeyBindButton" inherits="UIPanelButtonTemplate">
@@ -1328,12 +1328,12 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_RKB_LABEL']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_RKB_LABEL'));</OnLoad>
 							<OnKeyDown>ROB_RotationKeyBindButton_OnKeyDown(self,key)
 							</OnKeyDown>
 							<OnClick>ROB_RotationKeyBindButton_OnClick(self);</OnClick>
 							<OnEnter>GameTooltip:SetOwner(self,
-								"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_RKB_LABEL_TT']);
+								"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_RKB_LABEL_TT'));
 							</OnEnter>
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
@@ -1350,10 +1350,10 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_A_ADD']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_A_ADD'));</OnLoad>
 							<OnClick>ROB_AddActionButton_OnClick(self);</OnClick>
 							<OnEnter>GameTooltip:SetOwner(self,
-								"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_A_ADD_TT']);
+								"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_A_ADD_TT'));
 							</OnEnter>
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
@@ -1370,10 +1370,10 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_A_COPY']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_A_COPY'));</OnLoad>
 							<OnClick>ROB_CopyActionButton_OnClick(self);</OnClick>
 							<OnEnter>GameTooltip:SetOwner(self,
-								"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_A_COPY_TT']);
+								"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_A_COPY_TT'));
 							</OnEnter>
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
@@ -1390,10 +1390,10 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_A_PASTE']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_A_PASTE'));</OnLoad>
 							<OnClick>ROB_PasteActionButton_OnClick(self);</OnClick>
 							<OnEnter>GameTooltip:SetOwner(self,
-								"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_A_PASTE_TT']);
+								"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_A_PASTE_TT'));
 							</OnEnter>
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
@@ -1436,7 +1436,7 @@
 						</Backdrop>
 						<Scripts>
 							<OnLoad>
-								ROB_GeneralOptionsLabel:SetText(L['ROB_UI_AO_GENERAL_LABEL']);
+								ROB_GeneralOptionsLabel:SetText(RotationBuilderUtils:localize('ROB_UI_AO_GENERAL_LABEL'));
 								self:SetBackdropBorderColor(TOOLTIP_DEFAULT_COLOR.r, TOOLTIP_DEFAULT_COLOR.g,
 								TOOLTIP_DEFAULT_COLOR.b);self:SetBackdropColor(TOOLTIP_DEFAULT_BACKGROUND_COLOR.r, TOOLTIP_DEFAULT_BACKGROUND_COLOR.g, TOOLTIP_DEFAULT_BACKGROUND_COLOR.b);
 							</OnLoad>
@@ -1457,7 +1457,7 @@
 									<Layer level="ARTWORK">
 										<FontString name="$parentLabel" inherits="GameFontNormalSmall" justifyH="LEFT" justifyV="TOP">
 											<Scripts>
-												<OnLoad>self:SetText(L['ROB_UI_AO_G_SPELLNAME_L']);</OnLoad>
+												<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_SPELLNAME_L'));</OnLoad>
 											</Scripts>
 											<Anchors>
 												<Anchor point="RIGHT" relativePoint="LEFT">
@@ -1483,7 +1483,7 @@
 								</Layers>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_SPELLNAME_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_SPELLNAME_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_spellname",ROB_SpellValidate)
 									</OnTextChanged>
@@ -1535,13 +1535,13 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>self:SetText(L['ROB_UI_AO_G_KEYBIND_L']);</OnLoad>
+									<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_KEYBIND_L'));</OnLoad>
 									<OnKeyDown>ROB_AO_ActionKeyBindButton_OnKeyDown(self,key)
 									</OnKeyDown>
 									<OnClick>ROB_ActionKeyBindButton_OnClick(self, button);
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_KEYBIND_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_KEYBIND_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -1571,10 +1571,10 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_GCDSpellInputBoxLabel:SetText(L['ROB_UI_AO_G_GCD_L']);</OnLoad>
+									<OnLoad>ROB_AO_GCDSpellInputBoxLabel:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_GCD_L'));</OnLoad>
 									<OnEnter>
 										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-										GameTooltip:SetText(L['ROB_UI_AO_G_GCD_TT']);
+										GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_GCD_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_gcdspell")
 									</OnTextChanged>
@@ -1606,10 +1606,10 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_ActionIconInputBoxLabel:SetText(L['ROB_UI_AO_G_ICON_L']);</OnLoad>
+									<OnLoad>ROB_AO_ActionIconInputBoxLabel:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_ICON_L'));</OnLoad>
 									<OnEnter>
 										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-										GameTooltip:SetText(L['ROB_UI_AO_G_ICON_TT']);
+										GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_ICON_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_ActionIcon_OnTextChanged(self,"v_actionicon")
 									</OnTextChanged>
@@ -1646,11 +1646,11 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_DebugCheckButtonText:SetText(L['ROB_UI_AO_G_DEBUG'])
+									<OnLoad>ROB_AO_DebugCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_DEBUG'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_debug");</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_DEBUG_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_DEBUG_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -1667,12 +1667,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_DisableCheckButtonText:SetText(L['ROB_UI_AO_G_DISABLE'])
+									<OnLoad>ROB_AO_DisableCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_DISABLE'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_disabled");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_DISABLE_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_DISABLE_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -1689,12 +1689,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_ToggleCheckButtonText:SetText(L['ROB_UI_AO_G_TOGGLE'])
+									<OnLoad>ROB_AO_ToggleCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_TOGGLE'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_toggle");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_TOGGLE_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_TOGGLE_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -1742,11 +1742,11 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_ToggleIconInputBoxLabel:SetText(L['ROB_UI_AO_G_ICON_L']);</OnLoad>
+									<OnLoad>ROB_AO_ToggleIconInputBoxLabel:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_ICON_L'));</OnLoad>
 									<OnTextChanged>ROB_AO_ToggleIconInputBox_OnTextChanged(self)
 									</OnTextChanged>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_TICON_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_TICON_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -1784,7 +1784,7 @@
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_toggleoff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_TOGGLEOFF_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_TOGGLEOFF_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -1805,7 +1805,7 @@
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_toggleon");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_TOGGLEON_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_TOGGLEON_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -1822,12 +1822,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_DurationCheckButtonText:SetText(L['ROB_UI_AO_G_DURATION'])
+									<OnLoad>ROB_AO_DurationCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_DURATION'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_duration");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_DURATION_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_DURATION_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -1845,7 +1845,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_DURATIONIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_DURATIONIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_duration")
 									</OnTextChanged>
@@ -1864,12 +1864,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_MaxCastsCheckButtonText:SetText(L['ROB_UI_AO_G_MAXCASTS'])
+									<OnLoad>ROB_AO_MaxCastsCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_MAXCASTS'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_maxcasts");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_MAXCASTS_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_MAXCASTS_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -1887,7 +1887,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_MAXCASTSIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_MAXCASTSIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_maxcasts")
 									</OnTextChanged>
@@ -1906,12 +1906,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_CheckOtherCDCheckButtonText:SetText(L['ROB_UI_AO_G_OTHERCD'])
+									<OnLoad>ROB_AO_CheckOtherCDCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_OTHERCD'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_checkothercd");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_OTHERCD_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_OTHERCD_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -1929,7 +1929,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_OTHERCDNIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_OTHERCDNIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_checkothercdname")
 									</OnTextChanged>
@@ -1949,7 +1949,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_OTHERCDVIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_OTHERCDVIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_checkothercdvalue")
 									</OnTextChanged>
@@ -1968,12 +1968,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_MovingCheckButtonText:SetText(L['ROB_UI_AO_G_MOVING'])
+									<OnLoad>ROB_AO_MovingCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_MOVING'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_moving");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_MOVING_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_MOVING_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -1990,12 +1990,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_NMovingCheckButtonText:SetText(L['ROB_UI_AO_G_NMOVING'])
+									<OnLoad>ROB_AO_NMovingCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_NMOVING'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_notmoving");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_NMOVING_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_NMOVING_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2012,12 +2012,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_RangeCheckButtonText:SetText(L['ROB_UI_AO_G_RANGE'])
+									<OnLoad>ROB_AO_RangeCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_RANGE'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_rangecheck");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_RANGE_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_RANGE_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2035,7 +2035,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_RANGEIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_RANGEIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_rangespell")
 									</OnTextChanged>
@@ -2054,12 +2054,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_OORCheckButtonText:SetText(L['ROB_UI_AO_G_OOR'])
+									<OnLoad>ROB_AO_OORCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_OOR'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_oorspell");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_OOR_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_OOR_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2077,7 +2077,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_OORIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_OORIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_oorspell")
 									</OnTextChanged>
@@ -2096,12 +2096,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_LastCastedCheckButtonText:SetText(L['ROB_UI_AO_G_LASTCAST'])
+									<OnLoad>ROB_AO_LastCastedCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_LASTCAST'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_lastcasted");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_LASTCAST_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_LASTCAST_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2119,7 +2119,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_LASTCASTIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_LASTCASTIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_lastcasted")
 									</OnTextChanged>
@@ -2138,12 +2138,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_NotASpellCheckButtonText:SetText(L['ROB_UI_AO_G_NOTSPELL'])
+									<OnLoad>ROB_AO_NotASpellCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_NOTSPELL'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_notaspell");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_NOTSPELL_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_NOTSPELL_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2160,12 +2160,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_GUnitPowerCheckButtonText:SetText(L['ROB_UI_AO_G_GUNITPOWER'])
+									<OnLoad>ROB_AO_GUnitPowerCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_GUNITPOWER'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_gunitpower");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_GUNITPOWER_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_GUNITPOWER_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2183,7 +2183,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_GUNITPOWER1_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_GUNITPOWER1_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_gunitpowertype")
 									</OnTextChanged>
@@ -2203,7 +2203,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_GUNITPOWER2_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_GUNITPOWER2_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_gunitpower")
 									</OnTextChanged>
@@ -2222,12 +2222,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_GComboPointsCheckButtonText:SetText(L['ROB_UI_AO_G_COMBOP'])
+									<OnLoad>ROB_AO_GComboPointsCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_COMBOP'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_gcombopoints");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_COMBOP_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_COMBOP_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2245,7 +2245,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_COMBOPIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_COMBOPIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_gcombopoints")
 									</OnTextChanged>
@@ -2264,12 +2264,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_GBloodRunesCheckButtonText:SetText(L['ROB_UI_AO_G_BLOODR'])
+									<OnLoad>ROB_AO_GBloodRunesCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_BLOODR'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_gbloodrunes");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_BLOODR_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_BLOODR_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2287,7 +2287,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_BLOODRIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_BLOODRIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_gbloodrunes")
 									</OnTextChanged>
@@ -2306,12 +2306,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_GFrostRunesCheckButtonText:SetText(L['ROB_UI_AO_G_FROSTR'])
+									<OnLoad>ROB_AO_GFrostRunesCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_FROSTR'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_gfrostrunes");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_FROSTR_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_FROSTR_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2329,7 +2329,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_FROSTRIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_FROSTRIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_gfrostrunes")
 									</OnTextChanged>
@@ -2348,12 +2348,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_GUnholyRunesCheckButtonText:SetText(L['ROB_UI_AO_G_UNHOLYR'])
+									<OnLoad>ROB_AO_GUnholyRunesCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_UNHOLYR'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_gunholyrunes");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_UNHOLYR_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_UNHOLYR_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2371,7 +2371,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_UNHOLYRIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_UNHOLYRIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_gunholyrunes")
 									</OnTextChanged>
@@ -2390,12 +2390,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_GDeathRunesCheckButtonText:SetText(L['ROB_UI_AO_G_DEATHR'])
+									<OnLoad>ROB_AO_GDeathRunesCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_DEATHR'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_gdeathrunes");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_DEATHR_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_DEATHR_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2413,7 +2413,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_G_DEATHRIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_DEATHRIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_gdeathrunes")
 									</OnTextChanged>
@@ -2476,11 +2476,11 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_PlayerHPCheckButtonText:SetText(L['ROB_UI_AO_P_HP'])
+									<OnLoad>ROB_AO_PlayerHPCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_HP'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_hp");</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_HP_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_HP_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2498,7 +2498,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_HPIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_HPIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_hp")
 									</OnTextChanged>
@@ -2517,12 +2517,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_NeedBuffCheckButtonText:SetText(L['ROB_UI_AO_P_NEEDBUFF'])
+									<OnLoad>ROB_AO_NeedBuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_NEEDBUFF'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_needbuff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_NEEDBUFF_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_NEEDBUFF_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2540,7 +2540,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_NEEDBUFFIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_NEEDBUFFIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_needbuff")
 									</OnTextChanged>
@@ -2559,12 +2559,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_HaveBuffCheckButtonText:SetText(L['ROB_UI_AO_P_HAVEBUFF'])
+									<OnLoad>ROB_AO_HaveBuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_HAVEBUFF'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_havebuff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_HAVEBUFF_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_HAVEBUFF_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2582,7 +2582,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_HAVEBUFFIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_HAVEBUFFIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_havebuff")
 									</OnTextChanged>
@@ -2601,12 +2601,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_NeedDebuffCheckButtonText:SetText(L['ROB_UI_AO_P_NEEDDB'])
+									<OnLoad>ROB_AO_NeedDebuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_NEEDDB'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_needdebuff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_NEEDDB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_NEEDDB_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2624,7 +2624,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_NEEDDBIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_NEEDDBIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_needdebuff")
 									</OnTextChanged>
@@ -2643,12 +2643,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_HaveDebuffCheckButtonText:SetText(L['ROB_UI_AO_P_HAVEDB'])
+									<OnLoad>ROB_AO_HaveDebuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_HAVEDB'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_havedebuff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_HAVEDB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_HAVEDB_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2666,7 +2666,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_HAVEDBIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_HAVEDBIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_havedebuff")
 									</OnTextChanged>
@@ -2685,12 +2685,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_UnitPowerCheckButtonText:SetText(L['ROB_UI_AO_P_POWER'])
+									<OnLoad>ROB_AO_UnitPowerCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_POWER'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_unitpower");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_POWER_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_POWER_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2708,7 +2708,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_POWER1_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_POWER1_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_unitpowertype")
 									</OnTextChanged>
@@ -2728,7 +2728,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_POWER2_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_POWER2_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_unitpower")
 									</OnTextChanged>
@@ -2763,12 +2763,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_EclipeDirectionCheckButtonText:SetText(L['ROB_UI_AO_P_ECLIPSE'])
+									<OnLoad>ROB_AO_EclipeDirectionCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_ECLIPSE'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_eclipse");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_ECLIPSE_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_ECLIPSE_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2786,7 +2786,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_ECLIPSEIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_ECLIPSEIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_eclipse")
 									</OnTextChanged>
@@ -2821,12 +2821,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_BloodRunesCheckButtonText:SetText(L['ROB_UI_AO_P_BLOODR'])
+									<OnLoad>ROB_AO_BloodRunesCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_BLOODR'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_bloodrunes");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_BLOODR_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_BLOODR_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2844,7 +2844,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_BLOODRIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_BLOODRIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_bloodrunes")
 									</OnTextChanged>
@@ -2879,12 +2879,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_FrostRunesCheckButtonText:SetText(L['ROB_UI_AO_P_FROSTR'])
+									<OnLoad>ROB_AO_FrostRunesCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_FROSTR'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_frostrunes");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_FROSTR_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_FROSTR_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2902,7 +2902,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_FROSTRIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_FROSTRIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_frostrunes")
 									</OnTextChanged>
@@ -2937,12 +2937,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_UnholyRunesCheckButtonText:SetText(L['ROB_UI_AO_P_UNHOLYR'])
+									<OnLoad>ROB_AO_UnholyRunesCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_UNHOLYR'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_unholyrunes");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_UNHOLYR_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_UNHOLYR_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -2960,7 +2960,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_UNHOLYRIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_UNHOLYRIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_unholyrunes")
 									</OnTextChanged>
@@ -2995,12 +2995,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_DeathRunesCheckButtonText:SetText(L['ROB_UI_AO_P_DEATHR'])
+									<OnLoad>ROB_AO_DeathRunesCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_DEATHR'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_deathrunes");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_DEATHR_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_DEATHR_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3018,7 +3018,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_DEATHRIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_DEATHRIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_deathrunes")
 									</OnTextChanged>
@@ -3053,12 +3053,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_PoisonCheckButtonText:SetText(L['ROB_UI_AO_P_POISON'])
+									<OnLoad>ROB_AO_PoisonCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_POISON'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_poison");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_POISON_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_POISON_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3091,12 +3091,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_MagicCheckButtonText:SetText(L['ROB_UI_AO_P_MAGIC'])
+									<OnLoad>ROB_AO_MagicCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_MAGIC'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_magic");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_MAGIC_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_MAGIC_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3129,12 +3129,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_DiseaseCheckButtonText:SetText(L['ROB_UI_AO_P_DISEASE'])
+									<OnLoad>ROB_AO_DiseaseCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_DISEASE'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_disease");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_DISEASE_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_DISEASE_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3167,12 +3167,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_CurseCheckButtonText:SetText(L['ROB_UI_AO_P_CURSE'])
+									<OnLoad>ROB_AO_CurseCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_CURSE'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_curse");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_CURSE_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_CURSE_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3206,12 +3206,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_ComboPointsCheckButtonText:SetText(L['ROB_UI_AO_P_COMBOP'])
+									<OnLoad>ROB_AO_ComboPointsCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_COMBOP'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_combopoints");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_COMBOP_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_COMBOP_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3229,7 +3229,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_COMBOPIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_COMBOPIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_combopoints")
 									</OnTextChanged>
@@ -3248,12 +3248,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_StanceCheckButtonText:SetText(L['ROB_UI_AO_P_STANCE'])
+									<OnLoad>ROB_AO_StanceCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_STANCE'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_stance");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_STANCE_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_STANCE_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3271,7 +3271,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_STANCEIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_STANCEIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_stance")
 									</OnTextChanged>
@@ -3290,12 +3290,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_NotStanceCheckButtonText:SetText(L['ROB_UI_AO_P_NOTSTANCE'])
+									<OnLoad>ROB_AO_NotStanceCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_NOTSTANCE'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_notstance");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_NOTSTANCE_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_NOTSTANCE_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3313,7 +3313,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_STANCEIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_STANCEIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_notstance")
 									</OnTextChanged>
@@ -3332,11 +3332,11 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_OOCombatCheckButtonText:SetText(L['ROB_UI_AO_P_OOC'])
+									<OnLoad>ROB_AO_OOCombatCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_OOC'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_ooc");</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_OOC_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_OOC_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3353,11 +3353,11 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_ICombatCheckButtonText:SetText(L['ROB_UI_AO_P_IC'])
+									<OnLoad>ROB_AO_ICombatCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_IC'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_ic");</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_IC_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_IC_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3390,12 +3390,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_FireTotemActiveCheckButtonText:SetText(L['ROB_UI_AO_P_FIRETA'])
+									<OnLoad>ROB_AO_FireTotemActiveCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_FIRETA'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_firetotemactive");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_FIRETA_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_FIRETA_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3413,7 +3413,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_FIRETAIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_FIRETAIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_firetotemactive")
 									</OnTextChanged>
@@ -3448,12 +3448,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_FireTotemInactiveCheckButtonText:SetText(L['ROB_UI_AO_P_FIRETI'])
+									<OnLoad>ROB_AO_FireTotemInactiveCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_FIRETI'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_firetoteminactive");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_FIRETI_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_FIRETI_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3471,7 +3471,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_FIRETIIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_FIRETIIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_firetoteminactive")
 									</OnTextChanged>
@@ -3506,12 +3506,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_FireTotemTimeleftCheckButtonText:SetText(L['ROB_UI_AO_P_FIRETTL'])
+									<OnLoad>ROB_AO_FireTotemTimeleftCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_FIRETTL'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_firetotemtimeleft");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_FIRETTL_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_FIRETTL_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3529,7 +3529,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_FIRETTLIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_FIRETTLIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_firetotemtimeleft")
 									</OnTextChanged>
@@ -3564,12 +3564,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_WaterTotemActiveCheckButtonText:SetText(L['ROB_UI_AO_P_WATERTA'])
+									<OnLoad>ROB_AO_WaterTotemActiveCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_WATERTA'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_watertotemactive");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_WATERTA_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_WATERTA_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3587,7 +3587,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_WATERTAIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_WATERTAIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_watertotemactive")
 									</OnTextChanged>
@@ -3622,12 +3622,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_WaterTotemInactiveCheckButtonText:SetText(L['ROB_UI_AO_P_WATERTI'])
+									<OnLoad>ROB_AO_WaterTotemInactiveCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_WATERTI'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_watertoteminactive");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_WATERTI_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_WATERTI_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3645,7 +3645,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_WATERTIIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_WATERTIIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_watertoteminactive")
 									</OnTextChanged>
@@ -3680,12 +3680,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_WaterTotemTimeleftCheckButtonText:SetText(L['ROB_UI_AO_P_WATERTTL'])
+									<OnLoad>ROB_AO_WaterTotemTimeleftCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_WATERTTL'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_watertotemtimeleft");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_WATERTTL_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_WATERTTL_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3703,7 +3703,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_WATERTTLIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_WATERTTLIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_watertotemtimeleft")
 									</OnTextChanged>
@@ -3738,12 +3738,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_EarthTotemActiveCheckButtonText:SetText(L['ROB_UI_AO_P_EARTHTA'])
+									<OnLoad>ROB_AO_EarthTotemActiveCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_EARTHTA'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_earthtotemactive");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_EARTHTA_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_EARTHTA_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3761,7 +3761,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_EARTHTAIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_EARTHTAIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_earthtotemactive")
 									</OnTextChanged>
@@ -3796,12 +3796,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_EarthTotemInactiveCheckButtonText:SetText(L['ROB_UI_AO_P_EARTHTI'])
+									<OnLoad>ROB_AO_EarthTotemInactiveCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_EARTHTI'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_earthtoteminactive");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_EARTHTI_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_EARTHTI_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3819,7 +3819,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_EARTHTIIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_EARTHTIIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_earthtoteminactive")
 									</OnTextChanged>
@@ -3854,12 +3854,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_EarthTotemTimeleftCheckButtonText:SetText(L['ROB_UI_AO_P_EARTHTTL'])
+									<OnLoad>ROB_AO_EarthTotemTimeleftCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_EARTHTTL'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_earthtotemtimeleft");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_EARTHTTL_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_EARTHTTL_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3877,7 +3877,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_EARTHTTLIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_EARTHTTLIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_earthtotemtimeleft")
 									</OnTextChanged>
@@ -3912,12 +3912,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_AirTotemActiveCheckButtonText:SetText(L['ROB_UI_AO_P_AIRTA'])
+									<OnLoad>ROB_AO_AirTotemActiveCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_AIRTA'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_airtotemactive");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_AIRTA_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_AIRTA_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3935,7 +3935,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_AIRTAIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_AIRTAIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_airtotemactive")
 									</OnTextChanged>
@@ -3970,12 +3970,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_AirTotemInactiveCheckButtonText:SetText(L['ROB_UI_AO_P_AIRTI'])
+									<OnLoad>ROB_AO_AirTotemInactiveCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_AIRTI'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_airtoteminactive");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_AIRTI_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_AIRTI_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -3993,7 +3993,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_AIRTIIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_AIRTIIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_airtoteminactive")
 									</OnTextChanged>
@@ -4028,12 +4028,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_AO_AirTotemTimeleftCheckButtonText:SetText(L['ROB_UI_AO_P_AIRTTL'])
+									<OnLoad>ROB_AO_AirTotemTimeleftCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_AIRTTL'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_airtotemtimeleft");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_AIRTTL_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_AIRTTL_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4051,7 +4051,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_AIRTTLIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_AIRTTLIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_airtotemtimeleft")
 									</OnTextChanged>
@@ -4070,12 +4070,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_KnowSpellCheckButtonText:SetText(L['ROB_UI_AO_P_KNOWSPELL'])
+									<OnLoad>ROB_AO_KnowSpellCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_KNOWSPELL'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_knowspell");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_KNOWSPELL_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_KNOWSPELL_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4093,7 +4093,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_KNOWSPELLIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_KNOWSPELLIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_knowspell")
 									</OnTextChanged>
@@ -4112,12 +4112,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_KnowNotSpellCheckButtonText:SetText(L['ROB_UI_AO_P_KNOWNOTSPELL'])
+									<OnLoad>ROB_AO_KnowNotSpellCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_KNOWNOTSPELL'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_knownotspell");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_KNOWNOTSPELL_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_KNOWNOTSPELL_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4135,7 +4135,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_KNOWNOTSPELLIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_KNOWNOTSPELLIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_knownotspell")
 									</OnTextChanged>
@@ -4154,12 +4154,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_IsGlyphedCheckButtonText:SetText(L['ROB_UI_AO_P_ISGLYPHED'])
+									<OnLoad>ROB_AO_IsGlyphedCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_ISGLYPHED'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_isglyphed");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_ISGLYPHED_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_ISGLYPHED_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4177,7 +4177,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_ISGLYPHEDIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_ISGLYPHEDIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_isglyphed")
 									</OnTextChanged>
@@ -4196,12 +4196,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_NotGlyphedCheckButtonText:SetText(L['ROB_UI_AO_P_NOTGLYPHED'])
+									<OnLoad>ROB_AO_NotGlyphedCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_NOTGLYPHED'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_notglyphed");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_NOTGLYPHED_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_NOTGLYPHED_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4219,7 +4219,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_P_NOTGLYPHEDIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_NOTGLYPHEDIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_notglyphed")
 									</OnTextChanged>
@@ -4283,11 +4283,11 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_TargetHPCheckButtonText:SetText(L['ROB_UI_AO_P_HP'])
+									<OnLoad>ROB_AO_TargetHPCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_HP'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_hp");</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_HP_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_HP_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4305,7 +4305,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_HPIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_HPIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_t_hp")
 									</OnTextChanged>
@@ -4324,12 +4324,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_TargetMaxHPCheckButtonText:SetText(L['ROB_UI_AO_T_MAXHP'])
+									<OnLoad>ROB_AO_TargetMaxHPCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_MAXHP'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_maxhp");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_MAXHP_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_MAXHP_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4347,7 +4347,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_MAXHPIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_MAXHPIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_t_maxhp")
 									</OnTextChanged>
@@ -4366,12 +4366,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_TargetNeedsBuffCheckButtonText:SetText(L['ROB_UI_AO_T_NEEDBUFF'])
+									<OnLoad>ROB_AO_TargetNeedsBuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_NEEDBUFF'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_needsbuff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_NEEDBUFF_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_NEEDBUFF_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4389,7 +4389,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_NEEDBUFFIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_NEEDBUFFIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_t_needsbuff")
 									</OnTextChanged>
@@ -4408,12 +4408,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_TargetHasBuffCheckButtonText:SetText(L['ROB_UI_AO_T_HAVEBUFF'])
+									<OnLoad>ROB_AO_TargetHasBuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_HAVEBUFF'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_hasbuff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_HAVEBUFF_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_HAVEBUFF_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4431,7 +4431,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_HAVEBUFFIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_HAVEBUFFIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_t_hasbuff")
 									</OnTextChanged>
@@ -4450,12 +4450,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_TargetNeedsDebuffCheckButtonText:SetText(L['ROB_UI_AO_T_NEEDDB'])
+									<OnLoad>ROB_AO_TargetNeedsDebuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_NEEDDB'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_needsdebuff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_NEEDDB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_NEEDDB_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4473,7 +4473,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_NEEDDBIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_NEEDDBIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_t_needsdebuff")
 									</OnTextChanged>
@@ -4492,12 +4492,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_TargetHasDebuffCheckButtonText:SetText(L['ROB_UI_AO_T_HAVEDB'])
+									<OnLoad>ROB_AO_TargetHasDebuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_HAVEDB'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_hasdebuff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_HAVEDB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_HAVEDB_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4515,7 +4515,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_HAVEDBIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_HAVEDBIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_t_hasdebuff")
 									</OnTextChanged>
@@ -4534,12 +4534,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_TargetClassCheckButtonText:SetText(L['ROB_UI_AO_T_CLASS'])
+									<OnLoad>ROB_AO_TargetClassCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_CLASS'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_class");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_CLASS_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_CLASS_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4557,7 +4557,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_CLASSIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_CLASSIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_t_class")
 									</OnTextChanged>
@@ -4576,11 +4576,11 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_TargetPCCheckButtonText:SetText(L['ROB_UI_AO_T_PC'])
+									<OnLoad>ROB_AO_TargetPCCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_PC'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_pc");</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_PC_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_PC_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4597,12 +4597,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_InterruptTargetCheckButtonText:SetText(L['ROB_UI_AO_T_INTERRUPT'])
+									<OnLoad>ROB_AO_InterruptTargetCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_INTERRUPT'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_interrupt");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_INTERRUPT_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_INTERRUPT_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4637,11 +4637,11 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_TargetDRCheckButtonText:SetText(L['ROB_UI_AO_T_DR'])
+									<OnLoad>ROB_AO_TargetDRCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_DR'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_dr");</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_DR_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_DR_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4658,12 +4658,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_TargetBossCheckButtonText:SetText(L['ROB_UI_AO_T_BOSS'])
+									<OnLoad>ROB_AO_TargetBossCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_BOSS'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_boss");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_BOSS_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_BOSS_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4680,12 +4680,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_TargetNotABossCheckButtonText:SetText(L['ROB_UI_AO_T_NOTABOSS'])
+									<OnLoad>ROB_AO_TargetNotABossCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_NOTABOSS'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_notaboss");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_NOTABOSS_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_NOTABOSS_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4702,12 +4702,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_TargetHasStealableBuffCheckButtonText:SetText(L['ROB_UI_AO_T_HAS_STEALABLE_BUFF'])
+									<OnLoad>ROB_AO_TargetHasStealableBuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_HAS_STEALABLE_BUFF'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_has_stealable_buff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_HAS_STEALABLE_BUFF_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_HAS_STEALABLE_BUFF_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4724,12 +4724,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_TargetMagicCheckButtonText:SetText(L['ROB_UI_AO_T_MAGIC'])
+									<OnLoad>ROB_AO_TargetMagicCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_MAGIC'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_magic");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_T_MAGIC_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_MAGIC_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4790,12 +4790,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_PetHPCheckButtonText:SetText(L['ROB_UI_AO_P_HP'])
+									<OnLoad>ROB_AO_PetHPCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_HP'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_pet_hp");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_PET_HP_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_HP_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4813,7 +4813,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_PET_HPIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_HPIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_pet_hp")
 									</OnTextChanged>
@@ -4832,12 +4832,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_PetISACCheckButtonText:SetText(L['ROB_UI_AO_PET_ISAC'])
+									<OnLoad>ROB_AO_PetISACCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_ISAC'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_pet_isac");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_PET_ISAC_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_ISAC_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4855,7 +4855,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_PET_ISACIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_ISACIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_pet_isac")
 									</OnTextChanged>
@@ -4874,12 +4874,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_PetNACCheckButtonText:SetText(L['ROB_UI_AO_PET_NAC'])
+									<OnLoad>ROB_AO_PetNACCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_NAC'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_pet_nac");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_PET_NAC_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_NAC_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4897,7 +4897,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_PET_NACIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_NACIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_pet_nac")
 									</OnTextChanged>
@@ -4916,12 +4916,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_PetNeedsBuffCheckButtonText:SetText(L['ROB_UI_AO_PET_NEEDBUFF'])
+									<OnLoad>ROB_AO_PetNeedsBuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_NEEDBUFF'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_pet_needsbuff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_PET_NEEDBUFF_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_NEEDBUFF_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4939,7 +4939,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_PET_NEEDBUFFIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_NEEDBUFFIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_pet_needsbuff")
 									</OnTextChanged>
@@ -4958,12 +4958,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_PetHasBuffCheckButtonText:SetText(L['ROB_UI_AO_PET_HAVEBUFF'])
+									<OnLoad>ROB_AO_PetHasBuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_HAVEBUFF'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_pet_hasbuff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_PET_HAVEBUFF_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_HAVEBUFF_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4981,7 +4981,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_PET_HAVEBUFFIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_HAVEBUFFIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_pet_hasbuff")
 									</OnTextChanged>
@@ -5000,12 +5000,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_PetNeedsDebuffCheckButtonText:SetText(L['ROB_UI_AO_PET_NEEDDB'])
+									<OnLoad>ROB_AO_PetNeedsDebuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_NEEDDB'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_pet_needsdebuff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_PET_NEEDDB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_NEEDDB_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5023,7 +5023,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_PET_NEEDDBIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_NEEDDBIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_pet_needsdebuff")
 									</OnTextChanged>
@@ -5042,12 +5042,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_PetHasDebuffCheckButtonText:SetText(L['ROB_UI_AO_PET_HAVEDB'])
+									<OnLoad>ROB_AO_PetHasDebuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_HAVEDB'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_pet_hasdebuff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_PET_HAVEDB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_HAVEDB_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5065,7 +5065,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_PET_HAVEDBIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_HAVEDBIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_pet_hasdebuff")
 									</OnTextChanged>
@@ -5084,12 +5084,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_PetDRCheckButtonText:SetText(L['ROB_UI_AO_PET_DR'])
+									<OnLoad>ROB_AO_PetDRCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_DR'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_pet_dr");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_PET_DR_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_DR_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5150,11 +5150,11 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_FocusHPCheckButtonText:SetText(L['ROB_UI_AO_P_HP'])
+									<OnLoad>ROB_AO_FocusHPCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_HP'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_f_hp");</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_F_HP_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_HP_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5172,7 +5172,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_F_HPIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_HPIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_f_hp")
 									</OnTextChanged>
@@ -5191,12 +5191,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_FocusMaxHPCheckButtonText:SetText(L['ROB_UI_AO_F_MAXHP'])
+									<OnLoad>ROB_AO_FocusMaxHPCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_MAXHP'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_f_maxhp");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_F_MAXHP_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_MAXHP_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5214,7 +5214,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_F_MAXHPIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_MAXHPIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_f_maxhp")
 									</OnTextChanged>
@@ -5233,12 +5233,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_FocusNeedsBuffCheckButtonText:SetText(L['ROB_UI_AO_F_NEEDBUFF'])
+									<OnLoad>ROB_AO_FocusNeedsBuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_NEEDBUFF'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_f_needsbuff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_F_NEEDBUFF_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_NEEDBUFF_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5256,7 +5256,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_F_NEEDBUFFIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_NEEDBUFFIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_f_needsbuff")
 									</OnTextChanged>
@@ -5275,12 +5275,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_FocusHasBuffCheckButtonText:SetText(L['ROB_UI_AO_F_HAVEBUFF'])
+									<OnLoad>ROB_AO_FocusHasBuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_HAVEBUFF'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_f_hasbuff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_F_HAVEBUFF_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_HAVEBUFF_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5298,7 +5298,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_F_HAVEBUFFIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_HAVEBUFFIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_f_hasbuff")
 									</OnTextChanged>
@@ -5317,12 +5317,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_FocusNeedsDebuffCheckButtonText:SetText(L['ROB_UI_AO_F_NEEDDB'])
+									<OnLoad>ROB_AO_FocusNeedsDebuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_NEEDDB'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_f_needsdebuff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_F_NEEDDB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_NEEDDB_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5340,7 +5340,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_F_NEEDDBIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_NEEDDBIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_f_needsdebuff")
 									</OnTextChanged>
@@ -5359,12 +5359,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_FocusHasDebuffCheckButtonText:SetText(L['ROB_UI_AO_F_HAVEDB'])
+									<OnLoad>ROB_AO_FocusHasDebuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_HAVEDB'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_f_hasdebuff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_F_HAVEDB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_HAVEDB_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5382,7 +5382,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_F_HAVEDBIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_HAVEDBIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_f_hasdebuff")
 									</OnTextChanged>
@@ -5401,12 +5401,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_FocusClassCheckButtonText:SetText(L['ROB_UI_AO_F_CLASS'])
+									<OnLoad>ROB_AO_FocusClassCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_CLASS'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_f_class");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_F_CLASS_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_CLASS_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5424,7 +5424,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_F_CLASSIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_CLASSIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_f_class")
 									</OnTextChanged>
@@ -5443,12 +5443,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_FocusPCCheckButtonText:SetText(L['ROB_UI_AO_F_PC'])
+									<OnLoad>ROB_AO_FocusPCCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_PC'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_f_pc");</OnClick>
 									<OnEnter>
 										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-										GameTooltip:SetText(L['ROB_UI_AO_F_PC_TT']);
+										GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_PC_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5465,13 +5465,13 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_InterruptFocusCheckButtonText:SetText(L['ROB_UI_AO_T_INTERRUPT'])
+									<OnLoad>ROB_AO_InterruptFocusCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_INTERRUPT'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_f_interrupt");
 									</OnClick>
 									<OnEnter>
 										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-										GameTooltip:SetText(L['ROB_UI_AO_T_INTERRUPT_TT']);
+										GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_INTERRUPT_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5506,12 +5506,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_FocusDRCheckButtonText:SetText(L['ROB_UI_AO_F_DR'])
+									<OnLoad>ROB_AO_FocusDRCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_DR'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_f_dr");</OnClick>
 									<OnEnter>
 										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-										GameTooltip:SetText(L['ROB_UI_AO_F_DR_TT']);
+										GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_F_DR_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5564,7 +5564,7 @@
 									<Layer level="ARTWORK">
 										<FontString name="$parentLabel" inherits="GameFontNormalSmall" justifyH="LEFT" justifyV="TOP">
 											<Scripts>
-												<OnLoad>self:SetText(L['ROB_UI_AO_C_UNITNAME_L']);</OnLoad>
+												<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_UNITNAME_L'));</OnLoad>
 											</Scripts>
 											<Anchors>
 												<Anchor point="RIGHT" relativePoint="LEFT">
@@ -5589,7 +5589,7 @@
 								<Scripts>
 									<OnEnter>
 										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-										GameTooltip:SetText(L['ROB_UI_AO_C_UNITNAME_TT']);
+										GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_UNITNAME_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_c_unitname")
 									</OnTextChanged>
@@ -5608,12 +5608,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_CustomHPCheckButtonText:SetText(L['ROB_UI_AO_P_HP'])
+									<OnLoad>ROB_AO_CustomHPCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_HP'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_c_hp");</OnClick>
 									<OnEnter>
 										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-										GameTooltip:SetText(L['ROB_UI_AO_C_HP_TT']);
+										GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_HP_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5632,7 +5632,7 @@
 								<Scripts>
 									<OnEnter>
 										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-										GameTooltip:SetText(L['ROB_UI_AO_C_HPIB_TT']);
+										GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_HPIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_c_hp")
 									</OnTextChanged>
@@ -5651,12 +5651,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_CustomMaxHPCheckButtonText:SetText(L['ROB_UI_AO_T_MAXHP'])
+									<OnLoad>ROB_AO_CustomMaxHPCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_MAXHP'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_c_maxhp");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_C_MAXHP_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_MAXHP_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5674,7 +5674,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_C_MAXHPIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_MAXHPIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_c_maxhp")
 									</OnTextChanged>
@@ -5693,12 +5693,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_CustomNeedsBuffCheckButtonText:SetText(L['ROB_UI_AO_C_NEEDBUFF'])
+									<OnLoad>ROB_AO_CustomNeedsBuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_NEEDBUFF'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_c_needsbuff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_C_NEEDBUFF_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_NEEDBUFF_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5716,7 +5716,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_C_NEEDBUFFIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_NEEDBUFFIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_c_needsbuff")
 									</OnTextChanged>
@@ -5735,12 +5735,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_CustomHasBuffCheckButtonText:SetText(L['ROB_UI_AO_C_HAVEBUFF'])
+									<OnLoad>ROB_AO_CustomHasBuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_HAVEBUFF'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_c_hasbuff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_C_HAVEBUFF_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_HAVEBUFF_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5758,7 +5758,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_C_HAVEBUFFIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_HAVEBUFFIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_f_hasbuff")
 									</OnTextChanged>
@@ -5777,12 +5777,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_CustomNeedsDebuffCheckButtonText:SetText(L['ROB_UI_AO_C_NEEDDB'])
+									<OnLoad>ROB_AO_CustomNeedsDebuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_NEEDDB'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_c_needsdebuff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_C_NEEDDB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_NEEDDB_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5800,7 +5800,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_C_NEEDDBIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_NEEDDBIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_f_needsdebuff")
 									</OnTextChanged>
@@ -5819,12 +5819,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_CustomHasDebuffCheckButtonText:SetText(L['ROB_UI_AO_C_HAVEDB'])
+									<OnLoad>ROB_AO_CustomHasDebuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_HAVEDB'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_c_hasdebuff");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_C_HAVEDB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_HAVEDB_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5842,7 +5842,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_C_HAVEDBIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_HAVEDBIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_f_hasdebuff")
 									</OnTextChanged>
@@ -5861,12 +5861,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_CustomClassCheckButtonText:SetText(L['ROB_UI_AO_C_CLASS'])
+									<OnLoad>ROB_AO_CustomClassCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_CLASS'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_c_class");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_C_CLASS_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_CLASS_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5884,7 +5884,7 @@
 								</Anchors>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_C_CLASSIB_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_CLASSIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_f_class")
 									</OnTextChanged>
@@ -5903,12 +5903,12 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_InterruptCustomCheckButtonText:SetText(L['ROB_UI_AO_C_INTERRUPT'])
+									<OnLoad>ROB_AO_InterruptCustomCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_INTERRUPT'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_c_interrupt");
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_C_INTERRUPT_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_INTERRUPT_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5943,11 +5943,11 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_AO_CustomDRCheckButtonText:SetText(L['ROB_UI_AO_C_DR'])
+									<OnLoad>ROB_AO_CustomDRCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_DR'))
 									</OnLoad>
 									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_c_dr");</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_AO_C_DR_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_C_DR_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -5965,7 +5965,7 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_AO_GENERAL_TAB']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_AO_GENERAL_TAB'));</OnLoad>
 							<OnClick>ROB_ActionOptionsSwitchToTab(self);</OnClick>
 						</Scripts>
 					</Button>
@@ -5978,7 +5978,7 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_AO_PLAYER_TAB']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PLAYER_TAB'));</OnLoad>
 							<OnClick>ROB_ActionOptionsSwitchToTab(self);</OnClick>
 						</Scripts>
 					</Button>
@@ -5991,7 +5991,7 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_AO_TARGET_TAB']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_AO_TARGET_TAB'));</OnLoad>
 							<OnClick>ROB_ActionOptionsSwitchToTab(self);</OnClick>
 						</Scripts>
 					</Button>
@@ -6004,7 +6004,7 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_AO_PET_TAB']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_TAB'));</OnLoad>
 							<OnClick>ROB_ActionOptionsSwitchToTab(self);</OnClick>
 						</Scripts>
 					</Button>
@@ -6017,7 +6017,7 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_AO_FOCUS_TAB']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_AO_FOCUS_TAB'));</OnLoad>
 							<OnClick>ROB_ActionOptionsSwitchToTab(self);</OnClick>
 						</Scripts>
 					</Button>
@@ -6030,7 +6030,7 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_AO_CUSTOM_TAB']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_AO_CUSTOM_TAB'));</OnLoad>
 							<OnClick>ROB_ActionOptionsSwitchToTab(self);</OnClick>
 						</Scripts>
 					</Button>
@@ -6056,7 +6056,7 @@
 				<Frames>
 					<Button name="ROB_SpellListsColumnHeader" inherits="ROB_ColumnHeaderTemplateL1">
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_RCOLUMNHEADER1']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_RCOLUMNHEADER1'));</OnLoad>
 						</Scripts>
 						<Size>
 							<AbsDimension x="200" y="20" />
@@ -6212,17 +6212,17 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_CREATE']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_CREATE'));</OnLoad>
 							<OnClick>ROB_SpellListCreateButton_OnClick(self);</OnClick>
 							<OnEnter>GameTooltip:SetOwner(self,
-								"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_CREATE']);
+								"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_CREATE'));
 							</OnEnter>
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
 					</Button>
 					<Button name="ROB_SpellListsModifyButton" inherits="UIPanelButtonTemplate" hidden="false" toplevel="true" frameStrata="HIGH">
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_MODIFY']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_MODIFY'));</OnLoad>
 						</Scripts>
 						<Size>
 							<AbsDimension x="62" y="20" />
@@ -6237,7 +6237,7 @@
 						<Scripts>
 							<OnClick>ROB_ModifySpellListsButton_OnClick(self);</OnClick>
 							<OnEnter>GameTooltip:SetOwner(self,
-								"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_MODIFY']);
+								"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_MODIFY'));
 							</OnEnter>
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
@@ -6254,17 +6254,17 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_SAVE']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_SAVE'));</OnLoad>
 							<OnClick>ROB_SpellListsSave_OnClick(self);</OnClick>
 							<OnEnter>GameTooltip:SetOwner(self,
-								"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_SAVE']);
+								"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_SAVE'));
 							</OnEnter>
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
 					</Button>
 					<Button name="ROB_SpellListsDiscardButton" inherits="UIPanelButtonTemplate" hidden="true" toplevel="true" frameStrata="HIGH">
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_DISCARD']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_DISCARD'));</OnLoad>
 						</Scripts>
 						<Size>
 							<AbsDimension x="62" y="20" />
@@ -6279,7 +6279,7 @@
 						<Scripts>
 							<OnClick>ROB_SpellListsDiscard_OnClick(self);</OnClick>
 							<OnEnter>GameTooltip:SetOwner(self,
-								"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_DISCARD']);
+								"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_DISCARD'));
 							</OnEnter>
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
@@ -6296,10 +6296,10 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_DELETE']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_DELETE'));</OnLoad>
 							<OnClick>ROB_SpellListsDeleteButton_OnClick(self);</OnClick>
 							<OnEnter>GameTooltip:SetOwner(self,
-								"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_DELETE']);
+								"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_DELETE'));
 							</OnEnter>
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
@@ -6308,7 +6308,7 @@
 					<!-- USE ListColumnHeader1 to move whole action list block -->
 					<Button name="ROB_SpellNamesListColumnHeader1" inherits="ROB_ColumnHeaderTemplateL2">
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_S_COLUMN']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_S_COLUMN'));</OnLoad>
 						</Scripts>
 						<Size>
 							<AbsDimension x="200" y="32" />
@@ -6584,7 +6584,7 @@
 							</Layer>
 						</Layers>
 						<Scripts>
-							<OnLoad>ROB_SpellListNameLabel:SetText(L['ROB_UI_LN_LABEL']);</OnLoad>
+							<OnLoad>ROB_SpellListNameLabel:SetText(RotationBuilderUtils:localize('ROB_UI_LN_LABEL'));</OnLoad>
 							<OnTextChanged>ROB_SpellListNameInputBox_OnTextChanged(self)
 							</OnTextChanged>
 						</Scripts>
@@ -6623,7 +6623,7 @@
 							</Layer>
 						</Layers>
 						<Scripts>
-							<OnLoad>ROB_SpellListNameROLabel:SetText(L['ROB_UI_LN_LABEL']);</OnLoad>
+							<OnLoad>ROB_SpellListNameROLabel:SetText(RotationBuilderUtils:localize('ROB_UI_LN_LABEL'));</OnLoad>
 						</Scripts>
 					</Frame>
 					<Button name="ROB_AddSpellButton" inherits="UIPanelButtonTemplate" toplevel="true" frameStrata="HIGH">
@@ -6638,10 +6638,10 @@
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>self:SetText(L['ROB_UI_A_ADD']);</OnLoad>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_A_ADD'));</OnLoad>
 							<OnClick>ROB_AddSpellButton_OnClick(self);</OnClick>
 							<OnEnter>GameTooltip:SetOwner(self,
-								"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_UI_S_ADD_TT']);
+								"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_S_ADD_TT'));
 							</OnEnter>
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
@@ -6709,7 +6709,7 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_OptionsTabMinimapOptionsFrameFT:SetText(L['ROB_OPTION_MINIMAPO']);</OnLoad>
+									<OnLoad>ROB_OptionsTabMinimapOptionsFrameFT:SetText(RotationBuilderUtils:localize('ROB_OPTION_MINIMAPO'));</OnLoad>
 								</Scripts>
 							</Frame>
 
@@ -6725,11 +6725,11 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_OptionsTabMiniMapButtonText:SetText(L['ROB_OPTION_MINIMAP'])
+									<OnLoad>ROB_OptionsTabMiniMapButtonText:SetText(RotationBuilderUtils:localize('ROB_OPTION_MINIMAP'))
 									</OnLoad>
 									<OnClick>ROB_Option_MiniMapButton_OnToggle(self);</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(L['ROB_OPTION_MINIMAP_TT']);
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_OPTION_MINIMAP_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -6783,10 +6783,10 @@
 								</Layers>
 								<Scripts>
 									<OnLoad>
-										ROB_OptionsTabMiniMapPosSliderTextT:SetText(L['ROB_OPTION_MINIMAPPOS']);
-										ROB_OptionsTabMiniMapPosSliderText:SetText(L['ROB_OPTION_MMPOS_CV']);
-										ROB_OptionsTabMiniMapPosSliderTextBL:SetText(L['ROB_OPTION_MMPOS_MIN']);
-										ROB_OptionsTabMiniMapPosSliderTextBR:SetText(L['ROB_OPTION_MMPOS_MAX']);
+										ROB_OptionsTabMiniMapPosSliderTextT:SetText(RotationBuilderUtils:localize('ROB_OPTION_MINIMAPPOS'));
+										ROB_OptionsTabMiniMapPosSliderText:SetText(RotationBuilderUtils:localize('ROB_OPTION_MMPOS_CV'));
+										ROB_OptionsTabMiniMapPosSliderTextBL:SetText(RotationBuilderUtils:localize('ROB_OPTION_MMPOS_MIN'));
+										ROB_OptionsTabMiniMapPosSliderTextBR:SetText(RotationBuilderUtils:localize('ROB_OPTION_MMPOS_MAX'));
 									</OnLoad>
 									<OnValueChanged>ROB_Option_MiniMapButtonPos_OnValueChanged(self);</OnValueChanged>
 								</Scripts>
@@ -6849,10 +6849,10 @@
 
 								<Scripts>
 									<OnLoad>
-										ROB_OptionsTabMiniMapRadSliderTextT:SetText(L['ROB_OPTION_MINIMAPRAD']);
-										ROB_OptionsTabMiniMapRadSliderText:SetText(L['ROB_OPTION_MMRAD_MIN']);
-										ROB_OptionsTabMiniMapRadSliderTextBL:SetText(L['ROB_OPTION_MMRAD_CV']);
-										ROB_OptionsTabMiniMapRadSliderTextBR:SetText(L['ROB_OPTION_MMRAD_MAX']);
+										ROB_OptionsTabMiniMapRadSliderTextT:SetText(RotationBuilderUtils:localize('ROB_OPTION_MINIMAPRAD'));
+										ROB_OptionsTabMiniMapRadSliderText:SetText(RotationBuilderUtils:localize('ROB_OPTION_MMRAD_MIN'));
+										ROB_OptionsTabMiniMapRadSliderTextBL:SetText(RotationBuilderUtils:localize('ROB_OPTION_MMRAD_CV'));
+										ROB_OptionsTabMiniMapRadSliderTextBR:SetText(RotationBuilderUtils:localize('ROB_OPTION_MMRAD_MAX'));
 									</OnLoad>
 									<OnValueChanged>
 										ROB_Option_MiniMapButtonRad_OnValueChanged(self);
@@ -6899,7 +6899,7 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_OptionsTabIconOptionsFrameLabel:SetText(L['ROB_OPTION_ICONS']);</OnLoad>
+									<OnLoad>ROB_OptionsTabIconOptionsFrameLabel:SetText(RotationBuilderUtils:localize('ROB_OPTION_ICONS'));</OnLoad>
 								</Scripts>
 							</Frame>
 							<CheckButton name="ROB_OptionsTabLockIconsButton" inherits="ROB_CheckButtonTemplate">
@@ -6914,13 +6914,13 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_OptionsTabLockIconsButtonText:SetText(L['ROB_OPTION_LOCKICONS'])
+									<OnLoad>ROB_OptionsTabLockIconsButtonText:SetText(RotationBuilderUtils:localize('ROB_OPTION_LOCKICONS'))
 									</OnLoad>
 									<OnClick>ROB_OptionsTabLockIconsButton_OnToggle(self);
 									</OnClick>
 									<OnEnter>
 										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-										GameTooltip:SetText(L['ROB_OPTION_LOCKICONS_TT']);
+										GameTooltip:SetText(RotationBuilderUtils:localize('ROB_OPTION_LOCKICONS_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -6937,13 +6937,13 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_OptionsTabHideCooldownsButtonText:SetText(L['ROB_OPTION_HIDECD'])
+									<OnLoad>ROB_OptionsTabHideCooldownsButtonText:SetText(RotationBuilderUtils:localize('ROB_OPTION_HIDECD'))
 									</OnLoad>
 									<OnClick>ROB_OptionsTabHideCooldownsButton_OnToggle(self);
 									</OnClick>
 									<OnEnter>
 										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-										GameTooltip:SetText(L['ROB_OPTION_HIDECD_TT']);
+										GameTooltip:SetText(RotationBuilderUtils:localize('ROB_OPTION_HIDECD_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -6971,7 +6971,7 @@
 								</Layers>
 								<Scripts>
 									<OnLoad>
-										ROB_OptionsNextActionLocationDropDownButtonLabel:SetText(L['ROB_OPTION_NAIL']);
+										ROB_OptionsNextActionLocationDropDownButtonLabel:SetText(RotationBuilderUtils:localize('ROB_OPTION_NAIL'));
 										UIDropDownMenu_Initialize(self,ROB_OptionsNextActionLocationDropDownButton_OnLoad)
 									</OnLoad>
 									<OnClick>
@@ -7027,10 +7027,10 @@
 								</Layers>
 								<Scripts>
 									<OnLoad>
-										ROB_OptionsTabIconScaleSliderTextT:SetText(L['ROB_OPTION_ICONSCALE']);
-										ROB_OptionsTabIconScaleSliderText:SetText(L['ROB_OPTION_ICONS_CV']);
-										ROB_OptionsTabIconScaleSliderTextBL:SetText(L['ROB_OPTION_ICONS_MIN']);
-										ROB_OptionsTabIconScaleSliderTextBR:SetText(L['ROB_OPTION_ICONS_MAX']);
+										ROB_OptionsTabIconScaleSliderTextT:SetText(RotationBuilderUtils:localize('ROB_OPTION_ICONSCALE'));
+										ROB_OptionsTabIconScaleSliderText:SetText(RotationBuilderUtils:localize('ROB_OPTION_ICONS_CV'));
+										ROB_OptionsTabIconScaleSliderTextBL:SetText(RotationBuilderUtils:localize('ROB_OPTION_ICONS_MIN'));
+										ROB_OptionsTabIconScaleSliderTextBR:SetText(RotationBuilderUtils:localize('ROB_OPTION_ICONS_MAX'));
 									</OnLoad>
 									<OnValueChanged>ROB_Option_IconScale_OnValueChanged(self);</OnValueChanged>
 								</Scripts>
@@ -7065,12 +7065,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_OptionsTabToggleIconsAlphaLabel:SetText(L['ROB_OPTION_ICONS_T_A']);</OnLoad>
+									<OnLoad>ROB_OptionsTabToggleIconsAlphaLabel:SetText(RotationBuilderUtils:localize('ROB_OPTION_ICONS_T_A'));</OnLoad>
 									<OnTextChanged>ROB_OptionsTabToggleIconsAlpha_OnTextChanged(self)
 									</OnTextChanged>
 									<OnEnter>
 										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-										GameTooltip:SetText(L['ROB_OPTION_ICONS_T_ATT']);
+										GameTooltip:SetText(RotationBuilderUtils:localize('ROB_OPTION_ICONS_T_ATT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -7100,12 +7100,12 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_OptionsTabCurrentIconAlphaLabel:SetText(L['ROB_OPTION_ICONS_C_A']);</OnLoad>
+									<OnLoad>ROB_OptionsTabCurrentIconAlphaLabel:SetText(RotationBuilderUtils:localize('ROB_OPTION_ICONS_C_A'));</OnLoad>
 									<OnTextChanged>ROB_OptionsTabCurrentIconAlpha_OnTextChanged(self)
 									</OnTextChanged>
 									<OnEnter>
 										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-										GameTooltip:SetText(L['ROB_OPTION_ICONS_T_ATT']);
+										GameTooltip:SetText(RotationBuilderUtils:localize('ROB_OPTION_ICONS_T_ATT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -7135,11 +7135,11 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_OptionsTabNextIconAlphaLabel:SetText(L['ROB_OPTION_ICONS_N_A']);</OnLoad>
+									<OnLoad>ROB_OptionsTabNextIconAlphaLabel:SetText(RotationBuilderUtils:localize('ROB_OPTION_ICONS_N_A'));</OnLoad>
 									<OnTextChanged>ROB_OptionsTabNextIconAlpha_OnTextChanged(self);</OnTextChanged>
 									<OnEnter>
 										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-										GameTooltip:SetText(L['ROB_OPTION_ICONS_T_ATT']);
+										GameTooltip:SetText(RotationBuilderUtils:localize('ROB_OPTION_ICONS_T_ATT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -7178,7 +7178,7 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_OptionsTabImportExportOptionsFrameLabel:SetText(L['ROB_OPTION_IMPORT']);</OnLoad>
+									<OnLoad>ROB_OptionsTabImportExportOptionsFrameLabel:SetText(RotationBuilderUtils:localize('ROB_OPTION_IMPORT'));</OnLoad>
 								</Scripts>
 							</Frame>
 							<CheckButton name="ROB_OptionsTabExportBindsButton" inherits="ROB_CheckButtonTemplate">
@@ -7193,13 +7193,13 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_OptionsTabExportBindsButtonText:SetText(L['ROB_OPTION_EXPORTBINDS'])
+									<OnLoad>ROB_OptionsTabExportBindsButtonText:SetText(RotationBuilderUtils:localize('ROB_OPTION_EXPORTBINDS'))
 									</OnLoad>
 									<OnClick>ROB_OptionsTabExportBindsButton_OnToggle(self);
 									</OnClick>
 									<OnEnter>
 										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-										GameTooltip:SetText(L['ROB_OPTION_EXPORTBINDS_TT']);
+										GameTooltip:SetText(RotationBuilderUtils:localize('ROB_OPTION_EXPORTBINDS_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -7216,13 +7216,13 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_OptionsTabAllowOverwriteButtonText:SetText(L['ROB_OPTION_OVERWRITE'])
+									<OnLoad>ROB_OptionsTabAllowOverwriteButtonText:SetText(RotationBuilderUtils:localize('ROB_OPTION_OVERWRITE'))
 									</OnLoad>
 									<OnClick>ROB_OptionsTabAllowOverwriteButton_OnToggle(self);
 									</OnClick>
 									<OnEnter>
 										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-										GameTooltip:SetText(L['ROB_OPTION_OVERWRITE_TT']);
+										GameTooltip:SetText(RotationBuilderUtils:localize('ROB_OPTION_OVERWRITE_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -7239,11 +7239,11 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>ROB_OptionsTabUseOldImportExportButtonText:SetText(L['ui/options/importExport/useOld/text'])</OnLoad>
+									<OnLoad>ROB_OptionsTabUseOldImportExportButtonText:SetText(RotationBuilderUtils:localize('ui/options/importExport/useOld/text'))</OnLoad>
 									<OnClick>ROB_OptionsTabUseOldImportExportButton_OnToggle(self);</OnClick>
 									<OnEnter>
 										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-										GameTooltip:SetText(L['ui/options/importExport/useOld/tooltip']);
+										GameTooltip:SetText(RotationBuilderUtils:localize('ui/options/importExport/useOld/tooltip'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -7260,11 +7260,11 @@
 									</Anchor>
 								</Anchors>
 								<Scripts>
-									<OnLoad>self:SetText(L['ROB_OPTION_LOADDEFAULT']);</OnLoad>
+									<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_OPTION_LOADDEFAULT'));</OnLoad>
 									<OnClick>ROB_LoadDefaultRotations();</OnClick>
 									<OnEnter>
 										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-										GameTooltip:SetText(L['ROB_OPTION_LOADDEFAULT_TT']);
+										GameTooltip:SetText(RotationBuilderUtils:localize('ROB_OPTION_LOADDEFAULT_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();
 									</OnLeave>
@@ -7305,7 +7305,7 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_OptionsTabUIOptionsFrameText:SetText(L['ROB_OPTION_UI']);</OnLoad>
+									<OnLoad>ROB_OptionsTabUIOptionsFrameText:SetText(RotationBuilderUtils:localize('ROB_OPTION_UI'));</OnLoad>
 								</Scripts>
 							</Frame>
 
@@ -7338,8 +7338,8 @@
 								</Layers>
 								<Scripts>
 									<OnLoad>
-										self:SetText(L['ROB_OPTION_UISCALE_ADD']);
-										ROB_OptionsTabResetUILabel:SetText(L['ROB_OPTION_UISCALE']);
+										self:SetText(RotationBuilderUtils:localize('ROB_OPTION_UISCALE_ADD'));
+										ROB_OptionsTabResetUILabel:SetText(RotationBuilderUtils:localize('ROB_OPTION_UISCALE'));
 									</OnLoad>
 									<OnClick>ROB_Options_UIScaleAdd_OnClick(self);</OnClick>
 								</Scripts>
@@ -7373,7 +7373,7 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>self:SetText(L['ROB_OPTION_UISCALE_MIN']);</OnLoad>
+									<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_OPTION_UISCALE_MIN'));</OnLoad>
 									<OnClick>ROB_Options_UIScaleSub_OnClick(self);</OnClick>
 								</Scripts>
 							</Button>
@@ -7407,13 +7407,13 @@
 								</Layers>
 								<Scripts>
 									<OnLoad>
-										self:SetText(L['ROB_OPTION_RESETUI']);
-										ROB_OptionsTabResetUILabel:SetText(L['ROB_OPTION_RESETUI_EXP']);
+										self:SetText(RotationBuilderUtils:localize('ROB_OPTION_RESETUI'));
+										ROB_OptionsTabResetUILabel:SetText(RotationBuilderUtils:localize('ROB_OPTION_RESETUI_EXP'));
 									</OnLoad>
 									<OnClick>ROB_Options_ResetUI_OnClick(self);</OnClick>
 									<OnEnter>
 										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-										GameTooltip:SetText(L['ROB_OPTION_RESETUI_TT']);
+										GameTooltip:SetText(RotationBuilderUtils:localize('ROB_OPTION_RESETUI_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();
 									</OnLeave>
@@ -7468,10 +7468,10 @@
 								</Layers>
 								<Scripts>
 									<OnLoad>
-										ROB_OptionsTabUpdateRateSliderTextT:SetText(L['ROB_OPTION_UPDATERATE']);
-										ROB_OptionsTabUpdateRateSliderText:SetText(L['ROB_OPTION_UPDATERATE_CV']);
-										ROB_OptionsTabUpdateRateSliderTextBL:SetText(L['ROB_OPTION_UPDATERATE_MIN']);
-										ROB_OptionsTabUpdateRateSliderTextBR:SetText(L['ROB_OPTION_UPDATERATE_MAX']);
+										ROB_OptionsTabUpdateRateSliderTextT:SetText(RotationBuilderUtils:localize('ROB_OPTION_UPDATERATE'));
+										ROB_OptionsTabUpdateRateSliderText:SetText(RotationBuilderUtils:localize('ROB_OPTION_UPDATERATE_CV'));
+										ROB_OptionsTabUpdateRateSliderTextBL:SetText(RotationBuilderUtils:localize('ROB_OPTION_UPDATERATE_MIN'));
+										ROB_OptionsTabUpdateRateSliderTextBR:SetText(RotationBuilderUtils:localize('ROB_OPTION_UPDATERATE_MAX'));
 									</OnLoad>
 									<OnValueChanged>ROB_Option_UpdateRate_OnValueChanged(self);</OnValueChanged>
 								</Scripts>
@@ -7496,7 +7496,7 @@
 					</Anchor>
 				</Anchors>
 				<Scripts>
-					<OnLoad>self:SetText(L['ROB_UI_ROTATION_TAB']);</OnLoad>
+					<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_ROTATION_TAB'));</OnLoad>
 					<OnClick>ROB_MainWindowSwitchToTab(self);</OnClick>
 				</Scripts>
 			</Button>
@@ -7509,7 +7509,7 @@
 					</Anchor>
 				</Anchors>
 				<Scripts>
-					<OnLoad>self:SetText(L['ROB_UI_SPELLLISTS_TAB']);</OnLoad>
+					<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_SPELLLISTS_TAB'));</OnLoad>
 					<OnClick>ROB_MainWindowSwitchToTab(self);</OnClick>
 				</Scripts>
 			</Button>
@@ -7522,7 +7522,7 @@
 					</Anchor>
 				</Anchors>
 				<Scripts>
-					<OnLoad>self:SetText(L['ROB_UI_OPTIONS_TAB']);</OnLoad>
+					<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_OPTIONS_TAB'));</OnLoad>
 					<OnClick>ROB_MainWindowSwitchToTab(self);</OnClick>
 				</Scripts>
 			</Button>
@@ -7531,7 +7531,7 @@
 		<Scripts>
 			<OnLoad>
 				self:SetBackdropColor(0, 0, 0, 1);
-				ROB_FrameTitle:SetText(L['ROB_UI_TITLE']);
+				ROB_FrameTitle:SetText(RotationBuilderUtils:localize('ROB_UI_TITLE'));
 				ROB_MiniMapButton:Hide();
 				ROB_OnLoad(self);
 			</OnLoad>

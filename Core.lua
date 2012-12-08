@@ -22,12 +22,12 @@ function RotationBuilder:importRotation(serializedRotation)
 	if(hasWork and (addonName == "RotationBuilder")) then
 		if (not rotationName) then
 			-- No rotation name found.
-			print(L['ROB_UI_IMPORT_ERROR1']);
+			print(RotationBuilderUtils:localize('ROB_UI_IMPORT_ERROR1'));
 			return
 		end
 		if (ROB_Rotations[rotationName]) then
 			-- A rotation with the same name already exist.
-			print(L['ROB_UI_IMPORT_ERROR2']..":"..rotationName);
+			print(RotationBuilderUtils:localize('ROB_UI_IMPORT_ERROR2')..":"..rotationName);
 			return
 		end
 		
@@ -55,10 +55,10 @@ function RotationBuilder:importRotation(serializedRotation)
 		-- update rotation ui stuff
 		ROB_Rotation_Edit_UpdateUI();
 
-		print(L['ROB_UI_IMPORT_SUCCESS']..":"..rotationName);
+		print(RotationBuilderUtils:localize('ROB_UI_IMPORT_SUCCESS')..":"..rotationName);
 	else
 		-- Not a rotation builder import.
-		print(L['ROB_UI_IMPORT_ERROR3']);
+		print(RotationBuilderUtils:localize('ROB_UI_IMPORT_ERROR3'));
 	end
 end
 
@@ -129,7 +129,7 @@ function RotationBuilder:loadDefaultRotations(className)
 	for key, value in pairs(defaultRotation) do
 		if(ROB_Rotations[key]) then
 			-- If a rotation with the same name already exist.
-			print(L['ROB_UI_DEBUG_PREFIX']..key..":"..L['ROB_UI_IMPORT_ERROR2']);
+			print(RotationBuilderUtils:localize('ROB_UI_DEBUG_PREFIX')..key..":"..RotationBuilderUtils:localize('ROB_UI_IMPORT_ERROR2'));
 		else
 			-- We can import the rotation.
 			ROB_Rotations[key] = value;

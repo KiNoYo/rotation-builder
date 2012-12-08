@@ -10,7 +10,6 @@
 libs\LibStub\LibStub.lua
 libs\AceLocale-3.0\AceLocale-3.0.lua
 libs\AceSerializer-3.0\AceSerializer-3.0.lua
-#libs\LibCompress\LibCompress.lua
 
 -- Localization
 localization\enUS.lua
@@ -35,6 +34,7 @@ rotations\DefaultRogueRotations.lua
 rotations\DefaultDruidRotations.lua
 rotations\DefaultMonkRotations.lua
 rotations\DefaultShamanRotations.lua
+rotations\DefaultHunterRotations.lua
 
 -- Rotation Builder
 RotationBuilder.lua

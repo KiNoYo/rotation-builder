@@ -245,3 +245,22 @@ function RotationBuilderUtils:restoreTable(baseTable, cleanedTable, actionListPa
 
 	return tableToReturn;
 end
+
+--- Get the localization for a key.
+-- @param #String key the key for which we seek a localization. Musn't be nil.
+-- @return #String The value associated to the key, or the key if no value is found.
+function RotationBuilderUtils:localize(key)
+	assert(key, "The localization key musn't be nil");
+	local L = LibStub("AceLocale-3.0"):GetLocale("RotationBuilder");
+	if (not L) then
+		-- Localization isn't available, so no need to continue.
+		return key;
+	end
+	
+	-- Test the presence of a value for the key.
+	local value = L[key];
+	if (not value) then
+		value = key;
+	end
+	return value;
+end

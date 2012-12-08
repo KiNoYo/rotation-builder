@@ -21,7 +21,7 @@ function ROB_ImportRotation_Old(_RotationBuild)
 	if (_RotationBuild) then
 		--First check that the import string is from Rotation Builder or Rotation Builder for down compatibility purpose.
 		if (string.sub(_RotationBuild, 1,15) ~= "RotationBuilder") then
-			print(L['ROB_UI_IMPORT_ERROR3'])
+			print(RotationBuilderUtils:localize('ROB_UI_IMPORT_ERROR3'))
 			return
 		end
 
@@ -30,19 +30,19 @@ function ROB_ImportRotation_Old(_RotationBuild)
 	end
 
 	if ((not _parsedRotationName) or _parsedRotationName == "" or (not _RotationBuild) or _RotationBuild == "") then
-		print(L['ROB_UI_IMPORT_ERROR1'])
+		print(RotationBuilderUtils:localize('ROB_UI_IMPORT_ERROR1'))
 		return
 	end
 
 	if (ROB_Rotations[_parsedRotationName]) then
 		-- A rotation with the same name already exist.
-		print(L['ROB_UI_DEBUG_PREFIX'].._parsedRotationName..":"..L['ROB_UI_IMPORT_ERROR2'])
+		print(RotationBuilderUtils:localize('ROB_UI_DEBUG_PREFIX').._parsedRotationName..":"..RotationBuilderUtils:localize('ROB_UI_IMPORT_ERROR2'))
 		return
 	end
 
 	ROB_Rotations[_parsedRotationName] = {}
 	ROB_Rotations[_parsedRotationName]["keybind"] = {}
-	ROB_Rotations[_parsedRotationName]["keybind"] = L['ROB_UI_KEYBIND']
+	ROB_Rotations[_parsedRotationName]["keybind"] = RotationBuilderUtils:localize('ROB_UI_KEYBIND')
 	ROB_Rotations[_parsedRotationName]["rangespell"] = {}
 	ROB_Rotations[_parsedRotationName]["rangespell"] = _parsedRangeSpell
 	ROB_Rotations[_parsedRotationName]["SortedActions"] = {}
@@ -134,7 +134,7 @@ function ROB_ImportRotation_Old(_RotationBuild)
 	-- update rotation ui stuff
 	ROB_Rotation_Edit_UpdateUI();
 
-	print(L['ROB_UI_IMPORT_SUCCESS']..":".._parsedRotationName)
+	print(RotationBuilderUtils:localize('ROB_UI_IMPORT_SUCCESS')..":".._parsedRotationName)
 end
 
 --- Export rotations.

@@ -1,8 +1,5 @@
 -- Put here constant which shouldn't be put in localization files.
 
--- Localization
-L = LibStub("AceLocale-3.0"):GetLocale("RotationBuilder");
-
 ROB_PROJECT_NAME = "RotationBuilder";
 --@do-not-package@
 -- For development purpose.
