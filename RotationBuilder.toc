@@ -22,6 +22,7 @@ localization\ruRU.lua
 localization\esES.lua
 localization\esMX.lua
 localization\itIT.lua
+localization\ptBR.lua
 
 -- Core
 RBConstants.lua
@@ -35,6 +36,7 @@ rotations\DefaultDruidRotations.lua
 rotations\DefaultMonkRotations.lua
 rotations\DefaultShamanRotations.lua
 rotations\DefaultHunterRotations.lua
+rotations\DefaultPriestRotations.lua
 
 -- Rotation Builder
 RotationBuilder.lua

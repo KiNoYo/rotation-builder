@@ -8,16 +8,16 @@ Rotation Builder allows you to build rotations dynamically without having to und
 
 Included Rotations in the latest alpha version:
 DRUID 5.0.4 Balance, Feral and Guardian
-HUNTER 5.0.4 Beast mastery, Marksmanship and Survival
+HUNTER 5.1.0 Beast mastery, Marksmanship and Survival
 MAGE 5.0.4 Arcane, Fire and Frost
 PALADIN 5.0.4 Protection, Retribution
-PRIEST 5.0.4 Shadow
+PRIEST 5.1.0 Shadow
 ROGUE 5.0.4 Assassination, Combat and 5.0.4-1 Subtlety
-SHAMAN 5.0.5 Enhancement and Elemental
+SHAMAN 5.1.0 Enhancement and Elemental
 WARLOCK 5.0.4 Affliction, Demonology and Destruction
 WARRIOR 5.0.4 Arms, Fury and Protection
 DEATHKNIGHT 5.0.4 Blood, Frost and Unholy
-MONK 5.0.5 Brewmaster and Windwalker
+MONK 5.1.0 Brewmaster and Windwalker
 
 To load the latest rotation just click on the options tab in the top left and click the LOAD button. The latest version of the rotations will be imported.
 

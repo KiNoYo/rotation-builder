@@ -384,9 +384,6 @@ function ROB_LoadDefaultRotations()
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_PALADIN_PROTECTION'), true)
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_PALADIN_RETRIBUTION'), true)
 	end
-	if (ROB_CLASS_NAME == "PRIEST") then
-		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_PRIEST_SHADOW'), true)
-	end
 	if (ROB_CLASS_NAME == "WARLOCK") then
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_WARLOCK_AFFLICTION'), true)
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_WARLOCK_DEMONOLOGY'), true)
