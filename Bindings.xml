@@ -1,5 +1,5 @@
 <Bindings>
-	<Binding name="ROB_ADDON_NAME" description="Toggle Rotation Builder" header="ROB">
+	<Binding name="Rotation Builder" description="Toggle Rotation Builder" header="ROB">
 		ROB_OnToggle();
 	</Binding>
 	<Binding name="Toggle Icons" description="Toggle Icons">

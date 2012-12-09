@@ -60,9 +60,8 @@ function ROB_ImportRotation_Old(_RotationBuild)
 			_spelllistname = string.sub(_value, 3, string.find(_value,"%]")-1)
 
 			--Check if spell list exists if it does not create it
-			if (ROB_Lists[_spelllistname]) then
-				--Spell list exists no need to create it
-			else
+			if (not ROB_Lists[_spelllistname]) then
+				--Spell list do not exists we need to create it
 				ROB_Lists[_spelllistname] = {}
 				ROB_Lists[_spelllistname]["SortedSpells"] ={}
 			end
@@ -78,12 +77,13 @@ function ROB_ImportRotation_Old(_RotationBuild)
 			if (not spellexistscheck) then
 				local _spellindex = (#ROB_Lists[_spelllistname]["SortedSpells"] + 1)
 				table.insert(ROB_Lists[_spelllistname]["SortedSpells"], _spellindex, _value);
-
 			end
 
 		elseif (string.sub(_value,1,1) == "[" and string.find(_value,"%]")) then
 			_actionname = string.sub(_value, 2, string.find(_value,"%]")-1)
-			if (ROB_Rotations[_parsedRotationName]["SortedActions"][_actionname]) then _AlreadyExists = true; end
+			if (ROB_Rotations[_parsedRotationName]["SortedActions"][_actionname]) then
+				_AlreadyExists = true;
+			end
 			if (not _AlreadyExists) then
 				table.insert(ROB_Rotations[_parsedRotationName].SortedActions, _actionname);
 				ROB_Rotations[_parsedRotationName].ActionList[_actionname] = {}
@@ -94,7 +94,9 @@ function ROB_ImportRotation_Old(_RotationBuild)
 		elseif (string.sub(_value,1,1) == "[" and (not string.find(_value,"%]"))) then
 			--Added some robustness to deal with a new action that doesn't have the ending bracket ]
 			_actionname = string.sub(_value, 2)
-			if (ROB_Rotations[_parsedRotationName]["SortedActions"][_actionname]) then _AlreadyExists = true; end
+			if (ROB_Rotations[_parsedRotationName]["SortedActions"][_actionname]) then
+				_AlreadyExists = true;
+			end
 			if (not _AlreadyExists) then
 				table.insert(ROB_Rotations[_parsedRotationName].SortedActions, _actionname);
 				ROB_Rotations[_parsedRotationName].ActionList[_actionname] = {}

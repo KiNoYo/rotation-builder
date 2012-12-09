@@ -934,8 +934,10 @@ function ROB_ToggleIconsFrame()
 	--toggle button frames
 	if (ROB_IconsFrame:IsShown()) then
 		ROB_IconsFrame:Hide();
+		print(RotationBuilderUtils:localize('msg/action/keybinds/toggle/icons/hide'))
 	else
 		ROB_IconsFrame:Show();
+		print(RotationBuilderUtils:localize('msg/action/keybinds/toggle/icons/show'))
 	end
 end
 
@@ -1036,8 +1038,6 @@ function ROB_SwitchRotation(RotationID,_byName)
 	local _MatchingRotationName = nil
 	--if we are modififying a rotation dont switch to a different one
 	if (ROB_EditingRotationTable ~= nil) then
-		--print("Cant switch rotations while you are editing one")
-
 		--just force a save and switch the rotation
 		ROB_Save_OnClick(self)
 	end
@@ -1070,8 +1070,7 @@ function ROB_SwitchRotation(RotationID,_byName)
 			ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_durationstartedtime = 0
 		end
 
-
-		print("Rotation switched to -----["..ROB_SelectedRotationName.."]-----")
+		print(RotationBuilderUtils:localize('msg/action/switch_rotation')..ROB_SelectedRotationName)
 
 		ROB_CURRENT_ACTION = nil
 		ROB_NEXT_ACTION = nil
@@ -1305,7 +1304,10 @@ end
 
 function ROB_Save_OnClick(self)
 	local _lastEditedRotation = ROB_SelectedRotationName
+	
+	-- Replace the old rotation with the new one.
 	ROB_Rotations[ROB_SelectedRotationName] = ROB_EditingRotationTable;
+	
 	-- update rotation list
 	ROB_SortRotationList();
 
@@ -2326,11 +2328,13 @@ function ROB_Options_ResetUI_OnClick(self)
 	ROB_IconsFrame:Show();
 end
 
-function ROB_ToggleToggle(Toggle)
-	if (_G["ROB_TOGGLE_"..Toggle] == 0) then
-		_G["ROB_TOGGLE_"..Toggle] = 1
+function ROB_ToggleToggle(toggle)
+	if (_G["ROB_TOGGLE_"..toggle] == 0) then
+		_G["ROB_TOGGLE_"..toggle] = 1
+		print(RotationBuilderUtils:localize('msg/action/keybinds/toggle/toggle/enable')..toggle)
 	else
-		_G["ROB_TOGGLE_"..Toggle] = 0
+		_G["ROB_TOGGLE_"..toggle] = 0
+		print(RotationBuilderUtils:localize('msg/action/keybinds/toggle/toggle/disable')..toggle)
 	end
 end
 

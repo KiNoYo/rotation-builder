@@ -618,5 +618,11 @@ L["defaultRotation/shaman/unleash_elements"] = "Déchaînement des éléments"
 L["defaultRotation/shaman/unleash_elements_unleashed_fury"] = "Déchaînement des éléments (Fureur libérée)"
 L["ui/options/importExport/useOld/text"] = "Ancien import/export"
 L["ui/options/importExport/useOld/tooltip"] = "Utilisez l'ancien système d'import/export (Pour des raisons de compatibilité)"
+
+L["msg/action/keybinds/toggle/icons/hide"] = "Masque les icônes de RotationBuilder !"
+L["msg/action/keybinds/toggle/icons/show"] = "Affiche les icônes de RotationBuilder !"
+L["msg/action/keybinds/toggle/toggle/disable"] = "Désactivation du toggle : "
+L["msg/action/keybinds/toggle/toggle/enable"] = "Activation du toggle : "
+L["msg/action/switch_rotation"] = "Changement de la rotation pour : "
 --@end-do-not-package@
 --@localization(locale="frFR", format="lua_additive_table", handle-subnamespaces="concat")@

@@ -851,5 +851,10 @@ L["defaultRotation/shaman/unleash_elements"] = "Unleash Elements"
 L["defaultRotation/shaman/unleash_elements_unleashed_fury"] = "Unleash Elements (Unleashed Fury)"
 L["ui/options/importExport/useOld/text"] = "Old import/export"
 L["ui/options/importExport/useOld/tooltip"] = "Use old import/export system (compatibility purpose)"
+L["msg/action/keybinds/toggle/icons/hide"] = "Hide RotationBuilder's icons!"
+L["msg/action/keybinds/toggle/icons/show"] = "Show RotationBuilder's icons!"
+L["msg/action/keybinds/toggle/toggle/disable"] = "Disable toggle: "
+L["msg/action/keybinds/toggle/toggle/enable"] = "Enable toggle: "
+L["msg/action/switch_rotation"] = "Switch rotation to: "
 --@end-do-not-package@
 --@localization(locale="enUS", format="lua_additive_table", handle-subnamespaces="concat")@
