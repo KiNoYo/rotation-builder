@@ -140,6 +140,7 @@ ROB_NewActionDefaults = {
 	v_p_unholyrunes="",
 	b_p_deathrunes=false,
 	v_p_deathrunes="",
+	b_p_bloodtap=false,
 
 	b_p_combopoints=false,
 	v_p_combopoints="",
@@ -180,6 +181,8 @@ ROB_NewActionDefaults = {
 	v_p_notstance="",
 	b_p_ooc=false,
 	b_p_ic=false,
+	b_p_mhweapon=false,
+	b_p_ohweapon=false,
 	b_p_knowspell=false,
 	v_p_knowspell="",
 	b_p_knownotspell=false,
@@ -2878,6 +2881,8 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetChecked("ROB_AO_DeathRunesCheckButton",_ActionDB.b_p_deathrunes,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_DeathRunesInputBox",_ActionDB.v_p_deathrunes,"")
 
+			ROB_Rotation_GUI_SetChecked("ROB_AO_BloodTapCheckButton",_ActionDB.b_p_bloodtap,false)
+
 			ROB_Rotation_GUI_SetChecked("ROB_AO_CurseCheckButton",_ActionDB.b_p_curse,false)
 			ROB_Rotation_GUI_SetChecked("ROB_AO_DiseaseCheckButton",_ActionDB.b_p_disease,false)
 			ROB_Rotation_GUI_SetChecked("ROB_AO_MagicCheckButton",_ActionDB.b_p_magic,false)
@@ -2922,6 +2927,9 @@ function ROB_Rotation_Edit_UpdateUI()
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_NotStanceCheckButton",_ActionDB.b_p_notstance,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_NotStanceInputBox",_ActionDB.v_p_notstance,"")
+			
+			ROB_Rotation_GUI_SetChecked("ROB_AO_MHWeaponCheckButton",_ActionDB.b_p_mhweapon,false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_OHWeaponCheckButton",_ActionDB.b_p_ohweapon,false)
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_OOCombatCheckButton",_ActionDB.b_p_ooc,false)
 			ROB_Rotation_GUI_SetChecked("ROB_AO_ICombatCheckButton",_ActionDB.b_p_ic,false)
@@ -3193,10 +3201,21 @@ end
 
 function ROB_TotemActive(_totemname,_totemslot,_getnextspell)
 	local _haveTotem, _totemName, _startTime, _duration = GetTotemInfo(_totemslot)
-	if (not _totemName or _totemName== "") then
-		return false
+	
+	if (_totemname ~= nil and _totemname ~= "") then
+		if (not _totemName or _totemName== "") then
+			return false
+		else
+			if (GetSpellInfo(_totemname) == _totemName) then
+				return true
+			end
+		end
 	else
-		if (GetSpellInfo(_totemname) == _totemName) then return true; end
+		if _haveTotem then
+			return true
+		else
+			return false
+		end
 	end
 
 	return false
@@ -3646,10 +3665,40 @@ function ROB_UnitPassesRuneCheck(_blood, _frost, _unholy, _death, _getnextspell)
 	return false
 end
 
+function ROB_BloodTapCheck()
+	local _start, _duration, _runeReady
+	local _start2, _duration2, _runeReady2
+	
+	_start, _duration, _runeReady = GetRuneCooldown(1)
+	_start2, _duration2, _runeReady2 = GetRuneCooldown(2)
+	if (not _runeReady and not _runeReady2) then
+		return true
+	end
+	
+	_start, _duration, _runeReady = GetRuneCooldown(3)
+	_start2, _duration2, _runeReady2 = GetRuneCooldown(4)
+	if (not _runeReady and not _runeReady2) then
+		return true
+	end
+	
+	_start, _duration, _runeReady = GetRuneCooldown(5)
+	_start2, _duration2, _runeReady2 = GetRuneCooldown(6)
+	if (not _runeReady and not _runeReady2) then
+		return true
+	end
+
+	return false
+end
+
 function ROB_SpellPassesOtherCooldownCheck(_othercd, _checkstring)
 	local _cooldownparsed = nil
+	local _start, _duration, enable
 
-	local _start, _duration = GetSpellCooldown(_othercd)
+	if(_ActionDB.b_notaspell) then
+		_start, _duration, _enable = GetItemCooldown(_othercd)
+	else
+		local _start, _duration = GetSpellCooldown(_othercd)
+	end
 	if (_start == nil) then
 		return false
 	end
@@ -4155,6 +4204,22 @@ function ROB_PlayerInStance(_stanceneeded, _getnextspell)
 	return _playerinstance
 end
 
+function ROB_WeaponIsEnchanted(_slot)
+	local _isenchanted = false
+	local _hasMainHandEnchant, _mainHandExpiration, _mainHandCharges, _hasOffHandEnchant, _offHandExpiration, _offHandCharges
+	
+	_hasMainHandEnchant, _mainHandExpiration, _mainHandCharges, _hasOffHandEnchant, _offHandExpiration, _offHandCharges = GetWeaponEnchantInfo()
+	
+	if (_slot == 1 and _hasMainHandEnchant) then
+		_isenchanted = true
+	end
+	if (_slot == 2 and _hasOffHandEnchant) then
+		_isenchanted = true
+	end
+	
+	return _isenchanted
+end
+
 function ROB_GetActionTintColor(_actionname)
 	local _ActionDB = ROB_Rotations[ROB_SelectedRotationName].ActionList[_actionname]
 	local _r = nil
@@ -4476,6 +4541,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	local _inGCD          = nil
 	local _start          = nil
 	local _duration       = nil
+	local _enable         = nil
 	local _myHPP          = math.floor(UnitHealth("player")/UnitHealthMax("player") * 100)
 	local _moHPP          = math.floor(UnitHealth("mouseover")/UnitHealthMax("mouseover") * 100)
 	local _targetHPP      = math.floor(UnitHealth("target")/UnitHealthMax("target") * 100)
@@ -4493,6 +4559,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	local frostRuneCount  = 0
 	local unholyRuneCount = 0
 	local _name, _rank, _nomana, _usable, _channeling, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange
+	local _link, _quality, _iLevel, _reqLevel, _class, _subclass, _maxStack, _equipSlot, _texture, _vendorPrice
 	local _checkmagic     = false
 	local _checkpoison    = false
 	local _checkdisease   = false
@@ -4572,6 +4639,20 @@ function ROB_SpellReady(_actionname,_getnextspell)
 			return false
 		end
 	end
+	
+	-- CHECK: Item stuff
+	if (_ActionDB.b_notaspell and _ActionDB.v_spellname) then
+		_name, _link, _quality, _iLevel, _reqLevel, _class, _subclass, _maxStack, _equipSlot, _texture, _vendorPrice = GetItemInfo(_ActionDB.v_spellname)
+		if (_name == nil) then
+			-- If the name isn't foud, then we don't know the spell.
+			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._ActionDB.v_spellname.." because this itemname is not available or does not exist. Check spelling or try using the itemid from wowhead instead.",_getnextspell,_debugon)
+			return false
+		end
+		if (GetItemCount(_name) == 0) then
+			return false
+		end
+	end
+		
 
 	-- CHECK: Cooldown-----------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.v_gcdspell ~= -1 and _ActionDB.v_spellname) then
@@ -4588,7 +4669,11 @@ function ROB_SpellReady(_actionname,_getnextspell)
 		end
 	end
 	--Even if v_gcdspell is set to -1 make sure to set the cooldown for current action and next action determination
-	_start, _duration = GetSpellCooldown(_ActionDB.v_spellname)
+	if (_ActionDB.b_notaspell) then
+		_start, _duration, _enable = GetItemCooldown(_ActionDB.v_spellname)
+	else
+		_start, _duration = GetSpellCooldown(_ActionDB.v_spellname)
+	end
 	if (_start == nil) then
 		local _enabled = nil
 		_start, _duration, _enabled = GetInventoryItemCooldown("player", tonumber(_InvSlots[_ActionDB.v_spellname]))
@@ -4934,6 +5019,13 @@ function ROB_SpellReady(_actionname,_getnextspell)
 			return false
 		end
 	end
+	
+	-- CHECK: Blood Tap
+	if (_ActionDB.b_p_bloodtap) then
+		if (not ROB_BloodTapCheck()) then
+			return false
+		end
+	end
 
 	-- CHECK: Debuff types ----------------------------------------------------------------------------------------------------------------------------------------------------
 	_checkmagic = _ActionDB.b_p_magic
@@ -5020,25 +5112,25 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	end
 
 	-- CHECK: Check TotemActive ----------------------------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_p_firetotemactive and _ActionDB.v_p_firetotemactive ~= nil and _ActionDB.v_p_firetotemactive ~= "") then
+	if (_ActionDB.b_p_firetotemactive) then
 		if (not ROB_TotemActive(_ActionDB.v_p_firetotemactive, 1,_getnextspell)) then
 			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." Fire totem ".._ActionDB.v_p_firetotemactive.." is not active",_getnextspell,_debugon)
 			return false
 		end
 	end
-	if (_ActionDB.b_p_earthtotemactive and _ActionDB.v_p_earthtotemactive ~= nil and _ActionDB.v_p_earthtotemactive ~= "") then
+	if (_ActionDB.b_p_earthtotemactive) then
 		if (not ROB_TotemActive(_ActionDB.v_p_earthtotemactive, 2,_getnextspell)) then
 			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." Earth totem ".._ActionDB.v_p_earthtotemactive.." is not active",_getnextspell,_debugon)
 			return false
 		end
 	end
-	if (_ActionDB.b_p_watertotemactive and _ActionDB.v_p_watertotemactive ~= nil and _ActionDB.v_p_watertotemactive ~= "") then
+	if (_ActionDB.b_p_watertotemactive) then
 		if (not ROB_TotemActive(_ActionDB.v_p_watertotemactive, 3,_getnextspell)) then
 			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." Water totem ".._ActionDB.v_p_watertotemactive.." is not active",_getnextspell,_debugon)
 			return false
 		end
 	end
-	if (_ActionDB.b_p_airtotemactive and _ActionDB.v_p_airtotemactive ~= nil and _ActionDB.v_p_airtotemactive ~= "") then
+	if (_ActionDB.b_p_airtotemactive) then
 		if (not ROB_TotemActive(_ActionDB.v_p_airtotemactive, 4,_getnextspell)) then
 			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." Air totem ".._ActionDB.v_p_airtotemactive.." is not active",_getnextspell,_debugon)
 			return false
@@ -5046,25 +5138,25 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	end
 
 	-- CHECK: Check TotemInactive ----------------------------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_p_firetoteminactive and _ActionDB.v_p_firetoteminactive ~= nil and _ActionDB.v_p_firetoteminactive ~= "") then
+	if (_ActionDB.b_p_firetoteminactive) then
 		if (ROB_TotemActive(_ActionDB.v_p_firetoteminactive, 1,_getnextspell)) then
 			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." Fire totem ".._ActionDB.v_p_firetoteminactive.." is active",_getnextspell,_debugon)
 			return false
 		end
 	end
-	if (_ActionDB.b_p_earthtoteminactive and _ActionDB.v_p_earthtoteminactive ~= nil and _ActionDB.v_p_earthtoteminactive ~= "") then
+	if (_ActionDB.b_p_earthtoteminactive) then
 		if (ROB_TotemActive(_ActionDB.v_p_earthtoteminactive, 2,_getnextspell)) then
 			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." Earth totem ".._ActionDB.v_p_earthtoteminactive.." is active",_getnextspell,_debugon)
 			return false
 		end
 	end
-	if (_ActionDB.b_p_watertoteminactive and _ActionDB.v_p_watertoteminactive ~= nil and _ActionDB.v_p_watertoteminactive ~= "") then
+	if (_ActionDB.b_p_watertoteminactive) then
 		if (ROB_TotemActive(_ActionDB.v_p_watertoteminactive, 3,_getnextspell)) then
 			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." Water totem ".._ActionDB.v_p_watertoteminactive.." is active",_getnextspell,_debugon)
 			return false
 		end
 	end
-	if (_ActionDB.b_p_airtoteminactive and _ActionDB.v_p_airtoteminactive ~= nil and _ActionDB.v_p_airtoteminactive ~= "") then
+	if (_ActionDB.b_p_airtoteminactive) then
 		if (ROB_TotemActive(_ActionDB.v_p_airtoteminactive, 4,_getnextspell)) then
 			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." Air totem ".._ActionDB.v_p_airtoteminactive.." is active",_getnextspell,_debugon)
 			return false
@@ -5163,6 +5255,19 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	-- CHECK: Not in Stance ----------------------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_p_notstance and _ActionDB.v_p_notstance ~= nil and _ActionDB.v_p_notstance ~= "") then
 		if(ROB_PlayerInStance(_ActionDB.v_p_notstance, _getnextspell)) then
+			return false
+		end
+	end
+	
+	-- CHECK: Weapons enchants ---------------------------------------------------------------------------------------------------------------------------------------------------
+	if (_ActionDB.b_p_mhweapon) then
+		if (ROB_WeaponIsEnchanted(1)) then
+			return false
+		end
+	end
+	
+	if (_ActionDB.b_p_ohweapon) then
+		if (ROB_WeaponIsEnchanted(2)) then
 			return false
 		end
 	end

@@ -27,8 +27,6 @@ Add a new column to rotation builder display where we'll put high cool-down spel
 Fix the current and next actions logic so that they work properly, especially the next action logic
 Change the action interface to allow some kind of "parenthesis" and a "not" operator on every single options (it'll probably take a lot of time to make this change since it's akin to re-making the whole add-on, check-boxes will probably be gone)
 Make some buff and debuff lists (probably hard-coded so that the user don't have to bother updating them) so that you can use the list name instead of listing every buff or debuff that have similar effects every time you wish to check it.
-Change the Death Knight runes functions so that they work better and are less resources intensive.
-Get the "Not a spell" option to work so that mages can use there mana gem in there rotations
 Make a complete overhaul of the add-on once it's up to date to make it more efficient, use less frame-rate, easier to understand, ...
 
 How to build a rotation:

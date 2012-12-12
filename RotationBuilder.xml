@@ -3025,7 +3025,7 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</EditBox>
-							<CheckButton name="ROB_AO_PoisonCheckButton" inherits="ROB_CheckButtonTemplate">
+							<CheckButton name="ROB_AO_BloodTapCheckButton" inherits="ROB_CheckButtonTemplate">
 								<Size>
 									<AbsDimension x="20" y="20" />
 								</Size>
@@ -3033,6 +3033,28 @@
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
 											<AbsDimension x="5" y="-240" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>ROB_AO_BloodTapCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_BLOODTAP'))
+									</OnLoad>
+									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_bloodtap");
+									</OnClick>
+									<OnEnter>GameTooltip:SetOwner(self,
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_BLOODTAP_TT'));
+									</OnEnter>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</CheckButton>
+							<CheckButton name="ROB_AO_PoisonCheckButton" inherits="ROB_CheckButtonTemplate">
+								<Size>
+									<AbsDimension x="20" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="5" y="-260" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -3070,7 +3092,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-260" />
+											<AbsDimension x="5" y="-280" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -3108,7 +3130,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-280" />
+											<AbsDimension x="5" y="-300" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -3146,7 +3168,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-300" />
+											<AbsDimension x="5" y="-320" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -3184,7 +3206,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-320" />
+											<AbsDimension x="5" y="-340" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -3243,7 +3265,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-340" />
+											<AbsDimension x="5" y="-360" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -3285,7 +3307,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-360" />
+											<AbsDimension x="5" y="-380" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -3320,6 +3342,48 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</EditBox>
+							<CheckButton name="ROB_AO_MHWeaponCheckButton" inherits="ROB_CheckButtonTemplate">
+								<Size>
+									<AbsDimension x="20" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="5" y="-400" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>ROB_AO_MHWeaponCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_MHWEAPON'))
+									</OnLoad>
+									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_mhweapon");</OnClick>
+									<OnEnter>GameTooltip:SetOwner(self,
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_MHWEAPON_TT'));
+									</OnEnter>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</CheckButton>
+							<CheckButton name="ROB_AO_OHWeaponCheckButton" inherits="ROB_CheckButtonTemplate">
+								<Size>
+									<AbsDimension x="20" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="5" y="-420" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>ROB_AO_OHWeaponCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_OHWEAPON'))
+									</OnLoad>
+									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_ohweapon");</OnClick>
+									<OnEnter>GameTooltip:SetOwner(self,
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_OHWEAPON_TT'));
+									</OnEnter>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</CheckButton>
 							<CheckButton name="ROB_AO_OOCombatCheckButton" inherits="ROB_CheckButtonTemplate">
 								<Size>
 									<AbsDimension x="20" y="20" />
@@ -3327,7 +3391,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-380" />
+											<AbsDimension x="5" y="-440" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -3348,7 +3412,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-400" />
+											<AbsDimension x="5" y="-460" />
 										</Offset>
 									</Anchor>
 								</Anchors>

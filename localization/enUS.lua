@@ -296,12 +296,14 @@ This is used for calculating the next ready action]=]
 L["ROB_UI_AO_P_AIRTA"] = "Active Air:"
 L["ROB_UI_AO_P_AIRTAIB_TT"] = [=[Input the name or spell id of the air totem
 Example1: |cFF00FF00Wrath of Air Totem|r
-Example2:|cFF00FF00 3738|r]=]
+Example2:|cFF00FF00 3738|r
+Keep it empty if you just want to check if an air totem is active]=]
 L["ROB_UI_AO_P_AIRTA_TT"] = "Only display action when specified air totem is active"
 L["ROB_UI_AO_P_AIRTI"] = "Inactive Air:"
 L["ROB_UI_AO_P_AIRTIIB_TT"] = [=[Input the name or spell id of the air totem
 Example1: |cFF00FF00Wrath of Air Totem|r
-Example2:|cFF00FF00 3738|r]=]
+Example2:|cFF00FF00 3738|r
+Keep it empty if you just want to check if all air totems are inactive]=]
 L["ROB_UI_AO_P_AIRTI_TT"] = "Only display action when specified air totem is inactive"
 L["ROB_UI_AO_P_AIRTTL"] = "Timeleft Air:"
 L["ROB_UI_AO_P_AIRTTLIB_TT"] = [=[Input the name or spell id of the air totem
@@ -315,6 +317,8 @@ Example1: |cFF00FF00>1|r means only display this action when player has more tha
 Example2: |cFF00FF00<=1|r means only display this action when player has less than or equal to 1 blood rune
 Example3: |cFF00FF00>=1|r means only display this action when player has 1 or more blood runes]=]
 L["ROB_UI_AO_P_BLOODR_TT"] = "Only display action when player has specified blood runes"
+L["ROB_UI_AO_P_BLOODTAP"] = "Blood Tap"
+L["ROB_UI_AO_P_BLOODTAP_TT"] = "Only display action when player both blood runes, frost runes or unholy runes are depleted"
 L["ROB_UI_AO_P_COMBOP"] = "Combo Points:"
 L["ROB_UI_AO_P_COMBOPIB_TT"] = [=[Input the number of combo points required
 Example1: |cFF00FF00>=2|r
@@ -334,12 +338,14 @@ L["ROB_UI_AO_P_DISEASE_TT"] = "Only display action when player has a disease deb
 L["ROB_UI_AO_P_EARTHTA"] = "Active Earth:"
 L["ROB_UI_AO_P_EARTHTAIB_TT"] = [=[Input the name or spell id of the earth totem
 Example1: |cFF00FF00Earthbind Totem|r
-Example2:|cFF00FF00 2484|r]=]
+Example2:|cFF00FF00 2484|r
+Keep it empty if you just want to check if an earth totem is active]=]
 L["ROB_UI_AO_P_EARTHTA_TT"] = "Only display action when specified earth totem is active"
 L["ROB_UI_AO_P_EARTHTI"] = "Inactive Earth:"
 L["ROB_UI_AO_P_EARTHTIIB_TT"] = [=[Input the name or spell id of the earth totem
 Example1: |cFF00FF00Earthbind Totem|r
-Example2:|cFF00FF00 2484|r]=]
+Example2:|cFF00FF00 2484|r
+Keep it empty if you just want to check if all earth totems are inactive]=]
 L["ROB_UI_AO_P_EARTHTI_TT"] = "Only display action when specified earth totem is inactive"
 L["ROB_UI_AO_P_EARTHTTL"] = "Timeleft Earth:"
 L["ROB_UI_AO_P_EARTHTTLIB_TT"] = [=[Input the name or spell id of the earth totem
@@ -412,12 +418,14 @@ L["ROB_UI_AO_PET_TAB"] = "Pet"
 L["ROB_UI_AO_P_FIRETA"] = "Active Fire:"
 L["ROB_UI_AO_P_FIRETAIB_TT"] = [=[Input the name or spell id of the fire totem
 Example1: |cFF00FF00Searing Totem|r
-Example2:|cFF00FF00 3599|r]=]
+Example2:|cFF00FF00 3599|r
+Keep it empty if you just want to check if a fire totem is active]=]
 L["ROB_UI_AO_P_FIRETA_TT"] = "Only display action when specified fire totem is active"
 L["ROB_UI_AO_P_FIRETI"] = "Inactive Fire:"
 L["ROB_UI_AO_P_FIRETIIB_TT"] = [=[Input the name or spell id of the fire totem
 Example1: |cFF00FF00Searing Totem|r
-Example2:|cFF00FF00 3599|r]=]
+Example2:|cFF00FF00 3599|r
+Keep it empty if you just want to check if all fire totems are inactive]=]
 L["ROB_UI_AO_P_FIRETI_TT"] = "Only display action when specified fire totem is inactive"
 L["ROB_UI_AO_P_FIRETTL"] = "Timeleft Fire:"
 L["ROB_UI_AO_P_FIRETTLIB_TT"] = [=[Input the name or spell id of the fire totem
@@ -471,6 +479,8 @@ L["ROB_UI_AO_P_KNOWSPELL_TT"] = "Only display action when specified spell is kno
 L["ROB_UI_AO_PLAYER_TAB"] = "Player"
 L["ROB_UI_AO_P_MAGIC"] = "Magic"
 L["ROB_UI_AO_P_MAGIC_TT"] = "Only display action when player has a magic debuff"
+L["ROB_UI_AO_P_MHWEAPON"] = "Need main hand weapon enchant"
+L["ROB_UI_AO_P_MHWEAPON_TT"] = "Display action only if the main hand weapon is not enchanted. (Temporary buffs such as wizard oils, sharpening stones, rogue poisons, and shaman weapon enhancements)"
 L["ROB_UI_AO_P_NEEDBUFF"] = "Need Buff:"
 L["ROB_UI_AO_P_NEEDBUFFIB_TT"] = [=[Input the name of the buff or buffs
 Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
@@ -494,6 +504,8 @@ L["ROB_UI_AO_P_NOTGLYPHEDIB_TT"] = "Input the glyph name or glyph spell id of th
 L["ROB_UI_AO_P_NOTGLYPHED_TT"] = "Only display action when specified glyph is not glyphed"
 L["ROB_UI_AO_P_NOTSTANCE"] = "Not in Stance:"
 L["ROB_UI_AO_P_NOTSTANCE_TT"] = "Only display action when player is not in the specified stance"
+L["ROB_UI_AO_P_OHWEAPON"] = "Need off hand weapon enchant"
+L["ROB_UI_AO_P_OHWEAPON_TT"] = "Display action only if the off hand weapon is not enchanted. (Temporary buffs such as wizard oils, sharpening stones, rogue poisons, and shaman weapon enhancements)"
 L["ROB_UI_AO_P_OOC"] = "Out of combat"
 L["ROB_UI_AO_P_OOC_TT"] = "Only display action when player is out of combat"
 L["ROB_UI_AO_P_POISON"] = "Poison"
@@ -527,12 +539,14 @@ L["ROB_UI_AO_P_UNHOLYR_TT"] = "Only display action when player has specified unh
 L["ROB_UI_AO_P_WATERTA"] = "Active Water:"
 L["ROB_UI_AO_P_WATERTAIB_TT"] = [=[Input the name or spell id of the water totem
 Example1: |cFF00FF00Mana Tide Totem|r
-Example2:|cFF00FF00 16190|r]=]
+Example2:|cFF00FF00 16190|r
+Keep it empty if you just want to check if a water totem is active]=]
 L["ROB_UI_AO_P_WATERTA_TT"] = "Only display action when specified water totem is active"
 L["ROB_UI_AO_P_WATERTI"] = "Inactive Water:"
 L["ROB_UI_AO_P_WATERTIIB_TT"] = [=[Input the name or spell id of the water totem
 Example1: |cFF00FF00Mana Tide Totem|r
-Example2:|cFF00FF00 16190|r]=]
+Example2:|cFF00FF00 16190|r
+Keep it empty if you just want to check if all water totems are inactive]=]
 L["ROB_UI_AO_P_WATERTI_TT"] = "Only display action when specified water totem is inactive"
 L["ROB_UI_AO_P_WATERTTL"] = "Timeleft Water:"
 L["ROB_UI_AO_P_WATERTTLIB_TT"] = [=[Input the name or spell id of the water totem
