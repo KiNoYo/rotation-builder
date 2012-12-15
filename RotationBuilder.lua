@@ -3690,14 +3690,14 @@ function ROB_BloodTapCheck()
 	return false
 end
 
-function ROB_SpellPassesOtherCooldownCheck(_othercd, _checkstring)
+function ROB_SpellPassesOtherCooldownCheck(_othercd, _checkstring, _notaspell)
 	local _cooldownparsed = nil
 	local _start, _duration, enable
 
-	if(_ActionDB.b_notaspell) then
+	if(_notaspell) then
 		_start, _duration, _enable = GetItemCooldown(_othercd)
 	else
-		local _start, _duration = GetSpellCooldown(_othercd)
+		_start, _duration = GetSpellCooldown(_othercd)
 	end
 	if (_start == nil) then
 		return false
@@ -4726,7 +4726,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 
 	-- CHECK: Other Cooldown-----------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_checkothercd and _ActionDB.v_checkothercdname and _ActionDB.v_checkothercdname ~= "" and _ActionDB.v_checkothercdvalue and _ActionDB.v_checkothercdvalue ~= "") then
-		if (not ROB_SpellPassesOtherCooldownCheck(_ActionDB.v_checkothercdname,_ActionDB.v_checkothercdvalue)) then
+		if (not ROB_SpellPassesOtherCooldownCheck(_ActionDB.v_checkothercdname,_ActionDB.v_checkothercdvalue,_ActionDB.b_notaspell)) then
 			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._ActionDB.v_spellname.." other cooldown check ".._ActionDB.v_checkothercdname.._ActionDB.v_checkothercdvalue.." failed",_getnextspell,_debugon)
 			return false
 		end
