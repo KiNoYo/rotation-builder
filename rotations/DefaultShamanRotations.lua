@@ -1,9 +1,9 @@
 -- The default rotations generator for SHAMANS.
 local shamanRotationsGenerator = function ()
 	local rotation = {
-		[RotationBuilderUtils:localize("defaultRotation/shaman/elemental")] = {
+		["defaultRotation/shaman/elemental"] = {
 			["ActionList"] = {
-				[RotationBuilderUtils:localize("defaultRotation/shaman/earth_shock")] = {
+				["defaultRotation/shaman/earth_shock"] = {
 					["b_rangecheck"] = true,
 					["b_p_havebuff"] = true,
 					["v_gcdspell"] = "324",
@@ -17,7 +17,7 @@ local shamanRotationsGenerator = function ()
 					["v_p_havebuff"] = "324#5",
 					["v_checkothercdname"] = "8042",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/searing_totem")] = {
+				["defaultRotation/shaman/searing_totem"] = {
 					["b_p_firetoteminactive"] = true,
 					["v_rangespell"] = "403",
 					["v_gcdspell"] = "3599",
@@ -31,7 +31,7 @@ local shamanRotationsGenerator = function ()
 					["v_p_firetoteminactive"] = "3599",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/thunderstorm")] = {
+				["defaultRotation/shaman/thunderstorm"] = {
 					["v_actionicon"] = "51490",
 					["v_p_unitpowertype"] = "0",
 					["v_gcdspell"] = "324",
@@ -45,7 +45,7 @@ local shamanRotationsGenerator = function ()
 					["v_p_unitpower"] = "<75%",
 					["v_checkothercdname"] = "51490",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/stormlash_totem")] = {
+				["defaultRotation/shaman/stormlash_totem"] = {
 					["b_p_havebuff"] = true,
 					["v_gcdspell"] = "3599",
 					["v_actionicon"] = "120668",
@@ -58,7 +58,7 @@ local shamanRotationsGenerator = function ()
 					["v_p_havebuff"] = "32182|2825|90355|80353",
 					["v_checkothercdname"] = "120668",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/ancestral_swiftness")] = {
+				["defaultRotation/shaman/ancestral_swiftness"] = {
 					["v_gcdspell"] = "0",
 					["b_checkothercd"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -69,7 +69,7 @@ local shamanRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_checkothercdname"] = "16188",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/lightning_shield")] = {
+				["defaultRotation/shaman/lightning_shield"] = {
 					["v_p_needbuff"] = "324",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -79,7 +79,7 @@ local shamanRotationsGenerator = function ()
 					["v_gcdspell"] = "324",
 					["v_actionicon"] = "324",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/searing_totem_refresh")] = {
+				["defaultRotation/shaman/searing_totem_refresh"] = {
 					["v_gcdspell"] = "3599",
 					["v_rangespell"] = "403",
 					["b_p_firetotemactive"] = true,
@@ -93,7 +93,7 @@ local shamanRotationsGenerator = function ()
 					["v_togglename"] = "Toggle 1",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/fire_elemental_totem")] = {
+				["defaultRotation/shaman/fire_elemental_totem"] = {
 					["v_rangespell"] = "403",
 					["v_gcdspell"] = "3599",
 					["v_keybind"] = "<keybind>",
@@ -106,7 +106,7 @@ local shamanRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_checkothercdname"] = "2894",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/unleash_elements_unleashed_fury")] = {
+				["defaultRotation/shaman/unleash_elements_unleashed_fury"] = {
 					["v_p_knowspell"] = "117012",
 					["b_rangecheck"] = true,
 					["v_gcdspell"] = "324",
@@ -120,7 +120,7 @@ local shamanRotationsGenerator = function ()
 					["b_checkothercd"] = true,
 					["v_checkothercdname"] = "73680",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/lava_burst")] = {
+				["defaultRotation/shaman/lava_burst"] = {
 					["b_t_hasdebuff"] = true,
 					["b_rangecheck"] = true,
 					["v_gcdspell"] = "324",
@@ -134,7 +134,7 @@ local shamanRotationsGenerator = function ()
 					["v_t_hasdebuff"] = "_8050^3",
 					["v_checkothercdname"] = "51505",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/elemental_blast")] = {
+				["defaultRotation/shaman/elemental_blast"] = {
 					["v_gcdspell"] = "324",
 					["b_rangecheck"] = true,
 					["b_checkothercd"] = true,
@@ -146,7 +146,7 @@ local shamanRotationsGenerator = function ()
 					["v_keybind"] = "<keybind>",
 					["v_checkothercdname"] = "117014",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/elemental_mastery")] = {
+				["defaultRotation/shaman/elemental_mastery"] = {
 					["v_gcdspell"] = "0",
 					["b_checkothercd"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -157,7 +157,7 @@ local shamanRotationsGenerator = function ()
 					["v_actionicon"] = "16166",
 					["v_checkothercdname"] = "16166",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/ascendance")] = {
+				["defaultRotation/shaman/ascendance"] = {
 					["v_p_needbuff"] = "114050",
 					["v_actionicon"] = "114049",
 					["b_p_needbuff"] = true,
@@ -173,7 +173,7 @@ local shamanRotationsGenerator = function ()
 					["v_p_havebuff"] = "16166",
 					["v_checkothercdname"] = "114049",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/lightning_bolt")] = {
+				["defaultRotation/shaman/lightning_bolt"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_actionicon"] = "403",
 					["v_spellname"] = "403",
@@ -182,7 +182,7 @@ local shamanRotationsGenerator = function ()
 					["v_gcdspell"] = "324",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/flame_shock")] = {
+				["defaultRotation/shaman/flame_shock"] = {
 					["v_t_needsdebuff"] = "_8050^3",
 					["b_rangecheck"] = true,
 					["v_gcdspell"] = "324",
@@ -198,27 +198,27 @@ local shamanRotationsGenerator = function ()
 				},
 			},
 			["SortedActions"] = {
-				RotationBuilderUtils:localize("defaultRotation/shaman/lightning_shield"), -- [1]
-				RotationBuilderUtils:localize("defaultRotation/shaman/elemental_mastery"), -- [2]
-				RotationBuilderUtils:localize("defaultRotation/shaman/fire_elemental_totem"), -- [3]
-				RotationBuilderUtils:localize("defaultRotation/shaman/ascendance"), -- [4]
-				RotationBuilderUtils:localize("defaultRotation/shaman/ancestral_swiftness"), -- [5]
-				RotationBuilderUtils:localize("defaultRotation/shaman/stormlash_totem"), -- [6]
-				RotationBuilderUtils:localize("defaultRotation/shaman/thunderstorm"), -- [7]
-				RotationBuilderUtils:localize("defaultRotation/shaman/unleash_elements_unleashed_fury"), -- [8]
-				RotationBuilderUtils:localize("defaultRotation/shaman/elemental_blast"), -- [9]
-				RotationBuilderUtils:localize("defaultRotation/shaman/flame_shock"), -- [10]
-				RotationBuilderUtils:localize("defaultRotation/shaman/lava_burst"), -- [11]
-				RotationBuilderUtils:localize("defaultRotation/shaman/earth_shock"), -- [12]
-				RotationBuilderUtils:localize("defaultRotation/shaman/searing_totem"), -- [13]
-				RotationBuilderUtils:localize("defaultRotation/shaman/searing_totem_refresh"), -- [14]
-				RotationBuilderUtils:localize("defaultRotation/shaman/lightning_bolt"), -- [15]
+				"defaultRotation/shaman/lightning_shield", -- [1]
+				"defaultRotation/shaman/elemental_mastery", -- [2]
+				"defaultRotation/shaman/fire_elemental_totem", -- [3]
+				"defaultRotation/shaman/ascendance", -- [4]
+				"defaultRotation/shaman/ancestral_swiftness", -- [5]
+				"defaultRotation/shaman/stormlash_totem", -- [6]
+				"defaultRotation/shaman/thunderstorm", -- [7]
+				"defaultRotation/shaman/unleash_elements_unleashed_fury", -- [8]
+				"defaultRotation/shaman/elemental_blast", -- [9]
+				"defaultRotation/shaman/flame_shock", -- [10]
+				"defaultRotation/shaman/lava_burst", -- [11]
+				"defaultRotation/shaman/earth_shock", -- [12]
+				"defaultRotation/shaman/searing_totem", -- [13]
+				"defaultRotation/shaman/searing_totem_refresh", -- [14]
+				"defaultRotation/shaman/lightning_bolt", -- [15]
 			},
 			["keybind"] = "<keybind>",
 		},
-		[RotationBuilderUtils:localize("defaultRotation/shaman/enhancement")] = {
+		["defaultRotation/shaman/enhancement"] = {
 			["ActionList"] = {
-				[RotationBuilderUtils:localize("defaultRotation/shaman/lava_lash")] = {
+				["defaultRotation/shaman/lava_lash"] = {
 					["b_rangecheck"] = true,
 					["b_p_havebuff"] = true,
 					["v_gcdspell"] = "324",
@@ -232,7 +232,7 @@ local shamanRotationsGenerator = function ()
 					["v_p_havebuff"] = "77661#5",
 					["v_checkothercdname"] = "60103",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/stormstrike")] = {
+				["defaultRotation/shaman/stormstrike"] = {
 					["v_p_needbuff"] = "114051",
 					["b_p_needbuff"] = true,
 					["b_rangecheck"] = true,
@@ -247,7 +247,7 @@ local shamanRotationsGenerator = function ()
 					["v_gcdspell"] = "324",
 					["v_checkothercdname"] = "17364",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/unleash_elements_unleashed_fury")] = {
+				["defaultRotation/shaman/unleash_elements_unleashed_fury"] = {
 					["v_p_knowspell"] = "117012",
 					["b_rangecheck"] = true,
 					["v_gcdspell"] = "324",
@@ -261,7 +261,7 @@ local shamanRotationsGenerator = function ()
 					["b_checkothercd"] = true,
 					["v_checkothercdname"] = "73680",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/lightning_bolt_maelstrom_5")] = {
+				["defaultRotation/shaman/lightning_bolt_maelstrom_5"] = {
 					["v_gcdspell"] = "324",
 					["v_durationstartedtime"] = 0,
 					["v_togglename"] = "Toggle 1",
@@ -272,7 +272,7 @@ local shamanRotationsGenerator = function ()
 					["v_p_havebuff"] = "53817#5",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/unleash_elements")] = {
+				["defaultRotation/shaman/unleash_elements"] = {
 					["v_gcdspell"] = "324",
 					["b_rangecheck"] = true,
 					["b_checkothercd"] = true,
@@ -284,7 +284,7 @@ local shamanRotationsGenerator = function ()
 					["v_keybind"] = "<keybind>",
 					["v_checkothercdname"] = "73680",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/elemental_mastery")] = {
+				["defaultRotation/shaman/elemental_mastery"] = {
 					["v_gcdspell"] = "0",
 					["b_checkothercd"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -295,7 +295,7 @@ local shamanRotationsGenerator = function ()
 					["v_actionicon"] = "16166",
 					["v_checkothercdname"] = "16166",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/searing_totem")] = {
+				["defaultRotation/shaman/searing_totem"] = {
 					["b_p_firetoteminactive"] = true,
 					["v_gcdspell"] = "3599",
 					["v_rangespell"] = "8050",
@@ -309,7 +309,7 @@ local shamanRotationsGenerator = function ()
 					["v_p_firetoteminactive"] = "3599",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/lightning_bolt")] = {
+				["defaultRotation/shaman/lightning_bolt"] = {
 					["v_gcdspell"] = "324",
 					["v_actionicon"] = "403",
 					["v_togglename"] = "Toggle 1",
@@ -320,7 +320,7 @@ local shamanRotationsGenerator = function ()
 					["v_p_havebuff"] = "53817#2",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/elemental_blast")] = {
+				["defaultRotation/shaman/elemental_blast"] = {
 					["v_gcdspell"] = "324",
 					["b_rangecheck"] = true,
 					["b_checkothercd"] = true,
@@ -332,7 +332,7 @@ local shamanRotationsGenerator = function ()
 					["v_keybind"] = "<keybind>",
 					["v_checkothercdname"] = "117014",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/lightning_shield")] = {
+				["defaultRotation/shaman/lightning_shield"] = {
 					["v_p_needbuff"] = "324",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -342,7 +342,7 @@ local shamanRotationsGenerator = function ()
 					["v_gcdspell"] = "324",
 					["v_actionicon"] = "324",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/stormblast")] = {
+				["defaultRotation/shaman/stormblast"] = {
 					["v_gcdspell"] = "324",
 					["v_checkothercdname"] = "17364",
 					["v_keybind"] = "<keybind>",
@@ -357,7 +357,7 @@ local shamanRotationsGenerator = function ()
 					["v_p_havebuff"] = "114051",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/fire_elemental_totem")] = {
+				["defaultRotation/shaman/fire_elemental_totem"] = {
 					["v_rangespell"] = "8050",
 					["v_gcdspell"] = "3599",
 					["v_checkothercdvalue"] = "<2",
@@ -370,7 +370,7 @@ local shamanRotationsGenerator = function ()
 					["v_actionicon"] = "2894",
 					["v_checkothercdname"] = "2894",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/stormlash_totem")] = {
+				["defaultRotation/shaman/stormlash_totem"] = {
 					["v_actionicon"] = "120668",
 					["v_gcdspell"] = "3599",
 					["v_durationstartedtime"] = 0,
@@ -383,7 +383,7 @@ local shamanRotationsGenerator = function ()
 					["v_p_havebuff"] = "32182|2825|90355|80353",
 					["v_checkothercdname"] = "120668",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/ascendance")] = {
+				["defaultRotation/shaman/ascendance"] = {
 					["v_p_needbuff"] = "114051",
 					["b_p_needbuff"] = true,
 					["v_gcdspell"] = "0",
@@ -397,7 +397,7 @@ local shamanRotationsGenerator = function ()
 					["v_keybind"] = "<keybind>",
 					["v_checkothercdname"] = "114049",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/earth_shock")] = {
+				["defaultRotation/shaman/earth_shock"] = {
 					["v_gcdspell"] = "324",
 					["b_rangecheck"] = true,
 					["b_checkothercd"] = true,
@@ -409,7 +409,7 @@ local shamanRotationsGenerator = function ()
 					["v_keybind"] = "<keybind>",
 					["v_checkothercdname"] = "8042",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/searing_totem_refresh")] = {
+				["defaultRotation/shaman/searing_totem_refresh"] = {
 					["v_gcdspell"] = "3599",
 					["v_durationstartedtime"] = 0,
 					["b_p_firetotemactive"] = true,
@@ -423,7 +423,7 @@ local shamanRotationsGenerator = function ()
 					["v_rangespell"] = "8050",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/ancestral_swiftness")] = {
+				["defaultRotation/shaman/ancestral_swiftness"] = {
 					["v_gcdspell"] = "0",
 					["b_checkothercd"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -434,7 +434,7 @@ local shamanRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_checkothercdname"] = "16188",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/feral_spirit")] = {
+				["defaultRotation/shaman/feral_spirit"] = {
 					["v_gcdspell"] = "324",
 					["b_checkothercd"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -445,7 +445,7 @@ local shamanRotationsGenerator = function ()
 					["v_actionicon"] = "51533",
 					["v_checkothercdname"] = "51533",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/shaman/flame_shock")] = {
+				["defaultRotation/shaman/flame_shock"] = {
 					["v_t_needsdebuff"] = "_8050^3",
 					["b_rangecheck"] = true,
 					["b_p_havebuff"] = true,
@@ -463,25 +463,25 @@ local shamanRotationsGenerator = function ()
 				},
 			},
 			["SortedActions"] = {
-				RotationBuilderUtils:localize("defaultRotation/shaman/lightning_shield"), -- [1]
-				RotationBuilderUtils:localize("defaultRotation/shaman/elemental_mastery"), -- [2]
-				RotationBuilderUtils:localize("defaultRotation/shaman/fire_elemental_totem"), -- [3]
-				RotationBuilderUtils:localize("defaultRotation/shaman/ascendance"), -- [4]
-				RotationBuilderUtils:localize("defaultRotation/shaman/ancestral_swiftness"), -- [5]
-				RotationBuilderUtils:localize("defaultRotation/shaman/stormlash_totem"), -- [6]
-				RotationBuilderUtils:localize("defaultRotation/shaman/feral_spirit"), -- [7]
-				RotationBuilderUtils:localize("defaultRotation/shaman/searing_totem"), -- [8]
-				RotationBuilderUtils:localize("defaultRotation/shaman/searing_totem_refresh"), -- [9]
-				RotationBuilderUtils:localize("defaultRotation/shaman/unleash_elements_unleashed_fury"), -- [10]
-				RotationBuilderUtils:localize("defaultRotation/shaman/elemental_blast"), -- [11]
-				RotationBuilderUtils:localize("defaultRotation/shaman/lightning_bolt_maelstrom_5"), -- [12]
-				RotationBuilderUtils:localize("defaultRotation/shaman/flame_shock"), -- [13]
-				RotationBuilderUtils:localize("defaultRotation/shaman/stormblast"), -- [14]
-				RotationBuilderUtils:localize("defaultRotation/shaman/stormstrike"), -- [15]
-				RotationBuilderUtils:localize("defaultRotation/shaman/lava_lash"), -- [16]
-				RotationBuilderUtils:localize("defaultRotation/shaman/unleash_elements"), -- [17]
-				RotationBuilderUtils:localize("defaultRotation/shaman/earth_shock"), -- [18]
-				RotationBuilderUtils:localize("defaultRotation/shaman/lightning_bolt"), -- [19]
+				"defaultRotation/shaman/lightning_shield", -- [1]
+				"defaultRotation/shaman/elemental_mastery", -- [2]
+				"defaultRotation/shaman/fire_elemental_totem", -- [3]
+				"defaultRotation/shaman/ascendance", -- [4]
+				"defaultRotation/shaman/ancestral_swiftness", -- [5]
+				"defaultRotation/shaman/stormlash_totem", -- [6]
+				"defaultRotation/shaman/feral_spirit", -- [7]
+				"defaultRotation/shaman/searing_totem", -- [8]
+				"defaultRotation/shaman/searing_totem_refresh", -- [9]
+				"defaultRotation/shaman/unleash_elements_unleashed_fury", -- [10]
+				"defaultRotation/shaman/elemental_blast", -- [11]
+				"defaultRotation/shaman/lightning_bolt_maelstrom_5", -- [12]
+				"defaultRotation/shaman/flame_shock", -- [13]
+				"defaultRotation/shaman/stormblast", -- [14]
+				"defaultRotation/shaman/stormstrike", -- [15]
+				"defaultRotation/shaman/lava_lash", -- [16]
+				"defaultRotation/shaman/unleash_elements", -- [17]
+				"defaultRotation/shaman/earth_shock", -- [18]
+				"defaultRotation/shaman/lightning_bolt", -- [19]
 			},
 			["keybind"] = "<keybind>",
 		},

@@ -1,9 +1,9 @@
 -- The default rotations generator for PRIESTS.
 local priestRotationsGenerator = function ()
 	local rotation = {
-		[RotationBuilderUtils:localize("defaultRotation/priest/shadow")] = {
+		["defaultRotation/priest/shadow"] = {
 			["ActionList"] = {
-				[RotationBuilderUtils:localize("defaultRotation/priest/divine_star")] = {
+				["defaultRotation/priest/divine_star"] = {
 					["v_gcdspell"] = "585",
 					["b_rangecheck"] = true,
 					["b_checkothercd"] = true,
@@ -15,7 +15,7 @@ local priestRotationsGenerator = function ()
 					["v_checkothercdvalue"] = "<2",
 					["v_checkothercdname"] = "110744",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/priest/vampiric_touch")] = {
+				["defaultRotation/priest/vampiric_touch"] = {
 					["v_t_needsdebuff"] = "_34914^3",
 					["v_gcdspell"] = "585",
 					["v_togglename"] = "Toggle 1",
@@ -26,7 +26,7 @@ local priestRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/priest/mind_blast")] = {
+				["defaultRotation/priest/mind_blast"] = {
 					["v_gcdspell"] = "585",
 					["b_rangecheck"] = true,
 					["b_checkothercd"] = true,
@@ -38,7 +38,7 @@ local priestRotationsGenerator = function ()
 					["v_checkothercdvalue"] = "<2",
 					["v_checkothercdname"] = "8092",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/priest/mindbender")] = {
+				["defaultRotation/priest/mindbender"] = {
 					["b_rangecheck"] = true,
 					["v_rangespell"] = "589",
 					["v_gcdspell"] = "585",
@@ -51,7 +51,7 @@ local priestRotationsGenerator = function ()
 					["v_actionicon"] = "123040",
 					["v_checkothercdname"] = "123040",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/priest/mind_spike_surge")] = {
+				["defaultRotation/priest/mind_spike_surge"] = {
 					["v_gcdspell"] = "585",
 					["v_durationstartedtime"] = 0,
 					["v_togglename"] = "Toggle 1",
@@ -62,7 +62,7 @@ local priestRotationsGenerator = function ()
 					["v_p_havebuff"] = "87160#2",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/priest/inner_fire")] = {
+				["defaultRotation/priest/inner_fire"] = {
 					["v_p_needbuff"] = "588",
 					["v_togglename"] = "Toggle 1",
 					["v_actionicon"] = "588",
@@ -72,7 +72,7 @@ local priestRotationsGenerator = function ()
 					["v_gcdspell"] = "585",
 					["v_durationstartedtime"] = 0,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/priest/cascade")] = {
+				["defaultRotation/priest/cascade"] = {
 					["v_gcdspell"] = "585",
 					["b_rangecheck"] = true,
 					["b_checkothercd"] = true,
@@ -84,7 +84,7 @@ local priestRotationsGenerator = function ()
 					["v_checkothercdvalue"] = "<2",
 					["v_checkothercdname"] = "121135",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/priest/dispersion")] = {
+				["defaultRotation/priest/dispersion"] = {
 					["v_actionicon"] = "47585",
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "585",
@@ -98,7 +98,7 @@ local priestRotationsGenerator = function ()
 					["v_p_unitpower"] = "<=30%",
 					["v_checkothercdname"] = "47585",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/priest/shadow_word_insanity")] = {
+				["defaultRotation/priest/shadow_word_insanity"] = {
 					["v_t_needsdebuff"] = "_589^5",
 					["b_t_hasdebuff"] = true,
 					["v_gcdspell"] = "585",
@@ -111,7 +111,7 @@ local priestRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_t_hasdebuff"] = "_589",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/priest/power_word_fortitude")] = {
+				["defaultRotation/priest/power_word_fortitude"] = {
 					["v_p_needbuff"] = "21562|469|90364|6307",
 					["v_togglename"] = "Toggle 1",
 					["v_actionicon"] = "21562",
@@ -121,7 +121,7 @@ local priestRotationsGenerator = function ()
 					["v_gcdspell"] = "585",
 					["v_durationstartedtime"] = 0,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/priest/shadowform")] = {
+				["defaultRotation/priest/shadowform"] = {
 					["v_p_notstance"] = "1",
 					["v_togglename"] = "Toggle 1",
 					["v_actionicon"] = "15473",
@@ -131,7 +131,7 @@ local priestRotationsGenerator = function ()
 					["v_gcdspell"] = "585",
 					["v_durationstartedtime"] = 0,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/priest/halo")] = {
+				["defaultRotation/priest/halo"] = {
 					["v_gcdspell"] = "585",
 					["b_rangecheck"] = true,
 					["b_checkothercd"] = true,
@@ -143,7 +143,7 @@ local priestRotationsGenerator = function ()
 					["v_checkothercdvalue"] = "<2",
 					["v_checkothercdname"] = "120517",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/priest/power_infusion")] = {
+				["defaultRotation/priest/power_infusion"] = {
 					["v_p_needbuff"] = "10060|32182|2825|90355|80353",
 					["b_p_needbuff"] = true,
 					["v_gcdspell"] = "585",
@@ -154,7 +154,7 @@ local priestRotationsGenerator = function ()
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "10060",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/priest/shadow_word_pain")] = {
+				["defaultRotation/priest/shadow_word_pain"] = {
 					["v_t_needsdebuff"] = "_589^2",
 					["v_gcdspell"] = "585",
 					["v_togglename"] = "Toggle 1",
@@ -165,7 +165,7 @@ local priestRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/priest/devouring_plague")] = {
+				["defaultRotation/priest/devouring_plague"] = {
 					["v_gcdspell"] = "585",
 					["v_durationstartedtime"] = 0,
 					["b_p_unitpower"] = true,
@@ -177,7 +177,7 @@ local priestRotationsGenerator = function ()
 					["v_p_unitpower"] = "=3",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/priest/mind_flay")] = {
+				["defaultRotation/priest/mind_flay"] = {
 					["v_gcdspell"] = "585",
 					["v_togglename"] = "Toggle 1",
 					["v_actionicon"] = "15407",
@@ -187,7 +187,7 @@ local priestRotationsGenerator = function ()
 					["v_rangespell"] = "589",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/priest/shadowfiend")] = {
+				["defaultRotation/priest/shadowfiend"] = {
 					["v_gcdspell"] = "585",
 					["b_rangecheck"] = true,
 					["b_checkothercd"] = true,
@@ -199,7 +199,7 @@ local priestRotationsGenerator = function ()
 					["v_checkothercdvalue"] = "<2",
 					["v_checkothercdname"] = "34433",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/priest/mind_spike")] = {
+				["defaultRotation/priest/mind_spike"] = {
 					["v_gcdspell"] = "585",
 					["b_p_havebuff"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -210,7 +210,7 @@ local priestRotationsGenerator = function ()
 					["v_p_havebuff"] = "87160",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/priest/shadow_word_death")] = {
+				["defaultRotation/priest/shadow_word_death"] = {
 					["v_gcdspell"] = "585",
 					["b_rangecheck"] = true,
 					["b_checkothercd"] = true,
@@ -224,25 +224,25 @@ local priestRotationsGenerator = function ()
 				},
 			},
 			["SortedActions"] = {
-				RotationBuilderUtils:localize("defaultRotation/priest/shadowform"), -- [1]
-				RotationBuilderUtils:localize("defaultRotation/priest/power_word_fortitude"), -- [2]
-				RotationBuilderUtils:localize("defaultRotation/priest/inner_fire"), -- [3]
-				RotationBuilderUtils:localize("defaultRotation/priest/power_infusion"), -- [4]
-				RotationBuilderUtils:localize("defaultRotation/priest/shadow_word_insanity"), -- [5]
-				RotationBuilderUtils:localize("defaultRotation/priest/mind_spike_surge"), -- [6]
-				RotationBuilderUtils:localize("defaultRotation/priest/shadow_word_pain"), -- [7]
-				RotationBuilderUtils:localize("defaultRotation/priest/vampiric_touch"), -- [8]
-				RotationBuilderUtils:localize("defaultRotation/priest/devouring_plague"), -- [9]
-				RotationBuilderUtils:localize("defaultRotation/priest/mind_blast"), -- [10]
-				RotationBuilderUtils:localize("defaultRotation/priest/shadow_word_death"), -- [11]
-				RotationBuilderUtils:localize("defaultRotation/priest/cascade"), -- [12]
-				RotationBuilderUtils:localize("defaultRotation/priest/divine_star"), -- [13]
-				RotationBuilderUtils:localize("defaultRotation/priest/halo"), -- [14]
-				RotationBuilderUtils:localize("defaultRotation/priest/mind_spike"), -- [15]
-				RotationBuilderUtils:localize("defaultRotation/priest/mindbender"), -- [16]
-				RotationBuilderUtils:localize("defaultRotation/priest/shadowfiend"), -- [17]
-				RotationBuilderUtils:localize("defaultRotation/priest/dispersion"), -- [18]
-				RotationBuilderUtils:localize("defaultRotation/priest/mind_flay"), -- [19]
+				"defaultRotation/priest/shadowform", -- [1]
+				"defaultRotation/priest/power_word_fortitude", -- [2]
+				"defaultRotation/priest/inner_fire", -- [3]
+				"defaultRotation/priest/power_infusion", -- [4]
+				"defaultRotation/priest/shadow_word_insanity", -- [5]
+				"defaultRotation/priest/mind_spike_surge", -- [6]
+				"defaultRotation/priest/shadow_word_pain", -- [7]
+				"defaultRotation/priest/vampiric_touch", -- [8]
+				"defaultRotation/priest/devouring_plague", -- [9]
+				"defaultRotation/priest/mind_blast", -- [10]
+				"defaultRotation/priest/shadow_word_death", -- [11]
+				"defaultRotation/priest/cascade", -- [12]
+				"defaultRotation/priest/divine_star", -- [13]
+				"defaultRotation/priest/halo", -- [14]
+				"defaultRotation/priest/mind_spike", -- [15]
+				"defaultRotation/priest/mindbender", -- [16]
+				"defaultRotation/priest/shadowfiend", -- [17]
+				"defaultRotation/priest/dispersion", -- [18]
+				"defaultRotation/priest/mind_flay", -- [19]
 			},
 			["keybind"] = "<keybind>",
 		},

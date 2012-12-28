@@ -1,9 +1,9 @@
 -- The default rotations generator for ROGUES.
 local rogueRotationsGenerator = function ()
 	local rotation = {
-		[RotationBuilderUtils:localize("defaultRotation/rogue/assassination")] = {
+		["defaultRotation/rogue/assassination"] = {
 			["ActionList"] = {
-				[RotationBuilderUtils:localize("defaultRotation/rogue/dispatch")] = {
+				["defaultRotation/rogue/dispatch"] = {
 					["v_gcdspell"] = "5938",
 					["v_actionicon"] = "111240",
 					["v_durationstartedtime"] = 0,
@@ -15,7 +15,7 @@ local rogueRotationsGenerator = function ()
 					["v_gcombopoints"] = "1",
 					["v_t_hp"] = "<35%",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/tricks_of_the_trade")] = {
+				["defaultRotation/rogue/tricks_of_the_trade"] = {
 					["v_f_needsbuff"] = "_57934",
 					["v_keybind"] = "<keybind>",
 					["b_f_pc"] = true,
@@ -30,7 +30,7 @@ local rogueRotationsGenerator = function ()
 					["b_f_hp"] = true,
 					["v_checkothercdname"] = "57934",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/expose_armor")] = {
+				["defaultRotation/rogue/expose_armor"] = {
 					["v_t_needsdebuff"] = "113746#3^5",
 					["v_gcdspell"] = "5938",
 					["v_actionicon"] = "8647",
@@ -43,7 +43,7 @@ local rogueRotationsGenerator = function ()
 					["v_gcombopoints"] = "1",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/dispatch_blindside")] = {
+				["defaultRotation/rogue/dispatch_blindside"] = {
 					["v_p_havebuff"] = "121153",
 					["b_p_combopoints"] = true,
 					["v_gcdspell"] = "5938",
@@ -57,7 +57,7 @@ local rogueRotationsGenerator = function ()
 					["v_gcombopoints"] = "1",
 					["b_gcombopoints"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/envenom_less_than_35_percent")] = {
+				["defaultRotation/rogue/envenom_less_than_35_percent"] = {
 					["b_p_combopoints"] = true,
 					["v_gcdspell"] = "5938",
 					["v_spellname"] = "32645",
@@ -69,7 +69,7 @@ local rogueRotationsGenerator = function ()
 					["v_actionicon"] = "32645",
 					["v_t_hp"] = "<35%",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/deadly_throw")] = {
+				["defaultRotation/rogue/deadly_throw"] = {
 					["b_p_combopoints"] = true,
 					["v_gcdspell"] = "5938",
 					["v_p_combopoints"] = "=5",
@@ -80,7 +80,7 @@ local rogueRotationsGenerator = function ()
 					["v_togglename"] = "Toggle 1",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/shuriken_toss")] = {
+				["defaultRotation/rogue/shuriken_toss"] = {
 					["v_rangespell"] = "26679",
 					["v_gcdspell"] = "5938",
 					["b_gcombopoints"] = true,
@@ -92,7 +92,7 @@ local rogueRotationsGenerator = function ()
 					["v_gcombopoints"] = "1",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/rupture")] = {
+				["defaultRotation/rogue/rupture"] = {
 					["v_t_needsdebuff"] = "_1943^5",
 					["b_p_combopoints"] = true,
 					["v_gcdspell"] = "5938",
@@ -105,7 +105,7 @@ local rogueRotationsGenerator = function ()
 					["v_p_combopoints"] = ">=4",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/mutilate")] = {
+				["defaultRotation/rogue/mutilate"] = {
 					["v_t_hp"] = ">=35%",
 					["b_gcombopoints"] = true,
 					["b_t_hp"] = true,
@@ -117,7 +117,7 @@ local rogueRotationsGenerator = function ()
 					["v_gcombopoints"] = "2",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/shadow_blades")] = {
+				["defaultRotation/rogue/shadow_blades"] = {
 					["b_checkothercd"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -127,7 +127,7 @@ local rogueRotationsGenerator = function ()
 					["v_keybind"] = "<keybind>",
 					["v_checkothercdname"] = "121471",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/slice_and_dice")] = {
+				["defaultRotation/rogue/slice_and_dice"] = {
 					["v_p_needbuff"] = "_5171^3",
 					["b_p_needbuff"] = true,
 					["b_p_combopoints"] = true,
@@ -139,7 +139,7 @@ local rogueRotationsGenerator = function ()
 					["v_actionicon"] = "5171",
 					["v_togglename"] = "Toggle 1",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/envenom")] = {
+				["defaultRotation/rogue/envenom"] = {
 					["b_p_combopoints"] = true,
 					["v_gcdspell"] = "5938",
 					["v_spellname"] = "32645",
@@ -151,7 +151,7 @@ local rogueRotationsGenerator = function ()
 					["v_actionicon"] = "32645",
 					["v_t_hp"] = ">=35%",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/vendetta")] = {
+				["defaultRotation/rogue/vendetta"] = {
 					["v_durationstartedtime"] = 0,
 					["v_checkothercdvalue"] = "<2",
 					["b_checkothercd"] = true,
@@ -165,25 +165,26 @@ local rogueRotationsGenerator = function ()
 				},
 			},
 			["SortedActions"] = {
-				RotationBuilderUtils:localize("defaultRotation/rogue/tricks_of_the_trade"), -- [1]
-				RotationBuilderUtils:localize("defaultRotation/rogue/shadow_blades"), -- [2]
-				RotationBuilderUtils:localize("defaultRotation/rogue/vendetta"), -- [3]
-				RotationBuilderUtils:localize("defaultRotation/rogue/dispatch_blindside"), -- [4]
-				RotationBuilderUtils:localize("defaultRotation/rogue/slice_and_dice"), -- [5]
-				RotationBuilderUtils:localize("defaultRotation/rogue/rupture"), -- [6]
-				RotationBuilderUtils:localize("defaultRotation/rogue/expose_armor"), -- [7]
-				RotationBuilderUtils:localize("defaultRotation/rogue/envenom_less_than_35_percent"), -- [8]
-				RotationBuilderUtils:localize("defaultRotation/rogue/envenom"), -- [9]
-				RotationBuilderUtils:localize("defaultRotation/rogue/dispatch"), -- [10]
-				RotationBuilderUtils:localize("defaultRotation/rogue/mutilate"), -- [11]
-				RotationBuilderUtils:localize("defaultRotation/rogue/deadly_throw"), -- [12]
-				RotationBuilderUtils:localize("defaultRotation/rogue/shuriken_toss"), -- [13]
+				"defaultRotation/rogue/tricks_of_the_trade", -- [1]
+				"defaultRotation/rogue/shadow_blades", -- [2]
+				"defaultRotation/rogue/vendetta", -- [3]
+				"defaultRotation/rogue/dispatch_blindside", -- [4]
+				"defaultRotation/rogue/slice_and_dice", -- [5]
+				"defaultRotation/rogue/rupture", -- [6]
+				"defaultRotation/rogue/expose_armor", -- [7]
+				"defaultRotation/rogue/envenom_less_than_35_percent", -- [8]
+				"defaultRotation/rogue/envenom", -- [9]
+				"defaultRotation/rogue/dispatch", -- [10]
+				"defaultRotation/rogue/mutilate", -- [11]
+				"defaultRotation/rogue/deadly_throw", -- [12]
+				"defaultRotation/rogue/shuriken_toss", -- [13]
 			},
 			["keybind"] = "<keybind>",
+			["version"] = 1,
 		},
-		[RotationBuilderUtils:localize("defaultRotation/rogue/combat")] = {
+		["defaultRotation/rogue/combat"] = {
 			["ActionList"] = {
-				[RotationBuilderUtils:localize("defaultRotation/rogue/adrenaline_rush")] = {
+				["defaultRotation/rogue/adrenaline_rush"] = {
 					["b_checkothercd"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -193,7 +194,7 @@ local rogueRotationsGenerator = function ()
 					["v_actionicon"] = "13750",
 					["v_checkothercdname"] = "13750",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/eviscerate")] = {
+				["defaultRotation/rogue/eviscerate"] = {
 					["b_p_combopoints"] = true,
 					["v_gcdspell"] = "5938",
 					["v_p_combopoints"] = "=5",
@@ -204,7 +205,7 @@ local rogueRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/tricks_of_the_trade")] = {
+				["defaultRotation/rogue/tricks_of_the_trade"] = {
 					["v_f_needsbuff"] = "_57934",
 					["b_f_pc"] = true,
 					["b_f_needsbuff"] = true,
@@ -219,7 +220,7 @@ local rogueRotationsGenerator = function ()
 					["b_f_hp"] = true,
 					["v_checkothercdname"] = "57934",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/expose_armor")] = {
+				["defaultRotation/rogue/expose_armor"] = {
 					["v_t_needsdebuff"] = "113746#3^5",
 					["v_gcdspell"] = "5938",
 					["b_gcombopoints"] = true,
@@ -232,7 +233,7 @@ local rogueRotationsGenerator = function ()
 					["v_gcombopoints"] = "1",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/killing_spree")] = {
+				["defaultRotation/rogue/killing_spree"] = {
 					["v_p_needbuff"] = "_13750",
 					["b_p_needbuff"] = true,
 					["v_actionicon"] = "51690",
@@ -246,7 +247,7 @@ local rogueRotationsGenerator = function ()
 					["v_p_havebuff"] = "_84747",
 					["v_checkothercdname"] = "51690",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/sinister_strike")] = {
+				["defaultRotation/rogue/sinister_strike"] = {
 					["v_gcdspell"] = "5938",
 					["v_actionicon"] = "1752",
 					["v_togglename"] = "Toggle 1",
@@ -257,7 +258,7 @@ local rogueRotationsGenerator = function ()
 					["v_gcombopoints"] = "1",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/shuriken_toss")] = {
+				["defaultRotation/rogue/shuriken_toss"] = {
 					["v_gcdspell"] = "5938",
 					["v_rangespell"] = "26679",
 					["v_actionicon"] = "114014",
@@ -269,7 +270,7 @@ local rogueRotationsGenerator = function ()
 					["v_gcombopoints"] = "1",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/deadly_throw")] = {
+				["defaultRotation/rogue/deadly_throw"] = {
 					["b_p_combopoints"] = true,
 					["v_gcdspell"] = "5938",
 					["v_p_combopoints"] = "=5",
@@ -280,7 +281,7 @@ local rogueRotationsGenerator = function ()
 					["v_togglename"] = "Toggle 1",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/revealing_strike")] = {
+				["defaultRotation/rogue/revealing_strike"] = {
 					["v_t_needsdebuff"] = "_84617^3",
 					["v_gcdspell"] = "5938",
 					["b_gcombopoints"] = true,
@@ -293,7 +294,7 @@ local rogueRotationsGenerator = function ()
 					["v_gcombopoints"] = "1",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/shadow_blades")] = {
+				["defaultRotation/rogue/shadow_blades"] = {
 					["b_checkothercd"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_actionicon"] = "121471",
@@ -303,7 +304,7 @@ local rogueRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_checkothercdname"] = "121471",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/slice_and_dice")] = {
+				["defaultRotation/rogue/slice_and_dice"] = {
 					["v_p_needbuff"] = "_5171^3",
 					["b_p_needbuff"] = true,
 					["b_p_combopoints"] = true,
@@ -317,23 +318,24 @@ local rogueRotationsGenerator = function ()
 				},
 			},
 			["SortedActions"] = {
-				RotationBuilderUtils:localize("defaultRotation/rogue/tricks_of_the_trade"), -- [1]
-				RotationBuilderUtils:localize("defaultRotation/rogue/shadow_blades"), -- [2]
-				RotationBuilderUtils:localize("defaultRotation/rogue/adrenaline_rush"), -- [3]
-				RotationBuilderUtils:localize("defaultRotation/rogue/killing_spree"), -- [4]
-				RotationBuilderUtils:localize("defaultRotation/rogue/eviscerate"), -- [5]
-				RotationBuilderUtils:localize("defaultRotation/rogue/slice_and_dice"), -- [6]
-				RotationBuilderUtils:localize("defaultRotation/rogue/expose_armor"), -- [7]
-				RotationBuilderUtils:localize("defaultRotation/rogue/revealing_strike"), -- [8]
-				RotationBuilderUtils:localize("defaultRotation/rogue/sinister_strike"), -- [9]
-				RotationBuilderUtils:localize("defaultRotation/rogue/deadly_throw"), -- [10]
-				RotationBuilderUtils:localize("defaultRotation/rogue/shuriken_toss"), -- [11]
+				"defaultRotation/rogue/tricks_of_the_trade", -- [1]
+				"defaultRotation/rogue/shadow_blades", -- [2]
+				"defaultRotation/rogue/adrenaline_rush", -- [3]
+				"defaultRotation/rogue/killing_spree", -- [4]
+				"defaultRotation/rogue/eviscerate", -- [5]
+				"defaultRotation/rogue/slice_and_dice", -- [6]
+				"defaultRotation/rogue/expose_armor", -- [7]
+				"defaultRotation/rogue/revealing_strike", -- [8]
+				"defaultRotation/rogue/sinister_strike", -- [9]
+				"defaultRotation/rogue/deadly_throw", -- [10]
+				"defaultRotation/rogue/shuriken_toss", -- [11]
 			},
 			["keybind"] = "<keybind>",
+			["version"] = 1,
 		},
-		[RotationBuilderUtils:localize("defaultRotation/rogue/subtlety")] = {
+		["defaultRotation/rogue/subtlety"] = {
 			["ActionList"] = {
-				[RotationBuilderUtils:localize("defaultRotation/rogue/eviscerate")] = {
+				["defaultRotation/rogue/eviscerate"] = {
 					["b_p_combopoints"] = true,
 					["v_gcdspell"] = "5938",
 					["v_p_combopoints"] = "=5",
@@ -344,7 +346,7 @@ local rogueRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/deadly_throw")] = {
+				["defaultRotation/rogue/deadly_throw"] = {
 					["b_p_combopoints"] = true,
 					["v_gcdspell"] = "5938",
 					["v_p_combopoints"] = "=5",
@@ -355,7 +357,7 @@ local rogueRotationsGenerator = function ()
 					["v_togglename"] = "Toggle 1",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/tricks_of_the_trade")] = {
+				["defaultRotation/rogue/tricks_of_the_trade"] = {
 					["v_f_needsbuff"] = "_57934",
 					["b_f_pc"] = true,
 					["v_durationstartedtime"] = 0,
@@ -370,7 +372,7 @@ local rogueRotationsGenerator = function ()
 					["v_actionicon"] = "57934",
 					["v_checkothercdname"] = "57934",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/shadow_dance")] = {
+				["defaultRotation/rogue/shadow_dance"] = {
 					["b_checkothercd"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -380,7 +382,7 @@ local rogueRotationsGenerator = function ()
 					["v_actionicon"] = "51713",
 					["v_checkothercdname"] = "51713",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/shadow_blades")] = {
+				["defaultRotation/rogue/shadow_blades"] = {
 					["b_checkothercd"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_actionicon"] = "121471",
@@ -390,7 +392,7 @@ local rogueRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_checkothercdname"] = "121471",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/backstab")] = {
+				["defaultRotation/rogue/backstab"] = {
 					["v_gcdspell"] = "5938",
 					["b_gcombopoints"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -401,7 +403,7 @@ local rogueRotationsGenerator = function ()
 					["v_gcombopoints"] = "1",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/shuriken_toss")] = {
+				["defaultRotation/rogue/shuriken_toss"] = {
 					["v_gcdspell"] = "5938",
 					["v_rangespell"] = "26679",
 					["b_gcombopoints"] = true,
@@ -413,7 +415,7 @@ local rogueRotationsGenerator = function ()
 					["v_gcombopoints"] = "1",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/rupture")] = {
+				["defaultRotation/rogue/rupture"] = {
 					["v_t_needsdebuff"] = "_1943^3",
 					["b_p_combopoints"] = true,
 					["v_gcdspell"] = "5938",
@@ -426,7 +428,7 @@ local rogueRotationsGenerator = function ()
 					["v_p_combopoints"] = "=5",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/ambush")] = {
+				["defaultRotation/rogue/ambush"] = {
 					["b_p_notstance"] = true,
 					["v_gcdspell"] = "5938",
 					["b_gcombopoints"] = true,
@@ -439,7 +441,7 @@ local rogueRotationsGenerator = function ()
 					["v_gcombopoints"] = "2",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/slice_and_dice")] = {
+				["defaultRotation/rogue/slice_and_dice"] = {
 					["v_p_needbuff"] = "_5171^3",
 					["b_p_needbuff"] = true,
 					["b_p_combopoints"] = true,
@@ -451,7 +453,7 @@ local rogueRotationsGenerator = function ()
 					["v_p_combopoints"] = ">2",
 					["v_durationstartedtime"] = 0,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/hemorrhage")] = {
+				["defaultRotation/rogue/hemorrhage"] = {
 					["v_t_needsdebuff"] = "_89775^1",
 					["v_rangespell"] = "1752",
 					["v_gcdspell"] = "5938",
@@ -465,7 +467,7 @@ local rogueRotationsGenerator = function ()
 					["v_gcombopoints"] = "1",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/rogue/expose_armor")] = {
+				["defaultRotation/rogue/expose_armor"] = {
 					["v_t_needsdebuff"] = "113746#3^5",
 					["v_gcdspell"] = "5938",
 					["v_actionicon"] = "8647",
@@ -480,20 +482,21 @@ local rogueRotationsGenerator = function ()
 				},
 			},
 			["SortedActions"] = {
-				RotationBuilderUtils:localize("defaultRotation/rogue/tricks_of_the_trade"), -- [1]
-				RotationBuilderUtils:localize("defaultRotation/rogue/shadow_blades"), -- [2]
-				RotationBuilderUtils:localize("defaultRotation/rogue/shadow_dance"), -- [3]
-				RotationBuilderUtils:localize("defaultRotation/rogue/slice_and_dice"), -- [4]
-				RotationBuilderUtils:localize("defaultRotation/rogue/rupture"), -- [5]
-				RotationBuilderUtils:localize("defaultRotation/rogue/eviscerate"), -- [6]
-				RotationBuilderUtils:localize("defaultRotation/rogue/ambush"), -- [7]
-				RotationBuilderUtils:localize("defaultRotation/rogue/expose_armor"), -- [8]
-				RotationBuilderUtils:localize("defaultRotation/rogue/hemorrhage"), -- [9]
-				RotationBuilderUtils:localize("defaultRotation/rogue/backstab"), -- [10]
-				RotationBuilderUtils:localize("defaultRotation/rogue/deadly_throw"), -- [11]
-				RotationBuilderUtils:localize("defaultRotation/rogue/shuriken_toss"), -- [12]
+				"defaultRotation/rogue/tricks_of_the_trade", -- [1]
+				"defaultRotation/rogue/shadow_blades", -- [2]
+				"defaultRotation/rogue/shadow_dance", -- [3]
+				"defaultRotation/rogue/slice_and_dice", -- [4]
+				"defaultRotation/rogue/rupture", -- [5]
+				"defaultRotation/rogue/eviscerate", -- [6]
+				"defaultRotation/rogue/ambush", -- [7]
+				"defaultRotation/rogue/expose_armor", -- [8]
+				"defaultRotation/rogue/hemorrhage", -- [9]
+				"defaultRotation/rogue/backstab", -- [10]
+				"defaultRotation/rogue/deadly_throw", -- [11]
+				"defaultRotation/rogue/shuriken_toss", -- [12]
 			},
 			["keybind"] = "<keybind>",
+			["version"] = 1,
 		},
 	}
 

@@ -1,9 +1,9 @@
 -- The default rotations generator for HUNTERS.
 local hunterRotationsGenerator = function ()
 	local rotation = {
-		[RotationBuilderUtils:localize("defaultRotation/hunter/beast_mastery")] = {
+		["defaultRotation/hunter/beast_mastery"] = {
 			["ActionList"] = {
-				[RotationBuilderUtils:localize("defaultRotation/hunter/hunter_mark")] = {
+				["defaultRotation/hunter/hunter_mark"] = {
 					["v_t_needsdebuff"] = "1130",
 					["v_p_notglyphed"] = "132106",
 					["v_gcdspell"] = "1462",
@@ -16,7 +16,7 @@ local hunterRotationsGenerator = function ()
 					["b_p_notglyphed"] = true,
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/arcane_shot_thrill")] = {
+				["defaultRotation/hunter/arcane_shot_thrill"] = {
 					["v_gcdspell"] = "1462",
 					["v_actionicon"] = "3044",
 					["v_togglename"] = "Toggle 1",
@@ -27,7 +27,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_havebuff"] = "34720",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/serpent_sting")] = {
+				["defaultRotation/hunter/serpent_sting"] = {
 					["v_t_needsdebuff"] = "_1978",
 					["v_gcdspell"] = "1462",
 					["v_togglename"] = "Toggle 1",
@@ -38,7 +38,7 @@ local hunterRotationsGenerator = function ()
 					["v_actionicon"] = "1978",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/crows_execute")] = {
+				["defaultRotation/hunter/crows_execute"] = {
 					["v_gcdspell"] = "1462",
 					["v_t_hp"] = "<=20%",
 					["v_actionicon"] = "131894",
@@ -50,7 +50,7 @@ local hunterRotationsGenerator = function ()
 					["b_t_hp"] = true,
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/kill_command")] = {
+				["defaultRotation/hunter/kill_command"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "34026",
@@ -59,7 +59,7 @@ local hunterRotationsGenerator = function ()
 					["v_gcdspell"] = "1462",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/fervor")] = {
+				["defaultRotation/hunter/fervor"] = {
 					["v_p_needbuff"] = "34471",
 					["b_p_needbuff"] = true,
 					["v_gcdspell"] = "0",
@@ -72,7 +72,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_unitpower"] = "<=40",
 					["v_durationstartedtime"] = 0,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/crows")] = {
+				["defaultRotation/hunter/crows"] = {
 					["v_gcdspell"] = "1462",
 					["v_t_hp"] = ">90%",
 					["v_actionicon"] = "131894",
@@ -84,7 +84,7 @@ local hunterRotationsGenerator = function ()
 					["b_t_hp"] = true,
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/stampede")] = {
+				["defaultRotation/hunter/stampede"] = {
 					["v_gcdspell"] = "1462",
 					["v_durationstartedtime"] = 0,
 					["v_actionicon"] = "121818",
@@ -96,7 +96,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_havebuff"] = "32182|2825|90355|80353",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/arcane_shot_beast")] = {
+				["defaultRotation/hunter/arcane_shot_beast"] = {
 					["v_gcdspell"] = "1462",
 					["v_actionicon"] = "3044",
 					["v_togglename"] = "Toggle 1",
@@ -107,7 +107,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_havebuff"] = "34471",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/blink_strike")] = {
+				["defaultRotation/hunter/blink_strike"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "130392",
@@ -115,7 +115,7 @@ local hunterRotationsGenerator = function ()
 					["v_gcdspell"] = "1462",
 					["v_actionicon"] = "130392",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/cobra_shot_regen")] = {
+				["defaultRotation/hunter/cobra_shot_regen"] = {
 					["b_p_needbuff"] = true,
 					["v_gcdspell"] = "1462",
 					["v_togglename"] = "Toggle 1",
@@ -136,7 +136,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_unitpower"] = "<90%",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/mend_pet")] = {
+				["defaultRotation/hunter/mend_pet"] = {
 					["v_actionicon"] = "136",
 					["v_gcdspell"] = "136",
 					["b_rangecheck"] = true,
@@ -149,7 +149,7 @@ local hunterRotationsGenerator = function ()
 					["v_spellname"] = "136",
 					["b_pet_hp"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/arcane_shot")] = {
+				["defaultRotation/hunter/arcane_shot"] = {
 					["v_gcdspell"] = "1462",
 					["v_actionicon"] = "3044",
 					["v_durationstartedtime"] = 0,
@@ -161,7 +161,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_unitpower"] = ">70",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/kill_shot")] = {
+				["defaultRotation/hunter/kill_shot"] = {
 					["v_gcdspell"] = "1462",
 					["v_actionicon"] = "53351",
 					["v_togglename"] = "Toggle 1",
@@ -172,7 +172,7 @@ local hunterRotationsGenerator = function ()
 					["b_t_hp"] = true,
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/bestial_wrath")] = {
+				["defaultRotation/hunter/bestial_wrath"] = {
 					["v_p_needbuff"] = "3045|32182|2825|90355|80353|49016",
 					["b_p_needbuff"] = true,
 					["v_gcdspell"] = "0",
@@ -186,7 +186,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_unitpower"] = ">=90%",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/readiness")] = {
+				["defaultRotation/hunter/readiness"] = {
 					["v_p_needbuff"] = "34471",
 					["b_p_needbuff"] = true,
 					["v_gcdspell"] = "0",
@@ -200,7 +200,7 @@ local hunterRotationsGenerator = function ()
 					["v_checkothercdvalue"] = ">0",
 					["v_checkothercdname"] = "19574",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/glaive_toss")] = {
+				["defaultRotation/hunter/glaive_toss"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "117050",
@@ -209,7 +209,7 @@ local hunterRotationsGenerator = function ()
 					["v_gcdspell"] = "1462",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/powershot")] = {
+				["defaultRotation/hunter/powershot"] = {
 					["v_gcdspell"] = "1462",
 					["v_actionicon"] = "109259",
 					["v_togglename"] = "Toggle 1",
@@ -220,7 +220,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_havebuff"] = "3045|82692|32182|2825|90355|80353|49016",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/focus_fire")] = {
+				["defaultRotation/hunter/focus_fire"] = {
 					["v_p_needbuff"] = "34471",
 					["b_p_needbuff"] = true,
 					["v_actionicon"] = "82692",
@@ -235,7 +235,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_havebuff"] = "19615#5",
 					["v_checkothercdname"] = "19574",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/rapid_fire")] = {
+				["defaultRotation/hunter/rapid_fire"] = {
 					["v_p_needbuff"] = "34471",
 					["b_p_needbuff"] = true,
 					["v_gcdspell"] = "0",
@@ -246,7 +246,7 @@ local hunterRotationsGenerator = function ()
 					["v_keybind"] = "<keybind>",
 					["v_durationstartedtime"] = 0,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/dire_beast")] = {
+				["defaultRotation/hunter/dire_beast"] = {
 					["v_p_needbuff"] = "34471",
 					["b_p_needbuff"] = true,
 					["v_gcdspell"] = "1462",
@@ -260,7 +260,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_unitpower"] = "<80",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/cobra_shot")] = {
+				["defaultRotation/hunter/cobra_shot"] = {
 					["v_gunitpowertype"] = "2",
 					["v_gcdspell"] = "1462",
 					["v_actionicon"] = "77767",
@@ -273,7 +273,7 @@ local hunterRotationsGenerator = function ()
 					["v_gunitpower"] = "14",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/cobra_shot_refresh")] = {
+				["defaultRotation/hunter/cobra_shot_refresh"] = {
 					["v_t_needsdebuff"] = "_1978^3",
 					["b_t_hasdebuff"] = true,
 					["v_gcdspell"] = "1462",
@@ -287,7 +287,7 @@ local hunterRotationsGenerator = function ()
 					["b_rangecheck"] = true,
 					["v_t_hasdebuff"] = "_1978",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/revive_pet")] = {
+				["defaultRotation/hunter/revive_pet"] = {
 					["v_actionicon"] = "982",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -297,7 +297,7 @@ local hunterRotationsGenerator = function ()
 					["v_gcdspell"] = "136",
 					["b_pet_hp"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/hawk_aspect")] = {
+				["defaultRotation/hunter/hawk_aspect"] = {
 					["v_p_notstance"] = "1",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -307,7 +307,7 @@ local hunterRotationsGenerator = function ()
 					["v_gcdspell"] = "1462",
 					["v_actionicon"] = "109260",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/lynx_rush")] = {
+				["defaultRotation/hunter/lynx_rush"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "120697",
@@ -316,7 +316,7 @@ local hunterRotationsGenerator = function ()
 					["v_gcdspell"] = "1462",
 					["b_pet_dr"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/barrage")] = {
+				["defaultRotation/hunter/barrage"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "120360",
@@ -327,39 +327,39 @@ local hunterRotationsGenerator = function ()
 				},
 			},
 			["SortedActions"] = {
-				RotationBuilderUtils:localize("defaultRotation/hunter/hawk_aspect"), -- [1]
-				RotationBuilderUtils:localize("defaultRotation/hunter/hunter_mark"), -- [2]
-				RotationBuilderUtils:localize("defaultRotation/hunter/revive_pet"), -- [3]
-				RotationBuilderUtils:localize("defaultRotation/hunter/mend_pet"), -- [4]
-				RotationBuilderUtils:localize("defaultRotation/hunter/cobra_shot_refresh"), -- [5]
-				RotationBuilderUtils:localize("defaultRotation/hunter/stampede"), -- [6]
-				RotationBuilderUtils:localize("defaultRotation/hunter/readiness"), -- [7]
-				RotationBuilderUtils:localize("defaultRotation/hunter/rapid_fire"), -- [8]
-				RotationBuilderUtils:localize("defaultRotation/hunter/focus_fire"), -- [9]
-				RotationBuilderUtils:localize("defaultRotation/hunter/dire_beast"), -- [10]
-				RotationBuilderUtils:localize("defaultRotation/hunter/fervor"), -- [11]
-				RotationBuilderUtils:localize("defaultRotation/hunter/cobra_shot_regen"), -- [12]
-				RotationBuilderUtils:localize("defaultRotation/hunter/bestial_wrath"), -- [13]
-				RotationBuilderUtils:localize("defaultRotation/hunter/serpent_sting"), -- [14]
-				RotationBuilderUtils:localize("defaultRotation/hunter/blink_strike"), -- [15]
-				RotationBuilderUtils:localize("defaultRotation/hunter/kill_command"), -- [16]
-				RotationBuilderUtils:localize("defaultRotation/hunter/crows"), -- [17]
-				RotationBuilderUtils:localize("defaultRotation/hunter/crows_execute"), -- [18]
-				RotationBuilderUtils:localize("defaultRotation/hunter/lynx_rush"), -- [19]
-				RotationBuilderUtils:localize("defaultRotation/hunter/kill_shot"), -- [20]
-				RotationBuilderUtils:localize("defaultRotation/hunter/glaive_toss"), -- [21]
-				RotationBuilderUtils:localize("defaultRotation/hunter/arcane_shot_thrill"), -- [22]
-				RotationBuilderUtils:localize("defaultRotation/hunter/arcane_shot_beast"), -- [23]
-				RotationBuilderUtils:localize("defaultRotation/hunter/powershot"), -- [24]
-				RotationBuilderUtils:localize("defaultRotation/hunter/barrage"), -- [25]
-				RotationBuilderUtils:localize("defaultRotation/hunter/arcane_shot"), -- [26]
-				RotationBuilderUtils:localize("defaultRotation/hunter/cobra_shot"), -- [27]
+				"defaultRotation/hunter/hawk_aspect", -- [1]
+				"defaultRotation/hunter/hunter_mark", -- [2]
+				"defaultRotation/hunter/revive_pet", -- [3]
+				"defaultRotation/hunter/mend_pet", -- [4]
+				"defaultRotation/hunter/cobra_shot_refresh", -- [5]
+				"defaultRotation/hunter/stampede", -- [6]
+				"defaultRotation/hunter/readiness", -- [7]
+				"defaultRotation/hunter/rapid_fire", -- [8]
+				"defaultRotation/hunter/focus_fire", -- [9]
+				"defaultRotation/hunter/dire_beast", -- [10]
+				"defaultRotation/hunter/fervor", -- [11]
+				"defaultRotation/hunter/cobra_shot_regen", -- [12]
+				"defaultRotation/hunter/bestial_wrath", -- [13]
+				"defaultRotation/hunter/serpent_sting", -- [14]
+				"defaultRotation/hunter/blink_strike", -- [15]
+				"defaultRotation/hunter/kill_command", -- [16]
+				"defaultRotation/hunter/crows", -- [17]
+				"defaultRotation/hunter/crows_execute", -- [18]
+				"defaultRotation/hunter/lynx_rush", -- [19]
+				"defaultRotation/hunter/kill_shot", -- [20]
+				"defaultRotation/hunter/glaive_toss", -- [21]
+				"defaultRotation/hunter/arcane_shot_thrill", -- [22]
+				"defaultRotation/hunter/arcane_shot_beast", -- [23]
+				"defaultRotation/hunter/powershot", -- [24]
+				"defaultRotation/hunter/barrage", -- [25]
+				"defaultRotation/hunter/arcane_shot", -- [26]
+				"defaultRotation/hunter/cobra_shot", -- [27]
 			},
 			["keybind"] = "<keybind>",
 		},
-		[RotationBuilderUtils:localize("defaultRotation/hunter/marksmanship")] = {
+		["defaultRotation/hunter/marksmanship"] = {
 			["ActionList"] = {
-				[RotationBuilderUtils:localize("defaultRotation/hunter/aimed_shot_haste")] = {
+				["defaultRotation/hunter/aimed_shot_haste"] = {
 					["v_p_havebuff"] = "3045|32182|2825|90355|80353|49016",
 					["v_actionicon"] = "19434",
 					["v_gcdspell"] = "1462",
@@ -373,7 +373,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_unitpower"] = ">55",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/hunter_mark")] = {
+				["defaultRotation/hunter/hunter_mark"] = {
 					["v_t_needsdebuff"] = "1130",
 					["v_p_notglyphed"] = "132106",
 					["v_gcdspell"] = "1462",
@@ -386,7 +386,7 @@ local hunterRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/arcane_shot_thrill")] = {
+				["defaultRotation/hunter/arcane_shot_thrill"] = {
 					["v_gcdspell"] = "1462",
 					["v_actionicon"] = "3044",
 					["v_togglename"] = "Toggle 1",
@@ -397,7 +397,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_havebuff"] = "34720",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/serpent_sting")] = {
+				["defaultRotation/hunter/serpent_sting"] = {
 					["v_t_needsdebuff"] = "_1978",
 					["v_gcdspell"] = "1462",
 					["v_t_hp"] = "<90%",
@@ -410,7 +410,7 @@ local hunterRotationsGenerator = function ()
 					["b_t_hp"] = true,
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/crows_execute")] = {
+				["defaultRotation/hunter/crows_execute"] = {
 					["v_gcdspell"] = "1462",
 					["v_spellname"] = "131894",
 					["v_t_hp"] = "<=20%",
@@ -422,7 +422,7 @@ local hunterRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/arcane_shot")] = {
+				["defaultRotation/hunter/arcane_shot"] = {
 					["v_p_needbuff"] = "32182|2825|90355|80353|49016",
 					["v_t_hp"] = "<90%",
 					["b_p_needbuff"] = true,
@@ -438,7 +438,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_unitpower"] = ">55",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/aimed_shot_fire")] = {
+				["defaultRotation/hunter/aimed_shot_fire"] = {
 					["v_gcdspell"] = "1462",
 					["v_actionicon"] = "19434",
 					["v_togglename"] = "Toggle 1",
@@ -449,7 +449,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_havebuff"] = "82926",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/fervor")] = {
+				["defaultRotation/hunter/fervor"] = {
 					["v_gcdspell"] = "0",
 					["v_p_unitpowertype"] = "2",
 					["v_togglename"] = "Toggle 1",
@@ -460,7 +460,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_unitpower"] = "<=40",
 					["v_actionicon"] = "82726",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/crows")] = {
+				["defaultRotation/hunter/crows"] = {
 					["v_gcdspell"] = "1462",
 					["v_spellname"] = "131894",
 					["v_t_hp"] = ">90%",
@@ -472,7 +472,7 @@ local hunterRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/lynx_rush")] = {
+				["defaultRotation/hunter/lynx_rush"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "120697",
@@ -481,7 +481,7 @@ local hunterRotationsGenerator = function ()
 					["v_gcdspell"] = "1462",
 					["b_pet_dr"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/blink_strike")] = {
+				["defaultRotation/hunter/blink_strike"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "130392",
@@ -489,7 +489,7 @@ local hunterRotationsGenerator = function ()
 					["v_gcdspell"] = "1462",
 					["v_actionicon"] = "130392",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/steady_shot")] = {
+				["defaultRotation/hunter/steady_shot"] = {
 					["v_gunitpowertype"] = "2",
 					["v_gcdspell"] = "1462",
 					["b_gunitpower"] = true,
@@ -501,7 +501,7 @@ local hunterRotationsGenerator = function ()
 					["v_gunitpower"] = "14",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/kill_shot")] = {
+				["defaultRotation/hunter/kill_shot"] = {
 					["v_gcdspell"] = "1462",
 					["v_t_hp"] = "<=20%",
 					["v_togglename"] = "Toggle 1",
@@ -512,7 +512,7 @@ local hunterRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/stampede")] = {
+				["defaultRotation/hunter/stampede"] = {
 					["v_gcdspell"] = "1462",
 					["b_p_havebuff"] = true,
 					["v_actionicon"] = "121818",
@@ -524,7 +524,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_havebuff"] = "32182|2825|90355|80353",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/readiness")] = {
+				["defaultRotation/hunter/readiness"] = {
 					["v_gcdspell"] = "0",
 					["v_checkothercdvalue"] = ">0",
 					["b_checkothercd"] = true,
@@ -536,7 +536,7 @@ local hunterRotationsGenerator = function ()
 					["v_actionicon"] = "23989",
 					["v_checkothercdname"] = "19574",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/glaive_toss")] = {
+				["defaultRotation/hunter/glaive_toss"] = {
 					["v_gcdspell"] = "1462",
 					["v_t_hp"] = "<90%",
 					["v_togglename"] = "Toggle 1",
@@ -547,7 +547,7 @@ local hunterRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/mend_pet")] = {
+				["defaultRotation/hunter/mend_pet"] = {
 					["b_rangecheck"] = true,
 					["v_gcdspell"] = "136",
 					["v_spellname"] = "136",
@@ -560,7 +560,7 @@ local hunterRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["b_pet_hp"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/dire_beast")] = {
+				["defaultRotation/hunter/dire_beast"] = {
 					["v_gcdspell"] = "1462",
 					["v_p_unitpowertype"] = "2",
 					["b_p_unitpower"] = true,
@@ -572,7 +572,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_unitpower"] = "<80",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/rapid_fire")] = {
+				["defaultRotation/hunter/rapid_fire"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "3045",
@@ -581,7 +581,7 @@ local hunterRotationsGenerator = function ()
 					["v_gcdspell"] = "0",
 					["v_actionicon"] = "3045",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/powershot")] = {
+				["defaultRotation/hunter/powershot"] = {
 					["v_gcdspell"] = "1462",
 					["v_t_hp"] = "<90%",
 					["v_togglename"] = "Toggle 1",
@@ -592,7 +592,7 @@ local hunterRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/aimed_shot")] = {
+				["defaultRotation/hunter/aimed_shot"] = {
 					["v_t_hp"] = ">90%",
 					["v_actionicon"] = "19434",
 					["v_gcdspell"] = "1462",
@@ -606,7 +606,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_unitpower"] = ">55",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/steady_shot_focus")] = {
+				["defaultRotation/hunter/steady_shot_focus"] = {
 					["v_p_needbuff"] = "53220",
 					["b_p_needbuff"] = true,
 					["v_gcdspell"] = "1462",
@@ -619,7 +619,7 @@ local hunterRotationsGenerator = function ()
 					["v_lastcasted"] = "56641",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/chimera_shot")] = {
+				["defaultRotation/hunter/chimera_shot"] = {
 					["v_gcdspell"] = "1462",
 					["v_t_hp"] = "<90%",
 					["v_togglename"] = "Toggle 1",
@@ -630,7 +630,7 @@ local hunterRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/hawk_aspect")] = {
+				["defaultRotation/hunter/hawk_aspect"] = {
 					["v_p_notstance"] = "1",
 					["v_togglename"] = "Toggle 1",
 					["v_actionicon"] = "13165",
@@ -640,7 +640,7 @@ local hunterRotationsGenerator = function ()
 					["v_gcdspell"] = "1462",
 					["v_durationstartedtime"] = 0,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/revive_pet")] = {
+				["defaultRotation/hunter/revive_pet"] = {
 					["v_actionicon"] = "982",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -650,7 +650,7 @@ local hunterRotationsGenerator = function ()
 					["v_gcdspell"] = "136",
 					["b_pet_hp"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/barrage")] = {
+				["defaultRotation/hunter/barrage"] = {
 					["v_gcdspell"] = "1462",
 					["v_t_hp"] = "<90%",
 					["v_togglename"] = "Toggle 1",
@@ -663,38 +663,38 @@ local hunterRotationsGenerator = function ()
 				},
 			},
 			["SortedActions"] = {
-				RotationBuilderUtils:localize("defaultRotation/hunter/hawk_aspect"), -- [1]
-				RotationBuilderUtils:localize("defaultRotation/hunter/hunter_mark"), -- [2]
-				RotationBuilderUtils:localize("defaultRotation/hunter/revive_pet"), -- [3]
-				RotationBuilderUtils:localize("defaultRotation/hunter/mend_pet"), -- [4]
-				RotationBuilderUtils:localize("defaultRotation/hunter/steady_shot_focus"), -- [5]
-				RotationBuilderUtils:localize("defaultRotation/hunter/stampede"), -- [6]
-				RotationBuilderUtils:localize("defaultRotation/hunter/readiness"), -- [7]
-				RotationBuilderUtils:localize("defaultRotation/hunter/rapid_fire"), -- [8]
-				RotationBuilderUtils:localize("defaultRotation/hunter/dire_beast"), -- [9]
-				RotationBuilderUtils:localize("defaultRotation/hunter/fervor"), -- [10]
-				RotationBuilderUtils:localize("defaultRotation/hunter/serpent_sting"), -- [11]
-				RotationBuilderUtils:localize("defaultRotation/hunter/chimera_shot"), -- [12]
-				RotationBuilderUtils:localize("defaultRotation/hunter/aimed_shot_fire"), -- [13]
-				RotationBuilderUtils:localize("defaultRotation/hunter/blink_strike"), -- [14]
-				RotationBuilderUtils:localize("defaultRotation/hunter/crows"), -- [15]
-				RotationBuilderUtils:localize("defaultRotation/hunter/crows_execute"), -- [16]
-				RotationBuilderUtils:localize("defaultRotation/hunter/lynx_rush"), -- [17]
-				RotationBuilderUtils:localize("defaultRotation/hunter/kill_shot"), -- [18]
-				RotationBuilderUtils:localize("defaultRotation/hunter/glaive_toss"), -- [19]
-				RotationBuilderUtils:localize("defaultRotation/hunter/arcane_shot_thrill"), -- [20]
-				RotationBuilderUtils:localize("defaultRotation/hunter/powershot"), -- [21]
-				RotationBuilderUtils:localize("defaultRotation/hunter/barrage"), -- [22]
-				RotationBuilderUtils:localize("defaultRotation/hunter/aimed_shot"), -- [23]
-				RotationBuilderUtils:localize("defaultRotation/hunter/aimed_shot_haste"), -- [24]
-				RotationBuilderUtils:localize("defaultRotation/hunter/arcane_shot"), -- [25]
-				RotationBuilderUtils:localize("defaultRotation/hunter/steady_shot"), -- [26]
+				"defaultRotation/hunter/hawk_aspect", -- [1]
+				"defaultRotation/hunter/hunter_mark", -- [2]
+				"defaultRotation/hunter/revive_pet", -- [3]
+				"defaultRotation/hunter/mend_pet", -- [4]
+				"defaultRotation/hunter/steady_shot_focus", -- [5]
+				"defaultRotation/hunter/stampede", -- [6]
+				"defaultRotation/hunter/readiness", -- [7]
+				"defaultRotation/hunter/rapid_fire", -- [8]
+				"defaultRotation/hunter/dire_beast", -- [9]
+				"defaultRotation/hunter/fervor", -- [10]
+				"defaultRotation/hunter/serpent_sting", -- [11]
+				"defaultRotation/hunter/chimera_shot", -- [12]
+				"defaultRotation/hunter/aimed_shot_fire", -- [13]
+				"defaultRotation/hunter/blink_strike", -- [14]
+				"defaultRotation/hunter/crows", -- [15]
+				"defaultRotation/hunter/crows_execute", -- [16]
+				"defaultRotation/hunter/lynx_rush", -- [17]
+				"defaultRotation/hunter/kill_shot", -- [18]
+				"defaultRotation/hunter/glaive_toss", -- [19]
+				"defaultRotation/hunter/arcane_shot_thrill", -- [20]
+				"defaultRotation/hunter/powershot", -- [21]
+				"defaultRotation/hunter/barrage", -- [22]
+				"defaultRotation/hunter/aimed_shot", -- [23]
+				"defaultRotation/hunter/aimed_shot_haste", -- [24]
+				"defaultRotation/hunter/arcane_shot", -- [25]
+				"defaultRotation/hunter/steady_shot", -- [26]
 			},
 			["keybind"] = "<keybind>",
 		},
-		[RotationBuilderUtils:localize("defaultRotation/hunter/survival")] = {
+		["defaultRotation/hunter/survival"] = {
 			["ActionList"] = {
-				[RotationBuilderUtils:localize("defaultRotation/hunter/hunter_mark")] = {
+				["defaultRotation/hunter/hunter_mark"] = {
 					["v_t_needsdebuff"] = "1130",
 					["v_p_notglyphed"] = "132106",
 					["v_gcdspell"] = "1462",
@@ -707,7 +707,7 @@ local hunterRotationsGenerator = function ()
 					["v_togglename"] = "Toggle 1",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/arcane_shot_thrill")] = {
+				["defaultRotation/hunter/arcane_shot_thrill"] = {
 					["v_gcdspell"] = "1462",
 					["v_actionicon"] = "3044",
 					["v_togglename"] = "Toggle 1",
@@ -718,7 +718,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_havebuff"] = "34720",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/serpent_sting")] = {
+				["defaultRotation/hunter/serpent_sting"] = {
 					["v_t_needsdebuff"] = "_1978",
 					["v_gcdspell"] = "1462",
 					["v_togglename"] = "Toggle 1",
@@ -729,7 +729,7 @@ local hunterRotationsGenerator = function ()
 					["v_actionicon"] = "1978",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/crows_execute")] = {
+				["defaultRotation/hunter/crows_execute"] = {
 					["v_gcdspell"] = "1462",
 					["b_rangecheck"] = true,
 					["v_actionicon"] = "131894",
@@ -741,7 +741,7 @@ local hunterRotationsGenerator = function ()
 					["b_t_hp"] = true,
 					["v_t_hp"] = "<=20%",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/arcane_shot")] = {
+				["defaultRotation/hunter/arcane_shot"] = {
 					["v_gcdspell"] = "1462",
 					["v_actionicon"] = "3044",
 					["b_p_unitpower"] = true,
@@ -753,7 +753,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_unitpower"] = ">70",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/mend_pet")] = {
+				["defaultRotation/hunter/mend_pet"] = {
 					["b_pet_hp"] = true,
 					["v_gcdspell"] = "136",
 					["v_pet_hp"] = "<=80%",
@@ -766,7 +766,7 @@ local hunterRotationsGenerator = function ()
 					["v_actionicon"] = "136",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/crows")] = {
+				["defaultRotation/hunter/crows"] = {
 					["v_gcdspell"] = "1462",
 					["b_rangecheck"] = true,
 					["v_actionicon"] = "131894",
@@ -778,7 +778,7 @@ local hunterRotationsGenerator = function ()
 					["b_t_hp"] = true,
 					["v_t_hp"] = ">90%",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/stampede")] = {
+				["defaultRotation/hunter/stampede"] = {
 					["v_gcdspell"] = "1462",
 					["b_p_havebuff"] = true,
 					["v_actionicon"] = "121818",
@@ -790,7 +790,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_havebuff"] = "32182|2825|90355|80353",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/blink_strike")] = {
+				["defaultRotation/hunter/blink_strike"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "130392",
@@ -798,7 +798,7 @@ local hunterRotationsGenerator = function ()
 					["v_gcdspell"] = "1462",
 					["v_actionicon"] = "130392",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/lynx_rush")] = {
+				["defaultRotation/hunter/lynx_rush"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "120697",
@@ -807,7 +807,7 @@ local hunterRotationsGenerator = function ()
 					["v_gcdspell"] = "1462",
 					["b_pet_dr"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/kill_shot")] = {
+				["defaultRotation/hunter/kill_shot"] = {
 					["v_gcdspell"] = "1462",
 					["v_actionicon"] = "53351",
 					["v_togglename"] = "Toggle 1",
@@ -818,7 +818,7 @@ local hunterRotationsGenerator = function ()
 					["b_t_hp"] = true,
 					["v_t_hp"] = "<=20%",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/revive_pet")] = {
+				["defaultRotation/hunter/revive_pet"] = {
 					["v_actionicon"] = "982",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -828,7 +828,7 @@ local hunterRotationsGenerator = function ()
 					["v_gcdspell"] = "136",
 					["b_pet_hp"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/readiness")] = {
+				["defaultRotation/hunter/readiness"] = {
 					["v_p_needbuff"] = "3045",
 					["b_p_needbuff"] = true,
 					["v_gcdspell"] = "0",
@@ -842,7 +842,7 @@ local hunterRotationsGenerator = function ()
 					["v_checkothercdvalue"] = ">0",
 					["v_checkothercdname"] = "3045",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/glaive_toss")] = {
+				["defaultRotation/hunter/glaive_toss"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "117050",
@@ -851,7 +851,7 @@ local hunterRotationsGenerator = function ()
 					["v_gcdspell"] = "1462",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/black_arrow")] = {
+				["defaultRotation/hunter/black_arrow"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "3674",
@@ -860,7 +860,7 @@ local hunterRotationsGenerator = function ()
 					["v_gcdspell"] = "1462",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/explosive_shot")] = {
+				["defaultRotation/hunter/explosive_shot"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "53301",
@@ -869,7 +869,7 @@ local hunterRotationsGenerator = function ()
 					["v_gcdspell"] = "1462",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/rapid_fire")] = {
+				["defaultRotation/hunter/rapid_fire"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "3045",
@@ -878,7 +878,7 @@ local hunterRotationsGenerator = function ()
 					["v_gcdspell"] = "0",
 					["v_actionicon"] = "3045",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/dire_beast")] = {
+				["defaultRotation/hunter/dire_beast"] = {
 					["v_gcdspell"] = "1462",
 					["v_actionicon"] = "120679",
 					["b_p_unitpower"] = true,
@@ -890,7 +890,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_unitpower"] = "<80",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/powershot")] = {
+				["defaultRotation/hunter/powershot"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "109259",
@@ -899,7 +899,7 @@ local hunterRotationsGenerator = function ()
 					["v_gcdspell"] = "1462",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/cobra_shot_refresh")] = {
+				["defaultRotation/hunter/cobra_shot_refresh"] = {
 					["v_t_needsdebuff"] = "_1978^5",
 					["b_t_hasdebuff"] = true,
 					["v_gcdspell"] = "1462",
@@ -913,7 +913,7 @@ local hunterRotationsGenerator = function ()
 					["v_rangespell"] = "3044",
 					["v_t_hasdebuff"] = "_1978",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/cobra_shot")] = {
+				["defaultRotation/hunter/cobra_shot"] = {
 					["v_gunitpowertype"] = "2",
 					["v_gcdspell"] = "1462",
 					["v_actionicon"] = "77767",
@@ -926,7 +926,7 @@ local hunterRotationsGenerator = function ()
 					["v_gunitpower"] = "14",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/hawk_aspect")] = {
+				["defaultRotation/hunter/hawk_aspect"] = {
 					["v_p_notstance"] = "1",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -936,7 +936,7 @@ local hunterRotationsGenerator = function ()
 					["v_gcdspell"] = "1462",
 					["v_actionicon"] = "13165",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/fervor")] = {
+				["defaultRotation/hunter/fervor"] = {
 					["v_gcdspell"] = "0",
 					["v_actionicon"] = "82726",
 					["v_togglename"] = "Toggle 1",
@@ -947,7 +947,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_unitpower"] = "<=40",
 					["b_p_unitpower"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/hunter/barrage")] = {
+				["defaultRotation/hunter/barrage"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "120360",
@@ -958,30 +958,30 @@ local hunterRotationsGenerator = function ()
 				},
 			},
 			["SortedActions"] = {
-				RotationBuilderUtils:localize("defaultRotation/hunter/hawk_aspect"), -- [1]
-				RotationBuilderUtils:localize("defaultRotation/hunter/hunter_mark"), -- [2]
-				RotationBuilderUtils:localize("defaultRotation/hunter/revive_pet"), -- [3]
-				RotationBuilderUtils:localize("defaultRotation/hunter/mend_pet"), -- [4]
-				RotationBuilderUtils:localize("defaultRotation/hunter/cobra_shot_refresh"), -- [5]
-				RotationBuilderUtils:localize("defaultRotation/hunter/stampede"), -- [6]
-				RotationBuilderUtils:localize("defaultRotation/hunter/rapid_fire"), -- [7]
-				RotationBuilderUtils:localize("defaultRotation/hunter/fervor"), -- [8]
-				RotationBuilderUtils:localize("defaultRotation/hunter/explosive_shot"), -- [9]
-				RotationBuilderUtils:localize("defaultRotation/hunter/kill_shot"), -- [10]
-				RotationBuilderUtils:localize("defaultRotation/hunter/crows_execute"), -- [11]
-				RotationBuilderUtils:localize("defaultRotation/hunter/black_arrow"), -- [12]
-				RotationBuilderUtils:localize("defaultRotation/hunter/serpent_sting"), -- [13]
-				RotationBuilderUtils:localize("defaultRotation/hunter/crows"), -- [14]
-				RotationBuilderUtils:localize("defaultRotation/hunter/blink_strike"), -- [15]
-				RotationBuilderUtils:localize("defaultRotation/hunter/lynx_rush"), -- [16]
-				RotationBuilderUtils:localize("defaultRotation/hunter/glaive_toss"), -- [17]
-				RotationBuilderUtils:localize("defaultRotation/hunter/dire_beast"), -- [18]
-				RotationBuilderUtils:localize("defaultRotation/hunter/readiness"), -- [19]
-				RotationBuilderUtils:localize("defaultRotation/hunter/arcane_shot_thrill"), -- [20]
-				RotationBuilderUtils:localize("defaultRotation/hunter/powershot"), -- [21]
-				RotationBuilderUtils:localize("defaultRotation/hunter/barrage"), -- [22]
-				RotationBuilderUtils:localize("defaultRotation/hunter/arcane_shot"), -- [23]
-				RotationBuilderUtils:localize("defaultRotation/hunter/cobra_shot"), -- [24]
+				"defaultRotation/hunter/hawk_aspect", -- [1]
+				"defaultRotation/hunter/hunter_mark", -- [2]
+				"defaultRotation/hunter/revive_pet", -- [3]
+				"defaultRotation/hunter/mend_pet", -- [4]
+				"defaultRotation/hunter/cobra_shot_refresh", -- [5]
+				"defaultRotation/hunter/stampede", -- [6]
+				"defaultRotation/hunter/rapid_fire", -- [7]
+				"defaultRotation/hunter/fervor", -- [8]
+				"defaultRotation/hunter/explosive_shot", -- [9]
+				"defaultRotation/hunter/kill_shot", -- [10]
+				"defaultRotation/hunter/crows_execute", -- [11]
+				"defaultRotation/hunter/black_arrow", -- [12]
+				"defaultRotation/hunter/serpent_sting", -- [13]
+				"defaultRotation/hunter/crows", -- [14]
+				"defaultRotation/hunter/blink_strike", -- [15]
+				"defaultRotation/hunter/lynx_rush", -- [16]
+				"defaultRotation/hunter/glaive_toss", -- [17]
+				"defaultRotation/hunter/dire_beast", -- [18]
+				"defaultRotation/hunter/readiness", -- [19]
+				"defaultRotation/hunter/arcane_shot_thrill", -- [20]
+				"defaultRotation/hunter/powershot", -- [21]
+				"defaultRotation/hunter/barrage", -- [22]
+				"defaultRotation/hunter/arcane_shot", -- [23]
+				"defaultRotation/hunter/cobra_shot", -- [24]
 			},
 			["keybind"] = "<keybind>",
 		},

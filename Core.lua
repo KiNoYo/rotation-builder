@@ -137,6 +137,14 @@ function RotationBuilder:loadDefaultRotations(className)
 	end
 end
 
+--- Check if this is a newer RotationBuilder add-on and upgrade default rotation if possible.
+function RotationBuilder:checkAndUpgradeRotations()
+	local oldVersion = ROB_Options["version"];
+	if(not oldVersion)then
+		
+	end
+end
+
 --- Initialize the RotationBuilder Object.
 function RotationBuilder:initialize()
 	self.serializer = LibStub:GetLibrary("AceSerializer-3.0");

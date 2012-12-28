@@ -1,9 +1,9 @@
 -- The default rotations generator for MONKS.
 local monkRotationsGenerator = function ()
 	local rotation = {
-		[RotationBuilderUtils:localize("defaultRotation/monk/brewmaster")] = {
+		["defaultRotation/monk/brewmaster"] = {
 			["ActionList"] = {
-				[RotationBuilderUtils:localize("defaultRotation/monk/invoke_xuen_the_white_tiger")] = {
+				["defaultRotation/monk/invoke_xuen_the_white_tiger"] = {
 					["v_gcdspell"] = "115921",
 					["v_checkothercdvalue"] = "<3",
 					["b_checkothercd"] = true,
@@ -15,7 +15,7 @@ local monkRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_checkothercdname"] = "123904",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/tiger_palm")] = {
+				["defaultRotation/monk/tiger_palm"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "100787",
@@ -24,7 +24,7 @@ local monkRotationsGenerator = function ()
 					["v_gcdspell"] = "115921",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/summon_black_ox_statue")] = {
+				["defaultRotation/monk/summon_black_ox_statue"] = {
 					["v_p_needbuff"] = "_126119",
 					["b_p_needbuff"] = true,
 					["v_gcdspell"] = "115921",
@@ -35,7 +35,7 @@ local monkRotationsGenerator = function ()
 					["v_actionicon"] = "115315",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/tiger_palm_buffs")] = {
+				["defaultRotation/monk/tiger_palm_buffs"] = {
 					["v_p_needbuff"] = "_125359^3&_118636^3",
 					["b_p_needbuff"] = true,
 					["v_gcdspell"] = "115921",
@@ -46,7 +46,7 @@ local monkRotationsGenerator = function ()
 					["v_actionicon"] = "100787",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/stance_of_the_sturdy_ox")] = {
+				["defaultRotation/monk/stance_of_the_sturdy_ox"] = {
 					["v_p_notstance"] = "1",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -56,7 +56,7 @@ local monkRotationsGenerator = function ()
 					["v_gcdspell"] = "115921",
 					["v_actionicon"] = "115069",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/expel_harm")] = {
+				["defaultRotation/monk/expel_harm"] = {
 					["v_keybind"] = "<keybind>",
 					["v_togglename"] = "Toggle 1",
 					["v_gcdspell"] = "115921",
@@ -70,7 +70,7 @@ local monkRotationsGenerator = function ()
 					["v_p_unitpower"] = ">=40",
 					["b_p_unitpower"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/jab")] = {
+				["defaultRotation/monk/jab"] = {
 					["v_gcdspell"] = "115921",
 					["v_actionicon"] = "108557",
 					["b_p_unitpower"] = true,
@@ -82,7 +82,7 @@ local monkRotationsGenerator = function ()
 					["v_p_unitpower"] = ">=40",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/rushing_jade_wind")] = {
+				["defaultRotation/monk/rushing_jade_wind"] = {
 					["b_t_dr"] = true,
 					["v_gcdspell"] = "115921",
 					["v_p_unitpowertype"] = "12",
@@ -94,7 +94,7 @@ local monkRotationsGenerator = function ()
 					["v_p_unitpower"] = ">=2",
 					["v_actionicon"] = "116847",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/blackout_kick")] = {
+				["defaultRotation/monk/blackout_kick"] = {
 					["v_p_needbuff"] = "115307^1",
 					["b_p_needbuff"] = true,
 					["v_gcdspell"] = "115921",
@@ -108,7 +108,7 @@ local monkRotationsGenerator = function ()
 					["v_p_unitpower"] = ">=2",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/keg_smash")] = {
+				["defaultRotation/monk/keg_smash"] = {
 					["b_t_dr"] = true,
 					["v_gcdspell"] = "115921",
 					["b_p_unitpower"] = true,
@@ -120,7 +120,7 @@ local monkRotationsGenerator = function ()
 					["v_p_unitpower"] = "<=2",
 					["v_actionicon"] = "121253",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/guard")] = {
+				["defaultRotation/monk/guard"] = {
 					["v_p_havebuff"] = "_118636#3",
 					["v_gcdspell"] = "115921",
 					["v_actionicon"] = "115295",
@@ -133,7 +133,7 @@ local monkRotationsGenerator = function ()
 					["v_p_unitpower"] = ">=2",
 					["b_p_unitpower"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/fortifying_brew")] = {
+				["defaultRotation/monk/fortifying_brew"] = {
 					["v_p_hp"] = "<20%",
 					["v_gcdspell"] = "115921",
 					["b_p_hp"] = true,
@@ -146,7 +146,7 @@ local monkRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_checkothercdname"] = "115203",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/legacy_of_the_emperor")] = {
+				["defaultRotation/monk/legacy_of_the_emperor"] = {
 					["v_p_needbuff"] = "1126||20217||117666||90363",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -158,25 +158,25 @@ local monkRotationsGenerator = function ()
 				},
 			},
 			["SortedActions"] = {
-				RotationBuilderUtils:localize("defaultRotation/monk/stance_of_the_sturdy_ox"), -- [1]
-				RotationBuilderUtils:localize("defaultRotation/monk/legacy_of_the_emperor"), -- [2]
-				RotationBuilderUtils:localize("defaultRotation/monk/fortifying_brew"), -- [3]
-				RotationBuilderUtils:localize("defaultRotation/monk/summon_black_ox_statue"), -- [4]
-				RotationBuilderUtils:localize("defaultRotation/monk/invoke_xuen_the_white_tiger"), -- [5]
-				RotationBuilderUtils:localize("defaultRotation/monk/guard"), -- [6]
-				RotationBuilderUtils:localize("defaultRotation/monk/keg_smash"), -- [7]
-				RotationBuilderUtils:localize("defaultRotation/monk/tiger_palm_buffs"), -- [8]
-				RotationBuilderUtils:localize("defaultRotation/monk/rushing_jade_wind"), -- [9]
-				RotationBuilderUtils:localize("defaultRotation/monk/blackout_kick"), -- [10]
-				RotationBuilderUtils:localize("defaultRotation/monk/expel_harm"), -- [11]
-				RotationBuilderUtils:localize("defaultRotation/monk/jab"), -- [12]
-				RotationBuilderUtils:localize("defaultRotation/monk/tiger_palm"), -- [13]
+				"defaultRotation/monk/stance_of_the_sturdy_ox", -- [1]
+				"defaultRotation/monk/legacy_of_the_emperor", -- [2]
+				"defaultRotation/monk/fortifying_brew", -- [3]
+				"defaultRotation/monk/summon_black_ox_statue", -- [4]
+				"defaultRotation/monk/invoke_xuen_the_white_tiger", -- [5]
+				"defaultRotation/monk/guard", -- [6]
+				"defaultRotation/monk/keg_smash", -- [7]
+				"defaultRotation/monk/tiger_palm_buffs", -- [8]
+				"defaultRotation/monk/rushing_jade_wind", -- [9]
+				"defaultRotation/monk/blackout_kick", -- [10]
+				"defaultRotation/monk/expel_harm", -- [11]
+				"defaultRotation/monk/jab", -- [12]
+				"defaultRotation/monk/tiger_palm", -- [13]
 			},
 			["keybind"] = "<keybind>",
 		},
-		[RotationBuilderUtils:localize("defaultRotation/monk/windwalker")] = {
+		["defaultRotation/monk/windwalker"] = {
 			["ActionList"] = {
-				[RotationBuilderUtils:localize("defaultRotation/monk/invoke_xuen_the_white_tiger")] = {
+				["defaultRotation/monk/invoke_xuen_the_white_tiger"] = {
 					["v_gcdspell"] = "115921",
 					["v_actionicon"] = "123904",
 					["b_checkothercd"] = true,
@@ -188,7 +188,7 @@ local monkRotationsGenerator = function ()
 					["b_rangecheck"] = true,
 					["v_checkothercdname"] = "123904",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/tiger_palm")] = {
+				["defaultRotation/monk/tiger_palm"] = {
 					["v_p_needbuff"] = "125359^5",
 					["b_p_needbuff"] = true,
 					["v_gcdspell"] = "115921",
@@ -202,7 +202,7 @@ local monkRotationsGenerator = function ()
 					["v_p_unitpower"] = ">=2",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/tigereye_brew")] = {
+				["defaultRotation/monk/tigereye_brew"] = {
 					["v_actionicon"] = "116740",
 					["v_togglename"] = "Toggle 1",
 					["b_p_havebuff"] = true,
@@ -212,7 +212,7 @@ local monkRotationsGenerator = function ()
 					["v_gcdspell"] = "115921",
 					["v_durationstartedtime"] = 0,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/energizing_brew")] = {
+				["defaultRotation/monk/energizing_brew"] = {
 					["v_gunitpowertype"] = "3",
 					["b_gunitpower"] = true,
 					["v_gcdspell"] = "115921",
@@ -226,7 +226,7 @@ local monkRotationsGenerator = function ()
 					["v_gunitpower"] = "60",
 					["v_durationstartedtime"] = 0,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/fists_of_fury")] = {
+				["defaultRotation/monk/fists_of_fury"] = {
 					["v_gcdspell"] = "115921",
 					["v_durationstartedtime"] = 0,
 					["v_actionicon"] = "113656",
@@ -238,7 +238,7 @@ local monkRotationsGenerator = function ()
 					["v_p_unitpower"] = ">=3",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/legacy_of_the_white_tiger")] = {
+				["defaultRotation/monk/legacy_of_the_white_tiger"] = {
 					["v_p_needbuff"] = "24932||61316||1459||116781||97229||24604||90309||126373||126309",
 					["b_p_needbuff"] = true,
 					["v_gcdspell"] = "115921",
@@ -250,7 +250,7 @@ local monkRotationsGenerator = function ()
 					["v_p_havebuff"] = "1126||20217||117666||90363",
 					["b_p_havebuff"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/expel_harm")] = {
+				["defaultRotation/monk/expel_harm"] = {
 					["v_actionicon"] = "115072",
 					["v_keybind"] = "<keybind>",
 					["v_p_hp"] = "<90%",
@@ -267,7 +267,7 @@ local monkRotationsGenerator = function ()
 					["v_gunitpower"] = "2",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/jab")] = {
+				["defaultRotation/monk/jab"] = {
 					["b_gunitpower"] = true,
 					["v_gunitpowertype"] = "12",
 					["v_p_unitpower"] = ">=40",
@@ -282,7 +282,7 @@ local monkRotationsGenerator = function ()
 					["v_gunitpower"] = "2",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/tiger_palm_combo_breaker")] = {
+				["defaultRotation/monk/tiger_palm_combo_breaker"] = {
 					["v_p_needbuff"] = "125359^5",
 					["b_p_needbuff"] = true,
 					["v_gcdspell"] = "115921",
@@ -295,7 +295,7 @@ local monkRotationsGenerator = function ()
 					["v_p_havebuff"] = "115636",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/blackout_kick")] = {
+				["defaultRotation/monk/blackout_kick"] = {
 					["v_gcdspell"] = "115921",
 					["v_durationstartedtime"] = 0,
 					["v_actionicon"] = "700784",
@@ -307,7 +307,7 @@ local monkRotationsGenerator = function ()
 					["v_p_unitpower"] = ">=3",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/legacy_of_the_emperor")] = {
+				["defaultRotation/monk/legacy_of_the_emperor"] = {
 					["v_p_needbuff"] = "1126||20217||117666||90363",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -317,7 +317,7 @@ local monkRotationsGenerator = function ()
 					["v_gcdspell"] = "115921",
 					["v_actionicon"] = "115921",
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/rising_sun_kick")] = {
+				["defaultRotation/monk/rising_sun_kick"] = {
 					["v_gcdspell"] = "115921",
 					["v_actionicon"] = "107428",
 					["v_durationstartedtime"] = 0,
@@ -329,7 +329,7 @@ local monkRotationsGenerator = function ()
 					["v_p_unitpower"] = ">=2",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/blackout_kick_combo_breaker")] = {
+				["defaultRotation/monk/blackout_kick_combo_breaker"] = {
 					["v_gcdspell"] = "115921",
 					["v_durationstartedtime"] = 0,
 					["v_togglename"] = "Toggle 1",
@@ -340,7 +340,7 @@ local monkRotationsGenerator = function ()
 					["v_p_havebuff"] = "115636",
 					["b_rangecheck"] = true,
 				},
-				[RotationBuilderUtils:localize("defaultRotation/monk/stance_of_the_fierce_tiger")] = {
+				["defaultRotation/monk/stance_of_the_fierce_tiger"] = {
 					["v_p_notstance"] = "2",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -352,20 +352,20 @@ local monkRotationsGenerator = function ()
 				},
 			},
 			["SortedActions"] = {
-				RotationBuilderUtils:localize("defaultRotation/monk/stance_of_the_fierce_tiger"), -- [1]
-				RotationBuilderUtils:localize("defaultRotation/monk/legacy_of_the_emperor"), -- [2]
-				RotationBuilderUtils:localize("defaultRotation/monk/legacy_of_the_white_tiger"), -- [3]
-				RotationBuilderUtils:localize("defaultRotation/monk/invoke_xuen_the_white_tiger"), -- [4]
-				RotationBuilderUtils:localize("defaultRotation/monk/energizing_brew"), -- [5]
-				RotationBuilderUtils:localize("defaultRotation/monk/tigereye_brew"), -- [6]
-				RotationBuilderUtils:localize("defaultRotation/monk/rising_sun_kick"), -- [7]
-				RotationBuilderUtils:localize("defaultRotation/monk/tiger_palm"), -- [8]
-				RotationBuilderUtils:localize("defaultRotation/monk/fists_of_fury"), -- [9]
-				RotationBuilderUtils:localize("defaultRotation/monk/blackout_kick"), -- [10]
-				RotationBuilderUtils:localize("defaultRotation/monk/tiger_palm_combo_breaker"), -- [11]
-				RotationBuilderUtils:localize("defaultRotation/monk/blackout_kick_combo_breaker"), -- [12]
-				RotationBuilderUtils:localize("defaultRotation/monk/expel_harm"), -- [13]
-				RotationBuilderUtils:localize("defaultRotation/monk/jab"), -- [14]
+				"defaultRotation/monk/stance_of_the_fierce_tiger", -- [1]
+				"defaultRotation/monk/legacy_of_the_emperor", -- [2]
+				"defaultRotation/monk/legacy_of_the_white_tiger", -- [3]
+				"defaultRotation/monk/invoke_xuen_the_white_tiger", -- [4]
+				"defaultRotation/monk/energizing_brew", -- [5]
+				"defaultRotation/monk/tigereye_brew", -- [6]
+				"defaultRotation/monk/rising_sun_kick", -- [7]
+				"defaultRotation/monk/tiger_palm", -- [8]
+				"defaultRotation/monk/fists_of_fury", -- [9]
+				"defaultRotation/monk/blackout_kick", -- [10]
+				"defaultRotation/monk/tiger_palm_combo_breaker", -- [11]
+				"defaultRotation/monk/blackout_kick_combo_breaker", -- [12]
+				"defaultRotation/monk/expel_harm", -- [13]
+				"defaultRotation/monk/jab", -- [14]
 			},
 			["keybind"] = "<keybind>",
 		},

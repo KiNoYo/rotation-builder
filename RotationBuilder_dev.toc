@@ -1,6 +1,6 @@
 ## Interface: 50100
 ## Title: RotationBuilder_dev
-## Version: 1.49
+## Version: 1.50
 ## Author: Previous : Soulwhip, Current : Pelerinage, Tylorcaptain
 ## Notes: Builds rotations for any class or spec
 ## SavedVariables: ROB_Lists
@@ -22,7 +22,7 @@ localization\ruRU.lua
 localization\esES.lua
 localization\esMX.lua
 localization\itIT.lua
-localization\itIT.lua
+localization\ptBR.lua
 
 -- Core
 RBConstants.lua

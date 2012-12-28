@@ -428,7 +428,8 @@ local function ROB_MenuCreate(self, _level)
 	for id = 1, #ROB_SortedRotations, 1 do
 		info = {}
 		info.id = id
-		info.text = ROB_SortedRotations[id]
+		-- Localize rotation's name for display purpose.
+		info.text = RotationBuilderUtils:localize(ROB_SortedRotations[id])
 		info.icon = nil
 		info.arg1 = ROB_SortedRotations[id]
 		info.func = ROB_MenuChangeRotation
@@ -2375,8 +2376,9 @@ function ROB_RotationList_Update()
 			-- get the name button
 			rowName = _G["ROB_RotationListButton"..row.."Name"];
 
+			-- Manage localization for rotation's names.
 			-- set the list name
-			rowName:SetText(ROB_SortedRotations[listIx]);
+			rowName:SetText(RotationBuilderUtils:localize(ROB_SortedRotations[listIx]));
 
 			-- is this the current list?
 			if (listIx == ROB_SelectedRotationIndex) then
@@ -2475,7 +2477,8 @@ function ROB_ActionList_Update()
 			savedActionName = selectedrotation.SortedActions[ActionID]
 
 			-- set the button name to stored table value
-			rowAction:SetText(savedActionName);
+			-- Manage action's name localization.
+			rowAction:SetText(RotationBuilderUtils:localize(savedActionName));
 
 			if (selectedrotation.ActionList[savedActionName].b_disabled) then
 				rowAction:SetTextColor(.5,.5,.5)

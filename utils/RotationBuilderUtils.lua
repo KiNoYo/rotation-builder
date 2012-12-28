@@ -252,15 +252,7 @@ end
 function RotationBuilderUtils:localize(key)
 	assert(key, "The localization key musn't be nil");
 	local L = LibStub("AceLocale-3.0"):GetLocale("RotationBuilder");
-	if (not L) then
-		-- Localization isn't available, so no need to continue.
-		return key;
-	end
 	
-	-- Test the presence of a value for the key.
-	local value = L[key];
-	if (not value) then
-		value = key;
-	end
-	return value;
+	-- AceLocale will return the key if the associated value isn't found.
+	return L[key];
 end
