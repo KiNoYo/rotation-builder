@@ -2676,7 +2676,7 @@ function ROB_RotationModifyButtons_UpdateUI()
 		ROB_RotationListModifyButton:Show();
 		ROB_RotationListDeleteButton:Show();
 		-- retrieve rotation value from saved options
-		ROB_RotationNameROText:SetText(ROB_SortedRotations[ROB_SelectedRotationIndex]);
+		ROB_RotationNameROText:SetText(RotationBuilderUtils:localize(ROB_SortedRotations[ROB_SelectedRotationIndex]));
 	else
 		-- enable create, disable modify and remove
 		ROB_RotationCreateButton:Enable();
