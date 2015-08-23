@@ -1716,7 +1716,7 @@ end
 
 function ROB_AO_CheckButton_OnToggle(self,field)
 	if (ROB_CurrentActionName and field) then
-		ROB_EditingRotationTable.ActionList[ROB_CurrentActionName][field] = (self:GetChecked() ~= nil);
+		ROB_EditingRotationTable.ActionList[ROB_CurrentActionName][field] = (self:GetChecked());
 	end
 end
 
