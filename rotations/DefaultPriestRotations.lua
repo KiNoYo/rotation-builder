@@ -253,4 +253,9 @@ local priestRotationsGenerator = function ()
 	return rotation;
 end
 
-RotationBuilder:addDefaultRotationsGenerator("PRIEST", priestRotationsGenerator);
+local priestRotationsGeneratorData = {
+	["version"] = 1, 
+	["generator"] = priestRotationsGenerator
+};
+
+RotationBuilder:addDefaultRotationsGenerator("PRIEST", priestRotationsGeneratorData);

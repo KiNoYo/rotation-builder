@@ -501,8 +501,13 @@ local rogueRotationsGenerator = function ()
 	}
 
 	-- Restore the true state of the saved data.
-	--	return RotationBuilder:restoreTable({}, rotation);
+	-- return RotationBuilder:restoreTable({}, rotation);
 	return rotation;
 end
 
-RotationBuilder:addDefaultRotationsGenerator("ROGUE", rogueRotationsGenerator);
+local rogueRotationsGeneratorData = {
+	["version"] = 1, 
+	["generator"] = rogueRotationsGenerator
+};
+
+RotationBuilder:addDefaultRotationsGenerator("ROGUE", rogueRotationsGeneratorData);

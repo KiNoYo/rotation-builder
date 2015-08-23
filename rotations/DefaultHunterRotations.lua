@@ -992,4 +992,9 @@ local hunterRotationsGenerator = function ()
 	return rotation;
 end
 
-RotationBuilder:addDefaultRotationsGenerator("HUNTER", hunterRotationsGenerator);
+local hunterRotationsGeneratorData = {
+	["version"] = 1, 
+	["generator"] = hunterRotationsGenerator
+};
+
+RotationBuilder:addDefaultRotationsGenerator("HUNTER", hunterRotationsGeneratorData);

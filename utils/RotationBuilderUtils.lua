@@ -248,11 +248,24 @@ end
 
 --- Get the localization for a key.
 -- @param #String key the key for which we seek a localization. Musn't be nil.
+-- @param #Array (optional) the array containing localization information. If not filled, used default add-on localization array.
 -- @return #String The value associated to the key, or the key if no value is found.
-function RotationBuilderUtils:localize(key)
+function RotationBuilderUtils:localize(key, locale)
 	assert(key, "The localization key musn't be nil");
-	local L = LibStub("AceLocale-3.0"):GetLocale("RotationBuilder");
+	local L = nil;
+	if(locale) then
+		L = locale;
+	else
+		L = LibStub("AceLocale-3.0"):GetLocale("RotationBuilder");
+	end
 	
 	-- AceLocale will return the key if the associated value isn't found.
-	return L[key];
+	local value = L[key];
+	
+	-- In case of a bad AceLocale configuration, verify nil value.
+	if(not value) then
+		value = key;
+	end
+	
+	return value;
 end

@@ -116,16 +116,16 @@ function RotationBuilder:addDefaultRotationsGenerator(className, method)
 end
 
 --- Load default rotations for a class.
--- @param #string className the name of the class for which we must load default rotations.
+-- @param #String className the name of the class for which we must load default rotations.
 function RotationBuilder:loadDefaultRotations(className)
 	if (not self.defaultRotationGenerator[className]) then
 		-- TODO PEL : Localized this error message.
-		print("No default rotation available for "..className);
+		print("No data available for "..className);
 		return
 	end
 
 	-- Load default rotations for this class.
-	local defaultRotation = self.defaultRotationGenerator[className]();
+	local defaultRotation = self.defaultRotationGenerator[className]["generator"]();
 	for key, value in pairs(defaultRotation) do
 		if(ROB_Rotations[key]) then
 			-- If a rotation with the same name already exist.

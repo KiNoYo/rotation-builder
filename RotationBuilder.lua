@@ -31,9 +31,6 @@ ROB_TOGGLE_2                        = 0
 ROB_TOGGLE_3                        = 0
 ROB_TOGGLE_4                        = 0
 
-local ROB_CLASS                     = nil
-local ROB_CLASS_NAME                = nil
-
 -- Initial Options
 local ROB_Options_Default           =
 {
@@ -370,29 +367,31 @@ end
 
 function ROB_LoadDefaultRotations()
 	-- Load default rotations for the class.
-	RotationBuilder:loadDefaultRotations(ROB_CLASS_NAME);
+	local localizedClassName, englishClassName, classIndex = UnitClass("player");
 	
-	if (ROB_CLASS_NAME == "DEATHKNIGHT") then
+	RotationBuilder:loadDefaultRotations(englishClassName);
+	
+	if (englishClassName == "DEATHKNIGHT") then
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_DEATHKNIGHT_BLOOD'), true)
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_DEATHKNIGHT_FROST_1_HAND'), true)
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_DEATHKNIGHT_FROST_2_HAND'), true)
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_DEATHKNIGHT_UNHOLY'), true)
 	end
-	if (ROB_CLASS_NAME == "MAGE") then
+	if (englishClassName == "MAGE") then
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_MAGE_ARCANE'), true)
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_MAGE_FIRE'), true)
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_MAGE_FROST'), true)
 	end
-	if (ROB_CLASS_NAME == "PALADIN") then
+	if (englishClassName == "PALADIN") then
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_PALADIN_PROTECTION'), true)
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_PALADIN_RETRIBUTION'), true)
 	end
-	if (ROB_CLASS_NAME == "WARLOCK") then
+	if (englishClassName == "WARLOCK") then
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_WARLOCK_AFFLICTION'), true)
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_WARLOCK_DEMONOLOGY'), true)
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_WARLOCK_DESTRUCTION'), true)
 	end
-	if (ROB_CLASS_NAME == "WARRIOR") then
+	if (englishClassName == "WARRIOR") then
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_WARRIOR_ARMS'), true)
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_WARRIOR_FURY'), true)
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_WARRIOR_PROTECTION'), true)
@@ -428,7 +427,7 @@ local function ROB_MenuCreate(self, _level)
 	for id = 1, #ROB_SortedRotations, 1 do
 		info = {}
 		info.id = id
-		-- Localize rotation's name for display purpose.
+		-- Manage rotation's name localization only for display.
 		info.text = RotationBuilderUtils:localize(ROB_SortedRotations[id])
 		info.icon = nil
 		info.arg1 = ROB_SortedRotations[id]
@@ -729,10 +728,7 @@ function ROB_ADDON_Load(addon)
 	local key, value;
 
 	if (addon ~= ROB_PROJECT_NAME) then return end
-
-	-- Initialize
-	ROB_CLASS, ROB_CLASS_NAME = UnitClass("player");
-
+	
 	for key, value in pairs(ROB_Options_Default) do
 		if (ROB_Options[key] == nil) then
 			ROB_Options[key] = value;
@@ -1074,7 +1070,7 @@ function ROB_SwitchRotation(RotationID,_byName)
 			ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_durationstartedtime = 0
 		end
 
-		print(RotationBuilderUtils:localize('msg/action/switch_rotation')..ROB_SelectedRotationName)
+		print(RotationBuilderUtils:localize('msg/action/switch_rotation')..RotationBuilderUtils:localize(ROB_SelectedRotationName))
 
 		ROB_CURRENT_ACTION = nil
 		ROB_NEXT_ACTION = nil
@@ -2376,8 +2372,8 @@ function ROB_RotationList_Update()
 			-- get the name button
 			rowName = _G["ROB_RotationListButton"..row.."Name"];
 
-			-- Manage localization for rotation's names.
 			-- set the list name
+			-- Manage rotation's names localization only for display.
 			rowName:SetText(RotationBuilderUtils:localize(ROB_SortedRotations[listIx]));
 
 			-- is this the current list?
@@ -2421,7 +2417,8 @@ function ROB_SpellLists_Update()
 			rowName = _G["ROB_SpellListsButton"..row.."Name"];
 
 			-- set the list name
-			rowName:SetText(ROB_SortedSpellLists[listIx]);
+			-- Manage spells list localization only for display.
+			rowName:SetText(RotationBuilderUtils:localize(ROB_SortedSpellLists[listIx]));
 
 			-- is this the current list?
 			if (listIx == ROB_SelectedSpellListIndex) then
@@ -2477,7 +2474,7 @@ function ROB_ActionList_Update()
 			savedActionName = selectedrotation.SortedActions[ActionID]
 
 			-- set the button name to stored table value
-			-- Manage action's name localization.
+			-- Manage action's name localization only for display.
 			rowAction:SetText(RotationBuilderUtils:localize(savedActionName));
 
 			if (selectedrotation.ActionList[savedActionName].b_disabled) then

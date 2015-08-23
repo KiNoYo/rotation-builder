@@ -376,4 +376,9 @@ local monkRotationsGenerator = function ()
 	return rotation;
 end
 
-RotationBuilder:addDefaultRotationsGenerator("MONK", monkRotationsGenerator);
+local monkRotationsGeneratorData = {
+	["version"] = 1, 
+	["generator"] = monkRotationsGenerator
+};
+
+RotationBuilder:addDefaultRotationsGenerator("MONK", monkRotationsGeneratorData);

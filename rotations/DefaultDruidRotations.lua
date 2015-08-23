@@ -773,4 +773,9 @@ local druidRotationsGenerator = function ()
 	return rotation;
 end
 
-RotationBuilder:addDefaultRotationsGenerator("DRUID", druidRotationsGenerator);
+local druidRotationsGeneratorData = {
+	["version"] = 1, 
+	["generator"] = druidRotationsGenerator
+};
+
+RotationBuilder:addDefaultRotationsGenerator("DRUID", druidRotationsGeneratorData);

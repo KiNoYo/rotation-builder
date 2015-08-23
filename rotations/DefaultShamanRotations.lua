@@ -492,4 +492,9 @@ local shamanRotationsGenerator = function ()
 	return rotation;
 end
 
-RotationBuilder:addDefaultRotationsGenerator("SHAMAN", shamanRotationsGenerator);
+local shamanRotationsGeneratorData = {
+	["version"] = 1, 
+	["generator"] = shamanRotationsGenerator
+};
+
+RotationBuilder:addDefaultRotationsGenerator("SHAMAN", shamanRotationsGeneratorData);

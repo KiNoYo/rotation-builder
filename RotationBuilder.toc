@@ -4,7 +4,7 @@
 ## Author: Previous : Soulwhip, Current : Pelerinage, Tylorcaptain
 ## Notes: Builds rotations for any class or spec
 ## SavedVariables: ROB_Lists
-## SavedVariablesPerCharacter: ROB_Options ROB_Rotations
+## SavedVariablesPerCharacter: ROB_Options ROB_Rotations ROB_Exports
 
 -- Library
 libs\LibStub\LibStub.lua
