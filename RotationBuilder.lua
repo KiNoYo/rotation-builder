@@ -1995,15 +1995,15 @@ function ROB_ActionKeyBindButton_OnClick(self, button)
 				if ignoreKeys[keyPressed] then return end
 				if IsAltKeyDown() then
 					--Blue pixel modifier is 1 for ALT
-					keyPressed = "ALT-"..keyPressed
+					keyPressed = "A+"..keyPressed
 				end
 				if IsShiftKeyDown() then
 					--Blue pixel modifier is 2 for SHIFT
-					keyPressed = "SHIFT-"..keyPressed
+					keyPressed = "S+"..keyPressed
 				end
 				if IsControlKeyDown() then
 					--Blue pixel modifier is 3 for CTRL
-					keyPressed = "CTRL-"..keyPressed
+					keyPressed = "C+"..keyPressed
 				end
 			end
 
@@ -2078,15 +2078,15 @@ function ROB_RotationKeyBindButton_OnKeyDown(self, key)
 				if ignoreKeys[keyPressed] then return end
 				if IsAltKeyDown() then
 					--Blue pixel modifier is 1 for ALT
-					keyPressed = "ALT-"..keyPressed
+					keyPressed = "A+"..keyPressed
 				end
 				if IsShiftKeyDown() then
 					--Blue pixel modifier is 2 for SHIFT
-					keyPressed = "SHIFT-"..keyPressed
+					keyPressed = "S+"..keyPressed
 				end
 				if IsControlKeyDown() then
 					--Blue pixel modifier is 3 for CTRL
-					keyPressed = "CTRL-"..keyPressed
+					keyPressed = "C+"..keyPressed
 				end
 			end
 
@@ -2174,15 +2174,15 @@ function ROB_AO_ActionKeyBindButton_OnKeyDown(self, key)
 			if ignoreKeys[keyPressed] then return end
 			if IsAltKeyDown() then
 				--Blue pixel modifier is 1 for ALT
-				keyPressed = "ALT-"..keyPressed
+				keyPressed = "A+"..keyPressed
 			end
 			if IsShiftKeyDown() then
 				--Blue pixel modifier is 2 for SHIFT
-				keyPressed = "SHIFT-"..keyPressed
+				keyPressed = "S+"..keyPressed
 			end
 			if IsControlKeyDown() then
+				keyPressed = "C+"..keyPressed
 				--Blue pixel modifier is 3 for CTRL
-				keyPressed = "CTRL-"..keyPressed
 			end
 		end
 
