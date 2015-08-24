@@ -27,73 +27,73 @@ L["ROB_OPTION_EXPORTBINDS"] = "Export des raccourcis"
 L["ROB_OPTION_EXPORTBINDS_TT"] = "Ajoute l'export des raccourcis clavier à la fonction \"Exporter\""
 L["ROB_OPTION_HIDECD"] = "Masquer les rechargements"
 L["ROB_OPTION_HIDECD_TT"] = "Masque le temps de rechargements des techniques et les animations"
-L["ROB_OPTION_ICONS"] = "Options de l'icon :"
-L["ROB_OPTION_ICONS_C_A"] = "Transparence de l'action actuelle :"
-L["ROB_OPTION_ICONSCALE"] = "Taille del'icon :"
--- L["ROB_OPTION_ICONS_CV"] = ""
--- L["ROB_OPTION_ICONS_MAX"] = ""
--- L["ROB_OPTION_ICONS_MIN"] = ""
-L["ROB_OPTION_ICONS_N_A"] = "Transparence de la prochaine action :"
-L["ROB_OPTION_ICONS_T_A"] = "Activer la transparence des icons :"
+L["ROB_OPTION_ICONS"] = "Options de l'icon :"
+L["ROB_OPTION_ICONS_C_A"] = "Transparence de l'action actuelle :"
+L["ROB_OPTION_ICONSCALE"] = "Taille del'icon :"
+L["ROB_OPTION_ICONS_CV"] = "1"
+L["ROB_OPTION_ICONS_MAX"] = "3.5"
+L["ROB_OPTION_ICONS_MIN"] = ".1"
+L["ROB_OPTION_ICONS_N_A"] = "Transparence de la prochaine action :"
+L["ROB_OPTION_ICONS_T_A"] = "Activer la transparence des icons :"
 L["ROB_OPTION_ICONS_T_ATT"] = [=[Entrez une valeur entre |cFF00FF00.1|r et |cFF00FF00 1|r
 pour régler le niveau de transparence de l'icone.
-— |cFF00FF00 1|r pour que celle-ci soit plainement visible.
-— |cFF00FF00 .1|r pour qu'elle soit pratiquement invisible.]=]
-L["ROB_OPTION_IMPORT"] = "Options d'Import/Export :"
+— |cFF00FF00 1|r pour que celle-ci soit plainement visible.
+— |cFF00FF00 .1|r pour qu'elle soit pratiquement invisible.]=]
+L["ROB_OPTION_IMPORT"] = "Options d'Import/Export :"
 L["ROB_OPTION_LOADDEFAULT"] = "Charger"
 L["ROB_OPTION_LOADDEFAULT_TT"] = "Charge les rotations pas défaut de votre classe"
 L["ROB_OPTION_LOCKICONS"] = "Vérouiller les icons"
 L["ROB_OPTION_LOCKICONS_TT"] = "Vérouiller les icons pour éviter leur déplacement"
-L["ROB_OPTION_MINIMAP"] = "Bouton de la Minimap :"
-L["ROB_OPTION_MINIMAPO"] = "Options de la Minimap :"
+L["ROB_OPTION_MINIMAP"] = "Bouton de la Minimap :"
+L["ROB_OPTION_MINIMAPO"] = "Options de la Minimap :"
 L["ROB_OPTION_MINIMAPPOS"] = "Position autour de la Minimap"
 L["ROB_OPTION_MINIMAPRAD"] = "Rayon hors de la Minimap"
 L["ROB_OPTION_MINIMAP_TT"] = "Activer le bouton de la Minimap"
--- L["ROB_OPTION_MMPOS_CV"] = ""
--- L["ROB_OPTION_MMPOS_MAX"] = ""
--- L["ROB_OPTION_MMPOS_MIN"] = ""
--- L["ROB_OPTION_MMRAD_CV"] = ""
--- L["ROB_OPTION_MMRAD_MAX"] = ""
--- L["ROB_OPTION_MMRAD_MIN"] = ""
-L["ROB_OPTION_NAIL"] = "Position de la prochaine action :"
+L["ROB_OPTION_MMPOS_CV"] = "300"
+L["ROB_OPTION_MMPOS_MAX"] = "360"
+L["ROB_OPTION_MMPOS_MIN"] = "1"
+L["ROB_OPTION_MMRAD_CV"] = "80"
+L["ROB_OPTION_MMRAD_MAX"] = "120"
+L["ROB_OPTION_MMRAD_MIN"] = "1"
+L["ROB_OPTION_NAIL"] = "Position de la prochaine action :"
 L["ROB_OPTION_OVERWRITE"] = "Écraser"
 L["ROB_OPTION_OVERWRITE_TT"] = "Autoriser l'écrasement de rotations existantes lors de l'import de rotations"
 L["ROB_OPTION_RESETUI"] = "Réinitialiser l'interface"
 L["ROB_OPTION_RESETUI_EXP"] = "Réinitialise la position des fenêtres de RotationBuilder au centre de l'écran"
 L["ROB_OPTION_RESETUI_TT"] = "Réinitialiser la position des fenêtres de l'interface"
-L["ROB_OPTION_UI"] = "Options d'interface :"
-L["ROB_OPTION_UISCALE"] = "Échelle de l'interface :"
--- L["ROB_OPTION_UISCALE_ADD"] = ""
--- L["ROB_OPTION_UISCALE_MIN"] = ""
-L["ROB_OPTION_UPDATERATE"] = "Rafraichissement pas secondes :"
--- L["ROB_OPTION_UPDATERATE_CV"] = ""
--- L["ROB_OPTION_UPDATERATE_MAX"] = ""
--- L["ROB_OPTION_UPDATERATE_MIN"] = ""
+L["ROB_OPTION_UI"] = "Options d'interface :"
+L["ROB_OPTION_UISCALE"] = "Échelle de l'interface :"
+L["ROB_OPTION_UISCALE_ADD"] = "+"
+L["ROB_OPTION_UISCALE_MIN"] = "-"
+L["ROB_OPTION_UPDATERATE"] = "Rafraichissement pas secondes :"
+L["ROB_OPTION_UPDATERATE_CV"] = "5"
+L["ROB_OPTION_UPDATERATE_MAX"] = "10"
+L["ROB_OPTION_UPDATERATE_MIN"] = "1"
 L["ROB_PALADIN_PROTECTION"] = "RotationBuilder,v1.48,[Protection 5.0.4],[Fureur vertueuse],v_p_needbuff=_25780,b_p_needbuff=true,v_spellname=25780,b_rangecheck=false,v_actionicon=25780,v_gcdspell=10326,[Sceau de vérité],b_p_notstance=true,v_spellname=31801,b_rangecheck=false,v_p_notstance=1|2,v_actionicon=31801,v_gcdspell=20165,[Bénédiction des rois],v_p_needbuff=20217|1126|117666|90363,b_p_needbuff=true,v_spellname=20217,b_rangecheck=false,v_actionicon=20217,v_gcdspell=10326,[Bénédiction de puissance],v_p_needbuff=_20217|19740|116956|93435|127830,b_p_needbuff=true,v_spellname=19740,v_p_havebuff=20217|1126|117666|90363,b_rangecheck=false,b_p_havebuff=true,v_actionicon=19740,v_gcdspell=10326,[Courroux vengeur],v_spellname=31884,b_rangecheck=false,v_actionicon=31884,v_gcdspell=0,[Mot de gloire (Dessein)],v_spellname=85673,v_p_hp=<=50%,v_p_havebuff=_90174,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Mot de gloire],b_p_hp=true,v_p_unitpowertype=9,b_p_unitpower=true,v_spellname=85673,v_p_unitpower=>=3,v_p_hp=<=50%,v_actionicon=85673,v_gcdspell=10326,[Bouclier du vertueux (Dessein)],v_spellname=53600,v_p_havebuff=_90174,b_p_havebuff=true,v_actionicon=53600,v_gcdspell=10326,[Bouclier du vertueux],v_p_unitpowertype=9,b_p_unitpower=true,v_spellname=53600,v_p_unitpower=>=3,v_actionicon=53600,v_gcdspell=10326,[Bouclier du vengeur (Grand croisé)],v_spellname=31935,v_p_havebuff=_85416,b_p_havebuff=true,v_actionicon=31935,v_gcdspell=10326,[Condamnation à mort],v_spellname=114157,v_actionicon=114157,v_gcdspell=10326,[Marteau de lumière],v_spellname=114158,b_rangecheck=false,v_actionicon=114158,v_gcdspell=10326,[Prisme sacré],v_spellname=114165,v_actionicon=114165,v_gcdspell=10326,[Marteau de courroux],v_spellname=24275,v_actionicon=24275,v_gcdspell=10326,[Boulier saint],v_p_needbuff=_20925,b_p_needbuff=true,v_spellname=20925,b_rangecheck=false,v_actionicon=20925,v_gcdspell=10326,[Marteau du vertueux],v_t_needsdebuff=115798|109466|116198|50256|24423,v_spellname=53595,b_t_needsdebuff=true,v_actionicon=53595,v_gcdspell=10326,[Frappe du croisé],v_spellname=35395,v_actionicon=35395,v_gcdspell=10326,[Jugement],v_spellname=20271,v_actionicon=20271,v_gcdspell=10326,[Bouclier du vengeur],v_spellname=31935,v_actionicon=31935,v_gcdspell=10326,[Consécration],v_spellname=26573,b_t_dr=true,b_rangecheck=false,v_actionicon=26573,v_gcdspell=10326,[Colère divine],v_spellname=119072,b_t_dr=true,b_rangecheck=false,v_actionicon=119072,v_gcdspell=10326"
 L["ROB_PALADIN_RETRIBUTION"] = "RotationBuilder,v1.48,[Vindicte 5.0.4],[Sceau de vérité],b_p_notstance=true,v_spellname=31801,b_rangecheck=false,v_p_notstance=1|2,v_actionicon=31801,v_gcdspell=20165,[Bénédiction des rois],v_p_needbuff=20217|1126|117666|90363,b_p_needbuff=true,v_spellname=20217,b_rangecheck=false,v_actionicon=20217,v_gcdspell=10326,[Bénédiction de puissance],v_p_needbuff=_20217|19740|116956|93435|127830,b_p_needbuff=true,v_spellname=19740,v_p_havebuff=20217|1126|117666|90363,b_rangecheck=false,b_p_havebuff=true,v_actionicon=19740,v_gcdspell=10326,[Gardien des anciens rois (Héroisme)],v_spellname=86698,v_p_havebuff=32182|2825|90355|80353,b_p_havebuff=true,v_actionicon=86698,b_t_boss=true,v_gcdspell=0,[Gardien des anciens rois],v_checkothercdvalue=<1,b_checkothercd=true,v_spellname=86698,v_checkothercdname=31884,v_actionicon=86698,b_t_boss=true,v_gcdspell=0,[Courroux vengeur],v_spellname=31884,b_rangecheck=false,v_actionicon=31884,v_gcdspell=0,[Bouclier du templier],v_spellname=105809,b_rangecheck=false,v_actionicon=105809,v_gcdspell=0,[Marteau de lumière],v_spellname=114158,b_rangecheck=false,v_actionicon=114158,v_gcdspell=10326,[Condamnation à mort],v_spellname=114157,v_actionicon=114157,v_gcdspell=10326,[Inquisition (Dessein)],v_p_needbuff=_84963^2,b_p_needbuff=true,v_spellname=84963,v_p_havebuff=_90174,b_rangecheck=false,b_p_havebuff=true,v_actionicon=84963,v_gcdspell=10326,[Inquisition],v_p_needbuff=_84963^2,v_p_unitpowertype=9,b_p_unitpower=true,b_p_needbuff=true,v_spellname=84963,v_p_unitpower=>=3,b_rangecheck=false,v_actionicon=84963,v_gcdspell=10326,[Prisme sacré],v_spellname=114165,v_actionicon=114165,v_gcdspell=10326,[Mot de gloire (Bouclier + Gloire)],v_p_unitpowertype=9,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=85673,v_p_unitpower=>=3,v_p_isglyphed=54938&54936,v_p_havebuff=_84963^4&_105809,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Mot de gloire (Dessein + Gloire)],b_p_isglyphed=true,v_spellname=85673,v_p_isglyphed=54938&54936,v_p_havebuff=_84963^4&_90174,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Mot de gloire (Puissance X5 + Gloire)],v_p_unitpowertype=9,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=85673,v_p_unitpower==5,v_p_isglyphed=54938&54936,v_p_havebuff=_84963^4,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Verdict du templier (Bouclier)],v_p_unitpowertype=9,b_p_unitpower=true,v_spellname=85256,v_p_unitpower=>=3,v_p_havebuff=_84963^4&_105809,b_p_havebuff=true,v_actionicon=85256,v_gcdspell=10326,[Verdict du templier (Dessein)],v_spellname=85256,v_p_havebuff=_84963^4&_90174,b_p_havebuff=true,v_actionicon=85256,v_gcdspell=10326,[Verdict du templier (Puissance X5)],v_p_unitpowertype=9,b_p_unitpower=true,v_spellname=85256,v_p_unitpower==5,v_p_havebuff=_84963^4,b_p_havebuff=true,v_actionicon=85256,v_gcdspell=10326,[Mot de gloire (Bouclier)],v_p_unitpowertype=9,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=85673,v_p_unitpower=>=3,v_p_isglyphed=54938,v_p_havebuff=_84963^4&_105809,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Mot de gloire (Dessein)],b_p_isglyphed=true,v_spellname=85673,v_p_isglyphed=54938,v_p_havebuff=_84963^4&_90174,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Mot de gloire (Puissance X5)],v_p_unitpowertype=9,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=85673,v_p_unitpower==5,v_p_isglyphed=54938,v_p_havebuff=_84963^4,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Marteau de courroux],v_spellname=24275,v_actionicon=24275,v_gcdspell=10326,[Exorcisme],v_spellname=879,v_actionicon=879,v_gcdspell=10326,[Marteau du vertueux],v_t_needsdebuff=115798|109466|116198|50256|24423,v_spellname=53595,b_t_needsdebuff=true,v_actionicon=53595,v_gcdspell=10326,[Frappe du croisé],v_spellname=35395,v_actionicon=35395,v_gcdspell=10326,[Jugement],v_spellname=20271,v_actionicon=20271,v_gcdspell=10326,[Mot de gloire (Gloire)],v_p_unitpowertype=9,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=85673,v_p_unitpower=>=3,v_p_isglyphed=54938&54936,v_p_havebuff=_84963^7,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Verdict du templier],v_p_unitpowertype=9,b_p_unitpower=true,v_spellname=85256,v_p_unitpower=>=3,v_p_havebuff=_84963^7,b_p_havebuff=true,v_actionicon=85256,v_gcdspell=10326,[Mot de gloire],v_p_unitpowertype=9,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=85673,v_p_unitpower=>=3,v_p_isglyphed=54938,v_p_havebuff=_84963^7,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Boulier saint],v_p_needbuff=_20925,b_p_needbuff=true,v_spellname=20925,b_rangecheck=false,v_actionicon=20925,v_gcdspell=10326"
-L["ROB_PROMPT_LIST_DELETE"] = "Êtes vous sûr de vouloir la supprimer ?"
-L["ROB_PROMPT_SPELLLIST_DELETE"] = "Êtes vous sûr de vouloir la supprimer ?"
+L["ROB_PROMPT_LIST_DELETE"] = "Êtes vous sûr de vouloir la supprimer ?"
+L["ROB_PROMPT_SPELLLIST_DELETE"] = "Êtes vous sûr de vouloir la supprimer ?"
 L["ROB_UI_A_ADD"] = "Ajouter"
 L["ROB_UI_A_ADD_TT"] = "Ajouter une nouvelle action dans la rotation"
 L["ROB_UI_A_COPY"] = "Copier"
 L["ROB_UI_A_COPY_TT"] = "Copier l'action sélectionnée dans le presse-papier"
 L["ROB_UI_ACTION_COLUMN"] = "Actions"
-L["ROB_UI_ADD_ACTION_CFAIL"] = "Les noms d'action ne peuvent utiliser les caractères suivant : [],="
-L["ROB_UI_ADD_ROTATION_CFAIL"] = "Les noms de rotation ne peuvent utiliser les caractères suivant : [],"
+L["ROB_UI_ADD_ACTION_CFAIL"] = "Les noms d'action ne peuvent utiliser les caractères suivant : [],="
+L["ROB_UI_ADD_ROTATION_CFAIL"] = "Les noms de rotation ne peuvent utiliser les caractères suivant : [],"
 L["ROB_UI_AO_C_CLASS"] = "Classe de l'unité :"
 L["ROB_UI_AO_C_CLASSIB_TT"] = [=[Insérez la liste des classes de l'unité séparé par le caractère |
-Exemple : |cFF00FF00DRUIDE||GUERRIER|r signifie que nous n'affichons cette action que si l'unité est un druide ou un guerrier]=]
+Exemple : |cFF00FF00DRUIDE||GUERRIER|r signifie que nous n'affichons cette action que si l'unité est un druide ou un guerrier]=]
 L["ROB_UI_AO_C_CLASS_TT"] = "N'afficher l'action qu'uniquement si l'unité est de la classe spécifié"
 L["ROB_UI_AO_C_DR"] = "A portée de duel"
 L["ROB_UI_AO_C_DR_TT"] = "Afficher l'action seulement si l'unité personnalisée est à moins de 10m métres"
-L["ROB_UI_AO_C_HAVEBUFF"] = "Possède Buff :"
+L["ROB_UI_AO_C_HAVEBUFF"] = "Possède Buff :"
 L["ROB_UI_AO_C_HAVEBUFFIB_TT"] = [=[Insérez le nom ou l'ID du ou des buffs
-Syntaxe : |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = lancé par le joueur |cFF00FF00#|r = nombre de stacks |cFF00FF00^|r = rafraichir à la seconde
-Exemple 1 : |cFF00FF00Bouclier de terre#2|r display action when unit has 2 stacks of Earth Shield
-Exemple 2 : |cFF00FF00_\59\57\54#2|r afficher l'action lorsque l'unité à le buff Bouclier de terre avec 2 stacks
-Exemple 3 : |cFF00FF00_Bouclier de terre#2^3|r afficher l'action lorsque l'unité à le buff Bouclier de terre avec 2 stacks et >=3 seconds restantes
-Exemple 4 : |cFF00FF00Bouclier de terre||Feu intérieur|r afficher l'action lorsque l'unité est affecté par le buff Bouclier de terre OU Feu intérieur
-Exemple 5 : |cFF00FF00\59\57\54&\55\58\58|r afficher l'action lorsque l'unité est affecté par les buffs Bouclier de terre ET Feu intérieur]=]
+Syntaxe : |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = lancé par le joueur |cFF00FF00#|r = nombre de stacks |cFF00FF00^|r = rafraichir à la seconde
+Exemple 1 : |cFF00FF00Bouclier de terre#2|r display action when unit has 2 stacks of Earth Shield
+Exemple 2 : |cFF00FF00_\59\57\54#2|r afficher l'action lorsque l'unité à le buff Bouclier de terre avec 2 stacks
+Exemple 3 : |cFF00FF00_Bouclier de terre#2^3|r afficher l'action lorsque l'unité à le buff Bouclier de terre avec 2 stacks et >=3 seconds restantes
+Exemple 4 : |cFF00FF00Bouclier de terre||Feu intérieur|r afficher l'action lorsque l'unité est affecté par le buff Bouclier de terre OU Feu intérieur
+Exemple 5 : |cFF00FF00\59\57\54&\55\58\58|r afficher l'action lorsque l'unité est affecté par les buffs Bouclier de terre ET Feu intérieur]=]
 L["ROB_UI_AO_C_HAVEBUFF_TT"] = "N'afficher l'action que lorsque l'unité dispose du ou des buffs spécifiés"
 L["ROB_UI_AO_C_HAVEDB"] = "Possède débuff :"
 L["ROB_UI_AO_C_HAVEDBIB_TT"] = [=[Insérez le nom ou le SpellID du ou des débuffs
@@ -105,25 +105,25 @@ Example4: |cFF00FF00Peste noire|Longanimité|r afficher l'action lorsque l'unit�
 Example5: |cFF00FF00Peste noire&Longanimité|r afficher l'action lorsque l'unité est affecté par les débuffs Peste noire Et Longanimité]=]
 L["ROB_UI_AO_C_HAVEDB_TT"] = "N'afficher l'action que lorsque l'unité est affecté par le ou les débuffs spécifiés"
 L["ROB_UI_AO_C_HPIB_TT"] = [=[Entrez le nombre de points de vie à vérifier sur l'unité
- Exemple 1 : |cFF00FF00<90%|r signifie que nous n'affichons l'action que si l'unité dispose de moins de 90% de ses points de vie
+ Exemple 1 : |cFF00FF00<90%|r signifie que nous n'affichons l'action que si l'unité dispose de moins de 90% de ses points de vie
  Example2: |cFF00FF00>90%|r signifie que nous n'affichons l'action que si l'unité dispose de plus de 90% de ses points de vie
  Example3: |cFF00FF00<=90%|r signifie que nous n'affichons l'action que si l'unité dispose de moins ou d'exactement de 90% de ses points de vie
  Example4: |cFF00FF00>=90%|r signifie que nous n'affichons l'action que si l'unité dispose de plus ou d'exactement de 90% de ses points de vie
  Example5: |cFF00FF00=90%|r signifie que nous n'affichons l'action que si l'unité dispose d'exactement de 90% de ses points de vie]=]
 L["ROB_UI_AO_C_HP_TT"] = "N'afficher l'option qu'uniquement lorsque l'unité dispose des points de vie spécifiés."
-L["ROB_UI_AO_C_INTERRUPT"] = "Interruption :"
+L["ROB_UI_AO_C_INTERRUPT"] = "Interruption :"
 L["ROB_UI_AO_C_INTERRUPT_TT"] = "Utilisez cette action pour interrompre d'unité lorsque celui-ci lance un sortilège présent dans la liste spécifiée"
-L["ROB_UI_AO_C_MAXHP"] = "Max PV :"
+L["ROB_UI_AO_C_MAXHP"] = "Max PV :"
 L["ROB_UI_AO_C_MAXHPIB_TT"] = [=[Entrez le nombre maximum de points de vies à vérifier
-Exemple : |cFF00FF00>1000000|r signifie que l'action ne sera afficher que lorsque l'unité dispose de plus d'1 million de points de vie maximum]=]
--- L["ROB_UI_AO_C_MAXHP_TT"] = ""
+Exemple : |cFF00FF00>1000000|r signifie que l'action ne sera afficher que lorsque l'unité dispose de plus d'1 million de points de vie maximum]=]
+L["ROB_UI_AO_C_MAXHP_TT"] = "N'affiche l'action que quand l'unité atteint les points de vie maximum spécifié"
 -- L["ROB_UI_AO_C_NEEDBUFF"] = ""
 -- L["ROB_UI_AO_C_NEEDBUFFIB_TT"] = ""
 -- L["ROB_UI_AO_C_NEEDBUFF_TT"] = ""
 -- L["ROB_UI_AO_C_NEEDDB"] = ""
 -- L["ROB_UI_AO_C_NEEDDBIB_TT"] = ""
 -- L["ROB_UI_AO_C_NEEDDB_TT"] = ""
--- L["ROB_UI_AO_C_UNITNAME_L"] = ""
+L["ROB_UI_AO_C_UNITNAME_L"] = "Nom de l'unité"
 -- L["ROB_UI_AO_C_UNITNAME_TT"] = ""
 L["ROB_UI_AO_CUSTOM_TAB"] = "Unité personnalisé"
 -- L["ROB_UI_AO_F_CLASS"] = ""
@@ -154,6 +154,9 @@ L["ROB_UI_AO_CUSTOM_TAB"] = "Unité personnalisé"
 -- L["ROB_UI_AO_G_BLOODR"] = ""
 -- L["ROB_UI_AO_G_BLOODRIB_TT"] = ""
 -- L["ROB_UI_AO_G_BLOODR_TT"] = ""
+-- L["ROB_UI_AO_G_CHARGES"] = ""
+-- L["ROB_UI_AO_G_CHARGESIB_TT"] = ""
+-- L["ROB_UI_AO_G_CHARGES_TT"] = ""
 -- L["ROB_UI_AO_G_COMBOP"] = ""
 -- L["ROB_UI_AO_G_COMBOPIB_TT"] = ""
 -- L["ROB_UI_AO_G_COMBOP_TT"] = ""
@@ -167,7 +170,7 @@ L["ROB_UI_AO_CUSTOM_TAB"] = "Unité personnalisé"
 -- L["ROB_UI_AO_G_DURATION"] = ""
 -- L["ROB_UI_AO_G_DURATIONIB_TT"] = ""
 -- L["ROB_UI_AO_G_DURATION_TT"] = ""
-L["ROB_UI_AO_GENERAL_LABEL"] = "Options General :"
+L["ROB_UI_AO_GENERAL_LABEL"] = "Options General :"
 L["ROB_UI_AO_GENERAL_TAB"] = "General"
 -- L["ROB_UI_AO_G_FROSTR"] = ""
 -- L["ROB_UI_AO_G_FROSTRIB_TT"] = ""
@@ -206,13 +209,13 @@ L["ROB_UI_AO_GENERAL_TAB"] = "General"
 -- L["ROB_UI_AO_G_RANGE_TT"] = ""
 -- L["ROB_UI_AO_G_SID_VFAIL"] = ""
 L["ROB_UI_AO_G_SPELLNAME_L"] = [=[Nom de sort 
-ou emplacement d'inventaire :]=]
+ou emplacement d'inventaire :]=]
 L["ROB_UI_AO_G_SPELLNAME_TT"] = [=[Entrez le nom d'un sort ou d'un emplacement d'inventaire
-Exemple 1 : |cFF00FF00Trinket0Slot|r pour le premier emplacement de bijou
-Exemple 2 : |cFF00FF00Trinket1Slot|r pour le second emplacement de bijou
-Exemple 3 : |cFF00FF00HandsSlot|r
-Exemple 4 : |cFF00FF00Grondement|r
-Exemple 5 : |cFF00FF0089;7|r id pour Grondement]=]
+Exemple 1 : |cFF00FF00Trinket0Slot|r pour le premier emplacement de bijou
+Exemple 2 : |cFF00FF00Trinket1Slot|r pour le second emplacement de bijou
+Exemple 3 : |cFF00FF00HandsSlot|r
+Exemple 4 : |cFF00FF00Grondement|r
+Exemple 5 : |cFF00FF0089;7|r id pour Grondement]=]
 -- L["ROB_UI_AO_G_TICON_TT"] = ""
 -- L["ROB_UI_AO_G_TOGGLE"] = ""
 -- L["ROB_UI_AO_G_TOGGLEOFF_TT"] = ""
@@ -412,15 +415,15 @@ L["ROB_UI_EXPORT_TT"] = "Exporter la rotation"
 L["ROB_UI_IMPORT"] = "Importer"
 L["ROB_UI_IMPORT_ERROR1"] = "Échec de l'importation : aucun nom trouvé pour la rotation."
 L["ROB_UI_IMPORT_ERROR2"] = "Échec de l'importation : une rotation existe déjà avec le même nom."
-L["ROB_UI_IMPORT_ERROR3"] = "Échec de l'importation : la chaîne de caractères collée ne correspond pas au format d'export de « Rotation Builder »."
-L["ROB_UI_IMPORT_MESSAGE"] = "Pressez CTRL+V pour coller ici la chaîne de caractères représentant une rotation copier à partir d'une autre source :"
+L["ROB_UI_IMPORT_ERROR3"] = "Échec de l'importation : la chaîne de caractères collée ne correspond pas au format d'export de « Rotation Builder »."
+L["ROB_UI_IMPORT_MESSAGE"] = "Pressez CTRL+V pour coller ici la chaîne de caractères représentant une rotation copier à partir d'une autre source :"
 L["ROB_UI_IMPORT_SUCCESS"] = "Importation réussie"
 L["ROB_UI_IMPORT_TT"] = "Importer une rotation"
-L["ROB_UI_INTERRUPTED_MSG"] = "Interrompu :"
+L["ROB_UI_INTERRUPTED_MSG"] = "Interrompu :"
 L["ROB_UI_KEYBIND"] = "<keybind>"
 L["ROB_UI_LDB_TT1"] = "<Clic Droit> pour ouvrir Rotation Builder"
 L["ROB_UI_LDB_TT2"] = "<Clic Gauche> pour sélectionner une Rotation"
-L["ROB_UI_LN_LABEL"] = "Nom de la liste :"
+L["ROB_UI_LN_LABEL"] = "Nom de la liste :"
 L["ROB_UI_MODIFY"] = "Modifier"
 L["ROB_UI_MODIFY_TT"] = "Modifier rotation sélectionnée"
 L["ROB_UI_OK_BUTTON"] = "Ok"
@@ -434,8 +437,8 @@ L["ROB_UI_RN_LABEL"] = "Nom de la Rotation:"
 L["ROB_UI_ROTATION_E1"] = "Aucune rotation n'est spécifié pour ce raccourcie"
 L["ROB_UI_ROTATION_E2"] = "La Rotation n'a pas été trouvé"
 L["ROB_UI_ROTATION_TAB"] = "Rotations"
-L["ROB_UI_RS_LABEL"] = "Porté du sort :"
-L["ROB_UI_RS_LABEL_TT"] = [=[Entrer le nom du sort à utiliser pour vérifier si vous êtes à porté de votre cible et montrer sinon l'icône « Hors de porté ».
+L["ROB_UI_RS_LABEL"] = "Porté du sort :"
+L["ROB_UI_RS_LABEL_TT"] = [=[Entrer le nom du sort à utiliser pour vérifier si vous êtes à porté de votre cible et montrer sinon l'icône « Hors de porté ».
 (Cela n'a pas d'effet sur la rotation, cela affiche simplement l'icône en question)]=]
 L["ROB_UI_S_ADD_TT"] = "Ajoutez un nouveau sort à cette liste"
 L["ROB_UI_SAVE"] = "Sauvegarder"
@@ -445,7 +448,7 @@ L["ROB_UI_SPELLLISTS_TAB"] = "Lites de sorts"
 L["ROB_UI_S_REMOVE_TT"] = "Retirez ce sort de la liste"
 L["ROB_UI_TITLE"] = "Rotation Builder"
 L["ROB_UI_TOGGLE"] = "Activer Rotation Builder"
-L["ROB_UI_VERSION_LABEL"] = "Version :"
+L["ROB_UI_VERSION_LABEL"] = "Version :"
 L["ROB_WARLOCK_AFFLICTION"] = "RotationBuilder,v1.48,[Affliction 5.0.4],[Affliction instable],b_t_hasdebuff=true,b_t_hp=true,v_t_hasdebuff=_980^15&_172^12,v_t_needsdebuff=_30108^3,v_spellname=30108,b_t_needsdebuff=true,v_t_hp=>20%,v_actionicon=30108,v_gcdspell=126,[Corruption],b_t_hasdebuff=true,b_t_hp=true,v_t_hasdebuff=_980^15,v_t_needsdebuff=_172&_30108^3,v_spellname=172,b_t_needsdebuff=true,v_t_hp=>20%,v_actionicon=172,v_gcdspell=126,[Echange d'âme],v_t_needsdebuff=_30108^3,v_spellname=86121,b_t_needsdebuff=true,v_p_havebuff=_74434,b_p_havebuff=true,v_actionicon=86121,v_gcdspell=1490,[Brûlure d'âme],b_t_hp=true,v_t_needsdebuff=_30108^3,v_spellname=74434,b_t_needsdebuff=true,v_t_hp=<=20%,b_rangecheck=false,v_actionicon=74434,v_gcdspell=0,[Drain d'âme (Âmes + Glyphe)],v_lastcasted=1120,b_lastcasted=true,v_p_unitpowertype=7,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=1120,v_p_unitpower=<4,v_p_isglyphed=63302,v_actionicon=1120,v_gcdspell=126,[Drain d'âme (Âmes)],v_lastcasted=1120,b_lastcasted=true,v_p_unitpowertype=7,b_p_unitpower=true,v_spellname=1120,v_p_unitpower=<3,v_actionicon=1120,v_gcdspell=126,[Drain d'âme],v_p_unitpowertype=7,v_t_needsdebuff=_48181,b_p_unitpower=true,v_spellname=1120,b_t_needsdebuff=true,v_p_unitpower=<1,v_actionicon=1120,v_gcdspell=126,[Sombre intention],v_p_needbuff=61316|1459|77747|109773|126309,b_p_needbuff=true,v_spellname=109773,b_rangecheck=false,v_actionicon=109773,v_gcdspell=126,[Invoquer un démon],v_p_needbuff=_108503,b_pet_hp=true,b_p_needbuff=true,v_spellname=688,b_rangecheck=false,v_actionicon=475,v_pet_hp==0,v_gcdspell=126,[Grimoire de sacrifice],v_p_needbuff=_108503,b_p_needbuff=true,v_spellname=108503,b_rangecheck=false,v_actionicon=108503,v_gcdspell=126,[Malédiction des éléments],v_t_needsdebuff=34889|24844|1490|93068|116202,v_spellname=1490,b_t_needsdebuff=true,v_actionicon=1490,v_gcdspell=1490,[Malédiction de faiblesse],b_t_hasdebuff=true,v_t_hasdebuff=34889|24844|1490|93068|116202,v_t_needsdebuff=_1490|116202|109466|116198,v_spellname=109466,b_t_needsdebuff=true,v_actionicon=109466,v_gcdspell=1490,[Invocation : garde funeste],v_spellname=18540,v_actionicon=18540,b_t_boss=true,v_gcdspell=126,[Grimoire de servitude],v_spellname=111859,v_p_havebuff=_113860,b_rangecheck=false,b_p_havebuff=true,v_actionicon=108501,v_gcdspell=126,[Ame sombre : misère],b_t_hasdebuff=true,v_t_hasdebuff=_172&_980&_30108&_48181,v_spellname=113860,b_rangecheck=false,v_actionicon=113860,v_gcdspell=126,[Drain d'âme (HP <20% + Debuffs)],b_t_hasdebuff=true,b_t_hp=true,v_t_hasdebuff=_172&_980&_30108&_48181,v_spellname=1120,v_t_hp=<=20%,v_actionicon=1120,v_gcdspell=126,[Etreinte maléfique (Debuffs)],b_t_hasdebuff=true,v_t_hasdebuff=_172&_980&_30108&_48181,v_spellname=103103,v_rangespell=172,v_actionicon=103103,v_gcdspell=126,[Drain de vie],b_p_hp=true,v_spellname=689,v_p_hp=<75%,v_actionicon=689,v_gcdspell=126,[Connexion],b_p_hp=true,v_p_unitpowertype=0,b_p_unitpower=true,v_spellname=1454,v_p_unitpower=<75%,v_p_hp=>50%,b_rangecheck=false,v_actionicon=1454,v_gcdspell=126,[Garde du crépuscule],v_spellname=6229,b_rangecheck=false,v_actionicon=6229,v_gcdspell=126,[Captation de vie],v_p_needbuff=_108503,b_pet_hp=true,b_p_needbuff=true,v_spellname=755,v_actionicon=755,v_pet_hp=<50%,v_gcdspell=126,[Agonie],b_t_hp=true,v_t_needsdebuff=_980&_30108^3,v_spellname=980,b_t_needsdebuff=true,v_t_hp=>20%,v_actionicon=980,v_gcdspell=126,[Hanter],b_t_hasdebuff=true,b_maxcasts=true,v_t_hasdebuff=_172&_980&_30108^5,v_t_needsdebuff=_48181,v_spellname=48181,b_t_needsdebuff=true,v_maxcasts=1,v_actionicon=48181,v_gcdspell=126,[Drain d'âme (HP < 20%)],b_t_hp=true,v_spellname=1120,v_t_hp=<=20%,v_actionicon=1120,v_gcdspell=126,[Etreinte maléfique],v_spellname=103103,v_rangespell=172,v_actionicon=103103,v_gcdspell=126,[Gangreflamme],v_spellname=77799,v_actionicon=77799,v_gcdspell=126"
 L["ROB_WARLOCK_DEMONOLOGY"] = "RotationBuilder,v1.48,[Démonologie 5.0.4],[Sombre intention],v_p_needbuff=61316|1459|77747|109773|126309,b_p_needbuff=true,v_spellname=109773,b_rangecheck=false,v_actionicon=109773,v_gcdspell=126,[Invoquer un démon],v_p_needbuff=_108503,b_p_needbuff=true,v_spellname=688,b_pet_hp=true,b_rangecheck=false,v_actionicon=475,v_pet_hp==0,v_gcdspell=126,[Grimoire de sacrifice],v_p_needbuff=_108503,b_p_needbuff=true,v_spellname=108503,b_rangecheck=false,v_actionicon=108503,v_gcdspell=126,[Aura des éléments],v_p_needbuff=116202,b_p_needbuff=true,v_spellname=1490,v_p_havebuff=_103958,b_rangecheck=false,b_p_havebuff=true,v_actionicon=116202,v_gcdspell=1490,[Malédiction des éléments],v_p_needbuff=_103958,v_t_needsdebuff=34889|24844|1490|93068|116202,b_p_needbuff=true,v_spellname=1490,b_t_needsdebuff=true,v_actionicon=1490,v_gcdspell=1490,[Aura de faiblesse],b_t_hasdebuff=true,v_p_needbuff=116198|116202,v_t_hasdebuff=34889|24844|1490|93068|116202,v_t_needsdebuff=_1490|116202|109466|116198,b_p_needbuff=true,v_spellname=109466,b_t_needsdebuff=true,v_p_havebuff=_103958,b_rangecheck=false,b_p_havebuff=true,v_actionicon=116198,v_gcdspell=1490,[Malédiction de faiblesse],b_t_hasdebuff=true,v_p_needbuff=_103958,v_t_hasdebuff=34889|24844|1490|93068|116202,v_t_needsdebuff=_1490|116202|109466|116198,b_p_needbuff=true,v_spellname=109466,b_t_needsdebuff=true,v_actionicon=109466,v_gcdspell=1490,[Invocation : garde funeste],v_spellname=18540,v_actionicon=18540,b_t_boss=true,v_gcdspell=126,[Métamorphe],v_p_unitpowertype=15,b_p_unitpower=true,v_spellname=103958,v_p_unitpower==1000,b_rangecheck=false,v_actionicon=103958,v_gcdspell=0,[Grimoire de servitude],v_spellname=111859,b_rangecheck=false,v_actionicon=108501,v_gcdspell=126,[Ame sombre : connaissance],v_p_notglyphed=56228,v_spellname=113861,v_p_knownotspell=108501,b_p_notglyphed=true,b_p_knownotspell=true,v_p_havebuff=_103958,b_rangecheck=false,b_p_havebuff=true,v_actionicon=113861,v_gcdspell=126,[Ame sombre : connaissance (Servitude)],v_checkothercdvalue=>100,b_checkothercd=true,v_p_notglyphed=56228,v_spellname=113861,v_checkothercdname=111859,b_p_notglyphed=true,v_p_knowspell=111859,b_rangecheck=false,b_p_knowspell=true,v_actionicon=113861,v_gcdspell=126,[Destin funeste],v_p_unitpowertype=15,v_t_needsdebuff=_603^2,b_p_unitpower=true,v_spellname=124913,b_t_needsdebuff=true,v_p_unitpower=>60,v_p_havebuff=_103958,b_rangecheck=false,b_p_havebuff=true,v_actionicon=124913,v_gcdspell=126,[Corruption],v_p_needbuff=_103958,v_t_needsdebuff=_172^2,b_p_needbuff=true,v_spellname=172,b_t_needsdebuff=true,v_actionicon=172,v_gcdspell=126,[Onde de chaos],v_checkothercdvalue=<1,b_maxcasts=true,v_p_unitpowertype=15,b_checkothercd=true,v_t_needsdebuff=_124915,b_p_unitpower=true,v_spellname=124917,b_t_needsdebuff=true,v_checkothercdname=124916,v_p_unitpower=>120,v_maxcasts=1,v_p_havebuff=_103958,b_rangecheck=false,b_p_havebuff=true,v_actionicon=124917,v_gcdspell=126,[Main de Gul'dan],b_maxcasts=true,v_p_needbuff=_103958,v_t_needsdebuff=_47960,b_p_needbuff=true,v_spellname=105174,b_t_needsdebuff=true,v_maxcasts=1,v_actionicon=105174,v_gcdspell=126,[Feu de l'âme (Métamorphe)],v_p_unitpowertype=15,b_p_unitpower=true,v_spellname=6353,v_p_unitpower=>80,v_p_havebuff=_122355&_103958,b_p_havebuff=true,v_actionicon=6353,v_gcdspell=126,[Feu de l'âme],v_p_needbuff=_103958,b_p_needbuff=true,v_spellname=6353,v_p_havebuff=_122355,b_p_havebuff=true,v_actionicon=6353,v_gcdspell=126,[Drain de vie],b_p_hp=true,v_spellname=689,v_p_hp=<75%,v_actionicon=689,v_gcdspell=126,[Captation de vie],v_p_needbuff=_108503,b_p_needbuff=true,v_spellname=755,b_pet_hp=true,v_actionicon=755,v_pet_hp=<50%,v_gcdspell=126,[Garde du crépuscule],v_spellname=6229,b_rangecheck=false,v_actionicon=6229,v_gcdspell=126,[Connexion],b_p_hp=true,v_p_unitpowertype=0,b_p_unitpower=true,v_spellname=1454,v_p_unitpower=<75%,v_p_hp=>50%,b_rangecheck=false,v_actionicon=1454,v_gcdspell=126,[Trait de l'ombre],v_spellname=686,v_actionicon=686,v_gcdspell=126,[Gangreflamme],v_spellname=77799,v_actionicon=77799,v_gcdspell=126"
 L["ROB_WARLOCK_DESTRUCTION"] = "RotationBuilder,v1.48,[Destruction 5.0.4],[Ame sombre : instabilité],v_p_unitpowertype=14,b_p_unitpower=true,v_spellname=113858,v_p_unitpower==3,b_rangecheck=false,v_actionicon=113858,v_gcdspell=126,[Grimoire de servitude],v_spellname=111859,v_p_havebuff=_113858,b_rangecheck=false,b_p_havebuff=true,v_actionicon=108501,v_gcdspell=126,[Brûlure de l'ombre (Glyphe)],v_p_unitpowertype=14,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=17877,v_p_unitpower==4,v_p_isglyphed=63304,v_actionicon=17877,v_gcdspell=126,[Brûlure de l'ombre],v_p_unitpowertype=14,v_p_notglyphed=63304,b_p_unitpower=true,v_spellname=17877,v_p_unitpower==3,b_p_notglyphed=true,v_actionicon=17877,v_gcdspell=126,[Brûlure de l'ombre (Braises)],v_lastcasted=17877,b_lastcasted=true,v_p_unitpowertype=14,b_p_unitpower=true,v_spellname=17877,v_p_unitpower=>=1,v_actionicon=17877,v_gcdspell=126,[Trait du chaos (Glyphe)],b_t_hp=true,v_p_unitpowertype=14,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=116858,v_p_unitpower==4,v_t_hp=>25%,v_p_isglyphed=63304,v_actionicon=116858,v_gcdspell=126,[Trait du chaos],b_t_hp=true,v_p_unitpowertype=14,v_p_notglyphed=63304,b_p_unitpower=true,v_spellname=116858,v_p_unitpower==3,v_t_hp=>25%,b_p_notglyphed=true,v_actionicon=116858,v_gcdspell=126,[Trait du chaos (Braises)],v_lastcasted=116858,b_t_hp=true,b_lastcasted=true,v_p_unitpowertype=14,b_p_unitpower=true,v_spellname=116858,v_p_unitpower=>=1,v_t_hp=>25%,v_actionicon=116858,v_gcdspell=126,[Sombre intention],v_p_needbuff=61316|1459|77747|109773|126309,b_p_needbuff=true,v_spellname=109773,b_rangecheck=false,v_actionicon=109773,v_gcdspell=126,[Invoquer un démon],v_p_needbuff=_108503,b_pet_hp=true,b_p_needbuff=true,v_spellname=688,b_rangecheck=false,v_actionicon=475,v_pet_hp==0,v_gcdspell=126,[Grimoire de sacrifice],v_p_needbuff=_108503,b_p_needbuff=true,v_spellname=108503,b_rangecheck=false,v_actionicon=108503,v_gcdspell=126,[Malédiction des éléments],v_t_needsdebuff=34889|24844|1490|93068|116202,v_spellname=1490,b_t_needsdebuff=true,v_actionicon=1490,v_gcdspell=1490,[Malédiction de faiblesse],b_t_hasdebuff=true,v_t_hasdebuff=34889|24844|1490|93068|116202,v_t_needsdebuff=_1490|116202|109466|116198,v_spellname=109466,b_t_needsdebuff=true,v_actionicon=109466,v_gcdspell=1490,[Invocation : garde funeste],v_spellname=18540,v_actionicon=18540,b_t_boss=true,v_gcdspell=126,[Immolation],v_t_needsdebuff=_348^2,v_spellname=348,b_t_needsdebuff=true,v_rangespell=17962,v_actionicon=348,v_gcdspell=126,[Drain de vie],b_p_hp=true,v_spellname=689,v_p_hp=<75%,v_actionicon=689,v_gcdspell=126,[Captation de vie],v_p_needbuff=_108503,b_pet_hp=true,b_p_needbuff=true,v_spellname=755,v_actionicon=755,v_pet_hp=<50%,v_gcdspell=126,[Garde du crépuscule],v_spellname=6229,b_rangecheck=false,v_actionicon=6229,v_gcdspell=126,[Incinérer (Explosion/Contrecoup)],v_spellname=29722,v_rangespell=17962,v_p_havebuff=117828|34936,b_p_havebuff=true,v_actionicon=29722,v_gcdspell=126,[Conflagration],v_p_needbuff=_117828,b_p_needbuff=true,v_spellname=17962,v_actionicon=17962,v_gcdspell=0,[Incinérer],v_spellname=29722,v_rangespell=17962,v_actionicon=29722,v_gcdspell=126,[Gangreflamme],v_spellname=77799,v_actionicon=77799,v_gcdspell=126"
@@ -607,26 +610,37 @@ L["defaultRotation/rogue/vendetta"] = "Vendetta"
 L["defaultRotation/shaman/ancestral_swiftness"] = "Rapidité ancestrale"
 L["defaultRotation/shaman/ascendance"] = "Ascendance"
 L["defaultRotation/shaman/earth_shock"] = "Horion de terre"
-L["defaultRotation/shaman/elemental"] = "Elémentaire 5.1.0"
+L["defaultRotation/shaman/elemental"] = "Elémentaire 6.2.0"
 L["defaultRotation/shaman/elemental_blast"] = "Explosion élémentaire"
+L["defaultRotation/shaman/elemental_blast_maelstrom_4+"] = "Explosion élémentaire (Maelstöm 4+)"
 L["defaultRotation/shaman/elemental_mastery"] = "Maîtrise élémentaire"
-L["defaultRotation/shaman/enhancement"] = "Amélioration 5.1.0"
+L["defaultRotation/shaman/enhancement"] = "Amélioration 6.2.0"
 L["defaultRotation/shaman/feral_spirit"] = "Esprit farouche"
-L["defaultRotation/shaman/fire_elemental_totem"] = "Totem d'élémentaire de feu"
 L["defaultRotation/shaman/flame_shock"] = "Horion de flammes"
+L["defaultRotation/shaman/flame_shock_elemental_fusion"] = "Horion de flammes (Fusion élémentaire)"
+L["defaultRotation/shaman/frost_shock"] = "Horion de givre"
+L["defaultRotation/shaman/frost_shock_elemental_fusion"] = "Horion de givre (Fusion élémentaire)"
 L["defaultRotation/shaman/lava_burst"] = "Explosion de lave"
+L["defaultRotation/shaman/lava_burst_flame_shock"] = "Explosion de lave (Horion de flammes)"
 L["defaultRotation/shaman/lava_lash"] = "Fouet de lave"
+L["defaultRotation/shaman/lava_lash_2_charges"] = "Fouet de lave (2 Charges)"
+L["defaultRotation/shaman/lava_lash_echo"] = "Fouet de lave (Echo des éléments)"
+L["defaultRotation/shaman/lava_lash_execute"] = "Fouet de lave (Exécution)"
 L["defaultRotation/shaman/lightning_bolt"] = "Eclair"
 L["defaultRotation/shaman/lightning_bolt_maelstrom_5"] = "Eclair (Maelström 5)"
 L["defaultRotation/shaman/lightning_shield"] = "Bouclier de foudre"
+L["defaultRotation/shaman/liquid_magma"] = "Magma liquide"
 L["defaultRotation/shaman/searing_totem"] = "Totem incendiaire"
 L["defaultRotation/shaman/searing_totem_refresh"] = "Totem incendiaire (Recharge)"
-L["defaultRotation/shaman/stormblast"] = "Explosion orageuse"
-L["defaultRotation/shaman/stormlash_totem"] = "Totem fouette-tempête"
 L["defaultRotation/shaman/stormstrike"] = "Frappe-tempête"
-L["defaultRotation/shaman/thunderstorm"] = "Orage"
+L["defaultRotation/shaman/stormstrike_2_charges"] = "Frappe-tempête (2 Charges)"
+L["defaultRotation/shaman/stormstrike_execute"] = "Frappe-tempête (Exécution)"
 L["defaultRotation/shaman/unleash_elements"] = "Déchaînement des éléments"
 L["defaultRotation/shaman/unleash_elements_unleashed_fury"] = "Déchaînement des éléments (Fureur libérée)"
+L["defaultRotation/shaman/windstrike"] = "Frappevent"
+L["defaultRotation/shaman/windstrike_2_charges"] = "Frappevent (2 Charges)"
+L["defaultRotation/shaman/windstrike_ascendance"] = "Frappevent (Ascendance)"
+L["defaultRotation/shaman/windstrike_execute"] = "Frappevent (Exécution)"
 L["ui/options/importExport/useOld/text"] = "Ancien import/export"
 L["ui/options/importExport/useOld/tooltip"] = "Utilisez l'ancien système d'import/export (Pour des raisons de compatibilité)"
 --@end-do-not-package@
