@@ -1733,7 +1733,7 @@ function ROB_AO_InputBox_OnTextChanged(self,field,validate)
 end
 
 function ROB_AO_ToggleOffCheckButton_OnToggle(self)
-	ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].b_toggleoff = (self:GetChecked() ~= nil);
+	ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].b_toggleoff = self:GetChecked();
 end
 
 function ROB_AO_ToggleIconInputBox_OnTextChanged(self)
@@ -2214,7 +2214,7 @@ end
 
 function ROB_Option_MiniMapButton_OnToggle(self)
 	-- retrieve value
-	ROB_Options.MiniMap = (ROB_OptionsTabMiniMapButton:GetChecked() ~= nil);
+	ROB_Options.MiniMap = ROB_OptionsTabMiniMapButton:GetChecked();
 
 	-- and show/hide the actual button
 	if (ROB_Options.MiniMap == true) then
@@ -2230,7 +2230,7 @@ function ROB_Option_MiniMapButton_OnToggle(self)
 end
 
 function ROB_OptionsTabLockIconsButton_OnToggle(self)
-	ROB_Options.LockIcons = (self:GetChecked() ~= nil);
+	ROB_Options.LockIcons = self:GetChecked();
 
 	if (ROB_Options.LockIcons) then
 		ROB_IconsFrame:SetMovable(false)
@@ -2242,15 +2242,15 @@ function ROB_OptionsTabLockIconsButton_OnToggle(self)
 end
 
 function ROB_OptionsTabAllowOverwriteButton_OnToggle(self)
-	ROB_Options.AllowOverwrite = (self:GetChecked() ~= nil);
+	ROB_Options.AllowOverwrite = self:GetChecked();
 end
 
 function ROB_OptionsTabExportBindsButton_OnToggle(self)
-	ROB_Options.ExportBinds = (self:GetChecked() ~= nil);
+	ROB_Options.ExportBinds = self:GetChecked();
 end
 
 function ROB_OptionsTabHideCooldownsButton_OnToggle(self)
-	ROB_Options.HideCD = (self:GetChecked() ~= nil);
+	ROB_Options.HideCD = self:GetChecked();
 end
 
 function ROB_Option_MiniMapButtonPos_OnValueChanged(self)
@@ -4258,9 +4258,11 @@ function ROB_GetActionTexture(_actionname)
 		return nil
 	end
 
-	if (_InvSlots[_ActionDB.v_spellname]) then
-		local _, _textureName = GetInventorySlotInfo(_ActionDB.v_spellname)
-		return _textureName
+	if (_ActionDB.b_notaspell) then
+		local _slotId, _texture, _checkRelic = GetInventorySlotInfo(_ActionDB.v_spellname);
+		local _itemId = GetInventoryItemID("player",_slotId);
+		local _name, _link, _quality, _iLevel, _reqLevel, _class, _subclass, _maxStack, _equipSlot, _texture, _vendorPrice = GetItemInfo(_itemId);
+		return _texture
 	elseif ((not GetTexturePath(_ActionDB.v_actionicon)) or (_ActionDB.v_actionicon == "")) then
 		return GetTexturePath(_ActionDB.v_spellname)
 	else
@@ -4642,7 +4644,9 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	
 	-- CHECK: Item stuff
 	if (_ActionDB.b_notaspell and _ActionDB.v_spellname) then
-		_name, _link, _quality, _iLevel, _reqLevel, _class, _subclass, _maxStack, _equipSlot, _texture, _vendorPrice = GetItemInfo(_ActionDB.v_spellname)
+		_slotId, _texture, _checkRelic = GetInventorySlotInfo(_ActionDB.v_spellname);
+		_itemId = GetInventoryItemID("player",_slotId);
+		_name, _link, _quality, _iLevel, _reqLevel, _class, _subclass, _maxStack, _equipSlot, _texture, _vendorPrice = GetItemInfo(_itemId);
 		if (_name == nil) then
 			-- If the name isn't foud, then we don't know the spell.
 			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._ActionDB.v_spellname.." because this itemname is not available or does not exist. Check spelling or try using the itemid from wowhead instead.",_getnextspell,_debugon)
@@ -4670,13 +4674,16 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	end
 	--Even if v_gcdspell is set to -1 make sure to set the cooldown for current action and next action determination
 	if (_ActionDB.b_notaspell) then
-		_start, _duration, _enable = GetItemCooldown(_ActionDB.v_spellname)
+		_slotId, _texture, _checkRelic = GetInventorySlotInfo(_ActionDB.v_spellname);
+		_itemId = GetInventoryItemID("player",_slotId);
+		_start, _duration, _enable = GetItemCooldown(_itemId)
 	else
 		_start, _duration = GetSpellCooldown(_ActionDB.v_spellname)
 	end
 	if (_start == nil) then
 		local _enabled = nil
-		_start, _duration, _enabled = GetInventoryItemCooldown("player", tonumber(_InvSlots[_ActionDB.v_spellname]))
+		_slotId, _texture, _checkRelic = GetInventorySlotInfo(_ActionDB.v_spellname);
+		_start, _duration, _enabled = GetInventoryItemCooldown("player",_slotId)
 		--print("_start="..tostring(_start).." _enabled="..tostring(_enabled))
 	end
 	if (_start == nil) then
@@ -4714,10 +4721,10 @@ function ROB_SpellReady(_actionname,_getnextspell)
 		--Need to fix this, whats happening is the next spell bypasses cooldown check but the timeleft on a debuff is short but the cooldown is long more than 5 seconds so we do actually need this check
 		--Should never need to check this because getNextSpell sorts be what spell is coming up next with the shortest cooldown or shortest time left on the dot
 		--we are trying to determine if we should show the next spell coming up but we dont want to show spells with cooldowns more than 5 seconds, who cares about those
-		--if (_cooldownLeft > 5) then
-		--	ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." has a cooldown longer than 5 seconds",_getnextspell,_debugon)
-		--	return false
-		--end
+			if (_cooldownLeft > 0.5) then
+				ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." has a cooldown longer than 5 seconds",_getnextspell,_debugon)
+				return false
+			end
 		else
 			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." is in cooldown",_getnextspell,_debugon)
 			return false
