@@ -4085,7 +4085,7 @@ function ROB_UnitKnowSpell(_spellneeded, _getnextspell)
 			_doneparsing    = true
 		end
 
-		if (_unparsedspell ~= nil) then
+		if (_unparsedspell ~= nil and _unparsedspell ~= "") then
 			if (IsSpellKnown(_unparsedspell)) then
 				_spellsfound = _spellsfound +1
 			end
