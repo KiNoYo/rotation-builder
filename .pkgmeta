@@ -2,18 +2,17 @@ enable-nolib-creation: no
 
 externals:
     libs/LibStub:
-        url: svn://svn.wowace.com/wow/ace3/mainline/tags/Release-r1061/LibStub
+        url: svn://svn.wowace.com/wow/ace3/mainline/tags/Release-r1134/LibStub
         tag: latest
     libs/AceLocale-3.0:
-        url: svn://svn.wowace.com/wow/ace3/mainline/tags/Release-r1061/AceLocale-3.0
+        url: svn://svn.wowace.com/wow/ace3/mainline/tags/Release-r1134/AceLocale-3.0
         tag: latest
     libs/AceSerializer-3.0:
-        url: svn://svn.wowace.com/wow/ace3/mainline/tags/Release-r1061/AceSerializer-3.0
+        url: svn://svn.wowace.com/wow/ace3/mainline/tags/Release-r1134/AceSerializer-3.0
         tag: latest
 
 ignore:
 	- .pkgmeta
 	- .docmeta
-	- RotationBuilder_dev.toc
 
 package-as: RotationBuilder
