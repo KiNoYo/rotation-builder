@@ -201,6 +201,11 @@ L["ROB_UI_AO_G_BLOODRIB_TT"] = [=[Input the number of blood runes generated
 Example: |cFF00FF001|r]=]
 L["ROB_UI_AO_G_BLOODR_TT"] = [=[Check this box if this action generates blood runes
 This is used for calculating the next ready action]=]
+L["ROB_UI_AO_G_CHARGES"] = "Spell Charges:"
+L["ROB_UI_AO_G_CHARGESIB_TT"] = [=[Input the number of charges
+Example: |cFF00FF001|r]=]
+L["ROB_UI_AO_G_CHARGES_TT"] = [=[Check this option if this action has charges
+This is used for calculating the next ready action]=]
 L["ROB_UI_AO_G_COMBOP"] = "Generates Combo Points:"
 L["ROB_UI_AO_G_COMBOPIB_TT"] = [=[Input the number of combo points generated
 Example: |cFF00FF002|r]=]

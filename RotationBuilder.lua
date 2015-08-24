@@ -98,6 +98,8 @@ ROB_NewActionDefaults = {
 	v_gunholyrunes="",
 	b_gdeathrunes=false,
 	v_gdeathrunes="",
+	b_charges=false,
+	v_charges="",
 
 	b_checkothercd=false,
 	v_checkothercdname="",
@@ -2848,6 +2850,9 @@ function ROB_Rotation_Edit_UpdateUI()
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_GDeathRunesCheckButton",_ActionDB.b_gdeathrunes,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_GDeathRunesInputBox",_ActionDB.v_gdeathrunes,"")
+			
+			ROB_Rotation_GUI_SetChecked("ROB_AO_GChargesCheckButton",_ActionDB.b_charges,false)
+			ROB_Rotation_GUI_SetText("ROB_AO_GChargesInputBox",_ActionDB.v_charges,"")
 
 			--Player options-------------------------
 			ROB_Rotation_GUI_SetChecked("ROB_AO_NeedBuffCheckButton",_ActionDB.b_p_needbuff,false)
@@ -3297,6 +3302,37 @@ function ROB_TotemTimeleft(_totemtimeleft,_totemslot,_getnextspell)
 		if (_TotemTimeleft == _timeleftparsed) then return true; end
 	end
 
+	return false
+end
+
+
+
+function ROB_SpellHasCharges(_spellId, _number, _getnextspell)
+	local _parsedCharges = _number
+	local _charges, _maxCharges, _start, _duration = GetSpellCharges(_spellId);
+	
+	if (string.sub(_parsedCharges,1,1) == "<" and string.sub(_parsedCharges,1,2) ~= "<=") then
+		_parsedCharges = tonumber(string.sub(_parsedCharges,2))
+		if (_charges < _parsedCharges) then return true; end
+	end
+	if (string.sub(_parsedCharges,1,1) == ">" and string.sub(_parsedCharges,1,2) ~= ">=") then
+		_parsedCharges = tonumber(string.sub(_parsedCharges,2))
+		if (_charges > _parsedCharges) then return true; end
+	end
+	if (string.sub(_parsedCharges,1,2) == ">=") then
+		_parsedCharges = tonumber(string.sub(_parsedCharges,3))
+		if (_charges >= _parsedCharges) then return true; end
+	end
+	if (string.sub(_parsedCharges,1,2) == "<=") then
+		_parsedCharges = tonumber(string.sub(_parsedCharges,3))
+		if (_charges <= _parsedCharges) then return true; end
+	end
+	if (string.sub(_parsedCharges,1,1) == "=") then
+		_parsedCharges = tonumber(string.sub(_parsedCharges,2))
+		if (_charges == _parsedCharges) then return true; end
+	end
+	if (_charges == tonumber(_parsedCharges)) then return true; end
+	
 	return false
 end
 
@@ -4050,14 +4086,7 @@ function ROB_UnitKnowSpell(_spellneeded, _getnextspell)
 		end
 
 		if (_unparsedspell ~= nil) then
-			if(nil ~= tonumber(_unparsedspell)) then
-				-- We are using the spellID to identify our spell. But GetSpellInfo will return the spell name even though we don't know it. So, we must call it twice to get the name of the spell, then verifying the knowledge of it.
-				_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(GetSpellInfo(tonumber(_unparsedspell)))
-			else
-				-- If the spellname isn't an Integer, then it is the true spellname and not it's spellID.
-				_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(_unparsedspell)
-			end
-			if (_name ~= nil) then
+			if (IsSpellKnown(_unparsedspell)) then
 				_spellsfound = _spellsfound +1
 			end
 		else
@@ -4735,6 +4764,13 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	if (_ActionDB.b_checkothercd and _ActionDB.v_checkothercdname and _ActionDB.v_checkothercdname ~= "" and _ActionDB.v_checkothercdvalue and _ActionDB.v_checkothercdvalue ~= "") then
 		if (not ROB_SpellPassesOtherCooldownCheck(_ActionDB.v_checkothercdname,_ActionDB.v_checkothercdvalue,_ActionDB.b_notaspell)) then
 			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._ActionDB.v_spellname.." other cooldown check ".._ActionDB.v_checkothercdname.._ActionDB.v_checkothercdvalue.." failed",_getnextspell,_debugon)
+			return false
+		end
+	end
+
+	-- CHECK: Number of charges
+	if (_ActionDB.b_charges and _ActionDB.v_charges ~= nil and _ActionDB.v_charges ~= "") then
+		if(not ROB_SpellHasCharges(_ActionDB.v_spellname, _ActionDB.v_charges, _getnextspell)) then
 			return false
 		end
 	end

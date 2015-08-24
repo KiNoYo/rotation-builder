@@ -2420,6 +2420,48 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</EditBox>
+							<CheckButton name="ROB_AO_GChargesCheckButton" inherits="ROB_CheckButtonTemplate">
+								<Size>
+									<AbsDimension x="20" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="5" y="-400" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>ROB_AO_GChargesCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_CHARGES'))
+									</OnLoad>
+									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_charges");
+									</OnClick>
+									<OnEnter>GameTooltip:SetOwner(self,
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_CHARGES_TT'));
+									</OnEnter>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</CheckButton>
+							<EditBox name="ROB_AO_GChargesInputBox" inherits="InputBoxTemplate" autoFocus="false">
+								<Size>
+									<AbsDimension x="30" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_AO_GChargesCheckButton" relativePoint="TOPRIGHT">
+										<Offset>
+											<AbsDimension x="145" y="0" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnEnter>GameTooltip:SetOwner(self,
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_CHARGESIB_TT'));
+									</OnEnter>
+									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_charges")
+									</OnTextChanged>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</EditBox>
 						</Frames>
 					</Frame>
 
