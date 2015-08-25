@@ -4067,7 +4067,7 @@ function ROB_UnitKnowSpell(_spellneeded, _getnextspell)
 	local _name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange
 	local _stringtype = 0
 
-	while not _doneparsing do
+	while not _doneparsing and _remainingspells ~= nil do
 		_unparsedspell = nil
 		if (string.find(_remainingspells, "|")) then
 			_unparsedspell   = string.sub(_remainingspells,1,string.find(_remainingspells, "|")-1)
