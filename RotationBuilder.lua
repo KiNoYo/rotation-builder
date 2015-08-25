@@ -373,12 +373,6 @@ function ROB_LoadDefaultRotations()
 	
 	RotationBuilder:loadDefaultRotations(englishClassName);
 	
-	if (englishClassName == "DEATHKNIGHT") then
-		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_DEATHKNIGHT_BLOOD'), true)
-		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_DEATHKNIGHT_FROST_1_HAND'), true)
-		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_DEATHKNIGHT_FROST_2_HAND'), true)
-		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_DEATHKNIGHT_UNHOLY'), true)
-	end
 	if (englishClassName == "MAGE") then
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_MAGE_ARCANE'), true)
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_MAGE_FIRE'), true)
