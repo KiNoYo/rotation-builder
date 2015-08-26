@@ -4643,13 +4643,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 
 	-- CHECK: Check spell stuff-----------------------------------------------------------------------------------------------------------------------------
 	if (not _ActionDB.b_notaspell and _ActionDB.v_spellname) then
-		if(nil ~= tonumber(_ActionDB.v_spellname)) then
-			-- We are using the spellID to identify our spell. But GetSpellInfo will return the spell name even though we don't know it. So, we must call it twice to get the name of the spell, then verifying the knowledge of it.
-			_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(GetSpellInfo(tonumber(_ActionDB.v_spellname)))
-		else
-			-- If the spellname isn't an Integer, then it is the true spellname and not it's spellID.
-			_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(_ActionDB.v_spellname)
-		end
+		_name, _rank, _icon, _cost, _isFunnel, _powerType, _castTime, _minRange, _maxRange = GetSpellInfo(_ActionDB.v_spellname)
 		if (_name == nil) then
 			-- If the name isn't foud, then we don't know the spell.
 			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._ActionDB.v_spellname.." because this spellname is not available or does not exist due to talents or something. Check spelling or try using the spellid from wowhead instead.",_getnextspell,_debugon)
@@ -5393,7 +5387,6 @@ function ROB_SpellReady(_actionname,_getnextspell)
 		end
 	end
 
-
 	return _ready
 end
 
@@ -5415,11 +5408,10 @@ function ROB_GetCurrentAction()
 			ROB_Debug1("Action:".._CurrentActionName.." is not showing because it is waiting for ready Action:".._foundReadyActionName.." to be cast",false,ROB_Rotations[ROB_SelectedRotationName].ActionList[_CurrentActionName].b_debug)
 		end
 	end
-
+	
 	ROB_SetCurrentActionTexture(_foundReadyActionName)
 	ROB_SetCurrentActionTint(_foundReadyActionName)
 	ROB_SetCurrentActionLabel(_foundReadyActionName)
-
 
 	if (_foundReadyAction) then
 		if (_foundReadyActionName ~= ROB_CURRENT_ACTION) then
