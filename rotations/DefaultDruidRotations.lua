@@ -1,4 +1,4 @@
--- The default rotations generator for ROGUES.
+-- The default rotations generator for DRUIDS.
 local druidRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/druid/feral"] = {

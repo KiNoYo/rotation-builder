@@ -37,6 +37,10 @@ rotations\DefaultShamanRotations.lua
 rotations\DefaultHunterRotations.lua
 rotations\DefaultPriestRotations.lua
 rotations\DefaultDeathKnightRotations.lua
+rotations\DefaultMageRotations.lua
+rotations\DefaultPaladinRotations.lua
+rotations\DefaultWarlockRotations.lua
+rotations\DefaultWarriorRotations.lua
 
 -- Rotation Builder
 RotationBuilder.lua
