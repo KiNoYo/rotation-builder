@@ -316,11 +316,6 @@ function ROB_LoadDefaultRotations()
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_MAGE_FIRE'), true)
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_MAGE_FROST'), true)
 	end
-	if (englishClassName == "WARLOCK") then
-		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_WARLOCK_AFFLICTION'), true)
-		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_WARLOCK_DEMONOLOGY'), true)
-		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_WARLOCK_DESTRUCTION'), true)
-	end
 	if (englishClassName == "WARRIOR") then
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_WARRIOR_ARMS'), true)
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_WARRIOR_FURY'), true)
