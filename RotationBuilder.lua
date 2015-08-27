@@ -206,8 +206,6 @@ ROB_NewActionDefaults = {
 	b_t_class=false,
 	v_t_class="",
 	b_t_pc=false,
-	b_t_interrupt=false,
-	v_t_interrupt="",
 	b_t_dr=false,
 	b_t_boss=false,
 	b_t_notaboss=false,
@@ -229,50 +227,11 @@ ROB_NewActionDefaults = {
 	b_pet_hasdebuff=false,
 	v_pet_hasdebuff="",
 	b_pet_dr=false,
-	--Focus Options---------------
-	b_f_hp=false,
-	v_f_hp="",
-	b_f_maxhp=false,
-	v_f_maxhp="",
-	b_f_needsbuff=false,
-	v_f_needsbuff="",
-	b_f_hasbuff=false,
-	v_f_hasbuff="",
-	b_f_needsdebuff=false,
-	v_f_needsdebuff="",
-	b_f_hasdebuff=false,
-	v_f_hasdebuff="",
-	b_f_class=false,
-	v_f_class="",
-	b_f_pc=false,
-	b_f_interrupt=false,
-	v_f_interrupt="",
-	b_f_dr=false,
-	--Custom Unit Options---------------
-	v_c_unitname="",
-	b_c_hp=false,
-	v_c_hp="",
-	b_c_maxhp=false,
-	v_c_maxhp="",
-	b_c_needsbuff=false,
-	v_c_needsbuff="",
-	b_c_hasbuff=false,
-	v_c_hasbuff="",
-	b_c_needsdebuff=false,
-	v_c_needsdebuff="",
-	b_c_hasdebuff=false,
-	v_c_hasdebuff="",
-	b_c_class=false,
-	v_c_class="",
-	b_c_interrupt=false,
-	v_c_interrupt="",
-	b_c_dr=false,
 }
 
 -- Saved Options
 ROB_Options                         = {};
 ROB_Rotations                       = {};
-ROB_Lists                           = {};
 --@do-not-package@
 -- Register minified rotation on export for development purpose.
 ROB_Exports                         = {};
@@ -287,14 +246,6 @@ ROB_SelectedRotationName            = nil;     -- Selected Rotation Name
 local ROB_SelectedRotationIndex     = nil;     -- Selected Rotation Index
 local ROB_SelectedActionIndex       = nil;     -- Selected Action Index
 local ROB_CurrentActionName         = nil;     -- The current selected ActionName
-
-local ROB_SortedSpellLists          = {};      -- Sorted lists table
-local ROB_SortedSpells              = {};      -- Sorted spell lists table
-local ROB_EditingSpellListTable     = nil;     -- Spell List table being edited
-ROB_SelectedSpellListName           = nil;     -- Selected SpellList Name
-local ROB_SelectedSpellListIndex    = nil;     -- Selected SpellList Index
-local ROB_SelectedSpellIndex        = nil;     -- Selected Spell Index
-local ROB_CurrentSpellName          = nil;     -- The current selected SpellName
 
 local ROB_DropDownTableTemp         = {};      -- Temporary drop down table to reuse
 local ROB_DropDownStoreToTemp       = nil;     -- Temporary name of where to save dropdown selected value
@@ -327,19 +278,6 @@ local ROB_LM_BG_TOGGLE1             = nil;     -- Toggle1 button group for libMa
 local ROB_LM_BG_TOGGLE2             = nil;     -- Toggle2 button group for libMasque
 local ROB_LM_BG_TOGGLE3             = nil;     -- Toggle3 button group for libMasque
 local ROB_LM_BG_TOGGLE4             = nil;     -- Toggle4 button group for libMasque
-
--- Ignore these debbuffs for debuff type checking
-local ROB_ArcaneExclusions = {
-	[GetSpellInfo(15822)]   = true,                -- Dreamless Sleep
-	[GetSpellInfo(24360)]   = true,                -- Greater Dreamless Sleep
-	[GetSpellInfo(28504)]   = true,                -- Major Dreamless Sleep
-	[GetSpellInfo(24306)]   = true,                -- Delusions of Jin'do
-	[GetSpellInfo(46543)]   = true,                -- Ignite Mana
-	[GetSpellInfo(16567)]   = true,                -- Tainted Mind
-	[GetSpellInfo(39052)]   = true,                -- Sonic Burst
-	[GetSpellInfo(30129)]   = true,                -- Charred Earth - Nightbane debuff, can't be cleansed, but shows as magic
-	[GetSpellInfo(31651)]   = true,                -- Banshee Curse, Melee hit rating debuff
-}
 
 local _InvSlots = {
 	["HeadSlot"] = 1,
@@ -549,23 +487,6 @@ function ROB_OnLoad(self)
 		whileDead            = 1,
 		hideOnEscape         = 1
 	}
-
-	StaticPopupDialogs["ROB_PROMPT_SPELLLIST_DELETE"] =
-	{
-		text                 = TEXT(RotationBuilderUtils:localize('ROB_PROMPT_SPELLLIST_DELETE')),
-		button1              = TEXT(YES),
-		button2              = TEXT(CANCEL),
-		OnAccept             =  function(self)
-			ROB_SpellListDelete_OnAccept();
-		end,
-		OnCancel             =  function(self)
-			ROB_SpellListDelete_OnCancel();
-		end,
-		timeout              = 0,
-		exclusive            = 1,
-		whileDead            = 1,
-		hideOnEscape         = 1
-	}
 	print(string.format(RotationBuilderUtils:localize("ROB_LOADED"), ROB_VERSION));
 end
 
@@ -651,75 +572,6 @@ function ROB_OnEvent(self, event, ...)
 	end
 end
 
-function ROB_LoadDefaultInterruptList()
-	if (not ROB_Lists) then
-		ROB_Lists = {}
-	end
-
-	ROB_Lists["Interrupt"] = {}
-	ROB_Lists["Interrupt"]["SortedSpells"] ={}
-
-	ROB_Lists["PvP"] = {}
-	ROB_Lists["PvP"]["SortedSpells"] ={}
-
-	ROB_Lists["Interrupt"]["SortedSpells"] = {
-		"Arcane Annihilator", -- [1]
-		"Arcane Infusion", -- [2]
-		"Arcane Storm", -- [3]
-		"Cauterize", -- [4]
-		"Chain Heal", -- [5]
-		"Corrupted Flame", -- [6]
-		"Crimson Flames", -- [7]
-		"Cursed Bullets", -- [8]
-		"Cyclone", -- [9]
-		"Dark Mending", -- [10]
-		"Depravity", -- [11]
-		"Divine Light", -- [12]
-		"Fear", -- [13]
-		"Fieroblast", -- [14]
-		"Fireball Volley", -- [15]
-		"Flash of Light", -- [16]
-		"Force of Earth", -- [17]
-		"Frostbolt", -- [18]
-		"Frostfire Bolt", -- [19]
-		"Gale Wind", -- [20]
-		"Harden Skin", -- [21]
-		"Holy Light", -- [22]
-		"Howl of Terror", -- [23]
-		"Ignition", -- [24]
-		"Inferno Leap", -- [25]
-		"Lava Bolt", -- [26]
-		"Mend Rotten Flesh", -- [27]
-		"Molten Burst", -- [28]
-		"Pact of Darkness", -- [29]
-		"Scorch", -- [30]
-		"Seaswell", -- [31]
-		"Shadow Nova", -- [32]
-		"Summon Sun Orb", -- [33]
-		"Tears of Blood", -- [34]
-		"Tranquility", -- [35]
-		"Water Shell", -- [36]
-		"Whispers of Hethiss", -- [37]
-	}
-
-	ROB_Lists["PvP"]["SortedSpells"] = {
-		"Divine Light", -- [1]
-		"Entangling Roots", -- [2]
-		"Fear", -- [3]
-		"Flash of Light", -- [4]
-		"Healing Surge", -- [5]
-		"Hex", -- [6]
-		"Holy Light", -- [7]
-		"Howl of Terror", -- [8]
-		"Mind Blast", -- [9]
-		"Mind Flay", -- [10]
-		"Penance", -- [11]
-		"Polymorph", -- [12]
-		"Regrowth", -- [13]
-	}
-
-end
-
 function ROB_ADDON_Load(addon)
 	local key, value;
 
@@ -729,10 +581,6 @@ function ROB_ADDON_Load(addon)
 		if (ROB_Options[key] == nil) then
 			ROB_Options[key] = value;
 		end
-	end
-
-	if (not ROB_Lists or #ROB_Lists < 1) then
-		ROB_LoadDefaultInterruptList()
 	end
 
 	--After loading the options check if we have loaded once before if not then load default rotations
@@ -854,26 +702,11 @@ function ROB_PLAYER_Enter()
 	-- update the action list
 	ROB_ActionList_Update();
 
-	-- sort spell lists
-	ROB_SortSpellLists();
-
-	-- sort spells
-	ROB_SortSpells();
-
-	-- update the spells list
-	ROB_SpellList_Update();
-
 	-- update rotation modify buttons
 	ROB_RotationModifyButtons_UpdateUI();
 
-	-- update spell lists modify buttons
-	ROB_SpellListsModifyButtons_UpdateUI()
-
 	-- update rotation ui stuff
 	ROB_Rotation_Edit_UpdateUI();
-
-	-- update spell lists ui stuff
-	ROB_SpellLists_Edit_UpdateUI();
 
 end
 
@@ -921,7 +754,6 @@ function ROB_OnToggle(self, visible)
 		ROB_Frame:Show();
 		ROB_RotationTab:Show()
 		ROB_MainWindowSwitchToTab(ROB_FrameTab1)
-		ROB_SpellListsTab:Hide()
 		ROB_OptionsTab:Hide()
 	end
 end
@@ -939,18 +771,15 @@ end
 
 function ROB_MainWindowSwitchToTab(self)
 	ROB_RotationTab:Hide()
-	ROB_SpellListsTab:Hide()
 	ROB_OptionsTab:Hide()
 
 	ROB_FrameTab1:UnlockHighlight()
 	ROB_FrameTab2:UnlockHighlight()
-	ROB_FrameTab3:UnlockHighlight()
 
 	self:LockHighlight()
 
 	if (self:GetName() == "ROB_FrameTab1") then ROB_RotationTab:Show() end
-	if (self:GetName() == "ROB_FrameTab2") then ROB_SpellListsTab:Show() end
-	if (self:GetName() == "ROB_FrameTab3") then ROB_OptionsTab:Show() end
+	if (self:GetName() == "ROB_FrameTab2") then ROB_OptionsTab:Show() end
 end
 
 function ROB_ActionOptionsSwitchToTab(self)
@@ -958,15 +787,11 @@ function ROB_ActionOptionsSwitchToTab(self)
 	ROB_PlayerActionOptionsTab:Hide()
 	ROB_TargetActionOptionsTab:Hide()
 	ROB_PetActionOptionsTab:Hide()
-	ROB_FocusActionOptionsTab:Hide()
-	ROB_CustomActionOptionsTab:Hide()
 
 	ROB_RotationTabTab1:UnlockHighlight()
 	ROB_RotationTabTab2:UnlockHighlight()
 	ROB_RotationTabTab3:UnlockHighlight()
 	ROB_RotationTabTab4:UnlockHighlight()
-	ROB_RotationTabTab5:UnlockHighlight()
-	ROB_RotationTabTab6:UnlockHighlight()
 
 	self:LockHighlight()
 
@@ -974,8 +799,6 @@ function ROB_ActionOptionsSwitchToTab(self)
 	if (self:GetName() == "ROB_RotationTabTab2") then ROB_PlayerActionOptionsTab:Show(); end
 	if (self:GetName() == "ROB_RotationTabTab3") then ROB_TargetActionOptionsTab:Show(); end
 	if (self:GetName() == "ROB_RotationTabTab4") then ROB_PetActionOptionsTab:Show(); end
-	if (self:GetName() == "ROB_RotationTabTab5") then ROB_FocusActionOptionsTab:Show(); end
-	if (self:GetName() == "ROB_RotationTabTab6") then ROB_CustomActionOptionsTab:Show(); end
 end
 
 function ROB_Close_OnClick(self)
@@ -1003,31 +826,6 @@ function ROB_RotationListButton_OnClick(self)
 
 	-- update rotation ui stuff
 	ROB_Rotation_Edit_UpdateUI();
-end
-
-function ROB_SpellListsButton_OnClick(self)
-	-- ignore if we are editing
-	if (ROB_EditingSpellListTable ~= nil) then
-		return;
-	end
-
-	ROB_SelectedSpellListIndex = self:GetID() + FauxScrollFrame_GetOffset(ROB_SpellListsScrollFrame);
-	ROB_SelectedSpellListName = ROB_SortedSpellLists[ROB_SelectedSpellListIndex]
-	ROB_SwitchSpellList(ROB_SelectedSpellListName)
-
-	-- sort spell lists
-	ROB_SortSpellLists();
-	-- sort spells
-	ROB_SortSpells();
-
-	-- update the spells list
-	ROB_SpellList_Update();
-
-	-- update spelllist modify buttons
-	ROB_SpellListsModifyButtons_UpdateUI();
-
-	-- update spelllist ui stuff
-	ROB_SpellLists_Edit_UpdateUI()
 end
 
 function ROB_SwitchRotation(RotationID,_byName)
@@ -1101,25 +899,6 @@ function ROB_SwitchRotation(RotationID,_byName)
 	ROB_Rotation_Edit_UpdateUI();
 end
 
-function ROB_SwitchSpellList(SpellListID)
-	--if we are modififying a spell list dont switch to a different one
-	if (ROB_EditingSpellListTable ~= nil) then
-		--print("Cant switch rotations while you are editing one")
-		--just force a save and switch the rotation
-		ROB_SpellListsSave_OnClick(self)
-	end
-
-	ROB_SelectedSpellListName = SpellListID
-
-	ROB_SpellListsModifyButtons_UpdateUI()
-	-- update spell lists
-	ROB_SortSpellLists();
-	-- update the spells list
-	ROB_SpellList_Update();
-	-- update spell lists ui stuff
-	ROB_SpellLists_Edit_UpdateUI();
-end
-
 function ROB_RotationCreateButton_OnClick(self)
 	-- start a new empty list
 	ROB_EditingRotationTable = ROB_NewRotation();
@@ -1143,31 +922,6 @@ function ROB_RotationCreateButton_OnClick(self)
 	-- set focus to name and highlight current text
 	ROB_RotationNameInputBox:SetFocus(true);
 	ROB_RotationNameInputBox:HighlightText();
-
-end
-
-function ROB_SpellListCreateButton_OnClick(self)
-	-- start a new empty list
-	ROB_EditingSpellListTable = { SortedSpells={} };
-
-	-- new name prompt
-	ROB_SelectedSpellListName = "<spell list name>";
-
-	-- UPDATE_ROTATION_OPTIONS1
-	ROB_SpellListNameInputBox:SetText(ROB_SelectedSpellListName);
-
-	-- update the spell list
-	ROB_SpellList_Update();
-
-	-- update rotation modify buttons
-	ROB_SpellListsModifyButtons_UpdateUI();
-
-	-- update rotation ui stuff
-	ROB_SpellLists_Edit_UpdateUI();
-
-	-- set focus to name and highlight current text
-	ROB_SpellListNameInputBox:SetFocus(true);
-	ROB_SpellListNameInputBox:HighlightText();
 
 end
 
@@ -1197,38 +951,8 @@ function ROB_ModifyRotationButton_OnClick(self)
 
 end
 
-function ROB_ModifySpellListsButton_OnClick(self)
-	-- copy the selected list
-	ROB_EditingSpellListTable = ROB_CopyTable(ROB_Lists[ROB_SortedSpellLists[ROB_SelectedSpellListIndex]]);
-	--ROB_SortedSpells = ROB_CopyTable(ROB_Lists[ROB_SortedSpellLists[ROB_SelectedSpellListIndex]]["Sorted Spells"]);
-
-	-- copy name
-	ROB_SelectedSpellListName = ROB_SortedSpellLists[ROB_SelectedSpellListIndex];
-
-	-- UPDATE_ROTATION_OPTIONS2
-	ROB_SpellListNameInputBox:SetText(ROB_SelectedSpellListName);
-
-
-	--Always clear the current spell because it may be leftover from a previous rotation
-	ROB_CurrentSpellName = nil
-
-	-- update the spells list
-	ROB_SpellList_Update();
-
-	-- update spells list modify buttons
-	ROB_SpellListsModifyButtons_UpdateUI();
-
-	-- update spells list ui stuff
-	ROB_SpellLists_Edit_UpdateUI();
-
-end
-
 function ROB_RotationListDeleteButton_OnClick(self)
 	StaticPopup_Show("ROB_PROMPT_LIST_DELETE");
-end
-
-function ROB_SpellListsDeleteButton_OnClick(self)
-	StaticPopup_Show("ROB_PROMPT_SPELLLIST_DELETE");
 end
 
 function ROB_RotationDelete_OnAccept()
@@ -1253,39 +977,7 @@ function ROB_RotationDelete_OnAccept()
 	ROB_MenuCreate()
 end
 
-function ROB_SpellListDelete_OnAccept()
-	ROB_Lists[ROB_SortedSpellLists[ROB_SelectedSpellListIndex]] = nil;
-
-	ROB_SelectedSpellListIndex = nil;
-	ROB_SelectedSpellListName = nil;
-
-	-- update spells list
-	ROB_SortSpellLists();
-
-	-- update the spell list
-	ROB_SpellList_Update();
-
-	-- update spell lists modify buttons
-	ROB_SpellListsModifyButtons_UpdateUI();
-
-	-- update spell lists ui stuff
-	ROB_SpellLists_Edit_UpdateUI();
-end
-
 function ROB_RotationDelete_OnCancel()
-end
-
-function ROB_SpellListDelete_OnCancel()
-end
-
-function ROB_SpellListNameInputBox_OnTextChanged(self)
-	local _text = self:GetText()
-	if (string.find(_text, "%[") or string.find(_text, "%]") or string.find(_text, ",")) then
-		print(RotationBuilderUtils:localize('ROB_UI_ADD_ROTATION_CFAIL'))
-		return
-	end
-	ROB_SelectedSpellListName = ROB_SpellListNameInputBox:GetText();
-	ROB_Rotation_Edit_UpdateUI();
 end
 
 function ROB_RotationNameInputBox_OnTextChanged(self)
@@ -1313,18 +1005,6 @@ function ROB_Save_OnClick(self)
 	ROB_SwitchRotation(_lastEditedRotation, true)
 end
 
-function ROB_SpellListsSave_OnClick(self)
-	local _lastEditedSpellList = ROB_SelectedSpellListName
-	ROB_Lists[ROB_SelectedSpellListName] = ROB_EditingSpellListTable;
-	-- update spell lists
-	ROB_SortSpellLists();
-
-	-- and discard to reset editing
-	ROB_SpellListsDiscard_OnClick(self);
-
-	ROB_SwitchSpellList(_lastEditedSpellList)
-end
-
 function ROB_Discard_OnClick(self)
 	-- smoke the edit list and edit name
 	ROB_EditingRotationTable = nil;
@@ -1345,23 +1025,6 @@ function ROB_Discard_OnClick(self)
 	ROB_Rotation_Edit_UpdateUI();
 end
 
-function ROB_SpellListsDiscard_OnClick(self)
-	-- smoke the edit list and edit name
-	ROB_EditingSpellListTable = nil;
-
-	ROB_SelectedSpellIndex = nil;
-	ROB_SelectedSpellListName = nil;
-
-	-- update spells
-	ROB_SpellList_Update();
-
-	-- update spell lists modify buttons
-	ROB_SpellListsModifyButtons_UpdateUI();
-
-	-- update spell lists ui stuff
-	ROB_SpellLists_Edit_UpdateUI();
-end
-
 function ROB_ActionListButton_OnClick(self, button)
 	if (ROB_EditingRotationTable == nil) then
 		return
@@ -1377,49 +1040,10 @@ function ROB_ActionListButton_OnClick(self, button)
 	ROB_Rotation_Edit_UpdateUI();
 end
 
-function ROB_SpellListButton_OnClick(self, button)
-	if (ROB_EditingSpellListTable == nil) then
-		return
-	end
-	ROB_SelectedSpellIndex = self:GetID() + FauxScrollFrame_GetOffset(ROB_SpellNamesListScrollFrame);
-	ROB_CurrentSpellName = ROB_EditingSpellListTable["SortedSpells"][ROB_SelectedSpellIndex]
-	-- update the spells list
-	ROB_SpellList_Update();
-	-- update the ui stuff
-	ROB_SpellLists_Edit_UpdateUI();
-end
-
 function ROB_ActionListButton_OnLeave(self)
 	-- hide tooltips
 	GameTooltip:Hide();
 	ROB_Tooltip:Hide();
-end
-
-function ROB_SpellListTrash_OnClick(self)
-	local SpellID;
-	if (ROB_EditingSpellListTable == nil) then
-		return;
-	end
-	-- calculate selected item
-	SpellID = self:GetParent():GetID() + FauxScrollFrame_GetOffset(ROB_SpellNamesListScrollFrame);
-
-	table.remove(ROB_EditingSpellListTable.SortedSpells, SpellID);
-	table.remove(ROB_SortedSpells, SpellID);
-
-	local scrollOffset = #ROB_EditingSpellListTable.SortedSpells
-	if (scrollOffset > ROB_ACTION_LIST_LINES) then
-		scrollOffset = (#ROB_EditingSpellListTable.SortedSpells - ROB_ACTION_LIST_LINES) * ROB_ACTION_LIST_FRAME_HEIGHT
-	else
-		scrollOffset = 1
-	end
-	FauxScrollFrame_OnVerticalScroll(ROB_SpellNamesListScrollFrame, scrollOffset, ROB_ACTION_LIST_FRAME_HEIGHT, ROB_SpellList_Update)
-
-	ROB_SelectedSpellIndex = nil
-	ROB_CurrentSpellName = nil
-	-- update the action list
-	ROB_SpellList_Update();
-	-- update rotation ui stuff
-	ROB_SpellLists_Edit_UpdateUI();
 end
 
 function ROB_ActionListTrash_OnClick(self)
@@ -1553,48 +1177,8 @@ function ROB_AddActionOnAccept(_text)
 	end
 end
 
-function ROB_AddSpellOnAccept(_text)
-	local NewSpellAlreadyExists = false
-	if (_text == nil or _text == "" or ROB_EditingSpellListTable == nil) then
-		return
-	end
-
-	for key, value in pairs(ROB_EditingSpellListTable.SortedSpells) do
-		--we found our new spell so we cant use it because it already exists
-		if (value == _text) then
-			--we found our new action ID so we cant use it
-			print("Spell already exists")
-			NewSpellAlreadyExists = true
-			return
-		end
-	end
-
-	if (NewSpellAlreadyExists == false) then
-		ROB_CurrentSpellName = _text
-		ROB_SelectedSpellIndex = (#ROB_EditingSpellListTable.SortedSpells + 1)
-		ROB_AddSpell(ROB_SelectedSpellIndex, _text);
-		--Sort the spell list
-		ROB_SortSpells();
-		local scrollOffset = #ROB_EditingSpellListTable.SortedSpells
-		if (scrollOffset > ROB_ACTION_LIST_LINES) then
-			scrollOffset = (scrollOffset - ROB_ACTION_LIST_LINES) * ROB_ACTION_LIST_FRAME_HEIGHT
-		else
-			scrollOffset = 1
-		end
-		FauxScrollFrame_OnVerticalScroll(ROB_SpellNamesListScrollFrame, scrollOffset, ROB_ACTION_LIST_FRAME_HEIGHT, ROB_SpellList_Update)
-		-- update the list
-		ROB_SpellList_Update();
-		-- update the ui stuff
-		ROB_SpellLists_Edit_UpdateUI();
-	end
-end
-
 function ROB_AddActionButton_OnClick(self)
 	ROB_GetString("Enter new name for action", "", true, ROB_AddActionOnAccept, _cancelcallback)
-end
-
-function ROB_AddSpellButton_OnClick(self)
-	ROB_GetString("Enter spell name or number", "", true, ROB_AddSpellOnAccept, _cancelcallback)
 end
 
 function ROB_CopyActionButton_OnClick(self)
@@ -1805,88 +1389,10 @@ function ROB_AO_ToggleDropDownButton_OnLoad(frame)
 	end
 end
 
-function ROB_AO_T_InterruptDropDownButton_OnLoad(frame)
-	if (not ROB_Lists) then
-		return
-	end
-	local ToggleName = ""
-	UIDropDownMenu_SetWidth(frame, 75)
-	UIDropDownMenu_JustifyText(frame, "LEFT");
-
-	ROB_DropDownStoreToTemp = "v_t_interrupt"
-
-	for key, value in pairs(ROB_Lists) do
-		table.wipe(ROB_DropDownTableTemp)
-		ROB_DropDownTableTemp.text  = key
-		ROB_DropDownTableTemp.value = key
-		ROB_DropDownTableTemp.func  = ROB_TargetInterruptDropDown_Selected
-		UIDropDownMenu_AddButton(ROB_DropDownTableTemp);
-	end
-end
-
-function ROB_AO_F_InterruptDropDownButton_OnLoad(frame)
-	if (not ROB_Lists) then
-		return
-	end
-	local ToggleName = ""
-	UIDropDownMenu_SetWidth(frame, 75)
-	UIDropDownMenu_JustifyText(frame, "LEFT");
-
-	ROB_DropDownStoreToTemp = "v_f_interrupt"
-
-	for key, value in pairs(ROB_Lists) do
-		table.wipe(ROB_DropDownTableTemp)
-		ROB_DropDownTableTemp.text  = key
-		ROB_DropDownTableTemp.value = key
-		ROB_DropDownTableTemp.func  = ROB_FocusInterruptDropDown_Selected
-		UIDropDownMenu_AddButton(ROB_DropDownTableTemp);
-	end
-end
-
-function ROB_AO_C_InterruptDropDownButton_OnLoad(frame)
-	if (not ROB_Lists) then
-		return
-	end
-	local ToggleName = ""
-	UIDropDownMenu_SetWidth(frame, 75)
-	UIDropDownMenu_JustifyText(frame, "LEFT");
-
-	ROB_DropDownStoreToTemp = "v_c_interrupt"
-
-	for key, value in pairs(ROB_Lists) do
-		table.wipe(ROB_DropDownTableTemp)
-		ROB_DropDownTableTemp.text  = key
-		ROB_DropDownTableTemp.value = key
-		ROB_DropDownTableTemp.func  = ROB_CustomInterruptDropDown_Selected
-		UIDropDownMenu_AddButton(ROB_DropDownTableTemp);
-	end
-end
-
 function ROB_ActionOptionDropDown_Selected(self)
 	if (ROB_EditingRotationTable ~= nil and ROB_CurrentActionName ~= nil and ROB_DropDownStoreToTemp ~= nil) then
 		ROB_EditingRotationTable.ActionList[ROB_CurrentActionName][ROB_DropDownStoreToTemp] = self.value
 		UIDropDownMenu_SetSelectedValue(ROB_AO_ToggleDropDownButton, ROB_EditingRotationTable.ActionList[ROB_CurrentActionName][ROB_DropDownStoreToTemp]);
-	end
-end
-
-function ROB_TargetInterruptDropDown_Selected(self)
-	if (ROB_EditingRotationTable ~= nil and ROB_CurrentActionName ~= nil and ROB_DropDownStoreToTemp ~= nil) then
-		ROB_EditingRotationTable.ActionList[ROB_CurrentActionName][ROB_DropDownStoreToTemp] = self.value
-		UIDropDownMenu_SetSelectedValue(ROB_AO_T_InterruptDropDownButton, ROB_EditingRotationTable.ActionList[ROB_CurrentActionName][ROB_DropDownStoreToTemp]);
-	end
-end
-
-function ROB_FocusInterruptDropDown_Selected(self)
-	if (ROB_EditingRotationTable ~= nil and ROB_CurrentActionName ~= nil and ROB_DropDownStoreToTemp ~= nil) then
-		ROB_EditingRotationTable.ActionList[ROB_CurrentActionName][ROB_DropDownStoreToTemp] = self.value
-		UIDropDownMenu_SetSelectedValue(ROB_AO_F_InterruptDropDownButton, ROB_EditingRotationTable.ActionList[ROB_CurrentActionName][ROB_DropDownStoreToTemp]);
-	end
-end
-
-function ROB_CustomInterruptDropDown_Selected(self)
-	if (ROB_EditingRotationTable ~= nil and ROB_CurrentActionName ~= nil and ROB_DropDownStoreToTemp ~= nil) then
-		ROB_EditingRotationTable.ActionList[ROB_CurrentActionName][ROB_DropDownStoreToTemp] = self.value
-		UIDropDownMenu_SetSelectedValue(ROB_AO_C_InterruptDropDownButton, ROB_EditingRotationTable.ActionList[ROB_CurrentActionName][ROB_DropDownStoreToTemp]);
 	end
 end
 
@@ -2393,50 +1899,6 @@ function ROB_RotationList_Update()
 	FauxScrollFrame_Update(ROB_RotationScrollFrame, #ROB_SortedRotations, ROB_ROTATION_LIST_LINES, ROB_ROTATION_LIST_FRAME_HEIGHT);
 end
 
-function ROB_SpellLists_Update()
-	local offset, row, listIx, rowButton, rowName;
-
-	-- retrieve the scroll offset for editing hierarchy view
-	offset = FauxScrollFrame_GetOffset(ROB_SpellListsScrollFrame);
-
-	-- handle each list row
-	for row=1, ROB_ROTATION_LIST_LINES, 1 do
-		-- calculate actual the list item index
-		listIx = row + offset;
-
-		-- retrieve the list row
-		rowButton = _G["ROB_SpellListsButton"..row];
-
-		-- do we have a list for this guy?
-		if (listIx <= #ROB_SortedSpellLists) then
-			-- get the name button
-			rowName = _G["ROB_SpellListsButton"..row.."Name"];
-
-			-- set the list name
-			-- Manage spells list localization only for display.
-			rowName:SetText(RotationBuilderUtils:localize(ROB_SortedSpellLists[listIx]));
-
-			-- is this the current list?
-			if (listIx == ROB_SelectedSpellListIndex) then
-				-- highlight the row
-				rowButton:LockHighlight();
-			else
-				-- normalise the row
-				rowButton:UnlockHighlight();
-			end
-
-			-- show the button
-			rowButton:Show();
-		else
-			-- hide this row
-			rowButton:Hide();
-		end
-	end
-
-	-- update the scroll frame appropriately
-	FauxScrollFrame_Update(ROB_SpellListsScrollFrame, #ROB_SortedSpellLists, ROB_ROTATION_LIST_LINES, ROB_ROTATION_LIST_FRAME_HEIGHT);
-end
-
 function ROB_ActionList_Update()
 	local offset, selectedrotation, count, ActionID, row, rowButton, rowAction, rowTrash
 	local savedActionName, savedValue
@@ -2506,93 +1968,6 @@ function ROB_ActionList_Update()
 	FauxScrollFrame_Update(ROB_ActionListScrollFrame, count, ROB_ACTION_LIST_LINES, ROB_ACTION_LIST_FRAME_HEIGHT);
 end
 
-function ROB_SpellList_Update()
-	local offset, _SelectedList, count, SpellID, row, rowButton, rowSpell, rowTrash, savedSpellName;
-
-	--[[
-	local scrollOffset = #ROB_EditingSpellListTable.SortedSpells
-	print("ROB_AddSpellOnAccept scrollOffset="..scrollOffset)
-	if (offset > ROB_ACTION_LIST_LINES) then
-	print("ROB_AddSpellOnAccept scrollOffset>ROB_ACTION_LIST_LINES="..ROB_ACTION_LIST_LINES)
-	scrollOffset = (#_SelectedList.SortedSpells - ROB_ACTION_LIST_LINES) * ROB_ACTION_LIST_FRAME_HEIGHT
-	else
-	scrollOffset = 1
-	end
-	FauxScrollFrame_OnVerticalScroll(ROB_SpellNamesListScrollFrame, scrollOffset, ROB_ACTION_LIST_FRAME_HEIGHT, ROB_SpellList_Update)
-	--]]
-
-	--print("ROB_SpellList_Update called")
-	-- retrieve the scroll offset for editing source view
-	offset = FauxScrollFrame_GetOffset(ROB_SpellNamesListScrollFrame);
-	-- get selected list
-	_SelectedList = ROB_EditingSpellListTable
-	if (not _SelectedList) then
-		--print("ROB_EditingSpellListTable was empty")
-		_SelectedList = ROB_Lists[ROB_SelectedSpellListName]
-		--selectedrotation = ROB_Rotations[ROB_SortedRotations[ROB_SelectedRotationIndex]]
-
-	end
-	--print("offset="..offset)
-	-- get count of items in list
-	if (_SelectedList and _SelectedList.SortedSpells) then
-		count = #_SelectedList.SortedSpells;
-	else
-		count = 0;
-	end
-
-
-
-
-	--print("count="..count.." ROB_ACTION_LIST_LINES:"..offset)
-	-- Build the spell List
-	for row=1, ROB_ACTION_LIST_LINES, 1 do
-		-- calculate actual the spell index
-		SpellID = row + offset;
-		-- retrieve the source row
-		rowButton = _G["ROB_SpellNamesListButton"..row];
-		-- do we have a action for this interval count?
-		if (SpellID <= count) then
-			rowSpell = _G["ROB_SpellNamesListButton"..row.."SpellName"];
-			rowTrash = _G["ROB_SpellNamesListButton"..row.."Trash"];
-			--Get the saved Action name based upon the sorted table
-
-			--print("ROB_SpellList_Update SpellID="..SpellID)
-
-			savedSpellName = _SelectedList.SortedSpells[SpellID]
-			--if (ROB_SortedSpells and savedSpellName) then
-			--print(GetTime().."savedSpellName row="..row..savedSpellName)
-			--end
-			-- set the button name to stored table value
-			rowSpell:SetText(savedSpellName);
-
-			-- show trash/hide complete if we are editing
-			if (ROB_EditingSpellListTable ~= nil) then
-				-- show trash
-				rowTrash:Show();
-			else
-				-- hide trash
-				rowTrash:Hide();
-			end
-			-- is this the current list?
-			if (SpellID == ROB_SelectedSpellIndex) then
-				rowButton:LockHighlight();
-			else
-				rowButton:UnlockHighlight();
-			end
-			-- show the row button
-			rowButton:Show();
-		else
-			-- hide this row
-			rowButton:Hide();
-		end
-	end
-
-	-- update the scroll frame appropriately
-	if _SelectedList then
-		FauxScrollFrame_Update(ROB_SpellNamesListScrollFrame, #_SelectedList.SortedSpells, ROB_ACTION_LIST_LINES, ROB_ACTION_LIST_FRAME_HEIGHT);
-	end
-end
-
 function ROB_SortRotationList()
 	local key, value;
 
@@ -2609,46 +1984,6 @@ function ROB_SortRotationList()
 
 	-- and update screen
 	ROB_RotationList_Update();
-end
-
-function ROB_SortSpellLists()
-	local key, value;
-	-- setup sort indirection
-	ROB_SortedSpellLists = {};
-	-- get each of the list records
-	if ROB_Lists then
-		for key, value in pairs(ROB_Lists) do
-			ROB_SortedSpellLists[#ROB_SortedSpellLists + 1] = key;
-		end
-		-- resort the lists list.  We use a sorted indirection table
-		table.sort(ROB_SortedSpellLists, ROB_SortTest);
-		-- and update screen
-		ROB_SpellLists_Update()
-	end
-end
-
-function ROB_SortSpells()
-	local key, value;
-	-- setup sort indirection
-	ROB_SortedSpells = {};
-	--print("ROB_SortSpells called")
-	-- get each of the list records
-	if (ROB_Lists and ROB_SelectedSpellListName) then
-
-		table.sort(ROB_Lists[ROB_SelectedSpellListName].SortedSpells, ROB_SortTest);
-		for key, value in pairs(ROB_Lists[ROB_SelectedSpellListName].SortedSpells) do
-			ROB_SortedSpells[#ROB_SortedSpells + 1] = value;
-		--print("Creating row in ROB_SortedSpells:"..value)
-		end
-		-- resort the lists list.  We use a sorted indirection table
-		--print("ROB_SortSpells sorted the ROB_SortedSpells table ")
-		table.sort(ROB_SortedSpells, ROB_SortTest);
-	-- and update screen
-	--ROB_SpellList_Update()
-	end
-	if ROB_EditingSpellListTable ~= nil then
-		table.sort(ROB_EditingSpellListTable.SortedSpells, ROB_SortTest)
-	end
 end
 
 function ROB_SortTest(i1, i2)
@@ -2685,28 +2020,6 @@ function ROB_RotationModifyButtons_UpdateUI()
 	end
 end
 
-function ROB_SpellListsModifyButtons_UpdateUI()
-	-- do we have an existing edit or selected list?
-	if (ROB_EditingSpellListTable ~= nil) then
-		-- disable create, modify and remove
-		ROB_SpellListsCreateButton:Disable();
-		ROB_SpellListsModifyButton:Hide();
-		ROB_SpellListsDeleteButton:Hide();
-	elseif (ROB_SelectedSpellListIndex ~= nil) then
-		-- enable create, modify and remove
-		ROB_SpellListsCreateButton:Enable();
-		ROB_SpellListsModifyButton:Show();
-		ROB_SpellListsDeleteButton:Show();
-		ROB_SpellListNameROText:SetText(ROB_SortedSpellLists[ROB_SelectedSpellListIndex]);
-	else
-		-- enable create, disable modify and remove
-		ROB_SpellListsCreateButton:Enable();
-		ROB_SpellListsModifyButton:Hide();
-		ROB_SpellListsDeleteButton:Hide();
-		ROB_SpellListNameROText:SetText("");
-	end
-end
-
 function ROB_Rotation_GUI_SetText(_controlname,_value,_default)
 	if (_value ~= nil) then
 		_G[_controlname]:SetText(_value)
@@ -2729,8 +2042,6 @@ function ROB_Rotation_Edit_UpdateUI()
 	ROB_RotationTabTab2:Hide()
 	ROB_RotationTabTab3:Hide()
 	ROB_RotationTabTab4:Hide()
-	ROB_RotationTabTab5:Hide()
-	ROB_RotationTabTab6:Hide()
 	-- do we have a list being edited?
 
 	if (ROB_EditingRotationTable ~= nil) then
@@ -2968,10 +2279,6 @@ function ROB_Rotation_Edit_UpdateUI()
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetPCCheckButton",_ActionDB.b_t_pc,false)
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_InterruptTargetCheckButton",_ActionDB.b_t_interrupt,false)
-			UIDropDownMenu_SetSelectedValue(ROB_AO_T_InterruptDropDownButton, _ActionDB.v_t_interrupt)
-			UIDropDownMenu_SetText(ROB_AO_T_InterruptDropDownButton, _ActionDB.v_t_interrupt)
-
 			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetDRCheckButton",_ActionDB.b_t_dr,false)
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetBossCheckButton",_ActionDB.b_t_boss,false)
@@ -3003,67 +2310,9 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetText("ROB_AO_PetHasDebuffInputBox",_ActionDB.v_pet_hasdebuff,"")
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_PetDRCheckButton",_ActionDB.b_pet_dr,false)
-			--Focus options-------------------------
-			ROB_Rotation_GUI_SetChecked("ROB_AO_FocusHPCheckButton",_ActionDB.b_f_hp,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_FocusHPInputBox",_ActionDB.v_f_hp,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_FocusMaxHPCheckButton",_ActionDB.b_f_maxhp,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_FocusMaxHPInputBox",_ActionDB.v_f_maxhp,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_FocusNeedsBuffCheckButton",_ActionDB.b_f_needsbuff,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_FocusNeedsBuffInputBox",_ActionDB.v_f_needsbuff,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_FocusHasBuffCheckButton",_ActionDB.b_f_hasbuff,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_FocusHasBuffInputBox",_ActionDB.v_f_hasbuff,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_FocusNeedsDebuffCheckButton",_ActionDB.b_f_needsdebuff,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_FocusNeedsDebuffInputBox",_ActionDB.v_f_needsdebuff,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_FocusHasDebuffCheckButton",_ActionDB.b_f_hasdebuff,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_FocusHasDebuffInputBox",_ActionDB.v_f_hasdebuff,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_FocusClassCheckButton",_ActionDB.b_f_class,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_FocusClassInputBox",_ActionDB.v_f_class,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_FocusPCCheckButton",_ActionDB.b_f_pc,false)
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_InterruptFocusCheckButton",_ActionDB.b_f_interrupt,false)
-			UIDropDownMenu_SetSelectedValue(ROB_AO_F_InterruptDropDownButton, _ActionDB.v_f_interrupt)
-			UIDropDownMenu_SetText(ROB_AO_F_InterruptDropDownButton, _ActionDB.v_f_interrupt)
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_FocusDRCheckButton",_ActionDB.b_f_dr,false)
-			--Custom Unit options-------------------------
-			ROB_Rotation_GUI_SetText("ROB_AO_CustomUnitNameInputBox",_ActionDB.v_c_unitname,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_CustomNeedsBuffCheckButton",_ActionDB.b_c_needsbuff,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_CustomNeedsBuffInputBox",_ActionDB.v_c_needsbuff,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_CustomHasBuffCheckButton",_ActionDB.b_c_hasbuff,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_CustomHasBuffInputBox",_ActionDB.v_c_hasbuff,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_CustomNeedsDebuffCheckButton",_ActionDB.b_c_needsdebuff,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_CustomNeedsDebuffInputBox",_ActionDB.v_c_needsdebuff,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_CustomHasDebuffCheckButton",_ActionDB.b_c_hasdebuff,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_CustomHasDebuffInputBox",_ActionDB.v_c_hasdebuff,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_CustomHPCheckButton",_ActionDB.b_c_hp,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_CustomHPInputBox",_ActionDB.v_c_hp,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_CustomMaxHPCheckButton",_ActionDB.b_c_maxhp,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_CustomMaxHPInputBox",_ActionDB.v_c_maxhp,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_CustomClassCheckButton",_ActionDB.b_c_class,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_CustomClassInputBox",_ActionDB.v_c_class,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_InterruptCustomCheckButton",_ActionDB.b_c_interrupt,false)
-			UIDropDownMenu_SetSelectedValue(ROB_AO_C_InterruptDropDownButton, _ActionDB.v_c_interrupt)
-			UIDropDownMenu_SetText(ROB_AO_C_InterruptDropDownButton, _ActionDB.v_c_interrupt)
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_CustomDRCheckButton",_ActionDB.b_c_dr,false)
 
 			-- show action options frames because we have a current selected action
-			if ((not ROB_GeneralActionOptionsTab:IsShown()) and (not ROB_PlayerActionOptionsTab:IsShown()) and (not ROB_TargetActionOptionsTab:IsShown()) and (not ROB_PetActionOptionsTab:IsShown()) and (not ROB_FocusActionOptionsTab:IsShown()) and (not ROB_CustomActionOptionsTab:IsShown())) then
+			if ((not ROB_GeneralActionOptionsTab:IsShown()) and (not ROB_PlayerActionOptionsTab:IsShown()) and (not ROB_TargetActionOptionsTab:IsShown()) and (not ROB_PetActionOptionsTab:IsShown())) then
 				ROB_GeneralActionOptionsTab:Show()
 				ROB_ActionOptionsSwitchToTab(ROB_RotationTabTab1)
 			end
@@ -3071,8 +2320,6 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_RotationTabTab2:Show()
 			ROB_RotationTabTab3:Show()
 			ROB_RotationTabTab4:Show()
-			ROB_RotationTabTab5:Show()
-			ROB_RotationTabTab6:Show()
 		end
 
 		-- ADD_SHOW_ROTATION_OPTIONS
@@ -3103,8 +2350,6 @@ function ROB_Rotation_Edit_UpdateUI()
 		ROB_PlayerActionOptionsTab:Hide()
 		ROB_TargetActionOptionsTab:Hide()
 		ROB_PetActionOptionsTab:Hide()
-		ROB_FocusActionOptionsTab:Hide()
-		ROB_CustomActionOptionsTab:Hide()
 
 		-- RETRIEVE_ROTATION_SETTINGS
 		if (ROB_SelectedRotationName ~= nil and ROB_Rotations[ROB_SelectedRotationName]) then
@@ -3124,23 +2369,6 @@ function ROB_Rotation_Edit_UpdateUI()
 	end
 end
 
-function ROB_SpellLists_Edit_UpdateUI()
-	if (ROB_EditingSpellListTable ~= nil) then
-		ROB_SpellListsSaveButton:Show()
-		ROB_SpellListsDiscardButton:Show()
-		ROB_AddSpellButton:Show()
-		ROB_SpellListNameInputBox:Show();
-		ROB_SpellListNameRO:Hide();
-	else
-		ROB_SpellListNameInputBox:Hide();
-		ROB_SpellListNameRO:Show();
-		-- disable save and discard
-		ROB_SpellListsSaveButton:Hide();
-		ROB_SpellListsDiscardButton:Hide();
-		ROB_AddSpellButton:Hide();
-	end
-end
-
 function ROB_AddAction(ActionID, ActionName)
 	-- first, add Action's key to sort
 	table.insert(ROB_EditingRotationTable.SortedActions, ActionID, ActionName);
@@ -3149,14 +2377,6 @@ function ROB_AddAction(ActionID, ActionName)
 	for key, val in pairs(ROB_NewActionDefaults) do
 		ROB_EditingRotationTable.ActionList[ActionName][key] = val
 	end
-end
-
-function ROB_AddSpell(_SpellID, _SpellName)
-	-- first, add Action's key to sort
-	--print("adding new spell at end:".._SpellID..":".._SpellName)
-	table.insert(ROB_EditingSpellListTable.SortedSpells, _SpellID, _SpellName);
---table.insert(SortedSpells, _SpellID, _SpellName);
---ROB_EditingSpellListTable.SortedSpells[_SpellName] = true
 end
 
 function ROB_RotationImportButton_OnClick()
@@ -3422,28 +2642,16 @@ function ROB_CheckForDebuffType(_unitName,_magic,_poison,_disease,_curse)
 		end
 		-- Types are Magic, Disease, Poison, Curse
 		if (_magic and debuffType == "Magic") then
-			local exclude = ROB_ArcaneExclusions[debuffName]
-			if (not exclude) then
-				debuffCount = debuffCount + 1
-			end
+			debuffCount = debuffCount + 1
 		end
 		if (_poison and debuffType == "Poison") then
-			local exclude = ROB_ArcaneExclusions[debuffName]
-			if (not exclude) then
-				debuffCount = debuffCount + 1
-			end
+			debuffCount = debuffCount + 1
 		end
 		if (_disease and debuffType == "Disease") then
-			local exclude = ROB_ArcaneExclusions[debuffName]
-			if (not exclude) then
-				debuffCount = debuffCount + 1
-			end
+			debuffCount = debuffCount + 1
 		end
 		if (_curse and debuffType == "Curse") then
-			local exclude = ROB_ArcaneExclusions[debuffName]
-			if (not exclude) then
-				debuffCount = debuffCount + 1
-			end
+			debuffCount = debuffCount + 1
 		end
 	end
 
@@ -3472,42 +2680,6 @@ function ROB_CheckForMagicBuff(_unitName)
 	end
 	
 	return _unithasmagicbuff
-end
-
-function ROB_UnitIsCasting(_unitName, _spelllist)
-	local _unitCasting, _startTime
-	--local _convertedSpellName = nil
-	local _notInterruptible = nil
-
-	_unitCasting, _, _, _, _startTime, _, _, _, _notInterruptible = UnitCastingInfo(_unitName)
-	if (not _unitCasting) then
-		--unit is not casting so check if is channeling
-		_unitCasting, _, _, _, _, _startTime, _, _notInterruptible = UnitChannelInfo(_unitName)
-	end
-
-	if (_unitCasting) then
-		_hasbeencasting =  GetTime() - (_startTime/1000)
-		if (ROB_Lists[_spelllist] and ROB_Lists[_spelllist].SortedSpells) then
-			for key, value in pairs(ROB_Lists[_spelllist].SortedSpells) do
-				--First try to get the spell info from the spellname
-				--[[_convertedSpellName = GetSpellInfo(value)
-				if (not _convertedSpellName) then
-				--If the getspellinfo failed then use spellname
-				_convertedSpellName = value
-				end
-				if (_convertedSpellName and (string.find(_unitCasting, _convertedSpellName))) then
-				return true
-				end--]]
-				--print("ROB_UnitIsCasting _spelllist:".._spelllist)
-				if (value == "*" and _notInterruptible == false) then
-					return true
-				elseif ROB_SpellsMatch(value,_unitCasting) then
-					return true
-				end
-			end
-		end
-	end
-	return false
 end
 
 function ROB_UnitPassesLifeCheck(_checkstring,_unitName,_checkMax)
@@ -4863,14 +4035,6 @@ function ROB_SpellReady(_actionname,_getnextspell)
 		end
 	end
 
-	if (_ActionDB.b_f_needsbuff and _ActionDB.v_f_needsbuff ~= nil and _ActionDB.v_f_needsbuff ~= "") then
-		if (ROB_UnitHasBuff(_ActionDB.v_f_needsbuff, "focus",_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." focus had these buffs ".._ActionDB.v_f_needsbuff,_getnextspell,_debugon)
-			-- Dont allow _getnextspell bypassing because it causes next action to display actions that depend on buffs missing
-			return false
-		end
-	end
-
 	-- CHECK: Have Buff-----------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_p_havebuff and _ActionDB.v_p_havebuff ~= nil and _ActionDB.v_p_havebuff ~= "") then
 		if (not ROB_UnitHasBuff(_ActionDB.v_p_havebuff, "player",_getnextspell)) then
@@ -4893,13 +4057,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 			return false
 		end
 	end
-	if (_ActionDB.b_f_hasbuff and _ActionDB.v_f_hasbuff ~= nil and _ActionDB.v_f_hasbuff ~= "") then
-		if (not ROB_UnitHasBuff(_ActionDB.v_f_hasbuff, "focus",_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." focus did not have these buffs ".._ActionDB.v_f_hasbuff,_getnextspell,_debugon)
-			-- dont allow _allowreturn bypassing because it causes next action to display actions that are depend on buffs procing
-			return false
-		end
-	end
+	
 	-- CHECK: Needs Debuff-----------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_p_needdebuff and _ActionDB.v_p_needdebuff ~= nil and _ActionDB.v_p_needdebuff ~= "") then
 		if (ROB_UnitHasDebuff(_ActionDB.v_p_needdebuff, "player",_getnextspell)) then
@@ -4920,12 +4078,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 			return false
 		end
 	end
-	if (_ActionDB.b_f_needsdebuff and _ActionDB.v_f_needsdebuff ~= nil and _ActionDB.v_f_needsdebuff ~= "") then
-		if (ROB_UnitHasDebuff(_ActionDB.v_f_needsdebuff, "focus",_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." focus has one of these debuffs ".._ActionDB.v_f_needsdebuff,_getnextspell,_debugon)
-			return false
-		end
-	end
+	
 	-- CHECK: Have Debuff-----------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_p_havedebuff and _ActionDB.v_p_havedebuff ~= nil and _ActionDB.v_p_havedebuff ~= "") then
 		if (not ROB_UnitHasDebuff(_ActionDB.v_p_havedebuff, "player",_getnextspell)) then
@@ -4943,12 +4096,6 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	if (_ActionDB.b_pet_hasdebuff and _ActionDB.v_pet_hasdebuff ~= nil and _ActionDB.v_pet_hasdebuff ~= "") then
 		if (not ROB_UnitHasDebuff(_ActionDB.v_pet_hasdebuff, "pet",_getnextspell)) then
 			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." pet does not have one of these debuffs ".._ActionDB.v_pet_hasdebuff,_getnextspell,_debugon)
-			return false
-		end
-	end
-	if (_ActionDB.b_f_hasdebuff and _ActionDB.v_f_hasdebuff ~= nil and _ActionDB.v_f_hasdebuff ~= "") then
-		if (not ROB_UnitHasDebuff(_ActionDB.v_f_hasdebuff, "focus",_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." focus does not have one of these debuffs ".._ActionDB.v_f_hasdebuff,_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -4979,23 +4126,9 @@ function ROB_SpellReady(_actionname,_getnextspell)
 		end
 	end
 
-	if (_ActionDB.b_f_maxhp and _ActionDB.v_f_maxhp ~= nil and _ActionDB.v_f_maxhp ~= "") then
-		if (not ROB_UnitPassesLifeCheck(_ActionDB.v_f_maxhp,"focus",true)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." focus did not pass maximum HP check ".._ActionDB.v_f_maxhp,_getnextspell,_debugon)
-			return false
-		end
-	end
-
 	if (_ActionDB.b_pet_hp and _ActionDB.v_pet_hp ~= nil and _ActionDB.v_pet_hp ~= "") then
 		if (not ROB_UnitPassesLifeCheck(_ActionDB.v_pet_hp,"pet")) then
 			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." pet did not pass HP check ".._ActionDB.v_pet_hp,_getnextspell,_debugon)
-			return false
-		end
-	end
-
-	if (_ActionDB.b_f_hp and _ActionDB.v_f_hp ~= nil and _ActionDB.v_f_hp ~= "") then
-		if (not ROB_UnitPassesLifeCheck(_ActionDB.v_f_hp,"focus")) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." focus did not pass HP check ".._ActionDB.v_f_hp,_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5078,50 +4211,10 @@ function ROB_SpellReady(_actionname,_getnextspell)
 		end
 	end
 
-	-- CHECK: Target Interrupt ----------------------------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_t_interrupt and (ROB_UnitIsCasting("target", _ActionDB.v_t_interrupt)) == false) then
-		ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." target is not casting a spell in the ".._ActionDB.v_t_interrupt.." list",_getnextspell,_debugon)
-		return false
-	end
-
-	-- CHECK: Focus Casting ----------------------------------------------------------------------------------------------------------------------------------------------------
-	--[[_focusCasting, _, _, _, _startTime, _endTime, _, _, _ = UnitCastingInfo("focus")
-	if (not _focusCasting) then
-	--target is not casting so see if target is channeling
-	_focusCasting, _, _, _, _, _startTime, _endTime, _, _ = UnitChannelInfo("focus")
-	end
-	if (_focusCasting and _ActionDB.b_f_casting) then
-	_timeLeft =  (_endTime/1000) - GetTime()
-	if (not string.find(_ActionDB.v_f_castingname, _focusCasting)) then
-	ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." focus is not casting the spell ".._ActionDB.v_f_castingname,_getnextspell,_debugon)
-	return false
-	end
-	if (_timeLeft > _ActionDB.v_f_castingvalue) then
-	ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." focus casting is not less than ".._ActionDB.v_f_castingvalue,_getnextspell,_debugon)
-	return false
-	end
-	elseif (_focusCasting == nil and _ActionDB.b_f_casting) then
-	--ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." focus is not casting anything",_getnextspell,_debugon)
-	return false
-	end--]]
-
-	-- CHECK: Focus Interrupt ----------------------------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_f_interrupt and (ROB_UnitIsCasting("focus", _ActionDB.v_f_interrupt)) == false) then
-		ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." focus is not casting a spell in the ".._ActionDB.v_f_interrupt.." list",_getnextspell,_debugon)
-		return false
-	end
-
 	-- CHECK: Class ----------------------------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_t_class and _ActionDB.v_t_class ~= nil and _ActionDB.v_t_class ~= "" and UnitExists("target")) then
 		if (not string.find(string.upper(_ActionDB.v_t_class), select(2, UnitClass("target")))) then
 			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." target class:"..select(2, UnitClass("target")).." is not one of these ".._ActionDB.v_t_class,_getnextspell,_debugon)
-			return false
-		end
-	end
-
-	if (_ActionDB.b_f_class and _ActionDB.v_f_class ~= nil and _ActionDB.v_f_class ~= "" and UnitExists("focus")) then
-		if (not string.find(string.upper(_ActionDB.v_f_class), select(2, UnitClass("focus")))) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." focus class:"..select(2, UnitClass("focus")).." is not one of these ".._ActionDB.v_f_class,_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5228,13 +4321,6 @@ function ROB_SpellReady(_actionname,_getnextspell)
 		end
 	end
 
-	if (_ActionDB.b_f_pc ) then
-		if (not UnitPlayerControlled("focus")) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." because focus is not player controlled",_getnextspell,_debugon)
-			return false
-		end
-	end
-
 	-- CHECK: Check Duel Range ----------------------------------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_t_dr ) then
 		if (CheckInteractDistance("target", 3) == nil) then
@@ -5260,18 +4346,6 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	if (_ActionDB.b_pet_dr ) then
 		if (CheckInteractDistance("pet", 3) == nil) then
 			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." because pet is not in duel range",_getnextspell,_debugon)
-			return false
-		end
-	end
-	if (_ActionDB.b_f_dr ) then
-		if (CheckInteractDistance("focus", 3) == nil) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." because focus is not in duel range",_getnextspell,_debugon)
-			return false
-		end
-	end
-	if (_ActionDB.b_c_dr and _ActionDB.v_c_unitname and _ActionDB.v_c_unitname ~=nil and _ActionDB.v_c_unitname ~= "") then
-		if (CheckInteractDistance(_ActionDB.v_c_unitname, 3) == nil) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." because "..tostring(_ActionDB.v_c_unitname).." is not in duel range",_getnextspell,_debugon)
 			return false
 		end
 	end
@@ -5325,64 +4399,6 @@ function ROB_SpellReady(_actionname,_getnextspell)
 	if (_ActionDB.b_pet_nac and _ActionDB.v_pet_nac ~= nil and _ActionDB.v_pet_nac ~= "") then
 		if (ROB_PetIsAutocasting(_ActionDB.v_pet_nac)) then
 			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." because pet is autocasting ".._ActionDB.v_pet_nac,_getnextspell,_debugon)
-			return false
-		end
-	end
-
-	-- CHECK: Custom Unit ------------------------------------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.v_c_unitname and _ActionDB.v_c_unitname ~=nil and _ActionDB.v_c_unitname ~= "") then
-		if (UnitExists(_ActionDB.v_c_unitname)) then
-
-		else
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." because custom unit "..tostring(_ActionDB.v_c_unitname).." does not exist",_getnextspell,_debugon)
-			return false
-		end
-		if (_ActionDB.b_c_hp and _ActionDB.v_c_hp ~= nil and _ActionDB.v_c_hp ~= "") then
-			if (not ROB_UnitPassesLifeCheck(_ActionDB.v_c_hp,_ActionDB.v_c_unitname)) then
-				ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." did not pass HP check ".._ActionDB.v_c_hp,_getnextspell,_debugon)
-				return false
-			end
-		end
-		if (_ActionDB.b_c_maxhp and _ActionDB.v_c_maxhp ~= nil and _ActionDB.v_c_maxhp ~= "") then
-			if (not ROB_UnitPassesLifeCheck(_ActionDB.v_c_maxhp,_ActionDB.v_c_unitname,true)) then
-				ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." did not pass maximum HP check ".._ActionDB.v_c_maxhp,_getnextspell,_debugon)
-				return false
-			end
-		end
-		if (_ActionDB.b_c_needsbuff and _ActionDB.v_c_needsbuff ~= nil and _ActionDB.v_c_needsbuff ~= "") then
-			if (ROB_UnitHasBuff(_ActionDB.v_c_needsbuff, _ActionDB.v_c_unitname,_getnextspell)) then
-				ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." had these buffs ".._ActionDB.v_c_needsbuff,_getnextspell,_debugon)
-				-- Dont allow _getnextspell bypassing because it causes next action to display actions that depend on buffs missing
-				return false
-			end
-		end
-		if (_ActionDB.b_c_hasbuff and _ActionDB.v_c_hasbuff ~= nil and _ActionDB.v_c_hasbuff ~= "") then
-			if (not ROB_UnitHasBuff(_ActionDB.v_c_hasbuff, _ActionDB.v_c_unitname,_getnextspell)) then
-				ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." did not have these buffs ".._ActionDB.v_c_hasbuff,_getnextspell,_debugon)
-				-- dont allow _allowreturn bypassing because it causes next action to display actions that are depend on buffs procing
-				return false
-			end
-		end
-		if (_ActionDB.b_c_needsdebuff and _ActionDB.v_c_needsdebuff ~= nil and _ActionDB.v_c_needsdebuff ~= "") then
-			if (ROB_UnitHasDebuff(_ActionDB.v_c_needsdebuff, _ActionDB.v_c_unitname,_getnextspell)) then
-				ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." has one of these debuffs ".._ActionDB.v_c_needsdebuff,_getnextspell,_debugon)
-				return false
-			end
-		end
-		if (_ActionDB.b_c_hasdebuff and _ActionDB.v_c_hasdebuff ~= nil and _ActionDB.v_c_hasdebuff ~= "") then
-			if (not ROB_UnitHasDebuff(_ActionDB.v_c_hasdebuff, _ActionDB.v_c_unitname,_getnextspell)) then
-				ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." does not have one of these debuffs ".._ActionDB.v_c_hasdebuff,_getnextspell,_debugon)
-				return false
-			end
-		end
-		if (_ActionDB.b_c_class and _ActionDB.v_c_class ~= nil and _ActionDB.v_c_class ~= "") then
-			if (not string.find(string.upper(_ActionDB.v_c_class), select(2, UnitClass(_ActionDB.v_c_unitname)))) then
-				ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." class:"..select(2, UnitClass(_ActionDB.v_c_unitname)).." is not one of these ".._ActionDB.v_c_class,_getnextspell,_debugon)
-				return false
-			end
-		end
-		if (_ActionDB.b_c_interrupt and (ROB_UnitIsCasting(_ActionDB.v_c_unitname, _ActionDB.v_c_interrupt)) == false) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." ".._ActionDB.v_c_unitname.." is not casting a spell in the ".._ActionDB.v_c_interrupt.." list",_getnextspell,_debugon)
 			return false
 		end
 	end

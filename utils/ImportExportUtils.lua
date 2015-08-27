@@ -121,15 +121,6 @@ function ROB_ImportRotation_Old(_RotationBuild)
 	-- update the action list
 	ROB_ActionList_Update();
 
-	-- sort spell lists
-	ROB_SortSpellLists();
-
-	-- sort spells
-	ROB_SortSpells();
-
-	-- update the spells list
-	ROB_SpellList_Update();
-
 	-- update rotation modify buttons
 	ROB_RotationModifyButtons_UpdateUI();
 

@@ -333,7 +333,6 @@ L["ROB_OPTION_UPDATERATE_MIN"] = "1"
 L["ROB_PALADIN_PROTECTION"] = "RotationBuilder,v1.48,[Protection 5.0.4],[Fureur vertueuse],v_p_needbuff=_25780,b_p_needbuff=true,v_spellname=25780,b_rangecheck=false,v_actionicon=25780,v_gcdspell=10326,[Sceau de vérité],b_p_notstance=true,v_spellname=31801,b_rangecheck=false,v_p_notstance=1|2,v_actionicon=31801,v_gcdspell=20165,[Bénédiction des rois],v_p_needbuff=20217|1126|117666|90363,b_p_needbuff=true,v_spellname=20217,b_rangecheck=false,v_actionicon=20217,v_gcdspell=10326,[Bénédiction de puissance],v_p_needbuff=_20217|19740|116956|93435|127830,b_p_needbuff=true,v_spellname=19740,v_p_havebuff=20217|1126|117666|90363,b_rangecheck=false,b_p_havebuff=true,v_actionicon=19740,v_gcdspell=10326,[Courroux vengeur],v_spellname=31884,b_rangecheck=false,v_actionicon=31884,v_gcdspell=0,[Mot de gloire (Dessein)],v_spellname=85673,v_p_hp=<=50%,v_p_havebuff=_90174,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Mot de gloire],b_p_hp=true,v_p_unitpowertype=9,b_p_unitpower=true,v_spellname=85673,v_p_unitpower=>=3,v_p_hp=<=50%,v_actionicon=85673,v_gcdspell=10326,[Bouclier du vertueux (Dessein)],v_spellname=53600,v_p_havebuff=_90174,b_p_havebuff=true,v_actionicon=53600,v_gcdspell=10326,[Bouclier du vertueux],v_p_unitpowertype=9,b_p_unitpower=true,v_spellname=53600,v_p_unitpower=>=3,v_actionicon=53600,v_gcdspell=10326,[Bouclier du vengeur (Grand croisé)],v_spellname=31935,v_p_havebuff=_85416,b_p_havebuff=true,v_actionicon=31935,v_gcdspell=10326,[Condamnation à mort],v_spellname=114157,v_actionicon=114157,v_gcdspell=10326,[Marteau de lumière],v_spellname=114158,b_rangecheck=false,v_actionicon=114158,v_gcdspell=10326,[Prisme sacré],v_spellname=114165,v_actionicon=114165,v_gcdspell=10326,[Marteau de courroux],v_spellname=24275,v_actionicon=24275,v_gcdspell=10326,[Boulier saint],v_p_needbuff=_20925,b_p_needbuff=true,v_spellname=20925,b_rangecheck=false,v_actionicon=20925,v_gcdspell=10326,[Marteau du vertueux],v_t_needsdebuff=115798|109466|116198|50256|24423,v_spellname=53595,b_t_needsdebuff=true,v_actionicon=53595,v_gcdspell=10326,[Frappe du croisé],v_spellname=35395,v_actionicon=35395,v_gcdspell=10326,[Jugement],v_spellname=20271,v_actionicon=20271,v_gcdspell=10326,[Bouclier du vengeur],v_spellname=31935,v_actionicon=31935,v_gcdspell=10326,[Consécration],v_spellname=26573,b_t_dr=true,b_rangecheck=false,v_actionicon=26573,v_gcdspell=10326,[Colère divine],v_spellname=119072,b_t_dr=true,b_rangecheck=false,v_actionicon=119072,v_gcdspell=10326"
 L["ROB_PALADIN_RETRIBUTION"] = "RotationBuilder,v1.48,[Vindicte 5.0.4],[Sceau de vérité],b_p_notstance=true,v_spellname=31801,b_rangecheck=false,v_p_notstance=1|2,v_actionicon=31801,v_gcdspell=20165,[Bénédiction des rois],v_p_needbuff=20217|1126|117666|90363,b_p_needbuff=true,v_spellname=20217,b_rangecheck=false,v_actionicon=20217,v_gcdspell=10326,[Bénédiction de puissance],v_p_needbuff=_20217|19740|116956|93435|127830,b_p_needbuff=true,v_spellname=19740,v_p_havebuff=20217|1126|117666|90363,b_rangecheck=false,b_p_havebuff=true,v_actionicon=19740,v_gcdspell=10326,[Gardien des anciens rois (Héroisme)],v_spellname=86698,v_p_havebuff=32182|2825|90355|80353,b_p_havebuff=true,v_actionicon=86698,b_t_boss=true,v_gcdspell=0,[Gardien des anciens rois],v_checkothercdvalue=<1,b_checkothercd=true,v_spellname=86698,v_checkothercdname=31884,v_actionicon=86698,b_t_boss=true,v_gcdspell=0,[Courroux vengeur],v_spellname=31884,b_rangecheck=false,v_actionicon=31884,v_gcdspell=0,[Bouclier du templier],v_spellname=105809,b_rangecheck=false,v_actionicon=105809,v_gcdspell=0,[Marteau de lumière],v_spellname=114158,b_rangecheck=false,v_actionicon=114158,v_gcdspell=10326,[Condamnation à mort],v_spellname=114157,v_actionicon=114157,v_gcdspell=10326,[Inquisition (Dessein)],v_p_needbuff=_84963^2,b_p_needbuff=true,v_spellname=84963,v_p_havebuff=_90174,b_rangecheck=false,b_p_havebuff=true,v_actionicon=84963,v_gcdspell=10326,[Inquisition],v_p_needbuff=_84963^2,v_p_unitpowertype=9,b_p_unitpower=true,b_p_needbuff=true,v_spellname=84963,v_p_unitpower=>=3,b_rangecheck=false,v_actionicon=84963,v_gcdspell=10326,[Prisme sacré],v_spellname=114165,v_actionicon=114165,v_gcdspell=10326,[Mot de gloire (Bouclier + Gloire)],v_p_unitpowertype=9,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=85673,v_p_unitpower=>=3,v_p_isglyphed=54938&54936,v_p_havebuff=_84963^4&_105809,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Mot de gloire (Dessein + Gloire)],b_p_isglyphed=true,v_spellname=85673,v_p_isglyphed=54938&54936,v_p_havebuff=_84963^4&_90174,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Mot de gloire (Puissance X5 + Gloire)],v_p_unitpowertype=9,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=85673,v_p_unitpower==5,v_p_isglyphed=54938&54936,v_p_havebuff=_84963^4,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Verdict du templier (Bouclier)],v_p_unitpowertype=9,b_p_unitpower=true,v_spellname=85256,v_p_unitpower=>=3,v_p_havebuff=_84963^4&_105809,b_p_havebuff=true,v_actionicon=85256,v_gcdspell=10326,[Verdict du templier (Dessein)],v_spellname=85256,v_p_havebuff=_84963^4&_90174,b_p_havebuff=true,v_actionicon=85256,v_gcdspell=10326,[Verdict du templier (Puissance X5)],v_p_unitpowertype=9,b_p_unitpower=true,v_spellname=85256,v_p_unitpower==5,v_p_havebuff=_84963^4,b_p_havebuff=true,v_actionicon=85256,v_gcdspell=10326,[Mot de gloire (Bouclier)],v_p_unitpowertype=9,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=85673,v_p_unitpower=>=3,v_p_isglyphed=54938,v_p_havebuff=_84963^4&_105809,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Mot de gloire (Dessein)],b_p_isglyphed=true,v_spellname=85673,v_p_isglyphed=54938,v_p_havebuff=_84963^4&_90174,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Mot de gloire (Puissance X5)],v_p_unitpowertype=9,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=85673,v_p_unitpower==5,v_p_isglyphed=54938,v_p_havebuff=_84963^4,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Marteau de courroux],v_spellname=24275,v_actionicon=24275,v_gcdspell=10326,[Exorcisme],v_spellname=879,v_actionicon=879,v_gcdspell=10326,[Marteau du vertueux],v_t_needsdebuff=115798|109466|116198|50256|24423,v_spellname=53595,b_t_needsdebuff=true,v_actionicon=53595,v_gcdspell=10326,[Frappe du croisé],v_spellname=35395,v_actionicon=35395,v_gcdspell=10326,[Jugement],v_spellname=20271,v_actionicon=20271,v_gcdspell=10326,[Mot de gloire (Gloire)],v_p_unitpowertype=9,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=85673,v_p_unitpower=>=3,v_p_isglyphed=54938&54936,v_p_havebuff=_84963^7,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Verdict du templier],v_p_unitpowertype=9,b_p_unitpower=true,v_spellname=85256,v_p_unitpower=>=3,v_p_havebuff=_84963^7,b_p_havebuff=true,v_actionicon=85256,v_gcdspell=10326,[Mot de gloire],v_p_unitpowertype=9,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=85673,v_p_unitpower=>=3,v_p_isglyphed=54938,v_p_havebuff=_84963^7,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Boulier saint],v_p_needbuff=_20925,b_p_needbuff=true,v_spellname=20925,b_rangecheck=false,v_actionicon=20925,v_gcdspell=10326"
 L["ROB_PROMPT_LIST_DELETE"] = "Êtes vous sûr de vouloir la supprimer ?"
-L["ROB_PROMPT_SPELLLIST_DELETE"] = "Êtes vous sûr de vouloir la supprimer ?"
 L["ROB_UI_A_ADD"] = "Ajouter"
 L["ROB_UI_A_ADD_TT"] = "Ajouter une nouvelle action dans la rotation"
 L["ROB_UI_A_COPY"] = "Copier"
@@ -341,77 +340,6 @@ L["ROB_UI_A_COPY_TT"] = "Copier l'action sélectionnée dans le presse-papier"
 L["ROB_UI_ACTION_COLUMN"] = "Actions"
 L["ROB_UI_ADD_ACTION_CFAIL"] = "Les noms d'action ne peuvent utiliser les caractères suivant : [],="
 L["ROB_UI_ADD_ROTATION_CFAIL"] = "Les noms de rotation ne peuvent utiliser les caractères suivant : [],"
-L["ROB_UI_AO_C_CLASS"] = "Classe de l'unité :"
-L["ROB_UI_AO_C_CLASSIB_TT"] = [=[Insérez la liste des classes de l'unité séparé par le caractère |
-Exemple : |cFF00FF00DRUIDE||GUERRIER|r signifie que nous n'affichons cette action que si l'unité est un druide ou un guerrier]=]
-L["ROB_UI_AO_C_CLASS_TT"] = "N'afficher l'action qu'uniquement si l'unité est de la classe spécifié"
-L["ROB_UI_AO_C_DR"] = "A portée de duel"
-L["ROB_UI_AO_C_DR_TT"] = "Afficher l'action seulement si l'unité personnalisée est à moins de 10m métres"
-L["ROB_UI_AO_C_HAVEBUFF"] = "Possède Buff :"
-L["ROB_UI_AO_C_HAVEBUFFIB_TT"] = [=[Insérez le nom ou l'ID du ou des buffs
-Syntaxe : |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = lancé par le joueur |cFF00FF00#|r = nombre de stacks |cFF00FF00^|r = rafraichir à la seconde
-Exemple 1 : |cFF00FF00Bouclier de terre#2|r display action when unit has 2 stacks of Earth Shield
-Exemple 2 : |cFF00FF00_\59\57\54#2|r afficher l'action lorsque l'unité à le buff Bouclier de terre avec 2 stacks
-Exemple 3 : |cFF00FF00_Bouclier de terre#2^3|r afficher l'action lorsque l'unité à le buff Bouclier de terre avec 2 stacks et >=3 seconds restantes
-Exemple 4 : |cFF00FF00Bouclier de terre||Feu intérieur|r afficher l'action lorsque l'unité est affecté par le buff Bouclier de terre OU Feu intérieur
-Exemple 5 : |cFF00FF00\59\57\54&\55\58\58|r afficher l'action lorsque l'unité est affecté par les buffs Bouclier de terre ET Feu intérieur]=]
-L["ROB_UI_AO_C_HAVEBUFF_TT"] = "N'afficher l'action que lorsque l'unité dispose du ou des buffs spécifiés"
-L["ROB_UI_AO_C_HAVEDB"] = "Possède débuff :"
-L["ROB_UI_AO_C_HAVEDBIB_TT"] = [=[Insérez le nom ou le SpellID du ou des débuffs
-Syntaxe : |cFF00FF00| |r= OU |cFF00FF00&|r = ET |cFF00FF00_|r = lancé par le joueur |cFF00FF00#|r = nombre de stacks |cFF00FF00^|r = nombre de secondes restantes
-Example1: |cFF00FF00Peste noire#2|r afficher l'action lorsque l'unité est affecté par le débuff Peste noire avec 2 stacks
-Example2: |cFF00FF00_Peste noire#2|r afficher l'action lorsque l'unité est affecté par le débuff Peste noire lancé par le joueur avec 2 stacks
-Example3: |cFF00FF00_18270#2^3|r afficher l'action lorsque l'unité est affecté par le débuff Peste noire lancé par lejoueur avec 2 stacks et moins de 3 secondes restantes
-Example4: |cFF00FF00Peste noire|Longanimité|r afficher l'action lorsque l'unité est affecté par le débuff Peste noire OU Longanimité
-Example5: |cFF00FF00Peste noire&Longanimité|r afficher l'action lorsque l'unité est affecté par les débuffs Peste noire Et Longanimité]=]
-L["ROB_UI_AO_C_HAVEDB_TT"] = "N'afficher l'action que lorsque l'unité est affecté par le ou les débuffs spécifiés"
-L["ROB_UI_AO_C_HPIB_TT"] = [=[Entrez le nombre de points de vie à vérifier sur l'unité
- Exemple 1 : |cFF00FF00<90%|r signifie que nous n'affichons l'action que si l'unité dispose de moins de 90% de ses points de vie
- Example2: |cFF00FF00>90%|r signifie que nous n'affichons l'action que si l'unité dispose de plus de 90% de ses points de vie
- Example3: |cFF00FF00<=90%|r signifie que nous n'affichons l'action que si l'unité dispose de moins ou d'exactement de 90% de ses points de vie
- Example4: |cFF00FF00>=90%|r signifie que nous n'affichons l'action que si l'unité dispose de plus ou d'exactement de 90% de ses points de vie
- Example5: |cFF00FF00=90%|r signifie que nous n'affichons l'action que si l'unité dispose d'exactement de 90% de ses points de vie]=]
-L["ROB_UI_AO_C_HP_TT"] = "N'afficher l'option qu'uniquement lorsque l'unité dispose des points de vie spécifiés."
-L["ROB_UI_AO_C_INTERRUPT"] = "Interruption :"
-L["ROB_UI_AO_C_INTERRUPT_TT"] = "Utilisez cette action pour interrompre d'unité lorsque celui-ci lance un sortilège présent dans la liste spécifiée"
-L["ROB_UI_AO_C_MAXHP"] = "Max PV :"
-L["ROB_UI_AO_C_MAXHPIB_TT"] = [=[Entrez le nombre maximum de points de vies à vérifier
-Exemple : |cFF00FF00>1000000|r signifie que l'action ne sera afficher que lorsque l'unité dispose de plus d'1 million de points de vie maximum]=]
-L["ROB_UI_AO_C_MAXHP_TT"] = "N'affiche l'action que quand l'unité atteint les points de vie maximum spécifié"
--- L["ROB_UI_AO_C_NEEDBUFF"] = ""
--- L["ROB_UI_AO_C_NEEDBUFFIB_TT"] = ""
--- L["ROB_UI_AO_C_NEEDBUFF_TT"] = ""
--- L["ROB_UI_AO_C_NEEDDB"] = ""
--- L["ROB_UI_AO_C_NEEDDBIB_TT"] = ""
--- L["ROB_UI_AO_C_NEEDDB_TT"] = ""
-L["ROB_UI_AO_C_UNITNAME_L"] = "Nom de l'unité"
--- L["ROB_UI_AO_C_UNITNAME_TT"] = ""
-L["ROB_UI_AO_CUSTOM_TAB"] = "Unité personnalisé"
--- L["ROB_UI_AO_F_CLASS"] = ""
--- L["ROB_UI_AO_F_CLASSIB_TT"] = ""
--- L["ROB_UI_AO_F_CLASS_TT"] = ""
--- L["ROB_UI_AO_F_DR"] = ""
--- L["ROB_UI_AO_F_DR_TT"] = ""
--- L["ROB_UI_AO_F_HAVEBUFF"] = ""
--- L["ROB_UI_AO_F_HAVEBUFFIB_TT"] = ""
--- L["ROB_UI_AO_F_HAVEBUFF_TT"] = ""
--- L["ROB_UI_AO_F_HAVEDB"] = ""
--- L["ROB_UI_AO_F_HAVEDBIB_TT"] = ""
--- L["ROB_UI_AO_F_HAVEDB_TT"] = ""
--- L["ROB_UI_AO_F_HPIB_TT"] = ""
--- L["ROB_UI_AO_F_HP_TT"] = ""
--- L["ROB_UI_AO_F_MAXHP"] = ""
--- L["ROB_UI_AO_F_MAXHPIB_TT"] = ""
--- L["ROB_UI_AO_F_MAXHP_TT"] = ""
--- L["ROB_UI_AO_F_NEEDBUFF"] = ""
--- L["ROB_UI_AO_F_NEEDBUFFIB_TT"] = ""
--- L["ROB_UI_AO_F_NEEDBUFF_TT"] = ""
--- L["ROB_UI_AO_F_NEEDDB"] = ""
--- L["ROB_UI_AO_F_NEEDDBIB_TT"] = ""
--- L["ROB_UI_AO_F_NEEDDB_TT"] = ""
--- L["ROB_UI_AO_FOCUS_TAB"] = ""
--- L["ROB_UI_AO_F_PC"] = ""
--- L["ROB_UI_AO_F_PC_TT"] = ""
 -- L["ROB_UI_AO_G_BLOODR"] = ""
 -- L["ROB_UI_AO_G_BLOODRIB_TT"] = ""
 -- L["ROB_UI_AO_G_BLOODR_TT"] = ""
@@ -635,14 +563,6 @@ Exemple 5 : |cFF00FF0089;7|r id pour Grondement]=]
 -- L["ROB_UI_AO_T_HAVEDB_TT"] = ""
 -- L["ROB_UI_AO_T_HPIB_TT"] = ""
 -- L["ROB_UI_AO_T_HP_TT"] = ""
--- L["ROB_UI_AO_T_INTERRUPT"] = ""
--- L["ROB_UI_AO_T_INTERRUPTIB_TT"] = ""
--- L["ROB_UI_AO_T_INTERRUPT_M"] = ""
--- L["ROB_UI_AO_T_INTERRUPT_M1"] = ""
--- L["ROB_UI_AO_T_INTERRUPT_M2"] = ""
--- L["ROB_UI_AO_T_INTERRUPT_M3"] = ""
--- L["ROB_UI_AO_T_INTERRUPT_QTT"] = ""
--- L["ROB_UI_AO_T_INTERRUPT_TT"] = ""
 -- L["ROB_UI_AO_T_MAGIC"] = ""
 -- L["ROB_UI_AO_T_MAGIC_TT"] = ""
 -- L["ROB_UI_AO_T_MAXHP"] = ""
@@ -680,18 +600,15 @@ L["ROB_UI_IMPORT_ERROR3"] = "Échec de l'importation : la chaîne de caractères
 L["ROB_UI_IMPORT_MESSAGE"] = "Pressez CTRL+V pour coller ici la chaîne de caractères représentant une rotation copier à partir d'une autre source :"
 L["ROB_UI_IMPORT_SUCCESS"] = "Importation réussie"
 L["ROB_UI_IMPORT_TT"] = "Importer une rotation"
-L["ROB_UI_INTERRUPTED_MSG"] = "Interrompu :"
 L["ROB_UI_KEYBIND"] = "<keybind>"
 L["ROB_UI_LDB_TT1"] = "<Clic Droit> pour ouvrir Rotation Builder"
 L["ROB_UI_LDB_TT2"] = "<Clic Gauche> pour sélectionner une Rotation"
-L["ROB_UI_LN_LABEL"] = "Nom de la liste :"
 L["ROB_UI_MODIFY"] = "Modifier"
 L["ROB_UI_MODIFY_TT"] = "Modifier rotation sélectionnée"
 L["ROB_UI_OK_BUTTON"] = "Ok"
 L["ROB_UI_OPTIONS_TAB"] = "Options"
 L["ROB_UI_PRESSKEY"] = "Appuyez sur une touche"
 L["ROB_UI_RCOLUMNHEADER"] = "Rotations"
-L["ROB_UI_RCOLUMNHEADER1"] = "Listes"
 L["ROB_UI_RKB_LABEL"] = "Raccourci"
 L["ROB_UI_RKB_LABEL_TT"] = "Précise quel raccourci sélectionne cette rotation"
 L["ROB_UI_RN_LABEL"] = "Nom de la Rotation:"
@@ -701,12 +618,8 @@ L["ROB_UI_ROTATION_TAB"] = "Rotations"
 L["ROB_UI_RS_LABEL"] = "Porté du sort :"
 L["ROB_UI_RS_LABEL_TT"] = [=[Entrer le nom du sort à utiliser pour vérifier si vous êtes à porté de votre cible et montrer sinon l'icône « Hors de porté ».
 (Cela n'a pas d'effet sur la rotation, cela affiche simplement l'icône en question)]=]
-L["ROB_UI_S_ADD_TT"] = "Ajoutez un nouveau sort à cette liste"
 L["ROB_UI_SAVE"] = "Sauvegarder"
 L["ROB_UI_SAVE_TT"] = "Sauvegarder rotation sélectionnée"
-L["ROB_UI_S_COLUMN"] = "Sorts"
-L["ROB_UI_SPELLLISTS_TAB"] = "Lites de sorts"
-L["ROB_UI_S_REMOVE_TT"] = "Retirez ce sort de la liste"
 L["ROB_UI_TITLE"] = "Rotation Builder"
 L["ROB_UI_TOGGLE"] = "Activer Rotation Builder"
 L["ROB_UI_VERSION_LABEL"] = "Version :"

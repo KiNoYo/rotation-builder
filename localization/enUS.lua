@@ -333,7 +333,6 @@ L["ROB_OPTION_UPDATERATE_MIN"] = "1"
 L["ROB_PALADIN_PROTECTION"] = "RotationBuilder,v1.48,[Protection 5.0.4],[Righteous fury],v_p_needbuff=_25780,b_p_needbuff=true,v_spellname=25780,b_rangecheck=false,v_actionicon=25780,v_gcdspell=10326,[Seal of truth],b_p_notstance=true,v_spellname=31801,b_rangecheck=false,v_p_notstance=1|2,v_actionicon=31801,v_gcdspell=20165,[Blessing of kings],v_p_needbuff=20217|1126|117666|90363,b_p_needbuff=true,v_spellname=20217,b_rangecheck=false,v_actionicon=20217,v_gcdspell=10326,[Blessing of might],v_p_needbuff=_20217|19740|116956|93435|127830,b_p_needbuff=true,v_spellname=19740,v_p_havebuff=20217|1126|117666|90363,b_rangecheck=false,b_p_havebuff=true,v_actionicon=19740,v_gcdspell=10326,[Avenging wrath],v_spellname=31884,b_rangecheck=false,v_actionicon=31884,v_gcdspell=0,[Word of glory (Purpose)],v_spellname=85673,v_p_hp=<=50%,v_p_havebuff=_90174,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Word of glory],b_p_hp=true,v_p_unitpowertype=9,b_p_unitpower=true,v_spellname=85673,v_p_unitpower=>=3,v_p_hp=<=50%,v_actionicon=85673,v_gcdspell=10326,[Shield of the righteous (Purpose)],v_spellname=53600,v_p_havebuff=_90174,b_p_havebuff=true,v_actionicon=53600,v_gcdspell=10326,[Shield of the righteous],v_p_unitpowertype=9,b_p_unitpower=true,v_spellname=53600,v_p_unitpower=>=3,v_actionicon=53600,v_gcdspell=10326,[Avenger's shield (Grand crusader)],v_spellname=31935,v_p_havebuff=_85416,b_p_havebuff=true,v_actionicon=31935,v_gcdspell=10326,[Execution sentence],v_spellname=114157,v_actionicon=114157,v_gcdspell=10326,[Light's hammer],v_spellname=114158,b_rangecheck=false,v_actionicon=114158,v_gcdspell=10326,[Holy prism],v_spellname=114165,v_actionicon=114165,v_gcdspell=10326,[Hammer of wrath],v_spellname=24275,v_actionicon=24275,v_gcdspell=10326,[Sacred shield],v_p_needbuff=_20925,b_p_needbuff=true,v_spellname=20925,b_rangecheck=false,v_actionicon=20925,v_gcdspell=10326,[Hammer of the righteous],v_t_needsdebuff=115798|109466|116198|50256|24423,v_spellname=53595,b_t_needsdebuff=true,v_actionicon=53595,v_gcdspell=10326,[Crusader strike],v_spellname=35395,v_actionicon=35395,v_gcdspell=10326,[Judgement],v_spellname=20271,v_actionicon=20271,v_gcdspell=10326,[Avenger's shield],v_spellname=31935,v_actionicon=31935,v_gcdspell=10326,[Consecration],v_spellname=26573,b_t_dr=true,b_rangecheck=false,v_actionicon=26573,v_gcdspell=10326,[Holy wrath],v_spellname=119072,b_t_dr=true,b_rangecheck=false,v_actionicon=119072,v_gcdspell=10326"
 L["ROB_PALADIN_RETRIBUTION"] = "RotationBuilder,v1.48,[Retribution 5.0.4],[Seal of truth],b_p_notstance=true,v_spellname=31801,b_rangecheck=false,v_p_notstance=1|2,v_actionicon=31801,v_gcdspell=20165,[Blessing of kings],v_p_needbuff=20217|1126|117666|90363,b_p_needbuff=true,v_spellname=20217,b_rangecheck=false,v_actionicon=20217,v_gcdspell=10326,[Blessing of might],v_p_needbuff=_20217|19740|116956|93435|127830,b_p_needbuff=true,v_spellname=19740,v_p_havebuff=20217|1126|117666|90363,b_rangecheck=false,b_p_havebuff=true,v_actionicon=19740,v_gcdspell=10326,[Guardian of the ancient kings (Heroism)],v_spellname=86698,v_p_havebuff=32182|2825|90355|80353,b_p_havebuff=true,v_actionicon=86698,b_t_boss=true,v_gcdspell=0,[Guardian of the ancient kings],v_checkothercdvalue=<1,b_checkothercd=true,v_spellname=86698,v_checkothercdname=31884,v_actionicon=86698,b_t_boss=true,v_gcdspell=0,[Avenging wrath],v_spellname=31884,b_rangecheck=false,v_actionicon=31884,v_gcdspell=0,[Holy avenger],v_spellname=105809,b_rangecheck=false,v_actionicon=105809,v_gcdspell=0,[Light's hammer],v_spellname=114158,b_rangecheck=false,v_actionicon=114158,v_gcdspell=10326,[Execution sentence],v_spellname=114157,v_actionicon=114157,v_gcdspell=10326,[Inquisition (Purpose)],v_p_needbuff=_84963^2,b_p_needbuff=true,v_spellname=84963,v_p_havebuff=_90174,b_rangecheck=false,b_p_havebuff=true,v_actionicon=84963,v_gcdspell=10326,[Inquisition],v_p_needbuff=_84963^2,v_p_unitpowertype=9,b_p_unitpower=true,b_p_needbuff=true,v_spellname=84963,v_p_unitpower=>=3,b_rangecheck=false,v_actionicon=84963,v_gcdspell=10326,[Holy prism],v_spellname=114165,v_actionicon=114165,v_gcdspell=10326,[Word of glory (Avenger + Glory)],v_p_unitpowertype=9,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=85673,v_p_unitpower=>=3,v_p_isglyphed=54938&54936,v_p_havebuff=_84963^4&_105809,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Word of glory (Purpose + Glory)],b_p_isglyphed=true,v_spellname=85673,v_p_isglyphed=54938&54936,v_p_havebuff=_84963^4&_90174,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Word of glory (Power X5 + Glory)],v_p_unitpowertype=9,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=85673,v_p_unitpower==5,v_p_isglyphed=54938&54936,v_p_havebuff=_84963^4,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Templar's verdict (Avenger)],v_p_unitpowertype=9,b_p_unitpower=true,v_spellname=85256,v_p_unitpower=>=3,v_p_havebuff=_84963^4&_105809,b_p_havebuff=true,v_actionicon=85256,v_gcdspell=10326,[Templar's verdict (Purpose)],v_spellname=85256,v_p_havebuff=_84963^4&_90174,b_p_havebuff=true,v_actionicon=85256,v_gcdspell=10326,[Templar's verdict (Power X5)],v_p_unitpowertype=9,b_p_unitpower=true,v_spellname=85256,v_p_unitpower==5,v_p_havebuff=_84963^4,b_p_havebuff=true,v_actionicon=85256,v_gcdspell=10326,[Word of glory (Avenger)],v_p_unitpowertype=9,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=85673,v_p_unitpower=>=3,v_p_isglyphed=54938,v_p_havebuff=_84963^4&_105809,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Word of glory (Purpose)],b_p_isglyphed=true,v_spellname=85673,v_p_isglyphed=54938,v_p_havebuff=_84963^4&_90174,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Word of glory (Power X5)],v_p_unitpowertype=9,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=85673,v_p_unitpower==5,v_p_isglyphed=54938,v_p_havebuff=_84963^4,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Hammer of wrath],v_spellname=24275,v_actionicon=24275,v_gcdspell=10326,[Exorcisme],v_spellname=879,v_actionicon=879,v_gcdspell=10326,[Hammer of the righteous],v_t_needsdebuff=115798|109466|116198|50256|24423,v_spellname=53595,b_t_needsdebuff=true,v_actionicon=53595,v_gcdspell=10326,[Crusader strike],v_spellname=35395,v_actionicon=35395,v_gcdspell=10326,[Judgement],v_spellname=20271,v_actionicon=20271,v_gcdspell=10326,[Word of glory (Glory)],v_p_unitpowertype=9,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=85673,v_p_unitpower=>=3,v_p_isglyphed=54938&54936,v_p_havebuff=_84963^7,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Templar's verdict],v_p_unitpowertype=9,b_p_unitpower=true,v_spellname=85256,v_p_unitpower=>=3,v_p_havebuff=_84963^7,b_p_havebuff=true,v_actionicon=85256,v_gcdspell=10326,[Word of glory],v_p_unitpowertype=9,b_p_unitpower=true,b_p_isglyphed=true,v_spellname=85673,v_p_unitpower=>=3,v_p_isglyphed=54938,v_p_havebuff=_84963^7,b_p_havebuff=true,v_actionicon=85673,v_gcdspell=10326,[Sacred shield],v_p_needbuff=_20925,b_p_needbuff=true,v_spellname=20925,b_rangecheck=false,v_actionicon=20925,v_gcdspell=10326"
 L["ROB_PROMPT_LIST_DELETE"] = "Are you sure you want to delete?"
-L["ROB_PROMPT_SPELLLIST_DELETE"] = "Are you sure you want to delete?"
 L["ROB_UI_A_ADD"] = "Add"
 L["ROB_UI_A_ADD_TT"] = "Add new action to the rotation"
 L["ROB_UI_A_COPY"] = "Copy"
@@ -341,122 +340,6 @@ L["ROB_UI_A_COPY_TT"] = "Copy the selected action to the clipboard"
 L["ROB_UI_ACTION_COLUMN"] = "Actions"
 L["ROB_UI_ADD_ACTION_CFAIL"] = "Action names can not use these characters [ ] , ="
 L["ROB_UI_ADD_ROTATION_CFAIL"] = "Rotation names can not use these characters [ ] ,"
-L["ROB_UI_AO_C_CLASS"] = "Unit Class:"
-L["ROB_UI_AO_C_CLASSIB_TT"] = [=[Input the list of unit classes seperated by |
-Example: |cFF00FF00DRUID||WARRIOR|r means only display this action if the unit is a druid or warrior]=]
-L["ROB_UI_AO_C_CLASS_TT"] = "Only display action if the unit is one of the specified clases"
-L["ROB_UI_AO_C_DR"] = "Duel Range"
-L["ROB_UI_AO_C_DR_TT"] = "Only display action if custom unit is within 9.9 yards"
-L["ROB_UI_AO_C_HAVEBUFF"] = "Has Buff:"
-L["ROB_UI_AO_C_HAVEBUFFIB_TT"] = [=[Input the name of the buff or buffs
-Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
-Example1: |cFF00FF00Earth Shield#2|r display action when unit has 2 stacks of Earth Shield
-Example2: |cFF00FF00_Earth Shield#2|r display action when unit has a player casted Earth Shield at 2 stacks
-Example3: |cFF00FF00_Earth Shield#2^3|r display action when unit has a player casted Earth Shield at 2 stacks with >=3 seconds left
-Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when unit has Earth Shield or Inner Fire
-Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when unit has both Earth Shield and Inner Fire]=]
-L["ROB_UI_AO_C_HAVEBUFF_TT"] = "Only display action when unit has the specified buff or buffs"
-L["ROB_UI_AO_C_HAVEDB"] = "Have Debuff:"
-L["ROB_UI_AO_C_HAVEDBIB_TT"] = [=[Input the name of the debuff or debuffs
-Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
-Example1: |cFF00FF00Dark Plague#2|r display action when unit has the debuff Dark Plague 2 stacks
-Example2: |cFF00FF00_Dark Plague#2|r display action when unit has a player casted Dark Plague at 2 stacks
-Example3: |cFF00FF00_Dark Plague#2^3|r display action when unit has a player casted Dark Plague at 2 stacks with >=3 seconds left
-Example4: |cFF00FF00Dark Plague|Forbearance|r display action when unit has Dark Plague or Forbearance debuffs
-Example5: |cFF00FF00Dark Plague&Forbearance|r display action when unit has both Dark Plague and Forbearance debuffs]=]
-L["ROB_UI_AO_C_HAVEDB_TT"] = "Only display action when unit has the specified debuff or debuffs"
-L["ROB_UI_AO_C_HPIB_TT"] = [=[Input the unit hit points to check
-Example1: |cFF00FF00<90%|r means only display this action when unit is under 90% hitpoints
-Example2: |cFF00FF00>90%|r means only display this action when unit is over 90% hitpoints
-Example3: |cFF00FF00<=90%|r means only display this action when unit is under or equal to 90% hitpoints
-Example4: |cFF00FF00>=90%|r means only display this action when unit is over or equal to 90% hitpoints
-Example5: |cFF00FF00=90%|r means only display this action when unit is at exactly 90% hitpoints]=]
-L["ROB_UI_AO_C_HP_TT"] = "Only display action when unit meets specified hit points"
-L["ROB_UI_AO_C_INTERRUPT"] = "Interrupt:"
-L["ROB_UI_AO_C_INTERRUPT_TT"] = "Use this action to interrupt the unit when its casting one of the spells in the specified list"
-L["ROB_UI_AO_C_MAXHP"] = "Max HP:"
-L["ROB_UI_AO_C_MAXHPIB_TT"] = [=[Input the unit maximum hit points to check
-Example1: |cFF00FF00>1000000|r means only display this action when unit has over 1 million maximum hitpoints]=]
-L["ROB_UI_AO_C_MAXHP_TT"] = "Only display action when unit meets specified max hit points"
-L["ROB_UI_AO_C_NEEDBUFF"] = "Needs Buff:"
-L["ROB_UI_AO_C_NEEDBUFFIB_TT"] = [=[Input the name of the buff or buffs
-Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
-Example1: |cFF00FF00Earth Shield#2|r display action when unit is missing 2 stacks of Earth Shield
-Example2: |cFF00FF00_Earth Shield#2|r display action when unit is missing a player casted Earth Shield at 2 stacks
-Example3: |cFF00FF00_Earth Shield#2^3|r display action when unit is missing a player casted Earth Shield at 2 stacks with >=3 seconds left
-Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when unit is missing Earth Shield or Inner Fire
-Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when unit is missing both Earth Shield and Inner Fire]=]
-L["ROB_UI_AO_C_NEEDBUFF_TT"] = "Only display action when unit needs specified buff or buffs"
-L["ROB_UI_AO_C_NEEDDB"] = "Need Debuff:"
-L["ROB_UI_AO_C_NEEDDBIB_TT"] = [=[Input the name of the debuff or debuffs
-Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
-Example1: |cFF00FF00Dark Plague#2|r display action when unit is missing the debuff Dark Plague 2 stacks
-Example2: |cFF00FF00_Dark Plague#2|r display action when unit is missing a player casted Dark Plague at 2 stacks
-Example3: |cFF00FF00_Dark Plague#2^3|r display action when unit is missing a player casted Dark Plague at 2 stacks with >=3 seconds left
-Example4: |cFF00FF00Dark Plague|Forbearance|r display action when unit is missing Dark Plague or Forbearance debuffs
-Example5: |cFF00FF00Dark Plague&Forbearance|r display action when unit is missing both Dark Plague and Forbearance debuffs]=]
-L["ROB_UI_AO_C_NEEDDB_TT"] = "Only display action when unit is missing the specified debuff or debuffs"
-L["ROB_UI_AO_C_UNITNAME_L"] = "Unit Name:"
-L["ROB_UI_AO_C_UNITNAME_TT"] = [=[Enter the name of the unit to check the options on this tab against 
-Example1: |cFF00FF00focustarget|r
-Example2: |cFF00FF00boss1|r]=]
-L["ROB_UI_AO_CUSTOM_TAB"] = "Custom Unit"
-L["ROB_UI_AO_F_CLASS"] = "Focus Class:"
-L["ROB_UI_AO_F_CLASSIB_TT"] = [=[Input the list of focus classes seperated by |
-Example: |cFF00FF00DRUID||WARRIOR|r means only display this action if the focus is a druid or warrior]=]
-L["ROB_UI_AO_F_CLASS_TT"] = "Only display action if the focus is one of the specified clases"
-L["ROB_UI_AO_F_DR"] = "Duel Range"
-L["ROB_UI_AO_F_DR_TT"] = "Only display action if focus is within 9.9 yards"
-L["ROB_UI_AO_F_HAVEBUFF"] = "Has Buff:"
-L["ROB_UI_AO_F_HAVEBUFFIB_TT"] = [=[Input the name of the buff or buffs
-Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
-Example1: |cFF00FF00Earth Shield#2|r display action when focus has 2 stacks of Earth Shield
-Example2: |cFF00FF00_Earth Shield#2|r display action when focus has a player casted Earth Shield at 2 stacks
-Example3: |cFF00FF00_Earth Shield#2^3|r display action when focus has a player casted Earth Shield at 2 stacks with >=3 seconds left
-Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when focus has Earth Shield or Inner Fire
-Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when focus has both Earth Shield and Inner Fire]=]
-L["ROB_UI_AO_F_HAVEBUFF_TT"] = "Only display action when focus has the specified buff or buffs"
-L["ROB_UI_AO_F_HAVEDB"] = "Have Debuff:"
-L["ROB_UI_AO_F_HAVEDBIB_TT"] = [=[Input the name of the debuff or debuffs
-Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
-Example1: |cFF00FF00Dark Plague#2|r display action when focus has the debuff Dark Plague 2 stacks
-Example2: |cFF00FF00_Dark Plague#2|r display action when focus has a player casted Dark Plague at 2 stacks
-Example3: |cFF00FF00_Dark Plague#2^3|r display action when focus has a player casted Dark Plague at 2 stacks with >=3 seconds left
-Example4: |cFF00FF00Dark Plague|Forbearance|r display action when focus has Dark Plague or Forbearance debuffs
-Example5: |cFF00FF00Dark Plague&Forbearance|r display action when focus has both Dark Plague and Forbearance debuffs]=]
-L["ROB_UI_AO_F_HAVEDB_TT"] = "Only display action when focus has the specified debuff or debuffs"
-L["ROB_UI_AO_F_HPIB_TT"] = [=[Input the pet hit points to check
-Example1: |cFF00FF00<90%|r means only display this action when focus is under 90% hitpoints
-Example2: |cFF00FF00>90%|r means only display this action when focus is over 90% hitpoints
-Example3: |cFF00FF00<=90%|r means only display this action when focus is under or equal to 90% hitpoints
-Example4: |cFF00FF00>=90%|r means only display this action when focus is over or equal to 90% hitpoints
-Example5: |cFF00FF00=90%|r means only display this action when focus is at exactly 90% hitpoints]=]
-L["ROB_UI_AO_F_HP_TT"] = "Only display action when focus meets specified hit points"
-L["ROB_UI_AO_F_MAXHP"] = "Max HP:"
-L["ROB_UI_AO_F_MAXHPIB_TT"] = [=[Input the focus maximum hit points to check
-Example1: |cFF00FF00>1000000|r means only display this action when focus has over 1 million maximum hitpoints]=]
-L["ROB_UI_AO_F_MAXHP_TT"] = "Only display action when focus meets specified max hit points"
-L["ROB_UI_AO_F_NEEDBUFF"] = "Needs Buff:"
-L["ROB_UI_AO_F_NEEDBUFFIB_TT"] = [=[Input the name of the buff or buffs
-Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
-Example1: |cFF00FF00Earth Shield#2|r display action when focus is missing 2 stacks of Earth Shield
-Example2: |cFF00FF00_Earth Shield#2|r display action when focus is missing a player casted Earth Shield at 2 stacks
-Example3: |cFF00FF00_Earth Shield#2^3|r display action when focus is missing a player casted Earth Shield at 2 stacks with >=3 seconds left
-Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when focus is missing Earth Shield or Inner Fire
-Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when focus is missing both Earth Shield and Inner Fire]=]
-L["ROB_UI_AO_F_NEEDBUFF_TT"] = "Only display action when focus needs specified buff or buffs"
-L["ROB_UI_AO_F_NEEDDB"] = "Need Debuff:"
-L["ROB_UI_AO_F_NEEDDBIB_TT"] = [=[Input the name of the debuff or debuffs
-Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
-Example1: |cFF00FF00Dark Plague#2|r display action when focus is missing the debuff Dark Plague 2 stacks
-Example2: |cFF00FF00_Dark Plague#2|r display action when focus is missing a player casted Dark Plague at 2 stacks
-Example3: |cFF00FF00_Dark Plague#2^3|r display action when focus is missing a player casted Dark Plague at 2 stacks with >=3 seconds left
-Example4: |cFF00FF00Dark Plague|Forbearance|r display action when focus is missing Dark Plague or Forbearance debuffs
-Example5: |cFF00FF00Dark Plague&Forbearance|r display action when focus is missing both Dark Plague and Forbearance debuffs]=]
-L["ROB_UI_AO_F_NEEDDB_TT"] = "Only display action when focus is missing the specified debuff or debuffs"
-L["ROB_UI_AO_FOCUS_TAB"] = "Focus"
-L["ROB_UI_AO_F_PC"] = "Player controlled"
-L["ROB_UI_AO_F_PC_TT"] = "Only display action if focus is player controlled"
 L["ROB_UI_AO_G_BLOODR"] = "Generates Blood Runes:"
 L["ROB_UI_AO_G_BLOODRIB_TT"] = [=[Input the number of blood runes generated
 Example: |cFF00FF001|r]=]
@@ -861,18 +744,6 @@ Example3: |cFF00FF00<=90%|r means only display this action when target is under 
 Example4: |cFF00FF00>=90%|r means only display this action when target is over or equal to 90% hitpoints
 Example5: |cFF00FF00=90%|r means only display this action when target is at exactly 90% hitpoints]=]
 L["ROB_UI_AO_T_HP_TT"] = "Only display action when target meets specified hit points"
-L["ROB_UI_AO_T_INTERRUPT"] = "Interrupt:"
-L["ROB_UI_AO_T_INTERRUPTIB_TT"] = [=[Input the list of spells to interrupt surrounded by |
-Example1: |cFF00FF00||Polymorph||Fear|||r
-Example2: |cFF00FF00||Polymorph|||r just interrupts Polymorph]=]
-L["ROB_UI_AO_T_INTERRUPT_M"] = "Enter the name of the spell to search for"
-L["ROB_UI_AO_T_INTERRUPT_M1"] = "Interrupt list is blank"
-L["ROB_UI_AO_T_INTERRUPT_M2"] = [=[ |cFFFF0000NOT FOUND|r (Spell name may not have verticals bars around the name) 
-Bad Example:|Shadow Nova 
-Good Example:|Shadow Nova|]=]
-L["ROB_UI_AO_T_INTERRUPT_M3"] = " |cFF00FF00FOUND|r"
-L["ROB_UI_AO_T_INTERRUPT_QTT"] = "Search for a spell name in the interrupt list"
-L["ROB_UI_AO_T_INTERRUPT_TT"] = "Use this action to interrupt the unit when its casting one of the spells in the specified list"
 L["ROB_UI_AO_T_MAGIC"] = "Has magic buff"
 L["ROB_UI_AO_T_MAGIC_TT"] = "Only display this action when the target has a magic buff"
 L["ROB_UI_AO_T_MAXHP"] = "Max HP:"
@@ -923,18 +794,15 @@ L["ROB_UI_IMPORT_ERROR3"] = "Import failed because import string is not a Rotati
 L["ROB_UI_IMPORT_MESSAGE"] = "Press CTRL+V to paste a rotation build that you've copied from another source here:"
 L["ROB_UI_IMPORT_SUCCESS"] = "Import successful"
 L["ROB_UI_IMPORT_TT"] = "Import rotation"
-L["ROB_UI_INTERRUPTED_MSG"] = "Interrupted:"
 L["ROB_UI_KEYBIND"] = "<keybind>"
 L["ROB_UI_LDB_TT1"] = "<Right Click> to open Rotation Builder"
 L["ROB_UI_LDB_TT2"] = "<Left Click> to select a Rotation"
-L["ROB_UI_LN_LABEL"] = "List Name:"
 L["ROB_UI_MODIFY"] = "Modify"
 L["ROB_UI_MODIFY_TT"] = "Modify selected rotation"
 L["ROB_UI_OK_BUTTON"] = "Ok"
 L["ROB_UI_OPTIONS_TAB"] = "Options"
 L["ROB_UI_PRESSKEY"] = "Press Key"
 L["ROB_UI_RCOLUMNHEADER"] = "Rotations"
-L["ROB_UI_RCOLUMNHEADER1"] = "Lists"
 L["ROB_UI_RKB_LABEL"] = "Keybind"
 L["ROB_UI_RKB_LABEL_TT"] = "Specify which key selects this rotation"
 L["ROB_UI_RN_LABEL"] = "Rotation Name:"
@@ -944,12 +812,8 @@ L["ROB_UI_ROTATION_TAB"] = "Rotations"
 L["ROB_UI_RS_LABEL"] = "Range Spell:"
 L["ROB_UI_RS_LABEL_TT"] = [=[Input the name of the spell to use to check if you are in range of your target to show the out of range icon
 (This has no effect on rotation, only the out of range icon display)]=]
-L["ROB_UI_S_ADD_TT"] = "Add new spell to the list"
 L["ROB_UI_SAVE"] = "Save"
 L["ROB_UI_SAVE_TT"] = "Save selected rotation"
-L["ROB_UI_S_COLUMN"] = "Spells"
-L["ROB_UI_SPELLLISTS_TAB"] = "Spell Lists"
-L["ROB_UI_S_REMOVE_TT"] = "Remove spell from list"
 L["ROB_UI_TITLE"] = "Rotation Builder"
 L["ROB_UI_TOGGLE"] = "Toggle Rotation Builder"
 L["ROB_UI_VERSION_LABEL"] = "Version:"
