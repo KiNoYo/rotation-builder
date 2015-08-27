@@ -3287,7 +3287,7 @@ function ROB_UnitIsGlyphed(_glyphneeded, _getnextspell)
 	local found = false
 	local glyph = nil
 
-	while not _doneparsing do
+	while not _doneparsing and _remainingglyphs ~= nil do
 		_unparsedglyph = nil
 		if (string.find(_remainingglyphs, "|")) then
 			_unparsedglyph   = string.sub(_remainingglyphs,1,string.find(_remainingglyphs, "|")-1)
