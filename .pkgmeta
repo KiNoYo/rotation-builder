@@ -16,3 +16,6 @@ ignore:
 	- .docmeta
 
 package-as: RotationBuilder
+
+move-folders:
+	RotationBuilder/rotations/RotationBuilder_Rogue: RotationBuilder_Rogue

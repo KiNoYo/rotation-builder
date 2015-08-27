@@ -1,0 +1,16 @@
+## Interface: 60200
+## Title: RotationBuilder_Rogue
+## Version: 1.0
+## Author: Pelerinage, Tylocaptain
+## Notes: Rogue's rotation for RotationBuilder
+## Dependencies: RotationBuilder
+
+-- Library
+..\RotationBuilder\libs\AceLocale-3.0\AceLocale-3.0.lua
+
+-- Localization
+localization\enUS.lua
+localization\frFR.lua
+
+-- Rotations
+RotationsRogue.lua

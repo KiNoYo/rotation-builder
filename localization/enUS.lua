@@ -826,4 +826,4 @@ L["ROB_WARRIOR_PROTECTION"] = "RotationBuilder,v1.48,[Protection 5.0.4],[Defensi
 L["ui/options/importExport/useOld/text"] = "Old import/export"
 L["ui/options/importExport/useOld/tooltip"] = "Use old import/export system (compatibility purpose)"
 --@end-do-not-package@
---@localization(locale="enUS", format="lua_additive_table", handle-subnamespaces="concat")@
+--@localization(locale="enUS", format="lua_additive_table")@
