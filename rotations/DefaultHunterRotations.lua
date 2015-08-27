@@ -104,7 +104,7 @@ local hunterRotationsGenerator = function ()
 					["b_p_needbuff"] = true,
 					["b_p_isglyphed"] = true,
 				},
-				["defaultRotation/hunter/aimed_shot_thrill_of_the_hunt"] = {
+				["defaultRotation/hunter/arcane_shot_thrill_of_the_hunt"] = {
 					["v_p_unitpower"] = ">80",
 					["v_actionicon"] = "3044",
 					["v_gcdspell"] = "1462",
@@ -239,7 +239,7 @@ local hunterRotationsGenerator = function ()
 				"defaultRotation/hunter/aspect_of_the_cheetah", -- [3]
 				"defaultRotation/hunter/revive_pet", -- [4]
 				"defaultRotation/hunter/mend_pet", -- [5]
-				"defaultRotation/hunter/aimed_shot_thrill_of_the_hunt", -- [6]
+				"defaultRotation/hunter/arcane_shot_thrill_of_the_hunt", -- [6]
 				"defaultRotation/hunter/explosive_shot", -- [7]
 				"defaultRotation/hunter/black_arrow", -- [8]
 				"defaultRotation/hunter/explosive_trap", -- [9]
@@ -457,7 +457,7 @@ local hunterRotationsGenerator = function ()
 					["v_p_unitpower"] = ">=90%",
 					["b_rangecheck"] = true,
 				},
-				["defaultRotation/hunter/aimed_shot_thrill_of_the_hunt"] = {
+				["defaultRotation/hunter/arcane_shot_thrill_of_the_hunt"] = {
 					["v_p_unitpower"] = ">100",
 					["v_actionicon"] = "3044",
 					["v_gcdspell"] = "1462",
@@ -553,7 +553,7 @@ local hunterRotationsGenerator = function ()
 				"defaultRotation/hunter/focus_fire_frenzy", -- [9]
 				"defaultRotation/hunter/focus_fire", -- [10]
 				"defaultRotation/hunter/bestial_wrath", -- [11]
-				"defaultRotation/hunter/aimed_shot_thrill_of_the_hunt", -- [12]
+				"defaultRotation/hunter/arcane_shot_thrill_of_the_hunt", -- [12]
 				"defaultRotation/hunter/kill_command", -- [13]
 				"defaultRotation/hunter/kill_shot", -- [14]
 				"defaultRotation/hunter/dire_beast", -- [15]
