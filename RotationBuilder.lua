@@ -3968,11 +3968,7 @@ function ROB_SpellReady(_actionname,_getnextspell)
 		ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._ActionDB.v_spellname.." because player is not moving",_ready,_debugon)
 		return false
 	end
-	if (not _ActionDB.b_moving and _castTime and _castTime > 0 and GetUnitSpeed("player") > 0) then
-
-		ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._ActionDB.v_spellname.." because player can not cast "..tostring(_name).." while moving",_ready,_debugon)
-		return false
-	end
+	
 	-- CHECK: Not Moving-----------------------------------------------------------------------------------------------------------------------------
 	if (_ActionDB.b_notmoving and GetUnitSpeed("player") > 0) then
 		ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._ActionDB.v_spellname.." because player is moving",_ready,_debugon)
