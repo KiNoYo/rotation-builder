@@ -311,11 +311,6 @@ function ROB_LoadDefaultRotations()
 	
 	RotationBuilder:loadDefaultRotations(englishClassName);
 	
-	if (englishClassName == "MAGE") then
-		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_MAGE_ARCANE'), true)
-		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_MAGE_FIRE'), true)
-		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_MAGE_FROST'), true)
-	end
 	if (englishClassName == "WARRIOR") then
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_WARRIOR_ARMS'), true)
 		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_WARRIOR_FURY'), true)
