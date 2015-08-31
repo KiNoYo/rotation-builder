@@ -445,6 +445,7 @@ end
 
 function ROB_OnLoad(self)
 	self:RegisterEvent("ADDON_LOADED");
+	self:RegisterEvent("PLAYER_LOGIN");
 	self:RegisterEvent("PLAYER_ENTERING_WORLD");
 	self:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED");
 	self:RegisterEvent("UNIT_SPELLCAST_START");
@@ -506,6 +507,8 @@ function ROB_OnEvent(self, event, ...)
 
 	if (event == "ADDON_LOADED") then
 		ROB_ADDON_Load(...);
+	elseif (event == "PLAYER_LOGIN") then
+		ROB_PLAYER_LOGIN();
 	elseif (event == "PLAYER_ENTERING_WORLD") then
 		ROB_PLAYER_Enter();
 	elseif (event == "UNIT_SPELLCAST_SUCCEEDED" or event == "UNIT_SPELLCAST_START" or event == "UNIT_SPELLCAST_CHANNEL_START" or event == "UNIT_SPELLCAST_CHANNEL_STOP") then
@@ -558,17 +561,7 @@ function ROB_OnEvent(self, event, ...)
 	end
 end
 
-function ROB_ADDON_Load(addon)
-	local key, value;
-
-	if (addon ~= ROB_PROJECT_NAME) then return end
-	
-	for key, value in pairs(ROB_Options_Default) do
-		if (ROB_Options[key] == nil) then
-			ROB_Options[key] = value;
-		end
-	end
-
+function ROB_PLAYER_LOGIN()
 	--After loading the options check if we have loaded once before if not then load default rotations
 	if (ROB_Options["loaddefault"]) then
 		ROB_LoadDefaultRotations()
@@ -578,6 +571,18 @@ function ROB_ADDON_Load(addon)
 		--Weve loaded once before do we have a last loaded rotation?
 		if (ROB_Options["lastrotation"] and ROB_Options["lastrotation"] ~= "" and ROB_Options["lastrotation"] ~= nil) then
 			ROB_SwitchRotation(ROB_Options["lastrotation"], true)
+		end
+	end
+end
+
+function ROB_ADDON_Load(addon)
+	local key, value;
+
+	if (addon ~= ROB_PROJECT_NAME) then return end
+	
+	for key, value in pairs(ROB_Options_Default) do
+		if (ROB_Options[key] == nil) then
+			ROB_Options[key] = value;
 		end
 	end
 
@@ -600,8 +605,6 @@ function ROB_PLAYER_Enter()
 	end
 
 	ROB_Initialized = true;
-
-
 
 	-- Initialize options tab
 	ROB_OptionsTabMiniMapButton:SetChecked(ROB_Options.MiniMap);
