@@ -311,11 +311,6 @@ function ROB_LoadDefaultRotations()
 	
 	RotationBuilder:loadDefaultRotations(englishClassName);
 	
-	if (englishClassName == "WARRIOR") then
-		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_WARRIOR_ARMS'), true)
-		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_WARRIOR_FURY'), true)
-		ROB_ImportRotation(RotationBuilderUtils:localize('ROB_WARRIOR_PROTECTION'), true)
-	end
 	-- TODO PEL : localize this message.
 	print("Default rotations loaded!");
 	-- update rotation list
