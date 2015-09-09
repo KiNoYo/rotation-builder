@@ -34,8 +34,6 @@ L["rotation/rogue/sinister_strike"] = "Sinister Strike"
 L["rotation/rogue/slice_and_dice"] = "Slice and Dice"
 L["rotation/rogue/slice_and_dice_anticipation"] = "Slice and Dice (Anticipation)"
 L["rotation/rogue/subtlety"] = "RoB Subtlety 6.2.0"
-L["rotation/rogue/vanish"] = "Vanish"
-L["rotation/rogue/vanish_anticipation"] = "Vanish (Anticipation)"
 L["rotation/rogue/vendetta"] = "Vendetta"
 
 --@end-do-not-package@

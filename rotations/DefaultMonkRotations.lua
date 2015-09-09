@@ -29,7 +29,6 @@ local monkRotationsGenerator = function ()
 					["v_actionicon"] = "115072",
 					["v_keybind"] = "<keybind>",
 					["v_gunitpower"] = "1",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/tigereye_brew"] = {
 					["v_durationstartedtime"] = 0,
@@ -53,7 +52,6 @@ local monkRotationsGenerator = function ()
 					["v_p_unitpowertype"] = "12",
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = ">=3",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/legacy_of_the_white_tiger"] = {
 					["v_p_needbuff"] = "1126|115921|116781|20217|160206|159988|160017|90363|160077",
@@ -75,7 +73,6 @@ local monkRotationsGenerator = function ()
 					["b_p_unitpower"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = ">=3",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/flying_serpent_kick_landing"] = {
 					["v_gcdspell"] = "115921",
@@ -86,7 +83,6 @@ local monkRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "115057",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/stance_of_the_fierce_tiger"] = {
 					["v_p_notstance"] = "2",
@@ -109,7 +105,6 @@ local monkRotationsGenerator = function ()
 					["v_actionicon"] = "100784",
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "137384",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/rising_sun_kick"] = {
 					["v_p_needdebuff"] = "_185099^3",
@@ -123,7 +118,6 @@ local monkRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = ">=2",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/chi_wave"] = {
 					["v_p_knowspell"] = "115098",
@@ -134,7 +128,6 @@ local monkRotationsGenerator = function ()
 					["v_spellname"] = "115098",
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "115098",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/flying_serpent_kick"] = {
 					["v_togglename"] = "Toggle 1",
@@ -143,7 +136,6 @@ local monkRotationsGenerator = function ()
 					["v_actionicon"] = "101454",
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "115921",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/tiger_palm_combo_breaker"] = {
 					["v_gcdspell"] = "115921",
@@ -154,7 +146,6 @@ local monkRotationsGenerator = function ()
 					["v_actionicon"] = "100787",
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "137384",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/touch_of_death"] = {
 					["v_gcdspell"] = "115921",
@@ -166,7 +157,6 @@ local monkRotationsGenerator = function ()
 					["v_p_unitpowertype"] = "12",
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = ">=3",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/chi_explosion_combo_breaker"] = {
 					["v_actionicon"] = "157676",
@@ -182,7 +172,6 @@ local monkRotationsGenerator = function ()
 					["v_p_unitpowertype"] = "12",
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = ">=4",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/blackout_kick"] = {
 					["v_p_unitpowertype"] = "12",
@@ -196,7 +185,6 @@ local monkRotationsGenerator = function ()
 					["v_actionicon"] = "100784",
 					["b_p_knownotspell"] = true,
 					["v_p_unitpower"] = ">=3",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/chi_brew"] = {
 					["v_p_knowspell"] = "115399",
@@ -223,7 +211,6 @@ local monkRotationsGenerator = function ()
 					["b_gunitpower"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_gunitpower"] = "1",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/zen_sphere"] = {
 					["v_p_knowspell"] = "124081",
@@ -234,7 +221,6 @@ local monkRotationsGenerator = function ()
 					["v_spellname"] = "124081",
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "124081",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/invoke_xuen_the_white_tiger"] = {
 					["v_togglename"] = "Toggle 1",
@@ -243,7 +229,6 @@ local monkRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "115921",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/tiger_palm"] = {
 					["v_p_needbuff"] = "125359^3",
@@ -257,7 +242,6 @@ local monkRotationsGenerator = function ()
 					["b_p_unitpower"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = ">=2",
-					["b_rangecheck"] = true,
 				},
 			},
 			["SortedActions"] = {
@@ -296,7 +280,6 @@ local monkRotationsGenerator = function ()
 					["v_spellname"] = "116781",
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "116781",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/expel_harm"] = {
 					["v_gunitpowertype"] = "12",
@@ -310,7 +293,6 @@ local monkRotationsGenerator = function ()
 					["v_p_hp"] = "<90%",
 					["b_p_hp"] = true,
 					["v_gunitpower"] = "1",
-					["b_t_dr"] = true,
 				},
 				["defaultRotation/monk/zen_sphere"] = {
 					["v_p_knowspell"] = "124081",
@@ -321,7 +303,6 @@ local monkRotationsGenerator = function ()
 					["v_spellname"] = "124081",
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "124081",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/summon_black_ox_statue"] = {
 					["v_p_needbuff"] = "_126119",
@@ -332,7 +313,6 @@ local monkRotationsGenerator = function ()
 					["v_spellname"] = "115315",
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "115315",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/tiger_palm"] = {
 					["v_togglename"] = "Toggle 1",
@@ -341,7 +321,6 @@ local monkRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "115921",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/guard"] = {
 					["v_p_needbuff"] = "115295",
@@ -378,7 +357,6 @@ local monkRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = ">=2",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/keg_smash"] = {
 					["v_gcdspell"] = "115921",
@@ -390,7 +368,6 @@ local monkRotationsGenerator = function ()
 					["v_p_unitpowertype"] = "12",
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = "<=2",
-					["b_t_dr"] = true,
 				},
 				["defaultRotation/monk/jab"] = {
 					["b_p_unitpower"] = true,
@@ -405,7 +382,6 @@ local monkRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_gunitpower"] = "1",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/tiger_palm_refresh"] = {
 					["v_p_needbuff"] = "_125359^3",
@@ -416,7 +392,6 @@ local monkRotationsGenerator = function ()
 					["v_spellname"] = "100787",
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "100787",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/monk/chi_wave"] = {
 					["v_p_knowspell"] = "115098",
@@ -429,7 +404,6 @@ local monkRotationsGenerator = function ()
 					["v_keybind"] = "<keybind>",
 					["b_p_hp"] = true,
 					["v_togglename"] = "Toggle 1",
-					["b_rangecheck"] = true,
 				},
 			},
 			["SortedActions"] = {

@@ -15,7 +15,6 @@ local rogueRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_gcombopoints"] = "2",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/rogue/eviscerate"] = {
 					["b_p_combopoints"] = true,
@@ -28,7 +27,6 @@ local rogueRotationsGenerator = function ()
 					["v_actionicon"] = "2098",
 					["v_keybind"] = "<keybind>",
 					["v_p_knownotspell"] = "114015",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/rogue/adrenaline_rush"] = {
 					["v_togglename"] = "Toggle 1",
@@ -50,7 +48,6 @@ local rogueRotationsGenerator = function ()
 					["v_p_knowspell"] = "114015",
 					["v_keybind"] = "<keybind>",
 					["v_durationstartedtime"] = 0,
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/rogue/slice_and_dice"] = {
 					["v_p_needbuff"] = "_5171^10",
@@ -77,7 +74,6 @@ local rogueRotationsGenerator = function ()
 					["v_actionicon"] = "2098",
 					["v_keybind"] = "<keybind>",
 					["v_p_combopoints"] = ">=9",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/rogue/marked_for_death"] = {
 					["v_p_knowspell"] = "137619",
@@ -90,7 +86,6 @@ local rogueRotationsGenerator = function ()
 					["v_actionicon"] = "137619",
 					["v_keybind"] = "<keybind>",
 					["v_p_combopoints"] = "=0",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/rogue/instant_poison"] = {
 					["v_p_needbuff"] = "157584",
@@ -100,34 +95,6 @@ local rogueRotationsGenerator = function ()
 					["b_p_needbuff"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_durationstartedtime"] = 0,
-				},
-				["defaultRotation/rogue/vanish"] = {
-					["b_p_notstance"] = true,
-					["b_p_combopoints"] = true,
-					["v_togglename"] = "Toggle 1",
-					["b_p_knownotspell"] = true,
-					["v_p_notstance"] = "1",
-					["v_p_combopoints"] = "<3",
-					["v_actionicon"] = "1856",
-					["v_spellname"] = "1856",
-					["v_p_knownotspell"] = "114015",
-					["v_keybind"] = "<keybind>",
-					["b_p_ic"] = true,
-					["v_durationstartedtime"] = 0,
-				},
-				["defaultRotation/rogue/vanish_anticipation"] = {
-					["b_p_notstance"] = true,
-					["b_p_combopoints"] = true,
-					["v_actionicon"] = "1856",
-					["v_p_notstance"] = "1",
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "1856",
-					["v_p_knowspell"] = "114015",
-					["v_keybind"] = "<keybind>",
-					["b_p_ic"] = true,
-					["v_p_combopoints"] = "<8",
 				},
 				["defaultRotation/rogue/killing_spree"] = {
 					["b_checkothercd"] = true,
@@ -148,7 +115,6 @@ local rogueRotationsGenerator = function ()
 					["v_actionicon"] = "1752",
 					["v_keybind"] = "<keybind>",
 					["v_gcombopoints"] = "1",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/rogue/revealing_strike"] = {
 					["v_t_needsdebuff"] = "_84617^6",
@@ -161,12 +127,10 @@ local rogueRotationsGenerator = function ()
 					["b_t_needsdebuff"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_gcombopoints"] = "1",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/rogue/shadow_reflection"] = {
 					["v_p_knowspell"] = "152151",
 					["b_p_knowspell"] = true,
-					["b_rangecheck"] = true,
 					["b_checkothercd"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_actionicon"] = "152151",
@@ -189,7 +153,6 @@ local rogueRotationsGenerator = function ()
 					["v_actionicon"] = "2098",
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "84747",
-					["b_rangecheck"] = true,
 				},
 			},
 			["SortedActions"] = {
@@ -198,16 +161,14 @@ local rogueRotationsGenerator = function ()
 				"defaultRotation/rogue/killing_spree", -- [3]
 				"defaultRotation/rogue/adrenaline_rush", -- [4]
 				"defaultRotation/rogue/marked_for_death", -- [5]
-				"defaultRotation/rogue/vanish_anticipation", -- [6]
-				"defaultRotation/rogue/vanish", -- [7]
-				"defaultRotation/rogue/ambush", -- [8]
-				"defaultRotation/rogue/slice_and_dice_anticipation", -- [9]
-				"defaultRotation/rogue/slice_and_dice", -- [10]
-				"defaultRotation/rogue/eviscerate_anticipation_deep_insight", -- [11]
-				"defaultRotation/rogue/eviscerate_anticipation", -- [12]
-				"defaultRotation/rogue/eviscerate", -- [13]
-				"defaultRotation/rogue/revealing_strike", -- [14]
-				"defaultRotation/rogue/sinister_strike", -- [15]
+				"defaultRotation/rogue/ambush", -- [6]
+				"defaultRotation/rogue/slice_and_dice_anticipation", -- [7]
+				"defaultRotation/rogue/slice_and_dice", -- [8]
+				"defaultRotation/rogue/eviscerate_anticipation_deep_insight", -- [9]
+				"defaultRotation/rogue/eviscerate_anticipation", -- [10]
+				"defaultRotation/rogue/eviscerate", -- [11]
+				"defaultRotation/rogue/revealing_strike", -- [12]
+				"defaultRotation/rogue/sinister_strike", -- [13]
 			},
 			["keybind"] = "<keybind>",
 		},
@@ -225,7 +186,6 @@ local rogueRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_gcombopoints"] = "2",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/rogue/eviscerate"] = {
 					["b_p_combopoints"] = true,
@@ -236,7 +196,6 @@ local rogueRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_togglename"] = "Toggle 1",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/rogue/shadow_reflection"] = {
 					["v_p_knowspell"] = "152151",
@@ -245,7 +204,6 @@ local rogueRotationsGenerator = function ()
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "152151",
-					["b_rangecheck"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "152151",
 					["v_checkothercdname"] = "51713",
@@ -259,7 +217,6 @@ local rogueRotationsGenerator = function ()
 					["v_actionicon"] = "53",
 					["v_keybind"] = "<keybind>",
 					["v_gcombopoints"] = "1",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/rogue/slice_and_dice"] = {
 					["v_p_needbuff"] = "_5171^10",
@@ -281,7 +238,6 @@ local rogueRotationsGenerator = function ()
 					["b_p_combopoints"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_togglename"] = "Toggle 1",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/rogue/marked_for_death"] = {
 					["v_p_knowspell"] = "137619",
@@ -294,7 +250,6 @@ local rogueRotationsGenerator = function ()
 					["v_togglename"] = "Toggle 1",
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "137619",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/rogue/rupture"] = {
 					["v_t_needsdebuff"] = "_1943^7.2",
@@ -307,21 +262,6 @@ local rogueRotationsGenerator = function ()
 					["b_t_needsdebuff"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_p_combopoints"] = ">=5",
-					["b_rangecheck"] = true,
-				},
-				["defaultRotation/rogue/vanish"] = {
-					["b_p_notstance"] = true,
-					["b_p_combopoints"] = true,
-					["v_togglename"] = "Toggle 1",
-					["b_p_knownotspell"] = true,
-					["v_p_notstance"] = "1|3",
-					["v_p_combopoints"] = "<3",
-					["v_actionicon"] = "1856",
-					["v_spellname"] = "1856",
-					["v_p_knownotspell"] = "114015",
-					["v_keybind"] = "<keybind>",
-					["b_p_ic"] = true,
-					["v_durationstartedtime"] = 0,
 				},
 				["defaultRotation/rogue/ambush_stealth"] = {
 					["b_gcombopoints"] = true,
@@ -334,7 +274,6 @@ local rogueRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_gcombopoints"] = "2",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/rogue/lethal_poison"] = {
 					["v_p_needbuff"] = "2823",
@@ -345,24 +284,9 @@ local rogueRotationsGenerator = function ()
 					["v_keybind"] = "<keybind>",
 					["v_durationstartedtime"] = 0,
 				},
-				["defaultRotation/rogue/vanish_anticipation"] = {
-					["b_p_notstance"] = true,
-					["b_p_combopoints"] = true,
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_p_notstance"] = "1|3",
-					["v_p_combopoints"] = "<8",
-					["v_actionicon"] = "1856",
-					["v_spellname"] = "1856",
-					["v_p_knowspell"] = "114015",
-					["v_keybind"] = "<keybind>",
-					["b_p_ic"] = true,
-					["v_durationstartedtime"] = 0,
-				},
 				["defaultRotation/rogue/hemorrhage"] = {
 					["v_t_needsdebuff"] = "_89775^1",
 					["v_durationstartedtime"] = 0,
-					["v_rangespell"] = "1752",
 					["v_actionicon"] = "16511",
 					["v_gcdspell"] = "5938",
 					["v_togglename"] = "Toggle 1",
@@ -371,7 +295,6 @@ local rogueRotationsGenerator = function ()
 					["b_t_needsdebuff"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_gcombopoints"] = "1",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/rogue/shadow_dance"] = {
 					["v_p_notstance"] = "1",
@@ -381,7 +304,6 @@ local rogueRotationsGenerator = function ()
 					["b_p_notstance"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "51713",
-					["b_rangecheck"] = true,
 				},
 			},
 			["SortedActions"] = {
@@ -390,15 +312,13 @@ local rogueRotationsGenerator = function ()
 				"defaultRotation/rogue/shadow_reflection", -- [3]
 				"defaultRotation/rogue/shadow_dance", -- [4]
 				"defaultRotation/rogue/marked_for_death", -- [5]
-				"defaultRotation/rogue/vanish_anticipation", -- [6]
-				"defaultRotation/rogue/vanish", -- [7]
-				"defaultRotation/rogue/ambush_stealth", -- [8]
-				"defaultRotation/rogue/rupture", -- [9]
-				"defaultRotation/rogue/slice_and_dice", -- [10]
-				"defaultRotation/rogue/eviscerate", -- [11]
-				"defaultRotation/rogue/ambush", -- [12]
-				"defaultRotation/rogue/backstab", -- [13]
-				"defaultRotation/rogue/hemorrhage", -- [14]
+				"defaultRotation/rogue/ambush_stealth", -- [6]
+				"defaultRotation/rogue/rupture", -- [7]
+				"defaultRotation/rogue/slice_and_dice", -- [8]
+				"defaultRotation/rogue/eviscerate", -- [9]
+				"defaultRotation/rogue/ambush", -- [10]
+				"defaultRotation/rogue/backstab", -- [11]
+				"defaultRotation/rogue/hemorrhage", -- [12]
 			},
 			["keybind"] = "<keybind>",
 		},
@@ -425,13 +345,11 @@ local rogueRotationsGenerator = function ()
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "152151",
-					["b_rangecheck"] = true,
 					["v_checkothercdvalue"] = "=0",
 					["b_p_knowspell"] = true,
 					["v_checkothercdname"] = "79140",
 				},
 				["defaultRotation/rogue/mutilate"] = {
-					["b_rangecheck"] = true,
 					["v_actionicon"] = "1329",
 					["v_spellname"] = "1329",
 					["v_togglename"] = "Toggle 1",
@@ -441,20 +359,6 @@ local rogueRotationsGenerator = function ()
 					["v_keybind"] = "<keybind>",
 					["v_gcombopoints"] = "2",
 					["v_t_hp"] = ">=35%",
-				},
-				["defaultRotation/rogue/vanish_anticipation"] = {
-					["b_p_notstance"] = true,
-					["b_p_combopoints"] = true,
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_p_notstance"] = "1",
-					["v_p_combopoints"] = "<7",
-					["v_actionicon"] = "1856",
-					["v_spellname"] = "1856",
-					["v_p_knowspell"] = "114015",
-					["v_keybind"] = "<keybind>",
-					["b_p_ic"] = true,
-					["v_durationstartedtime"] = 0,
 				},
 				["defaultRotation/rogue/dispatch"] = {
 					["v_gcdspell"] = "5938",
@@ -479,7 +383,6 @@ local rogueRotationsGenerator = function ()
 					["v_actionicon"] = "32645",
 					["v_keybind"] = "<keybind>",
 					["v_p_combopoints"] = "=5",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/rogue/marked_for_death"] = {
 					["v_p_knowspell"] = "137619",
@@ -492,7 +395,6 @@ local rogueRotationsGenerator = function ()
 					["v_togglename"] = "Toggle 1",
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "137619",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/rogue/rupture"] = {
 					["v_t_needsdebuff"] = "_1943^8",
@@ -505,21 +407,6 @@ local rogueRotationsGenerator = function ()
 					["b_t_needsdebuff"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_p_combopoints"] = "=5",
-					["b_rangecheck"] = true,
-				},
-				["defaultRotation/rogue/vanish"] = {
-					["b_p_notstance"] = true,
-					["b_p_combopoints"] = true,
-					["v_actionicon"] = "1856",
-					["b_p_knownotspell"] = true,
-					["v_p_notstance"] = "1",
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "1856",
-					["v_p_knownotspell"] = "114015",
-					["v_keybind"] = "<keybind>",
-					["b_p_ic"] = true,
-					["v_p_combopoints"] = "<2",
 				},
 				["defaultRotation/rogue/mutilate_stealth"] = {
 					["b_gcombopoints"] = true,
@@ -531,7 +418,6 @@ local rogueRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_gcombopoints"] = "2",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/rogue/lethal_poison"] = {
 					["v_p_needbuff"] = "2823",
@@ -547,7 +433,6 @@ local rogueRotationsGenerator = function ()
 					["b_t_hasdebuff"] = true,
 					["v_gcdspell"] = "5938",
 					["v_togglename"] = "Toggle 1",
-					["b_rangecheck"] = true,
 					["v_p_combopoints"] = ">=1",
 					["v_actionicon"] = "1943",
 					["v_spellname"] = "1943",
@@ -567,7 +452,6 @@ local rogueRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_gcombopoints"] = "2",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/rogue/envenom"] = {
 					["b_p_combopoints"] = true,
@@ -594,17 +478,15 @@ local rogueRotationsGenerator = function ()
 				"defaultRotation/rogue/shadow_reflection", -- [2]
 				"defaultRotation/rogue/vendetta", -- [3]
 				"defaultRotation/rogue/marked_for_death", -- [4]
-				"defaultRotation/rogue/vanish_anticipation", -- [5]
-				"defaultRotation/rogue/vanish", -- [6]
-				"defaultRotation/rogue/mutilate_stealth", -- [7]
-				"defaultRotation/rogue/mutilate_energy", -- [8]
-				"defaultRotation/rogue/rupture", -- [9]
-				"defaultRotation/rogue/rupture_urgent", -- [10]
-				"defaultRotation/rogue/envenom_anticipation", -- [11]
-				"defaultRotation/rogue/envenom", -- [12]
-				"defaultRotation/rogue/dispatch_blindside", -- [13]
-				"defaultRotation/rogue/dispatch", -- [14]
-				"defaultRotation/rogue/mutilate", -- [15]
+				"defaultRotation/rogue/mutilate_stealth", -- [5]
+				"defaultRotation/rogue/mutilate_energy", -- [6]
+				"defaultRotation/rogue/rupture", -- [7]
+				"defaultRotation/rogue/rupture_urgent", -- [8]
+				"defaultRotation/rogue/envenom_anticipation", -- [9]
+				"defaultRotation/rogue/envenom", -- [10]
+				"defaultRotation/rogue/dispatch_blindside", -- [11]
+				"defaultRotation/rogue/dispatch", -- [12]
+				"defaultRotation/rogue/mutilate", -- [13]
 			},
 			["keybind"] = "<keybind>",
 		},

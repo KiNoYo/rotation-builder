@@ -13,7 +13,6 @@ local priestRotationsGenerator = function ()
 					["v_p_unitpowertype"] = "13",
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = "<5",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/priest/insanity"] = {
 					["b_p_havebuff"] = true,
@@ -21,7 +20,6 @@ local priestRotationsGenerator = function ()
 					["v_p_knowspell"] = "139139",
 					["v_togglename"] = "Toggle 1",
 					["v_gcdspell"] = "585",
-					["v_rangespell"] = "589",
 					["b_p_knowspell"] = true,
 					["v_p_knownotspell"] = "155246",
 					["v_durationstartedtime"] = 0,
@@ -29,7 +27,6 @@ local priestRotationsGenerator = function ()
 					["v_actionicon"] = "129197",
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "132573",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/priest/void_entropy"] = {
 					["v_t_needsdebuff"] = "155361",
@@ -42,18 +39,15 @@ local priestRotationsGenerator = function ()
 					["b_t_needsdebuff"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "155361",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/priest/mind_flay_clarity"] = {
 					["b_t_hasdebuff"] = true,
 					["v_p_knowspell"] = "155246",
 					["v_gcdspell"] = "585",
-					["v_rangespell"] = "589",
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_actionicon"] = "15407",
 					["v_spellname"] = "15407",
-					["b_rangecheck"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_durationstartedtime"] = 0,
 					["v_t_hasdebuff"] = "158831",
@@ -69,7 +63,6 @@ local priestRotationsGenerator = function ()
 					["b_t_needsdebuff"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_togglename"] = "Toggle 1",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/priest/power_word_fortitude"] = {
 					["v_p_needbuff"] = "21562|469|90364|166928|160199|50256|160014|160003",
@@ -82,14 +75,12 @@ local priestRotationsGenerator = function ()
 					["v_actionicon"] = "21562",
 				},
 				["defaultRotation/priest/mind_flay"] = {
-					["v_rangespell"] = "589",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "15407",
 					["v_actionicon"] = "15407",
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "585",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/priest/devouring_plague"] = {
 					["v_durationstartedtime"] = 0,
@@ -103,7 +94,6 @@ local priestRotationsGenerator = function ()
 					["v_togglename"] = "Toggle 1",
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = ">=3",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/priest/shadowfiend"] = {
 					["v_togglename"] = "Toggle 1",
@@ -112,7 +102,6 @@ local priestRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "585",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/priest/mind_blast_insight"] = {
 					["v_gcdspell"] = "585",
@@ -123,7 +112,6 @@ local priestRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "124430",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/priest/shadowform"] = {
 					["v_p_notstance"] = "1",
@@ -140,10 +128,8 @@ local priestRotationsGenerator = function ()
 					["v_togglename"] = "Toggle 1",
 					["v_actionicon"] = "123040",
 					["v_spellname"] = "123040",
-					["v_rangespell"] = "589",
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "585",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/priest/mind_spike_clarity"] = {
 					["v_p_knowspell"] = "155246",
@@ -154,7 +140,6 @@ local priestRotationsGenerator = function ()
 					["v_spellname"] = "73510",
 					["v_keybind"] = "<keybind>",
 					["v_durationstartedtime"] = 0,
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/priest/shadow_word_death"] = {
 					["v_gcdspell"] = "585",
@@ -166,7 +151,6 @@ local priestRotationsGenerator = function ()
 					["v_actionicon"] = "32379",
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = "<5",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/priest/insanity_clarity"] = {
 					["v_p_knowspell"] = "155246&139139",
@@ -177,10 +161,8 @@ local priestRotationsGenerator = function ()
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "129197",
-					["v_rangespell"] = "589",
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "132573",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/priest/mind_spike_surge_3"] = {
 					["b_p_havebuff"] = true,
@@ -193,7 +175,6 @@ local priestRotationsGenerator = function ()
 					["v_actionicon"] = "73510",
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "87160#3",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/priest/shadow_word_pain"] = {
 					["v_t_needsdebuff"] = "_589^5.4",
@@ -206,7 +187,6 @@ local priestRotationsGenerator = function ()
 					["b_t_needsdebuff"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_togglename"] = "Toggle 1",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/priest/mind_spike"] = {
 					["v_durationstartedtime"] = 0,
@@ -219,7 +199,6 @@ local priestRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_knownotspell"] = true,
 					["v_p_havebuff"] = "87160",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/priest/mind_spike_clarity_surge_3"] = {
 					["v_p_knowspell"] = "155246",
@@ -232,7 +211,6 @@ local priestRotationsGenerator = function ()
 					["v_actionicon"] = "73510",
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "87160#3",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/priest/power_infusion"] = {
 					["v_togglename"] = "Toggle 1",
@@ -249,7 +227,6 @@ local priestRotationsGenerator = function ()
 					["v_p_knowspell"] = "139139",
 					["b_p_unitpower"] = true,
 					["v_gcdspell"] = "585",
-					["b_rangecheck"] = true,
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_actionicon"] = "2944",

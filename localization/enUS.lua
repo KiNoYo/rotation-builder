@@ -296,18 +296,12 @@ L["defaultRotation/rogue/sinister_strike"] = "Sinister Strike"
 L["defaultRotation/rogue/slice_and_dice"] = "Slice and Dice"
 L["defaultRotation/rogue/slice_and_dice_anticipation"] = "Slice and Dice (Anticipation)"
 L["defaultRotation/rogue/subtlety"] = "Subtlety 6.2.0"
-L["defaultRotation/rogue/vanish"] = "Vanish"
-L["defaultRotation/rogue/vanish_anticipation"] = "Vanish (Anticipation)"
 L["defaultRotation/rogue/vendetta"] = "Vendetta"
-L["defaultRotation/shaman/ancestral_swiftness"] = "Ancestral Swiftness"
-L["defaultRotation/shaman/ascendance"] = "Ascendance"
 L["defaultRotation/shaman/earth_shock"] = "Earth Shock"
-L["defaultRotation/shaman/elemental"] = "Elemental 6.2.0"
+L["defaultRotation/shaman/elemental"] = "Elemental 6.2.2"
 L["defaultRotation/shaman/elemental_blast"] = "Elemental Blast"
 L["defaultRotation/shaman/elemental_blast_maelstrom_4+"] = "Elemental Blast (Maelstrom 4+)"
-L["defaultRotation/shaman/elemental_mastery"] = "Elemental Mastery"
-L["defaultRotation/shaman/enhancement"] = "Enhancement 6.2.0"
-L["defaultRotation/shaman/feral_spirit"] = "Feral Spirit"
+L["defaultRotation/shaman/enhancement"] = "Enhancement 6.2.2"
 L["defaultRotation/shaman/flame_shock"] = "Flame Shock"
 L["defaultRotation/shaman/flame_shock_elemental_fusion"] = "Flame Shock (Elemental Fusion)"
 L["defaultRotation/shaman/frost_shock"] = "Frost Shock"
@@ -315,9 +309,6 @@ L["defaultRotation/shaman/frost_shock_elemental_fusion"] = "Frost Shock (Element
 L["defaultRotation/shaman/lava_burst"] = "Lava Burst"
 L["defaultRotation/shaman/lava_burst_flame_shock"] = "Lava Burst (Flame Shock)"
 L["defaultRotation/shaman/lava_lash"] = "Lava Lash"
-L["defaultRotation/shaman/lava_lash_2_charges"] = "Lava Lash (2 Charges)"
-L["defaultRotation/shaman/lava_lash_echo"] = "Lava Lash (Echo of the Elements)"
-L["defaultRotation/shaman/lava_lash_execute"] = "Lava Lash (Execute)"
 L["defaultRotation/shaman/lightning_bolt"] = "Lightning Bolt"
 L["defaultRotation/shaman/lightning_bolt_maelstrom_5"] = "Lightning Bolt (Maelstrom 5)"
 L["defaultRotation/shaman/lightning_shield"] = "Lightning Shield"
@@ -325,14 +316,9 @@ L["defaultRotation/shaman/liquid_magma"] = "Liquid Magma"
 L["defaultRotation/shaman/searing_totem"] = "Searing Totem"
 L["defaultRotation/shaman/searing_totem_refresh"] = "Searing Totem (Refresh)"
 L["defaultRotation/shaman/stormstrike"] = "Stormstrike"
-L["defaultRotation/shaman/stormstrike_2_charges"] = "Stormstrike (2 Charges)"
-L["defaultRotation/shaman/stormstrike_execute"] = "Stormstrike (Execute)"
 L["defaultRotation/shaman/unleash_elements"] = "Unleash Elements"
 L["defaultRotation/shaman/unleash_elements_unleashed_fury"] = "Unleash Elements (Unleashed Fury)"
-L["defaultRotation/shaman/windstrike"] = "Windstrike"
-L["defaultRotation/shaman/windstrike_2_charges"] = "Windstrike (2 Charges)"
-L["defaultRotation/shaman/windstrike_ascendance"] = "Windstrike (Ascendance)"
-L["defaultRotation/shaman/windstrike_execute"] = "Windstrike (Execute)"
+L["defaultRotation/shaman/unleash_flame"] = "Unleash Flame"
 L["defaultRotation/warlock/affliction"] = "Affliction 6.2.0"
 L["defaultRotation/warlock/agony"] = "Agony"
 L["defaultRotation/warlock/cataclysm"] = "Cataclysm"
@@ -509,11 +495,6 @@ L["ROB_UI_A_COPY_TT"] = "Copy the selected action to the clipboard"
 L["ROB_UI_ACTION_COLUMN"] = "Actions"
 L["ROB_UI_ADD_ACTION_CFAIL"] = "Action names can not use these characters [ ] , ="
 L["ROB_UI_ADD_ROTATION_CFAIL"] = "Rotation names can not use these characters [ ] ,"
-L["ROB_UI_AO_G_BLOODR"] = "Generates Blood Runes:"
-L["ROB_UI_AO_G_BLOODRIB_TT"] = [=[Input the number of blood runes generated
-Example: |cFF00FF001|r]=]
-L["ROB_UI_AO_G_BLOODR_TT"] = [=[Check this box if this action generates blood runes
-This is used for calculating the next ready action]=]
 L["ROB_UI_AO_G_CHARGES"] = "Spell Charges:"
 L["ROB_UI_AO_G_CHARGESIB_TT"] = [=[Input the number of charges
 Example: |cFF00FF001|r]=]
@@ -523,11 +504,6 @@ L["ROB_UI_AO_G_COMBOP"] = "Generates Combo Points:"
 L["ROB_UI_AO_G_COMBOPIB_TT"] = [=[Input the number of combo points generated
 Example: |cFF00FF002|r]=]
 L["ROB_UI_AO_G_COMBOP_TT"] = [=[Check this option if this action generates combo points
-This is used for calculating the next ready action]=]
-L["ROB_UI_AO_G_DEATHR"] = "Generates Death Runes:"
-L["ROB_UI_AO_G_DEATHRIB_TT"] = [=[Input the number of death runes generated
-Example: |cFF00FF001|r]=]
-L["ROB_UI_AO_G_DEATHR_TT"] = [=[Check this option if this action generates death runes
 This is used for calculating the next ready action]=]
 L["ROB_UI_AO_G_DEBUG"] = "Debug"
 L["ROB_UI_AO_G_DEBUG_TT"] = "Turn on debug for this spell"
@@ -539,11 +515,6 @@ L["ROB_UI_AO_G_DURATION_TT"] = [=[Wait specified seconds to display this action 
 Useful for giving air born spells time to land before calculating next action]=]
 L["ROB_UI_AO_GENERAL_LABEL"] = "General Options:"
 L["ROB_UI_AO_GENERAL_TAB"] = "General"
-L["ROB_UI_AO_G_FROSTR"] = "Generates Frost Runes:"
-L["ROB_UI_AO_G_FROSTRIB_TT"] = [=[Input the number of frost runes generated
-Example: |cFF00FF001|r]=]
-L["ROB_UI_AO_G_FROSTR_TT"] = [=[Check this option if this action generates frost runes
-This is used for calculating the next ready action]=]
 L["ROB_UI_AO_G_GCD_L"] = "GCD Spell:"
 L["ROB_UI_AO_G_GCD_TT"] = [=[GCD Spell is used to get your global cooldown time with haste effects to check if the action is ready
 Rule1: GCD spellname should be a spellname not used in the rotation
@@ -579,9 +550,6 @@ L["ROB_UI_AO_G_NMOVING_TT"] = "Only display this action if player is not moving"
 L["ROB_UI_AO_G_NOTSPELL"] = "Not a spell"
 L["ROB_UI_AO_G_NOTSPELL_TT"] = [=[Ignore spell mana type checks and just use the keybind to perform the action
 Check this when spellname=Trinket0Slot or HandsSlot]=]
-L["ROB_UI_AO_G_OOR"] = "OOR:"
-L["ROB_UI_AO_G_OORIB_TT"] = "Input the name of the spell to check out of range"
-L["ROB_UI_AO_G_OOR_TT"] = "Only display action when specified spell is out of range of target"
 L["ROB_UI_AO_G_OTHERCD"] = "Check other cooldown:"
 L["ROB_UI_AO_G_OTHERCDNIB_TT"] = "Input the name or spell id of the other cooldown to check"
 L["ROB_UI_AO_G_OTHERCD_TT"] = "Only display this action when other cooldown specified passes check"
@@ -590,14 +558,6 @@ Example1: |cFF00FF00<3|r means only display action when other action has less th
 Example2: |cFF00FF00>3|r means only display action when other action has more than 3 seconds left
 Example3: |cFF00FF00<=3|r means only display action when other action has less than or equal to 3 seconds left
 Example4: |cFF00FF00=3|r means only display this action when other action has exactly 3 seconds left]=]
-L["ROB_UI_AO_G_RANGE"] = "Range:"
-L["ROB_UI_AO_G_RANGEIB_TT"] = [=[Input the name of the spell to use to check range
-If this is left blank the spellname is used to check range
-Example1: |cFF00FF00Fireball|r to check if Fireball is in range and show OOR icon if not
-Example2: |cFF00FF00Fireball#1#0#0|r to check if Fireball is in range and show tinted red icon if not
-Example3: |cFF00FF00#0#0#1|r to check if spellname is in range and show tinted blue icon if not (#r#g#b)]=]
-L["ROB_UI_AO_G_RANGE_TT"] = [=[Only display action when it is in range of your target
-If you specify a tint color the action will tint when out of range even without this checked]=]
 L["ROB_UI_AO_G_SID_VFAIL"] = "Spell or Slot not found"
 L["ROB_UI_AO_G_SPELLNAME_L"] = "Spell Name or Inventory Slot:"
 L["ROB_UI_AO_G_SPELLNAME_TT"] = [=[Input spellname or inventory slot
@@ -611,79 +571,30 @@ L["ROB_UI_AO_G_TOGGLE"] = "Toggle:"
 L["ROB_UI_AO_G_TOGGLEOFF_TT"] = "Turn off toggle automatically after you cast the spell?"
 L["ROB_UI_AO_G_TOGGLEON_TT"] = "Turn on toggle automatically when switching to this rotation?"
 L["ROB_UI_AO_G_TOGGLE_TT"] = "Only display action when specified toggle is turned on"
-L["ROB_UI_AO_G_UNHOLYR"] = "Generates Unholy Runes:"
-L["ROB_UI_AO_G_UNHOLYRIB_TT"] = [=[Input the number of unholy runes generated
-Example: |cFF00FF001|r]=]
-L["ROB_UI_AO_G_UNHOLYR_TT"] = [=[Check this option if this action generates unholy runes
-This is used for calculating the next ready action]=]
-L["ROB_UI_AO_P_AIRTA"] = "Active Air:"
-L["ROB_UI_AO_P_AIRTAIB_TT"] = [=[Input the name or spell id of the air totem
-Example1: |cFF00FF00Wrath of Air Totem|r
-Example2:|cFF00FF00 3738|r
-Keep it empty if you just want to check if an air totem is active]=]
-L["ROB_UI_AO_P_AIRTA_TT"] = "Only display action when specified air totem is active"
-L["ROB_UI_AO_P_AIRTI"] = "Inactive Air:"
-L["ROB_UI_AO_P_AIRTIIB_TT"] = [=[Input the name or spell id of the air totem
-Example1: |cFF00FF00Wrath of Air Totem|r
-Example2:|cFF00FF00 3738|r
-Keep it empty if you just want to check if all air totems are inactive]=]
-L["ROB_UI_AO_P_AIRTI_TT"] = "Only display action when specified air totem is inactive"
-L["ROB_UI_AO_P_AIRTTL"] = "Timeleft Air:"
-L["ROB_UI_AO_P_AIRTTLIB_TT"] = [=[Input the name or spell id of the air totem
-Example1: |cFF00FF00>=2|r means >= 2 seconds left
-Example2: |cFF00FF00<=2.1|r means <=2.1 seconds left
-Example3: |cFF00FF00=5|r means exactly 5 seconds left]=]
-L["ROB_UI_AO_P_AIRTTL_TT"] = "Only display action when air totem has specified timeleft"
 L["ROB_UI_AO_P_BLOODR"] = "Blood:"
 L["ROB_UI_AO_P_BLOODRIB_TT"] = [=[Input the number of blood runes
 Example1: |cFF00FF00>1|r means only display this action when player has more than 1 blood rune
 Example2: |cFF00FF00<=1|r means only display this action when player has less than or equal to 1 blood rune
 Example3: |cFF00FF00>=1|r means only display this action when player has 1 or more blood runes]=]
 L["ROB_UI_AO_P_BLOODR_TT"] = "Only display action when player has specified blood runes"
-L["ROB_UI_AO_P_BLOODTAP"] = "Blood Tap"
-L["ROB_UI_AO_P_BLOODTAP_TT"] = "Only display action when player both blood runes, frost runes or unholy runes are depleted"
 L["ROB_UI_AO_P_COMBOP"] = "Combo Points:"
 L["ROB_UI_AO_P_COMBOPIB_TT"] = [=[Input the number of combo points required
 Example1: |cFF00FF00>=2|r
 Example2: |cFF00FF00<=2|r
 Example3: |cFF00FF00=2|r]=]
 L["ROB_UI_AO_P_COMBOP_TT"] = "Only display action when I have specified combo points"
-L["ROB_UI_AO_P_CURSE"] = "Curse"
-L["ROB_UI_AO_P_CURSE_TT"] = "Only display action when player has a curse debuff"
 L["ROB_UI_AO_P_DEATHR"] = "Death:"
 L["ROB_UI_AO_P_DEATHRIB_TT"] = [=[Input the number of death runes
 Example1: |cFF00FF00>1|r means only display this action when player has more than 1 death rune
 Example2: |cFF00FF00<=1|r means only display this action when player has less than or equal to 1 death rune
 Example3: |cFF00FF00>=1|r means only display this action when player has 1 or more death runes]=]
 L["ROB_UI_AO_P_DEATHR_TT"] = "Only display action when player has specified death runes"
-L["ROB_UI_AO_P_DISEASE"] = "Disease"
-L["ROB_UI_AO_P_DISEASE_TT"] = "Only display action when player has a disease debuff"
-L["ROB_UI_AO_P_EARTHTA"] = "Active Earth:"
-L["ROB_UI_AO_P_EARTHTAIB_TT"] = [=[Input the name or spell id of the earth totem
-Example1: |cFF00FF00Earthbind Totem|r
-Example2:|cFF00FF00 2484|r
-Keep it empty if you just want to check if an earth totem is active]=]
-L["ROB_UI_AO_P_EARTHTA_TT"] = "Only display action when specified earth totem is active"
-L["ROB_UI_AO_P_EARTHTI"] = "Inactive Earth:"
-L["ROB_UI_AO_P_EARTHTIIB_TT"] = [=[Input the name or spell id of the earth totem
-Example1: |cFF00FF00Earthbind Totem|r
-Example2:|cFF00FF00 2484|r
-Keep it empty if you just want to check if all earth totems are inactive]=]
-L["ROB_UI_AO_P_EARTHTI_TT"] = "Only display action when specified earth totem is inactive"
-L["ROB_UI_AO_P_EARTHTTL"] = "Timeleft Earth:"
-L["ROB_UI_AO_P_EARTHTTLIB_TT"] = [=[Input the name or spell id of the earth totem
-Example1: |cFF00FF00>=2|r means >= 2 seconds left
-Example2: |cFF00FF00<=2.1|r means <=2.1 seconds left
-Example3: |cFF00FF00=5|r means exactly 5 seconds left]=]
-L["ROB_UI_AO_P_EARTHTTL_TT"] = "Only display action when earth totem has specified timeleft"
 L["ROB_UI_AO_P_ECLIPSE"] = "Eclipse:"
 L["ROB_UI_AO_P_ECLIPSEIB_TT"] = [=[Input the direction of the eclipse
 Example1: |cFF00FF00moon|r
 Example2: |cFF00FF00sun|r
 Example3: |cFF00FF00none|r]=]
 L["ROB_UI_AO_P_ECLIPSE_TT"] = "Only display action when eclipse is heading towards specified direction"
-L["ROB_UI_AO_PET_DR"] = "Duel Range"
-L["ROB_UI_AO_PET_DR_TT"] = "Only display action if pet is within 9.9 yards"
 L["ROB_UI_AO_PET_HAVEBUFF"] = "Has Buff:"
 L["ROB_UI_AO_PET_HAVEBUFFIB_TT"] = [=[Input the name of the buff or buffs
 Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
@@ -693,15 +604,6 @@ Example3: |cFF00FF00_Earth Shield#2^3|r display action when your pet has a playe
 Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when your pet has Earth Shield or Inner Fire
 Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when your pet has both Earth Shield and Inner Fire]=]
 L["ROB_UI_AO_PET_HAVEBUFF_TT"] = "Only display action when your pet has the specified buff or buffs"
-L["ROB_UI_AO_PET_HAVEDB"] = "Has Debuff:"
-L["ROB_UI_AO_PET_HAVEDBIB_TT"] = [=[Input the name of the debuff or debuffs
-Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
-Example1: |cFF00FF00Dark Plague#2|r display action when your pet has the debuff Dark Plague 2 stacks
-Example2: |cFF00FF00_Dark Plague#2|r display action when your pet has a player casted Dark Plague at 2 stacks
-Example3: |cFF00FF00_Dark Plague#2^3|r display action when your pet has a player casted Dark Plague at 2 stacks with >=3 seconds left
-Example4: |cFF00FF00Dark Plague|Forbearance|r display action when your pet has Dark Plague or Forbearance debuffs
-Example5: |cFF00FF00Dark Plague&Forbearance|r display action when your pet has both Dark Plague and Forbearance debuffs]=]
-L["ROB_UI_AO_PET_HAVEDB_TT"] = "Only display action when your pet has the specified debuff or debuffs"
 L["ROB_UI_AO_PET_HPIB_TT"] = [=[Input the pet hit points to check
 Example1: |cFF00FF00<90%|r means only display this action when pet is under 90% hitpoints
 Example2: |cFF00FF00>90%|r means only display this action when pet is over 90% hitpoints
@@ -709,16 +611,6 @@ Example3: |cFF00FF00<=90%|r means only display this action when pet is under or 
 Example4: |cFF00FF00>=90%|r means only display this action when pet is over or equal to 90% hitpoints
 Example5: |cFF00FF00=90%|r means only display this action when pet is at exactly 90% hitpoints]=]
 L["ROB_UI_AO_PET_HP_TT"] = "Only display action when pet meets specified hit points"
-L["ROB_UI_AO_PET_ISAC"] = "Autocasting:"
-L["ROB_UI_AO_PET_ISACIB_TT"] = [=[Input the name or spellid of the pet spell to check
-Example1: |cFF00FF00Growl|r
-Example2: |cFF00FF002649|r]=]
-L["ROB_UI_AO_PET_ISAC_TT"] = "Only display action when pet is autocasting specified spell"
-L["ROB_UI_AO_PET_NAC"] = "Not Autocasting:"
-L["ROB_UI_AO_PET_NACIB_TT"] = [=[Input the name or spellid of the pet spell to check
-Example1: |cFF00FF00Growl|r
-Example2: |cFF00FF002649|r]=]
-L["ROB_UI_AO_PET_NAC_TT"] = "Only display action when pet is not autocasting specified spell"
 L["ROB_UI_AO_PET_NEEDBUFF"] = "Needs Buff:"
 L["ROB_UI_AO_PET_NEEDBUFFIB_TT"] = [=[Input the name of the buff or buffs
 Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
@@ -728,15 +620,6 @@ Example3: |cFF00FF00_Earth Shield#2^3|r display action when your pet is missing 
 Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when your pet is missing Earth Shield or Inner Fire
 Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when your pet is missing both Earth Shield and Inner Fire]=]
 L["ROB_UI_AO_PET_NEEDBUFF_TT"] = "Only display action when your pet needs specified buff or buffs"
-L["ROB_UI_AO_PET_NEEDDB"] = "Needs Debuff:"
-L["ROB_UI_AO_PET_NEEDDBIB_TT"] = [=[Input the name of the debuff or debuffs
-Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
-Example1: |cFF00FF00Dark Plague#2|r display action when your pet is missing the debuff Dark Plague 2 stacks
-Example2: |cFF00FF00_Dark Plague#2|r display action when your pet is missing a player casted Dark Plague at 2 stacks
-Example3: |cFF00FF00_Dark Plague#2^3|r display action when your pet is missing a player casted Dark Plague at 2 stacks with >=3 seconds left
-Example4: |cFF00FF00Dark Plague|Forbearance|r display action when your pet is missing Dark Plague or Forbearance debuffs
-Example5: |cFF00FF00Dark Plague&Forbearance|r display action when your pet is missing both Dark Plague and Forbearance debuffs]=]
-L["ROB_UI_AO_PET_NEEDDB_TT"] = "Only display action when your pet is missing the specified debuff or debuffs"
 L["ROB_UI_AO_PET_TAB"] = "Pet"
 L["ROB_UI_AO_P_FIRETA"] = "Active Fire:"
 L["ROB_UI_AO_P_FIRETAIB_TT"] = [=[Input the name or spell id of the fire totem
@@ -788,8 +671,6 @@ Example3: |cFF00FF00<=90%|r means only display this action when player is under 
 Example4: |cFF00FF00>=90%|r means only display this action when player is over or equal to 90% hitpoints
 Example5: |cFF00FF00=90%|r means only display this action when player is at exactly 90% hitpoints]=]
 L["ROB_UI_AO_P_HP_TT"] = "Only display action when player meets specified hit points"
-L["ROB_UI_AO_P_IC"] = "In combat"
-L["ROB_UI_AO_P_IC_TT"] = "Only display action when player is in combat"
 L["ROB_UI_AO_P_ISGLYPHED"] = "Is glyphed"
 L["ROB_UI_AO_P_ISGLYPHEDIB_TT"] = "Input the glyph name or glyph spell id of the glyph you want check"
 L["ROB_UI_AO_P_ISGLYPHED_TT"] = "Only display action when specified glyph is glyphed"
@@ -800,10 +681,6 @@ L["ROB_UI_AO_P_KNOWSPELL"] = "Know Spell"
 L["ROB_UI_AO_P_KNOWSPELLIB_TT"] = "Input the spell name or spell id of the spell you want check"
 L["ROB_UI_AO_P_KNOWSPELL_TT"] = "Only display action when specified spell is known"
 L["ROB_UI_AO_PLAYER_TAB"] = "Player"
-L["ROB_UI_AO_P_MAGIC"] = "Magic"
-L["ROB_UI_AO_P_MAGIC_TT"] = "Only display action when player has a magic debuff"
-L["ROB_UI_AO_P_MHWEAPON"] = "Need main hand weapon enchant"
-L["ROB_UI_AO_P_MHWEAPON_TT"] = "Display action only if the main hand weapon is not enchanted. (Temporary buffs such as wizard oils, sharpening stones, rogue poisons, and shaman weapon enhancements)"
 L["ROB_UI_AO_P_NEEDBUFF"] = "Need Buff:"
 L["ROB_UI_AO_P_NEEDBUFFIB_TT"] = [=[Input the name of the buff or buffs
 Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
@@ -827,12 +704,6 @@ L["ROB_UI_AO_P_NOTGLYPHEDIB_TT"] = "Input the glyph name or glyph spell id of th
 L["ROB_UI_AO_P_NOTGLYPHED_TT"] = "Only display action when specified glyph is not glyphed"
 L["ROB_UI_AO_P_NOTSTANCE"] = "Not in Stance:"
 L["ROB_UI_AO_P_NOTSTANCE_TT"] = "Only display action when player is not in the specified stance"
-L["ROB_UI_AO_P_OHWEAPON"] = "Need off hand weapon enchant"
-L["ROB_UI_AO_P_OHWEAPON_TT"] = "Display action only if the off hand weapon is not enchanted. (Temporary buffs such as wizard oils, sharpening stones, rogue poisons, and shaman weapon enhancements)"
-L["ROB_UI_AO_P_OOC"] = "Out of combat"
-L["ROB_UI_AO_P_OOC_TT"] = "Only display action when player is out of combat"
-L["ROB_UI_AO_P_POISON"] = "Poison"
-L["ROB_UI_AO_P_POISON_TT"] = "Only display action when player has a poison debuff"
 L["ROB_UI_AO_P_POWER"] = "Power:"
 L["ROB_UI_AO_P_POWER1_TT"] = [=[Input the type of unit power
 |cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY |cFF00FF005|r=RUNES |cFF00FF006|r=RUNICPOWER |cFF00FF007|r=SOULSHARDS
@@ -859,35 +730,9 @@ Example1: |cFF00FF00>1|r means only display this action when player has more tha
 Example2: |cFF00FF00<=1|r means only display this action when player has less than or equal to 1 unholy rune
 Example3: |cFF00FF00>=1|r means only display this action when player has 1 or more unholy runes]=]
 L["ROB_UI_AO_P_UNHOLYR_TT"] = "Only display action when player has specified unholy runes"
-L["ROB_UI_AO_P_WATERTA"] = "Active Water:"
-L["ROB_UI_AO_P_WATERTAIB_TT"] = [=[Input the name or spell id of the water totem
-Example1: |cFF00FF00Mana Tide Totem|r
-Example2:|cFF00FF00 16190|r
-Keep it empty if you just want to check if a water totem is active]=]
-L["ROB_UI_AO_P_WATERTA_TT"] = "Only display action when specified water totem is active"
-L["ROB_UI_AO_P_WATERTI"] = "Inactive Water:"
-L["ROB_UI_AO_P_WATERTIIB_TT"] = [=[Input the name or spell id of the water totem
-Example1: |cFF00FF00Mana Tide Totem|r
-Example2:|cFF00FF00 16190|r
-Keep it empty if you just want to check if all water totems are inactive]=]
-L["ROB_UI_AO_P_WATERTI_TT"] = "Only display action when specified water totem is inactive"
-L["ROB_UI_AO_P_WATERTTL"] = "Timeleft Water:"
-L["ROB_UI_AO_P_WATERTTLIB_TT"] = [=[Input the name or spell id of the water totem
-Example1: |cFF00FF00>=2|r means >= 2 seconds left
-Example2: |cFF00FF00<=2.1|r means <=2.1 seconds left
-Example3: |cFF00FF00=5|r means exactly 5 seconds left]=]
-L["ROB_UI_AO_P_WATERTTL_TT"] = "Only display action when water totem has specified timeleft"
 L["ROB_UI_AO_TARGET_TAB"] = "Target"
 L["ROB_UI_AO_T_BOSS"] = "Boss"
 L["ROB_UI_AO_T_BOSS_TT"] = "Only display action if target is a boss"
-L["ROB_UI_AO_T_CLASS"] = "Target Class:"
-L["ROB_UI_AO_T_CLASSIB_TT"] = [=[Input the list of target classes seperated by |
-Example: |cFF00FF00DRUID||WARRIOR|r means only display this action if the target is a druid or warrior]=]
-L["ROB_UI_AO_T_CLASS_TT"] = "Only display action if the target is one of the specified clases"
-L["ROB_UI_AO_T_DR"] = "Duel Range"
-L["ROB_UI_AO_T_DR_TT"] = "Only display action if target is within 9.9 yards"
-L["ROB_UI_AO_T_HAS_STEALABLE_BUFF"] = "Has a stealable buff"
-L["ROB_UI_AO_T_HAS_STEALABLE_BUFF_TT"] = "Only display action if the target has a stealable buff"
 L["ROB_UI_AO_T_HAVEBUFF"] = "Has Buff:"
 L["ROB_UI_AO_T_HAVEBUFFIB_TT"] = [=[Input the name of the buff or buffs
 Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
@@ -913,12 +758,6 @@ Example3: |cFF00FF00<=90%|r means only display this action when target is under 
 Example4: |cFF00FF00>=90%|r means only display this action when target is over or equal to 90% hitpoints
 Example5: |cFF00FF00=90%|r means only display this action when target is at exactly 90% hitpoints]=]
 L["ROB_UI_AO_T_HP_TT"] = "Only display action when target meets specified hit points"
-L["ROB_UI_AO_T_MAGIC"] = "Has magic buff"
-L["ROB_UI_AO_T_MAGIC_TT"] = "Only display this action when the target has a magic buff"
-L["ROB_UI_AO_T_MAXHP"] = "Max HP:"
-L["ROB_UI_AO_T_MAXHPIB_TT"] = [=[Input the target maximum hit points to check
-Example1: |cFF00FF00>1000000|r means only display this action when target has over 1 million maximum hitpoints]=]
-L["ROB_UI_AO_T_MAXHP_TT"] = "Only display action when target meets specified max hit points"
 L["ROB_UI_AO_T_NEEDBUFF"] = "Needs Buff:"
 L["ROB_UI_AO_T_NEEDBUFFIB_TT"] = [=[Input the name of the buff or buffs
 Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
@@ -939,8 +778,6 @@ Example5: |cFF00FF00Dark Plague&Forbearance|r display action when target is miss
 L["ROB_UI_AO_T_NEEDDB_TT"] = "Only display action when target is missing the specified debuff or debuffs"
 L["ROB_UI_AO_T_NOTABOSS"] = "Not a Boss"
 L["ROB_UI_AO_T_NOTABOSS_TT"] = "Only display action if target is not a boss"
-L["ROB_UI_AO_T_PC"] = "Player controlled"
-L["ROB_UI_AO_T_PC_TT"] = "Only display action if target is player controlled"
 L["ROB_UI_A_PASTE"] = "Paste"
 L["ROB_UI_A_PASTE_TT"] = "Paste the copied action into the rotation"
 L["ROB_UI_CANCEL_BUTTON"] = "Cancel"
@@ -978,11 +815,11 @@ L["ROB_UI_RN_LABEL"] = "Rotation Name:"
 L["ROB_UI_ROTATION_E1"] = "No rotation setup for that key"
 L["ROB_UI_ROTATION_E2"] = "Rotation not found"
 L["ROB_UI_ROTATION_TAB"] = "Rotations"
-L["ROB_UI_RS_LABEL"] = "Range Spell:"
-L["ROB_UI_RS_LABEL_TT"] = [=[Input the name of the spell to use to check if you are in range of your target to show the out of range icon
-(This has no effect on rotation, only the out of range icon display)]=]
 L["ROB_UI_SAVE"] = "Save"
 L["ROB_UI_SAVE_TT"] = "Save selected rotation"
+L["ROB_UI_SL_LABEL"] = "Print my spell IDs"
+L["ROB_UI_SLB_LABEL"] = "Print"
+L["ROB_UI_SLB_LABEL_TT"] = [=[Only print spells that are in your currently active spellbook]=]
 L["ROB_UI_TITLE"] = "Rotation Builder"
 L["ROB_UI_TOGGLE"] = "Toggle Rotation Builder"
 L["ROB_UI_VERSION_LABEL"] = "Version:"

@@ -1227,6 +1227,63 @@
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
 					</Button>
+					<Frame name="ROB_RotationSpellList" hidden="true">
+						<Size>
+							<AbsDimension x="255" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="ROB_RotationTab" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="260" y="-70" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer level="ARTWORK">
+								<FontString name="ROB_RotationSpellListLabel" inherits="GameFontNormalSmall" justifyH="LEFT" justifyV="TOP">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="LEFT">
+											<Offset>
+												<AbsDimension x="0" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+								</FontString>
+								<FontString name="ROB_RotationSpellListText" inherits="ChatFontNormal" justifyH="LEFT" justifyV="TOP">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="LEFT">
+											<Offset>
+												<AbsDimension x="0" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Scripts>
+							<OnLoad>ROB_RotationSpellListLabel:SetText(RotationBuilderUtils:localize('ROB_UI_SL_LABEL'));</OnLoad>
+						</Scripts>
+					</Frame>
+					<Button name="ROB_RotationSpellListButton" inherits="UIPanelButtonTemplate">
+						<Size>
+							<AbsDimension x="70" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="ROB_RotationSpellList" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_SLB_LABEL'));</OnLoad>
+							<OnClick>ROB_RotationSpellListButton_OnClick(self);</OnClick>
+							<OnEnter>GameTooltip:SetOwner(self,
+								"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_SLB_LABEL_TT'));
+							</OnEnter>
+							<OnLeave>GameTooltip:Hide();</OnLeave>
+						</Scripts>
+					</Button>
 					<Button name="ROB_AddActionButton" inherits="UIPanelButtonTemplate" toplevel="true" frameStrata="HIGH">
 						<Size>
 							<AbsDimension x="55" y="20" />
@@ -1291,6 +1348,7 @@
 
 					<!-- ADD_OPTIONS_BELOW_THIS_LINE -->
 
+					<!-- GENERAL TAB -->
 					<Frame name="ROB_GeneralActionOptionsTab" toplevel="false" hidden="true">
 						<Size>
 							<AbsDimension x="520" y="480" />
@@ -1889,90 +1947,6 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</CheckButton>
-							<CheckButton name="ROB_AO_RangeCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-200" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_RangeCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_RANGE'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_rangecheck");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_RANGE_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_RangeSpellInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="150" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_RangeCheckButton" relativePoint="TOPRIGHT">
-										<Offset>
-											<AbsDimension x="145" y="0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_RANGEIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_rangespell")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
-							<CheckButton name="ROB_AO_OORCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-220" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_OORCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_OOR'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_oorspell");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_OOR_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_OORInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="150" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_OORCheckButton" relativePoint="TOPRIGHT">
-										<Offset>
-											<AbsDimension x="145" y="0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_OORIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_oorspell")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
 							<CheckButton name="ROB_AO_LastCastedCheckButton" inherits="ROB_CheckButtonTemplate">
 								<Size>
 									<AbsDimension x="20" y="20" />
@@ -1980,7 +1954,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-240" />
+											<AbsDimension x="5" y="-200" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2022,7 +1996,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-260" />
+											<AbsDimension x="5" y="-220" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2044,7 +2018,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-280" />
+											<AbsDimension x="5" y="-240" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2106,7 +2080,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-300" />
+											<AbsDimension x="5" y="-260" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2141,174 +2115,6 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</EditBox>
-							<CheckButton name="ROB_AO_GBloodRunesCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-320" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_GBloodRunesCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_BLOODR'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_gbloodrunes");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_BLOODR_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_GBloodRunesInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="30" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_GBloodRunesCheckButton" relativePoint="TOPRIGHT">
-										<Offset>
-											<AbsDimension x="145" y="0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_BLOODRIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_gbloodrunes")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
-							<CheckButton name="ROB_AO_GFrostRunesCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-340" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_GFrostRunesCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_FROSTR'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_gfrostrunes");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_FROSTR_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_GFrostRunesInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="30" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_GFrostRunesCheckButton" relativePoint="TOPRIGHT">
-										<Offset>
-											<AbsDimension x="145" y="0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_FROSTRIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_gfrostrunes")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
-							<CheckButton name="ROB_AO_GUnholyRunesCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-360" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_GUnholyRunesCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_UNHOLYR'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_gunholyrunes");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_UNHOLYR_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_GUnholyRunesInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="30" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_GUnholyRunesCheckButton" relativePoint="TOPRIGHT">
-										<Offset>
-											<AbsDimension x="145" y="0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_UNHOLYRIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_gunholyrunes")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
-							<CheckButton name="ROB_AO_GDeathRunesCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-380" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_GDeathRunesCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_DEATHR'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_gdeathrunes");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_DEATHR_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_GDeathRunesInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="30" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_GDeathRunesCheckButton" relativePoint="TOPRIGHT">
-										<Offset>
-											<AbsDimension x="145" y="0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_DEATHRIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_gdeathrunes")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
 							<CheckButton name="ROB_AO_GChargesCheckButton" inherits="ROB_CheckButtonTemplate">
 								<Size>
 									<AbsDimension x="20" y="20" />
@@ -2316,7 +2122,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-400" />
+											<AbsDimension x="5" y="-280" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2354,6 +2160,7 @@
 						</Frames>
 					</Frame>
 
+					<!-- PLAYER TAB -->
 					<Frame name="ROB_PlayerActionOptionsTab">
 						<Size>
 							<AbsDimension x="520" y="480" />
@@ -2956,180 +2763,6 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</EditBox>
-							<CheckButton name="ROB_AO_BloodTapCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-240" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_BloodTapCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_BLOODTAP'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_bloodtap");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_BLOODTAP_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<CheckButton name="ROB_AO_PoisonCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-260" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Layers>
-									<Layer level="ARTWORK">
-										<Texture name="$parentIcon" file="Interface\RAIDFRAME\Raid-Icon-DebuffPoison">
-											<Anchors>
-												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
-													<Offset>
-														<AbsDimension x="95" y="0" />
-													</Offset>
-												</Anchor>
-											</Anchors>
-											<Size>
-												<AbsDimension x="20" y="20" />
-											</Size>
-										</Texture>
-									</Layer>
-								</Layers>
-								<Scripts>
-									<OnLoad>ROB_AO_PoisonCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_POISON'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_poison");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_POISON_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<CheckButton name="ROB_AO_MagicCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-280" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Layers>
-									<Layer level="ARTWORK">
-										<Texture name="$parentIcon" file="Interface\RAIDFRAME\Raid-Icon-DebuffMagic">
-											<Anchors>
-												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
-													<Offset>
-														<AbsDimension x="95" y="0" />
-													</Offset>
-												</Anchor>
-											</Anchors>
-											<Size>
-												<AbsDimension x="20" y="20" />
-											</Size>
-										</Texture>
-									</Layer>
-								</Layers>
-								<Scripts>
-									<OnLoad>ROB_AO_MagicCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_MAGIC'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_magic");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_MAGIC_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<CheckButton name="ROB_AO_DiseaseCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-300" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Layers>
-									<Layer level="ARTWORK">
-										<Texture name="$parentIcon" file="Interface\RAIDFRAME\Raid-Icon-DebuffDisease">
-											<Anchors>
-												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
-													<Offset>
-														<AbsDimension x="95" y="0" />
-													</Offset>
-												</Anchor>
-											</Anchors>
-											<Size>
-												<AbsDimension x="20" y="20" />
-											</Size>
-										</Texture>
-									</Layer>
-								</Layers>
-								<Scripts>
-									<OnLoad>ROB_AO_DiseaseCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_DISEASE'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_disease");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_DISEASE_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<CheckButton name="ROB_AO_CurseCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-320" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Layers>
-									<Layer level="ARTWORK">
-										<Texture name="$parentIcon" file="Interface\RAIDFRAME\Raid-Icon-DebuffCurse">
-											<Anchors>
-												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
-													<Offset>
-														<AbsDimension x="95" y="0" />
-													</Offset>
-												</Anchor>
-											</Anchors>
-											<Size>
-												<AbsDimension x="20" y="20" />
-											</Size>
-										</Texture>
-									</Layer>
-								</Layers>
-								<Scripts>
-									<OnLoad>ROB_AO_CurseCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_CURSE'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_curse");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_CURSE_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
 							<CheckButton name="ROB_AO_ComboPointsCheckButton" inherits="ROB_CheckButtonTemplate">
 								<Size>
 									<AbsDimension x="20" y="20" />
@@ -3137,7 +2770,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-340" />
+											<AbsDimension x="5" y="-240" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -3196,7 +2829,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-360" />
+											<AbsDimension x="5" y="-260" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -3238,7 +2871,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-380" />
+											<AbsDimension x="5" y="-280" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -3273,90 +2906,6 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</EditBox>
-							<CheckButton name="ROB_AO_MHWeaponCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-400" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_MHWeaponCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_MHWEAPON'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_mhweapon");</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_MHWEAPON_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<CheckButton name="ROB_AO_OHWeaponCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-420" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_OHWeaponCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_OHWEAPON'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_ohweapon");</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_OHWEAPON_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<CheckButton name="ROB_AO_OOCombatCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-440" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_OOCombatCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_OOC'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_ooc");</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_OOC_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<CheckButton name="ROB_AO_ICombatCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-460" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_ICombatCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_IC'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_ic");</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_IC_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
 							<CheckButton name="ROB_AO_FireTotemActiveCheckButton" inherits="ROB_CheckButtonTemplate">
 								<Size>
 									<AbsDimension x="20" y="20" />
@@ -3531,528 +3080,6 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</EditBox>
-							<CheckButton name="ROB_AO_WaterTotemActiveCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="290" y="-180" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Layers>
-									<Layer level="ARTWORK">
-										<Texture name="$parentIcon" file="Interface\ICONS\Spell_Frost_SummonWaterElemental">
-											<Anchors>
-												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
-													<Offset>
-														<AbsDimension x="99" y="0" />
-													</Offset>
-												</Anchor>
-											</Anchors>
-											<Size>
-												<AbsDimension x="20" y="20" />
-											</Size>
-										</Texture>
-									</Layer>
-								</Layers>
-								<Scripts>
-									<OnLoad>ROB_AO_WaterTotemActiveCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_WATERTA'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_watertotemactive");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_WATERTA_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_WaterTotemActiveInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="100" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_WaterTotemActiveCheckButton" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="125" y="-0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_WATERTAIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_watertotemactive")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
-							<CheckButton name="ROB_AO_WaterTotemInactiveCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="290" y="-200" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Layers>
-									<Layer level="ARTWORK">
-										<Texture name="$parentIcon" file="Interface\ICONS\Spell_Frost_SummonWaterElemental">
-											<Anchors>
-												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
-													<Offset>
-														<AbsDimension x="99" y="0" />
-													</Offset>
-												</Anchor>
-											</Anchors>
-											<Size>
-												<AbsDimension x="20" y="20" />
-											</Size>
-										</Texture>
-									</Layer>
-								</Layers>
-								<Scripts>
-									<OnLoad>ROB_AO_WaterTotemInactiveCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_WATERTI'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_watertoteminactive");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_WATERTI_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_WaterTotemInactiveInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="100" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_WaterTotemInactiveCheckButton" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="125" y="-0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_WATERTIIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_watertoteminactive")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
-							<CheckButton name="ROB_AO_WaterTotemTimeleftCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="290" y="-220" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Layers>
-									<Layer level="ARTWORK">
-										<Texture name="$parentIcon" file="Interface\ICONS\Spell_Frost_SummonWaterElemental">
-											<Anchors>
-												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
-													<Offset>
-														<AbsDimension x="99" y="0" />
-													</Offset>
-												</Anchor>
-											</Anchors>
-											<Size>
-												<AbsDimension x="20" y="20" />
-											</Size>
-										</Texture>
-									</Layer>
-								</Layers>
-								<Scripts>
-									<OnLoad>ROB_AO_WaterTotemTimeleftCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_WATERTTL'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_watertotemtimeleft");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_WATERTTL_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_WaterTotemTimeleftInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="100" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_WaterTotemTimeleftCheckButton" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="125" y="-0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_WATERTTLIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_watertotemtimeleft")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
-							<CheckButton name="ROB_AO_EarthTotemActiveCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="290" y="-240" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Layers>
-									<Layer level="ARTWORK">
-										<Texture name="$parentIcon" file="Interface\ICONS\Spell_Nature_StrengthOfEarthTotem02">
-											<Anchors>
-												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
-													<Offset>
-														<AbsDimension x="99" y="0" />
-													</Offset>
-												</Anchor>
-											</Anchors>
-											<Size>
-												<AbsDimension x="20" y="20" />
-											</Size>
-										</Texture>
-									</Layer>
-								</Layers>
-								<Scripts>
-									<OnLoad>ROB_AO_EarthTotemActiveCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_EARTHTA'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_earthtotemactive");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_EARTHTA_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_EarthTotemActiveInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="100" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_EarthTotemActiveCheckButton" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="125" y="-0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_EARTHTAIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_earthtotemactive")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
-							<CheckButton name="ROB_AO_EarthTotemInactiveCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="290" y="-260" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Layers>
-									<Layer level="ARTWORK">
-										<Texture name="$parentIcon" file="Interface\ICONS\Spell_Nature_StrengthOfEarthTotem02">
-											<Anchors>
-												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
-													<Offset>
-														<AbsDimension x="99" y="0" />
-													</Offset>
-												</Anchor>
-											</Anchors>
-											<Size>
-												<AbsDimension x="20" y="20" />
-											</Size>
-										</Texture>
-									</Layer>
-								</Layers>
-								<Scripts>
-									<OnLoad>ROB_AO_EarthTotemInactiveCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_EARTHTI'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_earthtoteminactive");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_EARTHTI_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_EarthTotemInactiveInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="100" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_EarthTotemInactiveCheckButton" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="125" y="-0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_EARTHTIIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_earthtoteminactive")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
-							<CheckButton name="ROB_AO_EarthTotemTimeleftCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="290" y="-280" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Layers>
-									<Layer level="ARTWORK">
-										<Texture name="$parentIcon" file="Interface\ICONS\Spell_Nature_StrengthOfEarthTotem02">
-											<Anchors>
-												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
-													<Offset>
-														<AbsDimension x="99" y="0" />
-													</Offset>
-												</Anchor>
-											</Anchors>
-											<Size>
-												<AbsDimension x="20" y="20" />
-											</Size>
-										</Texture>
-									</Layer>
-								</Layers>
-								<Scripts>
-									<OnLoad>ROB_AO_EarthTotemTimeleftCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_EARTHTTL'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_earthtotemtimeleft");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_EARTHTTL_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_EarthTotemTimeleftInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="100" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_EarthTotemTimeleftCheckButton" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="125" y="-0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_EARTHTTLIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_earthtotemtimeleft")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
-							<CheckButton name="ROB_AO_AirTotemActiveCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="290" y="-300" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Layers>
-									<Layer level="ARTWORK">
-										<Texture name="$parentIcon" file="Interface\ICONS\Spell_Nature_SlowingTotem">
-											<Anchors>
-												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
-													<Offset>
-														<AbsDimension x="99" y="0" />
-													</Offset>
-												</Anchor>
-											</Anchors>
-											<Size>
-												<AbsDimension x="20" y="20" />
-											</Size>
-										</Texture>
-									</Layer>
-								</Layers>
-								<Scripts>
-									<OnLoad>ROB_AO_AirTotemActiveCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_AIRTA'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_airtotemactive");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_AIRTA_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_AirTotemActiveInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="100" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_AirTotemActiveCheckButton" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="125" y="-0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_AIRTAIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_airtotemactive")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
-							<CheckButton name="ROB_AO_AirTotemInactiveCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="290" y="-320" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Layers>
-									<Layer level="ARTWORK">
-										<Texture name="$parentIcon" file="Interface\ICONS\Spell_Nature_SlowingTotem">
-											<Anchors>
-												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
-													<Offset>
-														<AbsDimension x="99" y="0" />
-													</Offset>
-												</Anchor>
-											</Anchors>
-											<Size>
-												<AbsDimension x="20" y="20" />
-											</Size>
-										</Texture>
-									</Layer>
-								</Layers>
-								<Scripts>
-									<OnLoad>ROB_AO_AirTotemInactiveCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_AIRTI'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_airtoteminactive");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_AIRTI_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_AirTotemInactiveInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="100" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_AirTotemInactiveCheckButton" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="125" y="-0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_AIRTIIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_airtoteminactive")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
-							<CheckButton name="ROB_AO_AirTotemTimeleftCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="290" y="-340" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Layers>
-									<Layer level="ARTWORK">
-										<Texture name="$parentIcon" file="Interface\ICONS\Spell_Nature_SlowingTotem">
-											<Anchors>
-												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
-													<Offset>
-														<AbsDimension x="99" y="0" />
-													</Offset>
-												</Anchor>
-											</Anchors>
-											<Size>
-												<AbsDimension x="20" y="20" />
-											</Size>
-										</Texture>
-									</Layer>
-								</Layers>
-								<Scripts>
-									<OnLoad>ROB_AO_AirTotemTimeleftCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_AIRTTL'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_airtotemtimeleft");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_AIRTTL_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_AirTotemTimeleftInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="100" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_AirTotemTimeleftCheckButton" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="125" y="-0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_AIRTTLIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_airtotemtimeleft")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
 							<CheckButton name="ROB_AO_KnowSpellCheckButton" inherits="ROB_CheckButtonTemplate">
 								<Size>
 									<AbsDimension x="20" y="20" />
@@ -4060,7 +3087,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="290" y="-360" />
+											<AbsDimension x="290" y="-180" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -4102,7 +3129,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="290" y="-380" />
+											<AbsDimension x="290" y="-200" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -4144,7 +3171,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="290" y="-400" />
+											<AbsDimension x="290" y="-220" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -4186,7 +3213,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="290" y="-420" />
+											<AbsDimension x="290" y="-240" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -4224,7 +3251,7 @@
 						</Frames>
 					</Frame>
 
-
+					<!-- TARGET TAB -->
 					<Frame name="ROB_TargetActionOptionsTab">
 						<Size>
 							<AbsDimension x="520" y="480" />
@@ -4303,48 +3330,6 @@
 										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_HPIB_TT'));
 									</OnEnter>
 									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_t_hp")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
-							<CheckButton name="ROB_AO_TargetMaxHPCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_TargetActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="240" y="-20" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_TargetMaxHPCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_MAXHP'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_maxhp");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_MAXHP_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_TargetMaxHPInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="100" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_TargetMaxHPCheckButton" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="125" y="0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_MAXHPIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_t_maxhp")
 									</OnTextChanged>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -4517,90 +3502,6 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</EditBox>
-							<CheckButton name="ROB_AO_TargetClassCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_TargetActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-120" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_TargetClassCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_CLASS'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_class");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_CLASS_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_TargetClassInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="385" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_TargetClassCheckButton" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="125" y="0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_CLASSIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_t_class")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
-							<CheckButton name="ROB_AO_TargetPCCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_TargetActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-140" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_TargetPCCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_PC'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_pc");</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_PC_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<CheckButton name="ROB_AO_TargetDRCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_TargetActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-160" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_TargetDRCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_DR'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_dr");</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_DR_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
 							<CheckButton name="ROB_AO_TargetBossCheckButton" inherits="ROB_CheckButtonTemplate">
 								<Size>
 									<AbsDimension x="20" y="20" />
@@ -4608,7 +3509,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_TargetActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-180" />
+											<AbsDimension x="5" y="-120" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -4630,7 +3531,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_TargetActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-200" />
+											<AbsDimension x="5" y="-140" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -4645,53 +3546,10 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</CheckButton>
-							<CheckButton name="ROB_AO_TargetHasStealableBuffCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_TargetActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-220" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_TargetHasStealableBuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_HAS_STEALABLE_BUFF'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_has_stealable_buff");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_HAS_STEALABLE_BUFF_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<CheckButton name="ROB_AO_TargetMagicCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_TargetActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-240" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_TargetMagicCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_MAGIC'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_t_magic");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_T_MAGIC_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
 						</Frames>
 					</Frame>
 
+					<!-- PET TAB -->
 					<Frame name="ROB_PetActionOptionsTab">
 						<Size>
 							<AbsDimension x="520" y="480" />
@@ -4775,90 +3633,6 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</EditBox>
-							<CheckButton name="ROB_AO_PetISACCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PetActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-40" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_PetISACCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_ISAC'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_pet_isac");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_ISAC_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_PetISACInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="100" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_PetISACCheckButton" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="125" y="0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_ISACIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_pet_isac")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
-							<CheckButton name="ROB_AO_PetNACCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PetActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-60" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_PetNACCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_NAC'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_pet_nac");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_NAC_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_PetNACInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="100" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_PetNACCheckButton" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="125" y="0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_NACIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_pet_nac")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
 							<CheckButton name="ROB_AO_PetNeedsBuffCheckButton" inherits="ROB_CheckButtonTemplate">
 								<Size>
 									<AbsDimension x="20" y="20" />
@@ -4866,7 +3640,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PetActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-80" />
+											<AbsDimension x="5" y="-40" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -4908,7 +3682,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PetActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-100" />
+											<AbsDimension x="5" y="-60" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -4943,112 +3717,6 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</EditBox>
-							<CheckButton name="ROB_AO_PetNeedsDebuffCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PetActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-120" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_PetNeedsDebuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_NEEDDB'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_pet_needsdebuff");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_NEEDDB_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_PetNeedsDebuffInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="385" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_PetNeedsDebuffCheckButton" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="125" y="0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_NEEDDBIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_pet_needsdebuff")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
-							<CheckButton name="ROB_AO_PetHasDebuffCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PetActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-140" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_PetHasDebuffCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_HAVEDB'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_pet_hasdebuff");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_HAVEDB_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_PetHasDebuffInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="385" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_PetHasDebuffCheckButton" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="125" y="0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_HAVEDBIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_pet_hasdebuff")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
-							<CheckButton name="ROB_AO_PetDRCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PetActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-160" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_PetDRCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_DR'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_pet_dr");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_PET_DR_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
 						</Frames>
 					</Frame>
 

@@ -6,14 +6,12 @@ local deathKnightRotationsGenerator = function ()
 			["defaultRotation/deathknight/frost_strike_killing_machine"] = {
 				["v_gcdspell"] = "111673",
 				["b_p_havebuff"] = true,
-				["v_rangespell"] = "49020",
 				["v_togglename"] = "Toggle 1",
 				["v_durationstartedtime"] = 0,
 				["v_spellname"] = "49143",
 				["v_actionicon"] = "49143",
 				["v_keybind"] = "<keybind>",
 				["v_p_havebuff"] = "51124",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/plague_leech"] = {
 				["b_p_frostrunes"] = true,
@@ -32,7 +30,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_actionicon"] = "123693",
 				["v_keybind"] = "<keybind>",
 				["v_p_frostrunes"] = "<=1",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/howling_blast_frost_rune"] = {
 				["b_p_frostrunes"] = true,
@@ -43,7 +40,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_p_frostrunes"] = ">=1",
 				["v_keybind"] = "<keybind>",
 				["v_durationstartedtime"] = 0,
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/horn_of_winter"] = {
 				["v_p_needbuff"] = "57330|19506|6673",
@@ -67,11 +63,9 @@ local deathKnightRotationsGenerator = function ()
 				["v_p_unitpowertype"] = "6",
 				["v_keybind"] = "<keybind>",
 				["v_p_unitpower"] = "<40",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/frost_strike"] = {
 				["v_actionicon"] = "49143",
-				["v_rangespell"] = "49020",
 				["b_p_unitpower"] = true,
 				["v_gcdspell"] = "111673",
 				["v_togglename"] = "Toggle 1",
@@ -80,7 +74,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_durationstartedtime"] = 0,
 				["v_keybind"] = "<keybind>",
 				["v_p_unitpower"] = ">88",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/death_pact"] = {
 				["v_p_knowspell"] = "48743",
@@ -103,13 +96,11 @@ local deathKnightRotationsGenerator = function ()
 				["v_togglename"] = "Toggle 1",
 				["v_keybind"] = "<keybind>",
 				["b_p_unholyrunes"] = true,
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/howling_blast"] = {
 				["v_t_needsdebuff"] = "_55095^3||_152159^3",
 				["v_actionicon"] = "49184",
 				["v_gcdspell"] = "111673",
-				["b_rangecheck"] = true,
 				["b_checkothercd"] = true,
 				["v_togglename"] = "Toggle 1",
 				["v_durationstartedtime"] = 0,
@@ -128,7 +119,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_durationstartedtime"] = 0,
 				["v_keybind"] = "<keybind>",
 				["v_p_havebuff"] = "_59052",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/outbreak"] = {
 				["v_t_needsdebuff"] = "_55095^3||_152159^3",
@@ -139,7 +129,6 @@ local deathKnightRotationsGenerator = function ()
 				["b_t_needsdebuff"] = true,
 				["v_keybind"] = "<keybind>",
 				["v_actionicon"] = "77575",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/blood_tap"] = {
 				["v_p_knowspell"] = "45529",
@@ -162,7 +151,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_durationstartedtime"] = 0,
 				["v_keybind"] = "<keybind>",
 				["b_p_deathrunes"] = true,
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/soul_reaper"] = {
 				["v_gcdspell"] = "111673",
@@ -173,12 +161,10 @@ local deathKnightRotationsGenerator = function ()
 				["v_spellname"] = "114866",
 				["v_keybind"] = "<keybind>",
 				["v_durationstartedtime"] = 0,
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/plague_strike"] = {
 				["v_t_needsdebuff"] = "_55078^3",
 				["v_actionicon"] = "45462",
-				["b_rangecheck"] = true,
 				["v_togglename"] = "Toggle 1",
 				["b_p_knownotspell"] = true,
 				["v_p_knownotspell"] = "152281",
@@ -202,7 +188,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_spellname"] = "43265",
 				["v_keybind"] = "<keybind>",
 				["v_actionicon"] = "152280",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/pillar_of_frost"] = {
 				["v_togglename"] = "Toggle 1",
@@ -256,7 +241,6 @@ local deathKnightRotationsGenerator = function ()
 				["b_t_needsdebuff"] = true,
 				["v_keybind"] = "<keybind>",
 				["v_durationstartedtime"] = 0,
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/frost_presence"] = {
 				["v_p_needbuff"] = "48266",
@@ -305,7 +289,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_actionicon"] = "123693",
 				["v_keybind"] = "<keybind>",
 				["b_p_unholyrunes"] = true,
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/obliterate_killing_machine"] = {
 				["v_gcdspell"] = "111673",
@@ -316,7 +299,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_durationstartedtime"] = 0,
 				["v_keybind"] = "<keybind>",
 				["v_p_havebuff"] = "51124",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/death_pact"] = {
 				["v_p_knowspell"] = "48743",
@@ -338,10 +320,8 @@ local deathKnightRotationsGenerator = function ()
 				["v_togglename"] = "Toggle 1",
 				["v_p_unitpowertype"] = "6",
 				["v_spellname"] = "49143",
-				["v_rangespell"] = "49020",
 				["v_keybind"] = "<keybind>",
 				["v_p_unitpower"] = ">76",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/soul_reaper"] = {
 				["v_gcdspell"] = "111673",
@@ -349,7 +329,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_togglename"] = "Toggle 1",
 				["v_durationstartedtime"] = 0,
 				["v_spellname"] = "114866",
-				["b_rangecheck"] = true,
 				["v_keybind"] = "<keybind>",
 				["b_t_hp"] = true,
 				["v_t_hp"] = "<35%",
@@ -361,8 +340,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_spellname"] = "49143",
 				["v_actionicon"] = "49143",
 				["v_keybind"] = "<keybind>",
-				["v_rangespell"] = "49020",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/plague_strike"] = {
 				["v_t_needsdebuff"] = "_55078^3",
@@ -370,7 +347,6 @@ local deathKnightRotationsGenerator = function ()
 				["b_p_knownotspell"] = true,
 				["v_p_knownotspell"] = "152281",
 				["v_togglename"] = "Toggle 1",
-				["b_rangecheck"] = true,
 				["v_gcdspell"] = "111673",
 				["v_keybind"] = "<keybind>",
 				["b_checkothercd"] = true,
@@ -391,7 +367,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_spellname"] = "43265",
 				["v_keybind"] = "<keybind>",
 				["v_durationstartedtime"] = 0,
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/obliterate"] = {
 				["b_p_frostrunes"] = true,
@@ -404,13 +379,11 @@ local deathKnightRotationsGenerator = function ()
 				["v_togglename"] = "Toggle 1",
 				["v_keybind"] = "<keybind>",
 				["v_actionicon"] = "49020",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/howling_blast"] = {
 				["v_t_needsdebuff"] = "_55095^3||_152159^3",
 				["v_keybind"] = "<keybind>",
 				["v_gcdspell"] = "111673",
-				["b_rangecheck"] = true,
 				["b_checkothercd"] = true,
 				["v_togglename"] = "Toggle 1",
 				["v_durationstartedtime"] = 0,
@@ -439,7 +412,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_durationstartedtime"] = 0,
 				["v_keybind"] = "<keybind>",
 				["v_p_havebuff"] = "_59052",
-				["b_rangecheck"] = true,
 			},
 		},
 		["SortedActions"] = {
@@ -473,7 +445,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_actionicon"] = "85948",
 				["v_keybind"] = "<keybind>",
 				["v_p_bloodrunes"] = "=2",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/summon_gargoyle"] = {
 				["v_togglename"] = "Toggle 1",
@@ -482,7 +453,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_actionicon"] = "49206",
 				["v_keybind"] = "<keybind>",
 				["v_gcdspell"] = "111673",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/scourge_strike"] = {
 				["v_gcdspell"] = "111673",
@@ -493,7 +463,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_togglename"] = "Toggle 1",
 				["v_keybind"] = "<keybind>",
 				["b_p_unholyrunes"] = true,
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/festering_strike_frost_rune"] = {
 				["b_p_frostrunes"] = true,
@@ -504,7 +473,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_actionicon"] = "85948",
 				["v_keybind"] = "<keybind>",
 				["v_p_frostrunes"] = "=2",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/scourge_strike_death_rune"] = {
 				["v_p_deathrunes"] = ">=1",
@@ -515,7 +483,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_durationstartedtime"] = 0,
 				["v_keybind"] = "<keybind>",
 				["b_p_deathrunes"] = true,
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/death_pact"] = {
 				["v_p_knowspell"] = "48743",
@@ -540,7 +507,6 @@ local deathKnightRotationsGenerator = function ()
 				["b_t_needsdebuff"] = true,
 				["v_keybind"] = "<keybind>",
 				["v_actionicon"] = "123693",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/outbreak"] = {
 				["v_t_needsdebuff"] = "_55095^3||_152159^3",
@@ -551,7 +517,6 @@ local deathKnightRotationsGenerator = function ()
 				["b_t_needsdebuff"] = true,
 				["v_keybind"] = "<keybind>",
 				["v_durationstartedtime"] = 0,
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/unholy_blight"] = {
 				["v_t_needsdebuff"] = "_155159#15^3",
@@ -564,7 +529,6 @@ local deathKnightRotationsGenerator = function ()
 				["b_t_needsdebuff"] = true,
 				["v_keybind"] = "<keybind>",
 				["v_actionicon"] = "115989",
-				["b_t_dr"] = true,
 			},
 			["defaultRotation/deathknight/blood_tap"] = {
 				["v_p_knowspell"] = "45529",
@@ -590,7 +554,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_p_bloodrunes"] = "<=1",
 				["v_t_hasdebuff"] = "_55095^3||_152159^3",
 				["v_p_knowspell"] = "123693",
-				["b_rangecheck"] = true,
 				["b_checkothercd"] = true,
 				["v_p_unholyrunes"] = "<=1",
 				["v_actionicon"] = "123693",
@@ -610,7 +573,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_actionicon"] = "47541",
 				["v_keybind"] = "<keybind>",
 				["v_p_unitpower"] = ">80",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/death_coil"] = {
 				["v_p_needbuff"] = "63560",
@@ -621,7 +583,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_spellname"] = "47541",
 				["v_keybind"] = "<keybind>",
 				["v_actionicon"] = "47541",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/festering_strike"] = {
 				["v_t_needsdebuff"] = "_155159^3",
@@ -634,7 +595,6 @@ local deathKnightRotationsGenerator = function ()
 				["b_t_needsdebuff"] = true,
 				["v_keybind"] = "<keybind>",
 				["v_actionicon"] = "85948",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/unholy_presence"] = {
 				["v_p_needbuff"] = "48265",
@@ -655,7 +615,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_actionicon"] = "114866",
 				["v_keybind"] = "<keybind>",
 				["b_t_hp"] = true,
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/raise_dead"] = {
 				["v_actionicon"] = "46584",
@@ -671,7 +630,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_t_needsdebuff"] = "_55095^3||_152159^3",
 				["v_actionicon"] = "45462",
 				["v_gcdspell"] = "111673",
-				["b_rangecheck"] = true,
 				["b_checkothercd"] = true,
 				["v_togglename"] = "Toggle 1",
 				["v_durationstartedtime"] = 0,
@@ -690,7 +648,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_spellname"] = "43265",
 				["v_keybind"] = "<keybind>",
 				["v_actionicon"] = "152280",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/dark_transformation"] = {
 				["v_pet_hasbuff"] = "91342#5",
@@ -703,7 +660,6 @@ local deathKnightRotationsGenerator = function ()
 				["b_p_havebuff"] = true,
 				["v_keybind"] = "<keybind>",
 				["v_p_havebuff"] = "91342#5",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/breath_of_sindragosa"] = {
 				["v_actionicon"] = "152279",
@@ -721,7 +677,6 @@ local deathKnightRotationsGenerator = function ()
 				["b_p_unitpower"] = true,
 				["v_keybind"] = "<keybind>",
 				["v_p_bloodrunes"] = ">=1",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/horn_of_winter"] = {
 				["v_p_needbuff"] = "57330|19506|6673",
@@ -742,7 +697,6 @@ local deathKnightRotationsGenerator = function ()
 				["b_p_havebuff"] = true,
 				["v_keybind"] = "<keybind>",
 				["v_p_havebuff"] = "81340",
-				["b_rangecheck"] = true,
 			},
 		},
 		["SortedActions"] = {
@@ -787,7 +741,6 @@ local deathKnightRotationsGenerator = function ()
 				["b_t_needsdebuff"] = true,
 				["v_keybind"] = "<keybind>",
 				["v_p_bloodrunes"] = "=2",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/dancing_rune_weapon"] = {
 				["v_togglename"] = "Toggle 1",
@@ -796,7 +749,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_actionicon"] = "49028",
 				["v_keybind"] = "<keybind>",
 				["v_gcdspell"] = "111673",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/blood_boil_refresh"] = {
 				["v_t_needsdebuff"] = "_55095^3||_152159^3",
@@ -809,7 +761,6 @@ local deathKnightRotationsGenerator = function ()
 				["b_t_needsdebuff"] = true,
 				["v_keybind"] = "<keybind>",
 				["v_actionicon"] = "50842",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/horn_of_winter"] = {
 				["v_p_needbuff"] = "57330|19506|6673",
@@ -868,7 +819,6 @@ local deathKnightRotationsGenerator = function ()
 				["b_t_needsdebuff"] = true,
 				["v_keybind"] = "<keybind>",
 				["v_durationstartedtime"] = 0,
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/blood_tap_unholy_rune"] = {
 				["v_p_deathrunes"] = "=0",
@@ -899,12 +849,10 @@ local deathKnightRotationsGenerator = function ()
 				["v_t_hp"] = ">35%",
 				["v_keybind"] = "<keybind>",
 				["v_p_bloodrunes"] = "=2",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/blood_boil"] = {
 				["b_p_bloodrunes"] = true,
 				["v_actionicon"] = "50842",
-				["b_rangecheck"] = true,
 				["v_gcdspell"] = "111673",
 				["b_p_knownotspell"] = true,
 				["v_p_knownotspell"] = "81229",
@@ -933,11 +881,9 @@ local deathKnightRotationsGenerator = function ()
 				["v_actionicon"] = "47541",
 				["v_keybind"] = "<keybind>",
 				["v_gcdspell"] = "111673",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/soul_reaper"] = {
 				["b_p_bloodrunes"] = true,
-				["b_rangecheck"] = true,
 				["v_togglename"] = "Toggle 1",
 				["v_gcdspell"] = "111673",
 				["b_p_knownotspell"] = true,
@@ -953,7 +899,6 @@ local deathKnightRotationsGenerator = function ()
 			["defaultRotation/deathknight/blood_boil_crimson_scourge"] = {
 				["v_actionicon"] = "50842",
 				["v_gcdspell"] = "111673",
-				["b_rangecheck"] = true,
 				["b_t_hp"] = true,
 				["v_togglename"] = "Toggle 1",
 				["v_durationstartedtime"] = 0,
@@ -970,7 +915,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_durationstartedtime"] = 0,
 				["v_keybind"] = "<keybind>",
 				["v_gcdspell"] = "111673",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/defile"] = {
 				["v_p_knowspell"] = "152280",
@@ -981,7 +925,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_spellname"] = "43265",
 				["v_keybind"] = "<keybind>",
 				["v_actionicon"] = "152280",
-				["b_rangecheck"] = true,
 			},
 			["defaultRotation/deathknight/blood_tap_frost_rune"] = {
 				["b_p_frostrunes"] = true,
@@ -1014,7 +957,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_actionicon"] = "123693",
 				["b_t_hasdebuff"] = true,
 				["v_p_knowspell"] = "123693",
-				["b_rangecheck"] = true,
 				["v_gcdspell"] = "111673",
 				["b_p_unholyrunes"] = true,
 				["b_p_knowspell"] = true,
@@ -1039,7 +981,6 @@ local deathKnightRotationsGenerator = function ()
 				["v_spellname"] = "114866",
 				["v_keybind"] = "<keybind>",
 				["v_p_bloodrunes"] = "=2",
-				["b_rangecheck"] = true,
 			},
 		},
 		["SortedActions"] = {

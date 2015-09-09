@@ -13,7 +13,6 @@ local warriorRotationsGenerator = function ()
 					["b_t_needsdebuff"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "152277",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/rend"] = {
 					["v_t_needsdebuff"] = "_772^5&_167105",
@@ -45,7 +44,6 @@ local warriorRotationsGenerator = function ()
 					["v_spellname"] = "6343",
 					["b_t_hp"] = true,
 					["v_keybind"] = "<keybind>",
-					["b_t_dr"] = true,
 					["v_t_hp"] = ">20%",
 				},
 				["defaultRotation/warrior/colossus_smash"] = {
@@ -55,11 +53,9 @@ local warriorRotationsGenerator = function ()
 					["v_actionicon"] = "86346",
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "57755",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/whirlwind"] = {
 					["v_t_needsdebuff"] = "_167105",
-					["b_t_dr"] = true,
 					["b_p_unitpower"] = true,
 					["v_spellname"] = "1680",
 					["v_gcdspell"] = "0",
@@ -87,7 +83,6 @@ local warriorRotationsGenerator = function ()
 					["b_p_unitpower"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = "<90",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/dragon_roar"] = {
 					["v_t_needsdebuff"] = "_167105",
@@ -95,7 +90,6 @@ local warriorRotationsGenerator = function ()
 					["v_p_knowspell"] = "118000",
 					["b_p_unitpower"] = true,
 					["v_gcdspell"] = "57755",
-					["b_t_dr"] = true,
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_p_unitpowertype"] = "1",
@@ -120,7 +114,6 @@ local warriorRotationsGenerator = function ()
 				},
 				["defaultRotation/warrior/siegebreaker_execute"] = {
 					["v_actionicon"] = "176289",
-					["b_rangecheck"] = true,
 					["v_t_hp"] = "<20%",
 					["b_t_hasdebuff"] = true,
 					["v_p_knowspell"] = "176289",
@@ -138,7 +131,6 @@ local warriorRotationsGenerator = function ()
 				},
 				["defaultRotation/warrior/whirlwind_colossus_smash"] = {
 					["b_t_hasdebuff"] = true,
-					["b_t_dr"] = true,
 					["v_actionicon"] = "1680",
 					["v_t_hp"] = ">20%",
 					["v_togglename"] = "Toggle 1",
@@ -151,7 +143,6 @@ local warriorRotationsGenerator = function ()
 				},
 				["defaultRotation/warrior/storm_bolt_execute"] = {
 					["v_actionicon"] = "107570",
-					["b_rangecheck"] = true,
 					["v_p_knowspell"] = "107570",
 					["b_t_hp"] = true,
 					["v_gcdspell"] = "57755",
@@ -185,7 +176,6 @@ local warriorRotationsGenerator = function ()
 					["b_p_unitpower"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = ">80",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/mortal_strike"] = {
 					["v_gcdspell"] = "57755",
@@ -196,7 +186,6 @@ local warriorRotationsGenerator = function ()
 					["v_t_hp"] = ">20%",
 					["v_keybind"] = "<keybind>",
 					["b_t_hp"] = true,
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/siegebreaker"] = {
 					["b_t_hasdebuff"] = true,
@@ -206,7 +195,6 @@ local warriorRotationsGenerator = function ()
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "176289",
-					["b_rangecheck"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "176289",
 					["v_t_hasdebuff"] = "_167105",
@@ -220,13 +208,11 @@ local warriorRotationsGenerator = function ()
 					["v_spellname"] = "5308",
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "5308",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/execute_colossus_smash"] = {
 					["b_t_hasdebuff"] = true,
 					["v_gcdspell"] = "57755",
 					["v_actionicon"] = "5308",
-					["b_rangecheck"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["b_t_hp"] = true,
@@ -295,8 +281,6 @@ local warriorRotationsGenerator = function ()
 					["v_spellname"] = "20243",
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
-					["v_rangespell"] = "23922",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/heroic_strike_rage"] = {
 					["v_p_needbuff"] = "169667",
@@ -310,7 +294,6 @@ local warriorRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = ">80",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/berserker_rage"] = {
 					["v_p_needbuff"] = "_12880^3",
@@ -367,7 +350,6 @@ local warriorRotationsGenerator = function ()
 					["b_p_unitpower"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = "<50",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/gladiator_stance"] = {
 					["v_p_needbuff"] = "156291",
@@ -390,7 +372,6 @@ local warriorRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "122510",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/bloodbath"] = {
 					["b_p_knowspell"] = true,
@@ -409,7 +390,6 @@ local warriorRotationsGenerator = function ()
 					["v_actionicon"] = "6572",
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "57755",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/heroic_strike"] = {
 					["v_gcdspell"] = "0",
@@ -420,12 +400,10 @@ local warriorRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "169667",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/dragon_roar"] = {
 					["v_p_needbuff"] = "169667",
 					["b_p_needbuff"] = true,
-					["b_t_dr"] = true,
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -448,7 +426,6 @@ local warriorRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "169686#4",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/execute"] = {
 					["v_gcdspell"] = "57755",
@@ -456,7 +433,6 @@ local warriorRotationsGenerator = function ()
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "5308",
-					["b_rangecheck"] = true,
 					["v_keybind"] = "<keybind>",
 					["b_t_hp"] = true,
 					["v_t_hp"] = "<20%",
@@ -468,7 +444,6 @@ local warriorRotationsGenerator = function ()
 					["v_actionicon"] = "23922",
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "57755",
-					["b_rangecheck"] = true,
 				},
 			},
 			["SortedActions"] = {
@@ -505,7 +480,6 @@ local warriorRotationsGenerator = function ()
 					["v_p_unitpowertype"] = "1",
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = ">90",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/berserker_rage"] = {
 					["v_p_needbuff"] = "_12880",
@@ -540,7 +514,6 @@ local warriorRotationsGenerator = function ()
 					["v_p_knowspell"] = "152277",
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "1715",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/berserker_rage_execute"] = {
 					["v_p_needbuff"] = "_12880",
@@ -567,7 +540,6 @@ local warriorRotationsGenerator = function ()
 				["defaultRotation/warrior/wild_strike"] = {
 					["v_actionicon"] = "100130",
 					["v_gcdspell"] = "57755",
-					["b_rangecheck"] = true,
 					["b_t_hp"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -584,7 +556,6 @@ local warriorRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "57755",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/wild_strike_bloodsurge_execute"] = {
 					["b_p_havebuff"] = true,
@@ -597,7 +568,6 @@ local warriorRotationsGenerator = function ()
 					["b_t_hp"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "46916",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/bloodbath"] = {
 					["b_p_knowspell"] = true,
@@ -618,7 +588,6 @@ local warriorRotationsGenerator = function ()
 					["v_spellname"] = "107570",
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "107570",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/commanding_shout"] = {
 					["v_p_needbuff"] = "_6673|21562||166928||469||160199||50256||160014||160003||90364",
@@ -644,7 +613,6 @@ local warriorRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = ">90",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/battle_shout"] = {
 					["v_p_needbuff"] = "57330||19506||6673",
@@ -665,7 +633,6 @@ local warriorRotationsGenerator = function ()
 					["v_spellname"] = "23881",
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "23881",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/dragon_roar"] = {
 					["v_p_knowspell"] = "118000",
@@ -676,7 +643,6 @@ local warriorRotationsGenerator = function ()
 					["v_spellname"] = "118000",
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "118000",
-					["b_t_dr"] = true,
 				},
 				["defaultRotation/warrior/raging_blow_2_charges"] = {
 					["v_gcdspell"] = "57755",
@@ -687,7 +653,6 @@ local warriorRotationsGenerator = function ()
 					["v_actionicon"] = "85288",
 					["v_keybind"] = "<keybind>",
 					["v_charges"] = "2",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/execute_sudden_death"] = {
 					["v_p_knowspell"] = "29725",
@@ -698,11 +663,9 @@ local warriorRotationsGenerator = function ()
 					["v_spellname"] = "5308",
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "5308",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/bloodthirst_rage_execute"] = {
 					["v_actionicon"] = "23881",
-					["b_rangecheck"] = true,
 					["v_durationstartedtime"] = 0,
 					["b_p_knownotspell"] = true,
 					["v_gcdspell"] = "57755",
@@ -719,7 +682,6 @@ local warriorRotationsGenerator = function ()
 				["defaultRotation/warrior/wild_strike_bloodsurge"] = {
 					["v_actionicon"] = "100130",
 					["v_gcdspell"] = "57755",
-					["b_rangecheck"] = true,
 					["b_t_hp"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -731,7 +693,6 @@ local warriorRotationsGenerator = function ()
 				},
 				["defaultRotation/warrior/bloodthirst_rage"] = {
 					["v_actionicon"] = "23881",
-					["b_rangecheck"] = true,
 					["b_p_knownotspell"] = true,
 					["b_t_hp"] = true,
 					["v_gcdspell"] = "57755",
@@ -756,7 +717,6 @@ local warriorRotationsGenerator = function ()
 				["defaultRotation/warrior/execute"] = {
 					["b_t_hp"] = true,
 					["v_gcdspell"] = "57755",
-					["b_rangecheck"] = true,
 					["v_actionicon"] = "5308",
 					["v_togglename"] = "Toggle 1",
 					["b_p_havebuff"] = true,
@@ -775,7 +735,6 @@ local warriorRotationsGenerator = function ()
 					["v_spellname"] = "23881",
 					["v_keybind"] = "<keybind>",
 					["v_durationstartedtime"] = 0,
-					["b_rangecheck"] = true,
 				},
 			},
 			["SortedActions"] = {
@@ -809,18 +768,15 @@ local warriorRotationsGenerator = function ()
 		["defaultRotation/warrior/protection"] = {
 			["ActionList"] = {
 				["defaultRotation/warrior/devastate"] = {
-					["v_rangespell"] = "23922",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "20243",
 					["v_actionicon"] = "20243",
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "57755",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/dragon_roar"] = {
 					["v_p_knowspell"] = "118000",
-					["b_t_dr"] = true,
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -860,7 +816,6 @@ local warriorRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "169686#6",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/battle_shout"] = {
 					["v_p_needbuff"] = "57330||19506||6673",
@@ -881,7 +836,6 @@ local warriorRotationsGenerator = function ()
 					["v_spellname"] = "107570",
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "107570",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/shield_slam_sword_and_board"] = {
 					["v_gcdspell"] = "57755",
@@ -892,7 +846,6 @@ local warriorRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "50227",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/bloodbath"] = {
 					["b_p_knowspell"] = true,
@@ -911,7 +864,6 @@ local warriorRotationsGenerator = function ()
 					["v_actionicon"] = "6572",
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "57755",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/execute_sudden_death"] = {
 					["v_p_knowspell"] = "29725",
@@ -922,7 +874,6 @@ local warriorRotationsGenerator = function ()
 					["v_spellname"] = "5308",
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "5308",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/heroic_strike"] = {
 					["v_gcdspell"] = "0",
@@ -934,7 +885,6 @@ local warriorRotationsGenerator = function ()
 					["v_actionicon"] = "78",
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = ">80",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/warrior/avatar"] = {
 					["b_p_knowspell"] = true,
@@ -958,7 +908,6 @@ local warriorRotationsGenerator = function ()
 				},
 				["defaultRotation/warrior/execute"] = {
 					["v_actionicon"] = "5308",
-					["b_rangecheck"] = true,
 					["v_gcdspell"] = "57755",
 					["v_durationstartedtime"] = 0,
 					["v_p_unitpowertype"] = "1",
@@ -977,7 +926,6 @@ local warriorRotationsGenerator = function ()
 					["v_actionicon"] = "23922",
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "57755",
-					["b_rangecheck"] = true,
 				},
 			},
 			["SortedActions"] = {

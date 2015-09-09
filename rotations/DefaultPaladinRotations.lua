@@ -17,7 +17,6 @@ local paladinRotationsGenerator = function ()
 					["v_p_unitpowertype"] = "9",
 					["b_p_hp"] = true,
 					["v_p_unitpower"] = ">=1",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/avenger_shield"] = {
 					["v_togglename"] = "Toggle 1",
@@ -26,7 +25,6 @@ local paladinRotationsGenerator = function ()
 					["v_actionicon"] = "31935",
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "10326",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/word_of_glory_divine_purpose"] = {
 					["v_p_knowspell"] = "86172",
@@ -39,7 +37,6 @@ local paladinRotationsGenerator = function ()
 					["v_actionicon"] = "85673",
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "_90174",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/holy_wrath"] = {
 					["v_gunitpowertype"] = "9",
@@ -50,7 +47,6 @@ local paladinRotationsGenerator = function ()
 					["v_p_knownotspell"] = "171648",
 					["b_gunitpower"] = true,
 					["v_spellname"] = "119072",
-					["b_t_dr"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_gunitpower"] = "1",
 					["v_durationstartedtime"] = 0,
@@ -65,7 +61,6 @@ local paladinRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_gunitpower"] = "1",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/eternal_flame_divine_purpose"] = {
 					["v_p_knowspell"] = "86172&114163",
@@ -78,7 +73,6 @@ local paladinRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "_90174&114637#3",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/sacred_shield"] = {
 					["v_p_needbuff"] = "_20925^3",
@@ -103,7 +97,6 @@ local paladinRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "_90174",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/righteous_fury"] = {
 					["v_p_needbuff"] = "25780",
@@ -124,7 +117,6 @@ local paladinRotationsGenerator = function ()
 					["v_spellname"] = "114157",
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "114157",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/seal_of_insight"] = {
 					["v_p_notstance"] = "2",
@@ -148,7 +140,6 @@ local paladinRotationsGenerator = function ()
 					["b_p_unitpower"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = ">=3",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/lay_on_hands"] = {
 					["v_p_hp"] = "<10%",
@@ -176,7 +167,6 @@ local paladinRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = ">=3",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/consecration"] = {
 					["v_togglename"] = "Toggle 1",
@@ -185,7 +175,6 @@ local paladinRotationsGenerator = function ()
 					["v_actionicon"] = "26573",
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "10326",
-					["b_t_dr"] = true,
 				},
 				["defaultRotation/paladin/crusader_strike"] = {
 					["v_gunitpowertype"] = "9",
@@ -197,7 +186,6 @@ local paladinRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_gunitpower"] = "1",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/blessing_of_might"] = {
 					["v_p_needbuff"] = "_20217||155522||24907||19740||116956||160198||93435||160039||160073||128997",
@@ -214,7 +202,6 @@ local paladinRotationsGenerator = function ()
 				["defaultRotation/paladin/holy_wrath_sanctified_wrath"] = {
 					["v_gunitpowertype"] = "9",
 					["v_actionicon"] = "119072",
-					["b_t_dr"] = true,
 					["v_gcdspell"] = "10326",
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -232,7 +219,6 @@ local paladinRotationsGenerator = function ()
 					["v_actionicon"] = "24275",
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "10326",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/light_hammer"] = {
 					["b_p_knowspell"] = true,
@@ -263,7 +249,6 @@ local paladinRotationsGenerator = function ()
 					["v_spellname"] = "114165",
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "114165",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/seraphim"] = {
 					["v_gcdspell"] = "0",
@@ -286,7 +271,6 @@ local paladinRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "114250#3",
-					["b_rangecheck"] = true,
 				},
 			},
 			["SortedActions"] = {
@@ -321,7 +305,6 @@ local paladinRotationsGenerator = function ()
 			["ActionList"] = {
 				["defaultRotation/paladin/divine_storm_divine_purpose"] = {
 					["v_p_knowspell"] = "157048&86172",
-					["b_t_dr"] = true,
 					["v_actionicon"] = "53385",
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -344,7 +327,6 @@ local paladinRotationsGenerator = function ()
 					["v_actionicon"] = "157048",
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = ">=3",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/judgment"] = {
 					["v_togglename"] = "Toggle 1",
@@ -353,7 +335,6 @@ local paladinRotationsGenerator = function ()
 					["v_actionicon"] = "20271",
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "10326",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/final_verdict_sacred_power_5"] = {
 					["v_p_knowspell"] = "157048",
@@ -367,14 +348,12 @@ local paladinRotationsGenerator = function ()
 					["v_actionicon"] = "157048",
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = "=5",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/divine_storm"] = {
 					["v_actionicon"] = "53385",
 					["v_p_havebuff"] = "174718",
 					["v_p_knowspell"] = "157048",
 					["v_durationstartedtime"] = 0,
-					["b_t_dr"] = true,
 					["v_gcdspell"] = "465",
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -392,7 +371,6 @@ local paladinRotationsGenerator = function ()
 					["v_actionicon"] = "879",
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "10326",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/templar_verdict_sacred_power_5"] = {
 					["v_p_knowspell"] = "157048",
@@ -405,7 +383,6 @@ local paladinRotationsGenerator = function ()
 					["b_p_knownotspell"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "85256",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/execution_sentence"] = {
 					["v_p_knowspell"] = "114157",
@@ -416,7 +393,6 @@ local paladinRotationsGenerator = function ()
 					["v_spellname"] = "114157",
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "114157",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/holy_avenger"] = {
 					["b_p_knowspell"] = true,
@@ -440,7 +416,6 @@ local paladinRotationsGenerator = function ()
 					["v_actionicon"] = "85256",
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = ">=3",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/seal_of_truth"] = {
 					["v_p_notstance"] = "1|3",
@@ -462,7 +437,6 @@ local paladinRotationsGenerator = function ()
 					["v_actionicon"] = "35395",
 					["v_keybind"] = "<keybind>",
 					["v_gunitpower"] = "1",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/blessing_of_might"] = {
 					["v_p_needbuff"] = "_20217||155522||24907||19740||116956||160198||93435||160039||160073||128997",
@@ -487,7 +461,6 @@ local paladinRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "_90174",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/hammer_of_wrath"] = {
 					["v_togglename"] = "Toggle 1",
@@ -496,7 +469,6 @@ local paladinRotationsGenerator = function ()
 					["v_actionicon"] = "24275",
 					["v_keybind"] = "<keybind>",
 					["v_gcdspell"] = "10326",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/light_hammer"] = {
 					["b_p_knowspell"] = true,
@@ -527,7 +499,6 @@ local paladinRotationsGenerator = function ()
 					["v_spellname"] = "114165",
 					["v_keybind"] = "<keybind>",
 					["v_actionicon"] = "114165",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/templar_verdict_divine_purpose"] = {
 					["v_actionicon"] = "85256",
@@ -542,7 +513,6 @@ local paladinRotationsGenerator = function ()
 					["v_togglename"] = "Toggle 1",
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "_90174",
-					["b_rangecheck"] = true,
 				},
 				["defaultRotation/paladin/avenging_wrath"] = {
 					["v_togglename"] = "Toggle 1",
