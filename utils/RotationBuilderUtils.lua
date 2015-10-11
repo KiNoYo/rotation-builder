@@ -98,6 +98,8 @@ RotationBuilderUtils = {
 		["b_p_knowspell"] = false,
 		["v_actionicon"] = "",
 		["b_t_boss"] = false,
+		["b_p_isstealthed"] = false,
+		["b_hasproc"] = false,
 	}
 }
 

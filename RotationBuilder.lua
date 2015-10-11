@@ -99,6 +99,7 @@ ROB_NewActionDefaults = {
 	b_notaspell=false,
 	b_debug=false,
 	b_disabled=false,
+	b_hasproc=false,
 	
 	--Player Options---------------
 	b_p_hp=false,
@@ -147,6 +148,7 @@ ROB_NewActionDefaults = {
 	v_p_isglyphed="",
 	b_p_notglyphed=false,
 	v_p_notglyphed="",
+	b_p_isstealthed=false,
 	
 	--Target Options---------------
 	b_t_hp=false,
@@ -203,6 +205,8 @@ local ROB_ACTION_TIMELEFT           = nil;     -- The timeleft on the action deb
 local ROB_TARGET_LAST_CASTED        = nil;     -- Used to output what spell was itnerrupted
 local ROB_FOCUS_LAST_CASTED         = nil;     -- Used to output what spell was itnerrupted
 local ROB_ACTION_GCD                = 0;
+local ROB_ACTION_CASTTIME           = 0;
+local ROB_ACTION_TEXTURE			= nil;
 
 --libDataBroker stuff
 local ROB_MENU_FRAME                = nil;
@@ -1105,9 +1109,8 @@ function ROB_PasteActionButton_OnClick(self)
 end
 
 function GetTexturePath(v_spellname)
-	local texpath;
 	if not v_spellname then return ""; end
-	texpath = select(3, GetSpellInfo(v_spellname));
+	local _, _, texpath = GetSpellInfo(v_spellname);
 
 	if not texpath then texpath = "" end
 	return texpath;
@@ -2061,6 +2064,8 @@ function ROB_Rotation_Edit_UpdateUI()
 			
 			ROB_Rotation_GUI_SetChecked("ROB_AO_GChargesCheckButton",_ActionDB.b_charges,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_GChargesInputBox",_ActionDB.v_charges,"")
+			
+			ROB_Rotation_GUI_SetChecked("ROB_AO_GHasProcCheckButton",_ActionDB.b_hasproc,false)
 
 			--Player options-------------------------
 			ROB_Rotation_GUI_SetChecked("ROB_AO_NeedBuffCheckButton",_ActionDB.b_p_needbuff,false)
@@ -2124,6 +2129,7 @@ function ROB_Rotation_Edit_UpdateUI()
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_NotGlyphedCheckButton",_ActionDB.b_p_notglyphed,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_NotGlyphedInputBox",_ActionDB.v_p_notglyphed,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_IsStealthedCheckButton",_ActionDB.b_p_isstealthed,false);
 			--Target options-------------------------
 			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetHPCheckButton",_ActionDB.b_t_hp,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_TargetHPInputBox",_ActionDB.v_t_hp,"")
@@ -2262,7 +2268,7 @@ function ROB_SpellIsInRotation(_spellname)
 				_foundspell = true
 			end
 			if (GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname)) then
-				_spellname2 = select(1 , GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname))
+				_spellname2 = GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname)
 				if (string.find(tostring(_spellname), tostring(_spellname2))) then
 					_foundspell = true
 				end
@@ -2276,104 +2282,110 @@ function ROB_GetGCD()
 	return RotationBuilderUtils:truncate(1.5/(GetHaste()/100+1),3);
 end
 
-function ROB_EclipseDirection(_checkstring,_getnextspell)
-	local direction = GetEclipseDirection()
-
-	if direction == _checkstring then
-		return true
-	else
-		return false
+function ROB_TotemActive(name, slot)
+	local active, totemName, _, _, _ = GetTotemInfo(slot);
+	local _, class = UnitClass("PLAYER");
+	if (class == "DEATHKNIGHT") then
+		return active;
 	end
-end
-
-function ROB_TotemActive(_totemname,_totemslot,_getnextspell)
-	local _haveTotem, _totemName, _startTime, _duration = GetTotemInfo(_totemslot)
-	
-	if (_totemname ~= nil and _totemname ~= "") then
-		if (not _totemName or _totemName== "") then
-			return false
+	if (name ~= nil and name ~= "") then
+		if (not totemName or totemName == "") then
+			return false;
 		else
-			if (GetSpellInfo(_totemname) == _totemName) then
-				return true
+			if (GetSpellInfo(name) == totemName) then
+				return true;
 			end
 		end
 	else
-		if _haveTotem then
-			return true
-		else
-			return false
+		return active;
+	end
+	return false;
+end
+
+function ROB_TotemTimeleft(needed, slot)
+	local timeLeft = needed;
+	local active, _, start, duration, _ = GetTotemInfo(slot);
+	local totemTime = start + duration - GetTime();
+
+	if not active or totemTime < 0 then
+		totemTime = 0;
+	end
+	if (string.sub(timeLeft, 1, 1) == "<" and string.sub(timeLeft, 1, 2) ~= "<=") then
+		timeLeft = tonumber(string.sub(timeLeft, 2));
+		if (totemTime < timeLeft) then
+			return true;
 		end
 	end
-
-	return false
-end
-
-function ROB_TotemTimeleft(_totemtimeleft,_totemslot,_getnextspell)
-	local _timeleftparsed = nil
-	local _haveTotem, _totemName, _startTime, _duration = GetTotemInfo(_totemslot)
-
-	if (_startTime == nil) then
-		return false
+	if (string.sub(timeLeft, 1, 1) == ">" and string.sub(timeLeft, 1, 2) ~= ">=") then
+		timeLeft = tonumber(string.sub(timeLeft, 2));
+		if (totemTime > timeLeft) then
+			return true;
+		end
 	end
-
-	local _TotemTimeleft = (_startTime + _duration - GetTime())
-	if _TotemTimeleft < 0 then _TotemTimeleft = 0 end
-
-	if (string.sub(_totemtimeleft,1,1) == "<" and string.sub(_totemtimeleft,1,2) ~= "<=") then
-		_timeleftparsed = tonumber(string.sub(_totemtimeleft,2))
-		if (_TotemTimeleft < _timeleftparsed) then return true; end
+	if (string.sub(timeLeft, 1, 2) == ">=") then
+		timeLeft = tonumber(string.sub(timeLeft, 3));
+		if (totemTime >= timeLeft) then
+			return true;
+		end
 	end
-	if (string.sub(_totemtimeleft,1,1) == ">" and string.sub(_totemtimeleft,1,2) ~= ">=") then
-		_timeleftparsed = tonumber(string.sub(_totemtimeleft,2))
-		if (_TotemTimeleft > _timeleftparsed) then return true; end
+	if (string.sub(timeLeft, 1, 2) == "<=") then
+		timeLeft = tonumber(string.sub(timeLeft, 3));
+		if (totemTime <= timeLeft) then
+			return true;
+		end
 	end
-	if (string.sub(_totemtimeleft,1,2) == ">=") then
-		_timeleftparsed = tonumber(string.sub(_totemtimeleft,3))
-		if (_TotemTimeleft >= _timeleftparsed) then return true; end
+	if (string.sub(timeLeft, 1, 1) == "=") then
+		timeLeft = tonumber(string.sub(timeLeft, 2));
+		if (totemTime == timeLeft) then
+			return true;
+		end
 	end
-	if (string.sub(_totemtimeleft,1,2) == "<=") then
-		_timeleftparsed = tonumber(string.sub(_totemtimeleft,3))
-		if (_TotemTimeleft <= _timeleftparsed) then return true; end
-	end
-	if (string.sub(_totemtimeleft,1,1) == "=") then
-		_timeleftparsed = tonumber(string.sub(_totemtimeleft,2))
-		if (_TotemTimeleft == _timeleftparsed) then return true; end
-	end
-
-	return false
+	return false;
 end
 
 
 
-function ROB_SpellHasCharges(_spellId, _number, _getnextspell)
-	local _parsedCharges = _number
-	local _charges, _maxCharges, _start, _duration = GetSpellCharges(_spellId);
+function ROB_SpellHasCharges(spellId, number)
+	local parsedCharges = number;
+	local charges, _, _, _ = GetSpellCharges(spellId);
 	
-	if (string.sub(_parsedCharges,1,1) == "<" and string.sub(_parsedCharges,1,2) ~= "<=") then
-		_parsedCharges = tonumber(string.sub(_parsedCharges,2))
-		if (_charges < _parsedCharges) then return true; end
+	if (string.sub(parsedCharges, 1, 1) == "<" and string.sub(parsedCharges, 1, 2) ~= "<=") then
+		parsedCharges = tonumber(string.sub(parsedCharges, 2));
+		if (charges < parsedCharges) then
+			return true;
+		end
 	end
-	if (string.sub(_parsedCharges,1,1) == ">" and string.sub(_parsedCharges,1,2) ~= ">=") then
-		_parsedCharges = tonumber(string.sub(_parsedCharges,2))
-		if (_charges > _parsedCharges) then return true; end
+	if (string.sub(parsedCharges, 1, 1) == ">" and string.sub(parsedCharges, 1, 2) ~= ">=") then
+		parsedCharges = tonumber(string.sub(parsedCharges, 2));
+		if (charges > parsedCharges) then
+			return true;
+		end
 	end
-	if (string.sub(_parsedCharges,1,2) == ">=") then
-		_parsedCharges = tonumber(string.sub(_parsedCharges,3))
-		if (_charges >= _parsedCharges) then return true; end
+	if (string.sub(parsedCharges, 1, 2) == ">=") then
+		parsedCharges = tonumber(string.sub(parsedCharges, 3));
+		if (charges >= parsedCharges) then
+			return true;
+		end
 	end
-	if (string.sub(_parsedCharges,1,2) == "<=") then
-		_parsedCharges = tonumber(string.sub(_parsedCharges,3))
-		if (_charges <= _parsedCharges) then return true; end
+	if (string.sub(parsedCharges, 1, 2) == "<=") then
+		parsedCharges = tonumber(string.sub(parsedCharges, 3));
+		if (charges <= parsedCharges) then
+			return true;
+		end
 	end
-	if (string.sub(_parsedCharges,1,1) == "=") then
-		_parsedCharges = tonumber(string.sub(_parsedCharges,2))
-		if (_charges == _parsedCharges) then return true; end
+	if (string.sub(parsedCharges, 1, 1) == "=") then
+		parsedCharges = tonumber(string.sub(parsedCharges, 2))
+		if (charges == parsedCharges) then
+			return true;
+		end
 	end
-	if (_charges == tonumber(_parsedCharges)) then return true; end
-	
-	return false
+	if (charges == tonumber(parsedCharges)) then
+		return true;
+	end
+	return false;
 end
 
+-- TODO : redo this option
 function ROB_PlayerHasComboPoints(_checkstring,_getnextspell)
 	local _parsedCP = _checkstring
 	local _unitCP = GetComboPoints("player", "target")
@@ -2457,742 +2469,558 @@ function ROB_PlayerHasComboPoints(_checkstring,_getnextspell)
 	return false
 end
 
-function ROB_CheckForDebuffType(_unitName,_magic,_poison,_disease,_curse)
-	local debuffCount = 0
-	for i = 1, 40 do
-		local debuffName,_, debuff, debuffStack, debuffType = UnitDebuff("player", i)
-		if (not debuff) then
-			break
-		end
-		-- Types are Magic, Disease, Poison, Curse
-		if (_magic and debuffType == "Magic") then
-			debuffCount = debuffCount + 1
-		end
-		if (_poison and debuffType == "Poison") then
-			debuffCount = debuffCount + 1
-		end
-		if (_disease and debuffType == "Disease") then
-			debuffCount = debuffCount + 1
-		end
-		if (_curse and debuffType == "Curse") then
-			debuffCount = debuffCount + 1
-		end
-	end
+function ROB_UnitPassesLifeCheck(checkstring, unitName, checkMax)
+	local life		= nil;
+	local unitHP	= 0;
 
-	if (debuffCount > 0) then
-		return true
+	if (string.find(checkstring, "%%")) then
+		unitHP	= math.floor(UnitHealth(unitName) / UnitHealthMax(unitName) * 100);
+		life	= string.sub(checkstring, 1, (string.find(checkstring, "%%") - 1));
 	else
-		return false
-	end
-end
-
-function ROB_UnitPassesLifeCheck(_checkstring,_unitName,_checkMax)
-	local _lifeparsed = nil
-	local _unitHP = 0
-
-	if (string.find(_checkstring, "%%")) then
-		_unitHP = math.floor(UnitHealth(_unitName)/UnitHealthMax(_unitName) * 100)
-		_lifeparsed = string.sub(_checkstring,1,(string.find(_checkstring, "%%")-1))
-	else
-		if (_checkMax) then
-			_unitHP = UnitHealthMax(_unitName)
+		if (checkMax) then
+			unitHP = UnitHealthMax(unitName);
 		else
-			_unitHP = UnitHealth(_unitName)
+			unitHP = UnitHealth(unitName);
 		end
-		_lifeparsed = _checkstring
+		life = checkstring
 	end
-
-	if (string.sub(_lifeparsed,1,1) == "<" and string.sub(_lifeparsed,1,2) ~= "<=") then
-		_lifeparsed = tonumber(string.sub(_lifeparsed,2))
-		if (_unitHP < _lifeparsed) then return true; end
+	if (string.sub(life, 1, 1) == "<" and string.sub(life, 1, 2) ~= "<=") then
+		life = tonumber(string.sub(life, 2));
+		if (unitHP < life) then
+			return true;
+		end
 	end
-	if (string.sub(_lifeparsed,1,1) == ">" and string.sub(_lifeparsed,1,2) ~= ">=") then
-		_lifeparsed = tonumber(string.sub(_lifeparsed,2))
-		if (_unitHP > _lifeparsed) then return true; end
+	if (string.sub(life, 1, 1) == ">" and string.sub(life, 1, 2) ~= ">=") then
+		life = tonumber(string.sub(life, 2));
+		if (unitHP > life) then
+			return true;
+		end
 	end
-	if (string.sub(_lifeparsed,1,2) == ">=") then
-		_lifeparsed = tonumber(string.sub(_lifeparsed,3))
-		if (_unitHP >= _lifeparsed) then return true; end
+	if (string.sub(life, 1, 2) == ">=") then
+		life = tonumber(string.sub(life, 3));
+		if (unitHP >= life) then
+			return true;
+		end
 	end
-	if (string.sub(_lifeparsed,1,2) == "<=") then
-		_lifeparsed = tonumber(string.sub(_lifeparsed,3))
-		if (_unitHP <= _lifeparsed) then return true; end
+	if (string.sub(life, 1, 2) == "<=") then
+		life = tonumber(string.sub(life, 3));
+		if (unitHP <= life) then
+			return true;
+		end
 	end
-	if (string.sub(_lifeparsed,1,1) == "=") then
-		_lifeparsed = tonumber(string.sub(_lifeparsed,2))
-		if (_unitHP == _lifeparsed) then return true; end
+	if (string.sub(life, 1, 1) == "=") then
+		life = tonumber(string.sub(life, 2));
+		if (unitHP == life) then
+			return true;
+		end
 	end
-
-	return false
+	return false;
 end
 
-function ROB_UnitPassesPowerCheck(_checkstring,_unitName,_powerType,_getnextspell)
-	local _powerparsed = nil
-	local _unitPower = 0
+function ROB_UnitPassesPowerCheck(checkstring, unitName, powerType)
+	local power		= nil;
+	local unitPower	= 0;
 
-	if (string.find(_checkstring, "%%")) then
-		_unitPower = math.floor(UnitPower(_unitName, _powerType)/UnitPowerMax(_unitName, _powerType) * 100)
-		_powerparsed = string.sub(_checkstring,1,(string.find(_checkstring, "%%")-1))
+	if (string.find(checkstring, "%%")) then
+		unitPower	= math.floor(UnitPower(unitName, powerType)/UnitPowerMax(unitName, powerType) * 100);
+		power		= string.sub(checkstring, 1, (string.find(checkstring, "%%") - 1));
 	else
-		_unitPower = UnitPower(_unitName, _powerType)
-		_powerparsed = _checkstring
+		unitPower	= UnitPower(unitName, powerType);
+		power		= checkstring;
 	end
-
 	--After we get our unit power see if we should add some to predict next spell
-	if (_getnextspell and ROB_CURRENT_ACTION) then
-		local _generatesUP = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].b_gunitpower
-		local _generatesUPtype = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gunitpowertype
-		local _generatesUPamount = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gunitpower
-		if (_generatesUP and _generatesUPtype and _generatesUPamount and (_generatesUPtype == _powerType)) then
+	if (isNextSpell and ROB_CURRENT_ACTION) then
+		local generatesUP = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].b_gunitpower;
+		local generatesUPtype = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gunitpowertype;
+		local generatesUPamount = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gunitpower;
+		if (generatesUP and generatesUPtype and generatesUPamount and (generatesUPtype == powerType)) then
 			--Check if it generates a percentage
-			if (string.find(_generatesUPamount, "%%")) then
-				_generatesUPamount = string.sub(_generatesUPamount,1,(string.find(_generatesUPamount, "%%")-1))
+			if (string.find(generatesUPamount, "%%")) then
+				generatesUPamount = string.sub(generatesUPamount, 1, (string.find(generatesUPamount, "%%") - 1));
 			end
-			_unitPower = _unitPower + tonumber(_generatesUPamount)
+			unitPower = unitPower + tonumber(generatesUPamount);
+		end
+		-- Here we add the power that should be gained before we cast the next spell
+		-- TODO find a way to get the spell cost to remove it from unitPower for the next action for accurate calculations.
+		local _, regen = GetPowerRegen();
+		unitPower = unitPower + (regen * (ROB_ACTION_GCD + ROB_ACTION_CASTTIME));
+	end
+	if (string.sub(power, 1, 1) == "<" and string.sub(power, 1, 2) ~= "<=") then
+		power = tonumber(string.sub(power, 2));
+		if (unitPower < power) then
+			return true;
 		end
 	end
-
-
-	if (string.sub(_powerparsed,1,1) == "<" and string.sub(_powerparsed,1,2) ~= "<=") then
-		_powerparsed = tonumber(string.sub(_powerparsed,2))
-		if (_unitPower < _powerparsed) then return true; end
+	if (string.sub(power, 1, 1) == ">" and string.sub(power, 1, 2) ~= ">=") then
+		power = tonumber(string.sub(power, 2));
+		if (unitPower > power) then
+			return true;
+		end
 	end
-	if (string.sub(_powerparsed,1,1) == ">" and string.sub(_powerparsed,1,2) ~= ">=") then
-		_powerparsed = tonumber(string.sub(_powerparsed,2))
-		if (_unitPower > _powerparsed) then return true; end
+	if (string.sub(power, 1, 2) == ">=") then
+		power= tonumber(string.sub(power, 3));
+		if (unitPower >= power) then
+			return true;
+		end
 	end
-	if (string.sub(_powerparsed,1,2) == ">=") then
-		_powerparsed = tonumber(string.sub(_powerparsed,3))
-		if (_unitPower >= _powerparsed) then return true; end
+	if (string.sub(power, 1, 2) == "<=") then
+		power = tonumber(string.sub(power, 3));
+		if (unitPower <= power) then
+			return true;
+		end
 	end
-	if (string.sub(_powerparsed,1,2) == "<=") then
-		_powerparsed = tonumber(string.sub(_powerparsed,3))
-		if (_unitPower <= _powerparsed) then return true; end
+	if (string.sub(power, 1, 1) == "=") then
+		power = tonumber(string.sub(power, 2));
+		if (unitPower == power) then
+			return true;
+		end
 	end
-	if (string.sub(_powerparsed,1,1) == "=") then
-		_powerparsed = tonumber(string.sub(_powerparsed,2))
-		if (_unitPower == _powerparsed) then return true; end
-	end
-
 	return false
 end
 
-function ROB_UnitPassesRuneCheck(_blood, _frost, _unholy, _death, _getnextspell)
-	local _runeparsed = nil
-	local _runeCount = nil
+function ROB_UnitPassesRuneCheck(blood, frost, unholy, death, isNextSpell)
+	local rune	= nil;
+	local count	= 0;
 
-	if (select(2, UnitClass("player")) == "DEATHKNIGHT") then
-		deathRuneCount = 0
-		bloodRuneCount = 0
-		frostRuneCount = 0
-		unholyRuneCount = 0
+	local _, class = UnitClass("PLAYER");
+	if (class == "DEATHKNIGHT") then
+		deathRuneCount	= 0;
+		bloodRuneCount	= 0;
+		frostRuneCount	= 0;
+		unholyRuneCount	= 0;
 
 		--1 : RUNETYPE_BLOOD
-		--2 : RUNETYPE_CHROMATIC
+		--2 : RUNETYPE_UNHOLY
 		--3 : RUNETYPE_FROST
 		--4 : RUNETYPE_DEATH
 
 		for i = 1, 6 do
-			_start, _duration, _runeReady = GetRuneCooldown(i)
-			if (GetRuneType(i) == 1 and _runeReady) then
-				bloodRuneCount = bloodRuneCount + 1
-			elseif (GetRuneType(i) == 2 and _runeReady) then
-				unholyRuneCount = unholyRuneCount + 1
-			elseif (GetRuneType(i) == 3 and _runeReady) then
-				frostRuneCount = frostRuneCount + 1
-			elseif (GetRuneType(i) == 4 and _runeReady) then
-				deathRuneCount = deathRuneCount + 1
+			local start, duration, ready = GetRuneCooldown(i);
+			local cooldown = start + duration - GetTime();
+			if not start or cooldown < 0 then
+				cooldown = 0;
 			end
-		end
-
-		if (_blood) then
-			_runeparsed = _blood
-			_runeCount = bloodRuneCount
-		end
-		if (_frost) then
-			_runeparsed = _frost
-			_runeCount = frostRuneCount
-		end
-		if (_unholy) then
-			_runeparsed = _unholy
-			_runeCount = unholyRuneCount
-		end
-		if (_death) then
-			_runeparsed = _death
-			_runeCount = deathRuneCount
-		end
-
-		if (string.sub(_runeparsed,1,1) == "<" and string.sub(_runeparsed,1,2) ~= "<=") then
-			_runeparsed = tonumber(string.sub(_runeparsed,2))
-			if (_runeCount < _runeparsed) then return true; end
-		end
-		if (string.sub(_runeparsed,1,1) == ">" and string.sub(_runeparsed,1,2) ~= ">=") then
-			_runeparsed = tonumber(string.sub(_runeparsed,2))
-			if (_runeCount > _runeparsed) then return true; end
-		end
-		if (string.sub(_runeparsed,1,2) == ">=") then
-			_runeparsed = tonumber(string.sub(_runeparsed,3))
-			if (_runeCount >= _runeparsed) then return true; end
-		end
-		if (string.sub(_runeparsed,1,2) == "<=") then
-			_runeparsed = tonumber(string.sub(_runeparsed,3))
-			if (_runeCount <= _runeparsed) then return true; end
-		end
-		if (string.sub(_runeparsed,1,1) == "=") then
-			_runeparsed = tonumber(string.sub(_runeparsed,2))
-			if (_runeCount == _runeparsed) then return true; end
-		end
-	end
-
-	return false
-end
-
-function ROB_BloodTapCheck()
-	local _start, _duration, _runeReady
-	local _start2, _duration2, _runeReady2
-	
-	_start, _duration, _runeReady = GetRuneCooldown(1)
-	_start2, _duration2, _runeReady2 = GetRuneCooldown(2)
-	if (not _runeReady and not _runeReady2) then
-		return true
-	end
-	
-	_start, _duration, _runeReady = GetRuneCooldown(3)
-	_start2, _duration2, _runeReady2 = GetRuneCooldown(4)
-	if (not _runeReady and not _runeReady2) then
-		return true
-	end
-	
-	_start, _duration, _runeReady = GetRuneCooldown(5)
-	_start2, _duration2, _runeReady2 = GetRuneCooldown(6)
-	if (not _runeReady and not _runeReady2) then
-		return true
-	end
-
-	return false
-end
-
-function ROB_SpellPassesOtherCooldownCheck(_othercd, _checkstring, _notaspell)
-	local _cooldownparsed = nil
-	local _start, _duration, enable
-
-	if(_notaspell) then
-		_start, _duration, _enable = GetItemCooldown(_othercd)
-	else
-		_start, _duration = GetSpellCooldown(_othercd)
-	end
-	if (_start == nil) then
-		return false
-	end
-
-	local _cooldownLeft = (_start + _duration - GetTime())
-	if _cooldownLeft < 0 then _cooldownLeft = 0 end
-
-	if (string.sub(_checkstring,1,1) == "<" and string.sub(_checkstring,1,2) ~= "<=") then
-		_cooldownparsed = tonumber(string.sub(_checkstring,2))
-		if (_cooldownLeft < _cooldownparsed) then return true; end
-	end
-	if (string.sub(_checkstring,1,1) == ">" and string.sub(_checkstring,1,2) ~= ">=") then
-		_cooldownparsed = tonumber(string.sub(_checkstring,2))
-		if (_cooldownLeft > _cooldownparsed) then return true; end
-	end
-	if (string.sub(_checkstring,1,2) == ">=") then
-		_cooldownparsed = tonumber(string.sub(_checkstring,3))
-		if (_cooldownLeft >= _cooldownparsed) then return true; end
-	end
-	if (string.sub(_checkstring,1,2) == "<=") then
-		_cooldownparsed = tonumber(string.sub(_checkstring,3))
-		if (_cooldownLeft <= _cooldownparsed) then return true; end
-	end
-	if (string.sub(_checkstring,1,1) == "=") then
-		_cooldownparsed = tonumber(string.sub(_checkstring,2))
-		if (_cooldownLeft == _cooldownparsed) then return true; end
-	end
-
-	return false
-end
-
-function ROB_UnitHasDebuff(_debuffNeeded, _unitName, _getnextspell)
-	local _unithasdebuffs = false
-	local _spellexists = false
-	local _sourcecheckpassed = false
-	local _stackcheckpassed = false
-
-	local _unparsedDebuff = nil
-	local _remainingDebuffs = _debuffNeeded
-	local _spellparsedstacks = 0
-	local _timeleft = 0
-	local _debuffcount = 0
-	local _debuffsfound = 0
-	local _doneparsing = false
-	local _stringtype = 0
-	local _name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId
-	local _name2, _rank2, _icon2, _cost2, _isFunnel2, _powerType2, _castTime2, _minRange2, _maxRange2
-
-	-- TODO PEL : Change the way to analyse the debuff string.
-	while not _doneparsing do
-		_unparsedDebuff = nil
-		if (string.find(_remainingDebuffs, "|")) then
-			_unparsedDebuff   = string.sub(_remainingDebuffs,1,string.find(_remainingDebuffs, "|")-1)
-			_debuffcount      = _debuffcount + 1
-			_remainingDebuffs = string.sub(_remainingDebuffs,string.find(_remainingDebuffs, "|")+1)
-			_stringtype = 1
-		elseif (string.find(_remainingDebuffs, "&")) then
-			_unparsedDebuff   = string.sub(_remainingDebuffs,1,string.find(_remainingDebuffs, "&")-1)
-			_debuffcount      = _debuffcount + 1
-			_remainingDebuffs = string.sub(_remainingDebuffs,string.find(_remainingDebuffs, "&")+1)
-			_stringtype = 2
-		else
-			_unparsedDebuff   = _remainingDebuffs
-			_debuffcount      = _debuffcount + 1
-			_doneparsing      = true
-		end
-
-
-		--print("_unparsedDebuff=".._unparsedDebuff)
-		_spellexists = false
-		_sourcecheckpassed = false
-		_stackcheckpassed = false
-		_timeleftcheckpassed = false
-
-		--if the debuff has a _ in it that means source needs to be the player
-		if (string.find(_unparsedDebuff, "_")) then
-			_unparsedDebuff = string.sub(_unparsedDebuff,2)
-			_sourceunitparsed = "player"
-		else
-			--_unparsedDebuff = _unparsedDebuff
-			_sourceunitparsed = nil
-		end
-
-		if (string.find(_unparsedDebuff, "%^")) then
-			_spellparsedseconds = tonumber(string.sub(_unparsedDebuff,(string.find(_unparsedDebuff, "%^")+1)))
-			_unparsedDebuff = string.sub(_unparsedDebuff,1,(string.find(_unparsedDebuff, "%^")-1))
-		else
-			_spellparsedseconds = 0
-		end
-
-		if (string.find(_unparsedDebuff, "#")) then
-			_spellparsedstacks = tonumber(string.sub(_unparsedDebuff,(string.find(_unparsedDebuff, "#")+1)))
-			_unparsedDebuff = string.sub(_unparsedDebuff,1,(string.find(_unparsedDebuff, "#")-1))
-		else
-			_spellparsedstacks = 0
-		end
-
-		if (_unparsedDebuff ~= nil) then
-			if(_sourceunitparsed ~= nil) then
-				_name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId = UnitDebuff(_unitName, _unparsedDebuff, "player")
-				if (not _name and GetSpellInfo(_unparsedDebuff)) then
-					_name2, _rank2, _icon2, _cost2, _isFunnel2, _powerType2, _castTime2, _minRange2, _maxRange2 = GetSpellInfo(_unparsedDebuff)
-					_name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId = UnitDebuff(_unitName, GetSpellInfo(_unparsedDebuff), _rank2, "player")
+			if (not isNextSpell) then
+				if (GetRuneType(i) == 1 and (ready or cooldown <= ROB_ACTION_GCD)) then
+					bloodRuneCount = bloodRuneCount + 1;
+				elseif (GetRuneType(i) == 2 and (ready or cooldown <= ROB_ACTION_GCD)) then
+					unholyRuneCount = unholyRuneCount + 1;
+				elseif (GetRuneType(i) == 3 and (ready or cooldown <= ROB_ACTION_GCD)) then
+					frostRuneCount = frostRuneCount + 1;
+				elseif (GetRuneType(i) == 4 and (ready or cooldown <= ROB_ACTION_GCD)) then
+					deathRuneCount = deathRuneCount + 1;
 				end
 			else
-				_name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId = UnitDebuff(_unitName, _unparsedDebuff)
-				if (not _name and GetSpellInfo(_unparsedDebuff)) then
-					_name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId = UnitDebuff(_unitName, GetSpellInfo(_unparsedDebuff))
+				if (GetRuneType(i) == 1 and (ready or cooldown <= (ROB_ACTION_GCD + ROB_ACTION_CASTTIME))) then
+					bloodRuneCount = bloodRuneCount + 1;
+				elseif (GetRuneType(i) == 2 and (ready or cooldown <= (ROB_ACTION_GCD + ROB_ACTION_CASTTIME))) then
+					unholyRuneCount = unholyRuneCount + 1;
+				elseif (GetRuneType(i) == 3 and (ready or cooldown <= (ROB_ACTION_GCD + ROB_ACTION_CASTTIME))) then
+					frostRuneCount = frostRuneCount + 1;
+				elseif (GetRuneType(i) == 4 and (ready or cooldown <= (ROB_ACTION_GCD + ROB_ACTION_CASTTIME))) then
+					deathRuneCount = deathRuneCount + 1;
 				end
 			end
-
-			if (_name ~= nil and ROB_SpellsMatch(_name, _unparsedDebuff)) then
-				_spellexists = true
-
-				if (_sourceunitparsed ~= nil) then
-					if (_sourceunitparsed == _unitCaster) then
-						_sourcecheckpassed = true
-					end
-				else
-					_sourcecheckpassed = true
-				end
-
-				if (_spellparsedstacks > 0) then
-					if (_count and _count >= _spellparsedstacks) then
-						_stackcheckpassed = true
-					end
-				else
-					_stackcheckpassed = true
-				end
-
-				_timeleft = _expirationTime - GetTime()
-				if _timeleft < 0 then _timeleft = 0; end
-
-				--set the action cooldown to the time left on the debuff minus the refresh time specified
-				--print(_spellparsedseconds)
-				if (_timeleft < _spellparsedseconds) then
-					ROB_ACTION_TIMELEFT = _timeleft
-				else
-					ROB_ACTION_TIMELEFT = _timeleft - _spellparsedseconds
-				end
-
-				if (_spellparsedseconds > 0) then
-					if (_timeleft >= _spellparsedseconds) then
-						_timeleftcheckpassed = true
-					end
-				else
-					_timeleftcheckpassed = true
-				end
-
-				if (_spellexists and _sourcecheckpassed and _stackcheckpassed and _timeleftcheckpassed) then  _debuffsfound = _debuffsfound +1; end
+		end
+		if (blood ~= nil) then
+			rune	= blood;
+			count	= bloodRuneCount;
+		end
+		if (frost ~= nil) then
+			rune	= frost;
+			count	= frostRuneCount;
+		end
+		if (unholy ~= nil) then
+			rune	= unholy;
+			count	= unholyRuneCount;
+		end
+		if (death ~= nil) then
+			rune	= death;
+			count	= deathRuneCount;
+		end
+		if (string.sub(rune, 1, 1) == "<" and string.sub(rune, 1, 2) ~= "<=") then
+			rune = tonumber(string.sub(rune, 2));
+			if (count < rune) then
+				return true;
 			end
-		else
-		--spellparsed does not exist maybe warn the player in the future they need to retype in the debuffs field
+		end
+		if (string.sub(rune, 1, 1) == ">" and string.sub(rune, 1, 2) ~= ">=") then
+			rune = tonumber(string.sub(rune, 2));
+			if (count > rune) then
+				return true;
+			end
+		end
+		if (string.sub(rune, 1, 2) == ">=") then
+			rune = tonumber(string.sub(rune, 3));
+			if (count >= rune) then
+				return true;
+			end
+		end
+		if (string.sub(rune, 1, 2) == "<=") then
+			rune = tonumber(string.sub(rune, 3));
+			if (count <= rune) then
+				return true;
+			end
+		end
+		if (string.sub(rune, 1, 1) == "=") then
+			rune = tonumber(string.sub(rune, 2));
+			if (count == rune) then
+				return true;
+			end
 		end
 	end
-
-	if (_stringtype == 0 and (_debuffsfound >= 1)) then
-		_unithasdebuffs = true
-	end
-	if (_stringtype == 1 and (_debuffsfound >= 1)) then
-		_unithasdebuffs = true
-	end
-	if (_stringtype == 2 and (_debuffsfound == _debuffcount)) then
-		_unithasdebuffs = true
-	end
-
-	return _unithasdebuffs
+	return false;
 end
 
-function ROB_UnitHasBuff(_buffNeeded, _unitName, _getnextspell)
-	local _unithasbuffs = false
-	local _spellexists = false
-	local _sourcecheckpassed = false
-	local _stackcheckpassed = false
+function ROB_SpellPassesOtherCooldownCheck(othercd, checkstring, notaspell)
+	local cooldown	= nil;
+	local start		= 0;
+	local duration	= 0;
 
-	local _unparsedBuff = nil
-	local _remainingBuffs = _buffNeeded
-	local _spellparsedstacks = 0
-	local _timeleft = 0
-	local _buffcount = 0
-	local _buffsfound = 0
-	local _doneparsing = false
-	local _name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId
-	local _stringtype = 0
-	-- TODO PEL : Change the way to analyse the buff string.
-	while not _doneparsing do
-		_unparsedBuff = nil
-		if (string.find(_remainingBuffs, "|")) then
-			_unparsedBuff   = string.sub(_remainingBuffs,1,string.find(_remainingBuffs, "|")-1)
-			_buffcount      = _buffcount + 1
-			_remainingBuffs = string.sub(_remainingBuffs,string.find(_remainingBuffs, "|")+1)
-			_stringtype = 1
-		elseif (string.find(_remainingBuffs, "&")) then
-			_unparsedBuff   = string.sub(_remainingBuffs,1,string.find(_remainingBuffs, "&")-1)
-			_buffcount      = _buffcount + 1
-			_remainingBuffs = string.sub(_remainingBuffs,string.find(_remainingBuffs, "&")+1)
-			_stringtype = 2
-		else
-			_unparsedBuff   = _remainingBuffs
-			_buffcount      = _buffcount + 1
-			_doneparsing    = true
+	if(notaspell) then
+		start, duration, _ = GetItemCooldown(othercd);
+	else
+		start, duration, _ = GetSpellCooldown(othercd);
+	end
+	if (start == nil) then
+		return false;
+	end
+	local cooldownLeft = (start + duration - GetTime());
+	if cooldownLeft < 0 then
+		cooldownLeft = 0;
+	end
+	if (string.sub(checkstring, 1, 1) == "<" and string.sub(checkstring, 1, 2) ~= "<=") then
+		cooldown = tonumber(string.sub(checkstring, 2));
+		if (cooldownLeft < cooldown) then
+			return true;
 		end
-		--print("Checking for _unparsedBuff=".._unparsedBuff)
+	end
+	if (string.sub(checkstring, 1, 1) == ">" and string.sub(checkstring, 1, 2) ~= ">=") then
+		cooldown = tonumber(string.sub(checkstring, 2));
+		if (cooldownLeft > cooldown) then
+			return true;
+		end
+	end
+	if (string.sub(checkstring, 1, 2) == ">=") then
+		cooldown = tonumber(string.sub(checkstring, 3));
+		if (cooldownLeft >= cooldown) then
+			return true;
+		end
+	end
+	if (string.sub(checkstring, 1, 2) == "<=") then
+		cooldown = tonumber(string.sub(checkstring, 3));
+		if (cooldownLeft <= cooldown) then
+			return true;
+		end
+	end
+	if (string.sub(checkstring, 1, 1) == "=") then
+		cooldown = tonumber(string.sub(checkstring, 2));
+		if (cooldownLeft == cooldown) then
+			return true;
+		end
+	end
+	return false;
+end
 
-		_spellexists = false
-		_sourcecheckpassed = false
-		_stackcheckpassed = false
-		_timeleftcheckpassed = false
+function ROB_UnitHasAura(needed, unitName, buffType)
+	local exist			= false;
+	local hasSource		= false;
+	local hasStack		= false;
+	local hasTime		= false;
+	local unparsed		= nil;
+	local remaining		= needed;
+	local stacks		= 0;
+	local count			= 0;
+	local found			= 0;
+	local done			= false;
+	local stringType	= 0;
+	local sourceUnit	= nil;
+	local seconds		= 0;
+	local timeLeft		= 0;
 
+	while not done do
+		unparsed = nil;
+		if (string.find(remaining, "|")) then
+			unparsed	= string.sub(remaining, 1, string.find(remaining, "|") - 1);
+			count		= count + 1;
+			remaining	= string.sub(remaining, string.find(remaining, "|") + 1);
+			stringType	= 1;
+		elseif (string.find(remaining, "&")) then
+			unparsed	= string.sub(remaining, 1, string.find(remaining, "&") - 1);
+			count		= count + 1;
+			remaining	= string.sub(remaining,string.find(remaining, "&") + 1);
+			stringType	= 2;
+		else
+			unparsed	= remaining;
+			count		= count + 1;
+			done		= true;
+		end
+		exist		= false;
+		hasSource	= false;
+		hasStack	= false;
+		hasTime		= false;
 		--if the buff has a _ in it that means source needs to be the player
-		if (string.find(_unparsedBuff, "_")) then
-			_unparsedBuff = string.sub(_unparsedBuff,2)
-			_sourceunitparsed = "player"
+		if (string.find(unparsed, "_")) then
+			unparsed	= string.sub(unparsed, 2);
+			sourceUnit	= "player";
 		else
-			_unparsedBuff = _unparsedBuff
-			_sourceunitparsed = nil
+			unparsed	= unparsed;
+			sourceUnit	= nil;
 		end
-
-		if (string.find(_unparsedBuff, "%^")) then
-			_spellparsedseconds = tonumber(string.sub(_unparsedBuff,(string.find(_unparsedBuff, "%^")+1)))
-			_unparsedBuff = string.sub(_unparsedBuff,1,(string.find(_unparsedBuff, "%^")-1))
+		if (string.find(unparsed, "%^")) then
+			seconds		= tonumber(string.sub(unparsed, (string.find(unparsed, "%^") + 1)));
+			unparsed	= string.sub(unparsed, 1, (string.find(unparsed, "%^") - 1));
 		else
-			_spellparsedseconds = 0
+			seconds = 0;
 		end
-
-		if (string.find(_unparsedBuff, "#")) then
-			_spellparsedstacks = tonumber(string.sub(_unparsedBuff,(string.find(_unparsedBuff, "#")+1)))
-			_unparsedBuff = string.sub(_unparsedBuff,1,(string.find(_unparsedBuff, "#")-1))
+		if (string.find(unparsed, "#")) then
+			stacks		= tonumber(string.sub(unparsed,(string.find(unparsed, "#") + 1)));
+			unparsed	= string.sub(unparsed, 1, (string.find(unparsed, "#") - 1));
 		else
-			_spellparsedstacks = 0
+			stacks = 0;
 		end
-
-		if (_unparsedBuff ~= nil) then
+		if (unparsed ~= nil) then
 			--Unitbuff can not take a spellid as a parameter so we have to try the _unparsedBuff first and if that fails then try to convert the _unparsedBuff to a spellname
-			_name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId = UnitBuff(_unitName, _unparsedBuff)
-			if (not _name and GetSpellInfo(_unparsedBuff)) then
-				_name, _rank, _icon, _count, _debuffType, _duration, _expirationTime, _unitCaster, _isStealable, _shouldConsolidate, _spellId = UnitBuff(_unitName, GetSpellInfo(_unparsedBuff))
+			local name, _, _, counter, _, _, expirationTime, unitCaster, _, _, _ = UnitAura(unitName, unparsed, nil, buffType);
+			if (not name and GetSpellInfo(unparsed)) then
+				local spell, _, _, _, _, _ = GetSpellInfo(unparsed);
+				name, _, _, counter, _, _, expirationTime, unitCaster, _, _, _ = UnitAura(unitName, spell, nil, buffType);
 			end
-
-			if (_name ~= nil and ROB_SpellsMatch(_name, _unparsedBuff)) then
-				_spellexists = true
-
-
-				if (_sourceunitparsed ~= nil) then
-					if (_sourceunitparsed == _unitCaster) then
-						_sourcecheckpassed = true
+			if (name ~= nil and ROB_SpellsMatch(name, unparsed)) then
+				exists = true;
+				if (sourceUnit ~= nil) then
+					if (sourceUnit == unitCaster) then
+						hasSource = true;
 					end
 				else
-					_sourcecheckpassed = true
+					hasSource = true;
 				end
-
-				if (_spellparsedstacks > 0) then
-					if (_count and _count >= _spellparsedstacks) then
-						_stackcheckpassed = true
+				if (stacks > 0) then
+					if (counter and counter >= stacks) then
+						hasStack = true;
 					end
 				else
-					_stackcheckpassed = true
+					hasStack = true;
 				end
-
-				_timeleft = _expirationTime - GetTime()
-				if _timeleft < 0 then _timeleft = 0; end
-
+				timeLeft = expirationTime - GetTime()
+				if timeLeft < 0 then
+					timeLeft = 0;
+				end
 				--set the action cooldown to the time left on the buff minus the refresh time specified
-				if (_timeleft < _spellparsedseconds) then
-					ROB_ACTION_TIMELEFT = _timeleft
+				if (timeLeft < seconds) then
+					ROB_ACTION_TIMELEFT = timeLeft;
 				else
-					ROB_ACTION_TIMELEFT = _timeleft - _spellparsedseconds
+					ROB_ACTION_TIMELEFT = timeLeft - seconds;
 				end
-
-				if (_spellparsedseconds > 0) then
-					if (_timeleft >= _spellparsedseconds) then
-						_timeleftcheckpassed = true
+				if (seconds > 0) then
+					if (timeLeft >= seconds) then
+						hasTime = true;
 					end
 				else
-					_timeleftcheckpassed = true
+					hasTime = true;
 				end
-
-				if (_spellexists and _sourcecheckpassed and _stackcheckpassed and _timeleftcheckpassed) then
-					_buffsfound = _buffsfound +1
-				end
-
-			end
-
-		else
-		--spellparsed does not exist maybe warn the player in the future
-		end
-	end
-
-	if (_stringtype == 0 and (_buffsfound >= 1)) then
-		_unithasbuffs = true
-	end
-	if (_stringtype == 1 and (_buffsfound >= 1)) then
-		_unithasbuffs = true
-	end
-	if (_stringtype == 2 and (_buffsfound == _buffcount)) then
-		_unithasbuffs = true
-	end
-
-	return _unithasbuffs
-end
-
-function ROB_UnitKnowSpell(_spellneeded, _getnextspell)
-	local _unitknowspell = false
-
-	local _unparsedspell = nil
-	local _remainingspells = _spellneeded
-	local _spellcount = 0
-	local _spellsfound = 0
-	local _doneparsing = false
-	local _name, _rank, _icon, _castTime, _minRange, _maxRange
-	local _stringtype = 0
-
-	while not _doneparsing and _remainingspells ~= nil do
-		_unparsedspell = nil
-		if (string.find(_remainingspells, "|")) then
-			_unparsedspell   = string.sub(_remainingspells,1,string.find(_remainingspells, "|")-1)
-			_spellcount      = _spellcount + 1
-			_remainingspells = string.sub(_remainingspells,string.find(_remainingspells, "|")+1)
-			_stringtype = 1
-		elseif (string.find(_remainingspells, "&")) then
-			_unparsedspell   = string.sub(_remainingspells,1,string.find(_remainingspells, "&")-1)
-			_spellcount      = _spellcount + 1
-			_remainingspells = string.sub(_remainingspells,string.find(_remainingspells, "&")+1)
-			_stringtype = 2
-		else
-			_unparsedspell   = _remainingspells
-			_spellcount      = _spellcount + 1
-			_doneparsing    = true
-		end
-
-		if (_unparsedspell ~= nil and _unparsedspell ~= "") then
-			if (IsSpellKnown(_unparsedspell)) then
-				_spellsfound = _spellsfound +1
-			end
-		else
-		--spellparsed does not exist maybe warn the player in the future
-		end
-	end
-
-	if (_stringtype == 0 and (_spellsfound >= 1)) then
-		_unitknowspell = true
-	end
-	if (_stringtype == 1 and (_spellsfound >= 1)) then
-		_unitknowspell = true
-	end
-	if (_stringtype == 2 and (_spellsfound == _spellcount)) then
-		_unitknowspell = true
-	end
-
-	return _unitknowspell
-end
-
-function IsSpellKnown(Id)
-	local usable = true;
-	local name, _, _, _, _, _ = GetSpellInfo(Id);
-	local skillType, spellId = GetSpellBookItemInfo(name);
-	if skillType == nil then
-		usable = false;
-	end
-	return usable;
-end
-
-function ROB_UnitIsGlyphed(_glyphneeded, _getnextspell)
-	local _unitisglyphed = false
-
-	local _unparsedglyph = nil
-	local _remainingglyphs = _glyphneeded
-	local _glyphcount = 0
-	local _glyphsfound = 0
-	local _doneparsing = false
-	local _name, _rank, _icon, _castTime, _minRange, _maxRange, _enabled, _glyphType, _glyphTooltipIndex, _glyphSpell
-	local _stringtype = 0
-	local count = 1
-	local found = false
-	local glyph = nil
-
-	while not _doneparsing and _remainingglyphs ~= nil do
-		_unparsedglyph = nil
-		if (string.find(_remainingglyphs, "|")) then
-			_unparsedglyph   = string.sub(_remainingglyphs,1,string.find(_remainingglyphs, "|")-1)
-			_glyphcount      = _glyphcount + 1
-			_remainingglyphs = string.sub(_remainingglyphs,string.find(_remainingglyphs, "|")+1)
-			_stringtype = 1
-		elseif (string.find(_remainingglyphs, "&")) then
-			_unparsedglyph   = string.sub(_remainingglyphs,1,string.find(_remainingglyphs, "&")-1)
-			_glyphcount      = _glyphcount + 1
-			_remainingglyphs = string.sub(_remainingglyphs,string.find(_remainingglyphs, "&")+1)
-			_stringtype = 2
-		else
-			_unparsedglyph   = _remainingglyphs
-			_glyphcount      = _glyphcount + 1
-			_doneparsing    = true
-		end
-
-		count = 1
-		found = false
-		glyph = nil
-
-		if (_unparsedglyph ~= nil) then
-			if(nil ~= tonumber(_unparsedglyph)) then
-				glyph = tonumber(_unparsedglyph)
-			else
-				glyph = _unparsedglyph
-			end
-			while(count ~= 7 and (not found)) do
-				_enabled, _glyphType, _glyphTooltipIndex, _glyphSpell, _icon = GetGlyphSocketInfo(count)
-				_name, _rank, _icon, _castTime, _minRange, _maxRange = GetSpellInfo(_glyphSpell)
-				if (glyph == _glyphSpell or glyph == _name) then
-					found = true
-					_glyphsfound = _glyphsfound +1
-				else
-					count = count + 1
-				end
-			end
-		else
-		--spellparsed does not exist maybe warn the player in the future
-		end
-	end
-
-	if (_stringtype == 0 and (_glyphsfound >= 1)) then
-		_unitisglyphed = true
-	end
-	if (_stringtype == 1 and (_glyphsfound >= 1)) then
-		_unitisglyphed = true
-	end
-	if (_stringtype == 2 and (_glyphsfound == _glyphcount)) then
-		_unitisglyphed = true
-	end
-
-	return _unitisglyphed
-end
-
-function ROB_PlayerInStance(_stanceneeded, _getnextspell)
-	local _playerinstance = false
-
-	local _unparsedstance = nil
-	local _remainingstances = _stanceneeded
-	local _stancecount = 0
-	local _stancesfound = 0
-	local _doneparsing = false
-	local _stringtype = 0
-	local _shape = 0
-
-	while not _doneparsing do
-		_unparsedstance = nil
-		if (string.find(_remainingstances, "|")) then
-			_unparsedstance   = string.sub(_remainingstances,1,string.find(_remainingstances, "|")-1)
-			_stancecount      = _stancecount + 1
-			_remainingstances = string.sub(_remainingstances,string.find(_remainingstances, "|")+1)
-			_stringtype = 1
-		elseif (string.find(_remainingstances, "&")) then
-			_unparsedstance   = string.sub(_remainingstances,1,string.find(_remainingstances, "&")-1)
-			_stancecount      = _stancecount + 1
-			_remainingstances = string.sub(_remainingstances,string.find(_remainingstances, "&")+1)
-			_stringtype = 2
-		else
-			_unparsedstance   = _remainingstances
-			_stancecount      = _stancecount + 1
-			_doneparsing    = true
-		end
-
-		_shape = 0
-
-		if (_unparsedstance ~= nil) then
-			if(tonumber(_unparsedstance) < tonumber(GetNumShapeshiftForms())+1) then
-				if (tonumber(GetShapeshiftForm()) ~= nil) then
-					_shape = tonumber(GetShapeshiftForm())
-				end
-				if (tonumber(_shape) == tonumber(_unparsedstance)) then
-					_stancesfound = _stancesfound + 1
+				if (exists and hasSource and hasStack and hasTime) then
+					found = found + 1;
 				end
 			end
 		end
 	end
-
-	if (_stringtype == 0 and (_stancesfound >= 1)) then
-		_playerinstance = true
+	if (((stringType == 0 or stringType == 1) and found >= 1) or (stringType == 2 and found == count) ) then
+		return true;
 	end
-	if (_stringtype == 1 and (_stancesfound >= 1)) then
-		_playerinstance = true
-	end
-	if (_stringtype == 2 and (_stancesfound == _stancecount)) then
-		_playerinstance = true
-	end
-
-	return _playerinstance
+	return false;
 end
 
-function ROB_GetActionTintColor(_actionname)
-	local _ActionDB = ROB_Rotations[ROB_SelectedRotationName].ActionList[_actionname]
-	local _r = nil
-	local _g = nil
-	local _b = nil
-	local _i = 1
-	return _r, _g, _b
+function ROB_UnitKnowSpell(needed)
+	local unparsed		= nil;
+	local remaining		= needed;
+	local count			= 0;
+	local found			= 0;
+	local done			= false;
+	local stringType	= 0;
+
+	while not done and remaining ~= nil do
+		unparsed = nil;
+		if (string.find(remaining, "|")) then
+			unparsed	= string.sub(remaining, 1, string.find(remaining, "|") - 1);
+			count		= count + 1;
+			remaining	= string.sub(remaining, string.find(remaining, "|") + 1);
+			stringType	= 1;
+		elseif (string.find(remaining, "&")) then
+			unparsed	= string.sub(remaining, 1, string.find(remaining, "&") - 1);
+			count		= count + 1;
+			remaining	= string.sub(remaining, string.find(remaining, "&") + 1);
+			stringType	= 2;
+		else
+			unparsed	= remaining;
+			count		= count + 1;
+			done		= true;
+		end
+		if (unparsed ~= nil and unparsed ~= "") then
+			if (IsSpellKnown(unparsed, true)) then
+				found = found + 1;
+			end
+		end
+	end
+	if (((stringType == 0 or stringType == 1) and found >= 1) or (stringType == 2 and found == count) ) then
+		return true;
+	end
+	return false;
 end
 
-function ROB_GetActionTexture(_actionname)
-	local _ActionDB = ROB_Rotations[ROB_SelectedRotationName].ActionList[_actionname]
-	if not _ActionDB then
-		return nil
-	end
-
-	if (_ActionDB.b_notaspell) then
-		local _slotId, _texture, _checkRelic = GetInventorySlotInfo(_ActionDB.v_spellname);
-		local _itemId = GetInventoryItemID("player",_slotId);
-		local _name, _link, _quality, _iLevel, _reqLevel, _class, _subclass, _maxStack, _equipSlot, _texture, _vendorPrice = GetItemInfo(_itemId);
-		return _texture
-	elseif ((not GetTexturePath(_ActionDB.v_actionicon)) or (_ActionDB.v_actionicon == "")) then
-		return GetTexturePath(_ActionDB.v_spellname)
+function IsSpellKnown(spellId, isNextSpell)
+	local spellName = nil;
+	
+	if (isNextSpell) then
+		spellName, _, _, _, _, _ = GetSpellInfo(spellId);
 	else
-		return GetTexturePath(_ActionDB.v_actionicon)
+		spellName, _, _, ROB_ACTION_CASTTIME, _, _ = GetSpellInfo(spellId);
+	end
+	if spellName == nil then
+		return false;
+	end
+	local skillType, _ = GetSpellBookItemInfo(spellName);
+	if skillType == nil then
+		return false;
+	end
+	return true;
+end
+
+function ROB_UnitIsGlyphed(needed)
+	local unparsed		= nil;
+	local remaining		= needed;
+	local count			= 0;
+	local found			= 0;
+	local done			= false;
+	local stringType	= 0;
+	local i				= 1;
+	local isfound		= false;
+	local glyph			= nil;
+
+	while not done and remaining ~= nil do
+		unparsed = nil
+		if (string.find(remaining, "|")) then
+			unparsed	= string.sub(remaining, 1, string.find(remaining, "|") - 1);
+			count		= count + 1;
+			remaining	= string.sub(remaining, string.find(remaining, "|") + 1);
+			stringType	= 1;
+		elseif (string.find(remaining, "&")) then
+			unparsed	= string.sub(remaining, 1, string.find(remaining, "&") - 1);
+			count		= count + 1;
+			remaining	= string.sub(remaining,string.find(remaining, "&") + 1);
+			stringType	= 2;
+		else
+			unparsed	= remaining;
+			count		= count + 1;
+			done		= true;
+		end
+		i		= 1;
+		isFound	= false;
+		glyph	= nil;
+		if (unparsed ~= nil) then
+			if (nil ~= tonumber(unparsed)) then
+				glyph = tonumber(unparsed);
+			else
+				glyph = unparsed;
+			end
+			while(i ~= 7 and (not isFound)) do
+				_, _, _, glyphSpellId, _	= GetGlyphSocketInfo(i);
+				name, _, _, _, _, _			= GetSpellInfo(glyphSpellId);
+				if (glyph == glyphSpellId or glyph == name) then
+					isFound	= true;
+					found	= found + 1;
+				else
+					i = i + 1;
+				end
+			end
+		end
+	end
+	if (((stringType == 0 or stringType == 1) and found >= 1) or (stringType == 2 and found == count) ) then
+		return true;
+	end
+	return false;
+end
+
+function ROB_PlayerInStance(needed)
+	local stance		= nil;
+	local remaining		= needed;
+	local count			= 0;
+	local found			= 0;
+	local done			= false;
+	local stringType	= 0;
+	local shape			= 0;
+
+	while not done do
+		stance	= nil;
+		shape	= 0;
+		if (string.find(remaining, "|")) then
+			stance		= string.sub(remaining, 1, string.find(remaining, "|") - 1);
+			count		= count + 1;
+			remaining	= string.sub(remaining, string.find(remaining, "|") +1 );
+			stringType	= 1;
+		elseif (string.find(remaining, "&")) then
+			stance		= string.sub(remaining, 1, string.find(remaining, "&") - 1);
+			count		= count + 1;
+			remaining	= string.sub(remaining, string.find(remaining, "&") + 1);
+			stringType	= 2;
+		else
+			stance	= remaining;
+			count	= count + 1;
+			done	= true;
+		end
+		if (stance ~= nil) then
+			if(tonumber(stance) < tonumber(GetNumShapeshiftForms()) + 1) then
+				if (tonumber(GetShapeshiftForm()) ~= nil) then
+					shape = tonumber(GetShapeshiftForm());
+				end
+				if (tonumber(shape) == tonumber(stance)) then
+					found = found + 1;
+				end
+			end
+		end
+	end
+	if (((stringType == 0 or stringType == 1) and found >= 1) or (stringType == 2 and found == count) ) then
+		return true;
+	end
+	return false;
+end
+
+function ROB_PlayerIsStealthed()
+	if IsStealthed() then
+		return true;
+	end
+	return false;
+end
+
+function ROB_SpellHasProc(spellId)
+	if IsSpellOverlayed(spellId) then
+		return true;
+	end
+	return false;
+end
+
+-- TODO remove or implement
+function ROB_GetActionTintColor(actionName)
+	local ActionDB = ROB_Rotations[ROB_SelectedRotationName].ActionList[actionName]
+	local r = nil
+	local g = nil
+	local b = nil
+	local i = 1
+	return r, g, b
+end
+
+function ROB_GetActionTexture(actionName)
+	local ActionDB = ROB_Rotations[ROB_SelectedRotationName].ActionList[actionName];
+	if not ActionDB then
+		return nil;
+	end
+	if (ActionDB.b_notaspell) then
+		local slotId, _ = GetInventorySlotInfo(ActionDB.v_spellname);
+		return GetInventoryItemTexture("PLAYER", slotId);
+	elseif (ActionDB.v_actionicon == "" or GetSpellTexture(ActionDB.v_actionicon) == "") then
+		return GetSpellTexture(ActionDB.v_spellname);
+	else
+		return GetSpellTexture(ActionDB.v_actionicon);
 	end
 end
 
@@ -3370,520 +3198,452 @@ function ROB_SpellsMatch(_spell1, _spell2)
 	return false
 end
 
-function ROB_SpellReady(_actionname,_getnextspell)
-	local _ready          = true
-	local _GCDleft        = nil
-	local _cooldownLeft   = nil
-	local _startGCD       = nil
-	local _inGCD          = nil
-	local _start          = nil
-	local _duration       = nil
-	local _enable         = nil
-	local _myHPP          = math.floor(UnitHealth("player")/UnitHealthMax("player") * 100)
-	local _moHPP          = math.floor(UnitHealth("mouseover")/UnitHealthMax("mouseover") * 100)
-	local _targetHPP      = math.floor(UnitHealth("target")/UnitHealthMax("target") * 100)
-	local _targetCasting  = nil
-	local _focusCasting   = nil
-	local _hasbeencasting = nil
-	local _startTime      = nil
-	local _endTime        = nil
-	local _timeLeft       = nil
-	local _debugon        = false
-	local _spellname      = nil
-	local _spellincdbuffer= false
-	local deathRuneCount  = 0
-	local bloodRuneCount  = 0
-	local frostRuneCount  = 0
-	local unholyRuneCount = 0
-	local _name, _rank, _nomana, _usable, _channeling, _icon, _castTime, _minRange, _maxRange
-	local _link, _quality, _iLevel, _reqLevel, _class, _subclass, _maxStack, _equipSlot, _texture, _vendorPrice
-	local _checkmagic     = false
-	local _checkpoison    = false
-	local _checkdisease   = false
-	local _checkcurse     = false
-	local _ActionDB = ROB_Rotations[ROB_SelectedRotationName].ActionList[_actionname]
-
-	if (_ActionDB.b_debug ~= nil and _ActionDB.b_debug) then
-		_debugon = _ActionDB.b_debug
-		--print("debug on for ".._actionname)
-	end
-	_spellname = _ActionDB.v_spellname
-	if (_spellname == nil or _spellname == "" or _spellname == "<spellname>") then
-		_spellname = "<spellname>"
-	end
-
-	if (not IsSpellKnown(_spellname)) then
-		_ready = false;
-	end
-
-	-- CHECK: Toggles first otherwise we might exit before updating textures------------------------------------------------------------------
-	if (_ActionDB.b_toggle) then
-		-- Verify the toggle is turned on otherwise fail the ready
-		if (_ActionDB.v_togglename == "Toggle 1") then
-			ROB_SetButtonTexture(ROB_RotationToggle1Button, GetTexturePath(_ActionDB.v_toggleicon))
-
-			if (ROB_TOGGLE_1 == 0) then
-				_ready = false;
-				ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." T:".._ActionDB.v_togglename.." is off",_ready,_debugon)
-			end
-		elseif (_ActionDB.v_togglename == "Toggle 2") then
-			ROB_SetButtonTexture(ROB_RotationToggle2Button, GetTexturePath(_ActionDB.v_toggleicon))
-			if (ROB_TOGGLE_2 == 0) then
-				_ready = false;
-				ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." T:".._ActionDB.v_togglename.." is off",_ready,_debugon)
-			end
-		elseif (_ActionDB.v_togglename == "Toggle 3") then
-			ROB_SetButtonTexture(ROB_RotationToggle3Button, GetTexturePath(_ActionDB.v_toggleicon))
-			if (ROB_TOGGLE_3 == 0) then
-				_ready = false;
-				ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." T:".._ActionDB.v_togglename.." is off",_ready,_debugon)
-			end
-		elseif (_ActionDB.v_togglename == "Toggle 4") then
-			ROB_SetButtonTexture(ROB_RotationToggle4Button, GetTexturePath(_ActionDB.v_toggleicon))
-			if (ROB_TOGGLE_4 == 0) then
-				_ready = false;
-				ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." T:".._ActionDB.v_togglename.." is off",_ready,_debugon)
-			end
-		end
-	end
-
-	if (not _ready) then
-		return false
+function ROB_SpellReady(actionName,isNextSpell)
+--	local GCDleft        = nil
+--	local cooldownLeft   = nil
+--	local startGCD       = nil
+--	local inGCD          = nil
+--	local myHPP          = math.floor(UnitHealth("player")/UnitHealthMax("player") * 100)
+--	local moHPP          = math.floor(UnitHealth("mouseover")/UnitHealthMax("mouseover") * 100)
+--	local targetHPP      = math.floor(UnitHealth("target")/UnitHealthMax("target") * 100)
+--	local targetCasting  = nil
+--	local focusCasting   = nil
+--	local hasbeencasting = nil
+--	local startTime      = nil
+--	local endTime        = nil
+--	local timeLeft       = nil
+--	local spellincdbuffer= false
+--	local equipSlot, texture
+--	local deathRuneCount  = 0
+--	local bloodRuneCount  = 0
+--	local frostRuneCount  = 0
+--	local unholyRuneCount = 0
+	local debug				= false;
+	local spellName			= nil;
+	local usable			= false;
+	local start				= 0;
+	local duration			= 0;
+	local cooldown			= 0;
+	local slotId			= nil;
+	local itemId			= nil;
+	local itemName			= nil;
+--	local name, icon, castTime
+	
+	local ActionDB = ROB_Rotations[ROB_SelectedRotationName].ActionList[actionName]
+	
+	if (ActionDB.b_debug ~= nil) then
+		debug = ActionDB.b_debug;
 	end
 	
-	-- CHECK: if the action is enabled---------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_disabled) then
-		ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." because the action is disabled",_getnextspell,_debugon)
-		return false
-	end
-
-	-- CHECK: Check spell stuff-----------------------------------------------------------------------------------------------------------------------------
-	if (not _ActionDB.b_notaspell and _ActionDB.v_spellname) then
-		name, _, _, _, _, _ = GetSpellInfo(_ActionDB.v_spellname)
-		if (name == nil) then
-			-- If the name isn't foud, then we don't know the spell.
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._ActionDB.v_spellname.." because this spellname is not available or does not exist due to talents or something. Check spelling or try using the spellid from wowhead instead.",_getnextspell,_debugon)
-			return false
-		end
-		
-		-- We check if the player know the spell
-		_usable, _ = IsUsableSpell(_ActionDB.v_spellname)
-		if (_usable == nil) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._ActionDB.v_spellname.." because this spellname is not available or does not exist due to talents or something. Check spelling or try using the spellid from wowhead instead.",_getnextspell,_debugon)
-			return false
-		end
+	-- CHECK : Check if the player know the spell
+	spellName = ActionDB.v_spellname
+	if (not IsSpellKnown(spellName, true)) then
+		ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have this spell in your spellbook", debug);
+		return false;
 	end
 	
-	-- CHECK: Item stuff
-	if (_ActionDB.b_notaspell and _ActionDB.v_spellname) then
-		_slotId, _texture, _checkRelic = GetInventorySlotInfo(_ActionDB.v_spellname);
-		_itemId = GetInventoryItemID("player",_slotId);
-		_name, _link, _quality, _iLevel, _reqLevel, _class, _subclass, _maxStack, _equipSlot, _texture, _vendorPrice = GetItemInfo(_itemId);
-		if (_name == nil) then
-			-- If the name isn't foud, then we don't know the spell.
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._ActionDB.v_spellname.." because this itemname is not available or does not exist. Check spelling or try using the itemid from wowhead instead.",_getnextspell,_debugon)
-			return false
-		end
-		if (GetItemCount(_name) == 0) then
-			return false
-		end
+	-- CHECK : Check if the player has the resources to cast the spell only for the current action
+	usable, _ = IsUsableSpell(spellName);
+	if (not isNextSpell and not usable) then
+		ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the necessary ressources", debug);
+		return false;
 	end
-		
-
-	-- CHECK: Cooldown-----------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.v_gcdspell ~= -1 and _ActionDB.v_spellname) then
-		if (_ActionDB.v_gcdspell ~= nil and _ActionDB.v_gcdspell ~= "") then
-			_startGCD, _durationGCD, _enabledGCD = GetSpellCooldown(_ActionDB.v_gcdspell)
-			if (_startGCD ~= nil) then
-				_GCDleft = (_startGCD + _durationGCD - GetTime())
-				if _GCDleft < 0 then _GCDleft = 0 end
-			else
-				_GCDleft = 1.5
-			end
-		else
-			_GCDleft = 1.5
-		end
+	
+	start, duration, _ = GetSpellCooldown(spellName);
+	cooldown = start + duration - GetTime();
+	if (cooldown < 0) then
+		cooldown = 0;
 	end
-	--Even if v_gcdspell is set to -1 make sure to set the cooldown for current action and next action determination
-	if (_ActionDB.b_notaspell) then
-		_slotId, _texture, _checkRelic = GetInventorySlotInfo(_ActionDB.v_spellname);
-		_itemId = GetInventoryItemID("player",_slotId);
-		_start, _duration, _enable = GetItemCooldown(_itemId)
+	
+	-- CHECK : Check if the spell can be casted within the next GDC or after the current action
+	if (not isNextSpell) then
+		if (cooldown > ROB_ACTION_GCD) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the spell is on cooldown and is not immediately available", debug);
+			return false;
+		end
 	else
-		_start, _duration = GetSpellCooldown(_ActionDB.v_spellname)
-	end
-	if (_start == nil) then
-		local _enabled = nil
-		_slotId, _texture, _checkRelic = GetInventorySlotInfo(_ActionDB.v_spellname);
-		_start, _duration, _enabled = GetInventoryItemCooldown("player",_slotId)
-		--print("_start="..tostring(_start).." _enabled="..tostring(_enabled))
-	end
-	if (_start == nil) then
-		--we failed to get the cooldown on the spell for whatever reason, instead of defaulting to ready change it to not ready
-		_start = GetTime()
-		_duration = 86300
-	end
-
-	_cooldownLeft = (_start + _duration - GetTime())
-	if _cooldownLeft < 0 then _cooldownLeft = 0 end
-
-	--print("_cooldownLeft="..tostring(_cooldownLeft))
-
-	ROB_ACTION_CD = _cooldownLeft
-	--We set the cooldown left on the spell to the action timeleft so the next spell logic can sort spells correctly
-	--The check buffs and debuff functions will reassign ROB_ACTION_TIMELEFT later to provide buff timelefts and what not
-	ROB_ACTION_TIMELEFT = _cooldownLeft
-	ROB_ACTION_GCD = false
-
-	if _cooldownLeft <= _GCDleft then ROB_ACTION_GCD = true; end
-
-	--If we uncomment the next line rotation icon gaps go away but then you can't tell when you have a gap
-	--if ((_GCDleft > 0) and (_cooldownLeft > _GCDleft)) then
-	if (tonumber(_ActionDB.v_gcdspell) ~= nil and tonumber(_ActionDB.v_gcdspell) < 0) then
-		if (tonumber(_cooldownLeft) <= math.abs(_ActionDB.v_gcdspell)) then
-			_spellincdbuffer = true
+		if (cooldown > (ROB_ACTION_GCD + ROB_ACTION_CASTTIME)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the spell is on cooldown and won't be immediately available after the current action", debug);
+			return false;
 		end
 	end
 
-	if ((_ActionDB.v_gcdspell ~= 0) and (_cooldownLeft > _GCDleft) and (not _spellincdbuffer)) then
-		--print("_cooldownLeft1="..tostring(_cooldownLeft))
-
-		if (_getnextspell) then
-
-		--Need to fix this, whats happening is the next spell bypasses cooldown check but the timeleft on a debuff is short but the cooldown is long more than 5 seconds so we do actually need this check
-		--Should never need to check this because getNextSpell sorts be what spell is coming up next with the shortest cooldown or shortest time left on the dot
-		--we are trying to determine if we should show the next spell coming up but we dont want to show spells with cooldowns more than 5 seconds, who cares about those
-			if (_cooldownLeft > 0.5) then
-				ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." has a cooldown longer than 5 seconds",_getnextspell,_debugon)
-				return false
-			end
-		else
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." is in cooldown",_getnextspell,_debugon)
-			return false
+	-- CHECK: Check toggles in case the spell need a specific toggle to be casted
+	if (ActionDB.b_toggle) then
+		ROB_SetButtonTexture(ROB_RotationToggle1Button, GetTexturePath(ActionDB.v_toggleicon));
+		-- Verify if the proper toggle is turned on otherwise the spell is not to be casted
+		if ((ActionDB.v_togglename == "Toggle 1" and (not ROB_TOGGLE_1)) or (ActionDB.v_togglename == "Toggle 2" and (not ROB_TOGGLE_2)) or (ActionDB.v_togglename == "Toggle 3" and (not ROB_TOGGLE_3)) or (ActionDB.v_togglename == "Toggle 4" and (not ROB_TOGGLE_4))) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the toggle "..ActionDB.v_togglename.." is off", debug);
+			return false;
+		end
+	end
+	
+	-- CHECK: Check if the action is enabled
+	if (ActionDB.b_disabled) then
+		ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the spell is disabled", debug);
+		return false;
+	end
+	
+	-- CHECK: Check if the item is usable
+	if (ActionDB.b_notaspell) then
+		slotId, _ = GetInventorySlotInfo(ActionDB.v_spellname);
+		itemId = GetInventoryItemID("player",slotId);
+		itemName, _, _, _, _, _, _, _, _, _, _ = GetItemInfo(itemId);
+		if (itemName == nil) then
+			-- If the name isn't foud, then we can't find the item
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the item does not exist. Check the spelling or the ID", debug);
+			return false;
+		end
+		if (not GetItemCount(itemName)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have this item", debug);
+			return false;
 		end
 	end
 
-	-- CHECK: Other Cooldown-----------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_checkothercd and _ActionDB.v_checkothercdname and _ActionDB.v_checkothercdname ~= "" and _ActionDB.v_checkothercdvalue and _ActionDB.v_checkothercdvalue ~= "") then
-		if (not ROB_SpellPassesOtherCooldownCheck(_ActionDB.v_checkothercdname,_ActionDB.v_checkothercdvalue,_ActionDB.b_notaspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._ActionDB.v_spellname.." other cooldown check ".._ActionDB.v_checkothercdname.._ActionDB.v_checkothercdvalue.." failed",_getnextspell,_debugon)
-			return false
+	-- CHECK: Check Other Cooldown
+	if (ActionDB.b_checkothercd and ActionDB.v_checkothercdname and ActionDB.v_checkothercdname ~= "" and ActionDB.v_checkothercdvalue and ActionDB.v_checkothercdvalue ~= "") then
+		if (not ROB_SpellPassesOtherCooldownCheck(ActionDB.v_checkothercdname, ActionDB.v_checkothercdvalue, ActionDB.b_notaspell)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..ActionDB.v_spellname.." because the other cooldown check : "..ActionDB.v_checkothercdname..ActionDB.v_checkothercdvalue.." failed", debug);
+			return false;
 		end
 	end
 
-	-- CHECK: Number of charges
-	if (_ActionDB.b_charges and _ActionDB.v_charges ~= nil and _ActionDB.v_charges ~= "") then
-		if(not ROB_SpellHasCharges(_ActionDB.v_spellname, _ActionDB.v_charges, _getnextspell)) then
-			return false
+	-- CHECK: Check the number of charges of the spell
+	if (ActionDB.b_charges and ActionDB.v_charges ~= nil and ActionDB.v_charges ~= "") then
+		if (not ROB_SpellHasCharges(ActionDB.v_spellname, ActionDB.v_charges)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the spell doesn't have the required number of charges", debug);
+			return false;
 		end
 	end
 
-	-- CHECK: Other spell known
-	if (_ActionDB.b_p_knowspell and _ActionDB.v_p_knowspell ~= nil and _ActionDB.v_p_knowspell ~= "") then
-		if(not ROB_UnitKnowSpell(_ActionDB.v_p_knowspell, _getnextspell)) then
-			return false
+	-- CHECK: Check if other spells are known
+	if (ActionDB.b_p_knowspell and ActionDB.v_p_knowspell ~= nil and ActionDB.v_p_knowspell ~= "") then
+		if (not ROB_UnitKnowSpell(ActionDB.v_p_knowspell)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't know the required spell(s)", debug);
+			return false;
 		end
 	end
 
-	-- CHECK: Other spell unknown
-	if (_ActionDB.b_p_knownotspell and _ActionDB.v_p_knownotspell ~= nil and _ActionDB.v_p_knownotspell ~= "") then
-		if(ROB_UnitKnowSpell(_ActionDB.v_p_knowspell, _getnextspell)) then
-			return false
+	-- CHECK: Check if other spells are unknown
+	if (ActionDB.b_p_knownotspell and ActionDB.v_p_knownotspell ~= nil and ActionDB.v_p_knownotspell ~= "") then
+		if (ROB_UnitKnowSpell(ActionDB.v_p_knowspell)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you do know the required spell(s)", debug);
+			return false;
 		end
 	end
 
 	--CHECK: Is Glyphed
-	if (_ActionDB.b_p_isglyphed and _ActionDB.v_p_isglyphed ~= nil and _ActionDB.v_p_isglyphed ~= "") then
-		if(not ROB_UnitIsGlyphed(_ActionDB.v_p_isglyphed, _getnextspell)) then
-			return false
+	if (ActionDB.b_p_isglyphed and ActionDB.v_p_isglyphed ~= nil and ActionDB.v_p_isglyphed ~= "") then
+		if (not ROB_UnitIsGlyphed(ActionDB.v_p_isglyphed)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required glyph(s) active", debug);
+			return false;
 		end
 	end
 
 	--CHECK: Not Glyphed
-	if (_ActionDB.b_p_notglyphed and _ActionDB.v_p_notglyphed ~= nil and _ActionDB.v_p_notglyphed ~= "") then
-		if(ROB_UnitIsGlyphed(_ActionDB.v_p_isglyphed, _getnextspell)) then
-			return false
+	if (ActionDB.b_p_notglyphed and ActionDB.v_p_notglyphed ~= nil and ActionDB.v_p_notglyphed ~= "") then
+		if (ROB_UnitIsGlyphed(ActionDB.v_p_isglyphed)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you do have the required glyph(s) active", debug);
+			return false;
 		end
 	end
 
-	-- CHECK: Check Moving-----------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_moving and GetUnitSpeed("player") == 0) then
-		ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._ActionDB.v_spellname.." because player is not moving",_ready,_debugon)
-		return false
+	-- CHECK: Check Moving
+	if (ActionDB.b_moving and GetUnitSpeed("player") == 0) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you aren't moving", debug);
+		return false;
 	end
 	
-	-- CHECK: Not Moving-----------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_notmoving and GetUnitSpeed("player") > 0) then
-		ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._ActionDB.v_spellname.." because player is moving",_ready,_debugon)
-		return false
+	-- CHECK: Not Moving
+	if (ActionDB.b_notmoving and GetUnitSpeed("player") > 0) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you are moving", debug);
+		return false;
 	end
 
-	-- CHECK: Maximum sequential casts---------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_maxcasts and _ActionDB.v_maxcasts ~= nil and _ActionDB.v_maxcasts ~= "" and tonumber(_ActionDB.v_maxcasts) >= 0) then
-		if (ROB_LAST_CASTED == _name and ROB_LAST_CASTED_COUNT >= tonumber(_ActionDB.v_maxcasts)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." has reached max cast count of ".._ActionDB.v_maxcasts,_getnextspell,_debugon)
-			return false
-		end
-	end
-
-	-- CHECK: Duration -----------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_duration and _ActionDB.v_durationstartedtime ~=nil and _ActionDB.v_duration ~= nil and _ActionDB.v_duration ~= "") then
-		if (GetTime() - tonumber(_ActionDB.v_durationstartedtime) < tonumber(_ActionDB.v_duration)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." player already casted this spell before duration ".._ActionDB.v_duration.." has expired",_getnextspell,_debugon)
-			return false
+	-- CHECK: Maximum sequential casts
+	if (ActionDB.b_maxcasts and ActionDB.v_maxcasts ~= nil and ActionDB.v_maxcasts ~= "" and tonumber(ActionDB.v_maxcasts) >= 0) then
+		if (ROB_LAST_CASTED == spellName and ROB_LAST_CASTED_COUNT >= tonumber(ActionDB.v_maxcasts)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you have already casted it "..ActionDB.v_maxcasts.." time(s) in a row", debug);
+			return false;
 		end
 	end
 
-	-- CHECK: Need Buff-----------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_p_needbuff and _ActionDB.v_p_needbuff ~= nil and _ActionDB.v_p_needbuff ~= "") then
-		if (ROB_UnitHasBuff(_ActionDB.v_p_needbuff, "player",_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." player had these buffs ".._ActionDB.v_p_needbuff,_getnextspell,_debugon)
-			-- Dont allow _getnextspell bypassing because it causes next action to display actions that depend on buffs missing
-			return false
+	-- CHECK: Wait to recast
+	if (ActionDB.b_duration and ActionDB.v_durationstartedtime ~= nil and ActionDB.v_duration ~= nil and ActionDB.v_duration ~= "") then
+		if(not isNextSpell) then
+			if (GetTime() - tonumber(ActionDB.v_durationstartedtime) < tonumber(ActionDB.v_duration)) then
+				ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you already casted this spell recently and the waiting time hasn't expired yet", debug);
+				return false;
+			end
+		else
+			if (GetTime() - tonumber(ActionDB.v_durationstartedtime) + ROB_ACTION_CASTTIME < tonumber(ActionDB.v_duration)) then
+				ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you already casted this spell recently and the waiting time won't have expired after the current action", debug);
+				return false;
+			end
 		end
 	end
 
-	if (_ActionDB.b_t_needsbuff and _ActionDB.v_t_needsbuff ~= nil and _ActionDB.v_t_needsbuff ~= "") then
-		if (ROB_UnitHasBuff(_ActionDB.v_t_needsbuff, "target",_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." target had these buffs ".._ActionDB.v_t_needsbuff,_getnextspell,_debugon)
-			-- Dont allow _getnextspell bypassing because it causes next action to display actions that depend on buffs missing
-			return false
+	-- CHECK: Need Buff
+	if (ActionDB.b_p_needbuff and ActionDB.v_p_needbuff ~= nil and ActionDB.v_p_needbuff ~= "") then
+		if (ROB_UnitHasAura(ActionDB.v_p_needbuff, "PLAYER", "HELPFUL")) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you are already buffed", debug);
+			return false;
 		end
 	end
 
-	if (_ActionDB.b_pet_needsbuff and _ActionDB.v_pet_needsbuff ~= nil and _ActionDB.v_pet_needsbuff ~= "") then
-		if (ROB_UnitHasBuff(_ActionDB.v_pet_needsbuff, "pet",_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." pet had these buffs ".._ActionDB.v_pet_needsbuff,_getnextspell,_debugon)
-			-- Dont allow _getnextspell bypassing because it causes next action to display actions that depend on buffs missing
-			return false
+	if (ActionDB.b_t_needsbuff and ActionDB.v_t_needsbuff ~= nil and ActionDB.v_t_needsbuff ~= "") then
+		if (ROB_UnitHasAura(ActionDB.v_t_needsbuff, "TARGET", "HELPFUL")) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because your target is already buffed", debug);
+			return false;
 		end
 	end
 
-	-- CHECK: Have Buff-----------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_p_havebuff and _ActionDB.v_p_havebuff ~= nil and _ActionDB.v_p_havebuff ~= "") then
-		if (not ROB_UnitHasBuff(_ActionDB.v_p_havebuff, "player",_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." player did not have these buffs ".._ActionDB.v_p_havebuff,_getnextspell,_debugon)
-			-- dont allow _allowreturn bypassing because it causes next action to display actions that are depend on buffs procing
-			return false
+	if (ActionDB.b_pet_needsbuff and ActionDB.v_pet_needsbuff ~= nil and ActionDB.v_pet_needsbuff ~= "") then
+		if (ROB_UnitHasAura(ActionDB.v_pet_needsbuff, "PET", "HELPFUL")) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because your pet is already buffed", debug);
+			return false;
 		end
 	end
-	if (_ActionDB.b_t_hasbuff and _ActionDB.v_t_hasbuff ~= nil and _ActionDB.v_t_hasbuff ~= "") then
-		if (not ROB_UnitHasBuff(_ActionDB.v_t_hasbuff, "target",_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." target did not have these buffs ".._ActionDB.v_t_hasbuff,_getnextspell,_debugon)
-			-- dont allow _allowreturn bypassing because it causes next action to display actions that are depend on buffs procing
-			return false
+
+	-- CHECK: Have Buff
+	if (ActionDB.b_p_havebuff and ActionDB.v_p_havebuff ~= nil and ActionDB.v_p_havebuff ~= "") then
+		if (not ROB_UnitHasAura(ActionDB.v_p_havebuff, "PLAYER", "HELPFUL")) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you are not buffed", debug);
+			return false;
 		end
 	end
-	if (_ActionDB.b_pet_hasbuff and _ActionDB.v_pet_hasbuff ~= nil and _ActionDB.v_pet_hasbuff ~= "") then
-		if (not ROB_UnitHasBuff(_ActionDB.v_pet_hasbuff, "pet",_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." pet did not have these buffs ".._ActionDB.v_pet_hasbuff,_getnextspell,_debugon)
-			-- dont allow _allowreturn bypassing because it causes next action to display actions that are depend on buffs procing
-			return false
+	if (ActionDB.b_t_hasbuff and ActionDB.v_t_hasbuff ~= nil and ActionDB.v_t_hasbuff ~= "") then
+		if (not ROB_UnitHasAura(ActionDB.v_t_hasbuff, "TARGET", "HELPFUL")) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because your target is not buffed", debug);
+			return false;
 		end
 	end
-	
-	-- CHECK: Needs Debuff-----------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_p_needdebuff and _ActionDB.v_p_needdebuff ~= nil and _ActionDB.v_p_needdebuff ~= "") then
-		if (ROB_UnitHasDebuff(_ActionDB.v_p_needdebuff, "player",_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." player has one of these debuffs ".._ActionDB.v_p_needdebuff,_getnextspell,_debugon)
-			-- dont allow _getnextspell bypassing because it causes next action to display actions that depend on needing a debuff
-			return false
-		end
-	end
-	if (_ActionDB.b_t_needsdebuff and _ActionDB.v_t_needsdebuff ~= nil and _ActionDB.v_t_needsdebuff ~= "") then
-		if (ROB_UnitHasDebuff(_ActionDB.v_t_needsdebuff, "target",_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." target has one of these debuffs ".._ActionDB.v_t_needsdebuff,_getnextspell,_debugon)
-			return false
+	if (ActionDB.b_pet_hasbuff and ActionDB.v_pet_hasbuff ~= nil and ActionDB.v_pet_hasbuff ~= "") then
+		if (not ROB_UnitHasAura(ActionDB.v_pet_hasbuff, "PET", "HELPFUL")) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because your pet is not buffed", debug);
+			return false;
 		end
 	end
 	
-	-- CHECK: Have Debuff-----------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_p_havedebuff and _ActionDB.v_p_havedebuff ~= nil and _ActionDB.v_p_havedebuff ~= "") then
-		if (not ROB_UnitHasDebuff(_ActionDB.v_p_havedebuff, "player",_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." player does not have one of these debuffs ".._ActionDB.v_p_havedebuff,_getnextspell,_debugon)
-			-- dont allow _getnextspell bypassing because it causes next action to display actions that depend on having a debuff
-			return false
+	-- CHECK: Needs Debuff
+	if (ActionDB.b_p_needdebuff and ActionDB.v_p_needdebuff ~= nil and ActionDB.v_p_needdebuff ~= "") then
+		if (ROB_UnitHasAura(ActionDB.v_p_needdebuff, "PLAYER", "HARMFUL")) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you are already debuffed", debug);
+			return false;
 		end
 	end
-	if (_ActionDB.b_t_hasdebuff and _ActionDB.v_t_hasdebuff ~= nil and _ActionDB.v_t_hasdebuff ~= "") then
-		if (not ROB_UnitHasDebuff(_ActionDB.v_t_hasdebuff, "target",_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." target does not have one of these debuffs ".._ActionDB.v_t_hasdebuff,_getnextspell,_debugon)
-			return false
+	if (ActionDB.b_t_needsdebuff and ActionDB.v_t_needsdebuff ~= nil and ActionDB.v_t_needsdebuff ~= "") then
+		if (ROB_UnitHasAura(ActionDB.v_t_needsdebuff, "TARGET", "HARMFUL")) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because your target is already debuffed", debug);
+			return false;
 		end
 	end
 	
-	-- CHECK: Life -----------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_p_hp and _ActionDB.v_p_hp ~= nil and _ActionDB.v_p_hp ~= "") then
-		if (not ROB_UnitPassesLifeCheck(_ActionDB.v_p_hp,"player")) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." player did not pass life check ".._ActionDB.v_p_hp,_getnextspell,_debugon)
-			return false
+	-- CHECK: Have Debuff
+	if (ActionDB.b_p_havedebuff and ActionDB.v_p_havedebuff ~= nil and ActionDB.v_p_havedebuff ~= "") then
+		if (not ROB_UnitHasAura(ActionDB.v_p_havedebuff, "PLAYER", "HARMFUL")) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you are not debuffed", debug);
+			return false;
 		end
 	end
-	if (_ActionDB.b_t_hp and _ActionDB.v_t_hp ~= nil and _ActionDB.v_t_hp ~= "") then
-		if (not ROB_UnitPassesLifeCheck(_ActionDB.v_t_hp,"target")) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." target did not pass HP check ".._ActionDB.v_t_hp,_getnextspell,_debugon)
+	if (ActionDB.b_t_hasdebuff and ActionDB.v_t_hasdebuff ~= nil and ActionDB.v_t_hasdebuff ~= "") then
+		if (not ROB_UnitHasAura(ActionDB.v_t_hasdebuff, "TARGET", "HARMFUL")) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because your target is not debuffed", debug);
+			return false;
+		end
+	end
+	
+	-- CHECK: Life
+	if (ActionDB.b_p_hp and ActionDB.v_p_hp ~= nil and ActionDB.v_p_hp ~= "") then
+		if (not ROB_UnitPassesLifeCheck(ActionDB.v_p_hp, "PLAYER")) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required health", debug);
+			return false;
+		end
+	end
+	if (ActionDB.b_t_hp and ActionDB.v_t_hp ~= nil and ActionDB.v_t_hp ~= "") then
+		if (not ROB_UnitPassesLifeCheck(ActionDB.v_t_hp, "TARGET")) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because your target doesn't have the required health", debug);
+			return false;
+		end
+	end
+
+	if (ActionDB.b_pet_hp and ActionDB.v_pet_hp ~= nil and ActionDB.v_pet_hp ~= "") then
+		if (not ROB_UnitPassesLifeCheck(ActionDB.v_pet_hp, "PET")) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because your pet doesn't have the required health", debug);
+			return false;
+		end
+	end
+
+	-- CHECK: Unitpower
+	if (ActionDB.b_p_unitpower and ActionDB.v_p_unitpowertype ~= nil and ActionDB.v_p_unitpowertype ~= "") then
+		if (not ROB_UnitPassesPowerCheck(ActionDB.v_p_unitpower, "PLAYER", ActionDB.v_p_unitpowertype, isNextSpell)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required power", debug);
 			return false
 		end
 	end
 
-	if (_ActionDB.b_pet_hp and _ActionDB.v_pet_hp ~= nil and _ActionDB.v_pet_hp ~= "") then
-		if (not ROB_UnitPassesLifeCheck(_ActionDB.v_pet_hp,"pet")) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." pet did not pass HP check ".._ActionDB.v_pet_hp,_getnextspell,_debugon)
-			return false
-		end
-	end
-
-	-- CHECK: Unitpower      -----------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_p_unitpower and _ActionDB.v_p_unitpowertype ~= nil and _ActionDB.v_p_unitpowertype ~= "") then
-		if (not ROB_UnitPassesPowerCheck(_ActionDB.v_p_unitpower,"player",_ActionDB.v_p_unitpowertype,_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." player does not meet power requirement ".._ActionDB.v_p_unitpower.." of type ".._ActionDB.v_p_unitpowertype,_getnextspell,_debugon)
-			return false
-		end
-	end
-
-	-- CHECK: Last Casted    -----------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_lastcasted and _ActionDB.v_lastcasted ~= nil and _ActionDB.v_lastcasted ~= "") then
-		local _spellname
-		if (tostring(_ActionDB.v_lastcasted) ~= tostring(ROB_LAST_CASTED)) then
-			if (GetSpellInfo(_ActionDB.v_lastcasted)) then
-				_spellname = select(1 , GetSpellInfo(_ActionDB.v_lastcasted))
-				if (tostring(_spellname) ~= tostring(ROB_LAST_CASTED)) then
-					return false
+	-- CHECK: Last Casted
+	if (ActionDB.b_lastcasted and ActionDB.v_lastcasted ~= nil and ActionDB.v_lastcasted ~= "") then
+		if (tostring(ActionDB.v_lastcasted) ~= tostring(ROB_LAST_CASTED)) then
+			if (GetSpellInfo(ActionDB.v_lastcasted)) then
+				local spellName = GetSpellInfo(ActionDB.v_lastcasted);
+				if (tostring(spellname) ~= tostring(ROB_LAST_CASTED)) then
+					ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the last casted spell isn't the required one", debug);
+					return false;
 				end
 			end
 		end
 	end
 
-	-- CHECK: Runes ----------------------------------------------------------------------------------------------------------------------------------------------------
-	--Blood
-	if (_ActionDB.b_p_bloodrunes and _ActionDB.v_p_bloodrunes ~= nil and _ActionDB.v_p_bloodrunes ~= "") then
-		if (not ROB_UnitPassesRuneCheck(_ActionDB.v_p_bloodrunes,nil,nil,nil,_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." player did not meet blood rune requirement of ".._ActionDB.v_p_bloodrunes,_getnextspell,_debugon)
-			return false
+	-- CHECK: Runes
+	-- Blood
+	if (ActionDB.b_p_bloodrunes and ActionDB.v_p_bloodrunes ~= nil and ActionDB.v_p_bloodrunes ~= "") then
+		if (not ROB_UnitPassesRuneCheck(ActionDB.v_p_bloodrunes, nil, nil, nil, isNextSpell)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required blood runes", debug);
+			return false;
 		end
 	end
-	--Frost
-	if (_ActionDB.b_p_frostrunes and _ActionDB.v_p_frostrunes ~= nil and _ActionDB.v_p_frostrunes ~= "") then
-		if (not ROB_UnitPassesRuneCheck(nil,_ActionDB.v_p_frostrunes,nil,nil,_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." player did not meet frost rune requirement of ".._ActionDB.v_p_frostrunes,_getnextspell,_debugon)
-			return false
+	-- Frost
+	if (ActionDB.b_p_frostrunes and ActionDB.v_p_frostrunes ~= nil and ActionDB.v_p_frostrunes ~= "") then
+		if (not ROB_UnitPassesRuneCheck(nil, ActionDB.v_p_frostrunes, nil, nil, isNextSpell)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required frost runes", debug);
+			return false;
 		end
 	end
-	--Unholy
-	if (_ActionDB.b_p_unholyrunes and _ActionDB.v_p_unholyrunes ~= nil and _ActionDB.v_p_unholyrunes ~= "") then
-		if (not ROB_UnitPassesRuneCheck(nil,nil,_ActionDB.v_p_unholyrunes,nil,_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." player did not meet unholy rune requirement of ".._ActionDB.v_p_unholyrunes,_getnextspell,_debugon)
-			return false
+	-- Unholy
+	if (ActionDB.b_p_unholyrunes and ActionDB.v_p_unholyrunes ~= nil and ActionDB.v_p_unholyrunes ~= "") then
+		if (not ROB_UnitPassesRuneCheck(nil, nil, ActionDB.v_p_unholyrunes, nil, isNextSpell)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required unholy runes", debug);
+			return false;
 		end
 	end
-	
-	--Death
-	if (_ActionDB.b_p_deathrunes and _ActionDB.v_p_deathrunes ~= nil and _ActionDB.v_p_deathrunes ~= "") then
-		if (not ROB_UnitPassesRuneCheck(nil,nil,nil,_ActionDB.v_p_deathrunes,_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." player did not meet death rune requirement of ".._ActionDB.v_p_deathrunes,_getnextspell,_debugon)
-			return false
-		end
-	end
-
-	-- CHECK: Combo Points----------------------------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_p_combopoints and _ActionDB.v_p_combopoints ~= nil and _ActionDB.v_p_combopoints ~= "") then
-		if (not ROB_PlayerHasComboPoints(_ActionDB.v_p_combopoints,_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." player does not have ".._ActionDB.v_p_combopoints.." combo points",_getnextspell,_debugon)
-			return false
+	-- Death
+	if (ActionDB.b_p_deathrunes and ActionDB.v_p_deathrunes ~= nil and ActionDB.v_p_deathrunes ~= "") then
+		if (not ROB_UnitPassesRuneCheck(nil, nil, nil, ActionDB.v_p_deathrunes, isNextSpell)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required death runes", debug);
+			return false;
 		end
 	end
 
-	-- CHECK: Eclipse Direction----------------------------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_p_eclipse and _ActionDB.v_p_eclipse ~= nil and _ActionDB.v_p_eclipse ~= "") then
-		if (not ROB_EclipseDirection(_ActionDB.v_p_eclipse,_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." player eclipse is not heading towards ".._ActionDB.v_p_eclipse,_getnextspell,_debugon)
-			return false
+	-- CHECK: Combo Points
+	if (ActionDB.b_p_combopoints and ActionDB.v_p_combopoints ~= nil and ActionDB.v_p_combopoints ~= "") then
+		if (not ROB_PlayerHasComboPoints(ActionDB.v_p_combopoints, isNextSpell)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required combo points", debug);
+			return false;
 		end
 	end
 
-	-- CHECK: Check TotemActive ----------------------------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_p_firetotemactive) then
-		if (not ROB_TotemActive(_ActionDB.v_p_firetotemactive, 1,_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." Fire totem ".._ActionDB.v_p_firetotemactive.." is not active",_getnextspell,_debugon)
-			return false
+	-- CHECK: Eclipse Direction
+	if (ActionDB.b_p_eclipse and ActionDB.v_p_eclipse ~= nil and ActionDB.v_p_eclipse ~= "") then
+		if (GetEclipseDirection() ~= ActionDB.v_p_eclipse) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because eclipse is not heading in the required direction", debug);
+			return false;
 		end
 	end
 
-	-- CHECK: Check TotemInactive ----------------------------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_p_firetoteminactive) then
-		if (ROB_TotemActive(_ActionDB.v_p_firetoteminactive, 1,_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." Fire totem ".._ActionDB.v_p_firetoteminactive.." is active",_getnextspell,_debugon)
-			return false
+	-- CHECK: Check TotemActive 
+	if (ActionDB.b_p_firetotemactive) then
+		if (not ROB_TotemActive(ActionDB.v_p_firetotemactive, 1)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the required fire totem or goul is not active", debug);
+			return false;
 		end
 	end
 
-	-- CHECK: Check TotemTimeleft ----------------------------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_p_firetotemtimeleft and _ActionDB.v_p_firetotemtimeleft ~= nil and _ActionDB.v_p_firetotemtimeleft ~= "") then
-		if (not ROB_TotemTimeleft(_ActionDB.v_p_firetotemtimeleft, 1,_getnextspell)) then
-			ROB_Debug1(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1').._actionname.." S:".._spellname.." Fire totem timeleft is not ".._ActionDB.v_p_firetotemtimeleft,_getnextspell,_debugon)
-			return false
+	-- CHECK: Check TotemInactive
+	if (ActionDB.b_p_firetoteminactive) then
+		if (ROB_TotemActive(ActionDB.v_p_firetoteminactive, 1)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the required fire totem or goul is active", debug);
+			return false;
+		end
+	end
+
+	-- CHECK: Check TotemTimeleft
+	if (ActionDB.b_p_firetotemtimeleft and ActionDB.v_p_firetotemtimeleft ~= nil and ActionDB.v_p_firetotemtimeleft ~= "") then
+		if (not ROB_TotemTimeleft(ActionDB.v_p_firetotemtimeleft, 1)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the fire totem or goul doesn't have the required time left", debug);
+			return false;
 		end
 	end
 
 	--CHECK: Check Boss
-	if (_ActionDB.b_t_boss ) then
-		if (UnitClassification("target") ~= "worldboss") then
-			return false
+	if (ActionDB.b_t_boss ) then
+		if (UnitClassification("TARGET") ~= "worldboss") then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because your target is not classified as a worldboss", debug);
+			return false;
 		end
 	end
 
 	--CHECK: Check Not A Boss
-	if (_ActionDB.b_t_notaboss ) then
-		if (UnitClassification("target") == "worldboss") then
-			return false
+	if (ActionDB.b_t_notaboss ) then
+		if (UnitClassification("TARGET") == "worldboss") then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because your target is classified as a worldboss", debug);
+			return false;
 		end
 	end
 
-	-- CHECK: Stance ----------------------------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_p_stance and _ActionDB.v_p_stance ~= nil and _ActionDB.v_p_stance ~= "") then
-		if(not ROB_PlayerInStance(_ActionDB.v_p_stance, _getnextspell)) then
-			return false
+	-- CHECK: Stance 
+	if (ActionDB.b_p_stance and ActionDB.v_p_stance ~= nil and ActionDB.v_p_stance ~= "") then
+		if(not ROB_PlayerInStance(ActionDB.v_p_stance)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you are not in the required stance", debug);
+			return false;
 		end
 	end
 
-	-- CHECK: Not in Stance ----------------------------------------------------------------------------------------------------------------------------------------------
-	if (_ActionDB.b_p_notstance and _ActionDB.v_p_notstance ~= nil and _ActionDB.v_p_notstance ~= "") then
-		if(ROB_PlayerInStance(_ActionDB.v_p_notstance, _getnextspell)) then
-			return false
+	-- CHECK: Not in Stance
+	if (ActionDB.b_p_notstance and ActionDB.v_p_notstance ~= nil and ActionDB.v_p_notstance ~= "") then
+		if(ROB_PlayerInStance(ActionDB.v_p_notstance)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you are in the required stance", debug);
+			return false;
+		end
+	end
+	
+	-- CHECK: Is Stealthed
+	if (ActionDB.b_p_isstealthed) then
+		if (not ROB_PlayerIsStealthed()) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you are not stealthed", debug);
+			return false;
+		end
+	end
+	
+	-- CHECK: Has Proc
+	if (ActionDB.b_hasproc) then
+		if (not ROB_SpellHasProc(spellName)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because it doesn't have a proc", debug);
+			return false;
 		end
 	end
 
-	return _ready
+	return true;
 end
 
 -- TODO PEL : Analyse this code section to ensure that it is the starting point of the action to display as the current one to push.
 function ROB_GetCurrentAction()
-	local _foundReadyAction = false
-	local _foundReadyActionName = nil
-	local _foundReadyActionCD = nil
-	local _foundReadyActionTimeleft = 86400
+	local foundReadyAction = false
+	local foundReadyActionName = nil
+	local foundReadyActionCD = nil
+	local foundReadyActionTimeleft = 86400
 
-	for _, _CurrentActionName in pairs(ROB_Rotations[ROB_SelectedRotationName].SortedActions) do
-		if (ROB_SpellReady(_CurrentActionName,false) and (not _foundReadyAction)) then
-			ROB_Debug1("Action:".._CurrentActionName.." is ready",false,ROB_Rotations[ROB_SelectedRotationName].ActionList[_CurrentActionName].b_debug)
-			_foundReadyAction = true
-			_foundReadyActionName = _CurrentActionName
-			_foundReadyActionCD = ROB_ACTION_CD
+	for _, actionName in pairs(ROB_Rotations[ROB_SelectedRotationName].SortedActions) do
+		if (ROB_SpellReady(actionName,false) and (not foundReadyAction)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E2')..actionName.." Spell name/ID : "..ROB_Rotations[ROB_SelectedRotationName].ActionList[actionName].v_spellname.." is ready", ROB_Rotations[ROB_SelectedRotationName].ActionList[actionName].b_debug);
+			foundReadyAction = true;
+			foundReadyActionName = actionName;
+			foundReadyActionCD = ROB_ACTION_CD;
 			break
-		elseif (_foundReadyAction) then
-			ROB_Debug1("Action:".._CurrentActionName.." is not showing because it is waiting for ready Action:".._foundReadyActionName.." to be cast",false,ROB_Rotations[ROB_SelectedRotationName].ActionList[_CurrentActionName].b_debug)
+		elseif (foundReadyAction) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E2')..actionName.." Spell name/ID : "..ROB_Rotations[ROB_SelectedRotationName].ActionList[actionName].v_spellname.." is not showing because it is waiting for the ready action : "..foundReadyActionName.." to be casted",ROB_Rotations[ROB_SelectedRotationName].ActionList[actionName].b_debug)
 		end
 	end
 	
-	ROB_SetCurrentActionTexture(_foundReadyActionName)
-	ROB_SetCurrentActionTint(_foundReadyActionName)
-	ROB_SetCurrentActionLabel(_foundReadyActionName)
+	ROB_SetCurrentActionTexture(foundReadyActionName)
+	ROB_SetCurrentActionTint(foundReadyActionName)
+	ROB_SetCurrentActionLabel(foundReadyActionName)
 
-	if (_foundReadyAction) then
-		if (_foundReadyActionName ~= ROB_CURRENT_ACTION) then
-			ROB_CURRENT_ACTION = _foundReadyActionName
+	if (foundReadyAction) then
+		if (foundReadyActionName ~= ROB_CURRENT_ACTION) then
+			ROB_CURRENT_ACTION = foundReadyActionName
 		end
-		ROB_SetActionCooldown("ROB_CurrentActionButtonCooldown", _foundReadyActionCD)
+		ROB_SetActionCooldown("ROB_CurrentActionButtonCooldown", foundReadyActionCD)
 	else
 		ROB_CURRENT_ACTION = nil
 		ROB_SetActionCooldown("ROB_CurrentActionButtonCooldown", nil)
@@ -3909,14 +3669,9 @@ function ROB_GetNextAction()
 
 		--Dont pick next actions that have the same aciton name or spell name as the current action
 		if (ROB_SpellReady(_NextActionName, true) and (_NextActionName ~= ROB_CURRENT_ACTION) and _SpellsAreDifferent) then
-			--Check to make sure this cooldown is less than .5 seconds more than previous next action before setting it to prevent the multiple spell spinning in next action
-			if (ROB_Rotations[ROB_SelectedRotationName].ActionList[_NextActionName].v_spellname and ROB_ACTION_TIMELEFT < _foundReadyActionTimeleft and ((_foundReadyActionTimeleft - ROB_ACTION_CD) > .5)) then
-				_foundReadyAction = true
-				_foundReadyActionName = _NextActionName
-				_foundReadyActionTimeleft = ROB_ACTION_TIMELEFT
-				_foundReadyActionCD = ROB_ACTION_CD
-				break
-			end
+			_foundReadyAction = true
+			_foundReadyActionName = _NextActionName
+			_foundReadyActionCD = ROB_ACTION_CD
 		end
 	end
 
@@ -3941,70 +3696,52 @@ function ROB_OnUpdate(self, elapsed)
 		
 			-- Update the GCD in the case that the character haste as changed
 			ROB_ACTION_GCD = ROB_GetGCD();
-			--=============================================================================================================================
-			--=============================================================================================================================
+			
 			--Get the first spell that is ready and set the texture
-			--=============================================================================================================================
-			--=============================================================================================================================
-			ROB_GetCurrentAction()
-			--=============================================================================================================================
-			--=============================================================================================================================
+			ROB_GetCurrentAction();
+			
 			--Now get the next ready action
-			--=============================================================================================================================
-			--=============================================================================================================================
 			ROB_GetNextAction()
 
 		else
 			--No rotation selected so hide both icon frames
-			ROB_CurrentActionButton:Hide()
-			ROB_NextActionButton:Hide()
+			ROB_CurrentActionButton:Hide();
+			ROB_NextActionButton:Hide();
 		end
 
 		if (ROB_TOGGLE_1 == 1 ) then
-			ROB_RotationToggle1Button:Show()
+			ROB_RotationToggle1Button:Show();
 		else
-			ROB_RotationToggle1Button:Hide()
+			ROB_RotationToggle1Button:Hide();
 		end
 		if (ROB_TOGGLE_2 == 1 ) then
-			ROB_RotationToggle2Button:Show()
+			ROB_RotationToggle2Button:Show();
 		else
-			ROB_RotationToggle2Button:Hide()
+			ROB_RotationToggle2Button:Hide();
 		end
 		if (ROB_TOGGLE_3 == 1 ) then
-			ROB_RotationToggle3Button:Show()
+			ROB_RotationToggle3Button:Show();
 		else
-			ROB_RotationToggle3Button:Hide()
+			ROB_RotationToggle3Button:Hide();
 		end
 		if (ROB_TOGGLE_4 == 1 ) then
-			ROB_RotationToggle4Button:Show()
+			ROB_RotationToggle4Button:Show();
 		else
-			ROB_RotationToggle4Button:Hide()
+			ROB_RotationToggle4Button:Hide();
 		end
 
-		ROB_DebugOnUpdate()
-		self.TimeSinceLastUpdate = self.TimeSinceLastUpdate - ROB_UPDATE_INTERVAL
+		ROB_DebugOnUpdate();
+		self.TimeSinceLastUpdate = self.TimeSinceLastUpdate - ROB_UPDATE_INTERVAL;
 	end
 end
 
----[[
--- Allow us to log some debug information.
--- @param #string msg the message to send
--- @param #boolean validate the condition for which logging information. If true, no need to log anything.
--- @param #boolean spellhasdebug true if we put the spell in debug mode. If false, we don't log anything.
---]]
-function ROB_Debug1(msg,validate,spellhasdebug)
-	if (validate) then
-		return
+function ROB_Debug(message, debug)
+	if (not debug) then
+		return;
 	end
-	if (not spellhasdebug) then
-		return
-	end
-	if (ROB_ROTATION_STATE == 0) then
-		return
-	end
-	if (tostring(msg) ~= tostring(ROB_LAST_DEBUG_MSG)) then
-		print(RotationBuilderUtils:localize('ROB_UI_DEBUG_PREFIX')..":"..msg)
-		ROB_LAST_DEBUG = GetTime()
-		ROB_LAST_DEBUG_MSG = msg
+	if (tostring(message) ~= tostring(ROB_LAST_DEBUG_MSG)) then
+		print(ROB_UI_DEBUG_PREFIX..message)
+		ROB_LAST_DEBUG = GetTime();
+		ROB_LAST_DEBUG_MSG = message;
 	end
 end

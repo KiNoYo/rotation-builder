@@ -531,6 +531,8 @@ Example1: |cFF00FF003|r
 Example2: |cFF00FF0090%|r]=]
 L["ROB_UI_AO_G_GUNITPOWER_TT"] = [=[Check this option if this action generates a type of power
 This is used for calculating the next ready action]=]
+L["ROB_UI_AO_G_HASPROC"] = "Has Proc";
+L["ROB_UI_AO_G_HASPROC_TT"] = "Only display action when it has a proc";
 L["ROB_UI_AO_G_ICON_L"] = "Icon:"
 L["ROB_UI_AO_G_ICON_TT"] = [=[Input the spell name or spell id of the icon you want to display for this action
 If left blank the spellname will be used]=]
@@ -674,6 +676,8 @@ L["ROB_UI_AO_P_HP_TT"] = "Only display action when player meets specified hit po
 L["ROB_UI_AO_P_ISGLYPHED"] = "Is glyphed"
 L["ROB_UI_AO_P_ISGLYPHEDIB_TT"] = "Input the glyph name or glyph spell id of the glyph you want check"
 L["ROB_UI_AO_P_ISGLYPHED_TT"] = "Only display action when specified glyph is glyphed"
+L["ROB_UI_AO_P_ISSTEALTHED"] = "Is stealthed";
+L["ROB_UI_AO_P_ISSTEALTHED_TT"] = "Only display action when the player is stealthed";
 L["ROB_UI_AO_P_KNOWNOTSPELL"] = "Do not know Spell"
 L["ROB_UI_AO_P_KNOWNOTSPELLIB_TT"] = "Input the spell name or spell id of the spell you want check"
 L["ROB_UI_AO_P_KNOWNOTSPELL_TT"] = "Only display action when specified spell is unknown"
@@ -784,8 +788,8 @@ L["ROB_UI_CANCEL_BUTTON"] = "Cancel"
 L["ROB_UI_CLOSE_BUTTON"] = "Close"
 L["ROB_UI_CREATE"] = "Create"
 L["ROB_UI_CREATE_TT"] = "Create a new rotation"
-L["ROB_UI_DEBUG_E1"] = "    NOT showing A:"
-L["ROB_UI_DEBUG_PREFIX"] = "ROB:"
+L["ROB_UI_DEBUG_E1"] = "NOT showing Action : "
+L["ROB_UI_DEBUG_E2"] = "Action : "
 L["ROB_UI_DELETE"] = "Delete"
 L["ROB_UI_DELETE_TT"] = "Delete selected rotation"
 L["ROB_UI_DISCARD"] = "Discard"
