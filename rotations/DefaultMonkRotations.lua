@@ -2,6 +2,7 @@
 local monkRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/monk/windwalker"] = {
+			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/monk/energizing_brew"] = {
 					["v_gunitpowertype"] = "3",
@@ -270,6 +271,7 @@ local monkRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/monk/brewmaster"] = {
+			["specID"] = 1,
 			["ActionList"] = {
 				["defaultRotation/monk/legacy_of_the_white_tiger"] = {
 					["v_p_needbuff"] = "1126|115921|116781|20217|160206|159988|160017|90363|160077",

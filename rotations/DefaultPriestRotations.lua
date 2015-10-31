@@ -2,6 +2,7 @@
 local priestRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/priest/shadow"] = {
+			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/priest/mind_blast"] = {
 					["v_gcdspell"] = "585",

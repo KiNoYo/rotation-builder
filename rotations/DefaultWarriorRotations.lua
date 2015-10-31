@@ -2,6 +2,7 @@
 local warriorRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/warrior/arms"] = {
+			["specID"] = 1,
 			["ActionList"] = {
 				["defaultRotation/warrior/ravager"] = {
 					["v_t_needsdebuff"] = "_167105",
@@ -269,6 +270,7 @@ local warriorRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/warrior/protection_gladiator_resolve"] = {
+			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/warrior/devastate"] = {
 					["v_p_needbuff"] = "169686#5^3",
@@ -467,6 +469,7 @@ local warriorRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/warrior/fury"] = {
+			["specID"] = 2,
 			["ActionList"] = {
 				["defaultRotation/warrior/execute_rage"] = {
 					["v_durationstartedtime"] = 0,
@@ -766,6 +769,7 @@ local warriorRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/warrior/protection"] = {
+			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/warrior/devastate"] = {
 					["v_togglename"] = "Toggle 1",

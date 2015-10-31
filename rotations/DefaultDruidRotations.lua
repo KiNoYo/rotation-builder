@@ -2,6 +2,7 @@
 local druidRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/druid/feral"] = {
+			["specID"] = 2,
 			["ActionList"] = {
 				["defaultRotation/druid/moonfire"] = {
 					["v_t_needsdebuff"] = "_8921^3",
@@ -217,6 +218,7 @@ local druidRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/druid/guardian"] = {
+			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/druid/mangle"] = {
 					["v_gunitpowertype"] = "1",
@@ -387,6 +389,7 @@ local druidRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/druid/balance"] = {
+			["specID"] = 1,
 			["ActionList"] = {
 				["defaultRotation/druid/celestial_alignment"] = {
 					["b_p_eclipse"] = true,

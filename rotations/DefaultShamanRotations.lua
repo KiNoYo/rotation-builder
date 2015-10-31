@@ -2,6 +2,7 @@
 local shamanRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/shaman/enhancement"] = {
+			["specID"] = 2,
 			["ActionList"] = {
 				["defaultRotation/shaman/frost_shock_elemental_fusion"] = {
 					["b_t_hasdebuff"] = true,
@@ -163,6 +164,7 @@ local shamanRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/shaman/elemental"] = {
+			["specID"] = 1,
 			["ActionList"] = {
 				["defaultRotation/shaman/searing_totem_refresh"] = {
 					["b_p_firetotemactive"] = true,

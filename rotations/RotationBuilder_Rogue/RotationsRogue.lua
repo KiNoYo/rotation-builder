@@ -3,6 +3,7 @@ local rogueRotationsGenerator = function ()
 	local rotation = {
 		["rotation/rogue/combat"] = {
 			["version"] = 1,
+			["specID"] = 2,
 			["ActionList"] = {
 				["rotation/rogue/ambush"] = {
 					["b_gcombopoints"] = true,
@@ -174,6 +175,7 @@ local rogueRotationsGenerator = function ()
 		},
 		["rotation/rogue/subtlety"] = {
 			["version"] = 2,
+			["specID"] = 3,
 			["ActionList"] = {
 				["rotation/rogue/marked_for_death"] = {
 					["v_p_knowspell"] = "137619",
@@ -324,6 +326,7 @@ local rogueRotationsGenerator = function ()
 		},
 		["rotation/rogue/assassination"] = {
 			["version"] = 1,
+			["specID"] = 1,
 			["ActionList"] = {
 				["rotation/rogue/dispatch_blindside"] = {
 					["v_gcdspell"] = "5938",

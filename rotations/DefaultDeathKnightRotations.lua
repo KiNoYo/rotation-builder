@@ -2,6 +2,7 @@
 local deathKnightRotationsGenerator = function ()
   local rotation = {
 	["defaultRotation/deathknight/frost_dual_wielding"] = {
+		["specID"] = 2,
 		["ActionList"] = {
 			["defaultRotation/deathknight/frost_strike_killing_machine"] = {
 				["v_gcdspell"] = "111673",
@@ -231,6 +232,7 @@ local deathKnightRotationsGenerator = function ()
 		["keybind"] = "<keybind>",
 	},
 	["defaultRotation/deathknight/frost"] = {
+		["specID"] = 2,
 		["ActionList"] = {
 			["defaultRotation/deathknight/outbreak"] = {
 				["v_t_needsdebuff"] = "_55095^3||_152159^3",
@@ -435,6 +437,7 @@ local deathKnightRotationsGenerator = function ()
 		["keybind"] = "<keybind>",
 	},
 	["defaultRotation/deathknight/unholy"] = {
+		["specID"] = 3,
 		["ActionList"] = {
 			["defaultRotation/deathknight/festering_strike_blood_rune"] = {
 				["b_p_bloodrunes"] = true,
@@ -727,6 +730,7 @@ local deathKnightRotationsGenerator = function ()
 		["keybind"] = "<keybind>",
 	},
 	["defaultRotation/deathknight/blood"] = {
+		["specID"] = 1,
 		["ActionList"] = {
 			["defaultRotation/deathknight/blood_boil_refresh_runic_empowerment"] = {
 				["v_t_needsdebuff"] = "_55095^3||_152159^3",

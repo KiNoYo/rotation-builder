@@ -2,6 +2,7 @@
 local hunterRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/hunter/survival"] = {
+			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/hunter/glaive_toss"] = {
 					["v_p_knowspell"] = "117050",
@@ -237,6 +238,7 @@ local hunterRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/hunter/beast_mastery"] = {
+			["specID"] = 1,
 			["ActionList"] = {
 				["defaultRotation/hunter/glaive_toss"] = {
 					["v_p_knowspell"] = "117050",
@@ -525,6 +527,7 @@ local hunterRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/hunter/marksmanship"] = {
+			["specID"] = 2,
 			["ActionList"] = {
 				["defaultRotation/hunter/aimed_shot_thrill_of_the_hunt"] = {
 					["v_p_unitpower"] = ">80",

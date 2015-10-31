@@ -139,10 +139,27 @@ end
 
 --- Check if this is a newer RotationBuilder add-on and upgrade default rotation if possible.
 function RotationBuilder:checkAndUpgradeRotations()
+	-- TODO PEL: To finish
 	local oldVersion = ROB_Options["version"];
 	if(not oldVersion)then
 		
 	end
+end
+
+--- Find a rotation by its specialization.
+-- @param #Int specializationID: the specialization ID for which we seek a rotation.
+-- @return #String the name of the rotation.
+function RotationBuilder:findRotationBySpecializationID(specializationID)
+	if (not ROB_Rotations) then
+		-- If no rotation is defined, then return nil.
+		return nil;
+	end
+	for key, value in pairs(ROB_Rotations) do
+		if (value["specID"] == specializationID) then
+			return key;
+		end
+	end
+	return nil;
 end
 
 --- Initialize the RotationBuilder Object.

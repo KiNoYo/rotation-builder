@@ -2,6 +2,7 @@
 local warlockRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/warlock/destruction"] = {
+			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/warlock/chaos_bolt_charred_remains"] = {
 					["v_p_knowspell"] = "157696",
@@ -267,6 +268,7 @@ local warlockRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/warlock/demonology"] = {
+			["specID"] = 2,
 			["ActionList"] = {
 				["defaultRotation/warlock/corruption"] = {
 					["v_t_needsdebuff"] = "_172^5.4",
@@ -632,6 +634,7 @@ local warlockRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/warlock/affliction"] = {
+			["specID"] = 1,
 			["ActionList"] = {
 				["defaultRotation/warlock/corruption"] = {
 					["v_t_needsdebuff"] = "_172^5.4",

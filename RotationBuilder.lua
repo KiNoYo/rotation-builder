@@ -393,6 +393,7 @@ function ROB_OnLoad(self)
 	self:RegisterEvent("UNIT_SPELLCAST_START");
 	self:RegisterEvent("UNIT_SPELLCAST_CHANNEL_START");
 	self:RegisterEvent("UNIT_SPELLCAST_CHANNEL_STOP");
+	self:RegisterEvent("ACTIVE_TALENT_GROUP_CHANGED");
 
 	-- hook command handler
 	SLASH_ROB1 = "/rob";
@@ -434,6 +435,8 @@ function ROB_OnEvent(self, event, ...)
 		ROB_PLAYER_LOGIN();
 	elseif (event == "PLAYER_ENTERING_WORLD") then
 		ROB_PLAYER_Enter();
+	elseif (event == "ACTIVE_TALENT_GROUP_CHANGED") then
+		ROB_OnActiveTalentGroupChanged();
 	elseif (event == "UNIT_SPELLCAST_SUCCEEDED" or event == "UNIT_SPELLCAST_START" or event == "UNIT_SPELLCAST_CHANNEL_START" or event == "UNIT_SPELLCAST_CHANNEL_STOP") then
 		if (arg1 == "player") then
 			if (ROB_SpellIsInRotation(arg2)) then
@@ -623,6 +626,17 @@ function ROB_PLAYER_Enter()
 	-- update rotation ui stuff
 	ROB_Rotation_Edit_UpdateUI();
 
+end
+
+--- Change the rotation to match the specialization.
+function ROB_OnActiveTalentGroupChanged()
+	local specID, rotationName;
+	specID = GetSpecialization();
+	-- print("Current specialization ID = "..specID);
+	rotationName = RotationBuilder:findRotationBySpecializationID(specID);
+	if (rotationName) then
+		ROB_SwitchRotation(rotationName, true);
+	end
 end
 
 function ROB_OnCommand(cmd)

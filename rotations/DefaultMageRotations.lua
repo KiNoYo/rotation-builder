@@ -2,6 +2,7 @@
 local mageRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/mage/arcane"] = {
+			["specID"] = 1,
 			["ActionList"] = {
 				["defaultRotation/mage/arcane_missiles"] = {
 					["v_charges"] = ">=1",
@@ -199,6 +200,7 @@ local mageRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/mage/frost"] = {
+			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/mage/icy_veins"] = {
 					["v_togglename"] = "Toggle 1",
@@ -444,6 +446,7 @@ local mageRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/mage/fire"] = {
+			["specID"] = 2,
 			["ActionList"] = {
 				["defaultRotation/mage/rune_of_power"] = {
 					["v_p_needbuff"] = "116011",

@@ -2,6 +2,7 @@
 local paladinRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/paladin/protection"] = {
+			["specID"] = 2,
 			["ActionList"] = {
 				["defaultRotation/paladin/word_of_glory"] = {
 					["v_actionicon"] = "85673",
@@ -302,6 +303,7 @@ local paladinRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/paladin/retribution"] = {
+			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/paladin/divine_storm_divine_purpose"] = {
 					["v_p_knowspell"] = "157048&86172",
