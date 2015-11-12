@@ -2181,48 +2181,6 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</EditBox>
-							<CheckButton name="ROB_AO_GComboPointsCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-280" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_GComboPointsCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_COMBOP'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_gcombopoints");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_COMBOP_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_GComboPointsInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="30" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_GComboPointsCheckButton" relativePoint="TOPRIGHT">
-										<Offset>
-											<AbsDimension x="145" y="0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_COMBOPIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_gcombopoints")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
 							<CheckButton name="ROB_AO_GChargesCheckButton" inherits="ROB_CheckButtonTemplate">
 								<Size>
 									<AbsDimension x="20" y="20" />
@@ -2230,7 +2188,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-300" />
+											<AbsDimension x="5" y="-280" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2272,7 +2230,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-320" />
+											<AbsDimension x="5" y="-300" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2893,65 +2851,6 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</EditBox>
-							<CheckButton name="ROB_AO_ComboPointsCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-240" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Layers>
-									<Layer level="ARTWORK">
-										<Texture name="$parentIcon" file="Interface\ComboFrame\ComboPoint">
-											<Anchors>
-												<Anchor point="RIGHT" relativeTo="$parent" relativePoint="RIGHT">
-													<Offset>
-														<AbsDimension x="95" y="-4" />
-													</Offset>
-												</Anchor>
-											</Anchors>
-											<TexCoords left="0" right="0.375" top="0" bottom="1" />
-											<Size>
-												<AbsDimension x="12" y="12" />
-											</Size>
-										</Texture>
-									</Layer>
-								</Layers>
-								<Scripts>
-									<OnLoad>ROB_AO_ComboPointsCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_COMBOP'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_combopoints");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_COMBOP_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_ComboPointsInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="30" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_ComboPointsCheckButton" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="125" y="0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_COMBOPIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_combopoints")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
 							<CheckButton name="ROB_AO_StanceCheckButton" inherits="ROB_CheckButtonTemplate">
 								<Size>
 									<AbsDimension x="20" y="20" />
@@ -2959,7 +2858,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-260" />
+											<AbsDimension x="5" y="-240" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -3001,7 +2900,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-280" />
+											<AbsDimension x="5" y="-260" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -3043,7 +2942,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-300" />
+											<AbsDimension x="5" y="-280" />
 										</Offset>
 									</Anchor>
 								</Anchors>

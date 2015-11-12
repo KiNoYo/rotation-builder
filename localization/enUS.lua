@@ -500,11 +500,6 @@ L["ROB_UI_AO_G_CHARGESIB_TT"] = [=[Input the number of charges
 Example: |cFF00FF001|r]=]
 L["ROB_UI_AO_G_CHARGES_TT"] = [=[Check this option if this action has charges
 This is used for calculating the next ready action]=]
-L["ROB_UI_AO_G_COMBOP"] = "Generates Combo Points:"
-L["ROB_UI_AO_G_COMBOPIB_TT"] = [=[Input the number of combo points generated
-Example: |cFF00FF002|r]=]
-L["ROB_UI_AO_G_COMBOP_TT"] = [=[Check this option if this action generates combo points
-This is used for calculating the next ready action]=]
 L["ROB_UI_AO_G_DEBUG"] = "Debug"
 L["ROB_UI_AO_G_DEBUG_TT"] = "Turn on debug for this spell"
 L["ROB_UI_AO_G_DISABLE"] = "Disable"
@@ -585,12 +580,6 @@ Example1: |cFF00FF00>1|r means only display this action when player has more tha
 Example2: |cFF00FF00<=1|r means only display this action when player has less than or equal to 1 blood rune
 Example3: |cFF00FF00>=1|r means only display this action when player has 1 or more blood runes]=]
 L["ROB_UI_AO_P_BLOODR_TT"] = "Only display action when player has specified blood runes"
-L["ROB_UI_AO_P_COMBOP"] = "Combo Points:"
-L["ROB_UI_AO_P_COMBOPIB_TT"] = [=[Input the number of combo points required
-Example1: |cFF00FF00>=2|r
-Example2: |cFF00FF00<=2|r
-Example3: |cFF00FF00=2|r]=]
-L["ROB_UI_AO_P_COMBOP_TT"] = "Only display action when I have specified combo points"
 L["ROB_UI_AO_P_DEATHR"] = "Death:"
 L["ROB_UI_AO_P_DEATHRIB_TT"] = [=[Input the number of death runes
 Example1: |cFF00FF00>1|r means only display this action when player has more than 1 death rune

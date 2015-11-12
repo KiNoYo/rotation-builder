@@ -86,9 +86,6 @@ ROB_NewActionDefaults = {
 	b_gunitpower=false,
 	v_gunitpowertype="",
 	v_gunitpower="",
-
-	b_gcombopoints=false,
-	v_gcombopoints="",
 	
 	b_charges=false,
 	v_charges="",
@@ -128,8 +125,6 @@ ROB_NewActionDefaults = {
 	b_p_deathrunes=false,
 	v_p_deathrunes="",
 
-	b_p_combopoints=false,
-	v_p_combopoints="",
 	b_p_eclipse=false,
 	v_p_eclipse="",
 
@@ -2100,9 +2095,6 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetChecked("ROB_AO_GUnitPowerCheckButton",_ActionDB.b_gunitpower,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_GUnitPowerTypeInputBox",_ActionDB.v_gunitpowertype,"")
 			ROB_Rotation_GUI_SetText("ROB_AO_GUnitPowerInputBox",_ActionDB.v_gunitpower,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_GComboPointsCheckButton",_ActionDB.b_gcombopoints,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_GComboPointsInputBox",_ActionDB.v_gcombopoints,"")
 			
 			ROB_Rotation_GUI_SetChecked("ROB_AO_GChargesCheckButton",_ActionDB.b_charges,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_GChargesInputBox",_ActionDB.v_charges,"")
@@ -2140,9 +2132,6 @@ function ROB_Rotation_Edit_UpdateUI()
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_DeathRunesCheckButton",_ActionDB.b_p_deathrunes,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_DeathRunesInputBox",_ActionDB.v_p_deathrunes,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_ComboPointsCheckButton",_ActionDB.b_p_combopoints,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_ComboPointsInputBox",_ActionDB.v_p_combopoints,"")
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_EclipeDirectionCheckButton",_ActionDB.b_p_eclipse,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_EclipeDirectionInputBox",_ActionDB.v_p_eclipse,"")
@@ -2425,90 +2414,6 @@ function ROB_SpellHasCharges(spellId, number)
 		return true;
 	end
 	return false;
-end
-
--- TODO : redo this option
-function ROB_PlayerHasComboPoints(_checkstring,_getnextspell)
-	local _parsedCP = _checkstring
-	local _unitCP = GetComboPoints("player", "target")
-
-	if (string.sub(_parsedCP,1,1) == "<" and string.sub(_parsedCP,1,2) ~= "<=") then
-		_parsedCP = tonumber(string.sub(_parsedCP,2))
-		if (_getnextspell and ROB_CURRENT_ACTION) then
-			--Check if the current action generates a combo point
-			local _generatesCP = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].b_gcombopoints
-			if (_generatesCP and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints ~= "") then
-				_generatesCP = tonumber(ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints)
-				if ((_unitCP + _generatesCP) < _parsedCP) then return true; end
-			else
-				if (_unitCP < _parsedCP) then return true; end
-			end
-		else
-			if (_unitCP < _parsedCP) then return true; end
-		end
-	end
-	if (string.sub(_parsedCP,1,1) == ">" and string.sub(_parsedCP,1,2) ~= ">=") then
-		_parsedCP = tonumber(string.sub(_parsedCP,2))
-		if (_getnextspell and ROB_CURRENT_ACTION) then
-			--Check if the current action generates a combo point
-			local _generatesCP = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].b_gcombopoints
-			if (_generatesCP and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints ~= "") then
-				_generatesCP = tonumber(ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints)
-				if ((_unitCP + _generatesCP) > _parsedCP) then return true; end
-			else
-				if (_unitCP > _parsedCP) then return true; end
-			end
-		else
-			if (_unitCP > _parsedCP) then return true; end
-		end
-	end
-	if (string.sub(_parsedCP,1,2) == ">=") then
-		_parsedCP = tonumber(string.sub(_parsedCP,3))
-		if (_getnextspell and ROB_CURRENT_ACTION) then
-			--Check if the current action generates a combo point
-			local _generatesCP = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].b_gcombopoints
-			if (_generatesCP and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints ~= "") then
-				_generatesCP = tonumber(ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints)
-				if ((_unitCP + _generatesCP) >= _parsedCP) then return true; end
-			else
-				if (_unitCP >= _parsedCP) then return true; end
-			end
-		else
-			if (_unitCP >= _parsedCP) then return true; end
-		end
-	end
-	if (string.sub(_parsedCP,1,2) == "<=") then
-		_parsedCP = tonumber(string.sub(_parsedCP,3))
-		if (_getnextspell and ROB_CURRENT_ACTION) then
-			--Check if the current action generates a combo point
-			local _generatesCP = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].b_gcombopoints
-			if (_generatesCP and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints ~= "") then
-				_generatesCP = tonumber(ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints)
-				if ((_unitCP + _generatesCP) <= _parsedCP) then return true; end
-			else
-				if (_unitCP <= _parsedCP) then return true; end
-			end
-		else
-			if (_unitCP <= _parsedCP) then return true; end
-		end
-	end
-	if (string.sub(_parsedCP,1,1) == "=") then
-		_parsedCP = tonumber(string.sub(_parsedCP,2))
-		if (_getnextspell and ROB_CURRENT_ACTION) then
-			--Check if the current action generates a combo point
-			local _generatesCP = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].b_gcombopoints
-			if (_generatesCP and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints ~= "") then
-				_generatesCP = tonumber(ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints)
-				if ((_unitCP + _generatesCP) == _parsedCP) then return true; end
-			else
-				if (_unitCP == _parsedCP) then return true; end
-			end
-		else
-			if (_unitCP == _parsedCP) then return true; end
-		end
-	end
-
-	return false
 end
 
 function ROB_UnitPassesLifeCheck(checkstring, unitName, checkMax)
@@ -3570,14 +3475,6 @@ function ROB_SpellReady(actionName,isNextSpell)
 	if (ActionDB.b_p_deathrunes and ActionDB.v_p_deathrunes ~= nil and ActionDB.v_p_deathrunes ~= "") then
 		if (not ROB_UnitPassesRuneCheck(nil, nil, nil, ActionDB.v_p_deathrunes, isNextSpell)) then
 			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required death runes", debug);
-			return false;
-		end
-	end
-
-	-- CHECK: Combo Points
-	if (ActionDB.b_p_combopoints and ActionDB.v_p_combopoints ~= nil and ActionDB.v_p_combopoints ~= "") then
-		if (not ROB_PlayerHasComboPoints(ActionDB.v_p_combopoints, isNextSpell)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required combo points", debug);
 			return false;
 		end
 	end
