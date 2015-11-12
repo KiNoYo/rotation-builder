@@ -515,16 +515,22 @@ L["ROB_UI_AO_G_DURATION_TT"] = [=[Wait specified seconds to display this action 
 Useful for giving air born spells time to land before calculating next action]=]
 L["ROB_UI_AO_GENERAL_LABEL"] = "General Options:"
 L["ROB_UI_AO_GENERAL_TAB"] = "General"
-L["ROB_UI_AO_G_GCD_L"] = "GCD Spell:"
-L["ROB_UI_AO_G_GCD_TT"] = [=[GCD Spell is used to get your global cooldown time with haste effects to check if the action is ready
-Rule1: GCD spellname should be a spellname not used in the rotation
-Rule2: Never use a GCD spellname that has any type of cooldown or special power requirement
-Rule3: If you want to ignore cooldown checking for this action input |cFF00FF000|r
-Rule4: If you leave this blank Rotation Builder will assume this action is ready if the cooldown is 1.5 seconds or less
-Recommended GCD Spells: |TInterface\Icons\Spell_Deathknight_ClassIcon:0:0|t|cFF00FF0048266|r |TInterface\Icons\INV_Misc_MonsterClaw_04:0:0|t|cFF00FF00768|r |TInterface\Icons\Spell_Nature_FaerieFire:0:0|t|cFF00FF00768|r |TInterface\Icons\INV_Weapon_Bow_07:0:0|t|cFF00FF001462|r |TInterface\Icons\INV_Staff_13:0:0|t|cFF00FF00475|r |TInterface\Icons\Spell_Holy_AuraOfLight:0:0|t|cFF00FF00465|r |TInterface\Icons\INV_Staff_30:0:0|t|cFF00FF00585|r |TInterface\Icons\INV_ThrowingKnife_04:0:0|t|cFF00FF005938|r |TInterface\Icons\Spell_Nature_BloodLust:0:0|t|cFF00FF00324|r |TInterface\Icons\Spell_Nature_FaerieFire:0:0|t|cFF00FF00687|r |TInterface\Icons\INV_Sword_27:0:0|t|cFF00FF001715|r]=]
+L["ROB_UI_AO_G_MODIFIEDSPELL_L"] = "Modified Spell:"
+L["ROB_UI_AO_G_MODIFIEDSPELL_TT"] = [=[Input the modified spell id/name
+Example1: |cFF00FF00Growl|r
+Example2: |cFF00FF002649|r id for Growl]=]
+L["ROB_UI_AO_G_GSPELLCOST"] = "Cost Power:"
+L["ROB_UI_AO_G_GSPELLCOST1_TT"] = [=[Input the type of power used
+|cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY |cFF00FF005|r=RUNES |cFF00FF006|r=RUNICPOWER |cFF00FF007|r=SOULSHARDS
+|cFF00FF008|r=ECLIPSE |cFF00FF009|r=HOLYPOWER |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS |cFF00FF0014|r=BURNING EMBERS |cFF00FF0015|r=DEMONIC FURY]=]
+L["ROB_UI_AO_G_GSPELLCOST2_TT"] = [=[Input the amount of power used
+Example1: |cFF00FF003|r
+Example2: |cFF00FF0090%|r]=]
+L["ROB_UI_AO_G_GSPELLCOST_TT"] = [=[Check this option if this action use a type of power
+This is used for calculating the next ready action]=]
 L["ROB_UI_AO_G_GUNITPOWER"] = "Generates Power:"
 L["ROB_UI_AO_G_GUNITPOWER1_TT"] = [=[Input the type of power generated
-|cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY |cFF00FF005|r=RUNES |cFF00FF006|r=RUNICPOWER |cFF00FF007|r=SOULSHARDS
+|cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF003|r=COMBOPOINTS |cFF00FF006|r=RUNICPOWER |cFF00FF007|r=SOULSHARDS
 |cFF00FF008|r=ECLIPSE |cFF00FF009|r=HOLYPOWER |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS |cFF00FF0014|r=BURNING EMBERS |cFF00FF0015|r=DEMONIC FURY]=]
 L["ROB_UI_AO_G_GUNITPOWER2_TT"] = [=[Input the amount of power generated
 Example1: |cFF00FF003|r
@@ -561,8 +567,8 @@ Example2: |cFF00FF00>3|r means only display action when other action has more th
 Example3: |cFF00FF00<=3|r means only display action when other action has less than or equal to 3 seconds left
 Example4: |cFF00FF00=3|r means only display this action when other action has exactly 3 seconds left]=]
 L["ROB_UI_AO_G_SID_VFAIL"] = "Spell or Slot not found"
-L["ROB_UI_AO_G_SPELLNAME_L"] = "Spell Name or Inventory Slot:"
-L["ROB_UI_AO_G_SPELLNAME_TT"] = [=[Input spellname or inventory slot
+L["ROB_UI_AO_G_SPELLBOOKSPELLNAME_L"] = "Spellbook Spell ID/Name:"
+L["ROB_UI_AO_G_SPELLBOOKSPELLNAME_TT"] = [=[Input spellbook spell id/name or inventory slot
 Example1: |cFF00FF00Trinket0Slot|r for first trinket slot
 Example2: |cFF00FF00Trinket1Slot|r for second trinket slot
 Example3: |cFF00FF00HandsSlot|r

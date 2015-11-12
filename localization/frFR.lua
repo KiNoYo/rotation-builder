@@ -512,6 +512,10 @@ L["ROB_UI_AO_GENERAL_LABEL"] = "Options General :"
 L["ROB_UI_AO_GENERAL_TAB"] = "General"
 -- L["ROB_UI_AO_G_GCD_L"] = ""
 -- L["ROB_UI_AO_G_GCD_TT"] = ""
+-- L["ROB_UI_AO_G_GSPELLCOST"] = ""
+-- L["ROB_UI_AO_G_GSPELLCOST1_TT"] = ""
+-- L["ROB_UI_AO_G_GSPELLCOST2_TT"] = ""
+-- L["ROB_UI_AO_G_GSPELLCOST_TT"] = ""
 -- L["ROB_UI_AO_G_GUNITPOWER"] = ""
 -- L["ROB_UI_AO_G_GUNITPOWER1_TT"] = ""
 -- L["ROB_UI_AO_G_GUNITPOWER2_TT"] = ""
@@ -539,9 +543,8 @@ L["ROB_UI_AO_GENERAL_TAB"] = "General"
 -- L["ROB_UI_AO_G_OTHERCD_TT"] = ""
 -- L["ROB_UI_AO_G_OTHERCDVIB_TT"] = ""
 -- L["ROB_UI_AO_G_SID_VFAIL"] = ""
-L["ROB_UI_AO_G_SPELLNAME_L"] = [=[Nom de sort 
-ou emplacement d'inventaire :]=]
-L["ROB_UI_AO_G_SPELLNAME_TT"] = [=[Entrez le nom d'un sort ou d'un emplacement d'inventaire
+L["ROB_UI_AO_G_SPELLBOOKSPELLNAME_L"] = [=[ID/Nom de sort du grimoire:]=]
+L["ROB_UI_AO_G_SPELLBOOKSPELLNAME_TT"] = [=[Entrez l'id/nom d'un sort du grimoire ou d'un emplacement d'inventaire
 Exemple 1 : |cFF00FF00Trinket0Slot|r pour le premier emplacement de bijou
 Exemple 2 : |cFF00FF00Trinket1Slot|r pour le second emplacement de bijou
 Exemple 3 : |cFF00FF00HandsSlot|r
