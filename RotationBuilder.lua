@@ -3186,7 +3186,10 @@ function ROB_SpellReady(actionName,isNextSpell)
 	end
 	
 	-- CHECK : Check if the player know the spell
-	spellName = ActionDB.v_spellbookspellname
+	spellName = ActionDB.v_spellbookspellname;
+	if spellName == nil then
+		spellName = "";
+	end
 	if (not IsSpellKnown(spellName, true)) then
 		ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have this spell in your spellbook", debug);
 		return false;
