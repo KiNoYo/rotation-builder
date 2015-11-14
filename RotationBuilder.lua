@@ -487,16 +487,12 @@ function ROB_OnEvent(self, event, ...)
 end
 
 function ROB_PLAYER_LOGIN()
-	--After loading the options check if we have loaded once before if not then load default rotations
-	if (ROB_Options["loaddefault"]) then
-		ROB_LoadDefaultRotations()
-		ROB_Options["loaddefault"] = false
-		--Do we have a spell list?
-	else
+	-- Load or update default rotations.
+	ROB_LoadDefaultRotations();
+
+	if (ROB_Options["lastrotation"] and ROB_Options["lastrotation"] ~= "") then
 		--Weve loaded once before do we have a last loaded rotation?
-		if (ROB_Options["lastrotation"] and ROB_Options["lastrotation"] ~= "" and ROB_Options["lastrotation"] ~= nil) then
-			ROB_SwitchRotation(ROB_Options["lastrotation"], true)
-		end
+		ROB_SwitchRotation(ROB_Options["lastrotation"], true);
 	end
 end
 
@@ -504,7 +500,7 @@ function ROB_ADDON_Load(addon)
 	local key, value;
 
 	if (addon ~= ROB_PROJECT_NAME) then return end
-	
+	-- TODO PEL: check here if we need to clean up rotation builder.
 	for key, value in pairs(ROB_Options_Default) do
 		if (ROB_Options[key] == nil) then
 			ROB_Options[key] = value;

@@ -2,7 +2,7 @@
 RotationBuilder = {
 	serializer = nil,
 
-	-- The list of rotations generator.
+	--- The list of rotations generator.
 	defaultRotationGenerator = {},
 };
 
@@ -127,18 +127,18 @@ function RotationBuilder:loadDefaultRotations(className)
 	-- Load default rotations for this class.
 	local defaultRotation = self.defaultRotationGenerator[className]["generator"]();
 	for key, value in pairs(defaultRotation) do
-		if(ROB_Rotations[key]) then
-			-- If a rotation with the same name already exist.
-			print(RotationBuilderUtils:localize('ROB_UI_DEBUG_PREFIX')..key..":"..RotationBuilderUtils:localize('ROB_UI_IMPORT_ERROR2'));
-		else
-			-- We can import the rotation.
+		if(not ROB_Rotations[key] or not ROB_Rotations[key]["version"] or ROB_Rotations[key]["version"] < value["version"]) then
+			-- The rotation don't exist or is older, then we can import the rotation.
 			ROB_Rotations[key] = value;
+		else
+			-- If a rotation with the same name already exist and is of the same version.
+			print(RotationBuilderUtils:localize('ROB_UI_DEBUG_PREFIX')..key..":"..RotationBuilderUtils:localize('ROB_UI_IMPORT_ERROR2'));
 		end
 	end
 end
 
 --- Check if this is a newer RotationBuilder add-on and upgrade default rotation if possible.
-function RotationBuilder:checkAndUpgradeRotations()
+function RotationBuilder:checkAndUpgrade()
 	-- TODO PEL: To finish
 	local oldVersion = ROB_Options["version"];
 	if(not oldVersion)then
