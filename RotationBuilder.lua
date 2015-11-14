@@ -378,7 +378,6 @@ end
 
 function ROB_OnLoad(self)
 	self:RegisterEvent("ADDON_LOADED");
-	self:RegisterEvent("PLAYER_LOGIN");
 	self:RegisterEvent("PLAYER_ENTERING_WORLD");
 	self:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED");
 	self:RegisterEvent("UNIT_SPELLCAST_START");
@@ -422,8 +421,6 @@ function ROB_OnEvent(self, event, ...)
 
 	if (event == "ADDON_LOADED") then
 		ROB_ADDON_Load(...);
-	elseif (event == "PLAYER_LOGIN") then
-		ROB_PLAYER_LOGIN();
 	elseif (event == "PLAYER_ENTERING_WORLD") then
 		ROB_PLAYER_Enter();
 	elseif (event == "ACTIVE_TALENT_GROUP_CHANGED") then
@@ -478,16 +475,6 @@ function ROB_OnEvent(self, event, ...)
 	end
 end
 
-function ROB_PLAYER_LOGIN()
-	-- Load or update default rotations.
-	ROB_LoadDefaultRotations();
-
-	if (ROB_Options["lastrotation"] and ROB_Options["lastrotation"] ~= "") then
-		--Weve loaded once before do we have a last loaded rotation?
-		ROB_SwitchRotation(ROB_Options["lastrotation"], true);
-	end
-end
-
 function ROB_ADDON_Load(addon)
 	local key, value;
 
@@ -512,15 +499,25 @@ function ROB_ADDON_Load(addon)
 
 	-- Initialize frame
 	ROB_FrameVersionFrameVersion:SetText(ROB_VERSION);
-
 end
 
 function ROB_PLAYER_Enter()
-	if (ROB_Initialized == true) then
+	if (ROB_Initialized) then
 		return;
 	end
 
 	ROB_Initialized = true;
+
+	-- Load or update default rotations.
+	ROB_LoadDefaultRotations();
+
+	if (ROB_Options["lastrotation"] and ROB_Options["lastrotation"] ~= nil and ROB_Options["lastrotation"] ~= "") then
+		--Weve loaded once before do we have a last loaded rotation?
+		ROB_SwitchRotation(ROB_Options["lastrotation"], true);
+	else
+		-- If we don't have a previously selected rotation, then select the one which match the specialization if it exist.
+		ROB_SwitchRotation(RotationBuilder:findRotationBySpecializationID(GetSpecialization()), true);
+	end
 
 	-- Initialize options tab
 	ROB_OptionsTabMiniMapButton:SetChecked(ROB_Options.MiniMap);
@@ -615,18 +612,11 @@ function ROB_PLAYER_Enter()
 
 	-- update rotation ui stuff
 	ROB_Rotation_Edit_UpdateUI();
-
 end
 
 --- Change the rotation to match the specialization.
 function ROB_OnActiveTalentGroupChanged()
-	local specID, rotationName;
-	specID = GetSpecialization();
-	-- print("Current specialization ID = "..specID);
-	rotationName = RotationBuilder:findRotationBySpecializationID(specID);
-	if (rotationName) then
-		ROB_SwitchRotation(rotationName, true);
-	end
+	ROB_SwitchRotation(RotationBuilder:findRotationBySpecializationID(GetSpecialization()), true);
 end
 
 function ROB_OnCommand(cmd)
@@ -748,7 +738,11 @@ function ROB_RotationListButton_OnClick(self)
 end
 
 function ROB_SwitchRotation(RotationID,_byName)
-	local _MatchingRotationName = nil
+	local _MatchingRotationName;
+	if(not RotationID or RotationID == "") then
+		return;
+	end
+
 	--if we are modififying a rotation dont switch to a different one
 	if (ROB_EditingRotationTable ~= nil) then
 		--just force a save and switch the rotation
@@ -767,7 +761,7 @@ function ROB_SwitchRotation(RotationID,_byName)
 			end
 			index = index + 1;
 		end
-		if (_MatchingRotationName == nil) then
+		if (not _MatchingRotationName) then
 			print(RotationBuilderUtils:localize('ROB_UI_DEBUG_PREFIX')..RotationBuilderUtils:localize('ROB_UI_ROTATION_E1'))
 			return;
 		end
