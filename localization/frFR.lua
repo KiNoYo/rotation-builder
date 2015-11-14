@@ -690,5 +690,6 @@ L["ROB_UI_TOGGLE"] = "Activer Rotation Builder"
 L["ROB_UI_VERSION_LABEL"] = "Version :"
 L["ui/options/importExport/useOld/text"] = "Ancien import/export"
 L["ui/options/importExport/useOld/tooltip"] = "Utilisez l'ancien système d'import/export (Pour des raisons de compatibilité)"
+L["message/core/fullCleanUp"] = "Nous avons nettoyer les données de RotationBuilder. Ceci était nécessaire soit parce que votre installation était trop vieille et des erreurs auraient pu se produire, ou parce qu'une nouvelle fonctionalité le nécessitée."
 --@end-do-not-package@
 --@localization(locale="frFR", format="lua_additive_table")@

@@ -1,5 +1,12 @@
--- Put here constant which shouldn't be put in localization files.
+-- Saved Options
+ROB_Options                         = {};
+ROB_Rotations                       = {};
+--@do-not-package@
+-- Register minified rotation on export for development purpose.
+ROB_Exports                         = {};
+--@end-do-not-package@
 
+-- Put here constant which shouldn't be put in localization files.
 ROB_PROJECT_NAME = "RotationBuilder";
 ROB_OPTION_MMPOS_CV = 300;
 ROB_OPTION_MMPOS_MAX = 360;

@@ -32,8 +32,7 @@ ROB_TOGGLE_3                        = 0
 ROB_TOGGLE_4                        = 0
 
 -- Initial Options
-local ROB_Options_Default           =
-{
+local ROB_Options_Default           = {
 	MiniMap                          = true;
 	MiniMapPos                       = 300;
 	MiniMapRad                       = 80;
@@ -172,13 +171,6 @@ ROB_NewActionDefaults = {
 	v_pet_hasbuff="",
 }
 
--- Saved Options
-ROB_Options                         = {};
-ROB_Rotations                       = {};
---@do-not-package@
--- Register minified rotation on export for development purpose.
-ROB_Exports                         = {};
---@end-do-not-package@
 ROB_ActionClipboard                 = nil;
 
 local ROB_Initialized               = false
@@ -500,7 +492,10 @@ function ROB_ADDON_Load(addon)
 	local key, value;
 
 	if (addon ~= ROB_PROJECT_NAME) then return end
-	-- TODO PEL: check here if we need to clean up rotation builder.
+
+	-- Check here if we need to clean up rotation builder installation.
+	RotationBuilder:cleanUpInstallationOnNeed();
+
 	for key, value in pairs(ROB_Options_Default) do
 		if (ROB_Options[key] == nil) then
 			ROB_Options[key] = value;

@@ -1,8 +1,16 @@
 --- Define the Rotation Builder main Object.
 RotationBuilder = {
+
+	-- Technical version of rotation builder.
+	version = 1,
+
+	-- If we need to clean up the user installation with this revision.
+	needCleanUp = true,
+
+	-- serializer tool for import/export funtionality.
 	serializer = nil,
 
-	--- The list of rotations generator.
+	-- The list of rotations generator.
 	defaultRotationGenerator = {},
 };
 
@@ -138,12 +146,17 @@ function RotationBuilder:loadDefaultRotations(className)
 end
 
 --- Check if this is a newer RotationBuilder add-on and upgrade default rotation if possible.
-function RotationBuilder:checkAndUpgrade()
-	-- TODO PEL: To finish
+function RotationBuilder:cleanUpInstallationOnNeed()
 	local oldVersion = ROB_Options["version"];
-	if(not oldVersion)then
-		
+	local newVersion = RotationBuilder["version"];
+	if(not oldVersion or (oldVersion < newVersion and (RotationBuilder["needCleanUp"] or oldVersion + 1 < newVersion))) then
+		-- We need do clean up RotationBuilder.
+		ROB_Options = {};
+		ROB_Rotations = {};
+		ROB_Exports = {};
+		print(RotationBuilderUtils:localize('message/core/fullCleanUp'));
 	end
+	ROB_Options["version"] = newVersion;
 end
 
 --- Find a rotation by its specialization.
