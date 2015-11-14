@@ -138,9 +138,6 @@ function RotationBuilder:loadDefaultRotations(className)
 		if(not ROB_Rotations[key] or not ROB_Rotations[key]["version"] or ROB_Rotations[key]["version"] < value["version"]) then
 			-- The rotation don't exist or is older, then we can import the rotation.
 			ROB_Rotations[key] = value;
-		else
-			-- If a rotation with the same name already exist and is of the same version.
-			print(RotationBuilderUtils:localize('ROB_UI_DEBUG_PREFIX')..key..":"..RotationBuilderUtils:localize('ROB_UI_IMPORT_ERROR2'));
 		end
 	end
 end
@@ -163,7 +160,7 @@ end
 -- @param #Int specializationID: the specialization ID for which we seek a rotation.
 -- @return #String the name of the rotation.
 function RotationBuilder:findRotationBySpecializationID(specializationID)
-	if (not ROB_Rotations) then
+	if (not ROB_Rotations or not specializationID) then
 		-- If no rotation is defined, then return nil.
 		return nil;
 	end
