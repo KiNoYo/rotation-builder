@@ -1,6 +1,7 @@
+--- Utility class for rotation builder.
 RotationBuilderUtils = {
-	-- The base format to save spell action in rotation builder.
-		baseFormat = {
+	--- The base format to save spells actions in rotation builder.
+	baseFormat = {
 		["b_breakchanneling"] = false,
 		["b_charges"] = false,
 		["b_checkothercd"] = false,
