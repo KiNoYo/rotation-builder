@@ -66,7 +66,6 @@ RotationBuilderUtils = {
 		["v_keybind"] = "<keybind>",
 		["v_lastcasted"] = "",
 		["v_maxcasts"] = "",
-		["v_modifiedspell"] = "",
 		["v_p_bloodrunes"] = "",
 		["v_p_deathrunes"] = "",
 		["v_p_eclipse"] = "",

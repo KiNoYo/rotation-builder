@@ -510,10 +510,6 @@ L["ROB_UI_AO_G_DURATION_TT"] = [=[Wait specified seconds to display this action 
 Useful for giving air born spells time to land before calculating next action]=]
 L["ROB_UI_AO_GENERAL_LABEL"] = "General Options:"
 L["ROB_UI_AO_GENERAL_TAB"] = "General"
-L["ROB_UI_AO_G_MODIFIEDSPELL_L"] = "Modified Spell:"
-L["ROB_UI_AO_G_MODIFIEDSPELL_TT"] = [=[Input the modified spell id/name
-Example1: |cFF00FF00Growl|r
-Example2: |cFF00FF002649|r id for Growl]=]
 L["ROB_UI_AO_G_GSPELLCOST"] = "Cost Power:"
 L["ROB_UI_AO_G_GSPELLCOST1_TT"] = [=[Input the type of power used
 |cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY |cFF00FF005|r=RUNES |cFF00FF006|r=RUNICPOWER |cFF00FF007|r=SOULSHARDS
@@ -562,8 +558,8 @@ Example2: |cFF00FF00>3|r means only display action when other action has more th
 Example3: |cFF00FF00<=3|r means only display action when other action has less than or equal to 3 seconds left
 Example4: |cFF00FF00=3|r means only display this action when other action has exactly 3 seconds left]=]
 L["ROB_UI_AO_G_SID_VFAIL"] = "Spell or Slot not found"
-L["ROB_UI_AO_G_SPELLBOOKSPELLNAME_L"] = "Spellbook Spell ID/Name:"
-L["ROB_UI_AO_G_SPELLBOOKSPELLNAME_TT"] = [=[Input spellbook spell id/name or inventory slot
+L["ROB_UI_AO_G_SPELLNAME_L"] = "Spell ID/Name:"
+L["ROB_UI_AO_G_SPELLNAME_TT"] = [=[Input the spell id/name or inventory slot
 Example1: |cFF00FF00Trinket0Slot|r for first trinket slot
 Example2: |cFF00FF00Trinket1Slot|r for second trinket slot
 Example3: |cFF00FF00HandsSlot|r
@@ -816,9 +812,6 @@ L["ROB_UI_ROTATION_E2"] = "Rotation not found"
 L["ROB_UI_ROTATION_TAB"] = "Rotations"
 L["ROB_UI_SAVE"] = "Save"
 L["ROB_UI_SAVE_TT"] = "Save selected rotation"
-L["ROB_UI_SL_LABEL"] = "Print my spell IDs"
-L["ROB_UI_SLB_LABEL"] = "Print"
-L["ROB_UI_SLB_LABEL_TT"] = [=[Only print spells that are in your currently active spellbook]=]
 L["ROB_UI_TITLE"] = "Rotation Builder"
 L["ROB_UI_TOGGLE"] = "Toggle Rotation Builder"
 L["ROB_UI_VERSION_LABEL"] = "Version:"

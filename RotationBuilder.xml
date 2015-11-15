@@ -1227,63 +1227,6 @@
 							<OnLeave>GameTooltip:Hide();</OnLeave>
 						</Scripts>
 					</Button>
-					<Frame name="ROB_RotationSpellList" hidden="true">
-						<Size>
-							<AbsDimension x="255" y="20" />
-						</Size>
-						<Anchors>
-							<Anchor point="TOPLEFT" relativeTo="ROB_RotationTab" relativePoint="TOPLEFT">
-								<Offset>
-									<AbsDimension x="260" y="-70" />
-								</Offset>
-							</Anchor>
-						</Anchors>
-						<Layers>
-							<Layer level="ARTWORK">
-								<FontString name="ROB_RotationSpellListLabel" inherits="GameFontNormalSmall" justifyH="LEFT" justifyV="TOP">
-									<Anchors>
-										<Anchor point="LEFT" relativePoint="LEFT">
-											<Offset>
-												<AbsDimension x="0" y="0" />
-											</Offset>
-										</Anchor>
-									</Anchors>
-								</FontString>
-								<FontString name="ROB_RotationSpellListText" inherits="ChatFontNormal" justifyH="LEFT" justifyV="TOP">
-									<Anchors>
-										<Anchor point="LEFT" relativePoint="LEFT">
-											<Offset>
-												<AbsDimension x="0" y="0" />
-											</Offset>
-										</Anchor>
-									</Anchors>
-								</FontString>
-							</Layer>
-						</Layers>
-						<Scripts>
-							<OnLoad>ROB_RotationSpellListLabel:SetText(RotationBuilderUtils:localize('ROB_UI_SL_LABEL'));</OnLoad>
-						</Scripts>
-					</Frame>
-					<Button name="ROB_RotationSpellListButton" inherits="UIPanelButtonTemplate">
-						<Size>
-							<AbsDimension x="70" y="20" />
-						</Size>
-						<Anchors>
-							<Anchor point="TOPLEFT" relativeTo="ROB_RotationSpellList" relativePoint="TOPRIGHT">
-								<Offset>
-									<AbsDimension x="0" y="0" />
-								</Offset>
-							</Anchor>
-						</Anchors>
-						<Scripts>
-							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_SLB_LABEL'));</OnLoad>
-							<OnClick>ROB_RotationSpellListButton_OnClick(self);</OnClick>
-							<OnEnter>GameTooltip:SetOwner(self,
-								"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_SLB_LABEL_TT'));
-							</OnEnter>
-							<OnLeave>GameTooltip:Hide();</OnLeave>
-						</Scripts>
-					</Button>
 					<Button name="ROB_AddActionButton" inherits="UIPanelButtonTemplate" toplevel="true" frameStrata="HIGH">
 						<Size>
 							<AbsDimension x="55" y="20" />
@@ -1389,7 +1332,7 @@
 							</OnLoad>
 						</Scripts>
 						<Frames>
-							<EditBox name="ROB_SpellbookSpellNameInputBox" inherits="InputBoxTemplate" autoFocus="false">
+							<EditBox name="ROB_SpellNameInputBox" inherits="InputBoxTemplate" autoFocus="false">
 								<Size>
 									<AbsDimension x="150" y="20" />
 								</Size>
@@ -1404,7 +1347,7 @@
 									<Layer level="ARTWORK">
 										<FontString name="$parentLabel" inherits="GameFontNormalSmall" justifyH="LEFT" justifyV="TOP">
 											<Scripts>
-												<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_SPELLBOOKSPELLNAME_L'));</OnLoad>
+												<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_SPELLNAME_L'));</OnLoad>
 											</Scripts>
 											<Anchors>
 												<Anchor point="RIGHT" relativePoint="LEFT">
@@ -1429,21 +1372,21 @@
 									</Layer>
 								</Layers>
 								<Scripts>
-									<OnLoad>ROB_SpellbookSpellNameInputBoxLabel:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_SPELLBOOKSPELLNAME_L'));</OnLoad>
+									<OnLoad>ROB_SpellNameInputBoxLabel:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_SPELLNAME_L'));</OnLoad>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_SPELLBOOKSPELLNAME_TT'));
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_SPELLNAME_TT'));
 									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_spellbookspellname",true,false)
+									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_spellname",true)
 									</OnTextChanged>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</EditBox>
-							<Frame name="ROB_SpellbookSpellNameValidate">
+							<Frame name="ROB_SpellNameValidate">
 								<Size>
 									<AbsDimension x="100" y="20" />
 								</Size>
 								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_SpellbookSpellNameInputBoxIcon" relativePoint="TOPRIGHT">
+									<Anchor point="TOPLEFT" relativeTo="ROB_SpellNameInputBoxIcon" relativePoint="TOPRIGHT">
 										<Offset>
 											<AbsDimension x="0" y="0" />
 										</Offset>
@@ -1453,7 +1396,7 @@
 									<Layer level="ARTWORK">
 										<FontString name="$parentText" inherits="GameFontNormalSmall" text="" justifyH="LEFT" justifyV="TOP">
 											<Anchors>
-												<Anchor point="LEFT" relativeTo="ROB_SpellbookSpellNameInputBoxIcon" relativePoint="RIGHT">
+												<Anchor point="LEFT" relativeTo="ROB_SpellNameInputBoxIcon" relativePoint="RIGHT">
 													<Offset>
 														<AbsDimension x="0" y="0" />
 													</Offset>
@@ -1464,7 +1407,7 @@
 								</Layers>
 								<Scripts>
 									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");ROB_SpellValidate(ROB_SpellbookSpellNameInputBox:GetText(), false);
+										"ANCHOR_TOPLEFT");ROB_SpellValidate(ROB_SpellNameInputBox:GetText());
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
@@ -1492,88 +1435,6 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</Button>
-							<EditBox name="ROB_AO_ModifiedSpellInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="150" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="170" y="-40" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Layers>
-									<Layer level="ARTWORK">
-										<FontString name="ROB_AO_ModifiedSpellInputBoxLabel" inherits="GameFontNormalSmall" justifyH="LEFT" justifyV="TOP">
-											<Anchors>
-												<Anchor point="RIGHT" relativePoint="LEFT">
-													<Offset>
-														<AbsDimension x="-5" y="0" />
-													</Offset>
-												</Anchor>
-											</Anchors>
-										</FontString>
-										<Texture name="$parentIcon" file="">
-											<Anchors>
-												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPRIGHT">
-													<Offset>
-														<AbsDimension x="0" y="0" />
-													</Offset>
-												</Anchor>
-											</Anchors>
-											<Size>
-												<AbsDimension x="20" y="20" />
-											</Size>
-											<Scripts>
-												<OnLoad>self:Hide();</OnLoad>
-											</Scripts>
-										</Texture>
-									</Layer>
-								</Layers>
-								<Scripts>
-									<OnLoad>ROB_AO_ModifiedSpellInputBoxLabel:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_MODIFIEDSPELL_L'));</OnLoad>
-									<OnEnter>
-										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-										GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_MODIFIEDSPELL_TT'));
-									</OnEnter>
-									<OnTextChanged>	ROB_AO_InputBox_OnTextChanged(self,"v_modifiedspell",true,true);
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
-							<Frame name="ROB_AO_ModifiedSpellValidate">
-								<Size>
-									<AbsDimension x="100" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_ModifiedSpellInputBoxIcon" relativePoint="TOPRIGHT">
-										<Offset>
-											<AbsDimension x="0" y="0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Layers>
-									<Layer level="ARTWORK">
-										<FontString name="$parentText" inherits="GameFontNormalSmall" text="" justifyH="LEFT" justifyV="TOP">
-											<Anchors>
-												<Anchor point="LEFT" relativeTo="ROB_AO_ModifiedSpellInputBoxIcon" relativePoint="RIGHT">
-													<Offset>
-														<AbsDimension x="0" y="0" />
-													</Offset>
-												</Anchor>
-											</Anchors>
-										</FontString>
-									</Layer>
-								</Layers>
-								<Scripts>
-									<OnLoad>self:Hide();</OnLoad>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");ROB_SpellValidate(ROB_AO_ModifiedSpellInputBox:GetText(), true);
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</Frame>
 							<EditBox name="ROB_AO_ActionIconInputBox" inherits="InputBoxTemplate" autoFocus="false">
 								<Size>
 									<AbsDimension x="150" y="20" />
@@ -1581,7 +1442,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="170" y="-60" />
+											<AbsDimension x="170" y="-40" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -1613,7 +1474,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="300" y="-60" />
+											<AbsDimension x="300" y="-40" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -1634,7 +1495,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="460" y="-60" />
+											<AbsDimension x="460" y="-40" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -1655,7 +1516,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="460" y="-80" />
+											<AbsDimension x="460" y="-60" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -1677,7 +1538,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-80" />
+											<AbsDimension x="5" y="-60" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -1696,7 +1557,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="55" y="-78" />
+											<AbsDimension x="55" y="-58" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -1717,7 +1578,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="200" y="-80" />
+											<AbsDimension x="200" y="-60" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -1748,7 +1609,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="261" y="-82" />
+											<AbsDimension x="261" y="-62" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -1768,7 +1629,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="280" y="-77" />
+											<AbsDimension x="280" y="-57" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -1789,7 +1650,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="280" y="-90" />
+											<AbsDimension x="280" y="-70" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -1810,7 +1671,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-100" />
+											<AbsDimension x="5" y="-80" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -1832,7 +1693,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="170" y="-100" />
+											<AbsDimension x="170" y="-80" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -1852,7 +1713,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-120" />
+											<AbsDimension x="5" y="-100" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -1874,7 +1735,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="170" y="-120" />
+											<AbsDimension x="170" y="-100" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -1894,7 +1755,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-140" />
+											<AbsDimension x="5" y="-120" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -1916,7 +1777,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="170" y="-140" />
+											<AbsDimension x="170" y="-120" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -1936,7 +1797,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="270" y="-140" />
+											<AbsDimension x="270" y="-120" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -1956,7 +1817,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-160" />
+											<AbsDimension x="5" y="-140" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -1978,7 +1839,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-180" />
+											<AbsDimension x="5" y="-160" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2000,7 +1861,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-200" />
+											<AbsDimension x="5" y="-180" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2042,7 +1903,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-220" />
+											<AbsDimension x="5" y="-200" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2064,7 +1925,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-240" />
+											<AbsDimension x="5" y="-220" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2126,7 +1987,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-260" />
+											<AbsDimension x="5" y="-240" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2188,7 +2049,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-280" />
+											<AbsDimension x="5" y="-260" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2230,7 +2091,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-300" />
+											<AbsDimension x="5" y="-280" />
 										</Offset>
 									</Anchor>
 								</Anchors>
