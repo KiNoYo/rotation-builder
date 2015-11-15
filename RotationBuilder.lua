@@ -177,7 +177,7 @@ local ROB_Initialized               = false
 local ROB_SortedRotations           = {};      -- Sorted rotation table
 local ROB_EditingRotationTable      = nil;     -- Rotation table being edited
 ROB_SelectedRotationName            = nil;     -- Selected Rotation Name
-ROB_SelectedRotationSpec			= "";     -- Selected Rotation Specialization
+ROB_SelectedRotationSpec			= nil;     -- Selected Rotation Specialization
 local ROB_SelectedRotationIndex     = nil;     -- Selected Rotation Index
 local ROB_SelectedActionIndex       = nil;     -- Selected Action Index
 local ROB_CurrentActionName         = nil;     -- The current selected ActionName
@@ -722,7 +722,7 @@ function ROB_RotationListButton_OnClick(self)
 
 	ROB_SelectedRotationIndex = self:GetID() + FauxScrollFrame_GetOffset(ROB_RotationScrollFrame);
 	ROB_SelectedRotationName = ROB_SortedRotations[ROB_SelectedRotationIndex];
-	ROB_SelectedRotationSpec = ROB_Rotations[ROB_SortedRotations[ROB_SelectedRotationIndex]]["specID"];
+	ROB_SelectedRotationSpec = tonumber(ROB_Rotations[ROB_SortedRotations[ROB_SelectedRotationIndex]]["specID"]);
 	ROB_SwitchRotation(ROB_SelectedRotationName, true);
 
 	-- update rotation list
@@ -819,7 +819,7 @@ function ROB_RotationCreateButton_OnClick(self)
 
 	-- new name prompt
 	ROB_SelectedRotationName = "<rotation name>";
-	ROB_SelectedRotationSpec = "<rotation specialization>"
+	ROB_SelectedRotationSpec = ""
 
 	-- UPDATE_ROTATION_OPTIONS1
 	ROB_RotationNameInputBox:SetText(ROB_SelectedRotationName);
@@ -843,15 +843,17 @@ end
 
 function ROB_ModifyRotationButton_OnClick(self)
 	-- copy the selected list
-	ROB_EditingRotationTable = ROB_CopyTable(ROB_Rotations[ROB_SortedRotations[ROB_SelectedRotationIndex]]);
-
-	-- copy name
 	ROB_SelectedRotationName = ROB_SortedRotations[ROB_SelectedRotationIndex];
+	ROB_SelectedRotationSpec = tonumber(ROB_Rotations[ROB_SelectedRotationName]["specID"]);
+	if not ROB_SelectedRotationSpec then
+		ROB_SelectedRotationSpec = ""
+	end
+
+	ROB_EditingRotationTable = ROB_CopyTable(ROB_Rotations[ROB_SelectedRotationName]);
 
 	-- UPDATE_ROTATION_OPTIONS2
 	ROB_RotationNameInputBox:SetText(ROB_SelectedRotationName);
 	ROB_RotationSpecInputBox:SetText(ROB_SelectedRotationSpec);
-
 	ROB_RotationKeyBindButton:SetText(ROB_EditingRotationTable.keybind);
 
 	--Always clear the current action because it may be leftover from a previous rotation
@@ -908,8 +910,7 @@ function ROB_RotationNameInputBox_OnTextChanged(self)
 end
 
 function ROB_RotationSpecInputBox_OnTextChanged(self)
-	local _text = self:GetText()
-	ROB_SelectedRotationSpec = ROB_RotationSpecInputBox:GetText();
+	ROB_SelectedRotationSpec = tonumber(ROB_RotationSpecInputBox:GetText())
 	ROB_Rotation_Edit_UpdateUI();
 end
 
@@ -1929,8 +1930,16 @@ function ROB_RotationModifyButtons_UpdateUI()
 		ROB_RotationListModifyButton:Show();
 		ROB_RotationListDeleteButton:Show();
 		-- retrieve rotation value from saved options
-		ROB_RotationNameROText:SetText(RotationBuilderUtils:localize(ROB_SortedRotations[ROB_SelectedRotationIndex]));
-		ROB_RotationSpecROText:SetText(ROB_Rotations[ROB_SortedRotations[ROB_SelectedRotationIndex]]["specID"]);
+		local rotationName = ROB_SortedRotations[ROB_SelectedRotationIndex];
+		local specID = tonumber(ROB_Rotations[rotationName]["specID"])
+		local _, specName;
+		if not specID then
+			specName = "<rotation specialization>"
+		else
+			_, specName = GetSpecializationInfo(specID);
+		end
+		ROB_RotationNameROText:SetText(RotationBuilderUtils:localize(rotationName));
+		ROB_RotationSpecROText:SetText(specName);
 	else
 		-- enable create, disable modify and remove
 		ROB_RotationCreateButton:Enable();

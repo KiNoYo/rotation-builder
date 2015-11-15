@@ -1207,7 +1207,7 @@
 					</Frame>
 					<EditBox name="ROB_RotationSpecInputBox" inherits="InputBoxTemplate" autoFocus="false">
 						<Size>
-							<AbsDimension x="255" y="20" />
+							<AbsDimension x="30" y="20" />
 						</Size>
 						<Anchors>
 							<Anchor point="TOPLEFT" relativeTo="ROB_RotationTab" relativePoint="TOPLEFT">
