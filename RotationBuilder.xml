@@ -1205,6 +1205,72 @@
 							<OnLoad>ROB_RotationNameROLabel:SetText(RotationBuilderUtils:localize('ROB_UI_RN_LABEL'));</OnLoad>
 						</Scripts>
 					</Frame>
+					<EditBox name="ROB_RotationSpecInputBox" inherits="InputBoxTemplate" autoFocus="false">
+						<Size>
+							<AbsDimension x="255" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="ROB_RotationTab" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="260" y="-90" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer level="ARTWORK">
+								<FontString name="ROB_RotationSpecLabel" inherits="GameFontNormalSmall" justifyH="LEFT" justifyV="TOP">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="LEFT">
+											<Offset>
+												<AbsDimension x="0" y="20" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Scripts>
+							<OnLoad>ROB_RotationSpecLabel:SetText(RotationBuilderUtils:localize('ROB_UI_RS_LABEL'));</OnLoad>
+							<OnTextChanged>ROB_RotationSpecInputBox_OnTextChanged(self);</OnTextChanged>
+						</Scripts>
+					</EditBox>
+					<Frame name="ROB_RotationSpecRO" hidden="true">
+						<Size>
+							<AbsDimension x="255" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="ROB_RotationTab" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="260" y="-90" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer level="ARTWORK">
+								<FontString name="ROB_RotationSpecROLabel" inherits="GameFontNormalSmall" justifyH="LEFT" justifyV="TOP">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="LEFT">
+											<Offset>
+												<AbsDimension x="0" y="20" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+								</FontString>
+								<FontString name="ROB_RotationSpecROText" inherits="ChatFontNormal" justifyH="LEFT" justifyV="TOP">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="LEFT">
+											<Offset>
+												<AbsDimension x="0" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Scripts>
+							<OnLoad>ROB_RotationSpecROLabel:SetText(RotationBuilderUtils:localize('ROB_UI_RS_LABEL'));</OnLoad>
+						</Scripts>
+					</Frame>
 					<Button name="ROB_RotationKeyBindButton" inherits="UIPanelButtonTemplate">
 						<Size>
 							<AbsDimension x="70" y="20" />
