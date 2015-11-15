@@ -2,6 +2,7 @@
 local monkRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/monk/windwalker"] = {
+			["version"] = 1,
 			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/monk/energizing_brew"] = {
@@ -250,6 +251,7 @@ local monkRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/monk/brewmaster"] = {
+			["version"] = 1,
 			["specID"] = 1,
 			["ActionList"] = {
 				["defaultRotation/monk/legacy_of_the_white_tiger"] = {
@@ -393,13 +395,10 @@ local monkRotationsGenerator = function ()
 		},
 	}
 
-	-- Restore the true state of the saved data.
-	--	return RotationBuilder:restoreTable({}, rotation);
 	return rotation;
 end
 
 local monkRotationsGeneratorData = {
-	["version"] = 1, 
 	["generator"] = monkRotationsGenerator
 };
 

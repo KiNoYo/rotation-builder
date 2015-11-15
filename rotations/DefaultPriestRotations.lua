@@ -2,6 +2,7 @@
 local priestRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/priest/shadow"] = {
+			["version"] = 1,
 			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/priest/mind_blast"] = {
@@ -244,13 +245,10 @@ local priestRotationsGenerator = function ()
 		},
 	}
 
-	-- Restore the true state of the saved data.
-	--	return RotationBuilder:restoreTable({}, rotation);
 	return rotation;
 end
 
 local priestRotationsGeneratorData = {
-	["version"] = 1, 
 	["generator"] = priestRotationsGenerator
 };
 

@@ -2,6 +2,7 @@
 local hunterRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/hunter/survival"] = {
+			["version"] = 1,
 			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/hunter/glaive_toss"] = {
@@ -219,6 +220,7 @@ local hunterRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/hunter/beast_mastery"] = {
+			["version"] = 1,
 			["specID"] = 1,
 			["ActionList"] = {
 				["defaultRotation/hunter/glaive_toss"] = {
@@ -486,6 +488,7 @@ local hunterRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/hunter/marksmanship"] = {
+			["version"] = 1,
 			["specID"] = 2,
 			["ActionList"] = {
 				["defaultRotation/hunter/aimed_shot_thrill_of_the_hunt"] = {
@@ -725,13 +728,10 @@ local hunterRotationsGenerator = function ()
 		},
 	}
 
-	-- Restore the true state of the saved data.
-	--	return RotationBuilder:restoreTable({}, rotation);
 	return rotation;
 end
 
 local hunterRotationsGeneratorData = {
-	["version"] = 1, 
 	["generator"] = hunterRotationsGenerator
 };
 

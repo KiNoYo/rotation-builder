@@ -2,6 +2,7 @@
 local mageRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/mage/arcane"] = {
+			["version"] = 1,
 			["specID"] = 1,
 			["ActionList"] = {
 				["defaultRotation/mage/arcane_missiles"] = {
@@ -184,6 +185,7 @@ local mageRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/mage/frost"] = {
+			["version"] = 1,
 			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/mage/icy_veins"] = {
@@ -411,6 +413,7 @@ local mageRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/mage/fire"] = {
+			["version"] = 1,
 			["specID"] = 2,
 			["ActionList"] = {
 				["defaultRotation/mage/rune_of_power"] = {
@@ -562,13 +565,10 @@ local mageRotationsGenerator = function ()
 		},
 	}
 
-	-- Restore the true state of the saved data.
-	-- return RotationBuilder:restoreTable({}, rotation);
 	return rotation;
 end
 
 local mageRotationsGeneratorData = {
-	["version"] = 1, 
 	["generator"] = mageRotationsGenerator
 };
 

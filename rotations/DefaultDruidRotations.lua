@@ -2,6 +2,7 @@
 local druidRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/druid/feral"] = {
+			["version"] = 1,
 			["specID"] = 2,
 			["ActionList"] = {
 				["defaultRotation/druid/moonfire"] = {
@@ -185,6 +186,7 @@ local druidRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/druid/guardian"] = {
+			["version"] = 1,
 			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/druid/mangle"] = {
@@ -343,6 +345,7 @@ local druidRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/druid/balance"] = {
+			["version"] = 1,
 			["specID"] = 1,
 			["ActionList"] = {
 				["defaultRotation/druid/celestial_alignment"] = {
@@ -552,13 +555,10 @@ local druidRotationsGenerator = function ()
 		},
 	}
 
-	-- Restore the true state of the saved data.
-	--	return RotationBuilder:restoreTable({}, rotation);
 	return rotation;
 end
 
 local druidRotationsGeneratorData = {
-	["version"] = 1, 
 	["generator"] = druidRotationsGenerator
 };
 

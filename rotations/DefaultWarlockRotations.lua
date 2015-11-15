@@ -2,6 +2,7 @@
 local warlockRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/warlock/destruction"] = {
+			["version"] = 1,
 			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/warlock/chaos_bolt_charred_remains"] = {
@@ -247,6 +248,7 @@ local warlockRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/warlock/demonology"] = {
+			["version"] = 1,
 			["specID"] = 2,
 			["ActionList"] = {
 				["defaultRotation/warlock/corruption"] = {
@@ -585,6 +587,7 @@ local warlockRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/warlock/affliction"] = {
+			["version"] = 1,
 			["specID"] = 1,
 			["ActionList"] = {
 				["defaultRotation/warlock/corruption"] = {
@@ -869,13 +872,10 @@ local warlockRotationsGenerator = function ()
 		},
 	}
 
-	-- Restore the true state of the saved data.
-	-- return RotationBuilder:restoreTable({}, rotation);
 	return rotation;
 end
 
 local warlockRotationsGeneratorData = {
-	["version"] = 1, 
 	["generator"] = warlockRotationsGenerator
 };
 

@@ -2,6 +2,7 @@
 local deathKnightRotationsGenerator = function ()
   local rotation = {
 	["defaultRotation/deathknight/frost_dual_wielding"] = {
+		["version"] = 1,
 		["specID"] = 2,
 		["ActionList"] = {
 			["defaultRotation/deathknight/frost_strike_killing_machine"] = {
@@ -214,6 +215,7 @@ local deathKnightRotationsGenerator = function ()
 		["keybind"] = "<keybind>",
 	},
 	["defaultRotation/deathknight/frost"] = {
+		["version"] = 1,
 		["specID"] = 2,
 		["ActionList"] = {
 			["defaultRotation/deathknight/outbreak"] = {
@@ -403,6 +405,7 @@ local deathKnightRotationsGenerator = function ()
 		["keybind"] = "<keybind>",
 	},
 	["defaultRotation/deathknight/unholy"] = {
+		["version"] = 1,
 		["specID"] = 3,
 		["ActionList"] = {
 			["defaultRotation/deathknight/festering_strike_blood_rune"] = {
@@ -673,6 +676,7 @@ local deathKnightRotationsGenerator = function ()
 		["keybind"] = "<keybind>",
 	},
 	["defaultRotation/deathknight/blood"] = {
+		["version"] = 1,
 		["specID"] = 1,
 		["ActionList"] = {
 			["defaultRotation/deathknight/blood_boil_refresh_runic_empowerment"] = {
@@ -936,13 +940,10 @@ local deathKnightRotationsGenerator = function ()
 	},
   }
 
-  -- Restore the true state of the saved data.
-  --  return RotationBuilder:restoreTable({}, rotation);
   return rotation;
 end
 
 local deathKnightRotationsGeneratorData = {
-  ["version"] = 1, 
   ["generator"] = deathKnightRotationsGenerator
 };
 

@@ -2,6 +2,7 @@
 local warriorRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/warrior/arms"] = {
+			["version"] = 1,
 			["specID"] = 1,
 			["ActionList"] = {
 				["defaultRotation/warrior/ravager"] = {
@@ -250,6 +251,7 @@ local warriorRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/warrior/protection_gladiator_resolve"] = {
+			["version"] = 1,
 			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/warrior/devastate"] = {
@@ -434,6 +436,7 @@ local warriorRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/warrior/fury"] = {
+			["version"] = 1,
 			["specID"] = 2,
 			["ActionList"] = {
 				["defaultRotation/warrior/execute_rage"] = {
@@ -710,6 +713,7 @@ local warriorRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/warrior/protection"] = {
+			["version"] = 1,
 			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/warrior/devastate"] = {
@@ -879,13 +883,10 @@ local warriorRotationsGenerator = function ()
 		},
 	}
 
-	-- Restore the true state of the saved data.
-	-- return RotationBuilder:restoreTable({}, rotation);
 	return rotation;
 end
 
 local warriorRotationsGeneratorData = {
-	["version"] = 1, 
 	["generator"] = warriorRotationsGenerator
 };
 

@@ -147,7 +147,7 @@ local rogueRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["rotation/rogue/subtlety"] = {
-			["version"] = 2,
+			["version"] = 1,
 			["specID"] = 3,
 			["ActionList"] = {
 				["rotation/rogue/marked_for_death"] = {
@@ -420,7 +420,6 @@ local rogueRotationsGenerator = function ()
 end
 
 local rogueRotationsGeneratorData = {
-	["version"] = 1, 
 	["generator"] = rogueRotationsGenerator
 };
 

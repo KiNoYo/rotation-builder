@@ -2,6 +2,7 @@
 local paladinRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/paladin/protection"] = {
+			["version"] = 1,
 			["specID"] = 2,
 			["ActionList"] = {
 				["defaultRotation/paladin/word_of_glory"] = {
@@ -280,6 +281,7 @@ local paladinRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/paladin/retribution"] = {
+			["version"] = 1,
 			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/paladin/divine_storm_divine_purpose"] = {
@@ -508,13 +510,10 @@ local paladinRotationsGenerator = function ()
 		},
 	}
 
-	-- Restore the true state of the saved data.
-	-- return RotationBuilder:restoreTable({}, rotation);
 	return rotation;
 end
 
 local paladinRotationsGeneratorData = {
-	["version"] = 1, 
 	["generator"] = paladinRotationsGenerator
 };
 

@@ -2,6 +2,7 @@
 local shamanRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/shaman/enhancement"] = {
+			["version"] = 1,
 			["specID"] = 2,
 			["ActionList"] = {
 				["defaultRotation/shaman/frost_shock_elemental_fusion"] = {
@@ -164,6 +165,7 @@ local shamanRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/shaman/elemental"] = {
+			["version"] = 1,
 			["specID"] = 1,
 			["ActionList"] = {
 				["defaultRotation/shaman/searing_totem_refresh"] = {
@@ -278,13 +280,10 @@ local shamanRotationsGenerator = function ()
 		},
 	}
 
-	-- Restore the true state of the saved data.
-	--	return RotationBuilder:restoreTable({}, rotation);
 	return rotation;
 end
 
 local shamanRotationsGeneratorData = {
-	["version"] = 1, 
 	["generator"] = shamanRotationsGenerator
 };
 

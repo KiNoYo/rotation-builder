@@ -147,7 +147,7 @@ local rogueRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/rogue/subtlety"] = {
-			["version"] = 2,
+			["version"] = 1,
 			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/rogue/marked_for_death"] = {
@@ -416,13 +416,10 @@ local rogueRotationsGenerator = function ()
 		},
 	}
 
-	-- Restore the true state of the saved data.
-	-- return RotationBuilder:restoreTable({}, rotation);
 	return rotation;
 end
 
 local rogueRotationsGeneratorData = {
-	["version"] = 1, 
 	["generator"] = rogueRotationsGenerator
 };
 
