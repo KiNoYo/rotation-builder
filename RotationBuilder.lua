@@ -3419,14 +3419,10 @@ function ROB_SpellReady(actionName,isNextSpell)
 
 	-- CHECK: Last Casted
 	if (ActionDB.b_lastcasted and ActionDB.v_lastcasted ~= nil and ActionDB.v_lastcasted ~= "") then
-		if (tostring(ActionDB.v_lastcasted) ~= tostring(ROB_LAST_CASTED)) then
-			if (GetSpellInfo(ActionDB.v_lastcasted)) then
-				local spellName = GetSpellInfo(ActionDB.v_lastcasted);
-				if (tostring(spellname) ~= tostring(ROB_LAST_CASTED)) then
-					ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the last casted spell isn't the required one", debug);
-					return false;
-				end
-			end
+		local _, _, _, _, _, _, spellID = GetSpellInfo(ROB_LAST_CASTED);
+		if (ActionDB.v_lastcasted ~= tostring(spellID) and ActionDB.v_lastcasted ~= ROB_LAST_CASTED) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the last casted spell isn't the required one", debug);
+			return false;
 		end
 	end
 
