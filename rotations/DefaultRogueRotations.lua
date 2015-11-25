@@ -295,21 +295,28 @@ local rogueRotationsGenerator = function ()
 			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/rogue/marked_for_death"] = {
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "137619",
+					["v_p_needbuff"] = "51713",
 					["v_p_knowspell"] = "137619",
+					["b_p_notstance"] = true,
+					["b_p_unitpower"] = true,
+					["b_p_knowspell"] = true,
+					["v_p_notstance"] = "1",
+					["v_togglename"] = "Toggle 1",
+					["v_p_unitpowertype"] = "4",
+					["v_spellname"] = "137619",
+					["v_durationstartedtime"] = 0,
 					["v_keybind"] = "<keybind>",
+					["v_p_unitpower"] = "=0",
+					["b_p_needbuff"] = true,
 				},
 				["defaultRotation/rogue/eviscerate"] = {
 					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
+					["b_p_unitpower"] = true,
 					["v_spellname"] = "2098",
 					["v_p_unitpowertype"] = "4",
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = "=5",
-					["b_p_unitpower"] = true,
+					["v_durationstartedtime"] = 0,
 				},
 				["defaultRotation/rogue/backstab"] = {
 					["v_keybind"] = "<keybind>",
@@ -321,15 +328,32 @@ local rogueRotationsGenerator = function ()
 					["v_p_needbuff"] = "_5171^10",
 					["b_p_needbuff"] = true,
 					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
+					["b_p_unitpower"] = true,
 					["v_spellname"] = "5171",
+					["v_p_unitpowertype"] = "4",
+					["v_keybind"] = "<keybind>",
+					["v_p_unitpower"] = "=5",
+					["v_durationstartedtime"] = 0,
+				},
+				["defaultRotation/rogue/death_from_above"] = {
+					["v_togglename"] = "Toggle 1",
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "152150",
 					["v_p_unitpowertype"] = "4",
 					["v_keybind"] = "<keybind>",
 					["v_p_unitpower"] = "=5",
 					["b_p_unitpower"] = true,
 				},
+				["defaultRotation/rogue/vanish"] = {
+					["v_p_notstance"] = "1",
+					["v_togglename"] = "Toggle 1",
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "1856",
+					["b_p_notstance"] = true,
+					["v_keybind"] = "<keybind>",
+				},
 				["defaultRotation/rogue/rupture"] = {
-					["v_t_needsdebuff"] = "_1943^7",
+					["v_t_needsdebuff"] = "_1943^10",
 					["b_p_unitpower"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_p_unitpowertype"] = "4",
@@ -347,20 +371,21 @@ local rogueRotationsGenerator = function ()
 					["v_keybind"] = "<keybind>",
 				},
 				["defaultRotation/rogue/lethal_poison"] = {
-					["v_p_needbuff"] = "2823^600",
+					["v_p_needbuff"] = "2823",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "2823",
+					["v_spellname"] = "113742",
 					["b_p_needbuff"] = true,
 					["v_keybind"] = "<keybind>",
+					["v_actionicon"] = "2823",
 				},
 				["defaultRotation/rogue/ambush"] = {
 					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
+					["b_p_havebuff"] = true,
 					["v_spellname"] = "8676",
 					["v_keybind"] = "<keybind>",
 					["v_p_havebuff"] = "51713",
-					["b_p_havebuff"] = true,
+					["v_durationstartedtime"] = 0,
 				},
 				["defaultRotation/rogue/shadow_dance"] = {
 					["v_p_notstance"] = "1",
@@ -370,16 +395,6 @@ local rogueRotationsGenerator = function ()
 					["b_p_notstance"] = true,
 					["v_keybind"] = "<keybind>",
 				},
-				["defaultRotation/rogue/hemorrhage"] = {
-					["v_t_needsdebuff"] = "_16511^1||_1943^1",
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "16511",
-					["v_p_isglyphed"] = "146631",
-					["v_keybind"] = "<keybind>",
-					["b_p_isglyphed"] = true,
-					["b_t_needsdebuff"] = true,
-				},
 				["defaultRotation/rogue/premeditation"] = {
 					["b_p_isstealthed"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -388,6 +403,16 @@ local rogueRotationsGenerator = function ()
 					["b_disabled"] = true,
 					["v_keybind"] = "<keybind>",
 				},
+				["defaultRotation/rogue/hemorrhage"] = {
+					["v_t_needsdebuff"] = "_16511^1||_1943^1",
+					["v_togglename"] = "Toggle 1",
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "16511",
+					["v_p_isglyphed"] = "146631",
+					["v_keybind"] = "<keybind>",
+					["b_t_needsdebuff"] = true,
+					["b_p_isglyphed"] = true,
+				},
 				["defaultRotation/rogue/shadow_reflection"] = {
 					["v_p_knowspell"] = "152151",
 					["b_p_knowspell"] = true,
@@ -395,8 +420,8 @@ local rogueRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "152151",
 					["b_disabled"] = true,
-					["v_checkothercdvalue"] = "=0",
 					["v_keybind"] = "<keybind>",
+					["v_checkothercdvalue"] = "=0",
 					["v_checkothercdname"] = "51713",
 				},
 			},
@@ -404,15 +429,17 @@ local rogueRotationsGenerator = function ()
 				"defaultRotation/rogue/lethal_poison", -- [1]
 				"defaultRotation/rogue/premeditation", -- [2]
 				"defaultRotation/rogue/shadow_reflection", -- [3]
-				"defaultRotation/rogue/shadow_dance", -- [4]
-				"defaultRotation/rogue/marked_for_death", -- [5]
-				"defaultRotation/rogue/ambush_stealth", -- [6]
-				"defaultRotation/rogue/rupture", -- [7]
-				"defaultRotation/rogue/slice_and_dice", -- [8]
+				"defaultRotation/rogue/ambush_stealth", -- [4]
+				"defaultRotation/rogue/ambush", -- [5]
+				"defaultRotation/rogue/rupture", -- [6]
+				"defaultRotation/rogue/slice_and_dice", -- [7]
+				"defaultRotation/rogue/death_from_above", -- [8]
 				"defaultRotation/rogue/eviscerate", -- [9]
-				"defaultRotation/rogue/ambush", -- [10]
-				"defaultRotation/rogue/hemorrhage", -- [11]
-				"defaultRotation/rogue/backstab", -- [12]
+				"defaultRotation/rogue/shadow_dance", -- [10]
+				"defaultRotation/rogue/marked_for_death", -- [11]
+				"defaultRotation/rogue/vanish", -- [12]
+				"defaultRotation/rogue/hemorrhage", -- [13]
+				"defaultRotation/rogue/backstab", -- [14]
 			},
 		},
 	}
