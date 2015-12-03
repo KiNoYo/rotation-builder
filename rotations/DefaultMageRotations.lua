@@ -2,7 +2,7 @@
 local mageRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/mage/arcane"] = {
-			["version"] = 2,
+			["version"] = 1,
 			["keybind"] = "<keybind>",
 			["specID"] = 1,
 			["SortedActions"] = {
@@ -172,7 +172,7 @@ local mageRotationsGenerator = function ()
 			},
 		},
 		["defaultRotation/mage/fire"] = {
-			["version"] = 2,
+			["version"] = 1,
 			["keybind"] = "<keybind>",
 			["specID"] = 2,
 			["SortedActions"] = {
@@ -297,7 +297,7 @@ local mageRotationsGenerator = function ()
 			},
 		},
 		["defaultRotation/mage/frost"] = {
-			["version"] = 2,
+			["version"] = 1,
 			["keybind"] = "<keybind>",
 			["specID"] = 3,
 			["ActionList"] = {
