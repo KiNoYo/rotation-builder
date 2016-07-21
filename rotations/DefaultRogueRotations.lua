@@ -378,10 +378,8 @@ local rogueRotationsGenerator = function ()
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "16511",
-					["v_p_isglyphed"] = "146631",
 					["v_keybind"] = "<keybind>",
 					["b_t_needsdebuff"] = true,
-					["b_p_isglyphed"] = true,
 				},
 				["defaultRotation/rogue/premeditation"] = {
 					["b_p_isstealthed"] = true,

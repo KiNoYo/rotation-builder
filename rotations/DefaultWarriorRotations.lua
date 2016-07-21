@@ -34,8 +34,6 @@ local warriorRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 				},
 				["defaultRotation/warrior/thunder_clap"] = {
-					["b_p_isglyphed"] = true,
-					["v_p_isglyphed"] = "58356",
 					["v_actionicon"] = "6343",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,

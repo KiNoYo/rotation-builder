@@ -79,14 +79,12 @@ local hunterRotationsGenerator = function ()
 				},
 				["defaultRotation/hunter/aspect_of_the_cheetah"] = {
 					["v_p_needbuff"] = "5118||13159",
-					["v_p_isglyphed"] = "119462",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "5118",
 					["v_actionicon"] = "5118",
 					["v_keybind"] = "<keybind>",
 					["b_p_needbuff"] = true,
-					["b_p_isglyphed"] = true,
 				},
 				["defaultRotation/hunter/arcane_shot_thrill_of_the_hunt"] = {
 					["v_p_unitpower"] = ">80",
@@ -309,12 +307,10 @@ local hunterRotationsGenerator = function ()
 					["v_p_havebuff"] = "19615#1&19574^3",
 				},
 				["defaultRotation/hunter/aspect_of_the_cheetah"] = {
-					["b_p_isglyphed"] = true,
 					["b_p_needbuff"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "5118",
-					["v_p_isglyphed"] = "119462",
 					["v_keybind"] = "<keybind>",
 					["v_p_needbuff"] = "5118||13159",
 					["v_actionicon"] = "5118",
@@ -654,14 +650,12 @@ local hunterRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 				},
 				["defaultRotation/hunter/aspect_of_the_cheetah"] = {
-					["b_p_isglyphed"] = true,
 					["b_p_needbuff"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "5118",
 					["v_actionicon"] = "5118",
 					["v_keybind"] = "<keybind>",
-					["v_p_isglyphed"] = "119462",
 					["v_p_needbuff"] = "5118||13159",
 				},
 				["defaultRotation/hunter/aimed_shot_rapid_fire"] = {

@@ -99,6 +99,7 @@ ROB_NewActionDefaults = {
 	b_debug=false,
 	b_disabled=false,
 	b_hasproc=false,
+	b_notinspellbook=false,
 	
 	--Player Options---------------
 	b_p_hp=false,
@@ -126,13 +127,6 @@ ROB_NewActionDefaults = {
 	b_p_eclipse=false,
 	v_p_eclipse="",
 
-	b_p_firetotemactive=false,
-	v_p_firetotemactive="",
-	b_p_firetoteminactive=false,
-	v_p_firetoteminactive="",
-	b_p_firetotemtimeleft=false,
-	v_p_firetotemtimeleft="",
-
 	b_p_stance=false,
 	v_p_stance="",
 	b_p_notstance=false,
@@ -141,10 +135,6 @@ ROB_NewActionDefaults = {
 	v_p_knowspell="",
 	b_p_knownotspell=false,
 	v_p_knownotspell="",
-	b_p_isglyphed=false,
-	v_p_isglyphed="",
-	b_p_notglyphed=false,
-	v_p_notglyphed="",
 	b_p_isstealthed=false,
 	
 	--Target Options---------------
@@ -1151,8 +1141,8 @@ function ROB_SpellValidate(_spell)
 	--Get the spell id
 	if (GetSpellLink(_spell)) then
 		_parsedSpellID = string.sub(GetSpellLink(_spell),string.find(GetSpellLink(_spell), ":")+1)
-		_parsedSpellID = string.sub(_parsedSpellID,1,   string.find(_parsedSpellID, "\124")-1)
-		_link = GetSpellLink(_spell)
+		_parsedSpellID = string.sub(_parsedSpellID,1,   string.find(_parsedSpellID, ":") -1)
+		_link, _ = GetSpellLink(_spell)
 	else
 		--Is it a inventory slot?
 		if (_InvSlots[_spell] and GetInventoryItemID("player",_InvSlots[_spell])) then
@@ -2074,6 +2064,8 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetText("ROB_AO_GChargesInputBox",_ActionDB.v_charges,"")
 			
 			ROB_Rotation_GUI_SetChecked("ROB_AO_GHasProcCheckButton",_ActionDB.b_hasproc,false)
+			
+			ROB_Rotation_GUI_SetChecked("ROB_AO_GNotInSpellbookCheckButton",_ActionDB.b_notinspellbook,false)
 
 			--Player options-------------------------
 			ROB_Rotation_GUI_SetChecked("ROB_AO_NeedBuffCheckButton",_ActionDB.b_p_needbuff,false)
@@ -2110,13 +2102,6 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetChecked("ROB_AO_EclipeDirectionCheckButton",_ActionDB.b_p_eclipse,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_EclipeDirectionInputBox",_ActionDB.v_p_eclipse,"")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_FireTotemActiveCheckButton",_ActionDB.b_p_firetotemactive,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_FireTotemActiveInputBox",_ActionDB.v_p_firetotemactive,"")
-			ROB_Rotation_GUI_SetChecked("ROB_AO_FireTotemInactiveCheckButton",_ActionDB.b_p_firetoteminactive,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_FireTotemInactiveInputBox",_ActionDB.v_p_firetoteminactive,"")
-			ROB_Rotation_GUI_SetChecked("ROB_AO_FireTotemTimeleftCheckButton",_ActionDB.b_p_firetotemtimeleft,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_FireTotemTimeleftInputBox",_ActionDB.v_p_firetotemtimeleft,"")
-
 			ROB_Rotation_GUI_SetChecked("ROB_AO_StanceCheckButton",_ActionDB.b_p_stance,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_StanceInputBox",_ActionDB.v_p_stance,"")
 
@@ -2129,12 +2114,8 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetChecked("ROB_AO_KnowNotSpellCheckButton",_ActionDB.b_p_knownotspell,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_KnowNotSpellInputBox",_ActionDB.v_p_knownotspell,"")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_IsGlyphedCheckButton",_ActionDB.b_p_isglyphed,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_IsGlyphedInputBox",_ActionDB.v_p_isglyphed,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_NotGlyphedCheckButton",_ActionDB.b_p_notglyphed,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_NotGlyphedInputBox",_ActionDB.v_p_notglyphed,"")
 			ROB_Rotation_GUI_SetChecked("ROB_AO_IsStealthedCheckButton",_ActionDB.b_p_isstealthed,false);
+			
 			--Target options-------------------------
 			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetHPCheckButton",_ActionDB.b_t_hp,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_TargetHPInputBox",_ActionDB.v_t_hp,"")
@@ -2288,69 +2269,6 @@ end
 function ROB_GetGCD()
 	return RotationBuilderUtils:truncate(1.5/(GetHaste()/100+1),3);
 end
-
-function ROB_TotemActive(name, slot)
-	local active, totemName, _, _, _ = GetTotemInfo(slot);
-	local _, class = UnitClass("PLAYER");
-	if (class == "DEATHKNIGHT") then
-		return active;
-	end
-	if (name ~= nil and name ~= "") then
-		if (not totemName or totemName == "") then
-			return false;
-		else
-			if (GetSpellInfo(name) == totemName) then
-				return true;
-			end
-		end
-	else
-		return active;
-	end
-	return false;
-end
-
-function ROB_TotemTimeleft(needed, slot)
-	local timeLeft = needed;
-	local active, _, start, duration, _ = GetTotemInfo(slot);
-	local totemTime = start + duration - GetTime();
-
-	if not active or totemTime < 0 then
-		totemTime = 0;
-	end
-	if (string.sub(timeLeft, 1, 1) == "<" and string.sub(timeLeft, 1, 2) ~= "<=") then
-		timeLeft = tonumber(string.sub(timeLeft, 2));
-		if (totemTime < timeLeft) then
-			return true;
-		end
-	end
-	if (string.sub(timeLeft, 1, 1) == ">" and string.sub(timeLeft, 1, 2) ~= ">=") then
-		timeLeft = tonumber(string.sub(timeLeft, 2));
-		if (totemTime > timeLeft) then
-			return true;
-		end
-	end
-	if (string.sub(timeLeft, 1, 2) == ">=") then
-		timeLeft = tonumber(string.sub(timeLeft, 3));
-		if (totemTime >= timeLeft) then
-			return true;
-		end
-	end
-	if (string.sub(timeLeft, 1, 2) == "<=") then
-		timeLeft = tonumber(string.sub(timeLeft, 3));
-		if (totemTime <= timeLeft) then
-			return true;
-		end
-	end
-	if (string.sub(timeLeft, 1, 1) == "=") then
-		timeLeft = tonumber(string.sub(timeLeft, 2));
-		if (totemTime == timeLeft) then
-			return true;
-		end
-	end
-	return false;
-end
-
-
 
 function ROB_SpellHasCharges(spellId, number)
 	local parsedCharges = number;
@@ -2801,11 +2719,12 @@ function IsSpellKnown(spellId, isNextSpell)
 	local spellName = nil;
 	
 	if (isNextSpell) then
-		spellName, _, _, _, _, _ = GetSpellInfo(spellId);
+		spellName, _, _, _, _, _, _ = GetSpellInfo(spellId);
 	else
-		spellName, _, _, ROB_ACTION_CASTTIME, _, _ = GetSpellInfo(spellId);
+		spellName, _, _, ROB_ACTION_CASTTIME, _, _, _ = GetSpellInfo(spellId);
 	end
 	if spellName == nil then
+		ROB_ACTION_CASTTIME = 0;
 		return false;
 	end
 	local _, _, tabOffset, numEntries = GetSpellTabInfo(2);
@@ -2815,61 +2734,6 @@ function IsSpellKnown(spellId, isNextSpell)
 		if actualName == spellName then
 			return true;
 		end
-	end
-	return false;
-end
-
-function ROB_UnitIsGlyphed(needed)
-	local unparsed		= nil;
-	local remaining		= needed;
-	local count			= 0;
-	local found			= 0;
-	local done			= false;
-	local stringType	= 0;
-	local i				= 1;
-	local isfound		= false;
-	local glyph			= nil;
-
-	while not done and remaining ~= nil do
-		unparsed = nil
-		if (string.find(remaining, "|")) then
-			unparsed	= string.sub(remaining, 1, string.find(remaining, "|") - 1);
-			count		= count + 1;
-			remaining	= string.sub(remaining, string.find(remaining, "|") + 1);
-			stringType	= 1;
-		elseif (string.find(remaining, "&")) then
-			unparsed	= string.sub(remaining, 1, string.find(remaining, "&") - 1);
-			count		= count + 1;
-			remaining	= string.sub(remaining,string.find(remaining, "&") + 1);
-			stringType	= 2;
-		else
-			unparsed	= remaining;
-			count		= count + 1;
-			done		= true;
-		end
-		i		= 1;
-		isFound	= false;
-		glyph	= nil;
-		if (unparsed ~= nil) then
-			if (nil ~= tonumber(unparsed)) then
-				glyph = tonumber(unparsed);
-			else
-				glyph = unparsed;
-			end
-			while(i ~= 7 and (not isFound)) do
-				_, _, _, glyphSpellId, _	= GetGlyphSocketInfo(i);
-				name, _, _, _, _, _			= GetSpellInfo(glyphSpellId);
-				if (glyph == glyphSpellId or glyph == name) then
-					isFound	= true;
-					found	= found + 1;
-				else
-					i = i + 1;
-				end
-			end
-		end
-	end
-	if (((stringType == 0 or stringType == 1) and found >= 1) or (stringType == 2 and found == count) ) then
-		return true;
 	end
 	return false;
 end
@@ -3173,7 +3037,7 @@ function ROB_SpellReady(actionName,isNextSpell)
 	if spellName == nil then
 		spellName = "";
 	end
-	if (not IsSpellKnown(spellName, isNextSpell)) then
+	if (not ActionDB.b_notinspellbook and not IsSpellKnown(spellName, isNextSpell)) then
 		ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have this spell in your spellbook", debug);
 		return false;
 	end
@@ -3264,22 +3128,6 @@ function ROB_SpellReady(actionName,isNextSpell)
 	if (ActionDB.b_p_knownotspell and ActionDB.v_p_knownotspell ~= nil and ActionDB.v_p_knownotspell ~= "") then
 		if (ROB_UnitKnowSpell(ActionDB.v_p_knownotspell)) then
 			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you do know the required spell(s)", debug);
-			return false;
-		end
-	end
-
-	--CHECK: Is Glyphed
-	if (ActionDB.b_p_isglyphed and ActionDB.v_p_isglyphed ~= nil and ActionDB.v_p_isglyphed ~= "") then
-		if (not ROB_UnitIsGlyphed(ActionDB.v_p_isglyphed)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required glyph(s) active", debug);
-			return false;
-		end
-	end
-
-	--CHECK: Not Glyphed
-	if (ActionDB.b_p_notglyphed and ActionDB.v_p_notglyphed ~= nil and ActionDB.v_p_notglyphed ~= "") then
-		if (ROB_UnitIsGlyphed(ActionDB.v_p_notglyphed)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you do have the required glyph(s) active", debug);
 			return false;
 		end
 	end
@@ -3464,30 +3312,6 @@ function ROB_SpellReady(actionName,isNextSpell)
 		end
 	end
 
-	-- CHECK: Check TotemActive 
-	if (ActionDB.b_p_firetotemactive) then
-		if (not ROB_TotemActive(ActionDB.v_p_firetotemactive, 1)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the required fire totem or goul is not active", debug);
-			return false;
-		end
-	end
-
-	-- CHECK: Check TotemInactive
-	if (ActionDB.b_p_firetoteminactive) then
-		if (ROB_TotemActive(ActionDB.v_p_firetoteminactive, 1)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the required fire totem or goul is active", debug);
-			return false;
-		end
-	end
-
-	-- CHECK: Check TotemTimeleft
-	if (ActionDB.b_p_firetotemtimeleft and ActionDB.v_p_firetotemtimeleft ~= nil and ActionDB.v_p_firetotemtimeleft ~= "") then
-		if (not ROB_TotemTimeleft(ActionDB.v_p_firetotemtimeleft, 1)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the fire totem or goul doesn't have the required time left", debug);
-			return false;
-		end
-	end
-
 	--CHECK: Check Boss
 	if (ActionDB.b_t_boss ) then
 		if (UnitClassification("TARGET") ~= "worldboss") then
@@ -3541,10 +3365,10 @@ end
 
 -- TODO PEL : Analyse this code section to ensure that it is the starting point of the action to display as the current one to push.
 function ROB_GetCurrentAction()
-	local foundReadyAction = false
-	local foundReadyActionName = nil
-	local foundReadyActionCD = nil
-	local foundReadyActionTimeleft = 86400
+	local foundReadyAction = false;
+	local foundReadyActionName = nil;
+	local foundReadyActionCD = nil;
+	local foundReadyActionTimeleft = 86400;
 
 	for _, actionName in pairs(ROB_Rotations[ROB_SelectedRotationName].SortedActions) do
 		if (ROB_SpellReady(actionName,false) and (not foundReadyAction)) then
@@ -3575,10 +3399,10 @@ end
 
 -- TODO PEL : Analyse this code section to ensure that it is the method which calculate the next action to do.
 function ROB_GetNextAction()
-	local _foundReadyAction = false
-	local _foundReadyActionName = nil
-	local _foundReadyActionCD = nil
-	local _foundReadyActionTimeleft = 86400
+	local _foundReadyAction = false;
+	local _foundReadyActionName = nil;
+	local _foundReadyActionCD = nil;
+	local _foundReadyActionTimeleft = 86400;
 
 	--First get the next ready action name
 	for _, _NextActionName in pairs(ROB_Rotations[ROB_SelectedRotationName].SortedActions) do
@@ -3592,9 +3416,9 @@ function ROB_GetNextAction()
 
 		--Dont pick next actions that have the same aciton name or spell name as the current action
 		if (ROB_SpellReady(_NextActionName, true) and (_NextActionName ~= ROB_CURRENT_ACTION) and _SpellsAreDifferent) then
-			_foundReadyAction = true
-			_foundReadyActionName = _NextActionName
-			_foundReadyActionCD = ROB_ACTION_CD
+			_foundReadyAction = true;
+			_foundReadyActionName = _NextActionName;
+			_foundReadyActionCD = ROB_ACTION_CD;
 			break;
 		end
 	end

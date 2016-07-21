@@ -301,28 +301,19 @@ L["defaultRotation/rogue/slice_and_dice"] = "Slice and Dice"
 L["defaultRotation/rogue/subtlety"] = "Subtlety"
 L["defaultRotation/rogue/vanish"] = "Vanish"
 L["defaultRotation/rogue/vendetta"] = "Vendetta"
+L["defaultRotation/shaman/earth_shock_maelstrom"] = "Earth Shock (Maelstrom)"
 L["defaultRotation/shaman/earth_shock"] = "Earth Shock"
-L["defaultRotation/shaman/elemental"] = "Elemental 6.2.2"
-L["defaultRotation/shaman/elemental_blast"] = "Elemental Blast"
-L["defaultRotation/shaman/elemental_blast_maelstrom_4+"] = "Elemental Blast (Maelstrom 4+)"
-L["defaultRotation/shaman/enhancement"] = "Enhancement 6.2.2"
+L["defaultRotation/shaman/elemental"] = "Elemental 7.0.3"
+L["defaultRotation/shaman/enhancement"] = "Enhancement 7.0.3"
 L["defaultRotation/shaman/flame_shock"] = "Flame Shock"
-L["defaultRotation/shaman/flame_shock_elemental_fusion"] = "Flame Shock (Elemental Fusion)"
-L["defaultRotation/shaman/frost_shock"] = "Frost Shock"
-L["defaultRotation/shaman/frost_shock_elemental_fusion"] = "Frost Shock (Elemental Fusion)"
+L["defaultRotation/shaman/flametongue"] = "Flametongue"
+L["defaultRotation/shaman/frostbrand"] = "Frostbrand"
 L["defaultRotation/shaman/lava_burst"] = "Lava Burst"
-L["defaultRotation/shaman/lava_burst_flame_shock"] = "Lava Burst (Flame Shock)"
 L["defaultRotation/shaman/lava_lash"] = "Lava Lash"
 L["defaultRotation/shaman/lightning_bolt"] = "Lightning Bolt"
-L["defaultRotation/shaman/lightning_bolt_maelstrom_5"] = "Lightning Bolt (Maelstrom 5)"
-L["defaultRotation/shaman/lightning_shield"] = "Lightning Shield"
-L["defaultRotation/shaman/liquid_magma"] = "Liquid Magma"
-L["defaultRotation/shaman/searing_totem"] = "Searing Totem"
-L["defaultRotation/shaman/searing_totem_refresh"] = "Searing Totem (Refresh)"
+L["defaultRotation/shaman/restoration"] = "Restoration 7.0.3"
+L["defaultRotation/shaman/rockbiter"] = "Rockbiter"
 L["defaultRotation/shaman/stormstrike"] = "Stormstrike"
-L["defaultRotation/shaman/unleash_elements"] = "Unleash Elements"
-L["defaultRotation/shaman/unleash_elements_unleashed_fury"] = "Unleash Elements (Unleashed Fury)"
-L["defaultRotation/shaman/unleash_flame"] = "Unleash Flame"
 L["defaultRotation/warlock/affliction"] = "Affliction 6.2.0"
 L["defaultRotation/warlock/agony"] = "Agony"
 L["defaultRotation/warlock/cataclysm"] = "Cataclysm"
@@ -517,7 +508,7 @@ L["ROB_UI_AO_GENERAL_TAB"] = "General"
 L["ROB_UI_AO_G_GSPELLCOST"] = "Cost Power:"
 L["ROB_UI_AO_G_GSPELLCOST1_TT"] = [=[Input the type of power used
 |cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBOPOINTS |cFF00FF006|r=RUNICPOWER |cFF00FF007|r=SOULSHARDS
-|cFF00FF008|r=ECLIPSE |cFF00FF009|r=HOLYPOWER |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS |cFF00FF0014|r=BURNING EMBERS |cFF00FF0015|r=DEMONIC FURY]=]
+|cFF00FF008|r=ECLIPSE |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS |cFF00FF0014|r=BURNING EMBERS |cFF00FF0015|r=DEMONIC FURY]=]
 L["ROB_UI_AO_G_GSPELLCOST2_TT"] = [=[Input the amount of power used
 Example1: |cFF00FF003|r
 Example2: |cFF00FF0090%|r]=]
@@ -526,7 +517,7 @@ This is used for calculating the next ready action]=]
 L["ROB_UI_AO_G_GUNITPOWER"] = "Generates Power:"
 L["ROB_UI_AO_G_GUNITPOWER1_TT"] = [=[Input the type of power generated
 |cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBOPOINTS |cFF00FF006|r=RUNICPOWER |cFF00FF007|r=SOULSHARDS
-|cFF00FF008|r=ECLIPSE |cFF00FF009|r=HOLYPOWER |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS |cFF00FF0014|r=BURNING EMBERS |cFF00FF0015|r=DEMONIC FURY]=]
+|cFF00FF008|r=ECLIPSE |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS |cFF00FF0014|r=BURNING EMBERS |cFF00FF0015|r=DEMONIC FURY]=]
 L["ROB_UI_AO_G_GUNITPOWER2_TT"] = [=[Input the amount of power generated
 Example1: |cFF00FF003|r
 Example2: |cFF00FF0090%|r]=]
@@ -550,6 +541,8 @@ L["ROB_UI_AO_G_MOVING"] = "Moving"
 L["ROB_UI_AO_G_MOVING_TT"] = "Only display this action if player is moving"
 L["ROB_UI_AO_G_NMOVING"] = "Not Moving"
 L["ROB_UI_AO_G_NMOVING_TT"] = "Only display this action if player is not moving"
+L["ROB_UI_AO_G_NOTINSPELLBOOK"] = "Not in the spellbook"
+L["ROB_UI_AO_G_NOTINSPELLBOOK_TT"] = "Only display this action if the spell is not directly present in the spellboook"
 L["ROB_UI_AO_G_NOTSPELL"] = "Not a spell"
 L["ROB_UI_AO_G_NOTSPELL_TT"] = [=[Ignore spell mana type checks and just use the keybind to perform the action
 Check this when spellname=Trinket0Slot or HandsSlot]=]
@@ -618,24 +611,6 @@ Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when your pet is m
 Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when your pet is missing both Earth Shield and Inner Fire]=]
 L["ROB_UI_AO_PET_NEEDBUFF_TT"] = "Only display action when your pet needs specified buff or buffs"
 L["ROB_UI_AO_PET_TAB"] = "Pet"
-L["ROB_UI_AO_P_FIRETA"] = "Active Fire:"
-L["ROB_UI_AO_P_FIRETAIB_TT"] = [=[Input the name or spell id of the fire totem
-Example1: |cFF00FF00Searing Totem|r
-Example2:|cFF00FF00 3599|r
-Keep it empty if you just want to check if a fire totem is active]=]
-L["ROB_UI_AO_P_FIRETA_TT"] = "Only display action when specified fire totem is active"
-L["ROB_UI_AO_P_FIRETI"] = "Inactive Fire:"
-L["ROB_UI_AO_P_FIRETIIB_TT"] = [=[Input the name or spell id of the fire totem
-Example1: |cFF00FF00Searing Totem|r
-Example2:|cFF00FF00 3599|r
-Keep it empty if you just want to check if all fire totems are inactive]=]
-L["ROB_UI_AO_P_FIRETI_TT"] = "Only display action when specified fire totem is inactive"
-L["ROB_UI_AO_P_FIRETTL"] = "Timeleft Fire:"
-L["ROB_UI_AO_P_FIRETTLIB_TT"] = [=[Input the name or spell id of the fire totem
-Example1: |cFF00FF00>=2|r means >= 2 seconds left
-Example2: |cFF00FF00<=2.1|r means <=2.1 seconds left
-Example3: |cFF00FF00=5|r means exactly 5 seconds left]=]
-L["ROB_UI_AO_P_FIRETTL_TT"] = "Only display action when fire totem has specified timeleft"
 L["ROB_UI_AO_P_FROSTR"] = "Frost:"
 L["ROB_UI_AO_P_FROSTRIB_TT"] = [=[Input the number of frost runes
 Example1: |cFF00FF00>1|r means only display this action when player has more than 1 frost rune
@@ -668,9 +643,6 @@ Example3: |cFF00FF00<=90%|r means only display this action when player is under 
 Example4: |cFF00FF00>=90%|r means only display this action when player is over or equal to 90% hitpoints
 Example5: |cFF00FF00=90%|r means only display this action when player is at exactly 90% hitpoints]=]
 L["ROB_UI_AO_P_HP_TT"] = "Only display action when player meets specified hit points"
-L["ROB_UI_AO_P_ISGLYPHED"] = "Is glyphed"
-L["ROB_UI_AO_P_ISGLYPHEDIB_TT"] = "Input the glyph name or glyph spell id of the glyph you want check"
-L["ROB_UI_AO_P_ISGLYPHED_TT"] = "Only display action when specified glyph is glyphed"
 L["ROB_UI_AO_P_ISSTEALTHED"] = "Is stealthed";
 L["ROB_UI_AO_P_ISSTEALTHED_TT"] = "Only display action when the player is stealthed";
 L["ROB_UI_AO_P_KNOWNOTSPELL"] = "Do not know Spell"
@@ -698,15 +670,12 @@ Example3: |cFF00FF00_Dark Plague#2^3|r display action when player is missing a p
 Example4: |cFF00FF00Dark Plague|Forbearance|r display action when player is missing Dark Plague or Forbearance debuffs
 Example5: |cFF00FF00Dark Plague&Forbearance|r display action when player is missing both Dark Plague and Forbearance debuffs]=]
 L["ROB_UI_AO_P_NEEDDB_TT"] = "Only display action when player is missing the specified debuff or debuffs"
-L["ROB_UI_AO_P_NOTGLYPHED"] = "Not glyphed"
-L["ROB_UI_AO_P_NOTGLYPHEDIB_TT"] = "Input the glyph name or glyph spell id of the glyph you want check"
-L["ROB_UI_AO_P_NOTGLYPHED_TT"] = "Only display action when specified glyph is not glyphed"
 L["ROB_UI_AO_P_NOTSTANCE"] = "Not in Stance:"
 L["ROB_UI_AO_P_NOTSTANCE_TT"] = "Only display action when player is not in the specified stance"
 L["ROB_UI_AO_P_POWER"] = "Power:"
 L["ROB_UI_AO_P_POWER1_TT"] = [=[Input the type of unit power
 |cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBOPOINTS |cFF00FF006|r=RUNICPOWER |cFF00FF007|r=SOULSHARDS
-|cFF00FF008|r=ECLIPSE |cFF00FF009|r=HOLYPOWER |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS |cFF00FF0014|r=BURNING EMBERS |cFF00FF0015|r=DEMONIC FURY]=]
+|cFF00FF008|r=ECLIPSE |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS |cFF00FF0014|r=BURNING EMBERS |cFF00FF0015|r=DEMONIC FURY]=]
 L["ROB_UI_AO_P_POWER2_TT"] = [=[Input the amount of power required
 Example1: |cFF00FF00>20|r
 Example2: |cFF00FF00<=20|r
