@@ -1,724 +1,227 @@
 -- The default rotations generator for HUNTERS.
 local hunterRotationsGenerator = function ()
 	local rotation = {
-		["defaultRotation/hunter/survival"] = {
+		["defaultRotation/hunter/beast_mastery"] = {
 			["version"] = 1,
-			["specID"] = 3,
+			["keybind"] = "<keybind>",
+			["specID"] = 1,
 			["ActionList"] = {
-				["defaultRotation/hunter/glaive_toss"] = {
-					["v_p_knowspell"] = "117050",
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_actionicon"] = "117050",
-					["v_spellname"] = "117050",
+				["defaultRotation/hunter/bestial_wrath"] = {
 					["v_keybind"] = "<keybind>",
+					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "19574",
 				},
 				["defaultRotation/hunter/dire_beast"] = {
-					["v_p_knowspell"] = "120679",
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_actionicon"] = "120679",
-					["v_spellname"] = "120679",
 					["v_keybind"] = "<keybind>",
+					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "120679",
 				},
 				["defaultRotation/hunter/cobra_shot"] = {
-					["v_gunitpowertype"] = "2",
-					["v_keybind"] = "<keybind>",
-					["v_togglename"] = "Toggle 1",
-					["v_actionicon"] = "77767",
-					["v_p_knownotspell"] = "152245",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "77767",
-					["b_gunitpower"] = true,
-					["b_p_knownotspell"] = true,
-					["v_gunitpower"] = "14",
-				},
-				["defaultRotation/hunter/focusing_shot"] = {
-					["v_p_knowspell"] = "152245",
-					["v_gunitpowertype"] = "2",
-					["v_durationstartedtime"] = 0,
-					["v_actionicon"] = "152245",
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["b_gunitpower"] = true,
-					["v_spellname"] = "77767",
-					["v_keybind"] = "<keybind>",
-					["v_gunitpower"] = "50",
-				},
-				["defaultRotation/hunter/explosive_shot"] = {
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "53301",
-					["v_actionicon"] = "53301",
-					["v_keybind"] = "<keybind>",
-				},
-				["defaultRotation/hunter/focusing_shot_steady_focus"] = {
-					["b_p_needbuff"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "77767",
-					["v_gunitpower"] = "50",
-					["v_lastcasted"] = "77767",
-					["v_p_knowspell"] = "177667&152245",
-					["b_p_knowspell"] = true,
-					["b_gunitpower"] = true,
-					["v_actionicon"] = "152245",
-					["v_p_needbuff"] = "177667^3",
-					["b_lastcasted"] = true,
-					["v_keybind"] = "<keybind>",
-					["v_gunitpowertype"] = "2",
-				},
-				["defaultRotation/hunter/a_murder_of_crows"] = {
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "131894",
-					["v_actionicon"] = "131894",
-					["v_keybind"] = "<keybind>",
-				},
-				["defaultRotation/hunter/aspect_of_the_cheetah"] = {
-					["v_p_needbuff"] = "5118||13159",
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "5118",
-					["v_actionicon"] = "5118",
-					["v_keybind"] = "<keybind>",
-					["b_p_needbuff"] = true,
-				},
-				["defaultRotation/hunter/arcane_shot_thrill_of_the_hunt"] = {
-					["v_p_unitpower"] = ">80",
-					["v_actionicon"] = "3044",
+					["b_gspellcost"] = true,
+					["v_gspellcosttype"] = "2",
 					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_togglename"] = "Toggle 1",
 					["v_p_unitpowertype"] = "2",
-					["v_spellname"] = "3044",
-					["b_p_havebuff"] = true,
+					["v_spellname"] = "193455",
+					["v_gspellcost"] = "40",
 					["v_keybind"] = "<keybind>",
-					["v_p_havebuff"] = "34720",
+					["v_p_unitpower"] = ">90",
+					["v_durationstartedtime"] = 0,
 				},
-				["defaultRotation/hunter/black_arrow"] = {
+				["defaultRotation/hunter/mend_pet"] = {
+					["b_notinspellbook"] = true,
+					["v_pet_needsbuff"] = "_136",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "3674",
-					["v_actionicon"] = "3674",
+					["v_spellname"] = "136",
+					["b_pet_needsbuff"] = true,
 					["v_keybind"] = "<keybind>",
+					["v_pet_hp"] = "<=75%",
+					["b_pet_hp"] = true,
 				},
-				["defaultRotation/hunter/cobra_shot_steady_focus"] = {
+				["defaultRotation/hunter/kill_command"] = {
+					["b_gspellcost"] = true,
+					["v_togglename"] = "Toggle 1",
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "34026",
+					["v_gspellcosttype"] = "2",
+					["v_keybind"] = "<keybind>",
+					["v_gspellcost"] = "30",
+				},
+				["defaultRotation/hunter/revive_pet"] = {
+					["v_togglename"] = "Toggle 1",
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "982",
+					["v_keybind"] = "<keybind>",
+					["b_notinspellbook"] = true,
+					["v_pet_hp"] = "=0",
+					["b_pet_hp"] = true,
+				},
+			},
+			["SortedActions"] = {
+				"defaultRotation/hunter/revive_pet", -- [1]
+				"defaultRotation/hunter/mend_pet", -- [2]
+				"defaultRotation/hunter/bestial_wrath", -- [3]
+				"defaultRotation/hunter/kill_command", -- [4]
+				"defaultRotation/hunter/dire_beast", -- [5]
+				"defaultRotation/hunter/cobra_shot", -- [6]
+			},
+		},
+		["defaultRotation/hunter/marksmanship"] = {
+			["version"] = 1,
+			["keybind"] = "<keybind>",
+			["specID"] = 2,
+			["SortedActions"] = {
+				"defaultRotation/hunter/revive_pet", -- [1]
+				"defaultRotation/hunter/mend_pet", -- [2]
+				"defaultRotation/hunter/marked_shot", -- [3]
+				"defaultRotation/hunter/aimed_shot", -- [4]
+				"defaultRotation/hunter/arcane_shot", -- [5]
+			},
+			["ActionList"] = {
+				["defaultRotation/hunter/aimed_shot"] = {
+					["b_gspellcost"] = true,
+					["b_t_hasdebuff"] = true,
+					["v_togglename"] = "Toggle 1",
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "19434",
+					["v_gspellcost"] = "50",
+					["v_keybind"] = "<keybind>",
+					["v_gspellcosttype"] = "2",
+					["v_t_hasdebuff"] = "_187131^2",
+				},
+				["defaultRotation/hunter/marked_shot"] = {
+					["b_gspellcost"] = true,
+					["v_togglename"] = "Toggle 1",
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "185901",
+					["v_gspellcost"] = "30",
+					["v_keybind"] = "<keybind>",
+					["v_gspellcosttype"] = "2",
+				},
+				["defaultRotation/hunter/arcane_shot"] = {
+					["v_togglename"] = "Toggle 1",
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "185358",
 					["v_gunitpowertype"] = "2",
-					["v_p_knownotspell"] = "152245",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "77767",
-					["v_gunitpower"] = "14",
-					["v_lastcasted"] = "77767",
-					["v_p_knowspell"] = "177667",
-					["v_p_needbuff"] = "177667^3",
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
+					["v_keybind"] = "<keybind>",
+					["v_gunitpower"] = "5",
 					["b_gunitpower"] = true,
-					["b_p_knownotspell"] = true,
-					["b_lastcasted"] = true,
-					["v_keybind"] = "<keybind>",
-					["b_p_needbuff"] = true,
-					["v_actionicon"] = "77767",
 				},
-				["defaultRotation/hunter/powershot"] = {
+				["defaultRotation/hunter/mend_pet"] = {
+					["b_notinspellbook"] = true,
+					["v_pet_needsbuff"] = "_136",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "109259",
-					["v_actionicon"] = "109259",
+					["v_pet_hp"] = "<=75%",
+					["b_pet_needsbuff"] = true,
 					["v_keybind"] = "<keybind>",
+					["v_spellname"] = "136",
+					["b_pet_hp"] = true,
 				},
-				["defaultRotation/hunter/barrage"] = {
-					["v_p_knowspell"] = "120360",
-					["b_p_knowspell"] = true,
+				["defaultRotation/hunter/revive_pet"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "120360",
+					["v_spellname"] = "982",
+					["b_notinspellbook"] = true,
 					["v_keybind"] = "<keybind>",
-					["v_actionicon"] = "120360",
+					["v_pet_hp"] = "=0",
+					["b_pet_hp"] = true,
 				},
-				["defaultRotation/hunter/stampede"] = {
-					["v_actionicon"] = "121818",
+			},
+		},
+		["defaultRotation/hunter/survival"] = {
+			["version"] = 1,
+			["keybind"] = "<keybind>",
+			["specID"] = 3,
+			["SortedActions"] = {
+				"defaultRotation/hunter/revive_pet", -- [1]
+				"defaultRotation/hunter/mend_pet", -- [2]
+				"defaultRotation/hunter/explosive_trap", -- [3]
+				"defaultRotation/hunter/lacerate", -- [4]
+				"defaultRotation/hunter/mongoose_bite_3_charges", -- [5]
+				"defaultRotation/hunter/flanking_strike", -- [6]
+				"defaultRotation/hunter/raptor_strike", -- [7]
+				"defaultRotation/hunter/mongoose_bite", -- [8]
+			},
+			["ActionList"] = {
+				["defaultRotation/hunter/raptor_strike"] = {
+					["b_gspellcost"] = true,
+					["b_p_unitpower"] = true,
+					["v_p_unitpowertype"] = "2",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "121818",
-					["b_t_boss"] = true,
+					["v_spellname"] = "186270",
+					["v_gspellcost"] = "25",
 					["v_keybind"] = "<keybind>",
+					["v_p_unitpower"] = ">90",
+					["v_gspellcosttype"] = "2",
 				},
 				["defaultRotation/hunter/explosive_trap"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "13813",
+					["v_spellname"] = "191433",
+					["b_notinspellbook"] = true,
 					["v_keybind"] = "<keybind>",
-					["v_actionicon"] = "13813",
 				},
-				["defaultRotation/hunter/arcane_shot"] = {
-					["b_p_unitpower"] = true,
+				["defaultRotation/hunter/mongoose_bite_3_charges"] = {
+					["v_togglename"] = "Toggle 1",
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "190928",
+					["v_keybind"] = "<keybind>",
+					["v_charges"] = "3",
+					["b_charges"] = true,
+				},
+				["defaultRotation/hunter/flanking_strike"] = {
+					["b_gspellcost"] = true,
+					["v_p_unitpowertype"] = "2",
 					["v_durationstartedtime"] = 0,
 					["v_togglename"] = "Toggle 1",
-					["v_actionicon"] = "3044",
-					["v_spellname"] = "3044",
-					["v_p_unitpowertype"] = "2",
+					["b_p_unitpower"] = true,
+					["v_spellname"] = "202800",
+					["v_gspellcost"] = "50",
 					["v_keybind"] = "<keybind>",
-					["v_p_unitpower"] = ">80",
+					["v_p_unitpower"] = ">85",
+					["v_gspellcosttype"] = "2",
+				},
+				["defaultRotation/hunter/mongoose_bite"] = {
+					["v_togglename"] = "Toggle 1",
+					["v_keybind"] = "<keybind>",
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "190928",
+				},
+				["defaultRotation/hunter/lacerate"] = {
+					["b_gspellcost"] = true,
+					["v_togglename"] = "Toggle 1",
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "185855",
+					["v_gspellcosttype"] = "2",
+					["v_keybind"] = "<keybind>",
+					["v_gspellcost"] = "35",
 				},
 				["defaultRotation/hunter/mend_pet"] = {
-					["v_actionicon"] = "136",
+					["b_notinspellbook"] = true,
 					["v_pet_needsbuff"] = "_136",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
-					["v_pet_hp"] = "<=80%",
+					["v_pet_hp"] = "<=75%",
 					["b_pet_needsbuff"] = true,
 					["v_keybind"] = "<keybind>",
 					["v_spellname"] = "136",
 					["b_pet_hp"] = true,
 				},
-				["defaultRotation/hunter/arcane_shot_serpent_sting"] = {
-					["v_t_needsdebuff"] = "_87935^5",
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "3044",
-					["b_t_needsdebuff"] = true,
-					["v_keybind"] = "<keybind>",
-					["v_actionicon"] = "3044",
-				},
 				["defaultRotation/hunter/revive_pet"] = {
-					["v_spellname"] = "982",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_pet_hp"] = "=0",
-					["v_actionicon"] = "982",
-					["v_keybind"] = "<keybind>",
-					["b_pet_hp"] = true,
-				},
-			},
-			["SortedActions"] = {
-				"defaultRotation/hunter/focusing_shot_steady_focus", -- [1]
-				"defaultRotation/hunter/cobra_shot_steady_focus", -- [2]
-				"defaultRotation/hunter/aspect_of_the_cheetah", -- [3]
-				"defaultRotation/hunter/revive_pet", -- [4]
-				"defaultRotation/hunter/mend_pet", -- [5]
-				"defaultRotation/hunter/arcane_shot_thrill_of_the_hunt", -- [6]
-				"defaultRotation/hunter/explosive_shot", -- [7]
-				"defaultRotation/hunter/black_arrow", -- [8]
-				"defaultRotation/hunter/explosive_trap", -- [9]
-				"defaultRotation/hunter/glaive_toss", -- [10]
-				"defaultRotation/hunter/barrage", -- [11]
-				"defaultRotation/hunter/arcane_shot_serpent_sting", -- [12]
-				"defaultRotation/hunter/arcane_shot", -- [13]
-				"defaultRotation/hunter/stampede", -- [14]
-				"defaultRotation/hunter/a_murder_of_crows", -- [15]
-				"defaultRotation/hunter/dire_beast", -- [16]
-				"defaultRotation/hunter/powershot", -- [17]
-				"defaultRotation/hunter/focusing_shot", -- [18]
-				"defaultRotation/hunter/cobra_shot", -- [19]
-			},
-			["keybind"] = "<keybind>",
-		},
-		["defaultRotation/hunter/beast_mastery"] = {
-			["version"] = 1,
-			["specID"] = 1,
-			["ActionList"] = {
-				["defaultRotation/hunter/glaive_toss"] = {
-					["v_p_knowspell"] = "117050",
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "117050",
-					["v_keybind"] = "<keybind>",
-					["v_actionicon"] = "117050",
-				},
-				["defaultRotation/hunter/dire_beast"] = {
-					["v_p_knowspell"] = "120679",
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "120679",
-					["v_keybind"] = "<keybind>",
-					["v_actionicon"] = "120679",
-				},
-				["defaultRotation/hunter/cobra_shot"] = {
-					["v_keybind"] = "<keybind>",
-					["v_gunitpowertype"] = "2",
-					["v_actionicon"] = "77767",
-					["v_p_knownotspell"] = "152245",
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "77767",
-					["b_gunitpower"] = true,
-					["b_p_knownotspell"] = true,
-					["v_gunitpower"] = "14",
-				},
-				["defaultRotation/hunter/focusing_shot"] = {
-					["v_actionicon"] = "152245",
-					["v_gunitpowertype"] = "2",
-					["b_gunitpower"] = true,
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "77767",
-					["v_p_knowspell"] = "152245",
-					["v_keybind"] = "<keybind>",
-					["v_gunitpower"] = "50",
-				},
-				["defaultRotation/hunter/focus_fire"] = {
-					["v_actionicon"] = "82692",
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "82692",
-					["b_p_havebuff"] = true,
-					["v_keybind"] = "<keybind>",
-					["v_p_havebuff"] = "19615#5",
-				},
-				["defaultRotation/hunter/focusing_shot_steady_focus"] = {
-					["v_gunitpowertype"] = "2",
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "77767",
-					["v_gunitpower"] = "50",
-					["v_lastcasted"] = "77767",
-					["v_p_knowspell"] = "177667&152245",
-					["b_p_knowspell"] = true,
-					["v_actionicon"] = "152245",
-					["b_gunitpower"] = true,
-					["v_p_needbuff"] = "177667^3",
-					["b_lastcasted"] = true,
-					["v_keybind"] = "<keybind>",
-					["b_p_needbuff"] = true,
-				},
-				["defaultRotation/hunter/a_murder_of_crows"] = {
-					["v_p_knowspell"] = "131894",
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_actionicon"] = "131894",
-					["v_spellname"] = "131894",
-					["v_keybind"] = "<keybind>",
-					["v_durationstartedtime"] = 0,
-				},
-				["defaultRotation/hunter/focus_fire_bestial_wrath"] = {
-					["b_p_havebuff"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "82692",
-					["v_actionicon"] = "82692",
-					["v_keybind"] = "<keybind>",
-					["v_p_havebuff"] = "19615#1&19574^3",
-				},
-				["defaultRotation/hunter/aspect_of_the_cheetah"] = {
-					["b_p_needbuff"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "5118",
-					["v_keybind"] = "<keybind>",
-					["v_p_needbuff"] = "5118||13159",
-					["v_actionicon"] = "5118",
-				},
-				["defaultRotation/hunter/kill_command"] = {
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "34026",
-					["v_actionicon"] = "34026",
-					["v_keybind"] = "<keybind>",
-				},
-				["defaultRotation/hunter/focus_fire_stampede"] = {
-					["v_lastcasted"] = "121818",
-					["v_p_knowspell"] = "121818",
-					["v_durationstartedtime"] = 0,
-					["v_actionicon"] = "82692",
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["b_p_havebuff"] = true,
-					["v_spellname"] = "82692",
-					["b_lastcasted"] = true,
-					["v_keybind"] = "<keybind>",
-					["v_p_havebuff"] = "19615#1",
-				},
-				["defaultRotation/hunter/kill_shot"] = {
-					["v_t_hp"] = "<20%",
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "53351",
-					["v_actionicon"] = "53351",
-					["v_keybind"] = "<keybind>",
-					["b_t_hp"] = true,
-				},
-				["defaultRotation/hunter/mend_pet"] = {
-					["v_actionicon"] = "136",
-					["v_pet_needsbuff"] = "_136",
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "136",
-					["b_pet_needsbuff"] = true,
-					["v_keybind"] = "<keybind>",
-					["v_pet_hp"] = "<=80%",
-					["b_pet_hp"] = true,
-				},
-				["defaultRotation/hunter/cobra_shot_steady_focus"] = {
-					["v_gunitpowertype"] = "2",
-					["v_p_knownotspell"] = "152245",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "77767",
-					["v_gunitpower"] = "14",
-					["v_lastcasted"] = "77767",
-					["v_p_knowspell"] = "177667",
-					["v_togglename"] = "Toggle 1",
-					["b_p_knowspell"] = true,
-					["v_p_needbuff"] = "177667^3",
-					["v_actionicon"] = "77767",
-					["b_p_needbuff"] = true,
-					["b_lastcasted"] = true,
-					["v_keybind"] = "<keybind>",
-					["b_p_knownotspell"] = true,
-					["b_gunitpower"] = true,
-				},
-				["defaultRotation/hunter/bestial_wrath"] = {
-					["v_p_unitpowertype"] = "2",
-					["v_durationstartedtime"] = 0,
-					["v_keybind"] = "<keybind>",
-					["v_checkothercdname"] = "34026",
-					["b_checkothercd"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_actionicon"] = "19574",
-					["v_spellname"] = "19574",
-					["b_p_unitpower"] = true,
-					["v_checkothercdvalue"] = "=0",
-					["v_p_unitpower"] = ">=90%",
-				},
-				["defaultRotation/hunter/arcane_shot_thrill_of_the_hunt"] = {
-					["v_p_unitpower"] = ">100",
-					["v_actionicon"] = "3044",
-					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_togglename"] = "Toggle 1",
-					["v_p_unitpowertype"] = "2",
-					["v_spellname"] = "3044",
-					["b_p_havebuff"] = true,
-					["v_keybind"] = "<keybind>",
-					["v_p_havebuff"] = "34720",
-				},
-				["defaultRotation/hunter/stampede"] = {
-					["v_p_knowspell"] = "121818",
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_actionicon"] = "121818",
-					["v_spellname"] = "121818",
-					["b_t_boss"] = true,
-					["v_keybind"] = "<keybind>",
-					["v_durationstartedtime"] = 0,
-				},
-				["defaultRotation/hunter/barrage"] = {
-					["v_p_knowspell"] = "120360",
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_actionicon"] = "120360",
-					["v_spellname"] = "120360",
-					["v_keybind"] = "<keybind>",
-					["v_durationstartedtime"] = 0,
-				},
-				["defaultRotation/hunter/arcane_shot"] = {
-					["v_durationstartedtime"] = 0,
-					["b_p_unitpower"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_p_unitpowertype"] = "2",
-					["v_spellname"] = "3044",
-					["v_actionicon"] = "3044",
-					["v_keybind"] = "<keybind>",
-					["v_p_unitpower"] = ">100",
-				},
-				["defaultRotation/hunter/powershot"] = {
-					["v_p_knowspell"] = "109259",
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "109259",
-					["v_keybind"] = "<keybind>",
-					["v_actionicon"] = "109259",
-				},
-				["defaultRotation/hunter/focus_fire_frenzy"] = {
-					["v_p_needbuff"] = "19615^3",
-					["b_p_needbuff"] = true,
-					["b_p_havebuff"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "82692",
-					["v_actionicon"] = "82692",
-					["v_keybind"] = "<keybind>",
-					["v_p_havebuff"] = "19615#1",
-				},
-				["defaultRotation/hunter/revive_pet"] = {
-					["v_actionicon"] = "982",
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "982",
-					["v_pet_hp"] = "=0",
 					["v_keybind"] = "<keybind>",
+					["b_notinspellbook"] = true,
 					["b_pet_hp"] = true,
 				},
 			},
-			["SortedActions"] = {
-				"defaultRotation/hunter/focus_fire_stampede", -- [1]
-				"defaultRotation/hunter/focusing_shot_steady_focus", -- [2]
-				"defaultRotation/hunter/cobra_shot_steady_focus", -- [3]
-				"defaultRotation/hunter/aspect_of_the_cheetah", -- [4]
-				"defaultRotation/hunter/revive_pet", -- [5]
-				"defaultRotation/hunter/mend_pet", -- [6]
-				"defaultRotation/hunter/stampede", -- [7]
-				"defaultRotation/hunter/focus_fire_bestial_wrath", -- [8]
-				"defaultRotation/hunter/focus_fire_frenzy", -- [9]
-				"defaultRotation/hunter/focus_fire", -- [10]
-				"defaultRotation/hunter/bestial_wrath", -- [11]
-				"defaultRotation/hunter/arcane_shot_thrill_of_the_hunt", -- [12]
-				"defaultRotation/hunter/kill_command", -- [13]
-				"defaultRotation/hunter/kill_shot", -- [14]
-				"defaultRotation/hunter/dire_beast", -- [15]
-				"defaultRotation/hunter/a_murder_of_crows", -- [16]
-				"defaultRotation/hunter/glaive_toss", -- [17]
-				"defaultRotation/hunter/powershot", -- [18]
-				"defaultRotation/hunter/barrage", -- [19]
-				"defaultRotation/hunter/arcane_shot", -- [20]
-				"defaultRotation/hunter/focusing_shot", -- [21]
-				"defaultRotation/hunter/cobra_shot", -- [22]
-			},
-			["keybind"] = "<keybind>",
-		},
-		["defaultRotation/hunter/marksmanship"] = {
-			["version"] = 1,
-			["specID"] = 2,
-			["ActionList"] = {
-				["defaultRotation/hunter/aimed_shot_thrill_of_the_hunt"] = {
-					["v_p_unitpower"] = ">80",
-					["v_actionicon"] = "19434",
-					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_togglename"] = "Toggle 1",
-					["v_p_unitpowertype"] = "2",
-					["v_spellname"] = "19434",
-					["b_p_havebuff"] = true,
-					["v_keybind"] = "<keybind>",
-					["v_p_havebuff"] = "34720",
-				},
-				["defaultRotation/hunter/dire_beast"] = {
-					["v_p_knowspell"] = "120679",
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_actionicon"] = "120679",
-					["v_spellname"] = "120679",
-					["v_keybind"] = "<keybind>",
-					["v_durationstartedtime"] = 0,
-				},
-				["defaultRotation/hunter/focusing_shot"] = {
-					["v_gunitpowertype"] = "2",
-					["v_p_knowspell"] = "152245",
-					["b_gunitpower"] = true,
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "56641",
-					["v_actionicon"] = "152245",
-					["v_keybind"] = "<keybind>",
-					["v_gunitpower"] = "50",
-				},
-				["defaultRotation/hunter/stampede"] = {
-					["v_p_knowspell"] = "121818",
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "121818",
-					["b_t_boss"] = true,
-					["v_keybind"] = "<keybind>",
-					["v_actionicon"] = "121818",
-				},
-				["defaultRotation/hunter/focusing_shot_steady_focus"] = {
-					["v_p_needbuff"] = "177667^3",
-					["v_p_knowspell"] = "177667&152245",
-					["v_lastcasted"] = "56641",
-					["v_actionicon"] = "56641",
-					["b_p_needbuff"] = true,
-					["b_gunitpower"] = true,
-					["v_gunitpowertype"] = "2",
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "56641",
-					["b_lastcasted"] = true,
-					["v_keybind"] = "<keybind>",
-					["v_gunitpower"] = "50",
-				},
-				["defaultRotation/hunter/a_murder_of_crows"] = {
-					["v_p_knowspell"] = "131894",
-					["v_t_hp"] = ">90%",
-					["v_spellname"] = "131894",
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["b_t_hp"] = true,
-					["b_t_boss"] = true,
-					["v_keybind"] = "<keybind>",
-					["v_actionicon"] = "131894",
-				},
-				["defaultRotation/hunter/aimed_shot"] = {
-					["v_t_hp"] = ">80%",
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "19434",
-					["v_actionicon"] = "19434",
-					["v_keybind"] = "<keybind>",
-					["b_t_hp"] = true,
-				},
-				["defaultRotation/hunter/steady_shot"] = {
-					["v_gunitpowertype"] = "2",
-					["v_keybind"] = "<keybind>",
-					["b_gunitpower"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_p_knownotspell"] = "152245",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "56641",
-					["v_actionicon"] = "56641",
-					["b_p_knownotspell"] = true,
-					["v_gunitpower"] = "14",
-				},
-				["defaultRotation/hunter/steady_shot_focus"] = {
-					["v_gunitpowertype"] = "2",
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "56641",
-					["v_gunitpower"] = "14",
-					["v_p_needbuff"] = "177667^3",
-					["v_p_knowspell"] = "177667",
-					["v_p_knownotspell"] = "152245",
-					["b_p_knowspell"] = true,
-					["b_gunitpower"] = true,
-					["v_actionicon"] = "152245",
-					["v_lastcasted"] = "56641",
-					["b_lastcasted"] = true,
-					["v_keybind"] = "<keybind>",
-					["b_p_knownotspell"] = true,
-					["b_p_needbuff"] = true,
-				},
-				["defaultRotation/hunter/kill_shot"] = {
-					["v_t_hp"] = "<35%",
-					["v_togglename"] = "Toggle 1",
-					["v_actionicon"] = "53351",
-					["b_t_hp"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_keybind"] = "<keybind>",
-					["v_spellname"] = "53351",
-				},
-				["defaultRotation/hunter/glaive_toss"] = {
-					["v_p_knowspell"] = "117050",
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_actionicon"] = "117050",
-					["v_spellname"] = "117050",
-					["v_keybind"] = "<keybind>",
-					["v_durationstartedtime"] = 0,
-				},
-				["defaultRotation/hunter/mend_pet"] = {
-					["v_pet_hp"] = "<=80%",
-					["v_pet_needsbuff"] = "_136",
-					["v_togglename"] = "Toggle 1",
-					["v_actionicon"] = "136",
-					["v_spellname"] = "136",
-					["b_pet_needsbuff"] = true,
-					["v_keybind"] = "<keybind>",
-					["v_durationstartedtime"] = 0,
-					["b_pet_hp"] = true,
-				},
-				["defaultRotation/hunter/chimera_shot"] = {
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "53209",
-					["v_actionicon"] = "53209",
-					["v_keybind"] = "<keybind>",
-				},
-				["defaultRotation/hunter/rapid_fire"] = {
-					["v_togglename"] = "Toggle 1",
-					["v_actionicon"] = "3045",
-					["v_spellname"] = "3045",
-					["v_keybind"] = "<keybind>",
-					["v_durationstartedtime"] = 0,
-				},
-				["defaultRotation/hunter/powershot"] = {
-					["v_p_knowspell"] = "109259",
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_actionicon"] = "109259",
-					["v_spellname"] = "109259",
-					["v_keybind"] = "<keybind>",
-					["v_durationstartedtime"] = 0,
-				},
-				["defaultRotation/hunter/aspect_of_the_cheetah"] = {
-					["b_p_needbuff"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "5118",
-					["v_actionicon"] = "5118",
-					["v_keybind"] = "<keybind>",
-					["v_p_needbuff"] = "5118||13159",
-				},
-				["defaultRotation/hunter/aimed_shot_rapid_fire"] = {
-					["v_actionicon"] = "19434",
-					["v_togglename"] = "Toggle 1",
-					["b_p_havebuff"] = true,
-					["v_spellname"] = "19434",
-					["v_durationstartedtime"] = 0,
-					["v_keybind"] = "<keybind>",
-					["v_p_havebuff"] = "3045",
-				},
-				["defaultRotation/hunter/revive_pet"] = {
-					["v_actionicon"] = "982",
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "982",
-					["v_pet_hp"] = "=0",
-					["v_keybind"] = "<keybind>",
-					["b_pet_hp"] = true,
-				},
-				["defaultRotation/hunter/barrage"] = {
-					["v_p_knowspell"] = "120360",
-					["b_p_knowspell"] = true,
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "120360",
-					["v_keybind"] = "<keybind>",
-					["v_actionicon"] = "120360",
-				},
-				["defaultRotation/hunter/aimed_shot_focus"] = {
-					["v_actionicon"] = "19434",
-					["v_p_unitpowertype"] = "2",
-					["v_togglename"] = "Toggle 1",
-					["b_p_unitpower"] = true,
-					["v_spellname"] = "19434",
-					["v_durationstartedtime"] = 0,
-					["v_keybind"] = "<keybind>",
-					["v_p_unitpower"] = ">80",
-				},
-			},
-			["SortedActions"] = {
-				"defaultRotation/hunter/focusing_shot_steady_focus", -- [1]
-				"defaultRotation/hunter/steady_shot_focus", -- [2]
-				"defaultRotation/hunter/aspect_of_the_cheetah", -- [3]
-				"defaultRotation/hunter/revive_pet", -- [4]
-				"defaultRotation/hunter/mend_pet", -- [5]
-				"defaultRotation/hunter/rapid_fire", -- [6]
-				"defaultRotation/hunter/aimed_shot_thrill_of_the_hunt", -- [7]
-				"defaultRotation/hunter/chimera_shot", -- [8]
-				"defaultRotation/hunter/kill_shot", -- [9]
-				"defaultRotation/hunter/aimed_shot_rapid_fire", -- [10]
-				"defaultRotation/hunter/aimed_shot", -- [11]
-				"defaultRotation/hunter/stampede", -- [12]
-				"defaultRotation/hunter/dire_beast", -- [13]
-				"defaultRotation/hunter/a_murder_of_crows", -- [14]
-				"defaultRotation/hunter/barrage", -- [15]
-				"defaultRotation/hunter/glaive_toss", -- [16]
-				"defaultRotation/hunter/powershot", -- [17]
-				"defaultRotation/hunter/aimed_shot_focus", -- [18]
-				"defaultRotation/hunter/focusing_shot", -- [19]
-				"defaultRotation/hunter/steady_shot", -- [20]
-			},
-			["keybind"] = "<keybind>",
 		},
 	}
 
