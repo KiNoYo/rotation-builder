@@ -3,57 +3,28 @@ if not L then return end
 
 --@do-not-package@
 -- Default localization for development stage.
-L["defaultRotation/deathknight/blood"] = "Blood 6.2.0"
+L["defaultRotation/deathknight/blood_boil_blood_plague"] = "Blood Boil (Blood Plague)"
 L["defaultRotation/deathknight/blood_boil"] = "Blood Boil"
-L["defaultRotation/deathknight/blood_boil_crimson_scourge"] = "Blood Boil (Crimson Scourge)"
-L["defaultRotation/deathknight/blood_boil_refresh"] = "Blood Boil (Refresh)"
-L["defaultRotation/deathknight/blood_boil_refresh_runic_empowerment"] = "Blood Boil (Refresh + Runic Empowerment)"
-L["defaultRotation/deathknight/blood_boil_runic_empowerment"] = "Blood Boil (Runic Empowerment)"
-L["defaultRotation/deathknight/blood_presence"] = "Blood Presence"
-L["defaultRotation/deathknight/blood_tap"] = "Blood Tap"
-L["defaultRotation/deathknight/blood_tap_blood_rune"] = "Blood Tap (Blood Rune)"
-L["defaultRotation/deathknight/blood_tap_frost_rune"] = "Blood Tap (Frost Rune)"
-L["defaultRotation/deathknight/blood_tap_unholy_rune"] = "Blood Tap (Unholy Rune)"
-L["defaultRotation/deathknight/bone_shield"] = "Bone Shield"
-L["defaultRotation/deathknight/breath_of_sindragosa"] = "Breath of Sindragosa"
-L["defaultRotation/deathknight/dancing_rune_weapon"] = "Dancing Rune Weapon"
+L["defaultRotation/deathknight/blood"] = "Blood 7.0.3"
 L["defaultRotation/deathknight/dark_transformation"] = "Dark Transformation"
+L["defaultRotation/deathknight/death_and_decay_crimson scourge"] = "Death and Decay (Crimson Scourge)"
+L["defaultRotation/deathknight/death_and_decay"] = "Death and Decay"
 L["defaultRotation/deathknight/death_coil"] = "Death Coil"
-L["defaultRotation/deathknight/death_coil_runic_power"] = "Death Coil (Runic Power)"
-L["defaultRotation/deathknight/death_coil_sudden_doom"] = "Death Coil (Sudden Doom)"
-L["defaultRotation/deathknight/death_pact"] = "Death Pact"
 L["defaultRotation/deathknight/death_strike"] = "Death Strike"
-L["defaultRotation/deathknight/defile"] = "Defile"
 L["defaultRotation/deathknight/festering_strike"] = "Festering Strike"
-L["defaultRotation/deathknight/festering_strike_blood_rune"] = "Festering Strike (Blood Rune)"
-L["defaultRotation/deathknight/festering_strike_frost_rune"] = "Festering Strike (Frost Rune)"
-L["defaultRotation/deathknight/frost"] = "Frost 6.2.0"
-L["defaultRotation/deathknight/frost_dual_wielding"] = "Frost (Dual Wielding) 6.2.0"
-L["defaultRotation/deathknight/frost_presence"] = "Frost Presence"
 L["defaultRotation/deathknight/frost_strike"] = "Frost Strike"
-L["defaultRotation/deathknight/frost_strike_killing_machine"] = "Frost Strike (Killing Machine)"
-L["defaultRotation/deathknight/frost_strike_runic_power"] = "Frost Strike (Runic Power)"
-L["defaultRotation/deathknight/horn_of_winter"] = "Horn of Winter"
+L["defaultRotation/deathknight/frost"] = "Frost 7.0.3"
+L["defaultRotation/deathknight/heart_strike"] = "Heart Strike"
+L["defaultRotation/deathknight/howling_blast_frost_fever"] = "Howling Blast (Frost Fever)"
 L["defaultRotation/deathknight/howling_blast"] = "Howling Blast"
-L["defaultRotation/deathknight/howling_blast_death_rune"] = "Howling Blast (Death Rune)"
-L["defaultRotation/deathknight/howling_blast_freezing_fog"] = "Howling Blast (Freezing Fog)"
-L["defaultRotation/deathknight/howling_blast_frost_rune"] = "Howling Blast (Frost Rune)"
+L["defaultRotation/deathknight/marrowrend"] = "Marrowrend"
 L["defaultRotation/deathknight/obliterate"] = "Obliterate"
-L["defaultRotation/deathknight/obliterate_killing_machine"] = "Obliterate (Killing Machine)"
 L["defaultRotation/deathknight/outbreak"] = "Outbreak"
 L["defaultRotation/deathknight/pillar_of_frost"] = "Pillar of Frost"
-L["defaultRotation/deathknight/plague_leech"] = "Plague Leech"
-L["defaultRotation/deathknight/plague_leech_diseases"] = "Plague Leech (Diseases)"
 L["defaultRotation/deathknight/plague_strike"] = "Plague Strike"
 L["defaultRotation/deathknight/raise_dead"] = "Raise Dead"
 L["defaultRotation/deathknight/scourge_strike"] = "Scourge Strike"
-L["defaultRotation/deathknight/scourge_strike_death_rune"] = "Scourge Strike (Death Rune)"
-L["defaultRotation/deathknight/soul_reaper"] = "Soul Reaper"
-L["defaultRotation/deathknight/soul_reaper_runic_empowerment"] = "Soul Reaper (Runic Empowerment)"
-L["defaultRotation/deathknight/summon_gargoyle"] = "Summon Gargoyle"
-L["defaultRotation/deathknight/unholy"] = "Unholy 6.2.0"
-L["defaultRotation/deathknight/unholy_blight"] = "Unholy Blight"
-L["defaultRotation/deathknight/unholy_presence"] = "Unholy Presence"
+L["defaultRotation/deathknight/unholy"] = "Unholy 7.0.3"
 L["defaultRotation/deathknight/vampiric_blood"] = "Vampiric Blood"
 L["defaultRotation/druid/balance"] = "Balance 6.2.0"
 L["defaultRotation/druid/bear_form"] = "Bear Form"
@@ -548,18 +519,6 @@ L["ROB_UI_AO_G_TOGGLE"] = "Toggle:"
 L["ROB_UI_AO_G_TOGGLEOFF_TT"] = "Turn off toggle automatically after you cast the spell?"
 L["ROB_UI_AO_G_TOGGLEON_TT"] = "Turn on toggle automatically when switching to this rotation?"
 L["ROB_UI_AO_G_TOGGLE_TT"] = "Only display action when specified toggle is turned on"
-L["ROB_UI_AO_P_BLOODR"] = "Blood:"
-L["ROB_UI_AO_P_BLOODRIB_TT"] = [=[Input the number of blood runes
-Example1: |cFF00FF00>1|r means only display this action when player has more than 1 blood rune
-Example2: |cFF00FF00<=1|r means only display this action when player has less than or equal to 1 blood rune
-Example3: |cFF00FF00>=1|r means only display this action when player has 1 or more blood runes]=]
-L["ROB_UI_AO_P_BLOODR_TT"] = "Only display action when player has specified blood runes"
-L["ROB_UI_AO_P_DEATHR"] = "Death:"
-L["ROB_UI_AO_P_DEATHRIB_TT"] = [=[Input the number of death runes
-Example1: |cFF00FF00>1|r means only display this action when player has more than 1 death rune
-Example2: |cFF00FF00<=1|r means only display this action when player has less than or equal to 1 death rune
-Example3: |cFF00FF00>=1|r means only display this action when player has 1 or more death runes]=]
-L["ROB_UI_AO_P_DEATHR_TT"] = "Only display action when player has specified death runes"
 L["ROB_UI_AO_P_ECLIPSE"] = "Eclipse:"
 L["ROB_UI_AO_P_ECLIPSEIB_TT"] = [=[Input the direction of the eclipse
 Example1: |cFF00FF00moon|r
@@ -592,12 +551,6 @@ Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when your pet is m
 Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when your pet is missing both Earth Shield and Inner Fire]=]
 L["ROB_UI_AO_PET_NEEDBUFF_TT"] = "Only display action when your pet needs specified buff or buffs"
 L["ROB_UI_AO_PET_TAB"] = "Pet"
-L["ROB_UI_AO_P_FROSTR"] = "Frost:"
-L["ROB_UI_AO_P_FROSTRIB_TT"] = [=[Input the number of frost runes
-Example1: |cFF00FF00>1|r means only display this action when player has more than 1 frost rune
-Example2: |cFF00FF00<=1|r means only display this action when player has less than or equal to 1 frost rune
-Example3: |cFF00FF00>=1|r means only display this action when player has 1 or more frost runes]=]
-L["ROB_UI_AO_P_FROSTR_TT"] = "Only display action when player has specified frost runes"
 L["ROB_UI_AO_P_HAVEBUFF"] = "Have Buff:"
 L["ROB_UI_AO_P_HAVEBUFFIB_TT"] = [=[Input the name of the buff or buffs
 Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
@@ -663,6 +616,12 @@ Example2: |cFF00FF00<=20|r
 Example3: |cFF00FF00=20|r
 Example4: |cFF00FF00<90%|r]=]
 L["ROB_UI_AO_P_POWER_TT"] = "Only display action when player has the specified power"
+L["ROB_UI_AO_P_RUNES"] = "Runes:"
+L["ROB_UI_AO_P_RUNESIB_TT"] = [=[Input the number of runes
+Example1: |cFF00FF00>1|r means only display this action when player has more than 1 rune
+Example2: |cFF00FF00<=1|r means only display this action when player has less than or equal to 1 rune
+Example3: |cFF00FF00>=1|r means only display this action when player has 1 or more runes]=]
+L["ROB_UI_AO_P_RUNES_TT"] = "Only display action when player has specified runes"
 L["ROB_UI_AO_P_STANCE"] = "Stance:"
 L["ROB_UI_AO_P_STANCEIB_TT"] = [=[Input the stance number 
 All Classes: |cFF00FF00 0|r Human Form
@@ -673,12 +632,6 @@ Death Knight: |cFF00FF00 1|r Blood, |cFF00FF00 2|r Frost, |cFF00FF00 3|r Unholy
 Priest: |cFF00FF00 1|r Shadowform
 Paladin: |cFF00FF00 1|r Truth, |cFF00FF00 2|r Righteousness, |cFF00FF00 3|r Insight]=]
 L["ROB_UI_AO_P_STANCE_TT"] = "Only display action when player is in the specified stance"
-L["ROB_UI_AO_P_UNHOLYR"] = "Unholy:"
-L["ROB_UI_AO_P_UNHOLYRIB_TT"] = [=[Input the number of unholy runes
-Example1: |cFF00FF00>1|r means only display this action when player has more than 1 unholy rune
-Example2: |cFF00FF00<=1|r means only display this action when player has less than or equal to 1 unholy rune
-Example3: |cFF00FF00>=1|r means only display this action when player has 1 or more unholy runes]=]
-L["ROB_UI_AO_P_UNHOLYR_TT"] = "Only display action when player has specified unholy runes"
 L["ROB_UI_AO_TARGET_TAB"] = "Target"
 L["ROB_UI_AO_T_BOSS"] = "Boss"
 L["ROB_UI_AO_T_BOSS_TT"] = "Only display action if target is a boss"

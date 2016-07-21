@@ -115,15 +115,8 @@ ROB_NewActionDefaults = {
 	b_p_unitpower=false,
 	v_p_unitpower="",
 	v_p_unitpowertype="",
-	b_p_bloodrunes=false,
-	v_p_bloodrunes="",
-	b_p_frostrunes=false,
-	v_p_frostrunes="",
-	b_p_unholyrunes=false,
-	v_p_unholyrunes="",
-	b_p_deathrunes=false,
-	v_p_deathrunes="",
-
+	b_p_runes=false,
+	v_p_runes="",
 	b_p_eclipse=false,
 	v_p_eclipse="",
 
@@ -2087,17 +2080,8 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetText("ROB_AO_UnitPowerTypeInputBox",_ActionDB.v_p_unitpowertype,"")
 			ROB_Rotation_GUI_SetText("ROB_AO_UnitPowerInputBox",_ActionDB.v_p_unitpower,"")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_BloodRunesCheckButton",_ActionDB.b_p_bloodrunes,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_BloodRunesInputBox",_ActionDB.v_p_bloodrunes,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_FrostRunesCheckButton",_ActionDB.b_p_frostrunes,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_FrostRunesInputBox",_ActionDB.v_p_frostrunes,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_UnholyRunesCheckButton",_ActionDB.b_p_unholyrunes,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_UnholyRunesInputBox",_ActionDB.v_p_unholyrunes,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_DeathRunesCheckButton",_ActionDB.b_p_deathrunes,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_DeathRunesInputBox",_ActionDB.v_p_deathrunes,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_RunesCheckButton",_ActionDB.b_p_runes,false)
+			ROB_Rotation_GUI_SetText("ROB_AO_RunesInputBox",_ActionDB.v_p_runes,"")
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_EclipeDirectionCheckButton",_ActionDB.b_p_eclipse,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_EclipeDirectionInputBox",_ActionDB.v_p_eclipse,"")
@@ -2425,22 +2409,12 @@ function ROB_UnitPassesPowerCheck(checkstring, unitName, powerType)
 	return false
 end
 
-function ROB_UnitPassesRuneCheck(blood, frost, unholy, death, isNextSpell)
-	local rune	= nil;
+function ROB_UnitPassesRuneCheck(runes, isNextSpell)
+	local rune = runes;
 	local count	= 0;
 
 	local _, class = UnitClass("PLAYER");
 	if (class == "DEATHKNIGHT") then
-		deathRuneCount	= 0;
-		bloodRuneCount	= 0;
-		frostRuneCount	= 0;
-		unholyRuneCount	= 0;
-
-		--1 : RUNETYPE_BLOOD
-		--2 : RUNETYPE_UNHOLY
-		--3 : RUNETYPE_FROST
-		--4 : RUNETYPE_DEATH
-
 		for i = 1, 6 do
 			local start, duration, ready = GetRuneCooldown(i);
 			local cooldown = start + duration - GetTime();
@@ -2448,42 +2422,14 @@ function ROB_UnitPassesRuneCheck(blood, frost, unholy, death, isNextSpell)
 				cooldown = 0;
 			end
 			if (not isNextSpell) then
-				if (GetRuneType(i) == 1 and (ready or cooldown <= ROB_ACTION_GCD)) then
-					bloodRuneCount = bloodRuneCount + 1;
-				elseif (GetRuneType(i) == 2 and (ready or cooldown <= ROB_ACTION_GCD)) then
-					unholyRuneCount = unholyRuneCount + 1;
-				elseif (GetRuneType(i) == 3 and (ready or cooldown <= ROB_ACTION_GCD)) then
-					frostRuneCount = frostRuneCount + 1;
-				elseif (GetRuneType(i) == 4 and (ready or cooldown <= ROB_ACTION_GCD)) then
-					deathRuneCount = deathRuneCount + 1;
+				if (ready or cooldown <= ROB_ACTION_GCD) then
+					count = count + 1;
 				end
 			else
-				if (GetRuneType(i) == 1 and (ready or cooldown <= (ROB_ACTION_GCD + ROB_ACTION_CASTTIME))) then
-					bloodRuneCount = bloodRuneCount + 1;
-				elseif (GetRuneType(i) == 2 and (ready or cooldown <= (ROB_ACTION_GCD + ROB_ACTION_CASTTIME))) then
-					unholyRuneCount = unholyRuneCount + 1;
-				elseif (GetRuneType(i) == 3 and (ready or cooldown <= (ROB_ACTION_GCD + ROB_ACTION_CASTTIME))) then
-					frostRuneCount = frostRuneCount + 1;
-				elseif (GetRuneType(i) == 4 and (ready or cooldown <= (ROB_ACTION_GCD + ROB_ACTION_CASTTIME))) then
-					deathRuneCount = deathRuneCount + 1;
+				if (ready or cooldown <= (ROB_ACTION_GCD + ROB_ACTION_CASTTIME)) then
+					count = count + 1;
 				end
 			end
-		end
-		if (blood ~= nil) then
-			rune	= blood;
-			count	= bloodRuneCount;
-		end
-		if (frost ~= nil) then
-			rune	= frost;
-			count	= frostRuneCount;
-		end
-		if (unholy ~= nil) then
-			rune	= unholy;
-			count	= unholyRuneCount;
-		end
-		if (death ~= nil) then
-			rune	= death;
-			count	= deathRuneCount;
 		end
 		if (string.sub(rune, 1, 1) == "<" and string.sub(rune, 1, 2) ~= "<=") then
 			rune = tonumber(string.sub(rune, 2));
@@ -3011,10 +2957,6 @@ function ROB_SpellReady(actionName,isNextSpell)
 --	local timeLeft       = nil
 --	local spellincdbuffer= false
 --	local equipSlot, texture
---	local deathRuneCount  = 0
---	local bloodRuneCount  = 0
---	local frostRuneCount  = 0
---	local unholyRuneCount = 0
 	local debug				= false;
 	local spellName			= nil;
 	local usable			= false;
@@ -3275,31 +3217,9 @@ function ROB_SpellReady(actionName,isNextSpell)
 	end
 
 	-- CHECK: Runes
-	-- Blood
-	if (ActionDB.b_p_bloodrunes and ActionDB.v_p_bloodrunes ~= nil and ActionDB.v_p_bloodrunes ~= "") then
-		if (not ROB_UnitPassesRuneCheck(ActionDB.v_p_bloodrunes, nil, nil, nil, isNextSpell)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required blood runes", debug);
-			return false;
-		end
-	end
-	-- Frost
-	if (ActionDB.b_p_frostrunes and ActionDB.v_p_frostrunes ~= nil and ActionDB.v_p_frostrunes ~= "") then
-		if (not ROB_UnitPassesRuneCheck(nil, ActionDB.v_p_frostrunes, nil, nil, isNextSpell)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required frost runes", debug);
-			return false;
-		end
-	end
-	-- Unholy
-	if (ActionDB.b_p_unholyrunes and ActionDB.v_p_unholyrunes ~= nil and ActionDB.v_p_unholyrunes ~= "") then
-		if (not ROB_UnitPassesRuneCheck(nil, nil, ActionDB.v_p_unholyrunes, nil, isNextSpell)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required unholy runes", debug);
-			return false;
-		end
-	end
-	-- Death
-	if (ActionDB.b_p_deathrunes and ActionDB.v_p_deathrunes ~= nil and ActionDB.v_p_deathrunes ~= "") then
-		if (not ROB_UnitPassesRuneCheck(nil, nil, nil, ActionDB.v_p_deathrunes, isNextSpell)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required death runes", debug);
+	if (ActionDB.b_p_runes and ActionDB.v_p_runes ~= nil and ActionDB.v_p_runes ~= "") then
+		if (not ROB_UnitPassesRuneCheck(ActionDB.v_p_runes, isNextSpell)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required runes", debug);
 			return false;
 		end
 	end
