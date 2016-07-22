@@ -154,13 +154,6 @@ local deathKnightRotationsGenerator = function ()
 			["version"] = 1,
 			["keybind"] = "<keybind>",
 			["specID"] = 2,
-			["SortedActions"] = {
-				"defaultRotation/deathknight/pillar_of_frost", -- [1]
-				"defaultRotation/deathknight/howling_blast_frost_fever", -- [2]
-				"defaultRotation/deathknight/obliterate", -- [3]
-				"defaultRotation/deathknight/howling_blast", -- [4]
-				"defaultRotation/deathknight/frost_strike", -- [5]
-			},
 			["ActionList"] = {
 				["defaultRotation/deathknight/frost_strike"] = {
 					["b_gspellcost"] = true,
@@ -171,35 +164,30 @@ local deathKnightRotationsGenerator = function ()
 					["v_keybind"] = "<keybind>",
 					["v_gspellcosttype"] = "6",
 				},
-				["defaultRotation/deathknight/howling_blast_frost_fever"] = {
-					["v_t_needsdebuff"] = "_55095^3",
+				["defaultRotation/deathknight/death_strike"] = {
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "49184",
-					["b_t_needsdebuff"] = true,
+					["v_spellname"] = "49998",
+					["v_p_hp"] = "<90%",
 					["v_keybind"] = "<keybind>",
-				},
-				["defaultRotation/deathknight/pillar_of_frost"] = {
-					["v_keybind"] = "<keybind>",
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "51271",
+					["b_p_hp"] = true,
+					["b_hasproc"] = true,
 				},
 				["defaultRotation/deathknight/obliterate"] = {
 					["b_p_frostrunes"] = true,
-					["b_p_unitpower"] = true,
+					["b_gunitpower"] = true,
 					["v_gunitpowertype"] = "6",
+					["v_gunitpower"] = "20",
+					["b_p_unholyrunes"] = true,
+					["v_durationstartedtime"] = 0,
+					["v_p_unitpowertype"] = "6",
+					["v_togglename"] = "Toggle 1",
+					["b_p_unitpower"] = true,
+					["v_spellname"] = "49020",
+					["v_p_unholyrunes"] = ">=1",
+					["v_p_frostrunes"] = ">=1",
 					["v_p_unitpower"] = "<75",
 					["v_keybind"] = "<keybind>",
-					["v_p_frostrunes"] = ">=1",
-					["v_p_unholyrunes"] = ">=1",
-					["v_togglename"] = "Toggle 1",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "49020",
-					["b_gunitpower"] = true,
-					["b_p_unholyrunes"] = true,
-					["v_gunitpower"] = "20",
-					["v_p_unitpowertype"] = "6",
 				},
 				["defaultRotation/deathknight/howling_blast"] = {
 					["v_togglename"] = "Toggle 1",
@@ -209,6 +197,28 @@ local deathKnightRotationsGenerator = function ()
 					["v_p_havebuff"] = "59052",
 					["v_durationstartedtime"] = 0,
 				},
+				["defaultRotation/deathknight/pillar_of_frost"] = {
+					["v_togglename"] = "Toggle 1",
+					["v_keybind"] = "<keybind>",
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "51271",
+				},
+				["defaultRotation/deathknight/howling_blast_frost_fever"] = {
+					["v_t_needsdebuff"] = "_55095^3",
+					["v_togglename"] = "Toggle 1",
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "49184",
+					["b_t_needsdebuff"] = true,
+					["v_keybind"] = "<keybind>",
+				},
+			},
+			["SortedActions"] = {
+				"defaultRotation/deathknight/pillar_of_frost", -- [1]
+				"defaultRotation/deathknight/death_strike", -- [2]
+				"defaultRotation/deathknight/howling_blast_frost_fever", -- [3]
+				"defaultRotation/deathknight/obliterate", -- [4]
+				"defaultRotation/deathknight/howling_blast", -- [5]
+				"defaultRotation/deathknight/frost_strike", -- [6]
 			},
 		},
 	}
