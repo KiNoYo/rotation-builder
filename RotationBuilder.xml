@@ -2510,64 +2510,6 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</EditBox>
-							<CheckButton name="ROB_AO_EclipeDirectionCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-140" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Layers>
-									<Layer level="ARTWORK">
-										<Texture name="$parentIcon" file="Interface\ICONS\Ability_Druid_EclipseOrange">
-											<Anchors>
-												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
-													<Offset>
-														<AbsDimension x="95" y="0" />
-													</Offset>
-												</Anchor>
-											</Anchors>
-											<Size>
-												<AbsDimension x="20" y="20" />
-											</Size>
-										</Texture>
-									</Layer>
-								</Layers>
-								<Scripts>
-									<OnLoad>ROB_AO_EclipeDirectionCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_ECLIPSE'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_p_eclipse");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_ECLIPSE_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<EditBox name="ROB_AO_EclipeDirectionInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="50" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_AO_EclipeDirectionCheckButton" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="125" y="0" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_P_ECLIPSEIB_TT'));
-									</OnEnter>
-									<OnTextChanged>ROB_AO_InputBox_OnTextChanged(self,"v_p_eclipse")
-									</OnTextChanged>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
 							<CheckButton name="ROB_AO_RunesCheckButton" inherits="ROB_CheckButtonTemplate">
 								<Size>
 									<AbsDimension x="20" y="20" />
@@ -2575,7 +2517,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-160" />
+											<AbsDimension x="5" y="-140" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2617,7 +2559,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-180" />
+											<AbsDimension x="5" y="-160" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2659,7 +2601,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-200" />
+											<AbsDimension x="5" y="-180" />
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -2701,7 +2643,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_PlayerActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="5" y="-220" />
+											<AbsDimension x="5" y="-200" />
 										</Offset>
 									</Anchor>
 								</Anchors>

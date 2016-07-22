@@ -26,47 +26,29 @@ L["defaultRotation/deathknight/raise_dead"] = "Raise Dead"
 L["defaultRotation/deathknight/scourge_strike"] = "Scourge Strike"
 L["defaultRotation/deathknight/unholy"] = "Unholy 7.0.3"
 L["defaultRotation/deathknight/vampiric_blood"] = "Vampiric Blood"
-L["defaultRotation/druid/balance"] = "Balance 6.2.0"
+L["defaultRotation/druid/balance"] = "Balance 7.0.3"
 L["defaultRotation/druid/bear_form"] = "Bear Form"
-L["defaultRotation/druid/berserk"] = "Berserk"
 L["defaultRotation/druid/cat_form"] = "Cat Form"
-L["defaultRotation/druid/celestial_alignment"] = "Celestial Alignment"
-L["defaultRotation/druid/feral"] = "Feral 6.2.0"
-L["defaultRotation/druid/ferocious_bite"] = "Ferocious Bite"
+L["defaultRotation/druid/feral"] = "Feral 7.0.3"
 L["defaultRotation/druid/ferocious_bite_rip"] = "Ferocious Bite (Rip)"
-L["defaultRotation/druid/ferocious_bite_rip_urgent"] = "Ferocious Bite (Rip + Urgent)"
-L["defaultRotation/druid/force_of_nature"] = "Force of Nature"
-L["defaultRotation/druid/frenzied_regeneration"] = "Frenzied Regeneration"
-L["defaultRotation/druid/guardian"] = "Guardian 6.2.0"
+L["defaultRotation/druid/ferocious_bite"] = "Ferocious Bite"
+L["defaultRotation/druid/guardian"] = "Guardian 7.0.3"
 L["defaultRotation/druid/healing_touch"] = "Healing Touch"
-L["defaultRotation/druid/incarnation_chosen_of_elune"] = "Incarnation : Chosen of Elune"
-L["defaultRotation/druid/incarnation_king_of_the_jungle"] = "Incarnation : King of the Jungle"
-L["defaultRotation/druid/lacerate"] = "Lacerate"
+L["defaultRotation/druid/lunar_strike"] = "Lunar Strike"
 L["defaultRotation/druid/mangle"] = "Mangle"
-L["defaultRotation/druid/mark_of_the_wild"] = "Mark of the Wild"
 L["defaultRotation/druid/maul"] = "Maul"
-L["defaultRotation/druid/maul_tooth_and_claw"] = "Maul (Tooth and Claw)"
 L["defaultRotation/druid/moonfire"] = "Moonfire"
-L["defaultRotation/druid/moonfire_celestial_alignment"] = "Moonfire (Celestial Alignment)"
 L["defaultRotation/druid/moonkin_form"] = "Moonkin Form"
-L["defaultRotation/druid/pulverize"] = "Pulverize"
 L["defaultRotation/druid/rake"] = "Rake"
+L["defaultRotation/druid/restoration"] = "Restoration 7.0.3"
 L["defaultRotation/druid/rip"] = "Rip"
-L["defaultRotation/druid/savage_defense"] = "Savage Defense"
-L["defaultRotation/druid/savage_roar"] = "Savage Roar"
 L["defaultRotation/druid/shred"] = "Shred"
-L["defaultRotation/druid/starfire_lunar_to_solar"] = "Starfire (Lunar -> Solar)"
+L["defaultRotation/druid/solar_wrath"] = "Solar Wrath"
 L["defaultRotation/druid/starsurge"] = "Starsurge"
-L["defaultRotation/druid/starsurge_lunar"] = "Starsurge (Lunar)"
-L["defaultRotation/druid/starsurge_solar"] = "Starsurge (Solar)"
-L["defaultRotation/druid/stellar_flare_lunar"] = "Stellar Flare (Lunar)"
-L["defaultRotation/druid/stellar_flare_solar"] = "Stellar Flare (Solar)"
 L["defaultRotation/druid/sunfire"] = "Sunfire"
-L["defaultRotation/druid/sunfire_refresh"] = "Sunfire (Refresh)"
+L["defaultRotation/druid/swipe"] = "Swipe"
 L["defaultRotation/druid/thrash"] = "Thrash"
 L["defaultRotation/druid/tiger_s_fury"] = "Tiger's Fury"
-L["defaultRotation/druid/wrath"] = "Wrath"
-L["defaultRotation/druid/wrath_solar_to_lunar"] = "Wrath (Solar -> Lunar)"
 L["defaultRotation/hunter/aimed_shot"] = "Aimed Shot"
 L["defaultRotation/hunter/arcane_shot"] = "Arcane Shot"
 L["defaultRotation/hunter/beast_mastery"] = "Beast Mastery 7.0.3"
@@ -409,7 +391,7 @@ L["ROB_UI_AO_GENERAL_TAB"] = "General"
 L["ROB_UI_AO_G_GSPELLCOST"] = "Cost Power:"
 L["ROB_UI_AO_G_GSPELLCOST1_TT"] = [=[Input the type of power used
 |cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBOPOINTS |cFF00FF006|r=RUNICPOWER |cFF00FF007|r=SOULSHARDS
-|cFF00FF008|r=ECLIPSE |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS |cFF00FF0014|r=BURNING EMBERS |cFF00FF0015|r=DEMONIC FURY]=]
+|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS |cFF00FF0014|r=BURNING EMBERS |cFF00FF0015|r=DEMONIC FURY]=]
 L["ROB_UI_AO_G_GSPELLCOST2_TT"] = [=[Input the amount of power used
 Example1: |cFF00FF003|r
 Example2: |cFF00FF0090%|r]=]
@@ -418,7 +400,7 @@ This is used for calculating the next ready action]=]
 L["ROB_UI_AO_G_GUNITPOWER"] = "Generates Power:"
 L["ROB_UI_AO_G_GUNITPOWER1_TT"] = [=[Input the type of power generated
 |cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBOPOINTS |cFF00FF006|r=RUNICPOWER |cFF00FF007|r=SOULSHARDS
-|cFF00FF008|r=ECLIPSE |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS |cFF00FF0014|r=BURNING EMBERS |cFF00FF0015|r=DEMONIC FURY]=]
+|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS |cFF00FF0014|r=BURNING EMBERS |cFF00FF0015|r=DEMONIC FURY]=]
 L["ROB_UI_AO_G_GUNITPOWER2_TT"] = [=[Input the amount of power generated
 Example1: |cFF00FF003|r
 Example2: |cFF00FF0090%|r]=]
@@ -468,12 +450,6 @@ L["ROB_UI_AO_G_TOGGLE"] = "Toggle:"
 L["ROB_UI_AO_G_TOGGLEOFF_TT"] = "Turn off toggle automatically after you cast the spell?"
 L["ROB_UI_AO_G_TOGGLEON_TT"] = "Turn on toggle automatically when switching to this rotation?"
 L["ROB_UI_AO_G_TOGGLE_TT"] = "Only display action when specified toggle is turned on"
-L["ROB_UI_AO_P_ECLIPSE"] = "Eclipse:"
-L["ROB_UI_AO_P_ECLIPSEIB_TT"] = [=[Input the direction of the eclipse
-Example1: |cFF00FF00moon|r
-Example2: |cFF00FF00sun|r
-Example3: |cFF00FF00none|r]=]
-L["ROB_UI_AO_P_ECLIPSE_TT"] = "Only display action when eclipse is heading towards specified direction"
 L["ROB_UI_AO_PET_HAVEBUFF"] = "Has Buff:"
 L["ROB_UI_AO_PET_HAVEBUFFIB_TT"] = [=[Input the name of the buff or buffs
 Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
@@ -558,7 +534,7 @@ L["ROB_UI_AO_P_NOTSTANCE_TT"] = "Only display action when player is not in the s
 L["ROB_UI_AO_P_POWER"] = "Power:"
 L["ROB_UI_AO_P_POWER1_TT"] = [=[Input the type of unit power
 |cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBOPOINTS |cFF00FF006|r=RUNICPOWER |cFF00FF007|r=SOULSHARDS
-|cFF00FF008|r=ECLIPSE |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS |cFF00FF0014|r=BURNING EMBERS |cFF00FF0015|r=DEMONIC FURY]=]
+|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS |cFF00FF0014|r=BURNING EMBERS |cFF00FF0015|r=DEMONIC FURY]=]
 L["ROB_UI_AO_P_POWER2_TT"] = [=[Input the amount of power required
 Example1: |cFF00FF00>20|r
 Example2: |cFF00FF00<=20|r

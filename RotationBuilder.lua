@@ -117,8 +117,6 @@ ROB_NewActionDefaults = {
 	v_p_unitpowertype="",
 	b_p_runes=false,
 	v_p_runes="",
-	b_p_eclipse=false,
-	v_p_eclipse="",
 
 	b_p_stance=false,
 	v_p_stance="",
@@ -2083,9 +2081,6 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetChecked("ROB_AO_RunesCheckButton",_ActionDB.b_p_runes,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_RunesInputBox",_ActionDB.v_p_runes,"")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_EclipeDirectionCheckButton",_ActionDB.b_p_eclipse,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_EclipeDirectionInputBox",_ActionDB.v_p_eclipse,"")
-
 			ROB_Rotation_GUI_SetChecked("ROB_AO_StanceCheckButton",_ActionDB.b_p_stance,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_StanceInputBox",_ActionDB.v_p_stance,"")
 
@@ -3220,14 +3215,6 @@ function ROB_SpellReady(actionName,isNextSpell)
 	if (ActionDB.b_p_runes and ActionDB.v_p_runes ~= nil and ActionDB.v_p_runes ~= "") then
 		if (not ROB_UnitPassesRuneCheck(ActionDB.v_p_runes, isNextSpell)) then
 			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required runes", debug);
-			return false;
-		end
-	end
-
-	-- CHECK: Eclipse Direction
-	if (ActionDB.b_p_eclipse and ActionDB.v_p_eclipse ~= nil and ActionDB.v_p_eclipse ~= "") then
-		if (GetEclipseDirection() ~= ActionDB.v_p_eclipse) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because eclipse is not heading in the required direction", debug);
 			return false;
 		end
 	end
