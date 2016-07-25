@@ -115,13 +115,11 @@ ROB_NewActionDefaults = {
 	b_p_unitpower=false,
 	v_p_unitpower="",
 	v_p_unitpowertype="",
+	b_p_unitpower2=false,
+	v_p_unitpower2="",
+	v_p_unitpower2type="",
 	b_p_runes=false,
 	v_p_runes="",
-
-	b_p_stance=false,
-	v_p_stance="",
-	b_p_notstance=false,
-	v_p_notstance="",
 	b_p_knowspell=false,
 	v_p_knowspell="",
 	b_p_knownotspell=false,
@@ -2078,14 +2076,12 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetText("ROB_AO_UnitPowerTypeInputBox",_ActionDB.v_p_unitpowertype,"")
 			ROB_Rotation_GUI_SetText("ROB_AO_UnitPowerInputBox",_ActionDB.v_p_unitpower,"")
 
+			ROB_Rotation_GUI_SetChecked("ROB_AO_UnitPower2CheckButton",_ActionDB.b_p_unitpower2,false)
+			ROB_Rotation_GUI_SetText("ROB_AO_UnitPower2TypeInputBox",_ActionDB.v_p_unitpower2type,"")
+			ROB_Rotation_GUI_SetText("ROB_AO_UnitPower2InputBox",_ActionDB.v_p_unitpower2,"")
+
 			ROB_Rotation_GUI_SetChecked("ROB_AO_RunesCheckButton",_ActionDB.b_p_runes,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_RunesInputBox",_ActionDB.v_p_runes,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_StanceCheckButton",_ActionDB.b_p_stance,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_StanceInputBox",_ActionDB.v_p_stance,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_NotStanceCheckButton",_ActionDB.b_p_notstance,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_NotStanceInputBox",_ActionDB.v_p_notstance,"")
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_KnowSpellCheckButton",_ActionDB.b_p_knowspell,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_KnowSpellInputBox",_ActionDB.v_p_knowspell,"")
@@ -2656,6 +2652,7 @@ function ROB_UnitKnowSpell(needed)
 	return false;
 end
 
+-- TODO passive talents do not appear in the spell book any longer, need to find a new way to check
 function IsSpellKnown(spellId, isNextSpell)
 	local spellName = nil;
 	
@@ -2668,59 +2665,16 @@ function IsSpellKnown(spellId, isNextSpell)
 		ROB_ACTION_CASTTIME = 0;
 		return false;
 	end
-	local _, _, tabOffset, numEntries = GetSpellTabInfo(2);
-	local i = 0;
-	for i=tabOffset + 1, tabOffset + numEntries do
-		local actualName, _			= GetSpellBookItemName(i, BOOKTYPE_SPELL);
-		if actualName == spellName then
-			return true;
-		end
-	end
-	return false;
-end
-
-function ROB_PlayerInStance(needed)
-	local stance		= nil;
-	local remaining		= needed;
-	local count			= 0;
-	local found			= 0;
-	local done			= false;
-	local stringType	= 0;
-	local shape			= 0;
-
-	while not done do
-		stance	= nil;
-		shape	= 0;
-		if (string.find(remaining, "|")) then
-			stance		= string.sub(remaining, 1, string.find(remaining, "|") - 1);
-			count		= count + 1;
-			remaining	= string.sub(remaining, string.find(remaining, "|") +1 );
-			stringType	= 1;
-		elseif (string.find(remaining, "&")) then
-			stance		= string.sub(remaining, 1, string.find(remaining, "&") - 1);
-			count		= count + 1;
-			remaining	= string.sub(remaining, string.find(remaining, "&") + 1);
-			stringType	= 2;
-		else
-			stance	= remaining;
-			count	= count + 1;
-			done	= true;
-		end
-		if (stance ~= nil) then
-			if(tonumber(stance) < tonumber(GetNumShapeshiftForms()) + 1) then
-				if (tonumber(GetShapeshiftForm()) ~= nil) then
-					shape = tonumber(GetShapeshiftForm());
-				end
-				if (tonumber(shape) == tonumber(stance)) then
-					found = found + 1;
-				end
-			end
-		end
-	end
-	if (((stringType == 0 or stringType == 1) and found >= 1) or (stringType == 2 and found == count) ) then
-		return true;
-	end
-	return false;
+	return IsPlayerSpell(spellId);
+	-- local _, _, tabOffset, numEntries = GetSpellTabInfo(2);
+	-- local i = 0;
+	-- for i=tabOffset + 1, tabOffset + numEntries do
+		-- local actualName, _			= GetSpellBookItemName(i, BOOKTYPE_SPELL);
+		-- if actualName == spellName then
+			-- return true;
+		-- end
+	-- end
+	-- return false;
 end
 
 function ROB_PlayerIsStealthed()
@@ -3201,6 +3155,12 @@ function ROB_SpellReady(actionName,isNextSpell)
 			return false
 		end
 	end
+	if (ActionDB.b_p_unitpower2 and ActionDB.v_p_unitpower2type ~= nil and ActionDB.v_p_unitpower2type ~= "") then
+		if (not ROB_UnitPassesPowerCheck(ActionDB.v_p_unitpower2, "PLAYER", ActionDB.v_p_unitpower2type, isNextSpell)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required power", debug);
+			return false
+		end
+	end
 
 	-- CHECK: Last Casted
 	if (ActionDB.b_lastcasted and ActionDB.v_lastcasted ~= nil and ActionDB.v_lastcasted ~= "") then
@@ -3231,22 +3191,6 @@ function ROB_SpellReady(actionName,isNextSpell)
 	if (ActionDB.b_t_notaboss ) then
 		if (UnitClassification("TARGET") == "worldboss") then
 			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because your target is classified as a worldboss", debug);
-			return false;
-		end
-	end
-
-	-- CHECK: Stance 
-	if (ActionDB.b_p_stance and ActionDB.v_p_stance ~= nil and ActionDB.v_p_stance ~= "") then
-		if(not ROB_PlayerInStance(ActionDB.v_p_stance)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you are not in the required stance", debug);
-			return false;
-		end
-	end
-
-	-- CHECK: Not in Stance
-	if (ActionDB.b_p_notstance and ActionDB.v_p_notstance ~= nil and ActionDB.v_p_notstance ~= "") then
-		if(ROB_PlayerInStance(ActionDB.v_p_notstance)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you are in the required stance", debug);
 			return false;
 		end
 	end

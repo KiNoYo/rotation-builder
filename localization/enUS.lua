@@ -208,65 +208,30 @@ L["defaultRotation/shaman/lightning_bolt"] = "Lightning Bolt"
 L["defaultRotation/shaman/restoration"] = "Restoration 7.0.3"
 L["defaultRotation/shaman/rockbiter"] = "Rockbiter"
 L["defaultRotation/shaman/stormstrike"] = "Stormstrike"
-L["defaultRotation/warlock/affliction"] = "Affliction 6.2.0"
+L["defaultRotation/warlock/affliction"] = "Affliction 7.0.3"
 L["defaultRotation/warlock/agony"] = "Agony"
-L["defaultRotation/warlock/cataclysm"] = "Cataclysm"
+L["defaultRotation/warlock/call_dreadstalkers"] = "Call Dreadstalkers"
 L["defaultRotation/warlock/chaos_bolt"] = "Choas Bolt"
-L["defaultRotation/warlock/chaos_bolt_charred_remains"] = "Chaos Bolt (Charred Remains)"
-L["defaultRotation/warlock/chaos_bolt_dark_soul_instability"] = "Chaos Bolt (Dark Soul : Instability)"
-L["defaultRotation/warlock/chaos_bolt_execute"] = "Chaos Bolt (Execute)"
-L["defaultRotation/warlock/chaos_wave"] = "Chaos Wave"
+L["defaultRotation/warlock/conflagrate_immolate"] = "Conflagrate (Immolate)"
 L["defaultRotation/warlock/conflagrate"] = "Conflagrate"
-L["defaultRotation/warlock/conflagrate_2_charges"] = "Conflagrate (2 Charges)"
 L["defaultRotation/warlock/corruption"] = "Corruption"
-L["defaultRotation/warlock/dark_intent"] = "Dark Intent"
-L["defaultRotation/warlock/dark_regeneration"] = "Dark Regeneration"
-L["defaultRotation/warlock/dark_soul_instability"] = "Dark Soul : Instability"
-L["defaultRotation/warlock/dark_soul_knowledge"] = "Dark Soul : Knowledge"
-L["defaultRotation/warlock/dark_soul_misery"] = "Dark Soul : Misery"
-L["defaultRotation/warlock/demonbolt"] = "Demonbolt"
-L["defaultRotation/warlock/demonology"] = "Demonology 6.2.0"
-L["defaultRotation/warlock/destruction"] = "Destruction 6.2.0"
+L["defaultRotation/warlock/demonic_empowerment_call_dreadstalkers"] = "Demonic Empowerment (Call Dreadstalkers)"
+L["defaultRotation/warlock/demonic_empowerment"] = "Demonic Empowerment"
+L["defaultRotation/warlock/demonology"] = "Demonology 7.0.3"
+L["defaultRotation/warlock/destruction"] = "Destruction 7.0.3"
 L["defaultRotation/warlock/doom"] = "Doom"
-L["defaultRotation/warlock/drain_soul"] = "Drain Soul"
-L["defaultRotation/warlock/grimoire_of_sacrifice"] = "Grimoire of Sacrifice"
+L["defaultRotation/warlock/drain_life"] = "Drain Life"
+L["defaultRotation/warlock/felstorm"] = "Felstorm"
 L["defaultRotation/warlock/hand_of_guldan"] = "Hand of Gul'dan"
-L["defaultRotation/warlock/hand_of_guldan_2_charges"] = "Hand of Gul'dan (2 Charges)"
-L["defaultRotation/warlock/haunt"] = "Haunt"
-L["defaultRotation/warlock/haunt_dark_soul_misery"] = "Haunt(Dark Soul : Misery)"
-L["defaultRotation/warlock/haunt_execute"] = "Haunt (Execute)"
-L["defaultRotation/warlock/haunt_soulburn_haunt"] = "Haunt (Soulburn : Haunt)"
-L["defaultRotation/warlock/haunt_soulburn_haunt_dark_soul_misery"] = "Haunt (Soulburn : Haunt + Dark Soul : Misery)"
-L["defaultRotation/warlock/haunt_soul_shards_3"] = "Haunt (Soul Shards X3)"
-L["defaultRotation/warlock/haunt_soul_shards_4"] = "Hanter (Soul Shards X4)"
+L["defaultRotation/warlock/health_funnel"] = "Health Funnel"
 L["defaultRotation/warlock/immolate"] = "Immolate"
-L["defaultRotation/warlock/immolate_cataclysm"] = "Immolate (Cataclysm)"
 L["defaultRotation/warlock/incinerate"] = "Incinerate"
 L["defaultRotation/warlock/life_tap"] = "Life Tap"
-L["defaultRotation/warlock/metamorphosis"] = "Metamorphosis"
-L["defaultRotation/warlock/sacrificial_pact"] = "Sacrificial Pact"
 L["defaultRotation/warlock/shadow_bolt"] = "Shadow Bolt"
-L["defaultRotation/warlock/shadowburn"] = "Shadowburn"
-L["defaultRotation/warlock/shadowburn_charred_remains"] = "Shadowburn (Charred Remains)"
-L["defaultRotation/warlock/soulburn"] = "Soulburn"
-L["defaultRotation/warlock/soulburn_opening"] = "Soulburn (Opening)"
-L["defaultRotation/warlock/soul_fire"] = "Soul Fire"
-L["defaultRotation/warlock/soul_fire_demonbolt"] = "Soul Fire (Demonbolt)"
-L["defaultRotation/warlock/soul_fire_execute"] = "Soul Fire (Execute)"
-L["defaultRotation/warlock/soul_fire_metamorphosis"] = "Soul Fire (Metamorphosis)"
-L["defaultRotation/warlock/soul_fire_metamorphosis_execute"] = "Soul Fire (Metamorphosis + Execute)"
-L["defaultRotation/warlock/soul_swap"] = "Soul Swap"
-L["defaultRotation/warlock/summmon_felguard_grimoire_of_service"] = "Summon Felguard (Grimoire of Service)"
-L["defaultRotation/warlock/summon_demon"] = "Summon Demon"
-L["defaultRotation/warlock/summon_doomguard"] = "Summon Doomguard"
-L["defaultRotation/warlock/summon_doomguard_grimoire_of_service"] = "Summon Doomguard (Grimoire of Service)"
 L["defaultRotation/warlock/summon_felguard"] = "Summon Felguard"
-L["defaultRotation/warlock/summon_terrorguard"] = "Summon Terrorguard"
-L["defaultRotation/warlock/summon_wrathguard"] = "Summon Wrathguard"
-L["defaultRotation/warlock/touch_of_chaos"] = "Touch of Chaos"
-L["defaultRotation/warlock/touch_of_chaos_demonic_fury"] = "Touch of Chaos (Demonic Fury)"
-L["defaultRotation/warlock/touch_of_chaos_refresh"] = "Touch of Chaos (Refresh)"
-L["defaultRotation/warlock/touch_of_chaos_refresh_execute"] = "Touch of Chaos (Refresh + Execute)"
+L["defaultRotation/warlock/summon_felhunter"] = "Summon Felhunter"
+L["defaultRotation/warlock/summon_imp"] = "Summon Imp"
+L["defaultRotation/warlock/unstable_affliction_5_soul_shards"] = "Unstable Affliction (5 Soul Shards)"
 L["defaultRotation/warlock/unstable_affliction"] = "Unstable Affliction"
 L["defaultRotation/warrior/arms"] = "Arms 7.0.3"
 L["defaultRotation/warrior/battle_cry"] = "Battle Cry"
@@ -372,7 +337,7 @@ L["ROB_UI_AO_GENERAL_TAB"] = "General"
 L["ROB_UI_AO_G_GSPELLCOST"] = "Cost Power:"
 L["ROB_UI_AO_G_GSPELLCOST1_TT"] = [=[Input the type of power used
 |cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBOPOINTS |cFF00FF006|r=RUNICPOWER |cFF00FF007|r=SOULSHARDS
-|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS |cFF00FF0014|r=BURNING EMBERS |cFF00FF0015|r=DEMONIC FURY]=]
+|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS]=]
 L["ROB_UI_AO_G_GSPELLCOST2_TT"] = [=[Input the amount of power used
 Example1: |cFF00FF003|r
 Example2: |cFF00FF0090%|r]=]
@@ -381,7 +346,7 @@ This is used for calculating the next ready action]=]
 L["ROB_UI_AO_G_GUNITPOWER"] = "Generates Power:"
 L["ROB_UI_AO_G_GUNITPOWER1_TT"] = [=[Input the type of power generated
 |cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBOPOINTS |cFF00FF006|r=RUNICPOWER |cFF00FF007|r=SOULSHARDS
-|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS |cFF00FF0014|r=BURNING EMBERS |cFF00FF0015|r=DEMONIC FURY]=]
+|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS]=]
 L["ROB_UI_AO_G_GUNITPOWER2_TT"] = [=[Input the amount of power generated
 Example1: |cFF00FF003|r
 Example2: |cFF00FF0090%|r]=]
@@ -510,12 +475,11 @@ Example3: |cFF00FF00_Dark Plague#2^3|r display action when player is missing a p
 Example4: |cFF00FF00Dark Plague|Forbearance|r display action when player is missing Dark Plague or Forbearance debuffs
 Example5: |cFF00FF00Dark Plague&Forbearance|r display action when player is missing both Dark Plague and Forbearance debuffs]=]
 L["ROB_UI_AO_P_NEEDDB_TT"] = "Only display action when player is missing the specified debuff or debuffs"
-L["ROB_UI_AO_P_NOTSTANCE"] = "Not in Stance:"
-L["ROB_UI_AO_P_NOTSTANCE_TT"] = "Only display action when player is not in the specified stance"
 L["ROB_UI_AO_P_POWER"] = "Power:"
+L["ROB_UI_AO_P_POWER2"] = "Power 2:"
 L["ROB_UI_AO_P_POWER1_TT"] = [=[Input the type of unit power
 |cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBOPOINTS |cFF00FF006|r=RUNICPOWER |cFF00FF007|r=SOULSHARDS
-|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS |cFF00FF0014|r=BURNING EMBERS |cFF00FF0015|r=DEMONIC FURY]=]
+|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS]=]
 L["ROB_UI_AO_P_POWER2_TT"] = [=[Input the amount of power required
 Example1: |cFF00FF00>20|r
 Example2: |cFF00FF00<=20|r
@@ -528,16 +492,6 @@ Example1: |cFF00FF00>1|r means only display this action when player has more tha
 Example2: |cFF00FF00<=1|r means only display this action when player has less than or equal to 1 rune
 Example3: |cFF00FF00>=1|r means only display this action when player has 1 or more runes]=]
 L["ROB_UI_AO_P_RUNES_TT"] = "Only display action when player has specified runes"
-L["ROB_UI_AO_P_STANCE"] = "Stance:"
-L["ROB_UI_AO_P_STANCEIB_TT"] = [=[Input the stance number 
-All Classes: |cFF00FF00 0|r Human Form
-Druid: |cFF00FF00 1|r Bear, |cFF00FF00 2|r Aquatic, |cFF00FF00 3|r Cat, |cFF00FF00 4|r Travel, |cFF00FF00 5|r Moonkin, |cFF00FF00 6|r Tree   
-Rogue: |cFF00FF00 1|r Stealth, |cFF00FF00 3|r Shadow Dance
-Warrior: |cFF00FF00 1|r Battle, |cFF00FF00 2|r Defensive, |cFF00FF00 3|r Beserker
-Death Knight: |cFF00FF00 1|r Blood, |cFF00FF00 2|r Frost, |cFF00FF00 3|r Unholy
-Priest: |cFF00FF00 1|r Shadowform
-Paladin: |cFF00FF00 1|r Truth, |cFF00FF00 2|r Righteousness, |cFF00FF00 3|r Insight]=]
-L["ROB_UI_AO_P_STANCE_TT"] = "Only display action when player is in the specified stance"
 L["ROB_UI_AO_TARGET_TAB"] = "Target"
 L["ROB_UI_AO_T_BOSS"] = "Boss"
 L["ROB_UI_AO_T_BOSS_TT"] = "Only display action if target is a boss"
