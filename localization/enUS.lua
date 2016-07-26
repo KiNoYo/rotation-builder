@@ -136,39 +136,22 @@ L["defaultRotation/paladin/protection"] = "Protection 7.0.3"
 L["defaultRotation/paladin/retribution"] = "Retribution 7.0.3"
 L["defaultRotation/paladin/shield_of_the_righteous"] = "Shield of the Righteous"
 L["defaultRotation/paladin/templar_verdict"] = "Templar's Verdict"
-L["defaultRotation/priest/archangel"] = "Archangel"
-L["defaultRotation/priest/cascade"] = "Cascade"
-L["defaultRotation/priest/chakra_chastise"] = "Chakra: Chastise"
-L["defaultRotation/priest/devouring_plague_clarity"] = "Devouring Plague (Clarity of Power)"
-L["defaultRotation/priest/devouring_plague_insanity"] = "Devouring Plague (Insanity)"
-L["defaultRotation/priest/devouring_plague"] = "Devouring Plague"
-L["defaultRotation/priest/discipline"] = "Discipline 6.2.3"
-L["defaultRotation/priest/divine_star"] = "Divine Star"
-L["defaultRotation/priest/halo"] = "Halo"
+L["defaultRotation/priest/discipline"] = "Discipline 7.0.3"
 L["defaultRotation/priest/holy_fire"] = "Holy Fire"
 L["defaultRotation/priest/holy_word_chastise"] = "Holy Word: Chastise"
-L["defaultRotation/priest/holy"] = "Holy 6.2.3"
-L["defaultRotation/priest/insanity"] = "Insanity"
+L["defaultRotation/priest/holy"] = "Holy 7.0.3"
 L["defaultRotation/priest/mind_blast"] = "Mind Blast"
 L["defaultRotation/priest/mind_flay"] = "Mind Flay"
-L["defaultRotation/priest/mind_spike_clarity"] = "Mind Spike (Clarity of Power)"
-L["defaultRotation/priest/mind_spike_surge_3"] = "Mind Spike (Surge of Darkness 3)"
-L["defaultRotation/priest/mind_spike"] = "Mind Spike"
-L["defaultRotation/priest/mindbender"] = "Mindbender"
 L["defaultRotation/priest/penance"] = "Penance"
-L["defaultRotation/priest/power_infusion"] = "Power Infusion"
-L["defaultRotation/priest/power_word_fortitude"] = "Power Word: Fortitude"
-L["defaultRotation/priest/power_word_solace"] = "Power Word: Solace"
+L["defaultRotation/priest/power_word_shield"] = "Power Word: Shield"
+L["defaultRotation/priest/shadow_word_death_2_charges"] = "Shadow Word: Death (2 Charges)"
 L["defaultRotation/priest/shadow_word_death"] = "Shadow Word: Death"
-L["defaultRotation/priest/shadow_word_pain_refresh"] = "Shadow Word: Pain (Refresh)"
 L["defaultRotation/priest/shadow_word_pain"] = "Shadow Word: Pain"
-L["defaultRotation/priest/shadow"] = "Shadow 6.2.3"
-L["defaultRotation/priest/shadowfiend"] = "Shadowfiend"
-L["defaultRotation/priest/shadowform"] = "Shadowform"
+L["defaultRotation/priest/shadow"] = "Shadow 7.0.3"
 L["defaultRotation/priest/smite"] = "Smite"
-L["defaultRotation/priest/vampiric_touch_refresh"] = "Vampiric Touch (Refresh)"
 L["defaultRotation/priest/vampiric_touch"] = "Vampiric Touch"
-L["defaultRotation/priest/void_entropy"] = "Void Entropy"
+L["defaultRotation/priest/void_bolt"] = "Void Bolt"
+L["defaultRotation/priest/void_eruption"] = "Void Eruption"
 L["defaultRotation/rogue/adrenaline_rush"] = "Adrenaline Rush"
 L["defaultRotation/rogue/ambush"] = "Ambush"
 L["defaultRotation/rogue/assassination"] = "Assassination 7.0.3"
@@ -337,7 +320,7 @@ L["ROB_UI_AO_GENERAL_TAB"] = "General"
 L["ROB_UI_AO_G_GSPELLCOST"] = "Cost Power:"
 L["ROB_UI_AO_G_GSPELLCOST1_TT"] = [=[Input the type of power used
 |cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBOPOINTS |cFF00FF006|r=RUNICPOWER |cFF00FF007|r=SOULSHARDS
-|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS]=]
+|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY]=]
 L["ROB_UI_AO_G_GSPELLCOST2_TT"] = [=[Input the amount of power used
 Example1: |cFF00FF003|r
 Example2: |cFF00FF0090%|r]=]
@@ -346,7 +329,7 @@ This is used for calculating the next ready action]=]
 L["ROB_UI_AO_G_GUNITPOWER"] = "Generates Power:"
 L["ROB_UI_AO_G_GUNITPOWER1_TT"] = [=[Input the type of power generated
 |cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBOPOINTS |cFF00FF006|r=RUNICPOWER |cFF00FF007|r=SOULSHARDS
-|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS]=]
+|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY]=]
 L["ROB_UI_AO_G_GUNITPOWER2_TT"] = [=[Input the amount of power generated
 Example1: |cFF00FF003|r
 Example2: |cFF00FF0090%|r]=]
@@ -479,7 +462,7 @@ L["ROB_UI_AO_P_POWER"] = "Power:"
 L["ROB_UI_AO_P_POWER2"] = "Power 2:"
 L["ROB_UI_AO_P_POWER1_TT"] = [=[Input the type of unit power
 |cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBOPOINTS |cFF00FF006|r=RUNICPOWER |cFF00FF007|r=SOULSHARDS
-|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=SHADOW ORBS]=]
+|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY]=]
 L["ROB_UI_AO_P_POWER2_TT"] = [=[Input the amount of power required
 Example1: |cFF00FF00>20|r
 Example2: |cFF00FF00<=20|r
