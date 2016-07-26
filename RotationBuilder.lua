@@ -1220,18 +1220,22 @@ function ROB_AO_ToggleOffCheckButton_OnToggle(self)
 end
 
 function ROB_AO_ToggleIconInputBox_OnTextChanged(self)
-	if (self:GetText() == nil or ROB_CurrentActionName == nil or ROB_EditingRotationTable == nil) then
+	if (self:GetText() == nil or self:GetText() == "" or ROB_CurrentActionName == nil or ROB_EditingRotationTable == nil) then
+		ROB_AO_ToggleIconTexture:Hide();
 		return
 	else
+		ROB_AO_ToggleIconTexture:Show();
 		ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_toggleicon = self:GetText()
 		ROB_AO_ToggleIconTexture:SetTexture(GetTexturePath(ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_toggleicon))
 	end
 end
 
 function ROB_AO_ActionIcon_OnTextChanged(self)
-	if (self:GetText() == nil or ROB_CurrentActionName == nil or ROB_EditingRotationTable == nil) then
+	if (self:GetText() == nil or self:GetText() == "" or ROB_CurrentActionName == nil or ROB_EditingRotationTable == nil) then
+		ROB_AO_ActionIconTexture:Hide();
 		return
 	else
+		ROB_AO_ActionIconTexture:Show();
 		ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_actionicon = self:GetText()
 		ROB_AO_ActionIconTexture:SetTexture(GetTexturePath(ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_actionicon))
 	end
@@ -2007,7 +2011,7 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_SpellValidate(_ActionDB.v_spellname);
 
 			ROB_Rotation_GUI_SetText("ROB_AO_ActionIconInputBox",_ActionDB.v_actionicon,"")
-			ROB_AO_ActionIconTexture:SetTexture(GetTexturePath(_ActionDB.v_actionicon))
+			ROB_AO_ActionIconTexture:SetTexture(GetTexturePath(_ActionDB.v_actionicon));
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_ToggleCheckButton",_ActionDB.b_toggle,false)
 			ROB_Rotation_GUI_SetChecked("ROB_AO_ToggleOffCheckButton",_ActionDB.b_toggleoff,false)
@@ -2652,7 +2656,6 @@ function ROB_UnitKnowSpell(needed)
 	return false;
 end
 
--- TODO passive talents do not appear in the spell book any longer, need to find a new way to check
 function IsSpellKnown(spellId, isNextSpell)
 	local spellName = nil;
 	
@@ -2666,15 +2669,6 @@ function IsSpellKnown(spellId, isNextSpell)
 		return false;
 	end
 	return IsPlayerSpell(spellId);
-	-- local _, _, tabOffset, numEntries = GetSpellTabInfo(2);
-	-- local i = 0;
-	-- for i=tabOffset + 1, tabOffset + numEntries do
-		-- local actualName, _			= GetSpellBookItemName(i, BOOKTYPE_SPELL);
-		-- if actualName == spellName then
-			-- return true;
-		-- end
-	-- end
-	-- return false;
 end
 
 function ROB_PlayerIsStealthed()

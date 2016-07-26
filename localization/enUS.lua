@@ -68,45 +68,27 @@ L["defaultRotation/hunter/raptor_strike"] = "Raptor Strike"
 L["defaultRotation/hunter/revive_pet"] = "Revive Pet"
 L["defaultRotation/hunter/survival"] = "Survival 7.0.3"
 L["defaultRotation/mage/arcane_barrage"] = "Arcane Barrage"
-L["defaultRotation/mage/arcane_blast_evocation"] = "Arcane Blast (Evocation)"
-L["defaultRotation/mage/arcane_blast_mana"] = "Arcane Blast (Mana)"
 L["defaultRotation/mage/arcane_blast"] = "Arcane Blast"
-L["defaultRotation/mage/arcane_brilliance"] = "Arcane Brilliance"
 L["defaultRotation/mage/arcane_missiles_3_charges"] = "Arcane Missiles (3 Charges)"
+L["defaultRotation/mage/arcane_missiles_arcane_power"] = "Arcane Missiles (Arcane Power)"
 L["defaultRotation/mage/arcane_missiles"] = "Arcane Missiles"
-L["defaultRotation/mage/arcane_orb"] = "Arcane Orb"
 L["defaultRotation/mage/arcane_power"] = "Arcane Power"
-L["defaultRotation/mage/arcane"] = "Arcane 6.2.3"
-L["defaultRotation/mage/blast_wave"] = "Blast Wave"
-L["defaultRotation/mage/combustion"] = "Combustion"
-L["defaultRotation/mage/comet_storm"] = "Comet Storm"
-L["defaultRotation/mage/dragon_breath"] = "Dragon's Breath"
+L["defaultRotation/mage/arcane"] = "Arcane 7.0.3"
 L["defaultRotation/mage/evocation"] = "Evocation"
-L["defaultRotation/mage/fire"] = "Fire 6.2.3"
+L["defaultRotation/mage/fire_blast"] = "Fire Blast"
+L["defaultRotation/mage/fire"] = "Fire 7.0.3"
 L["defaultRotation/mage/fireball"] = "Fireball"
-L["defaultRotation/mage/frost_bomb"] = "Frost Bomb"
-L["defaultRotation/mage/frost"] = "Frost 6.2.3"
-L["defaultRotation/mage/frostbolt_water_jet"] = "Frostbolt (Water jet)"
+L["defaultRotation/mage/flurry"] = "Flurry"
+L["defaultRotation/mage/frost"] = "Frost 7.0.3"
 L["defaultRotation/mage/frostbolt"] = "Frostbolt"
-L["defaultRotation/mage/frostfire_bolt"] = "Frostfire Bolt"
 L["defaultRotation/mage/frozen_orb"] = "Frozen Orb"
+L["defaultRotation/mage/ice_barrier"] = "Ice Barrier"
+L["defaultRotation/mage/ice_lance_brain_freeze"] = "Ice Lance (Brain Freeze)"
+L["defaultRotation/mage/ice_lance_fingers_of_frost"] = "Ice Lance (Fingers of Frost)"
+L["defaultRotation/mage/ice_lance_flurry"] = "Ice Lance (Flurry)"
 L["defaultRotation/mage/ice_lance"] = "Ice Lance"
-L["defaultRotation/mage/ice_nova_2_charges"] = "Ice Nova (2 Charges)"
-L["defaultRotation/mage/ice_nova"] = "Ice Nova"
-L["defaultRotation/mage/icy_veins"] = "Icy Veins"
-L["defaultRotation/mage/inferno_blast"] = "Inferno Blast"
-L["defaultRotation/mage/living_bomb"] = "Living Bomb"
-L["defaultRotation/mage/meteor"] = "Meteor"
-L["defaultRotation/mage/mirror_image_thermal_void"] = "Mirror Image (Thermal Void)"
-L["defaultRotation/mage/mirror_image"] = "Mirror Image"
-L["defaultRotation/mage/nether_tempest"] = "Nether Tempest"
-L["defaultRotation/mage/presence_of_mind"] = "Presence of Mind"
-L["defaultRotation/mage/prismatic_crystal"] = "Prismatic Crystal"
 L["defaultRotation/mage/pyroblast"] = "Pyroblast"
-L["defaultRotation/mage/rune_of_power"] = "Rune of Power"
-L["defaultRotation/mage/scorch"] = "Scorch"
 L["defaultRotation/mage/summon_water_elemental"] = "Summon Water Elemental"
-L["defaultRotation/mage/supernova"] = "Supernova"
 L["defaultRotation/mage/water_jet"] = "Water jet"
 L["defaultRotation/monk/blackout_kick_blackout_kick"] = "Blackout Kick (Blackout kick!)"
 L["defaultRotation/monk/blackout_kick"] = "Blackout Kick"
@@ -319,8 +301,8 @@ L["ROB_UI_AO_GENERAL_LABEL"] = "General Options:"
 L["ROB_UI_AO_GENERAL_TAB"] = "General"
 L["ROB_UI_AO_G_GSPELLCOST"] = "Cost Power:"
 L["ROB_UI_AO_G_GSPELLCOST1_TT"] = [=[Input the type of power used
-|cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBOPOINTS |cFF00FF006|r=RUNICPOWER |cFF00FF007|r=SOULSHARDS
-|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY]=]
+|cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBO POINTS |cFF00FF006|r=RUNIC POWER |cFF00FF007|r=SOUL SHARDS
+|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLY POWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY |cFF00FF0016|r=ARCANE POWER]=]
 L["ROB_UI_AO_G_GSPELLCOST2_TT"] = [=[Input the amount of power used
 Example1: |cFF00FF003|r
 Example2: |cFF00FF0090%|r]=]
@@ -328,8 +310,8 @@ L["ROB_UI_AO_G_GSPELLCOST_TT"] = [=[Check this option if this action use a type 
 This is used for calculating the next ready action]=]
 L["ROB_UI_AO_G_GUNITPOWER"] = "Generates Power:"
 L["ROB_UI_AO_G_GUNITPOWER1_TT"] = [=[Input the type of power generated
-|cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBOPOINTS |cFF00FF006|r=RUNICPOWER |cFF00FF007|r=SOULSHARDS
-|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY]=]
+|cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBO POINTS |cFF00FF006|r=RUNIC POWER |cFF00FF007|r=SOUL SHARDS
+|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLY POWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY |cFF00FF0016|r=ARCANE POWER]=]
 L["ROB_UI_AO_G_GUNITPOWER2_TT"] = [=[Input the amount of power generated
 Example1: |cFF00FF003|r
 Example2: |cFF00FF0090%|r]=]
@@ -461,8 +443,8 @@ L["ROB_UI_AO_P_NEEDDB_TT"] = "Only display action when player is missing the spe
 L["ROB_UI_AO_P_POWER"] = "Power:"
 L["ROB_UI_AO_P_POWER2"] = "Power 2:"
 L["ROB_UI_AO_P_POWER1_TT"] = [=[Input the type of unit power
-|cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBOPOINTS |cFF00FF006|r=RUNICPOWER |cFF00FF007|r=SOULSHARDS
-|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLYPOWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY]=]
+|cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBO POINTS |cFF00FF006|r=RUNIC POWER |cFF00FF007|r=SOUL SHARDS
+|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLY POWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY |cFF00FF0016|r=ARCANE POWER]=]
 L["ROB_UI_AO_P_POWER2_TT"] = [=[Input the amount of power required
 Example1: |cFF00FF00>20|r
 Example2: |cFF00FF00<=20|r

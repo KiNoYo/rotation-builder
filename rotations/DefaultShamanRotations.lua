@@ -120,12 +120,14 @@ local shamanRotationsGenerator = function ()
 			},
 		},
 		["defaultRotation/shaman/restoration"] = {
+			["version"] = 1,
+			["keybind"] = "<keybind>",
+			["specID"] = 3,
 			["SortedActions"] = {
 				"defaultRotation/shaman/flame_shock", -- [1]
 				"defaultRotation/shaman/lava_burst", -- [2]
 				"defaultRotation/shaman/lightning_bolt", -- [3]
 			},
-			["keybind"] = "<keybind>",
 			["ActionList"] = {
 				["defaultRotation/shaman/lava_burst"] = {
 					["v_togglename"] = "Toggle 1",
@@ -148,8 +150,6 @@ local shamanRotationsGenerator = function ()
 					["v_spellname"] = "403",
 				},
 			},
-			["bindindex"] = 0,
-			["specID"] = 3,
 		},
 	}
 

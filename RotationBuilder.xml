@@ -1540,7 +1540,7 @@
 								<Anchors>
 									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
 										<Offset>
-											<AbsDimension x="300" y="-40" />
+											<AbsDimension x="320" y="-40" />
 										</Offset>
 									</Anchor>
 								</Anchors>
