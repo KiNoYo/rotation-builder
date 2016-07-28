@@ -115,15 +115,11 @@ ROB_NewActionDefaults = {
 	b_p_unitpower=false,
 	v_p_unitpower="",
 	v_p_unitpowertype="",
+	b_p_unitpower2=false,
+	v_p_unitpower2="",
+	v_p_unitpower2type="",
 	b_p_runes=false,
 	v_p_runes="",
-	b_p_eclipse=false,
-	v_p_eclipse="",
-
-	b_p_stance=false,
-	v_p_stance="",
-	b_p_notstance=false,
-	v_p_notstance="",
 	b_p_knowspell=false,
 	v_p_knowspell="",
 	b_p_knownotspell=false,
@@ -1224,18 +1220,22 @@ function ROB_AO_ToggleOffCheckButton_OnToggle(self)
 end
 
 function ROB_AO_ToggleIconInputBox_OnTextChanged(self)
-	if (self:GetText() == nil or ROB_CurrentActionName == nil or ROB_EditingRotationTable == nil) then
+	if (self:GetText() == nil or self:GetText() == "" or ROB_CurrentActionName == nil or ROB_EditingRotationTable == nil) then
+		ROB_AO_ToggleIconTexture:Hide();
 		return
 	else
+		ROB_AO_ToggleIconTexture:Show();
 		ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_toggleicon = self:GetText()
 		ROB_AO_ToggleIconTexture:SetTexture(GetTexturePath(ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_toggleicon))
 	end
 end
 
 function ROB_AO_ActionIcon_OnTextChanged(self)
-	if (self:GetText() == nil or ROB_CurrentActionName == nil or ROB_EditingRotationTable == nil) then
+	if (self:GetText() == nil or self:GetText() == "" or ROB_CurrentActionName == nil or ROB_EditingRotationTable == nil) then
+		ROB_AO_ActionIconTexture:Hide();
 		return
 	else
+		ROB_AO_ActionIconTexture:Show();
 		ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_actionicon = self:GetText()
 		ROB_AO_ActionIconTexture:SetTexture(GetTexturePath(ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_actionicon))
 	end
@@ -2011,7 +2011,7 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_SpellValidate(_ActionDB.v_spellname);
 
 			ROB_Rotation_GUI_SetText("ROB_AO_ActionIconInputBox",_ActionDB.v_actionicon,"")
-			ROB_AO_ActionIconTexture:SetTexture(GetTexturePath(_ActionDB.v_actionicon))
+			ROB_AO_ActionIconTexture:SetTexture(GetTexturePath(_ActionDB.v_actionicon));
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_ToggleCheckButton",_ActionDB.b_toggle,false)
 			ROB_Rotation_GUI_SetChecked("ROB_AO_ToggleOffCheckButton",_ActionDB.b_toggleoff,false)
@@ -2080,17 +2080,12 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetText("ROB_AO_UnitPowerTypeInputBox",_ActionDB.v_p_unitpowertype,"")
 			ROB_Rotation_GUI_SetText("ROB_AO_UnitPowerInputBox",_ActionDB.v_p_unitpower,"")
 
+			ROB_Rotation_GUI_SetChecked("ROB_AO_UnitPower2CheckButton",_ActionDB.b_p_unitpower2,false)
+			ROB_Rotation_GUI_SetText("ROB_AO_UnitPower2TypeInputBox",_ActionDB.v_p_unitpower2type,"")
+			ROB_Rotation_GUI_SetText("ROB_AO_UnitPower2InputBox",_ActionDB.v_p_unitpower2,"")
+
 			ROB_Rotation_GUI_SetChecked("ROB_AO_RunesCheckButton",_ActionDB.b_p_runes,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_RunesInputBox",_ActionDB.v_p_runes,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_EclipeDirectionCheckButton",_ActionDB.b_p_eclipse,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_EclipeDirectionInputBox",_ActionDB.v_p_eclipse,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_StanceCheckButton",_ActionDB.b_p_stance,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_StanceInputBox",_ActionDB.v_p_stance,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_NotStanceCheckButton",_ActionDB.b_p_notstance,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_NotStanceInputBox",_ActionDB.v_p_notstance,"")
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_KnowSpellCheckButton",_ActionDB.b_p_knowspell,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_KnowSpellInputBox",_ActionDB.v_p_knowspell,"")
@@ -2673,59 +2668,7 @@ function IsSpellKnown(spellId, isNextSpell)
 		ROB_ACTION_CASTTIME = 0;
 		return false;
 	end
-	local _, _, tabOffset, numEntries = GetSpellTabInfo(2);
-	local i = 0;
-	for i=tabOffset + 1, tabOffset + numEntries do
-		local actualName, _			= GetSpellBookItemName(i, BOOKTYPE_SPELL);
-		if actualName == spellName then
-			return true;
-		end
-	end
-	return false;
-end
-
-function ROB_PlayerInStance(needed)
-	local stance		= nil;
-	local remaining		= needed;
-	local count			= 0;
-	local found			= 0;
-	local done			= false;
-	local stringType	= 0;
-	local shape			= 0;
-
-	while not done do
-		stance	= nil;
-		shape	= 0;
-		if (string.find(remaining, "|")) then
-			stance		= string.sub(remaining, 1, string.find(remaining, "|") - 1);
-			count		= count + 1;
-			remaining	= string.sub(remaining, string.find(remaining, "|") +1 );
-			stringType	= 1;
-		elseif (string.find(remaining, "&")) then
-			stance		= string.sub(remaining, 1, string.find(remaining, "&") - 1);
-			count		= count + 1;
-			remaining	= string.sub(remaining, string.find(remaining, "&") + 1);
-			stringType	= 2;
-		else
-			stance	= remaining;
-			count	= count + 1;
-			done	= true;
-		end
-		if (stance ~= nil) then
-			if(tonumber(stance) < tonumber(GetNumShapeshiftForms()) + 1) then
-				if (tonumber(GetShapeshiftForm()) ~= nil) then
-					shape = tonumber(GetShapeshiftForm());
-				end
-				if (tonumber(shape) == tonumber(stance)) then
-					found = found + 1;
-				end
-			end
-		end
-	end
-	if (((stringType == 0 or stringType == 1) and found >= 1) or (stringType == 2 and found == count) ) then
-		return true;
-	end
-	return false;
+	return IsPlayerSpell(spellId);
 end
 
 function ROB_PlayerIsStealthed()
@@ -3206,6 +3149,12 @@ function ROB_SpellReady(actionName,isNextSpell)
 			return false
 		end
 	end
+	if (ActionDB.b_p_unitpower2 and ActionDB.v_p_unitpower2type ~= nil and ActionDB.v_p_unitpower2type ~= "") then
+		if (not ROB_UnitPassesPowerCheck(ActionDB.v_p_unitpower2, "PLAYER", ActionDB.v_p_unitpower2type, isNextSpell)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required power", debug);
+			return false
+		end
+	end
 
 	-- CHECK: Last Casted
 	if (ActionDB.b_lastcasted and ActionDB.v_lastcasted ~= nil and ActionDB.v_lastcasted ~= "") then
@@ -3224,14 +3173,6 @@ function ROB_SpellReady(actionName,isNextSpell)
 		end
 	end
 
-	-- CHECK: Eclipse Direction
-	if (ActionDB.b_p_eclipse and ActionDB.v_p_eclipse ~= nil and ActionDB.v_p_eclipse ~= "") then
-		if (GetEclipseDirection() ~= ActionDB.v_p_eclipse) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because eclipse is not heading in the required direction", debug);
-			return false;
-		end
-	end
-
 	--CHECK: Check Boss
 	if (ActionDB.b_t_boss ) then
 		if (UnitClassification("TARGET") ~= "worldboss") then
@@ -3244,22 +3185,6 @@ function ROB_SpellReady(actionName,isNextSpell)
 	if (ActionDB.b_t_notaboss ) then
 		if (UnitClassification("TARGET") == "worldboss") then
 			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because your target is classified as a worldboss", debug);
-			return false;
-		end
-	end
-
-	-- CHECK: Stance 
-	if (ActionDB.b_p_stance and ActionDB.v_p_stance ~= nil and ActionDB.v_p_stance ~= "") then
-		if(not ROB_PlayerInStance(ActionDB.v_p_stance)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you are not in the required stance", debug);
-			return false;
-		end
-	end
-
-	-- CHECK: Not in Stance
-	if (ActionDB.b_p_notstance and ActionDB.v_p_notstance ~= nil and ActionDB.v_p_notstance ~= "") then
-		if(ROB_PlayerInStance(ActionDB.v_p_notstance)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you are in the required stance", debug);
 			return false;
 		end
 	end
