@@ -2656,15 +2656,16 @@ function ROB_UnitKnowSpell(needed)
 	return false;
 end
 
-function IsSpellKnown(spellId, isNextSpell)
+function IsSpellKnown(spell, isNextSpell)
 	local spellName = nil;
+	local spellId = nil;
 	
 	if (isNextSpell) then
-		spellName, _, _, _, _, _, _ = GetSpellInfo(spellId);
+		spellName, _, _, _, _, _, spellId = GetSpellInfo(spell);
 	else
-		spellName, _, _, ROB_ACTION_CASTTIME, _, _, _ = GetSpellInfo(spellId);
+		spellName, _, _, ROB_ACTION_CASTTIME, _, _, spellId = GetSpellInfo(spell);
 	end
-	if spellName == nil then
+	if spellName == nil or spellId == nil then
 		ROB_ACTION_CASTTIME = 0;
 		return false;
 	end
