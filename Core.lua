@@ -1,5 +1,13 @@
 --- Define the Rotation Builder main Object.
 RotationBuilder = {
+
+	-- Technical version of rotation builder.
+	version = 1,
+
+	-- If we need to clean up the user installation with this revision.
+	needCleanUp = true,
+
+	-- serializer tool for import/export funtionality.
 	serializer = nil,
 
 	-- The list of rotations generator.
@@ -127,30 +135,32 @@ function RotationBuilder:loadDefaultRotations(className)
 	-- Load default rotations for this class.
 	local defaultRotation = self.defaultRotationGenerator[className]["generator"]();
 	for key, value in pairs(defaultRotation) do
-		if(ROB_Rotations[key]) then
-			-- If a rotation with the same name already exist.
-			print(RotationBuilderUtils:localize('ROB_UI_DEBUG_PREFIX')..key..":"..RotationBuilderUtils:localize('ROB_UI_IMPORT_ERROR2'));
-		else
-			-- We can import the rotation.
+		if(not ROB_Rotations[key] or not ROB_Rotations[key]["version"] or ROB_Rotations[key]["version"] < value["version"]) then
+			-- The rotation don't exist or is older, then we can import the rotation.
 			ROB_Rotations[key] = value;
 		end
 	end
 end
 
 --- Check if this is a newer RotationBuilder add-on and upgrade default rotation if possible.
-function RotationBuilder:checkAndUpgradeRotations()
-	-- TODO PEL: To finish
+function RotationBuilder:cleanUpInstallationOnNeed()
 	local oldVersion = ROB_Options["version"];
-	if(not oldVersion)then
-		
+	local newVersion = RotationBuilder["version"];
+	if(not oldVersion or (oldVersion < newVersion and (RotationBuilder["needCleanUp"] or oldVersion + 1 < newVersion))) then
+		-- We need do clean up RotationBuilder.
+		ROB_Options = {};
+		ROB_Rotations = {};
+		ROB_Exports = {};
+		print(RotationBuilderUtils:localize('message/core/fullCleanUp'));
 	end
+	ROB_Options["version"] = newVersion;
 end
 
 --- Find a rotation by its specialization.
 -- @param #Int specializationID: the specialization ID for which we seek a rotation.
 -- @return #String the name of the rotation.
 function RotationBuilder:findRotationBySpecializationID(specializationID)
-	if (not ROB_Rotations) then
+	if (not ROB_Rotations or not specializationID) then
 		-- If no rotation is defined, then return nil.
 		return nil;
 	end

@@ -2,12 +2,12 @@
 local warlockRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/warlock/destruction"] = {
+			["version"] = 1,
 			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/warlock/chaos_bolt_charred_remains"] = {
 					["v_p_knowspell"] = "157696",
 					["v_p_unitpowertype"] = "14",
-					["v_gcdspell"] = "126",
 					["b_p_unitpower"] = true,
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -18,7 +18,6 @@ local warlockRotationsGenerator = function ()
 					["v_p_unitpower"] = ">=2.5",
 				},
 				["defaultRotation/warlock/conflagrate"] = {
-					["v_gcdspell"] = "0",
 					["b_charges"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_actionicon"] = "17962",
@@ -28,7 +27,6 @@ local warlockRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 				},
 				["defaultRotation/warlock/chaos_bolt_execute"] = {
-					["v_gcdspell"] = "126",
 					["v_t_hp"] = "<10%",
 					["v_togglename"] = "Toggle 1",
 					["v_actionicon"] = "116858",
@@ -38,7 +36,6 @@ local warlockRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 				},
 				["defaultRotation/warlock/dark_soul_instability"] = {
-					["v_gcdspell"] = "126",
 					["v_p_unitpowertype"] = "14",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -51,7 +48,6 @@ local warlockRotationsGenerator = function ()
 				["defaultRotation/warlock/summon_demon"] = {
 					["v_p_needbuff"] = "_108503",
 					["b_p_needbuff"] = true,
-					["v_gcdspell"] = "126",
 					["v_pet_hp"] = "=0",
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -69,12 +65,10 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "18540",
 					["v_p_knowspell"] = "152107&108499",
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "126",
 					["v_actionicon"] = "18540",
 				},
 				["defaultRotation/warlock/cataclysm"] = {
 					["v_p_knowspell"] = "152108",
-					["v_gcdspell"] = "768",
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -88,14 +82,12 @@ local warlockRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "29722",
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "126",
 				},
 				["defaultRotation/warlock/immolate_cataclysm"] = {
 					["v_t_needsdebuff"] = "_348^4.5",
 					["v_checkothercdname"] = "152108",
 					["v_p_knowspell"] = "152108",
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "126",
 					["b_checkothercd"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -105,7 +97,6 @@ local warlockRotationsGenerator = function ()
 					["v_actionicon"] = "348",
 				},
 				["defaultRotation/warlock/chaos_bolt_dark_soul_instability"] = {
-					["v_gcdspell"] = "126",
 					["v_actionicon"] = "116858",
 					["v_togglename"] = "Toggle 1",
 					["b_p_havebuff"] = true,
@@ -117,7 +108,6 @@ local warlockRotationsGenerator = function ()
 				["defaultRotation/warlock/chaos_bolt"] = {
 					["v_actionicon"] = "116858",
 					["b_p_unitpower"] = true,
-					["v_gcdspell"] = "126",
 					["v_durationstartedtime"] = 0,
 					["b_p_knownotspell"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -130,7 +120,6 @@ local warlockRotationsGenerator = function ()
 				["defaultRotation/warlock/grimoire_of_sacrifice"] = {
 					["v_p_needbuff"] = "_108503",
 					["v_p_knowspell"] = "108503",
-					["v_gcdspell"] = "126",
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -146,7 +135,6 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "18540",
 					["v_p_knowspell"] = "152107&108501",
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "126",
 					["v_actionicon"] = "18540",
 				},
 				["defaultRotation/warlock/dark_intent"] = {
@@ -156,12 +144,10 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "109773",
 					["b_p_needbuff"] = true,
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "126",
 					["v_actionicon"] = "109773",
 				},
 				["defaultRotation/warlock/dark_regeneration"] = {
 					["v_p_knowspell"] = "108359",
-					["v_gcdspell"] = "0",
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -178,12 +164,10 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "108416",
 					["v_p_knowspell"] = "108416",
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "0",
 					["v_actionicon"] = "108416",
 				},
 				["defaultRotation/warlock/immolate"] = {
 					["v_t_needsdebuff"] = "_348^4.5",
-					["v_gcdspell"] = "126",
 					["v_togglename"] = "Toggle 1",
 					["v_actionicon"] = "348",
 					["v_spellname"] = "348",
@@ -192,7 +176,6 @@ local warlockRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 				},
 				["defaultRotation/warlock/conflagrate_2_charges"] = {
-					["v_gcdspell"] = "0",
 					["b_charges"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -206,7 +189,6 @@ local warlockRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_p_knowspell"] = "157696",
 					["v_t_hp"] = "<20%",
-					["v_gcdspell"] = "126",
 					["v_p_unitpowertype"] = "14",
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -223,14 +205,12 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "18540",
 					["v_p_knowspell"] = "152107",
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "126",
 					["v_actionicon"] = "18540",
 				},
 				["defaultRotation/warlock/shadowburn"] = {
 					["v_keybind"] = "<keybind>",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
-					["v_gcdspell"] = "126",
 					["b_t_hp"] = true,
 					["b_p_unitpower"] = true,
 					["v_p_knownotspell"] = "157696",
@@ -268,12 +248,12 @@ local warlockRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/warlock/demonology"] = {
+			["version"] = 1,
 			["specID"] = 2,
 			["ActionList"] = {
 				["defaultRotation/warlock/corruption"] = {
 					["v_t_needsdebuff"] = "_172^5.4",
 					["b_p_needbuff"] = true,
-					["v_gcdspell"] = "126",
 					["v_actionicon"] = "172",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -284,7 +264,6 @@ local warlockRotationsGenerator = function ()
 				},
 				["defaultRotation/warlock/summmon_felguard_grimoire_of_service"] = {
 					["v_p_knowspell"] = "108501",
-					["v_gcdspell"] = "126",
 					["b_p_knowspell"] = true,
 					["v_p_knownotspell"] = "152107",
 					["v_actionicon"] = "30146",
@@ -296,7 +275,6 @@ local warlockRotationsGenerator = function ()
 				},
 				["defaultRotation/warlock/soul_fire_metamorphosis_execute"] = {
 					["v_actionicon"] = "6353",
-					["v_gcdspell"] = "126",
 					["v_durationstartedtime"] = 0,
 					["v_togglename"] = "Toggle 1",
 					["b_p_havebuff"] = true,
@@ -309,7 +287,6 @@ local warlockRotationsGenerator = function ()
 				["defaultRotation/warlock/soul_fire_execute"] = {
 					["v_p_needbuff"] = "_103958",
 					["b_p_needbuff"] = true,
-					["v_gcdspell"] = "126",
 					["v_actionicon"] = "6353",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -320,7 +297,6 @@ local warlockRotationsGenerator = function ()
 				},
 				["defaultRotation/warlock/chaos_wave"] = {
 					["v_actionicon"] = "124916",
-					["v_gcdspell"] = "126",
 					["v_keybind"] = "<keybind>",
 					["v_durationstartedtime"] = 0,
 					["v_p_knownotspell"] = "157695",
@@ -335,7 +311,6 @@ local warlockRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "113861",
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "126",
 					["v_actionicon"] = "113861",
 				},
 				["defaultRotation/warlock/touch_of_chaos"] = {
@@ -345,7 +320,6 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "686",
 					["v_p_havebuff"] = "_103958",
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "768",
 				},
 				["defaultRotation/warlock/summon_terrorguard"] = {
 					["b_p_knowspell"] = true,
@@ -354,7 +328,6 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "18540",
 					["v_p_knowspell"] = "152107&108499",
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "126",
 					["v_actionicon"] = "18540",
 				},
 				["defaultRotation/warlock/shadow_bolt"] = {
@@ -363,12 +336,10 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "686",
 					["v_actionicon"] = "686",
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "126",
 				},
 				["defaultRotation/warlock/doom"] = {
 					["v_t_needsdebuff"] = "_603^18",
 					["b_p_havebuff"] = true,
-					["v_gcdspell"] = "126",
 					["v_togglename"] = "Toggle 1",
 					["b_p_knownotspell"] = true,
 					["v_p_knownotspell"] = "152108",
@@ -386,12 +357,10 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "108416",
 					["v_p_knowspell"] = "108416",
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "0",
 					["v_actionicon"] = "108416",
 				},
 				["defaultRotation/warlock/cataclysm"] = {
 					["v_p_knowspell"] = "152108",
-					["v_gcdspell"] = "768",
 					["v_actionicon"] = "152108",
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -403,7 +372,6 @@ local warlockRotationsGenerator = function ()
 				},
 				["defaultRotation/warlock/touch_of_chaos_demonic_fury"] = {
 					["v_actionicon"] = "103964",
-					["v_gcdspell"] = "768",
 					["b_p_unitpower"] = true,
 					["v_p_unitpower"] = ">900",
 					["v_togglename"] = "Toggle 1",
@@ -415,7 +383,6 @@ local warlockRotationsGenerator = function ()
 				},
 				["defaultRotation/warlock/summon_wrathguard"] = {
 					["v_p_knowspell"] = "108499",
-					["v_gcdspell"] = "126",
 					["b_p_knowspell"] = true,
 					["v_p_knownotspell"] = "152107",
 					["v_durationstartedtime"] = 0,
@@ -432,13 +399,11 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "18540",
 					["v_p_knowspell"] = "152107&108501",
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "126",
 					["v_actionicon"] = "18540",
 				},
 				["defaultRotation/warlock/hand_of_guldan_2_charges"] = {
 					["v_p_needbuff"] = "_103958",
 					["b_p_needbuff"] = true,
-					["v_gcdspell"] = "126",
 					["b_charges"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -448,7 +413,6 @@ local warlockRotationsGenerator = function ()
 					["v_charges"] = "2",
 				},
 				["defaultRotation/warlock/metamorphosis"] = {
-					["v_gcdspell"] = "0",
 					["v_durationstartedtime"] = 0,
 					["v_togglename"] = "Toggle 1",
 					["v_p_unitpowertype"] = "15",
@@ -460,7 +424,6 @@ local warlockRotationsGenerator = function ()
 				},
 				["defaultRotation/warlock/life_tap"] = {
 					["v_togglename"] = "Toggle 1",
-					["v_gcdspell"] = "126",
 					["v_durationstartedtime"] = 0,
 					["v_p_unitpowertype"] = "0",
 					["v_p_hp"] = ">50%",
@@ -473,7 +436,6 @@ local warlockRotationsGenerator = function ()
 				},
 				["defaultRotation/warlock/touch_of_chaos_refresh"] = {
 					["v_t_needsdebuff"] = "_172^3",
-					["v_gcdspell"] = "768",
 					["v_durationstartedtime"] = 0,
 					["v_togglename"] = "Toggle 1",
 					["v_actionicon"] = "103964",
@@ -489,14 +451,12 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "30146",
 					["b_p_knownotspell"] = true,
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "126",
 					["v_p_knownotspell"] = "152107",
 				},
 				["defaultRotation/warlock/hand_of_guldan"] = {
 					["v_t_needsdebuff"] = "_47960^2.5",
 					["b_p_needbuff"] = true,
 					["v_actionicon"] = "105174",
-					["v_gcdspell"] = "126",
 					["b_charges"] = true,
 					["v_spellname"] = "105174",
 					["v_togglename"] = "Toggle 1",
@@ -513,11 +473,9 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "109773",
 					["b_p_needbuff"] = true,
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "126",
 					["v_actionicon"] = "109773",
 				},
 				["defaultRotation/warlock/soul_fire_metamorphosis"] = {
-					["v_gcdspell"] = "126",
 					["b_p_havebuff"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -542,7 +500,6 @@ local warlockRotationsGenerator = function ()
 					["v_p_needbuff"] = "_103958",
 					["b_p_needbuff"] = true,
 					["b_p_havebuff"] = true,
-					["v_gcdspell"] = "126",
 					["v_durationstartedtime"] = 0,
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -554,7 +511,6 @@ local warlockRotationsGenerator = function ()
 				},
 				["defaultRotation/warlock/dark_regeneration"] = {
 					["v_p_knowspell"] = "108359",
-					["v_gcdspell"] = "0",
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -566,7 +522,6 @@ local warlockRotationsGenerator = function ()
 				},
 				["defaultRotation/warlock/touch_of_chaos_refresh_execute"] = {
 					["v_t_needsdebuff"] = "_172^3",
-					["v_gcdspell"] = "768",
 					["v_actionicon"] = "103964",
 					["b_t_hp"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -584,13 +539,11 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "18540",
 					["v_p_knowspell"] = "152107",
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "126",
 					["v_actionicon"] = "18540",
 				},
 				["defaultRotation/warlock/soul_fire"] = {
 					["v_p_needbuff"] = "_103958",
 					["b_p_needbuff"] = true,
-					["v_gcdspell"] = "126",
 					["b_p_havebuff"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -634,11 +587,11 @@ local warlockRotationsGenerator = function ()
 			["keybind"] = "<keybind>",
 		},
 		["defaultRotation/warlock/affliction"] = {
+			["version"] = 1,
 			["specID"] = 1,
 			["ActionList"] = {
 				["defaultRotation/warlock/corruption"] = {
 					["v_t_needsdebuff"] = "_172^5.4",
-					["v_gcdspell"] = "126",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "172",
@@ -648,7 +601,6 @@ local warlockRotationsGenerator = function ()
 				},
 				["defaultRotation/warlock/haunt_execute"] = {
 					["v_t_hp"] = "<10%",
-					["v_gcdspell"] = "126",
 					["v_togglename"] = "Toggle 1",
 					["b_p_knownotspell"] = true,
 					["v_p_knownotspell"] = "152109",
@@ -661,7 +613,6 @@ local warlockRotationsGenerator = function ()
 				["defaultRotation/warlock/summon_demon"] = {
 					["v_p_needbuff"] = "_108503",
 					["b_p_needbuff"] = true,
-					["v_gcdspell"] = "126",
 					["v_actionicon"] = "475",
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -676,7 +627,6 @@ local warlockRotationsGenerator = function ()
 					["b_t_hasdebuff"] = true,
 					["v_p_knowspell"] = "152109",
 					["v_actionicon"] = "48181",
-					["v_gcdspell"] = "126",
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
 					["b_p_havebuff"] = true,
@@ -693,7 +643,6 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "18540",
 					["v_p_knowspell"] = "152107",
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "126",
 					["v_actionicon"] = "18540",
 				},
 				["defaultRotation/warlock/summon_terrorguard"] = {
@@ -703,12 +652,10 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "18540",
 					["v_p_knowspell"] = "152107&108499",
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "126",
 					["v_actionicon"] = "18540",
 				},
 				["defaultRotation/warlock/unstable_affliction"] = {
 					["v_t_needsdebuff"] = "_30108^4.2",
-					["v_gcdspell"] = "126",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "30108",
@@ -722,11 +669,9 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "103103",
 					["v_actionicon"] = "103103",
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "1260",
 				},
 				["defaultRotation/warlock/agony"] = {
 					["v_t_needsdebuff"] = "_980^7.2",
-					["v_gcdspell"] = "126",
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "980",
@@ -736,7 +681,6 @@ local warlockRotationsGenerator = function ()
 				},
 				["defaultRotation/warlock/dark_regeneration"] = {
 					["v_p_knowspell"] = "108359",
-					["v_gcdspell"] = "0",
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -752,7 +696,6 @@ local warlockRotationsGenerator = function ()
 					["b_t_hasdebuff"] = true,
 					["b_p_needbuff"] = true,
 					["v_durationstartedtime"] = 0,
-					["v_gcdspell"] = "0",
 					["v_p_knowspell"] = "152109",
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -770,12 +713,10 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "108416",
 					["v_p_knowspell"] = "108416",
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "0",
 					["v_actionicon"] = "108416",
 				},
 				["defaultRotation/warlock/life_tap"] = {
 					["v_actionicon"] = "1454",
-					["v_gcdspell"] = "126",
 					["v_p_hp"] = ">50%",
 					["v_p_unitpowertype"] = "0",
 					["v_togglename"] = "Toggle 1",
@@ -789,7 +730,6 @@ local warlockRotationsGenerator = function ()
 				["defaultRotation/warlock/grimoire_of_sacrifice"] = {
 					["v_p_needbuff"] = "_108503",
 					["v_p_knowspell"] = "108503",
-					["v_gcdspell"] = "126",
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
 					["v_durationstartedtime"] = 0,
@@ -800,7 +740,6 @@ local warlockRotationsGenerator = function ()
 				},
 				["defaultRotation/warlock/haunt_dark_soul_misery"] = {
 					["v_actionicon"] = "48181",
-					["v_gcdspell"] = "126",
 					["v_durationstartedtime"] = 0,
 					["v_p_knownotspell"] = "152109",
 					["v_togglename"] = "Toggle 1",
@@ -817,7 +756,6 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "18540",
 					["v_p_knowspell"] = "152107&108501",
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "126",
 					["v_actionicon"] = "18540",
 				},
 				["defaultRotation/warlock/dark_intent"] = {
@@ -827,12 +765,10 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "109773",
 					["b_p_needbuff"] = true,
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "126",
 					["v_actionicon"] = "109773",
 				},
 				["defaultRotation/warlock/soul_swap"] = {
 					["v_t_needsdebuff"] = "_980&_172&_30108",
-					["v_gcdspell"] = "1490",
 					["v_actionicon"] = "86121",
 					["b_p_havebuff"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -847,7 +783,6 @@ local warlockRotationsGenerator = function ()
 					["b_p_unitpower"] = true,
 					["v_p_knowspell"] = "152109",
 					["v_durationstartedtime"] = 0,
-					["v_gcdspell"] = "126",
 					["v_p_unitpower"] = ">=3",
 					["b_p_knowspell"] = true,
 					["v_togglename"] = "Toggle 1",
@@ -858,7 +793,6 @@ local warlockRotationsGenerator = function ()
 					["v_p_havebuff"] = "113860",
 				},
 				["defaultRotation/warlock/haunt_soul_shards_4"] = {
-					["v_gcdspell"] = "126",
 					["v_p_unitpowertype"] = "7",
 					["v_durationstartedtime"] = 0,
 					["v_togglename"] = "Toggle 1",
@@ -871,7 +805,6 @@ local warlockRotationsGenerator = function ()
 				["defaultRotation/warlock/haunt_soul_shards_3"] = {
 					["v_togglename"] = "Toggle 1",
 					["b_p_unitpower"] = true,
-					["v_gcdspell"] = "126",
 					["b_p_knownotspell"] = true,
 					["v_durationstartedtime"] = 0,
 					["v_p_knownotspell"] = "152109",
@@ -886,12 +819,10 @@ local warlockRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "113860",
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "126",
 					["v_actionicon"] = "113860",
 				},
 				["defaultRotation/warlock/haunt"] = {
 					["v_t_needsdebuff"] = "_48181",
-					["v_gcdspell"] = "126",
 					["v_actionicon"] = "48181",
 					["b_p_knownotspell"] = true,
 					["v_p_knownotspell"] = "152109",
@@ -908,7 +839,6 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "74434",
 					["b_t_needsdebuff"] = true,
 					["v_keybind"] = "<keybind>",
-					["v_gcdspell"] = "0",
 					["v_durationstartedtime"] = 0,
 				},
 			},
@@ -942,13 +872,10 @@ local warlockRotationsGenerator = function ()
 		},
 	}
 
-	-- Restore the true state of the saved data.
-	-- return RotationBuilder:restoreTable({}, rotation);
 	return rotation;
 end
 
 local warlockRotationsGeneratorData = {
-	["version"] = 1, 
 	["generator"] = warlockRotationsGenerator
 };
 

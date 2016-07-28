@@ -32,8 +32,7 @@ ROB_TOGGLE_3                        = 0
 ROB_TOGGLE_4                        = 0
 
 -- Initial Options
-local ROB_Options_Default           =
-{
+local ROB_Options_Default           = {
 	MiniMap                          = true;
 	MiniMapPos                       = 300;
 	MiniMapRad                       = 80;
@@ -71,7 +70,6 @@ ROB_NewActionDefaults = {
 	v_keybind="<keybind>",
 	v_spellname="<spell name>",
 	v_actionicon="",
-	v_gcdspell="",
 	b_maxcasts=false,
 	v_maxcasts="",
 	b_lastcasted=false,
@@ -79,12 +77,13 @@ ROB_NewActionDefaults = {
 	b_moving=false,
 	b_notmoving=false,
 
+	b_gspellcost=false,
+	v_gspellcosttype="",
+	v_gspellcost="",
+
 	b_gunitpower=false,
 	v_gunitpowertype="",
 	v_gunitpower="",
-
-	b_gcombopoints=false,
-	v_gcombopoints="",
 	
 	b_charges=false,
 	v_charges="",
@@ -100,6 +99,7 @@ ROB_NewActionDefaults = {
 	b_debug=false,
 	b_disabled=false,
 	b_hasproc=false,
+	b_notinspellbook=false,
 	
 	--Player Options---------------
 	b_p_hp=false,
@@ -115,26 +115,10 @@ ROB_NewActionDefaults = {
 	b_p_unitpower=false,
 	v_p_unitpower="",
 	v_p_unitpowertype="",
-	b_p_bloodrunes=false,
-	v_p_bloodrunes="",
-	b_p_frostrunes=false,
-	v_p_frostrunes="",
-	b_p_unholyrunes=false,
-	v_p_unholyrunes="",
-	b_p_deathrunes=false,
-	v_p_deathrunes="",
-
-	b_p_combopoints=false,
-	v_p_combopoints="",
+	b_p_runes=false,
+	v_p_runes="",
 	b_p_eclipse=false,
 	v_p_eclipse="",
-
-	b_p_firetotemactive=false,
-	v_p_firetotemactive="",
-	b_p_firetoteminactive=false,
-	v_p_firetoteminactive="",
-	b_p_firetotemtimeleft=false,
-	v_p_firetotemtimeleft="",
 
 	b_p_stance=false,
 	v_p_stance="",
@@ -144,10 +128,6 @@ ROB_NewActionDefaults = {
 	v_p_knowspell="",
 	b_p_knownotspell=false,
 	v_p_knownotspell="",
-	b_p_isglyphed=false,
-	v_p_isglyphed="",
-	b_p_notglyphed=false,
-	v_p_notglyphed="",
 	b_p_isstealthed=false,
 	
 	--Target Options---------------
@@ -173,13 +153,6 @@ ROB_NewActionDefaults = {
 	v_pet_hasbuff="",
 }
 
--- Saved Options
-ROB_Options                         = {};
-ROB_Rotations                       = {};
---@do-not-package@
--- Register minified rotation on export for development purpose.
-ROB_Exports                         = {};
---@end-do-not-package@
 ROB_ActionClipboard                 = nil;
 
 local ROB_Initialized               = false
@@ -187,6 +160,7 @@ local ROB_Initialized               = false
 local ROB_SortedRotations           = {};      -- Sorted rotation table
 local ROB_EditingRotationTable      = nil;     -- Rotation table being edited
 ROB_SelectedRotationName            = nil;     -- Selected Rotation Name
+ROB_SelectedRotationSpec			= nil;     -- Selected Rotation Specialization
 local ROB_SelectedRotationIndex     = nil;     -- Selected Rotation Index
 local ROB_SelectedActionIndex       = nil;     -- Selected Action Index
 local ROB_CurrentActionName         = nil;     -- The current selected ActionName
@@ -387,7 +361,6 @@ end
 
 function ROB_OnLoad(self)
 	self:RegisterEvent("ADDON_LOADED");
-	self:RegisterEvent("PLAYER_LOGIN");
 	self:RegisterEvent("PLAYER_ENTERING_WORLD");
 	self:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED");
 	self:RegisterEvent("UNIT_SPELLCAST_START");
@@ -431,8 +404,6 @@ function ROB_OnEvent(self, event, ...)
 
 	if (event == "ADDON_LOADED") then
 		ROB_ADDON_Load(...);
-	elseif (event == "PLAYER_LOGIN") then
-		ROB_PLAYER_LOGIN();
 	elseif (event == "PLAYER_ENTERING_WORLD") then
 		ROB_PLAYER_Enter();
 	elseif (event == "ACTIVE_TALENT_GROUP_CHANGED") then
@@ -487,25 +458,14 @@ function ROB_OnEvent(self, event, ...)
 	end
 end
 
-function ROB_PLAYER_LOGIN()
-	--After loading the options check if we have loaded once before if not then load default rotations
-	if (ROB_Options["loaddefault"]) then
-		ROB_LoadDefaultRotations()
-		ROB_Options["loaddefault"] = false
-		--Do we have a spell list?
-	else
-		--Weve loaded once before do we have a last loaded rotation?
-		if (ROB_Options["lastrotation"] and ROB_Options["lastrotation"] ~= "" and ROB_Options["lastrotation"] ~= nil) then
-			ROB_SwitchRotation(ROB_Options["lastrotation"], true)
-		end
-	end
-end
-
 function ROB_ADDON_Load(addon)
 	local key, value;
 
 	if (addon ~= ROB_PROJECT_NAME) then return end
-	
+
+	-- Check here if we need to clean up rotation builder installation.
+	RotationBuilder:cleanUpInstallationOnNeed();
+
 	for key, value in pairs(ROB_Options_Default) do
 		if (ROB_Options[key] == nil) then
 			ROB_Options[key] = value;
@@ -522,15 +482,25 @@ function ROB_ADDON_Load(addon)
 
 	-- Initialize frame
 	ROB_FrameVersionFrameVersion:SetText(ROB_VERSION);
-
 end
 
 function ROB_PLAYER_Enter()
-	if (ROB_Initialized == true) then
+	if (ROB_Initialized) then
 		return;
 	end
 
 	ROB_Initialized = true;
+
+	-- Load or update default rotations.
+	ROB_LoadDefaultRotations();
+
+	if (ROB_Options["lastrotation"] and ROB_Options["lastrotation"] ~= nil and ROB_Options["lastrotation"] ~= "") then
+		--Weve loaded once before do we have a last loaded rotation?
+		ROB_SwitchRotation(ROB_Options["lastrotation"], true);
+	else
+		-- If we don't have a previously selected rotation, then select the one which match the specialization if it exist.
+		ROB_SwitchRotation(RotationBuilder:findRotationBySpecializationID(GetSpecialization()), true);
+	end
 
 	-- Initialize options tab
 	ROB_OptionsTabMiniMapButton:SetChecked(ROB_Options.MiniMap);
@@ -625,18 +595,11 @@ function ROB_PLAYER_Enter()
 
 	-- update rotation ui stuff
 	ROB_Rotation_Edit_UpdateUI();
-
 end
 
 --- Change the rotation to match the specialization.
 function ROB_OnActiveTalentGroupChanged()
-	local specID, rotationName;
-	specID = GetSpecialization();
-	-- print("Current specialization ID = "..specID);
-	rotationName = RotationBuilder:findRotationBySpecializationID(specID);
-	if (rotationName) then
-		ROB_SwitchRotation(rotationName, true);
-	end
+	ROB_SwitchRotation(RotationBuilder:findRotationBySpecializationID(GetSpecialization()), true);
 end
 
 function ROB_OnCommand(cmd)
@@ -741,8 +704,9 @@ function ROB_RotationListButton_OnClick(self)
 	end
 
 	ROB_SelectedRotationIndex = self:GetID() + FauxScrollFrame_GetOffset(ROB_RotationScrollFrame);
-	ROB_SelectedRotationName = ROB_SortedRotations[ROB_SelectedRotationIndex]
-	ROB_SwitchRotation(ROB_SelectedRotationName, true)
+	ROB_SelectedRotationName = ROB_SortedRotations[ROB_SelectedRotationIndex];
+	ROB_SelectedRotationSpec = tonumber(ROB_Rotations[ROB_SortedRotations[ROB_SelectedRotationIndex]]["specID"]);
+	ROB_SwitchRotation(ROB_SelectedRotationName, true);
 
 	-- update rotation list
 	ROB_SortRotationList();
@@ -758,7 +722,11 @@ function ROB_RotationListButton_OnClick(self)
 end
 
 function ROB_SwitchRotation(RotationID,_byName)
-	local _MatchingRotationName = nil
+	local _MatchingRotationName;
+	if(not RotationID or RotationID == "") then
+		return;
+	end
+
 	--if we are modififying a rotation dont switch to a different one
 	if (ROB_EditingRotationTable ~= nil) then
 		--just force a save and switch the rotation
@@ -777,7 +745,7 @@ function ROB_SwitchRotation(RotationID,_byName)
 			end
 			index = index + 1;
 		end
-		if (_MatchingRotationName == nil) then
+		if (not _MatchingRotationName) then
 			print(RotationBuilderUtils:localize('ROB_UI_DEBUG_PREFIX')..RotationBuilderUtils:localize('ROB_UI_ROTATION_E1'))
 			return;
 		end
@@ -834,9 +802,11 @@ function ROB_RotationCreateButton_OnClick(self)
 
 	-- new name prompt
 	ROB_SelectedRotationName = "<rotation name>";
+	ROB_SelectedRotationSpec = ""
 
 	-- UPDATE_ROTATION_OPTIONS1
 	ROB_RotationNameInputBox:SetText(ROB_SelectedRotationName);
+	ROB_RotationSpecInputBox:SetText(ROB_SelectedRotationSpec);
 	ROB_RotationKeyBindButton:SetText(ROB_EditingRotationTable.keybind);
 
 	-- update the action list
@@ -856,14 +826,17 @@ end
 
 function ROB_ModifyRotationButton_OnClick(self)
 	-- copy the selected list
-	ROB_EditingRotationTable = ROB_CopyTable(ROB_Rotations[ROB_SortedRotations[ROB_SelectedRotationIndex]]);
-
-	-- copy name
 	ROB_SelectedRotationName = ROB_SortedRotations[ROB_SelectedRotationIndex];
+	ROB_SelectedRotationSpec = tonumber(ROB_Rotations[ROB_SelectedRotationName]["specID"]);
+	if not ROB_SelectedRotationSpec then
+		ROB_SelectedRotationSpec = ""
+	end
+
+	ROB_EditingRotationTable = ROB_CopyTable(ROB_Rotations[ROB_SelectedRotationName]);
 
 	-- UPDATE_ROTATION_OPTIONS2
 	ROB_RotationNameInputBox:SetText(ROB_SelectedRotationName);
-
+	ROB_RotationSpecInputBox:SetText(ROB_SelectedRotationSpec);
 	ROB_RotationKeyBindButton:SetText(ROB_EditingRotationTable.keybind);
 
 	--Always clear the current action because it may be leftover from a previous rotation
@@ -919,11 +892,17 @@ function ROB_RotationNameInputBox_OnTextChanged(self)
 	ROB_Rotation_Edit_UpdateUI();
 end
 
+function ROB_RotationSpecInputBox_OnTextChanged(self)
+	ROB_SelectedRotationSpec = tonumber(ROB_RotationSpecInputBox:GetText())
+	ROB_Rotation_Edit_UpdateUI();
+end
+
 function ROB_Save_OnClick(self)
 	local _lastEditedRotation = ROB_SelectedRotationName
 	
 	-- Replace the old rotation with the new one.
 	ROB_Rotations[ROB_SelectedRotationName] = ROB_EditingRotationTable;
+	ROB_Rotations[ROB_SelectedRotationName]["specID"] = ROB_SelectedRotationSpec;
 	
 	-- update rotation list
 	ROB_SortRotationList();
@@ -1124,7 +1103,7 @@ end
 
 function GetTexturePath(v_spellname)
 	if not v_spellname then return ""; end
-	local _, _, texpath = GetSpellInfo(v_spellname);
+	local _, texpath = GetSpellTexture(v_spellname);
 
 	if not texpath then texpath = "" end
 	return texpath;
@@ -1151,12 +1130,12 @@ function ROB_SpellValidate(_spell)
 	local _spellingCheckPassed = false
 	local _parsedSpellID = nil
 	local _link = nil
-
+	
 	--Get the spell id
 	if (GetSpellLink(_spell)) then
 		_parsedSpellID = string.sub(GetSpellLink(_spell),string.find(GetSpellLink(_spell), ":")+1)
-		_parsedSpellID = string.sub(_parsedSpellID,1,   string.find(_parsedSpellID, "\124")-1)
-		_link = GetSpellLink(_spell)
+		_parsedSpellID = string.sub(_parsedSpellID,1,   string.find(_parsedSpellID, ":") -1)
+		_link, _ = GetSpellLink(_spell)
 	else
 		--Is it a inventory slot?
 		if (_InvSlots[_spell] and GetInventoryItemID("player",_InvSlots[_spell])) then
@@ -1178,7 +1157,7 @@ function ROB_SpellValidate(_spell)
 	end
 
 	if (_parsedSpellID and _spellingCheckPassed) then
-		ROB_SpellNameInputBoxIcon:SetTexture("Interface\\RaidFrame\\ReadyCheck-Ready")
+		ROB_SpellNameInputBoxIcon:SetTexture(GetTexturePath(ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_spellname))
 		ROB_SpellNameValidateText:SetText(_link.." ".._parsedSpellID)
 		GameTooltip:SetHyperlink(_link)
 	else
@@ -1485,15 +1464,6 @@ function ROB_RotationKeyBindButton_OnClick(self)
 			_G["ROB_RotationKeyBindButton"]:SetText(RotationBuilderUtils:localize('ROB_UI_PRESSKEY'))
 			self.waitingForKey = true
 		end
-	end
-end
-
-function ROB_RotationSpellListButton_OnClick(self)
-	local tabName, tabTexture, tabOffset, numEntries = GetSpellTabInfo(2)
-	for i=tabOffset + 1, tabOffset + numEntries do
-		local spellName, spellSubName = GetSpellBookItemName(i, BOOKTYPE_SPELL)
-		local skillType, spellId = GetSpellBookItemInfo(i, BOOKTYPE_SPELL)
-		print(spellName .. '(' .. spellId .. ')')
 	end
 end
 
@@ -1933,7 +1903,6 @@ function ROB_RotationModifyButtons_UpdateUI()
 		ROB_RotationCreateButton:Disable();
 		ROB_RotationImportButton:Disable();
 		ROB_RotationExportButton:Disable();
-		ROB_RotationSpellListButton:Enable();
 		ROB_RotationListModifyButton:Hide();
 		ROB_RotationListDeleteButton:Hide();
 	elseif (ROB_SelectedRotationIndex ~= nil) then
@@ -1941,21 +1910,30 @@ function ROB_RotationModifyButtons_UpdateUI()
 		ROB_RotationCreateButton:Enable();
 		ROB_RotationImportButton:Enable();
 		ROB_RotationExportButton:Enable();
-		ROB_RotationSpellListButton:Enable();
 		ROB_RotationListModifyButton:Show();
 		ROB_RotationListDeleteButton:Show();
 		-- retrieve rotation value from saved options
-		ROB_RotationNameROText:SetText(RotationBuilderUtils:localize(ROB_SortedRotations[ROB_SelectedRotationIndex]));
+		local rotationName = ROB_SortedRotations[ROB_SelectedRotationIndex];
+		local specID = tonumber(ROB_Rotations[rotationName]["specID"])
+		local _, specName;
+		if not specID then
+			specName = "<rotation specialization>"
+		else
+			_, specName = GetSpecializationInfo(specID);
+		end
+		ROB_RotationNameROText:SetText(RotationBuilderUtils:localize(rotationName));
+		ROB_RotationSpecROText:SetText(specName);
 	else
 		-- enable create, disable modify and remove
 		ROB_RotationCreateButton:Enable();
 		ROB_RotationImportButton:Enable();
 		ROB_RotationExportButton:Enable();
-		ROB_RotationSpellListButton:Enable();
 		ROB_RotationListModifyButton:Hide();
 		ROB_RotationListDeleteButton:Hide();
 		-- reset rotation values
 		ROB_RotationNameROText:SetText("");
+		ROB_RotationSpecROText:SetText("");
+		
 	end
 end
 
@@ -2029,8 +2007,8 @@ function ROB_Rotation_Edit_UpdateUI()
 			local _ActionDB = ROB_EditingRotationTable.ActionList[ROB_CurrentActionName]
 			-- RETRIEVE_NEW_OPTIONS_BELOW
 			ROB_Rotation_GUI_SetText("ROB_AO_ActionKeyBindButton",_ActionDB.v_keybind,RotationBuilderUtils:localize('ROB_UI_KEYBIND'))
-			ROB_Rotation_GUI_SetText("ROB_SpellNameInputBox",_ActionDB.v_spellname,"<spellname>")
-			ROB_SpellValidate(_ActionDB.v_spellname)
+			ROB_Rotation_GUI_SetText("ROB_SpellNameInputBox",_ActionDB.v_spellname,"<spell name>")
+			ROB_SpellValidate(_ActionDB.v_spellname);
 
 			ROB_Rotation_GUI_SetText("ROB_AO_ActionIconInputBox",_ActionDB.v_actionicon,"")
 			ROB_AO_ActionIconTexture:SetTexture(GetTexturePath(_ActionDB.v_actionicon))
@@ -2044,8 +2022,6 @@ function ROB_Rotation_Edit_UpdateUI()
 
 			ROB_Rotation_GUI_SetText("ROB_AO_ToggleIconInputBox",_ActionDB.v_toggleicon,"")
 			ROB_AO_ToggleIconTexture:SetTexture(GetTexturePath(_ActionDB.v_toggleicon))
-
-			ROB_Rotation_GUI_SetText("ROB_AO_GCDSpellInputBox",_ActionDB.v_gcdspell,"")
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_MaxCastsCheckButton",_ActionDB.b_maxcasts,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_MaxCastsInputBox",_ActionDB.v_maxcasts,"")
@@ -2069,17 +2045,20 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetChecked("ROB_AO_DebugCheckButton",_ActionDB.b_debug,false)
 			ROB_Rotation_GUI_SetChecked("ROB_AO_DisableCheckButton",_ActionDB.b_disabled,false)
 
+			ROB_Rotation_GUI_SetChecked("ROB_AO_GSpellCostCheckButton",_ActionDB.b_gspellcost,false)
+			ROB_Rotation_GUI_SetText("ROB_AO_GSpellCostTypeInputBox",_ActionDB.v_gspellcosttype,"")
+			ROB_Rotation_GUI_SetText("ROB_AO_GSpellCostInputBox",_ActionDB.v_gspellcost,"")
+
 			ROB_Rotation_GUI_SetChecked("ROB_AO_GUnitPowerCheckButton",_ActionDB.b_gunitpower,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_GUnitPowerTypeInputBox",_ActionDB.v_gunitpowertype,"")
 			ROB_Rotation_GUI_SetText("ROB_AO_GUnitPowerInputBox",_ActionDB.v_gunitpower,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_GComboPointsCheckButton",_ActionDB.b_gcombopoints,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_GComboPointsInputBox",_ActionDB.v_gcombopoints,"")
 			
 			ROB_Rotation_GUI_SetChecked("ROB_AO_GChargesCheckButton",_ActionDB.b_charges,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_GChargesInputBox",_ActionDB.v_charges,"")
 			
 			ROB_Rotation_GUI_SetChecked("ROB_AO_GHasProcCheckButton",_ActionDB.b_hasproc,false)
+			
+			ROB_Rotation_GUI_SetChecked("ROB_AO_GNotInSpellbookCheckButton",_ActionDB.b_notinspellbook,false)
 
 			--Player options-------------------------
 			ROB_Rotation_GUI_SetChecked("ROB_AO_NeedBuffCheckButton",_ActionDB.b_p_needbuff,false)
@@ -2101,30 +2080,11 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetText("ROB_AO_UnitPowerTypeInputBox",_ActionDB.v_p_unitpowertype,"")
 			ROB_Rotation_GUI_SetText("ROB_AO_UnitPowerInputBox",_ActionDB.v_p_unitpower,"")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_BloodRunesCheckButton",_ActionDB.b_p_bloodrunes,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_BloodRunesInputBox",_ActionDB.v_p_bloodrunes,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_FrostRunesCheckButton",_ActionDB.b_p_frostrunes,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_FrostRunesInputBox",_ActionDB.v_p_frostrunes,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_UnholyRunesCheckButton",_ActionDB.b_p_unholyrunes,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_UnholyRunesInputBox",_ActionDB.v_p_unholyrunes,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_DeathRunesCheckButton",_ActionDB.b_p_deathrunes,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_DeathRunesInputBox",_ActionDB.v_p_deathrunes,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_ComboPointsCheckButton",_ActionDB.b_p_combopoints,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_ComboPointsInputBox",_ActionDB.v_p_combopoints,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_RunesCheckButton",_ActionDB.b_p_runes,false)
+			ROB_Rotation_GUI_SetText("ROB_AO_RunesInputBox",_ActionDB.v_p_runes,"")
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_EclipeDirectionCheckButton",_ActionDB.b_p_eclipse,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_EclipeDirectionInputBox",_ActionDB.v_p_eclipse,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_FireTotemActiveCheckButton",_ActionDB.b_p_firetotemactive,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_FireTotemActiveInputBox",_ActionDB.v_p_firetotemactive,"")
-			ROB_Rotation_GUI_SetChecked("ROB_AO_FireTotemInactiveCheckButton",_ActionDB.b_p_firetoteminactive,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_FireTotemInactiveInputBox",_ActionDB.v_p_firetoteminactive,"")
-			ROB_Rotation_GUI_SetChecked("ROB_AO_FireTotemTimeleftCheckButton",_ActionDB.b_p_firetotemtimeleft,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_FireTotemTimeleftInputBox",_ActionDB.v_p_firetotemtimeleft,"")
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_StanceCheckButton",_ActionDB.b_p_stance,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_StanceInputBox",_ActionDB.v_p_stance,"")
@@ -2138,12 +2098,8 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetChecked("ROB_AO_KnowNotSpellCheckButton",_ActionDB.b_p_knownotspell,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_KnowNotSpellInputBox",_ActionDB.v_p_knownotspell,"")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_IsGlyphedCheckButton",_ActionDB.b_p_isglyphed,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_IsGlyphedInputBox",_ActionDB.v_p_isglyphed,"")
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_NotGlyphedCheckButton",_ActionDB.b_p_notglyphed,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_NotGlyphedInputBox",_ActionDB.v_p_notglyphed,"")
 			ROB_Rotation_GUI_SetChecked("ROB_AO_IsStealthedCheckButton",_ActionDB.b_p_isstealthed,false);
+			
 			--Target options-------------------------
 			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetHPCheckButton",_ActionDB.b_t_hp,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_TargetHPInputBox",_ActionDB.v_t_hp,"")
@@ -2186,15 +2142,17 @@ function ROB_Rotation_Edit_UpdateUI()
 
 		-- ADD_SHOW_ROTATION_OPTIONS
 		ROB_RotationNameInputBox:Show();
+		ROB_RotationSpecInputBox:Show();
 		ROB_RotationNameRO:Hide();
-		ROB_RotationSpellList:Hide();
+		ROB_RotationSpecRO:Hide();
 		ROB_RotationKeyBindButton:Enable();
 
 	else
 		-- ADD_HIDE_ROTATION_OPTIONS
 		ROB_RotationNameInputBox:Hide();
+		ROB_RotationSpecInputBox:Hide();
 		ROB_RotationNameRO:Show();
-		ROB_RotationSpellList:Show();
+		ROB_RotationSpecRO:Show();
 		ROB_RotationKeyBindButton:Disable();
 
 		-- disable save and discard
@@ -2296,73 +2254,13 @@ function ROB_GetGCD()
 	return RotationBuilderUtils:truncate(1.5/(GetHaste()/100+1),3);
 end
 
-function ROB_TotemActive(name, slot)
-	local active, totemName, _, _, _ = GetTotemInfo(slot);
-	local _, class = UnitClass("PLAYER");
-	if (class == "DEATHKNIGHT") then
-		return active;
-	end
-	if (name ~= nil and name ~= "") then
-		if (not totemName or totemName == "") then
-			return false;
-		else
-			if (GetSpellInfo(name) == totemName) then
-				return true;
-			end
-		end
-	else
-		return active;
-	end
-	return false;
-end
-
-function ROB_TotemTimeleft(needed, slot)
-	local timeLeft = needed;
-	local active, _, start, duration, _ = GetTotemInfo(slot);
-	local totemTime = start + duration - GetTime();
-
-	if not active or totemTime < 0 then
-		totemTime = 0;
-	end
-	if (string.sub(timeLeft, 1, 1) == "<" and string.sub(timeLeft, 1, 2) ~= "<=") then
-		timeLeft = tonumber(string.sub(timeLeft, 2));
-		if (totemTime < timeLeft) then
-			return true;
-		end
-	end
-	if (string.sub(timeLeft, 1, 1) == ">" and string.sub(timeLeft, 1, 2) ~= ">=") then
-		timeLeft = tonumber(string.sub(timeLeft, 2));
-		if (totemTime > timeLeft) then
-			return true;
-		end
-	end
-	if (string.sub(timeLeft, 1, 2) == ">=") then
-		timeLeft = tonumber(string.sub(timeLeft, 3));
-		if (totemTime >= timeLeft) then
-			return true;
-		end
-	end
-	if (string.sub(timeLeft, 1, 2) == "<=") then
-		timeLeft = tonumber(string.sub(timeLeft, 3));
-		if (totemTime <= timeLeft) then
-			return true;
-		end
-	end
-	if (string.sub(timeLeft, 1, 1) == "=") then
-		timeLeft = tonumber(string.sub(timeLeft, 2));
-		if (totemTime == timeLeft) then
-			return true;
-		end
-	end
-	return false;
-end
-
-
-
 function ROB_SpellHasCharges(spellId, number)
 	local parsedCharges = number;
 	local charges, _, _, _ = GetSpellCharges(spellId);
 	
+	if charges == nil then
+		return false;
+	end
 	if (string.sub(parsedCharges, 1, 1) == "<" and string.sub(parsedCharges, 1, 2) ~= "<=") then
 		parsedCharges = tonumber(string.sub(parsedCharges, 2));
 		if (charges < parsedCharges) then
@@ -2397,90 +2295,6 @@ function ROB_SpellHasCharges(spellId, number)
 		return true;
 	end
 	return false;
-end
-
--- TODO : redo this option
-function ROB_PlayerHasComboPoints(_checkstring,_getnextspell)
-	local _parsedCP = _checkstring
-	local _unitCP = GetComboPoints("player", "target")
-
-	if (string.sub(_parsedCP,1,1) == "<" and string.sub(_parsedCP,1,2) ~= "<=") then
-		_parsedCP = tonumber(string.sub(_parsedCP,2))
-		if (_getnextspell and ROB_CURRENT_ACTION) then
-			--Check if the current action generates a combo point
-			local _generatesCP = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].b_gcombopoints
-			if (_generatesCP and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints ~= "") then
-				_generatesCP = tonumber(ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints)
-				if ((_unitCP + _generatesCP) < _parsedCP) then return true; end
-			else
-				if (_unitCP < _parsedCP) then return true; end
-			end
-		else
-			if (_unitCP < _parsedCP) then return true; end
-		end
-	end
-	if (string.sub(_parsedCP,1,1) == ">" and string.sub(_parsedCP,1,2) ~= ">=") then
-		_parsedCP = tonumber(string.sub(_parsedCP,2))
-		if (_getnextspell and ROB_CURRENT_ACTION) then
-			--Check if the current action generates a combo point
-			local _generatesCP = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].b_gcombopoints
-			if (_generatesCP and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints ~= "") then
-				_generatesCP = tonumber(ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints)
-				if ((_unitCP + _generatesCP) > _parsedCP) then return true; end
-			else
-				if (_unitCP > _parsedCP) then return true; end
-			end
-		else
-			if (_unitCP > _parsedCP) then return true; end
-		end
-	end
-	if (string.sub(_parsedCP,1,2) == ">=") then
-		_parsedCP = tonumber(string.sub(_parsedCP,3))
-		if (_getnextspell and ROB_CURRENT_ACTION) then
-			--Check if the current action generates a combo point
-			local _generatesCP = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].b_gcombopoints
-			if (_generatesCP and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints ~= "") then
-				_generatesCP = tonumber(ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints)
-				if ((_unitCP + _generatesCP) >= _parsedCP) then return true; end
-			else
-				if (_unitCP >= _parsedCP) then return true; end
-			end
-		else
-			if (_unitCP >= _parsedCP) then return true; end
-		end
-	end
-	if (string.sub(_parsedCP,1,2) == "<=") then
-		_parsedCP = tonumber(string.sub(_parsedCP,3))
-		if (_getnextspell and ROB_CURRENT_ACTION) then
-			--Check if the current action generates a combo point
-			local _generatesCP = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].b_gcombopoints
-			if (_generatesCP and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints ~= "") then
-				_generatesCP = tonumber(ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints)
-				if ((_unitCP + _generatesCP) <= _parsedCP) then return true; end
-			else
-				if (_unitCP <= _parsedCP) then return true; end
-			end
-		else
-			if (_unitCP <= _parsedCP) then return true; end
-		end
-	end
-	if (string.sub(_parsedCP,1,1) == "=") then
-		_parsedCP = tonumber(string.sub(_parsedCP,2))
-		if (_getnextspell and ROB_CURRENT_ACTION) then
-			--Check if the current action generates a combo point
-			local _generatesCP = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].b_gcombopoints
-			if (_generatesCP and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints and ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints ~= "") then
-				_generatesCP = tonumber(ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gcombopoints)
-				if ((_unitCP + _generatesCP) == _parsedCP) then return true; end
-			else
-				if (_unitCP == _parsedCP) then return true; end
-			end
-		else
-			if (_unitCP == _parsedCP) then return true; end
-		end
-	end
-
-	return false
 end
 
 function ROB_UnitPassesLifeCheck(checkstring, unitName, checkMax)
@@ -2544,6 +2358,10 @@ function ROB_UnitPassesPowerCheck(checkstring, unitName, powerType)
 	end
 	--After we get our unit power see if we should add some to predict next spell
 	if (isNextSpell and ROB_CURRENT_ACTION) then
+		local cost		= 0;
+		if(ActionDB.b_gspellcost and ActionDB.v_gspellcosttype == powerType and ActionDB.v_gspellcost ~= "" and ActionDB.v_gspellcost ~= nil) then
+			cost = ActionDB.v_gspellcost;
+		end
 		local generatesUP = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].b_gunitpower;
 		local generatesUPtype = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gunitpowertype;
 		local generatesUPamount = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_gunitpower;
@@ -2554,10 +2372,9 @@ function ROB_UnitPassesPowerCheck(checkstring, unitName, powerType)
 			end
 			unitPower = unitPower + tonumber(generatesUPamount);
 		end
-		-- Here we add the power that should be gained before we cast the next spell
-		-- TODO find a way to get the spell cost to remove it from unitPower for the next action for accurate calculations.
+		-- Here we add the power that should be gained before we cast the next spell and remove the cost of the current action
 		local _, regen = GetPowerRegen();
-		unitPower = unitPower + (regen * (ROB_ACTION_GCD + ROB_ACTION_CASTTIME));
+		unitPower = unitPower + (regen * (ROB_ACTION_GCD + ROB_ACTION_CASTTIME)) - cost;
 	end
 	if (string.sub(power, 1, 1) == "<" and string.sub(power, 1, 2) ~= "<=") then
 		power = tonumber(string.sub(power, 2));
@@ -2592,22 +2409,12 @@ function ROB_UnitPassesPowerCheck(checkstring, unitName, powerType)
 	return false
 end
 
-function ROB_UnitPassesRuneCheck(blood, frost, unholy, death, isNextSpell)
-	local rune	= nil;
+function ROB_UnitPassesRuneCheck(runes, isNextSpell)
+	local rune = runes;
 	local count	= 0;
 
 	local _, class = UnitClass("PLAYER");
 	if (class == "DEATHKNIGHT") then
-		deathRuneCount	= 0;
-		bloodRuneCount	= 0;
-		frostRuneCount	= 0;
-		unholyRuneCount	= 0;
-
-		--1 : RUNETYPE_BLOOD
-		--2 : RUNETYPE_UNHOLY
-		--3 : RUNETYPE_FROST
-		--4 : RUNETYPE_DEATH
-
 		for i = 1, 6 do
 			local start, duration, ready = GetRuneCooldown(i);
 			local cooldown = start + duration - GetTime();
@@ -2615,42 +2422,14 @@ function ROB_UnitPassesRuneCheck(blood, frost, unholy, death, isNextSpell)
 				cooldown = 0;
 			end
 			if (not isNextSpell) then
-				if (GetRuneType(i) == 1 and (ready or cooldown <= ROB_ACTION_GCD)) then
-					bloodRuneCount = bloodRuneCount + 1;
-				elseif (GetRuneType(i) == 2 and (ready or cooldown <= ROB_ACTION_GCD)) then
-					unholyRuneCount = unholyRuneCount + 1;
-				elseif (GetRuneType(i) == 3 and (ready or cooldown <= ROB_ACTION_GCD)) then
-					frostRuneCount = frostRuneCount + 1;
-				elseif (GetRuneType(i) == 4 and (ready or cooldown <= ROB_ACTION_GCD)) then
-					deathRuneCount = deathRuneCount + 1;
+				if (ready or cooldown <= ROB_ACTION_GCD) then
+					count = count + 1;
 				end
 			else
-				if (GetRuneType(i) == 1 and (ready or cooldown <= (ROB_ACTION_GCD + ROB_ACTION_CASTTIME))) then
-					bloodRuneCount = bloodRuneCount + 1;
-				elseif (GetRuneType(i) == 2 and (ready or cooldown <= (ROB_ACTION_GCD + ROB_ACTION_CASTTIME))) then
-					unholyRuneCount = unholyRuneCount + 1;
-				elseif (GetRuneType(i) == 3 and (ready or cooldown <= (ROB_ACTION_GCD + ROB_ACTION_CASTTIME))) then
-					frostRuneCount = frostRuneCount + 1;
-				elseif (GetRuneType(i) == 4 and (ready or cooldown <= (ROB_ACTION_GCD + ROB_ACTION_CASTTIME))) then
-					deathRuneCount = deathRuneCount + 1;
+				if (ready or cooldown <= (ROB_ACTION_GCD + ROB_ACTION_CASTTIME)) then
+					count = count + 1;
 				end
 			end
-		end
-		if (blood ~= nil) then
-			rune	= blood;
-			count	= bloodRuneCount;
-		end
-		if (frost ~= nil) then
-			rune	= frost;
-			count	= frostRuneCount;
-		end
-		if (unholy ~= nil) then
-			rune	= unholy;
-			count	= unholyRuneCount;
-		end
-		if (death ~= nil) then
-			rune	= death;
-			count	= deathRuneCount;
 		end
 		if (string.sub(rune, 1, 1) == "<" and string.sub(rune, 1, 2) ~= "<=") then
 			rune = tonumber(string.sub(rune, 2));
@@ -2886,71 +2665,21 @@ function IsSpellKnown(spellId, isNextSpell)
 	local spellName = nil;
 	
 	if (isNextSpell) then
-		spellName, _, _, _, _, _ = GetSpellInfo(spellId);
+		spellName, _, _, _, _, _, _ = GetSpellInfo(spellId);
 	else
-		spellName, _, _, ROB_ACTION_CASTTIME, _, _ = GetSpellInfo(spellId);
+		spellName, _, _, ROB_ACTION_CASTTIME, _, _, _ = GetSpellInfo(spellId);
 	end
 	if spellName == nil then
+		ROB_ACTION_CASTTIME = 0;
 		return false;
 	end
-	local skillType, _ = GetSpellBookItemInfo(spellName);
-	if skillType == nil then
-		return false;
-	end
-	return true;
-end
-
-function ROB_UnitIsGlyphed(needed)
-	local unparsed		= nil;
-	local remaining		= needed;
-	local count			= 0;
-	local found			= 0;
-	local done			= false;
-	local stringType	= 0;
-	local i				= 1;
-	local isfound		= false;
-	local glyph			= nil;
-
-	while not done and remaining ~= nil do
-		unparsed = nil
-		if (string.find(remaining, "|")) then
-			unparsed	= string.sub(remaining, 1, string.find(remaining, "|") - 1);
-			count		= count + 1;
-			remaining	= string.sub(remaining, string.find(remaining, "|") + 1);
-			stringType	= 1;
-		elseif (string.find(remaining, "&")) then
-			unparsed	= string.sub(remaining, 1, string.find(remaining, "&") - 1);
-			count		= count + 1;
-			remaining	= string.sub(remaining,string.find(remaining, "&") + 1);
-			stringType	= 2;
-		else
-			unparsed	= remaining;
-			count		= count + 1;
-			done		= true;
+	local _, _, tabOffset, numEntries = GetSpellTabInfo(2);
+	local i = 0;
+	for i=tabOffset + 1, tabOffset + numEntries do
+		local actualName, _			= GetSpellBookItemName(i, BOOKTYPE_SPELL);
+		if actualName == spellName then
+			return true;
 		end
-		i		= 1;
-		isFound	= false;
-		glyph	= nil;
-		if (unparsed ~= nil) then
-			if (nil ~= tonumber(unparsed)) then
-				glyph = tonumber(unparsed);
-			else
-				glyph = unparsed;
-			end
-			while(i ~= 7 and (not isFound)) do
-				_, _, _, glyphSpellId, _	= GetGlyphSocketInfo(i);
-				name, _, _, _, _, _			= GetSpellInfo(glyphSpellId);
-				if (glyph == glyphSpellId or glyph == name) then
-					isFound	= true;
-					found	= found + 1;
-				else
-					i = i + 1;
-				end
-			end
-		end
-	end
-	if (((stringType == 0 or stringType == 1) and found >= 1) or (stringType == 2 and found == count) ) then
-		return true;
 	end
 	return false;
 end
@@ -3031,7 +2760,7 @@ function ROB_GetActionTexture(actionName)
 	if (ActionDB.b_notaspell) then
 		local slotId, _ = GetInventorySlotInfo(ActionDB.v_spellname);
 		return GetInventoryItemTexture("PLAYER", slotId);
-	elseif (ActionDB.v_actionicon == "" or GetSpellTexture(ActionDB.v_actionicon) == "") then
+	elseif (ActionDB.v_actionicon == "" or ActionDB.v_actionicon == nil or GetSpellTexture(ActionDB.v_actionicon) == "") then
 		return GetSpellTexture(ActionDB.v_spellname);
 	else
 		return GetSpellTexture(ActionDB.v_actionicon);
@@ -3228,10 +2957,6 @@ function ROB_SpellReady(actionName,isNextSpell)
 --	local timeLeft       = nil
 --	local spellincdbuffer= false
 --	local equipSlot, texture
---	local deathRuneCount  = 0
---	local bloodRuneCount  = 0
---	local frostRuneCount  = 0
---	local unholyRuneCount = 0
 	local debug				= false;
 	local spellName			= nil;
 	local usable			= false;
@@ -3250,8 +2975,11 @@ function ROB_SpellReady(actionName,isNextSpell)
 	end
 	
 	-- CHECK : Check if the player know the spell
-	spellName = ActionDB.v_spellname
-	if (not IsSpellKnown(spellName, true)) then
+	spellName = ActionDB.v_spellname;
+	if spellName == nil then
+		spellName = "";
+	end
+	if (not ActionDB.b_notinspellbook and not IsSpellKnown(spellName, isNextSpell)) then
 		ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have this spell in your spellbook", debug);
 		return false;
 	end
@@ -3300,7 +3028,7 @@ function ROB_SpellReady(actionName,isNextSpell)
 	
 	-- CHECK: Check if the item is usable
 	if (ActionDB.b_notaspell) then
-		slotId, _ = GetInventorySlotInfo(ActionDB.v_spellname);
+		slotId, _ = GetInventorySlotInfo(spellName);
 		itemId = GetInventoryItemID("player",slotId);
 		itemName, _, _, _, _, _, _, _, _, _, _ = GetItemInfo(itemId);
 		if (itemName == nil) then
@@ -3317,14 +3045,14 @@ function ROB_SpellReady(actionName,isNextSpell)
 	-- CHECK: Check Other Cooldown
 	if (ActionDB.b_checkothercd and ActionDB.v_checkothercdname and ActionDB.v_checkothercdname ~= "" and ActionDB.v_checkothercdvalue and ActionDB.v_checkothercdvalue ~= "") then
 		if (not ROB_SpellPassesOtherCooldownCheck(ActionDB.v_checkothercdname, ActionDB.v_checkothercdvalue, ActionDB.b_notaspell)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..ActionDB.v_spellname.." because the other cooldown check : "..ActionDB.v_checkothercdname..ActionDB.v_checkothercdvalue.." failed", debug);
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the other cooldown check : "..ActionDB.v_checkothercdname..ActionDB.v_checkothercdvalue.." failed", debug);
 			return false;
 		end
 	end
 
 	-- CHECK: Check the number of charges of the spell
 	if (ActionDB.b_charges and ActionDB.v_charges ~= nil and ActionDB.v_charges ~= "") then
-		if (not ROB_SpellHasCharges(ActionDB.v_spellname, ActionDB.v_charges)) then
+		if (not ROB_SpellHasCharges(spellName, ActionDB.v_charges)) then
 			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the spell doesn't have the required number of charges", debug);
 			return false;
 		end
@@ -3340,24 +3068,8 @@ function ROB_SpellReady(actionName,isNextSpell)
 
 	-- CHECK: Check if other spells are unknown
 	if (ActionDB.b_p_knownotspell and ActionDB.v_p_knownotspell ~= nil and ActionDB.v_p_knownotspell ~= "") then
-		if (ROB_UnitKnowSpell(ActionDB.v_p_knowspell)) then
+		if (ROB_UnitKnowSpell(ActionDB.v_p_knownotspell)) then
 			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you do know the required spell(s)", debug);
-			return false;
-		end
-	end
-
-	--CHECK: Is Glyphed
-	if (ActionDB.b_p_isglyphed and ActionDB.v_p_isglyphed ~= nil and ActionDB.v_p_isglyphed ~= "") then
-		if (not ROB_UnitIsGlyphed(ActionDB.v_p_isglyphed)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required glyph(s) active", debug);
-			return false;
-		end
-	end
-
-	--CHECK: Not Glyphed
-	if (ActionDB.b_p_notglyphed and ActionDB.v_p_notglyphed ~= nil and ActionDB.v_p_notglyphed ~= "") then
-		if (ROB_UnitIsGlyphed(ActionDB.v_p_isglyphed)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you do have the required glyph(s) active", debug);
 			return false;
 		end
 	end
@@ -3480,7 +3192,6 @@ function ROB_SpellReady(actionName,isNextSpell)
 			return false;
 		end
 	end
-
 	if (ActionDB.b_pet_hp and ActionDB.v_pet_hp ~= nil and ActionDB.v_pet_hp ~= "") then
 		if (not ROB_UnitPassesLifeCheck(ActionDB.v_pet_hp, "PET")) then
 			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because your pet doesn't have the required health", debug);
@@ -3498,51 +3209,17 @@ function ROB_SpellReady(actionName,isNextSpell)
 
 	-- CHECK: Last Casted
 	if (ActionDB.b_lastcasted and ActionDB.v_lastcasted ~= nil and ActionDB.v_lastcasted ~= "") then
-		if (tostring(ActionDB.v_lastcasted) ~= tostring(ROB_LAST_CASTED)) then
-			if (GetSpellInfo(ActionDB.v_lastcasted)) then
-				local spellName = GetSpellInfo(ActionDB.v_lastcasted);
-				if (tostring(spellname) ~= tostring(ROB_LAST_CASTED)) then
-					ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the last casted spell isn't the required one", debug);
-					return false;
-				end
-			end
+		local _, _, _, _, _, _, spellID = GetSpellInfo(ROB_LAST_CASTED);
+		if (ActionDB.v_lastcasted ~= tostring(spellID) and ActionDB.v_lastcasted ~= ROB_LAST_CASTED) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the last casted spell isn't the required one", debug);
+			return false;
 		end
 	end
 
 	-- CHECK: Runes
-	-- Blood
-	if (ActionDB.b_p_bloodrunes and ActionDB.v_p_bloodrunes ~= nil and ActionDB.v_p_bloodrunes ~= "") then
-		if (not ROB_UnitPassesRuneCheck(ActionDB.v_p_bloodrunes, nil, nil, nil, isNextSpell)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required blood runes", debug);
-			return false;
-		end
-	end
-	-- Frost
-	if (ActionDB.b_p_frostrunes and ActionDB.v_p_frostrunes ~= nil and ActionDB.v_p_frostrunes ~= "") then
-		if (not ROB_UnitPassesRuneCheck(nil, ActionDB.v_p_frostrunes, nil, nil, isNextSpell)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required frost runes", debug);
-			return false;
-		end
-	end
-	-- Unholy
-	if (ActionDB.b_p_unholyrunes and ActionDB.v_p_unholyrunes ~= nil and ActionDB.v_p_unholyrunes ~= "") then
-		if (not ROB_UnitPassesRuneCheck(nil, nil, ActionDB.v_p_unholyrunes, nil, isNextSpell)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required unholy runes", debug);
-			return false;
-		end
-	end
-	-- Death
-	if (ActionDB.b_p_deathrunes and ActionDB.v_p_deathrunes ~= nil and ActionDB.v_p_deathrunes ~= "") then
-		if (not ROB_UnitPassesRuneCheck(nil, nil, nil, ActionDB.v_p_deathrunes, isNextSpell)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required death runes", debug);
-			return false;
-		end
-	end
-
-	-- CHECK: Combo Points
-	if (ActionDB.b_p_combopoints and ActionDB.v_p_combopoints ~= nil and ActionDB.v_p_combopoints ~= "") then
-		if (not ROB_PlayerHasComboPoints(ActionDB.v_p_combopoints, isNextSpell)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required combo points", debug);
+	if (ActionDB.b_p_runes and ActionDB.v_p_runes ~= nil and ActionDB.v_p_runes ~= "") then
+		if (not ROB_UnitPassesRuneCheck(ActionDB.v_p_runes, isNextSpell)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the required runes", debug);
 			return false;
 		end
 	end
@@ -3551,30 +3228,6 @@ function ROB_SpellReady(actionName,isNextSpell)
 	if (ActionDB.b_p_eclipse and ActionDB.v_p_eclipse ~= nil and ActionDB.v_p_eclipse ~= "") then
 		if (GetEclipseDirection() ~= ActionDB.v_p_eclipse) then
 			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because eclipse is not heading in the required direction", debug);
-			return false;
-		end
-	end
-
-	-- CHECK: Check TotemActive 
-	if (ActionDB.b_p_firetotemactive) then
-		if (not ROB_TotemActive(ActionDB.v_p_firetotemactive, 1)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the required fire totem or goul is not active", debug);
-			return false;
-		end
-	end
-
-	-- CHECK: Check TotemInactive
-	if (ActionDB.b_p_firetoteminactive) then
-		if (ROB_TotemActive(ActionDB.v_p_firetoteminactive, 1)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the required fire totem or goul is active", debug);
-			return false;
-		end
-	end
-
-	-- CHECK: Check TotemTimeleft
-	if (ActionDB.b_p_firetotemtimeleft and ActionDB.v_p_firetotemtimeleft ~= nil and ActionDB.v_p_firetotemtimeleft ~= "") then
-		if (not ROB_TotemTimeleft(ActionDB.v_p_firetotemtimeleft, 1)) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the fire totem or goul doesn't have the required time left", debug);
 			return false;
 		end
 	end
@@ -3632,10 +3285,10 @@ end
 
 -- TODO PEL : Analyse this code section to ensure that it is the starting point of the action to display as the current one to push.
 function ROB_GetCurrentAction()
-	local foundReadyAction = false
-	local foundReadyActionName = nil
-	local foundReadyActionCD = nil
-	local foundReadyActionTimeleft = 86400
+	local foundReadyAction = false;
+	local foundReadyActionName = nil;
+	local foundReadyActionCD = nil;
+	local foundReadyActionTimeleft = 86400;
 
 	for _, actionName in pairs(ROB_Rotations[ROB_SelectedRotationName].SortedActions) do
 		if (ROB_SpellReady(actionName,false) and (not foundReadyAction)) then
@@ -3666,10 +3319,10 @@ end
 
 -- TODO PEL : Analyse this code section to ensure that it is the method which calculate the next action to do.
 function ROB_GetNextAction()
-	local _foundReadyAction = false
-	local _foundReadyActionName = nil
-	local _foundReadyActionCD = nil
-	local _foundReadyActionTimeleft = 86400
+	local _foundReadyAction = false;
+	local _foundReadyActionName = nil;
+	local _foundReadyActionCD = nil;
+	local _foundReadyActionTimeleft = 86400;
 
 	--First get the next ready action name
 	for _, _NextActionName in pairs(ROB_Rotations[ROB_SelectedRotationName].SortedActions) do
@@ -3683,9 +3336,10 @@ function ROB_GetNextAction()
 
 		--Dont pick next actions that have the same aciton name or spell name as the current action
 		if (ROB_SpellReady(_NextActionName, true) and (_NextActionName ~= ROB_CURRENT_ACTION) and _SpellsAreDifferent) then
-			_foundReadyAction = true
-			_foundReadyActionName = _NextActionName
-			_foundReadyActionCD = ROB_ACTION_CD
+			_foundReadyAction = true;
+			_foundReadyActionName = _NextActionName;
+			_foundReadyActionCD = ROB_ACTION_CD;
+			break;
 		end
 	end
 
