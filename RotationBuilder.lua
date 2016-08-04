@@ -87,6 +87,10 @@ ROB_NewActionDefaults = {
 	
 	b_charges=false,
 	v_charges="",
+	
+	b_othercharges=false,
+	v_othercharges="",
+	v_otherchargesname="",
 
 	b_checkothercd=false,
 	v_checkothercdname="",
@@ -2056,6 +2060,10 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetChecked("ROB_AO_GChargesCheckButton",_ActionDB.b_charges,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_GChargesInputBox",_ActionDB.v_charges,"")
 			
+			ROB_Rotation_GUI_SetChecked("ROB_AO_GOtherChargesCheckButton",_ActionDB.b_othercharges,false)
+			ROB_Rotation_GUI_SetText("ROB_AO_GOtherChargesInputBox",_ActionDB.v_othercharges,"")
+			ROB_Rotation_GUI_SetText("ROB_AO_GOtherChargesNameInputBox",_ActionDB.v_otherchargesname,"")
+			
 			ROB_Rotation_GUI_SetChecked("ROB_AO_GHasProcCheckButton",_ActionDB.b_hasproc,false)
 			
 			ROB_Rotation_GUI_SetChecked("ROB_AO_GNotInSpellbookCheckButton",_ActionDB.b_notinspellbook,false)
@@ -2998,6 +3006,14 @@ function ROB_SpellReady(actionName,isNextSpell)
 	if (ActionDB.b_charges and ActionDB.v_charges ~= nil and ActionDB.v_charges ~= "") then
 		if (not ROB_SpellHasCharges(spellName, ActionDB.v_charges)) then
 			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the spell doesn't have the required number of charges", debug);
+			return false;
+		end
+	end
+
+	-- CHECK: Check the number of charges of another spell
+	if (ActionDB.b_othercharges and ActionDB.v_othercharges ~= nil and ActionDB.v_othercharges ~= "" and ActionDB.v_otherchargesname ~= nil and ActionDB.v_otherchargesname ~= "") then
+		if (not ROB_SpellHasCharges(ActionDB.v_otherchargesname, ActionDB.v_othercharges)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the other spell doesn't have the required number of charges", debug);
 			return false;
 		end
 	end
