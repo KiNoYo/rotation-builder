@@ -1053,7 +1053,7 @@ local rogueRotationsGenerator = function ()
 				},
 			},
 		},
-	}
+	};
 
 	return rotation;
 end
@@ -1062,4 +1062,4 @@ local rogueRotationsGeneratorData = {
 	["generator"] = rogueRotationsGenerator
 };
 
-RotationBuilder:addrotationsGenerator("ROGUE", rogueRotationsGeneratorData);
+RotationBuilder:addDefaultRotationsGenerator("ROGUE", rogueRotationsGeneratorData);
