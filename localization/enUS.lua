@@ -37,6 +37,23 @@ L["defaultRotation/deathknight/scourge_strike_soul_reaper"] = "Scourge Strike (S
 L["defaultRotation/deathknight/soul_reaper"] = "Soul Reaper"
 L["defaultRotation/deathknight/summon_gargoyle"] = "Summon Gargoyle"
 L["defaultRotation/deathknight/unholy"] = "Unholy 7.0.3"
+L["defaultRotation/demonhunter/chaos_strike"] = "Chaos Strike"
+L["defaultRotation/demonhunter/consume_magic"] = "Consume Magic"
+L["defaultRotation/demonhunter/demon_bite"] = "Demon's Bite"
+L["defaultRotation/demonhunter/demon_spikes"] = "Demon Spikes"
+L["defaultRotation/demonhunter/fel_rush_fel_mastery"] = "Fel Rush (Fel Mastery)"
+L["defaultRotation/demonhunter/fel_rush_vengeful_retreat"] = "Fel Rush (Vengeful Retreat)"
+L["defaultRotation/demonhunter/fel_rush"] = "Fel Rush"
+L["defaultRotation/demonhunter/havoc"] = "Havoc 7.0.3"
+L["defaultRotation/demonhunter/immolation_aura"] = "Immolation Aura"
+L["defaultRotation/demonhunter/infernal_strike"] = "Infernal Strike"
+L["defaultRotation/demonhunter/metamorphosis"] = "Metamorphosis"
+L["defaultRotation/demonhunter/shear"] = "Shear"
+L["defaultRotation/demonhunter/sigil_of_flame"] = "Sigil of Flame"
+L["defaultRotation/demonhunter/soul_cleave"] = "Soul Cleave"
+L["defaultRotation/demonhunter/throw_glaive"] = "Throw Glaive"
+L["defaultRotation/demonhunter/vengeance"] = "Vengeance 7.0.3"
+L["defaultRotation/demonhunter/vengeful_retreat"] = "Vengeful Retreat"
 L["defaultRotation/druid/astral_communion"] = "Astral Communion"
 L["defaultRotation/druid/balance"] = "Balance 7.0.3"
 L["defaultRotation/druid/bear_form"] = "Bear Form"
@@ -508,7 +525,8 @@ L["ROB_UI_AO_GENERAL_TAB"] = "General"
 L["ROB_UI_AO_G_GSPELLCOST"] = "Cost Power:"
 L["ROB_UI_AO_G_GSPELLCOST1_TT"] = [=[Input the type of power used
 |cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBO POINTS |cFF00FF006|r=RUNIC POWER |cFF00FF007|r=SOUL SHARDS
-|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLY POWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY |cFF00FF0016|r=ARCANE POWER]=]
+|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLY POWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY |cFF00FF0016|r=ARCANE POWER
+|cFF00FF0017|r=FURY  |cFF00FF0018|r=PAIN]=]
 L["ROB_UI_AO_G_GSPELLCOST2_TT"] = [=[Input the amount of power used
 Example1: |cFF00FF003|r
 Example2: |cFF00FF0090%|r]=]
@@ -517,7 +535,8 @@ This is used for calculating the next ready action]=]
 L["ROB_UI_AO_G_GUNITPOWER"] = "Generates Power:"
 L["ROB_UI_AO_G_GUNITPOWER1_TT"] = [=[Input the type of power generated
 |cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBO POINTS |cFF00FF006|r=RUNIC POWER |cFF00FF007|r=SOUL SHARDS
-|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLY POWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY |cFF00FF0016|r=ARCANE POWER]=]
+|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLY POWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY |cFF00FF0016|r=ARCANE POWER
+|cFF00FF0017|r=FURY  |cFF00FF0018|r=PAIN]=]
 L["ROB_UI_AO_G_GUNITPOWER2_TT"] = [=[Input the amount of power generated
 Example1: |cFF00FF003|r
 Example2: |cFF00FF0090%|r]=]
@@ -653,7 +672,8 @@ L["ROB_UI_AO_P_NEEDDB_TT"] = "Only display action when player is missing the spe
 L["ROB_UI_AO_P_POWER"] = "Power:"
 L["ROB_UI_AO_P_POWER1_TT"] = [=[Input the type of unit power
 |cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBO POINTS |cFF00FF006|r=RUNIC POWER |cFF00FF007|r=SOUL SHARDS
-|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLY POWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY |cFF00FF0016|r=ARCANE POWER]=]
+|cFF00FF008|r=LUNAR POWER |cFF00FF009|r=HOLY POWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY |cFF00FF0016|r=ARCANE POWER
+|cFF00FF0017|r=FURY  |cFF00FF0018|r=PAIN]=]
 L["ROB_UI_AO_P_POWER2"] = "Power 2:"
 L["ROB_UI_AO_P_POWER2_TT"] = [=[Input the amount of power required
 Example1: |cFF00FF00>20|r
@@ -670,6 +690,8 @@ L["ROB_UI_AO_P_RUNES_TT"] = "Only display action when player has specified runes
 L["ROB_UI_AO_TARGET_TAB"] = "Target"
 L["ROB_UI_AO_T_BOSS"] = "Boss"
 L["ROB_UI_AO_T_BOSS_TT"] = "Only display action if target is a boss"
+L["ROB_UI_AO_T_DISPEL"] = "Dispel"
+L["ROB_UI_AO_T_DISPEL_TT"] = "Only display this action if the target has a dispelable buff"
 L["ROB_UI_AO_T_HAVEBUFF"] = "Has Buff:"
 L["ROB_UI_AO_T_HAVEBUFFIB_TT"] = [=[Input the name of the buff or buffs
 Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
@@ -695,6 +717,8 @@ Example3: |cFF00FF00<=90%|r means only display this action when target is under 
 Example4: |cFF00FF00>=90%|r means only display this action when target is over or equal to 90% hitpoints
 Example5: |cFF00FF00=90%|r means only display this action when target is at exactly 90% hitpoints]=]
 L["ROB_UI_AO_T_HP_TT"] = "Only display action when target meets specified hit points"
+L["ROB_UI_AO_T_INTERRUPT"] = "Interrupt"
+L["ROB_UI_AO_T_INTERRUPT_TT"] = "Only display this action if the target is casting an interruptible spell"
 L["ROB_UI_AO_T_NEEDBUFF"] = "Needs Buff:"
 L["ROB_UI_AO_T_NEEDBUFFIB_TT"] = [=[Input the name of the buff or buffs
 Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
@@ -715,6 +739,8 @@ Example5: |cFF00FF00Dark Plague&Forbearance|r display action when target is miss
 L["ROB_UI_AO_T_NEEDDB_TT"] = "Only display action when target is missing the specified debuff or debuffs"
 L["ROB_UI_AO_T_NOTABOSS"] = "Not a Boss"
 L["ROB_UI_AO_T_NOTABOSS_TT"] = "Only display action if target is not a boss"
+L["ROB_UI_AO_T_SPELLSTEAL"] = "Spellsteal"
+L["ROB_UI_AO_T_SPELLSTEAL_TT"] = "Only display this action if the target has a stealable buff"
 L["ROB_UI_A_PASTE"] = "Paste"
 L["ROB_UI_A_PASTE_TT"] = "Paste the copied action into the rotation"
 L["ROB_UI_CANCEL_BUTTON"] = "Cancel"
@@ -723,6 +749,7 @@ L["ROB_UI_CREATE"] = "Create"
 L["ROB_UI_CREATE_TT"] = "Create a new rotation"
 L["ROB_UI_DEBUG_E1"] = "NOT showing Action : "
 L["ROB_UI_DEBUG_E2"] = "Action : "
+L["ROB_UI_DEBUG_PREFIX"] = "Debug : "
 L["ROB_UI_DELETE"] = "Delete"
 L["ROB_UI_DELETE_TT"] = "Delete selected rotation"
 L["ROB_UI_DISCARD"] = "Discard"

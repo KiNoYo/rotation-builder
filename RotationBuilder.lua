@@ -143,6 +143,9 @@ ROB_NewActionDefaults = {
 	v_t_hasdebuff="",
 	b_t_boss=false,
 	b_t_notaboss=false,
+	b_t_interrupt=false,
+	b_t_dispel=false,
+	b_t_spellsteal=false,
 	
 	--Pet Options---------------
 	b_pet_hp=false,
@@ -181,6 +184,7 @@ local ROB_FOCUS_LAST_CASTED         = nil;     -- Used to output what spell was 
 local ROB_ACTION_GCD                = 0;
 local ROB_ACTION_CASTTIME           = 0;
 local ROB_ACTION_TEXTURE			= nil;
+local ROB_ACTION_COOLDOWN_COUNTER   = 0;
 
 --libDataBroker stuff
 local ROB_MENU_FRAME                = nil;
@@ -362,6 +366,7 @@ end
 function ROB_OnLoad(self)
 	self:RegisterEvent("ADDON_LOADED");
 	self:RegisterEvent("PLAYER_ENTERING_WORLD");
+	self:RegisterEvent("ACTIONBAR_UPDATE_COOLDOWN");
 	self:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED");
 	self:RegisterEvent("UNIT_SPELLCAST_START");
 	self:RegisterEvent("UNIT_SPELLCAST_CHANNEL_START");
@@ -408,6 +413,8 @@ function ROB_OnEvent(self, event, ...)
 		ROB_PLAYER_Enter();
 	elseif (event == "ACTIVE_TALENT_GROUP_CHANGED") then
 		ROB_OnActiveTalentGroupChanged();
+	elseif (event == "ACTIONBAR_UPDATE_COOLDOWN" and not ROB_Options.HideCD) then
+		ROB_IconCooldown(arg1);
 	elseif (event == "UNIT_SPELLCAST_SUCCEEDED" or event == "UNIT_SPELLCAST_START" or event == "UNIT_SPELLCAST_CHANNEL_START" or event == "UNIT_SPELLCAST_CHANNEL_STOP") then
 		if (arg1 == "player") then
 			if (ROB_SpellIsInRotation(arg2)) then
@@ -766,11 +773,9 @@ function ROB_SwitchRotation(RotationID,_byName)
 		ROB_CURRENT_ACTION = nil
 		ROB_NEXT_ACTION = nil
 		ROB_SetButtonTexture(ROB_CurrentActionButton, GetTexturePath(""))
-		ROB_CurrentActionButtonCooldown:Hide();
 		ROB_CurrentActionButtonHotKey:SetText("")
 		ROB_CurrentActionButton:Show()
 		ROB_SetButtonTexture(ROB_NextActionButton, GetTexturePath(""))
-		ROB_NextActionButtonCooldown:Hide();
 		ROB_NextActionButtonHotKey:SetText("")
 		ROB_NextActionButton:Show()
 		ROB_RotationToggle1Button:Hide()
@@ -2121,6 +2126,12 @@ function ROB_Rotation_Edit_UpdateUI()
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetBossCheckButton",_ActionDB.b_t_boss,false)
 			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetNotABossCheckButton",_ActionDB.b_t_notaboss,false)
+			
+			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetInterruptCheckButton",_ActionDB.b_t_interrupt,false)
+			
+			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetDispelCheckButton",_ActionDB.b_t_dispel,false)
+			
+			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetSpellstealCheckButton",_ActionDB.b_t_spellsteal,false)
 
 			--Pet options-------------------------
 			ROB_Rotation_GUI_SetChecked("ROB_AO_PetHPCheckButton",_ActionDB.b_pet_hp,false)
@@ -2518,6 +2529,38 @@ function ROB_SpellPassesOtherCooldownCheck(othercd, checkstring, notaspell)
 	return false;
 end
 
+function ROB_UnitHasDispelableBuff()
+	local buffs, i = { }, 1;
+	local buff, _, _, _, bufftype, _, _, _, _, _, _ ,_ ,_ ,_ ,_ ,_ ,_ ,_ ,_ = UnitBuff("TARGET", i, "HELPFUL");
+	while buff do
+	if(bufftype == "MAGIC") then
+		buffs[#buffs + 1] = buff;
+	end
+	i = i + 1;
+	buff = UnitBuff("player", i, "HELPFUL");
+	end;
+	if #buffs >= 1 then
+		return true;
+	end;
+	return false;
+end
+
+function ROB_UnitHasStealableBuff()
+	local buffs, i = { }, 1;
+	local buff, _, _, _, _, _, _, _, stealable, _, _ ,_ ,_ ,_ ,_ ,_ ,_ ,_ ,_ = UnitBuff("TARGET", i, "HELPFUL");
+	while buff do
+	if (stealable == 1) then
+		buffs[#buffs + 1] = buff;
+	end
+	i = i + 1;
+	buff = UnitBuff("player", i, "HELPFUL");
+	end;
+	if #buffs >= 1 then
+		return true;
+	end;
+	return false;
+end
+
 function ROB_UnitHasAura(needed, unitName, buffType)
 	local exist			= false;
 	local hasSource		= false;
@@ -2694,6 +2737,16 @@ function ROB_SpellHasProc(spellId)
 	return false;
 end
 
+function ROB_Interrupt()
+	local _,_,_,_,_,_,_,_,notinterruptible = UnitCastingInfo("TARGET");
+	local _,_,_,_,_,_,_,notinterruptible2 = UnitChannelInfo("TARGET");
+	
+	if (notinterruptible == false or notinterruptible2 == false) then
+		return true;
+	end
+	return false;
+end
+
 -- TODO remove or implement
 function ROB_GetActionTintColor(actionName)
 	local ActionDB = ROB_Rotations[ROB_SelectedRotationName].ActionList[actionName]
@@ -2750,14 +2803,16 @@ end
 function ROB_SetCurrentActionTexture(_compareaction)
 	if (not UnitExists("target")) then
 		ROB_SetButtonTexture(ROB_CurrentActionButton, nil)
+		ROB_CurrentActionButtonCooldown:Hide();
 	else
 		if (not _compareaction) then
 			ROB_SetButtonTexture(ROB_CurrentActionButton, nil)
+			ROB_CurrentActionButtonCooldown:Hide();
 			return
 		end
 		if (ROB_CurrentActionButtonIcon:GetTexture() ~= ROB_GetActionTexture(_compareaction)) then
 			ROB_SetButtonTexture(ROB_CurrentActionButton, ROB_GetActionTexture(_compareaction));
-
+			ROB_CurrentActionButtonCooldown:Show();
 		end
 	end
 end
@@ -2848,26 +2903,6 @@ function ROB_SetCurrentActionLabel(_compareaction)
 	end
 end
 
-function ROB_SetActionCooldown(_buttoncd, _cooldown)
-	local _icon = _G[_buttoncd]:GetParent():GetName().."Icon"
-	_icon = _G[_icon]:GetTexture()
-	if (ROB_Options.HideCD or tostring(_icon) == "nil" or _icon == GetTexturePath("6544")) then
-		--print(_G[_buttoncd]:GetParent():GetName().." hiding")
-		_G[_buttoncd]:SetCooldown(0,0)
-		_G[_buttoncd]:Hide()
-	else
-		--print("cooldown"..tostring(_cooldown))
-		--print(_G[_buttoncd]:GetParent():GetName().." IsShown="..tostring(_G[_buttoncd]:IsShown()))
-		if (_cooldown and _cooldown > 0 and not _G[_buttoncd]:IsShown()) then
-			--print(_G[_buttoncd]:GetParent():GetName().." setting cooldown="..tostring(_cooldown))
-			_G[_buttoncd]:SetCooldown(GetTime(),_cooldown)
-			_G[_buttoncd]:Show()
-		elseif (_cooldown == 0) then
-			_G[_buttoncd]:Hide()
-		end
-	end
-end
-
 function ROB_SpellsMatch(_spell1, _spell2)
 	--print("Checking if ROB_SpellsMatch "..tostring(_spell1)..":"..tostring(_spell2))
 	if not _spell1 then return false end
@@ -2891,6 +2926,28 @@ function ROB_SpellsMatch(_spell1, _spell2)
 	--print("Checking if ROB_SpellsMatch5 "..tostring(_spell1)..":"..tostring(_spell2))
 
 	return false
+end
+
+function ROB_IconCooldown(action)
+	local start = 0;
+	local duration = 0;
+	local CD = 0;
+	local now = GetTime();
+	
+	if(ROB_ACTION_COOLDOWN_COUNTER == 0) then
+		ROB_ACTION_COOLDOWN_COUNTER = 1;
+		if (ROB_CURRENT_ACTION ~= nil) then
+			start, duration, _ = GetSpellCooldown(61304);
+			CD = start + duration - now;
+			if (CD > 0) then
+				ROB_CurrentActionButtonCooldown:SetCooldown(now, CD);
+				ROB_CurrentActionButtonCooldown:SetSwipeColor(0,0,0);
+				ROB_CurrentActionButtonCooldown:SetDrawEdge(false);
+			end
+		end
+	else
+		ROB_ACTION_COOLDOWN_COUNTER = 0;
+	end
 end
 
 function ROB_SpellReady(actionName,isNextSpell)
@@ -2990,6 +3047,33 @@ function ROB_SpellReady(actionName,isNextSpell)
 		end
 		if (not GetItemCount(itemName)) then
 			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have this item", debug);
+			return false;
+		end
+	end
+	
+	-- CHECK: Check if an interruption is possible
+	if (ActionDB.b_t_interrupt) then
+		if (not ROB_Interrupt()) then
+			-- If there is no interruptible spell being casted
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because there is currently no interruptible spell being casted", debug);
+			return false;
+		end
+	end
+	
+	-- CHECK: Check if the target has a dispelable buff
+	if (ActionDB.b_t_dispel) then
+		if (not ROB_UnitHasDispelableBuff()) then
+			-- If there is no dispelable buff on the target
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because there is currently no dispelable buff on the target", debug);
+			return false;
+		end
+	end
+	
+	-- CHECK: Check if the target has a stealable buff
+	if (ActionDB.b_t_spellsteal) then
+		if (not ROB_UnitHasStealableBuff()) then
+			-- If there is no stealable buff on the target
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because there is currently no stealable buff on the target", debug);
 			return false;
 		end
 	end
@@ -3252,10 +3336,8 @@ function ROB_GetCurrentAction()
 		if (foundReadyActionName ~= ROB_CURRENT_ACTION) then
 			ROB_CURRENT_ACTION = foundReadyActionName
 		end
-		ROB_SetActionCooldown("ROB_CurrentActionButtonCooldown", foundReadyActionCD)
 	else
 		ROB_CURRENT_ACTION = nil
-		ROB_SetActionCooldown("ROB_CurrentActionButtonCooldown", nil)
 	end
 end
 
@@ -3293,9 +3375,7 @@ function ROB_GetNextAction()
 		if (_foundReadyActionName ~= ROB_NEXT_ACTION) then
 			ROB_NEXT_ACTION = _foundReadyActionName
 		end
-		ROB_SetActionCooldown("ROB_NextActionButtonCooldown", _foundReadyActionCD)
 	else
-		ROB_SetActionCooldown("ROB_NextActionButtonCooldown", nil)
 	end
 end
 
@@ -3311,8 +3391,7 @@ function ROB_OnUpdate(self, elapsed)
 			ROB_GetCurrentAction();
 			
 			--Now get the next ready action
-			ROB_GetNextAction()
-
+			ROB_GetNextAction();
 		else
 			--No rotation selected so hide both icon frames
 			ROB_CurrentActionButton:Hide();
@@ -3350,7 +3429,7 @@ function ROB_Debug(message, debug)
 		return;
 	end
 	if (tostring(message) ~= tostring(ROB_LAST_DEBUG_MSG)) then
-		print(ROB_UI_DEBUG_PREFIX..message)
+		print(RotationBuilderUtils:localize('ROB_UI_DEBUG_PREFIX')..message)
 		ROB_LAST_DEBUG = GetTime();
 		ROB_LAST_DEBUG_MSG = message;
 	end

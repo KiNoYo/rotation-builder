@@ -1,6 +1,6 @@
 ## Interface: 70000
 ## Title: RotationBuilder
-## Version: 1.56
+## Version: 1.57
 ## Author: Previous : Soulwhip, Current : Pelerinage, Tylorcaptain
 ## Notes: Builds rotations for any class or spec
 ## SavedVariablesPerCharacter: ROB_Options ROB_Rotations ROB_Exports
@@ -41,6 +41,7 @@ rotations\DefaultMageRotations.lua
 rotations\DefaultPaladinRotations.lua
 rotations\DefaultWarlockRotations.lua
 rotations\DefaultWarriorRotations.lua
+rotations\DefaultDemonHunterRotations.lua
 
 -- Rotation Builder
 RotationBuilder.lua
