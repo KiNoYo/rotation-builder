@@ -2,9 +2,10 @@
 local druidRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/druid/guardian"] = {
-			["version"] = 3,
+			["version"] = 4,
 			["keybind"] = "<keybind>",
 			["specID"] = 3,
+			["bindindex"] = 0,
 			["ActionList"] = {
 				["defaultRotation/druid/moonfire_galactic_guardian"] = {
 					["v_togglename"] = "Toggle 1",
@@ -134,9 +135,10 @@ local druidRotationsGenerator = function ()
 			},
 		},
 		["defaultRotation/druid/restoration"] = {
-			["version"] = 3,
+			["version"] = 4,
 			["keybind"] = "<keybind>",
 			["specID"] = 4,
+			["bindindex"] = 0,
 			["SortedActions"] = {
 				"defaultRotation/druid/renewal", -- [1]
 				"defaultRotation/druid/moonfire", -- [2]
@@ -202,9 +204,10 @@ local druidRotationsGenerator = function ()
 			},
 		},
 		["defaultRotation/druid/balance"] = {
-			["version"] = 3,
+			["version"] = 4,
 			["keybind"] = "<keybind>",
 			["specID"] = 1,
+			["bindindex"] = 0,
 			["ActionList"] = {
 				["defaultRotation/druid/lunar_strike"] = {
 					["v_gunitpowertype"] = "8",
@@ -421,9 +424,10 @@ local druidRotationsGenerator = function ()
 			},
 		},
 		["defaultRotation/druid/feral"] = {
-			["version"] = 3,
+			["version"] = 4,
 			["keybind"] = "<keybind>",
 			["specID"] = 2,
+			["bindindex"] = 0,
 			["SortedActions"] = {
 				"defaultRotation/druid/skull_bash", -- [1]
 				"defaultRotation/druid/cat_form", -- [2]

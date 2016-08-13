@@ -3020,7 +3020,7 @@ function ROB_SpellReady(actionName,isNextSpell)
 	end
 	
 	-- CHECK : check if the spell is the next action and is supposed to be casted right after the current one
-	if (isNextSpell and ActionDB.b_lastcasted and ActionDB.v_lastcasted ~= nil and ActionDB.v_lastcasted ~= "") then
+	if (isNextSpell and ROB_CURRENT_ACTION ~= nil and ActionDB.b_lastcasted and ActionDB.v_lastcasted ~= nil and ActionDB.v_lastcasted ~= "") then
 		local _, _, _, _, _, _, spellID = GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_spellname);
 		if (ActionDB.v_lastcasted == tostring(spellID)) then
 			return true;

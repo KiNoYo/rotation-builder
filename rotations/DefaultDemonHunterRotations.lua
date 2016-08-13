@@ -5,6 +5,7 @@ local demonHunterRotationsGenerator = function ()
 			["version"] = 1,
 			["keybind"] = "<keybind>",
 			["specID"] = 2,
+			["bindindex"] = 0,
 			["SortedActions"] = {
 				"defaultRotation/demonhunter/consume_magic", -- [1]
 				"defaultRotation/demonhunter/demon_spikes", -- [2]
@@ -89,12 +90,12 @@ local demonHunterRotationsGenerator = function ()
 					["b_charges"] = true,
 				},
 			},
-			["bindindex"] = 0,
 		},
 		["defaultRotation/demonhunter/havoc"] = {
 			["version"] = 1,
 			["keybind"] = "<keybind>",
 			["specID"] = 1,
+			["bindindex"] = 0,
 			["SortedActions"] = {
 				"defaultRotation/demonhunter/fel_rush_vengeful_retreat", -- [1]
 				"defaultRotation/demonhunter/consume_magic", -- [2]
@@ -220,7 +221,6 @@ local demonHunterRotationsGenerator = function ()
 					["v_checkothercdname"] = "162794",
 				},
 			},
-			["bindindex"] = 0,
 		},
 	}
 
