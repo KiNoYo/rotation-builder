@@ -3018,6 +3018,14 @@ function ROB_SpellReady(actionName,isNextSpell)
 			return false;
 		end
 	end
+	
+	-- CHECK : check if the spell is the next action and is supposed to be casted right after the current one
+	if (isNextSpell and ActionDB.b_lastcasted and ActionDB.v_lastcasted ~= nil and ActionDB.v_lastcasted ~= "") then
+		local _, _, _, _, _, _, spellID = GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_spellname);
+		if (ActionDB.v_lastcasted == tostring(spellID)) then
+			return true;
+		end
+	end
 
 	-- CHECK: Check toggles in case the spell need a specific toggle to be casted
 	if (ActionDB.b_toggle) then
@@ -3354,9 +3362,15 @@ function ROB_GetNextAction()
 		local _SpellName1 = nil
 		local _SpellName2 = nil
 		local _SpellsAreDifferent = true
-		if (ROB_CURRENT_ACTION and ROB_SelectedRotationName) then _SpellName1 = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_spellname end
-		if (_NextActionName and ROB_SelectedRotationName) then _SpellName2 = ROB_Rotations[ROB_SelectedRotationName].ActionList[_NextActionName].v_spellname end
-		if (_SpellName1 ~= nil and _SpellName2 ~= nil and ROB_SpellsMatch(_SpellName1, _SpellName2)) then _SpellsAreDifferent = false end
+		if (ROB_CURRENT_ACTION and ROB_SelectedRotationName) then
+			_SpellName1 = ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_spellname
+		end
+		if (_NextActionName and ROB_SelectedRotationName) then
+			_SpellName2 = ROB_Rotations[ROB_SelectedRotationName].ActionList[_NextActionName].v_spellname
+		end
+		if (_SpellName1 ~= nil and _SpellName2 ~= nil and ROB_SpellsMatch(_SpellName1, _SpellName2)) then
+			_SpellsAreDifferent = false
+		end
 
 		--Dont pick next actions that have the same aciton name or spell name as the current action
 		if (ROB_SpellReady(_NextActionName, true) and (_NextActionName ~= ROB_CURRENT_ACTION) and _SpellsAreDifferent) then
