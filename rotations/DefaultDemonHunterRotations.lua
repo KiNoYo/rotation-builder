@@ -2,7 +2,7 @@
 local demonHunterRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/demonhunter/vengeance"] = {
-			["version"] = 1,
+			["version"] = 2,
 			["keybind"] = "<keybind>",
 			["specID"] = 2,
 			["bindindex"] = 0,
@@ -35,7 +35,7 @@ local demonHunterRotationsGenerator = function ()
 					["v_p_unitpowertype"] = "18",
 				},
 				["defaultRotation/demonhunter/consume_magic"] = {
-					["v_gunitpowertype"] = "17",
+					["v_gunitpowertype"] = "18",
 					["b_gunitpower"] = true,
 					["b_t_interrupt"] = true,
 					["b_checkothercd"] = true,
