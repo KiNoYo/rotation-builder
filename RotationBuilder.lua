@@ -41,6 +41,7 @@ local ROB_Options_Default           = {
 	ExportBinds                      = false;
 	OldImportExport                  = false;
 	HideCD                           = false;
+	Enemy                            = false;
 	IconsX                           = 0;
 	IconsY                           = 0;
 	IconScale                        = 1;
@@ -76,26 +77,23 @@ ROB_NewActionDefaults = {
 	v_lastcasted="",
 	b_moving=false,
 	b_notmoving=false,
-
 	b_gspellcost=false,
 	v_gspellcosttype="",
 	v_gspellcost="",
-
 	b_gunitpower=false,
 	v_gunitpowertype="",
 	v_gunitpower="",
-	
 	b_charges=false,
 	v_charges="",
-	
 	b_othercharges=false,
 	v_othercharges="",
 	v_otherchargesname="",
-
 	b_checkothercd=false,
 	v_checkothercdname="",
 	v_checkothercdvalue="",
-
+	b_checkothercd2=false,
+	v_checkothercd2name="",
+	v_checkothercd2value="",
 	b_duration=false,
 	v_duration="",
 	v_durationstartedtime=0,
@@ -104,6 +102,8 @@ ROB_NewActionDefaults = {
 	b_disabled=false,
 	b_hasproc=false,
 	b_notinspellbook=false,
+	b_incombat=false,
+	b_notincombat=false,
 	
 	--Player Options---------------
 	b_p_hp=false,
@@ -185,6 +185,7 @@ local ROB_ACTION_GCD                = 0;
 local ROB_ACTION_CASTTIME           = 0;
 local ROB_ACTION_TEXTURE			= nil;
 local ROB_ACTION_COOLDOWN_COUNTER   = 0;
+local ROB_IN_COMBAT                 = false;
 
 --libDataBroker stuff
 local ROB_MENU_FRAME                = nil;
@@ -372,6 +373,8 @@ function ROB_OnLoad(self)
 	self:RegisterEvent("UNIT_SPELLCAST_CHANNEL_START");
 	self:RegisterEvent("UNIT_SPELLCAST_CHANNEL_STOP");
 	self:RegisterEvent("ACTIVE_TALENT_GROUP_CHANGED");
+	self:RegisterEvent("PLAYER_REGEN_ENABLED");
+	self:RegisterEvent("PLAYER_REGEN_DISABLED");
 
 	-- hook command handler
 	SLASH_ROB1 = "/rob";
@@ -415,6 +418,10 @@ function ROB_OnEvent(self, event, ...)
 		ROB_OnActiveTalentGroupChanged();
 	elseif (event == "ACTIONBAR_UPDATE_COOLDOWN" and not ROB_Options.HideCD) then
 		ROB_IconCooldown(arg1);
+	elseif (event == "PLAYER_REGEN_DISABLED") then
+		ROB_IN_COMBAT = true;
+	elseif (event == "PLAYER_REGEN_ENABLED") then
+		ROB_IN_COMBAT = false;
 	elseif (event == "UNIT_SPELLCAST_SUCCEEDED" or event == "UNIT_SPELLCAST_START" or event == "UNIT_SPELLCAST_CHANNEL_START" or event == "UNIT_SPELLCAST_CHANNEL_STOP") then
 		if (arg1 == "player") then
 			if (ROB_SpellIsInRotation(arg2)) then
@@ -581,6 +588,7 @@ function ROB_PLAYER_Enter()
 	ROB_OptionsTabAllowOverwriteButton:SetChecked(ROB_Options.AllowOverwrite);
 	ROB_OptionsTabExportBindsButton:SetChecked(ROB_Options.ExportBinds);
 	ROB_OptionsTabHideCooldownsButton:SetChecked(ROB_Options.HideCD);
+	ROB_OptionsTabEnemyButton:SetChecked(ROB_Options.Enemy);
 
 	ROB_UPDATE_INTERVAL = 1 / ROB_Options.updaterate
 	ROB_OptionsTabUpdateRateSlider:SetValue(ROB_Options.updaterate);
@@ -1670,6 +1678,10 @@ function ROB_OptionsTabHideCooldownsButton_OnToggle(self)
 	ROB_Options.HideCD = self:GetChecked();
 end
 
+function ROB_OptionsTabEnemyButton_OnToggle(self)
+	ROB_Options.Enemy = self:GetChecked();
+end
+
 function ROB_Option_MiniMapButtonPos_OnValueChanged(self)
 	-- retrieve value
 	ROB_Options.MiniMapPos = ROB_OptionsTabMiniMapPosSlider:GetValue();
@@ -2038,18 +2050,16 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetChecked("ROB_AO_LastCastedCheckButton",_ActionDB.b_lastcasted,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_LastCastedInputBox",_ActionDB.v_lastcasted,"")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_MovingCheckButton",_ActionDB.b_moving,false)
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_NMovingCheckButton",_ActionDB.b_notmoving,false)
-
 			ROB_Rotation_GUI_SetChecked("ROB_AO_CheckOtherCDCheckButton",_ActionDB.b_checkothercd,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_CheckOtherCDNameInputBox",_ActionDB.v_checkothercdname,"")
 			ROB_Rotation_GUI_SetText("ROB_AO_CheckOtherCDValueInputBox",_ActionDB.v_checkothercdvalue,"")
 
+			ROB_Rotation_GUI_SetChecked("ROB_AO_CheckOtherCD2CheckButton",_ActionDB.b_checkothercd2,false)
+			ROB_Rotation_GUI_SetText("ROB_AO_CheckOtherCD2NameInputBox",_ActionDB.v_checkothercd2name,"")
+			ROB_Rotation_GUI_SetText("ROB_AO_CheckOtherCD2ValueInputBox",_ActionDB.v_checkothercd2value,"")
+
 			ROB_Rotation_GUI_SetText("ROB_AO_DurationInputBox",_ActionDB.v_duration,"")
 			ROB_Rotation_GUI_SetChecked("ROB_AO_DurationCheckButton",_ActionDB.b_duration,false)
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_NotASpellCheckButton",_ActionDB.b_notaspell,false)
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_DebugCheckButton",_ActionDB.b_debug,false)
 			ROB_Rotation_GUI_SetChecked("ROB_AO_DisableCheckButton",_ActionDB.b_disabled,false)
@@ -2070,8 +2080,16 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetText("ROB_AO_GOtherChargesNameInputBox",_ActionDB.v_otherchargesname,"")
 			
 			ROB_Rotation_GUI_SetChecked("ROB_AO_GHasProcCheckButton",_ActionDB.b_hasproc,false)
+
+			ROB_Rotation_GUI_SetChecked("ROB_AO_NotASpellCheckButton",_ActionDB.b_notaspell,false)
 			
 			ROB_Rotation_GUI_SetChecked("ROB_AO_GNotInSpellbookCheckButton",_ActionDB.b_notinspellbook,false)
+			
+			ROB_Rotation_GUI_SetChecked("ROB_AO_GInCombatCheckButton",_ActionDB.b_incombat,false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_GNotInCombatCheckButton",_ActionDB.b_notincombat,false)
+
+			ROB_Rotation_GUI_SetChecked("ROB_AO_MovingCheckButton",_ActionDB.b_moving,false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_NMovingCheckButton",_ActionDB.b_notmoving,false)
 
 			--Player options-------------------------
 			ROB_Rotation_GUI_SetChecked("ROB_AO_NeedBuffCheckButton",_ActionDB.b_p_needbuff,false)
@@ -2789,7 +2807,7 @@ function ROB_SetNextActionTexture(_compareaction)
 	local _b = nil
 	local _texture = nil
 
-	if (not UnitExists("target")) then
+	if (not UnitExists("target") or (ROB_Options.Enemy and UnitIsFriend("player","target"))) then
 		ROB_SetButtonTexture(ROB_NextActionButton, nil)
 	else
 		if (not _compareaction) then
@@ -2801,7 +2819,7 @@ function ROB_SetNextActionTexture(_compareaction)
 end
 
 function ROB_SetCurrentActionTexture(_compareaction)
-	if (not UnitExists("target")) then
+	if (not UnitExists("target") or (ROB_Options.Enemy and UnitIsFriend("player","target"))) then
 		ROB_SetButtonTexture(ROB_CurrentActionButton, nil)
 		ROB_CurrentActionButtonCooldown:Hide();
 	else
@@ -2822,7 +2840,7 @@ function ROB_SetNextActionTint(_compareaction)
 	local _g = nil
 	local _b = nil
 	local _texture = nil
-	if (not UnitExists("target")) then
+	if (not UnitExists("target") or (ROB_Options.Enemy and UnitIsFriend("player","target"))) then
 		ROB_NextActionTint:SetTexture()
 	else
 		if (not _compareaction) then
@@ -2846,7 +2864,7 @@ function ROB_SetCurrentActionTint(_compareaction)
 	local _g = nil
 	local _b = nil
 	local _texture = nil
-	if (not UnitExists("target")) then
+	if (not UnitExists("target") or (ROB_Options.Enemy and UnitIsFriend("player","target"))) then
 		ROB_CurrentActionTint:SetTexture()
 	else
 		if (not _compareaction) then
@@ -2873,7 +2891,7 @@ function ROB_SetNextActionLabel(_compareaction)
 	local _texture = nil
 
 
-	if (not UnitExists("target")) then
+	if (not UnitExists("target") or (ROB_Options.Enemy and UnitIsFriend("player","target"))) then
 		ROB_NextActionButtonHotKey:SetText()
 	else
 		if (not _compareaction) then
@@ -2892,7 +2910,7 @@ function ROB_SetCurrentActionLabel(_compareaction)
 	local _texture = nil
 
 
-	if (not UnitExists("target")) then
+	if (not UnitExists("target") or (ROB_Options.Enemy and UnitIsFriend("player","target"))) then
 		ROB_CurrentActionButtonHotKey:SetText()
 	else
 		if (not _compareaction) then
@@ -3043,6 +3061,18 @@ function ROB_SpellReady(actionName,isNextSpell)
 		return false;
 	end
 	
+	-- CHECK: Check if the player is in combat
+	if (ActionDB.b_incombat and not ROB_IN_COMBAT) then
+		ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the player is not in combat", debug);
+		return false;
+	end
+	
+	-- CHECK: Check if the player is not  in combat
+	if (ActionDB.b_notincombat and ROB_IN_COMBAT) then
+		ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the player is in combat", debug);
+		return false;
+	end
+	
 	-- CHECK: Check if the item is usable
 	if (ActionDB.b_notaspell) then
 		slotId, _ = GetInventorySlotInfo(spellName);
@@ -3090,6 +3120,12 @@ function ROB_SpellReady(actionName,isNextSpell)
 	if (ActionDB.b_checkothercd and ActionDB.v_checkothercdname and ActionDB.v_checkothercdname ~= "" and ActionDB.v_checkothercdvalue and ActionDB.v_checkothercdvalue ~= "") then
 		if (not ROB_SpellPassesOtherCooldownCheck(ActionDB.v_checkothercdname, ActionDB.v_checkothercdvalue, ActionDB.b_notaspell)) then
 			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the other cooldown check : "..ActionDB.v_checkothercdname..ActionDB.v_checkothercdvalue.." failed", debug);
+			return false;
+		end
+	end
+	if (ActionDB.b_checkothercd2 and ActionDB.v_checkothercd2name and ActionDB.v_checkothercd2name ~= "" and ActionDB.v_checkothercd2value and ActionDB.v_checkothercd2value ~= "") then
+		if (not ROB_SpellPassesOtherCooldownCheck(ActionDB.v_checkothercd2name, ActionDB.v_checkothercd2value, ActionDB.b_notaspell)) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the other cooldown check : "..ActionDB.v_checkothercd2name..ActionDB.v_checkothercd2value.." failed", debug);
 			return false;
 		end
 	end

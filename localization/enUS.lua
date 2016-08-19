@@ -468,6 +468,8 @@ L["ROB_FRAME_CLOSE_TT"] = "Close Rotation Builder Window"
 L["ROB_FRAME_OPTIONS_TT"] = "Show Options"
 L["ROB_FRAME_ROTATIONS_TT"] = "Show Rotations"
 L["ROB_LOADED"] = "Rotation Builder v%s loaded"
+L["ROB_OPTION_ENEMY"] = "Target is hostile or neutral"
+L["ROB_OPTION_ENEMY_TT"] = "Only display the icons if the target is hostile or neutral"
 L["ROB_OPTION_EXPORTBINDS"] = "Export binds"
 L["ROB_OPTION_EXPORTBINDS_TT"] = "Export action key binds with export"
 L["ROB_OPTION_HIDECD"] = "Hide Cooldowns"
@@ -507,7 +509,7 @@ L["ROB_OPTION_RESETUI"] = "Reset UI"
 L["ROB_OPTION_RESETUI_EXP"] = "Reset all UI windows to center of screen"
 L["ROB_OPTION_RESETUI_TT"] = "Reset UI Window Locations"
 L["ROB_OPTION_UI"] = "UI Options:"
-L["ROB_OPTION_UISCALE"] = "UI Scale:"
+L["ROB_OPTION_UISCALE"] = "UI Scale"
 L["ROB_OPTION_UISCALE_ADD"] = "+"
 L["ROB_OPTION_UISCALE_MIN"] = "-"
 L["ROB_OPTION_UPDATERATE"] = "Updates Per Second:"
@@ -562,6 +564,8 @@ L["ROB_UI_AO_G_HASPROC_TT"] = "Only display action when it has a proc"
 L["ROB_UI_AO_G_ICON_L"] = "Icon:"
 L["ROB_UI_AO_G_ICON_TT"] = [=[Input the spell name or spell id of the icon you want to display for this action
 If left blank the spellname will be used]=]
+L["ROB_UI_AO_G_INCOMBAT"] = "In combat"
+L["ROB_UI_AO_G_INCOMBAT_TT"] = "Only display this action if player is in combat"
 L["ROB_UI_AO_G_KEYBIND_L"] = "Keybind"
 L["ROB_UI_AO_G_KEYBIND_TT"] = [=[Specify the keybind to display in the rotation icon
 Note; This is not an actual keybind and is used for display purposes only]=]
@@ -575,8 +579,11 @@ L["ROB_UI_AO_G_MOVING"] = "Moving"
 L["ROB_UI_AO_G_MOVING_TT"] = "Only display this action if player is moving"
 L["ROB_UI_AO_G_NMOVING"] = "Not Moving"
 L["ROB_UI_AO_G_NMOVING_TT"] = "Only display this action if player is not moving"
-L["ROB_UI_AO_G_NOTINSPELLBOOK"] = "Not in the spellbook"
-L["ROB_UI_AO_G_NOTINSPELLBOOK_TT"] = "Only display this action if the spell is not directly present in the spellboook"
+L["ROB_UI_AO_G_NOTINCOMBAT"] = "Not in combat"
+L["ROB_UI_AO_G_NOTINCOMBAT_TT"] = "Only display this action if player is not in combat"
+L["ROB_UI_AO_G_NOTINSPELLBOOK"] = "Not a character spell"
+L["ROB_UI_AO_G_NOTINSPELLBOOK_TT"] = [=[Only display this action if the spell is not one of your character spell
+Example : If it is one of your familiar spell (hunter's pet, warlock's demon, mage's water elemental, ...]=]
 L["ROB_UI_AO_G_NOTSPELL"] = "Not a spell"
 L["ROB_UI_AO_G_NOTSPELL_TT"] = [=[Ignore spell mana type checks and just use the keybind to perform the action
 Check this when spellname=Trinket0Slot or HandsSlot]=]
