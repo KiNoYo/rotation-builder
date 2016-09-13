@@ -2738,6 +2738,7 @@ function IsSpellKnown(spell, isNextSpell)
 		ROB_ACTION_CASTTIME = 0;
 		return false;
 	end
+	ROB_ACTION_CASTTIME = ROB_ACTION_CASTTIME / 1000;
 	return IsPlayerSpell(spellId);
 end
 
