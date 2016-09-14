@@ -2318,6 +2318,28 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</CheckButton>
+							<CheckButton name="ROB_AO_G_SpellInRangeCheckButton" inherits="ROB_CheckButtonTemplate">
+								<Size>
+									<AbsDimension x="20" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="5" y="-360" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>ROB_AO_G_SpellInRangeCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_AO_G_SpellInRangeCheckButton'))
+									</OnLoad>
+									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_spellInRange");
+									</OnClick>
+									<OnEnter>GameTooltip:SetOwner(self,
+										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_AO_G_SpellInRangeCheckButton_TT'));
+									</OnEnter>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</CheckButton>
 						</Frames>
 					</Frame>
 
@@ -3481,7 +3503,7 @@
 					</Button>
 				</Frames>
 			</Frame>
-			
+
 			<!-- Options Tab -->
 			<Frame name="ROB_OptionsTab" hidden="true">
 				<Size>
@@ -4343,7 +4365,7 @@
 					</Frame>
 				</Frames>
 			</Frame>
-			
+
 			<!-- Main Tab buttons -->
 			<Button name="$parentTab1" inherits="OptionsFrameTabButtonTemplate" id="1">
 				<Anchors>

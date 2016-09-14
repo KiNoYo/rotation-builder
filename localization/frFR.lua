@@ -573,6 +573,8 @@ L["ROB_UI_AO_GENERAL_TAB"] = "General"
 -- L["ROB_UI_AO_G_NMOVING_TT"] = ""
 -- L["ROB_UI_AO_G_NOTINCOMBAT"] = ""
 -- L["ROB_UI_AO_G_NOTINCOMBAT_TT"] = ""
+L["ROB_AO_G_SpellInRangeCheckButton"] = "Cible à porté"
+L["ROB_AO_G_SpellInRangeCheckButton_TT"] = "N'affiche cette action que si la cible est à porté"
 -- L["ROB_UI_AO_G_NOTINSPELLBOOK"] = ""
 -- L["ROB_UI_AO_G_NOTINSPELLBOOK_TT"] = ""
 -- L["ROB_UI_AO_G_NOTSPELL"] = ""
@@ -585,7 +587,7 @@ L["ROB_UI_AO_GENERAL_TAB"] = "General"
 -- L["ROB_UI_AO_G_OTHERCHARGESNIB_TT"] = ""
 -- L["ROB_UI_AO_G_OTHERCHARGES_TT"] = ""
 -- L["ROB_UI_AO_G_SID_VFAIL"] = ""
-L["ROB_UI_AO_G_SPELLNAME_L"] = [=[Nom de sort 
+L["ROB_UI_AO_G_SPELLNAME_L"] = [=[Nom de sort
 ou emplacement d'inventaire :]=]
 L["ROB_UI_AO_G_SPELLNAME_TT"] = [=[Entrez le nom d'un sort ou d'un emplacement d'inventaire
 Exemple 1 : |cFF00FF00Trinket0Slot|r pour le premier emplacement de bijou

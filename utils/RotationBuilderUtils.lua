@@ -12,6 +12,7 @@ RotationBuilderUtils = {
 		["b_gunitpower"] = false,
 		["b_hasproc"] = false,
 		["b_incombat"] = false,
+		["b_spellInRange"] = false,
 		["b_interrupt"] = false,
 		["b_lastcasted"] = false,
 		["b_maxcasts"] = false,
@@ -158,15 +159,15 @@ function RotationBuilderUtils:localize(key, locale)
 	else
 		L = LibStub("AceLocale-3.0"):GetLocale("RotationBuilder");
 	end
-	
+
 	-- AceLocale will return the key if the associated value isn't found.
 	local value = L[key];
-	
+
 	-- In case of a bad AceLocale configuration, verify nil value.
 	if(not value) then
 		value = key;
 	end
-	
+
 	return value;
 end
 

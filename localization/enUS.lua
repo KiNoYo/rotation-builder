@@ -590,6 +590,8 @@ L["ROB_UI_AO_G_NMOVING"] = "Not Moving"
 L["ROB_UI_AO_G_NMOVING_TT"] = "Only display this action if player is not moving"
 L["ROB_UI_AO_G_NOTINCOMBAT"] = "Not in combat"
 L["ROB_UI_AO_G_NOTINCOMBAT_TT"] = "Only display this action if player is not in combat"
+L["ROB_AO_G_SpellInRangeCheckButton"] = "Target in range"
+L["ROB_AO_G_SpellInRangeCheckButton_TT"] = "Only display this action if the player's target is in this spell's range"
 L["ROB_UI_AO_G_NOTINSPELLBOOK"] = "Not a character spell"
 L["ROB_UI_AO_G_NOTINSPELLBOOK_TT"] = [=[Only display this action if the spell is not one of your character spell
 Example : If it is one of your familiar spell (hunter's pet, warlock's demon, mage's water elemental, ...]=]
