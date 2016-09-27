@@ -2,19 +2,4 @@
 	<Binding name="Rotation Builder" description="Toggle Rotation Builder" header="ROB">
 		ROB_OnToggle();
 	</Binding>
-	<Binding name="Toggle Icons" description="Toggle Icons">
-		ROB_ToggleIconsFrame();
-	</Binding>
-	<Binding name="Toggle 1" description="Toggle 1 for any action">
-		ROB_ToggleToggle(1);
-	</Binding>
-	<Binding name="Toggle 2" description="Toggle 2 for any action">
-		ROB_ToggleToggle(2);
-	</Binding>
-	<Binding name="Toggle 3" description="Toggle 3 for any action">
-		ROB_ToggleToggle(3);
-	</Binding>
-	<Binding name="Toggle 4" description="Toggle 4 for any action">
-		ROB_ToggleToggle(4);
-	</Binding>
 </Bindings>

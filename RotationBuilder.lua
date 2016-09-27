@@ -26,11 +26,6 @@ local ROB_ACTION_LIST_LINES         = 21;
 ROB_ROTATION_LIST_FRAME_HEIGHT      = 16;
 ROB_ACTION_LIST_FRAME_HEIGHT        = 20;
 
-ROB_TOGGLE_1                        = 0
-ROB_TOGGLE_2                        = 0
-ROB_TOGGLE_3                        = 0
-ROB_TOGGLE_4                        = 0
-
 -- Initial Options
 local ROB_Options_Default           = {
 	MiniMap                          = true;
@@ -46,7 +41,6 @@ local ROB_Options_Default           = {
 	IconsY                           = 0;
 	IconScale                        = 1;
 	UIScale                          = 1;
-	ToggleIconsA                     = 1;
 	CurrentIconA                     = 1;
 	NextIconA                        = 1;
 	NextIconLocation                 = "BOTTOM";
@@ -63,12 +57,6 @@ local ROB_Options_Default           = {
 
 ROB_NewActionDefaults = {
 	--General Options---------------
-	b_toggle=false,
-	v_togglename="Toggle 1",
-	v_toggleicon="",
-	b_toggleoff=false,
-	b_toggleon=false,
-	v_keybind="<keybind>",
 	v_spellname="<spell name>",
 	v_actionicon="",
 	b_maxcasts=false,
@@ -199,10 +187,6 @@ local ROB_LAST_DEBUG_MSG            = nil;     -- Last message we output debug
 local ROB_LM                        = nil;     -- libMasque formerly called Button Facade
 local ROB_LM_BG_CURRENT_ACTION      = nil;     -- Current action button group for libMasque
 local ROB_LM_BG_NEXT_ACTION         = nil;     -- Next action button group for libMasque
-local ROB_LM_BG_TOGGLE1             = nil;     -- Toggle1 button group for libMasque
-local ROB_LM_BG_TOGGLE2             = nil;     -- Toggle2 button group for libMasque
-local ROB_LM_BG_TOGGLE3             = nil;     -- Toggle3 button group for libMasque
-local ROB_LM_BG_TOGGLE4             = nil;     -- Toggle4 button group for libMasque
 
 local _InvSlots = {
 	["AmmoSlot"] = 0,
@@ -228,7 +212,7 @@ local _InvSlots = {
 }
 
 function ROB_NewRotation()
-	return { SortedActions={}, ActionList={}, keybind="<keybind>", bindindex=0};
+	return { SortedActions={}, ActionList={}, bindindex=0};
 end
 
 function ROB_LoadDefaultRotations()
@@ -295,7 +279,6 @@ function ROB_MenuOnClick(self, button)
 
 		ROB_MenuCreate()
 		UIDropDownMenu_Initialize(ROB_MENU_FRAME, ROB_MenuInit, "MENU")
-		ToggleDropDownMenu(1, nil, ROB_MENU_FRAME, self, 20, 4)
 	elseif button == "RightButton" then
 		ROB_OnToggle();
 	end
@@ -322,14 +305,6 @@ function ROB_OnSkin(_addon, _skinid, _gloss, _backdrop, _group, _button, _colors
 		_ROBSkin = ROB_Options["CABSkin"]
 	elseif _group == 'Next Action' then
 		_ROBSkin = ROB_Options["NABSkin"]
-	elseif _group == 'Toggle1' then
-		_ROBSkin = ROB_Options["T1Skin"]
-	elseif _group == 'Toggle2' then
-		_ROBSkin = ROB_Options["T2Skin"]
-	elseif _group == 'Toggle3' then
-		_ROBSkin = ROB_Options["T3Skin"]
-	elseif _group == 'Toggle4' then
-		_ROBSkin = ROB_Options["T4Skin"]
 	end
 	if _ROBSkin then
 		_ROBSkin[1] = _skinid
@@ -351,17 +326,9 @@ function ROB_LoadMasquePlugin()
 
 	ROB_LM:Group(RotationBuilderUtils:localize('ROB_ADDON_NAME'), 'Current Action'):AddButton(ROB_CurrentActionButton)
 	ROB_LM:Group(RotationBuilderUtils:localize('ROB_ADDON_NAME'), 'Current Action'):AddButton(ROB_NextActionButton)
-	ROB_LM:Group(RotationBuilderUtils:localize('ROB_ADDON_NAME'), 'Toggle1'):AddButton(ROB_RotationToggle1Button)
-	ROB_LM:Group(RotationBuilderUtils:localize('ROB_ADDON_NAME'), 'Toggle2'):AddButton(ROB_RotationToggle2Button)
-	ROB_LM:Group(RotationBuilderUtils:localize('ROB_ADDON_NAME'), 'Toggle3'):AddButton(ROB_RotationToggle3Button)
-	ROB_LM:Group(RotationBuilderUtils:localize('ROB_ADDON_NAME'), 'Toggle4'):AddButton(ROB_RotationToggle4Button)
 
 	if ROB_Options['CABSkin'] then ROB_LM:Group(RotationBuilderUtils:localize('ROB_ADDON_NAME'), 'Current Action'):Skin(unpack(ROB_Options["CABSkin"])) end
 	if ROB_Options['NABSkin'] then ROB_LM:Group(RotationBuilderUtils:localize('ROB_ADDON_NAME'), 'Next Action'):Skin(unpack(ROB_Options['NABSkin'])) end
-	if ROB_Options['T1Skin'] then ROB_LM:Group(RotationBuilderUtils:localize('ROB_ADDON_NAME'), 'Toggle1'):Skin(unpack(ROB_Options['T1Skin'])) end
-	if ROB_Options['T2Skin'] then ROB_LM:Group(RotationBuilderUtils:localize('ROB_ADDON_NAME'), 'Toggle2'):Skin(unpack(ROB_Options['T2Skin'])) end
-	if ROB_Options['T3Skin'] then ROB_LM:Group(RotationBuilderUtils:localize('ROB_ADDON_NAME'), 'Toggle3'):Skin(unpack(ROB_Options['T3Skin'])) end
-	if ROB_Options['T4Skin'] then ROB_LM:Group(RotationBuilderUtils:localize('ROB_ADDON_NAME'), 'Toggle4'):Skin(unpack(ROB_Options['T4Skin'])) end
 end
 
 function ROB_OnLoad(self)
@@ -450,22 +417,6 @@ function ROB_OnEvent(self, event, ...)
 				end
 				if (event == "UNIT_SPELLCAST_CHANNEL_STOP") then
 					_channelstart = false
-				end
-
-				-- Turn off the toggle if this toggleoff is enabled
-				if (ROB_SelectedRotationName and ROB_Rotations[ROB_SelectedRotationName] ~= nil and ROB_Rotations[ROB_SelectedRotationName].SortedActions ~= nil) then
-					for key, value in pairs(ROB_Rotations[ROB_SelectedRotationName].SortedActions) do
-						if (ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname == ROB_LAST_CASTED and ROB_Rotations[ROB_SelectedRotationName].ActionList[value].b_toggle and ROB_Rotations[ROB_SelectedRotationName].ActionList[value].b_toggleoff) then
-							_G["ROB_TOGGLE_"..string.sub(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_togglename, 8)] = 0
-						end
-						--Set the last casted for the duration checking
-						if (ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname == arg2) then
-							ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_durationstartedtime = GetTime()
-						end
-						if (GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname) and GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname) == arg2) then
-							ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_durationstartedtime = GetTime()
-						end
-					end
 				end
 			end
 		end
@@ -556,34 +507,14 @@ function ROB_PLAYER_Enter()
 	ROB_OptionsTabIconScaleSlider:SetValue(ROB_Options.IconScale);
 	ROB_OptionsTabIconScaleSliderText:SetText(ROB_Options.IconScale);
 
-	ROB_OptionsTabToggleIconsAlpha:SetText(ROB_Options.ToggleIconsA);
-	ROB_RotationToggle1Button:SetAlpha(ROB_Options.ToggleIconsA);
-	ROB_RotationToggle2Button:SetAlpha(ROB_Options.ToggleIconsA);
-	ROB_RotationToggle3Button:SetAlpha(ROB_Options.ToggleIconsA);
-	ROB_RotationToggle4Button:SetAlpha(ROB_Options.ToggleIconsA);
-
 	ROB_OptionsTabCurrentIconAlpha:SetText(ROB_Options.CurrentIconA);
 	ROB_CurrentActionButton:SetAlpha(ROB_Options.CurrentIconA);
 
 	ROB_OptionsTabNextIconAlpha:SetText(ROB_Options.NextIconA);
 	ROB_NextActionButton:SetAlpha(ROB_Options.NextIconA);
 
-
-	ROB_RotationToggle1Button:SetScale(ROB_Options.IconScale);
-	ROB_RotationToggle2Button:SetScale(ROB_Options.IconScale);
-	ROB_RotationToggle3Button:SetScale(ROB_Options.IconScale);
-	ROB_RotationToggle4Button:SetScale(ROB_Options.IconScale);
-	ROB_RotationToggle1Button:EnableMouse(false)
-	ROB_RotationToggle2Button:EnableMouse(false)
-	ROB_RotationToggle3Button:EnableMouse(false)
-	ROB_RotationToggle4Button:EnableMouse(false)
-
 	ROB_CurrentActionButtonNormalTexture:Hide()
 	ROB_NextActionButtonNormalTexture:Hide()
-	ROB_RotationToggle1ButtonNormalTexture:Hide()
-	ROB_RotationToggle2ButtonNormalTexture:Hide()
-	ROB_RotationToggle3ButtonNormalTexture:Hide()
-	ROB_RotationToggle4ButtonNormalTexture:Hide()
 
 	ROB_OptionsTabAllowOverwriteButton:SetChecked(ROB_Options.AllowOverwrite);
 	ROB_OptionsTabExportBindsButton:SetChecked(ROB_Options.ExportBinds);
@@ -647,8 +578,6 @@ function ROB_OnCommand(cmd)
 end
 
 function ROB_OnToggle(self, visible)
-	_G["ROB_RotationKeyBindButton"]:EnableKeyboard(false)
-	_G["ROB_AO_ActionKeyBindButton"]:EnableKeyboard(false)
 	_G["ROB_SpellNameInputBox"]:SetFocus()
 	_G["ROB_SpellNameInputBox"]:ClearFocus()
 
@@ -662,17 +591,6 @@ function ROB_OnToggle(self, visible)
 		ROB_RotationTab:Show()
 		ROB_MainWindowSwitchToTab(ROB_FrameTab1)
 		ROB_OptionsTab:Hide()
-	end
-end
-
-function ROB_ToggleIconsFrame()
-	--toggle button frames
-	if (ROB_IconsFrame:IsShown()) then
-		ROB_IconsFrame:Hide();
-		print(RotationBuilderUtils:localize('msg/action/keybinds/toggle/icons/hide'))
-	else
-		ROB_IconsFrame:Show();
-		print(RotationBuilderUtils:localize('msg/action/keybinds/toggle/icons/show'))
 	end
 end
 
@@ -769,9 +687,6 @@ function ROB_SwitchRotation(RotationID,_byName)
 
 	if (ROB_Rotations[ROB_SelectedRotationName] ~= nil and ROB_Rotations[ROB_SelectedRotationName].SortedActions ~= nil) then
 		for key, value in pairs(ROB_Rotations[ROB_SelectedRotationName].SortedActions) do
-			if (ROB_Rotations[ROB_SelectedRotationName].ActionList[value].b_toggle and ROB_Rotations[ROB_SelectedRotationName].ActionList[value].b_toggleon) then
-				_G["ROB_TOGGLE_"..string.sub(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_togglename, 8)] = 1
-			end
 			--reset the last casted time for spells that wait specified durations
 			ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_durationstartedtime = 0
 		end
@@ -786,14 +701,6 @@ function ROB_SwitchRotation(RotationID,_byName)
 		ROB_SetButtonTexture(ROB_NextActionButton, GetTexturePath(""))
 		ROB_NextActionButtonHotKey:SetText("")
 		ROB_NextActionButton:Show()
-		ROB_RotationToggle1Button:Hide()
-		ROB_RotationToggle2Button:Hide()
-		ROB_RotationToggle3Button:Hide()
-		ROB_RotationToggle4Button:Hide()
-		ROB_SetButtonTexture(ROB_RotationToggle1Button, "")
-		ROB_SetButtonTexture(ROB_RotationToggle2Button, "")
-		ROB_SetButtonTexture(ROB_RotationToggle3Button, "")
-		ROB_SetButtonTexture(ROB_RotationToggle4Button, "")
 
 		ROB_Options["lastrotation"] = ROB_SelectedRotationName
 	else
@@ -820,7 +727,6 @@ function ROB_RotationCreateButton_OnClick(self)
 	-- UPDATE_ROTATION_OPTIONS1
 	ROB_RotationNameInputBox:SetText(ROB_SelectedRotationName);
 	ROB_RotationSpecInputBox:SetText(ROB_SelectedRotationSpec);
-	ROB_RotationKeyBindButton:SetText(ROB_EditingRotationTable.keybind);
 
 	-- update the action list
 	ROB_ActionList_Update();
@@ -850,7 +756,6 @@ function ROB_ModifyRotationButton_OnClick(self)
 	-- UPDATE_ROTATION_OPTIONS2
 	ROB_RotationNameInputBox:SetText(ROB_SelectedRotationName);
 	ROB_RotationSpecInputBox:SetText(ROB_SelectedRotationSpec);
-	ROB_RotationKeyBindButton:SetText(ROB_EditingRotationTable.keybind);
 
 	--Always clear the current action because it may be leftover from a previous rotation
 	ROB_CurrentActionName = nil
@@ -1179,19 +1084,6 @@ function ROB_SpellValidate(_spell)
 	end
 end
 
-function ROB_OptionsTabToggleIconsAlpha_OnTextChanged(self)
-	if (self:GetText() == nil) then
-		return
-	end
-	if (tonumber(self:GetText()) and tonumber(self:GetText()) >= 0.1 and tonumber(self:GetText()) <= 1) then
-		ROB_Options.ToggleIconsA = tonumber(self:GetText())
-		ROB_RotationToggle1Button:SetAlpha(ROB_Options.ToggleIconsA);
-		ROB_RotationToggle2Button:SetAlpha(ROB_Options.ToggleIconsA);
-		ROB_RotationToggle3Button:SetAlpha(ROB_Options.ToggleIconsA);
-		ROB_RotationToggle4Button:SetAlpha(ROB_Options.ToggleIconsA);
-	end
-end
-
 function ROB_OptionsTabCurrentIconAlpha_OnTextChanged(self)
 	if (self:GetText() == nil) then
 		return
@@ -1229,21 +1121,6 @@ function ROB_AO_InputBox_OnTextChanged(self,field,validate)
 
 		ROB_EditingRotationTable.ActionList[ROB_CurrentActionName][field] = _inputstring
 		if (validate) then ROB_SpellValidate(_inputstring); end
-	end
-end
-
-function ROB_AO_ToggleOffCheckButton_OnToggle(self)
-	ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].b_toggleoff = self:GetChecked();
-end
-
-function ROB_AO_ToggleIconInputBox_OnTextChanged(self)
-	if (self:GetText() == nil or self:GetText() == "" or ROB_CurrentActionName == nil or ROB_EditingRotationTable == nil) then
-		ROB_AO_ToggleIconTexture:Hide();
-		return
-	else
-		ROB_AO_ToggleIconTexture:Show();
-		ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_toggleicon = self:GetText()
-		ROB_AO_ToggleIconTexture:SetTexture(GetTexturePath(ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_toggleicon))
 	end
 end
 
@@ -1294,38 +1171,14 @@ function ROB_StringDialog_TextBox_OnTextChanged()
 	end
 end
 
-function ROB_AO_ToggleDropDownButton_OnLoad(frame)
-	local ToggleName = ""
-	UIDropDownMenu_SetWidth(frame, 75)
-	UIDropDownMenu_JustifyText(frame, "LEFT");
-
-	ROB_DropDownStoreToTemp = "v_togglename"
-
-	local i=0
-	for i=1, 4 do
-		table.wipe(ROB_DropDownTableTemp)
-		ToggleName = "Toggle "..i;
-
-		ROB_DropDownTableTemp.text  = ToggleName
-		ROB_DropDownTableTemp.value = ToggleName
-		ROB_DropDownTableTemp.func  = ROB_ActionOptionDropDown_Selected
-		UIDropDownMenu_AddButton(ROB_DropDownTableTemp);
-	end
-end
-
 function ROB_ActionOptionDropDown_Selected(self)
 	if (ROB_EditingRotationTable ~= nil and ROB_CurrentActionName ~= nil and ROB_DropDownStoreToTemp ~= nil) then
 		ROB_EditingRotationTable.ActionList[ROB_CurrentActionName][ROB_DropDownStoreToTemp] = self.value
-		UIDropDownMenu_SetSelectedValue(ROB_AO_ToggleDropDownButton, ROB_EditingRotationTable.ActionList[ROB_CurrentActionName][ROB_DropDownStoreToTemp]);
 	end
 end
 
 function ROB_SetNextActionLocation()
 	ROB_NextActionButton:ClearAllPoints();
-	ROB_RotationToggle1Button:ClearAllPoints();
-	ROB_RotationToggle2Button:ClearAllPoints();
-	ROB_RotationToggle3Button:ClearAllPoints();
-	ROB_RotationToggle4Button:ClearAllPoints();
 
 	UIDropDownMenu_SetSelectedValue(ROB_OptionsNextActionLocationDropDownButton, ROB_Options.NextIconLocation)
 	UIDropDownMenu_SetText(ROB_OptionsNextActionLocationDropDownButton, ROB_Options.NextIconLocation)
@@ -1334,19 +1187,11 @@ function ROB_SetNextActionLocation()
 	if (ROB_Options.NextIconLocation == "BOTTOM" or ROB_Options.NextIconLocation == "TOP") then
 		if (ROB_Options.NextIconLocation == "BOTTOM") then ROB_NextActionButton:SetPoint("TOP","ROB_CurrentActionButton","BOTTOM"); end
 		if (ROB_Options.NextIconLocation == "TOP") then ROB_NextActionButton:SetPoint("BOTTOM","ROB_CurrentActionButton","TOP"); end
-		ROB_RotationToggle1Button:SetPoint("TOPRIGHT","ROB_CurrentActionButton","TOPLEFT")
-		ROB_RotationToggle2Button:SetPoint("TOPLEFT","ROB_CurrentActionButton","TOPRIGHT")
-		ROB_RotationToggle3Button:SetPoint("BOTTOMRIGHT","ROB_CurrentActionButton", "BOTTOMLEFT")
-		ROB_RotationToggle4Button:SetPoint("BOTTOMLEFT","ROB_CurrentActionButton", "BOTTOMRIGHT")
 	end
 
 	if (ROB_Options.NextIconLocation == "RIGHT" or ROB_Options.NextIconLocation == "LEFT") then
 		if (ROB_Options.NextIconLocation == "RIGHT") then ROB_NextActionButton:SetPoint("LEFT","ROB_CurrentActionButton","RIGHT"); end
 		if (ROB_Options.NextIconLocation == "LEFT") then ROB_NextActionButton:SetPoint("RIGHT","ROB_CurrentActionButton","LEFT"); end
-		ROB_RotationToggle1Button:SetPoint("BOTTOMLEFT","ROB_CurrentActionButton","TOPLEFT")
-		ROB_RotationToggle2Button:SetPoint("BOTTOMRIGHT","ROB_CurrentActionButton","TOPRIGHT")
-		ROB_RotationToggle3Button:SetPoint("TOPLEFT","ROB_CurrentActionButton", "BOTTOMLEFT")
-		ROB_RotationToggle4Button:SetPoint("TOPRIGHT","ROB_CurrentActionButton", "BOTTOMRIGHT")
 	end
 end
 
@@ -1354,27 +1199,6 @@ function ROB_NextActionLocation_Selected(self)
 	ROB_Options.NextIconLocation = self.value
 	ROB_SetNextActionLocation()
 end
-
-function ROB_OptionsNextActionLocationDropDownButton_OnLoad(frame)
-	local ToggleName = ""
-	UIDropDownMenu_SetWidth(frame, 75)
-	UIDropDownMenu_JustifyText(frame, "LEFT");
-
-	local i=0
-	for i=1, 4 do
-		table.wipe(ROB_DropDownTableTemp)
-		if (i == 1) then ToggleName = "BOTTOM"; end
-		if (i == 2) then ToggleName = "RIGHT"; end
-		if (i == 3) then ToggleName = "TOP"; end
-		if (i == 4) then ToggleName = "LEFT"; end
-
-		ROB_DropDownTableTemp.text  = ToggleName
-		ROB_DropDownTableTemp.value = ToggleName
-		ROB_DropDownTableTemp.func  = ROB_NextActionLocation_Selected
-		UIDropDownMenu_AddButton(ROB_DropDownTableTemp);
-	end
-end
-
 
 local function ClearBindings(...)
 	for i = 1, select('#', ...) do
@@ -1396,244 +1220,6 @@ local function Keybinding_OnClick(frame, button)
 			frame:LockHighlight()
 			self.waitingForKey = true
 		end
-	end
-end
-
-function ROB_ActionKeyBindButton_OnClick(self, button)
-	local selectedrotation = ROB_EditingRotationTable
-	if ((ROB_SelectedActionIndex ~= nil) and selectedrotation ~= nil) then
-		_G["ROB_SpellNameInputBox"]:SetFocus()
-		_G["ROB_SpellNameInputBox"]:ClearFocus()
-
-		if self.waitingForKey then
-			local keyPressed = button
-			local selectedrotation = ROB_EditingRotationTable
-
-			local ignoreKeys = {
-				["UNKNOWN"] = true,
-				["LSHIFT"] = true, ["LCTRL"] = true, ["LALT"] = true,
-				["RSHIFT"] = true, ["RCTRL"] = true, ["RALT"] = true,
-			}
-
-			if keyPressed == "ESCAPE" then
-				keyPressed = RotationBuilderUtils:localize('ROB_UI_KEYBIND')
-			else
-				if ignoreKeys[keyPressed] then return end
-				if IsAltKeyDown() then
-					--Blue pixel modifier is 1 for ALT
-					keyPressed = "A+"..keyPressed
-				end
-				if IsShiftKeyDown() then
-					--Blue pixel modifier is 2 for SHIFT
-					keyPressed = "S+"..keyPressed
-				end
-				if IsControlKeyDown() then
-					--Blue pixel modifier is 3 for CTRL
-					keyPressed = "C+"..keyPressed
-				end
-			end
-
-			_G["ROB_AO_ActionKeyBindButton"]:EnableKeyboard(false)
-			_G["ROB_AO_ActionKeyBindButton"]:UnlockHighlight()
-			self.waitingForKey = nil
-
-			if not self.disabled then
-				_G["ROB_AO_ActionKeyBindButton"]:SetText(keyPressed)
-				--self:Fire("OnKeyChanged", keyPressed)
-			end
-
-			if ((ROB_SelectedActionIndex ~= nil) and selectedrotation ~= nil) then
-				selectedrotation.ActionList[selectedrotation.SortedActions[ROB_SelectedActionIndex]].v_keybind = keyPressed
-			end
-
-			-- update lists edit
-			ROB_ActionList_Update();
-
-			-- update rotation ui stuff
-			ROB_Rotation_Edit_UpdateUI();
-
-
-
-		else
-			_G["ROB_AO_ActionKeyBindButton"]:EnableKeyboard(true)
-			_G["ROB_AO_ActionKeyBindButton"]:LockHighlight()
-			_G["ROB_AO_ActionKeyBindButton"]:SetText(RotationBuilderUtils:localize('ROB_UI_PRESSKEY'))
-			self.waitingForKey = true
-		end
-	end
-end
-
-function ROB_RotationKeyBindButton_OnClick(self)
-	if (ROB_EditingRotationTable ~= nil) then
-		_G["ROB_SpellNameInputBox"]:SetFocus()
-		_G["ROB_SpellNameInputBox"]:ClearFocus()
-
-		if self.waitingForKey then
-			_G["ROB_RotationKeyBindButton"]:EnableKeyboard(false)
-			_G["ROB_RotationKeyBindButton"]:UnlockHighlight()
-			self.waitingForKey = nil
-			-- update ui stuff
-			ROB_ActionList_Update()
-			ROB_Rotation_Edit_UpdateUI()
-		else
-			_G["ROB_RotationKeyBindButton"]:EnableKeyboard(true)
-			_G["ROB_RotationKeyBindButton"]:LockHighlight()
-			_G["ROB_RotationKeyBindButton"]:SetText(RotationBuilderUtils:localize('ROB_UI_PRESSKEY'))
-			self.waitingForKey = true
-		end
-	end
-end
-
-function ROB_RotationKeyBindButton_OnKeyDown(self, key)
-	if self.waitingForKey then
-		local keyPressed = key
-		local _BindSlotAvailable = true
-		local _BindSlotAvailableID = 0
-		local ignoreKeys = {
-			["UNKNOWN"] = true,
-			["LSHIFT"] = true, ["LCTRL"] = true, ["LALT"] = true,
-			["RSHIFT"] = true, ["RCTRL"] = true, ["RALT"] = true,
-		}
-
-		if (ROB_EditingRotationTable ~= nil) then
-
-			if keyPressed == "ESCAPE" then
-				keyPressed = RotationBuilderUtils:localize('ROB_UI_KEYBIND')
-			else
-				if ignoreKeys[keyPressed] then return end
-				if IsAltKeyDown() then
-					--Blue pixel modifier is 1 for ALT
-					keyPressed = "A+"..keyPressed
-				end
-				if IsShiftKeyDown() then
-					--Blue pixel modifier is 2 for SHIFT
-					keyPressed = "S+"..keyPressed
-				end
-				if IsControlKeyDown() then
-					--Blue pixel modifier is 3 for CTRL
-					keyPressed = "C+"..keyPressed
-				end
-			end
-
-			_G["ROB_RotationKeyBindButton"]:EnableKeyboard(false)
-			_G["ROB_RotationKeyBindButton"]:UnlockHighlight()
-			self.waitingForKey = nil
-
-			if not self.disabled then
-				_G["ROB_RotationKeyBindButton"]:SetText(keyPressed)
-			end
-
-			for i=1, 10 do
-				_BindSlotAvailable = true
-				--Loop through the rotations to find a bindslot available
-				for _RotationName,_value in pairs(ROB_Rotations) do
-					if (not ROB_Rotations[_RotationName].bindindex) then
-						ROB_Rotations[_RotationName]["bindindex"] = 0
-					else
-						--this rotation has a bind index but if it matches the one we are checking then its not available
-						if (ROB_Rotations[_RotationName].bindindex == i) then
-							_BindSlotAvailable = false
-						end
-					end
-				end
-				--After we have looped through the rotations if bindslot is available then we can use it
-				if (_BindSlotAvailable) then
-					_BindSlotAvailableID = i
-					break
-				end
-			end
-
-			if (keyPressed == RotationBuilderUtils:localize('ROB_UI_KEYBIND')) then
-				ClearBindings(ROB_EditingRotationTable.keybind);
-				_G["ROB_RotationKeyBindButton"]:SetText(keyPressed)
-				ROB_EditingRotationTable.keybind = keyPressed
-				ROB_EditingRotationTable["bindindex"] = 0
-				ClearBindings(ROB_EditingRotationTable.keybind);
-			elseif (_BindSlotAvailableID == 0) then
-				print("Rotation bind failed: All 10 key bind slots are used by other rotations, unbind keys from other rotations to bind this rotation")
-				_G["ROB_RotationKeyBindButton"]:SetText(keyPressed)
-			else
-				ClearBindings(keyPressed);
-
-				local ok = SetBinding(keyPressed,"Use rotation ".._BindSlotAvailableID);
-				if (ok==nil) then
-					print("error binding rotation")
-				else
-					print("Bound "..keyPressed.." to Rotation:"..ROB_SortedRotations[ROB_SelectedRotationIndex])
-				end
-				ROB_EditingRotationTable.keybind = keyPressed
-				ROB_EditingRotationTable["bindindex"] = _BindSlotAvailableID
-
-
-				SaveBindings(GetCurrentBindingSet())
-			end
-		end
-
-		-- update lists edit
-		ROB_ActionList_Update();
-
-		-- update rotation ui stuff
-		ROB_Rotation_Edit_UpdateUI();
-
-	else
-		_G["ROB_RotationKeyBindButton"]:EnableKeyboard(false)
-		_G["ROB_RotationKeyBindButton"]:UnlockHighlight()
-		self.waitingForKey = nil
-	end
-end
-
-function ROB_AO_ActionKeyBindButton_OnKeyDown(self, key)
-	if self.waitingForKey then
-		local keyPressed = key
-		local selectedrotation = ROB_EditingRotationTable
-
-		local ignoreKeys = {
-			["UNKNOWN"] = true,
-			["LSHIFT"] = true, ["LCTRL"] = true, ["LALT"] = true,
-			["RSHIFT"] = true, ["RCTRL"] = true, ["RALT"] = true,
-		}
-
-		if keyPressed == "ESCAPE" then
-			keyPressed = RotationBuilderUtils:localize('ROB_UI_KEYBIND')
-		else
-			if ignoreKeys[keyPressed] then return end
-			if IsAltKeyDown() then
-				--Blue pixel modifier is 1 for ALT
-				keyPressed = "A+"..keyPressed
-			end
-			if IsShiftKeyDown() then
-				--Blue pixel modifier is 2 for SHIFT
-				keyPressed = "S+"..keyPressed
-			end
-			if IsControlKeyDown() then
-				keyPressed = "C+"..keyPressed
-				--Blue pixel modifier is 3 for CTRL
-			end
-		end
-
-		_G["ROB_AO_ActionKeyBindButton"]:EnableKeyboard(false)
-		_G["ROB_AO_ActionKeyBindButton"]:UnlockHighlight()
-		self.waitingForKey = nil
-
-		if not self.disabled then
-			_G["ROB_AO_ActionKeyBindButton"]:SetText(keyPressed)
-			--self:Fire("OnKeyChanged", keyPressed)
-		end
-
-		if ((ROB_SelectedActionIndex ~= nil) and selectedrotation ~= nil) then
-			selectedrotation.ActionList[selectedrotation.SortedActions[ROB_SelectedActionIndex]].v_keybind = keyPressed
-		end
-
-		-- update lists edit
-		ROB_ActionList_Update();
-
-		-- update rotation ui stuff
-		ROB_Rotation_Edit_UpdateUI();
-
-	else
-		_G["ROB_AO_ActionKeyBindButton"]:EnableKeyboard(false)
-		_G["ROB_AO_ActionKeyBindButton"]:UnlockHighlight()
-		self.waitingForKey = nil
 	end
 end
 
@@ -1704,10 +1290,6 @@ function ROB_Option_IconScale_OnValueChanged(self)
 	ROB_IconsFrame:SetScale(ROB_Options.IconScale)
 	ROB_CurrentActionButton:SetScale(ROB_Options.IconScale)
 	ROB_NextActionButton:SetScale(ROB_Options.IconScale)
-	ROB_RotationToggle1Button:SetScale(ROB_Options.IconScale);
-	ROB_RotationToggle2Button:SetScale(ROB_Options.IconScale);
-	ROB_RotationToggle3Button:SetScale(ROB_Options.IconScale);
-	ROB_RotationToggle4Button:SetScale(ROB_Options.IconScale);
 	--ROB_MiniMapButton_Update();
 	ROB_IconsFrame:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", ROB_Options.IconsX / ROB_IconsFrame:GetEffectiveScale(), ROB_Options.IconsY / ROB_IconsFrame:GetEffectiveScale())
 end
@@ -1755,16 +1337,6 @@ function ROB_Options_ResetUI_OnClick(self)
 	ROB_IconsFrame:ClearAllPoints();
 	ROB_IconsFrame:SetPoint("CENTER");
 	ROB_IconsFrame:Show();
-end
-
-function ROB_ToggleToggle(toggle)
-	if (_G["ROB_TOGGLE_"..toggle] == 0) then
-		_G["ROB_TOGGLE_"..toggle] = 1
-		print(RotationBuilderUtils:localize('msg/action/keybinds/toggle/toggle/enable')..toggle)
-	else
-		_G["ROB_TOGGLE_"..toggle] = 0
-		print(RotationBuilderUtils:localize('msg/action/keybinds/toggle/toggle/disable')..toggle)
-	end
 end
 
 function ROB_MiniMapButton_Update()
@@ -2027,22 +1599,11 @@ function ROB_Rotation_Edit_UpdateUI()
 		if (ROB_EditingRotationTable.ActionList[ROB_CurrentActionName] ~= nil) then
 			local _ActionDB = ROB_EditingRotationTable.ActionList[ROB_CurrentActionName]
 			-- RETRIEVE_NEW_OPTIONS_BELOW
-			ROB_Rotation_GUI_SetText("ROB_AO_ActionKeyBindButton",_ActionDB.v_keybind,RotationBuilderUtils:localize('ROB_UI_KEYBIND'))
 			ROB_Rotation_GUI_SetText("ROB_SpellNameInputBox",_ActionDB.v_spellname,"<spell name>")
 			ROB_SpellValidate(_ActionDB.v_spellname);
 
 			ROB_Rotation_GUI_SetText("ROB_AO_ActionIconInputBox",_ActionDB.v_actionicon,"")
 			ROB_AO_ActionIconTexture:SetTexture(GetTexturePath(_ActionDB.v_actionicon));
-
-			ROB_Rotation_GUI_SetChecked("ROB_AO_ToggleCheckButton",_ActionDB.b_toggle,false)
-			ROB_Rotation_GUI_SetChecked("ROB_AO_ToggleOffCheckButton",_ActionDB.b_toggleoff,false)
-			ROB_Rotation_GUI_SetChecked("ROB_AO_ToggleOnCheckButton",_ActionDB.b_toggleon,false)
-
-			UIDropDownMenu_SetSelectedValue(ROB_AO_ToggleDropDownButton, _ActionDB.v_togglename)
-			UIDropDownMenu_SetText(ROB_AO_ToggleDropDownButton, _ActionDB.v_togglename)
-
-			ROB_Rotation_GUI_SetText("ROB_AO_ToggleIconInputBox",_ActionDB.v_toggleicon,"")
-			ROB_AO_ToggleIconTexture:SetTexture(GetTexturePath(_ActionDB.v_toggleicon))
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_MaxCastsCheckButton",_ActionDB.b_maxcasts,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_MaxCastsInputBox",_ActionDB.v_maxcasts,"")
@@ -2179,7 +1740,6 @@ function ROB_Rotation_Edit_UpdateUI()
 		ROB_RotationSpecInputBox:Show();
 		ROB_RotationNameRO:Hide();
 		ROB_RotationSpecRO:Hide();
-		ROB_RotationKeyBindButton:Enable();
 
 	else
 		-- ADD_HIDE_ROTATION_OPTIONS
@@ -2187,7 +1747,6 @@ function ROB_Rotation_Edit_UpdateUI()
 		ROB_RotationSpecInputBox:Hide();
 		ROB_RotationNameRO:Show();
 		ROB_RotationSpecRO:Show();
-		ROB_RotationKeyBindButton:Disable();
 
 		-- disable save and discard
 		ROB_RotationSaveButton:Hide();
@@ -2205,11 +1764,6 @@ function ROB_Rotation_Edit_UpdateUI()
 		ROB_PlayerActionOptionsTab:Hide()
 		ROB_TargetActionOptionsTab:Hide()
 		ROB_PetActionOptionsTab:Hide()
-
-		-- RETRIEVE_ROTATION_SETTINGS
-		if (ROB_SelectedRotationName ~= nil and ROB_Rotations[ROB_SelectedRotationName]) then
-			ROB_RotationKeyBindButton:SetText(ROB_Rotations[ROB_SelectedRotationName].keybind)
-		end
 	end
 
 	-- update the menu
@@ -2901,7 +2455,6 @@ function ROB_SetNextActionLabel(_compareaction)
 			ROB_NextActionButtonHotKey:SetText()
 			return
 		end
-		if (ROB_NextActionButtonHotKey:GetText() ~= _ActionDB.v_keybind and _ActionDB.v_keybind ~= RotationBuilderUtils:localize('ROB_UI_KEYBIND')) then ROB_NextActionButtonHotKey:SetText(_ActionDB.v_keybind); end
 	end
 end
 
@@ -2920,7 +2473,6 @@ function ROB_SetCurrentActionLabel(_compareaction)
 			ROB_CurrentActionButtonHotKey:SetText()
 			return
 		end
-		if (ROB_CurrentActionButtonHotKey:GetText() ~= _ActionDB.v_keybind and _ActionDB.v_keybind ~= RotationBuilderUtils:localize('ROB_UI_KEYBIND')) then ROB_CurrentActionButtonHotKey:SetText(_ActionDB.v_keybind); end
 	end
 end
 
@@ -3045,16 +2597,6 @@ function ROB_SpellReady(actionName,isNextSpell)
 		local _, _, _, _, _, _, spellID = GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[ROB_CURRENT_ACTION].v_spellname);
 		if (ActionDB.v_lastcasted == tostring(spellID)) then
 			return true;
-		end
-	end
-
-	-- CHECK: Check toggles in case the spell need a specific toggle to be casted
-	if (ActionDB.b_toggle) then
-		ROB_SetButtonTexture(ROB_RotationToggle1Button, GetTexturePath(ActionDB.v_toggleicon));
-		-- Verify if the proper toggle is turned on otherwise the spell is not to be casted
-		if ((ActionDB.v_togglename == "Toggle 1" and (not ROB_TOGGLE_1)) or (ActionDB.v_togglename == "Toggle 2" and (not ROB_TOGGLE_2)) or (ActionDB.v_togglename == "Toggle 3" and (not ROB_TOGGLE_3)) or (ActionDB.v_togglename == "Toggle 4" and (not ROB_TOGGLE_4))) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the toggle "..ActionDB.v_togglename.." is off", debug);
-			return false;
 		end
 	end
 
@@ -3459,27 +3001,6 @@ function ROB_OnUpdate(self, elapsed)
 			--No rotation selected so hide both icon frames
 			ROB_CurrentActionButton:Hide();
 			ROB_NextActionButton:Hide();
-		end
-
-		if (ROB_TOGGLE_1 == 1 ) then
-			ROB_RotationToggle1Button:Show();
-		else
-			ROB_RotationToggle1Button:Hide();
-		end
-		if (ROB_TOGGLE_2 == 1 ) then
-			ROB_RotationToggle2Button:Show();
-		else
-			ROB_RotationToggle2Button:Hide();
-		end
-		if (ROB_TOGGLE_3 == 1 ) then
-			ROB_RotationToggle3Button:Show();
-		else
-			ROB_RotationToggle3Button:Hide();
-		end
-		if (ROB_TOGGLE_4 == 1 ) then
-			ROB_RotationToggle4Button:Show();
-		else
-			ROB_RotationToggle4Button:Hide();
 		end
 
 		ROB_DebugOnUpdate();

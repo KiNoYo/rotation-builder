@@ -291,54 +291,6 @@
 					<Cooldown name="$parentCooldown" inherits="CooldownFrameTemplate" />
 				</Frames>
 			</Button>
-			<Button name="ROB_RotationToggle1Button" inherits="ActionButtonTemplate" parent="ROB_IconsFrame" frameStrata="HIGH" enableMouse="false">
-				<Anchors>
-					<Anchor point="TOPRIGHT" relativeTo="ROB_CurrentActionButton" relativePoint="TOPLEFT">
-						<Offset>
-							<AbsDimension x="0" y="0" />
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Size>
-					<AbsDimension x="19" y="19" />
-				</Size>
-			</Button>
-			<Button name="ROB_RotationToggle2Button" inherits="ActionButtonTemplate" parent="ROB_IconsFrame" frameStrata="HIGH" enableMouse="false">
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="ROB_CurrentActionButton" relativePoint="TOPRIGHT">
-						<Offset>
-							<AbsDimension x="0" y="0" />
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Size>
-					<AbsDimension x="19" y="19" />
-				</Size>
-			</Button>
-			<Button name="ROB_RotationToggle3Button" inherits="ActionButtonTemplate" parent="ROB_IconsFrame" frameStrata="HIGH" enableMouse="false">
-				<Anchors>
-					<Anchor point="BOTTOMRIGHT" relativeTo="ROB_CurrentActionButton" relativePoint="BOTTOMLEFT">
-						<Offset>
-							<AbsDimension x="0" y="0" />
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Size>
-					<AbsDimension x="19" y="19" />
-				</Size>
-			</Button>
-			<Button name="ROB_RotationToggle4Button" inherits="ActionButtonTemplate" parent="ROB_IconsFrame" frameStrata="HIGH" enableMouse="false">
-				<Anchors>
-					<Anchor point="BOTTOMLEFT" relativeTo="ROB_CurrentActionButton" relativePoint="BOTTOMRIGHT">
-						<Offset>
-							<AbsDimension x="0" y="0" />
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Size>
-					<AbsDimension x="19" y="19" />
-				</Size>
-			</Button>
 		</Frames>
 	</Frame>
 
@@ -1271,28 +1223,6 @@
 							<OnLoad>ROB_RotationSpecROLabel:SetText(RotationBuilderUtils:localize('ROB_UI_RS_LABEL'));</OnLoad>
 						</Scripts>
 					</Frame>
-					<Button name="ROB_RotationKeyBindButton" inherits="UIPanelButtonTemplate">
-						<Size>
-							<AbsDimension x="70" y="20" />
-						</Size>
-						<Anchors>
-							<Anchor point="TOPLEFT" relativeTo="ROB_RotationNameRO" relativePoint="TOPRIGHT">
-								<Offset>
-									<AbsDimension x="0" y="0" />
-								</Offset>
-							</Anchor>
-						</Anchors>
-						<Scripts>
-							<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_RKB_LABEL'));</OnLoad>
-							<OnKeyDown>ROB_RotationKeyBindButton_OnKeyDown(self,key)
-							</OnKeyDown>
-							<OnClick>ROB_RotationKeyBindButton_OnClick(self);</OnClick>
-							<OnEnter>GameTooltip:SetOwner(self,
-								"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_RKB_LABEL_TT'));
-							</OnEnter>
-							<OnLeave>GameTooltip:Hide();</OnLeave>
-						</Scripts>
-					</Button>
 					<Button name="ROB_AddActionButton" inherits="UIPanelButtonTemplate" toplevel="true" frameStrata="DIALOG">
 						<Size>
 							<AbsDimension x="55" y="20" />
@@ -1478,29 +1408,6 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</Frame>
-							<Button name="ROB_AO_ActionKeyBindButton" inherits="UIPanelButtonTemplate">
-								<Size>
-									<AbsDimension x="70" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="7" y="-40" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>self:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_KEYBIND_L'));</OnLoad>
-									<OnKeyDown>ROB_AO_ActionKeyBindButton_OnKeyDown(self,key)
-									</OnKeyDown>
-									<OnClick>ROB_ActionKeyBindButton_OnClick(self, button);
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_KEYBIND_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</Button>
 							<EditBox name="ROB_AO_ActionIconInputBox" inherits="InputBoxTemplate" autoFocus="false">
 								<Size>
 									<AbsDimension x="150" y="20" />
@@ -1593,139 +1500,6 @@
 									</OnClick>
 									<OnEnter>GameTooltip:SetOwner(self,
 										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_DISABLE_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<CheckButton name="ROB_AO_ToggleCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="5" y="-60" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_ToggleCheckButtonText:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_TOGGLE'))
-									</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_toggle");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_TOGGLE_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<Button name="ROB_AO_ToggleDropDownButton" inherits="UIDropDownMenuTemplate" id="1">
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="55" y="-58" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>UIDropDownMenu_Initialize(self,
-										ROB_AO_ToggleDropDownButton_OnLoad)
-									</OnLoad>
-									<OnClick>ToggleDropDownMenu(1, nil,
-										ROB_AO_ToggleDropDownButton, ROB_AO_ToggleDropDownButton, 0,
-										0);
-									</OnClick>
-								</Scripts>
-							</Button>
-							<EditBox name="ROB_AO_ToggleIconInputBox" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="60" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="200" y="-60" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Layers>
-									<Layer level="ARTWORK">
-										<FontString name="ROB_AO_ToggleIconInputBoxLabel" inherits="GameFontNormalSmall" justifyH="LEFT" justifyV="TOP">
-											<Anchors>
-												<Anchor point="RIGHT" relativePoint="LEFT">
-													<Offset>
-														<AbsDimension x="-5" y="0" />
-													</Offset>
-												</Anchor>
-											</Anchors>
-										</FontString>
-									</Layer>
-								</Layers>
-								<Scripts>
-									<OnLoad>ROB_AO_ToggleIconInputBoxLabel:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_ICON_L'));</OnLoad>
-									<OnTextChanged>ROB_AO_ToggleIconInputBox_OnTextChanged(self)
-									</OnTextChanged>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_TICON_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
-							<Frame name="ROB_AO_ToggleIconTextureFrame">
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="261" y="-62" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Layers>
-									<Layer level="ARTWORK">
-										<Texture name="ROB_AO_ToggleIconTexture" file=""></Texture>
-									</Layer>
-								</Layers>
-							</Frame>
-							<CheckButton name="ROB_AO_ToggleOffCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="280" y="-57" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_ToggleOffCheckButtonText:SetText("")</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_toggleoff");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_TOGGLEOFF_TT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</CheckButton>
-							<CheckButton name="ROB_AO_ToggleOnCheckButton" inherits="ROB_CheckButtonTemplate">
-								<Size>
-									<AbsDimension x="20" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="280" y="-70" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Scripts>
-									<OnLoad>ROB_AO_ToggleOnCheckButtonText:SetText("")</OnLoad>
-									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_toggleon");
-									</OnClick>
-									<OnEnter>GameTooltip:SetOwner(self,
-										"ANCHOR_TOPLEFT");GameTooltip:SetText(RotationBuilderUtils:localize('ROB_UI_AO_G_TOGGLEON_TT'));
 									</OnEnter>
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>

@@ -41,8 +41,6 @@ function ROB_ImportRotation_Old(_RotationBuild)
 	end
 
 	ROB_Rotations[_parsedRotationName] = {}
-	ROB_Rotations[_parsedRotationName]["keybind"] = {}
-	ROB_Rotations[_parsedRotationName]["keybind"] = RotationBuilderUtils:localize('ROB_UI_KEYBIND')
 	ROB_Rotations[_parsedRotationName]["rangespell"] = {}
 	ROB_Rotations[_parsedRotationName]["rangespell"] = _parsedRangeSpell
 	ROB_Rotations[_parsedRotationName]["SortedActions"] = {}
@@ -170,9 +168,6 @@ function ROB_ExportRotation_Old(_RotationName)
 				SkipValue = true
 			end
 			if (DefaultKey == "v_durationstartedtime" or DefaultKey == "b_debug") then
-				SkipValue = true
-			end
-			if (DefaultKey == "v_keybind" and (not ROB_Options.ExportBinds)) then
 				SkipValue = true
 			end
 			if (not SkipValue) then

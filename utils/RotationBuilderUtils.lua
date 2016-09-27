@@ -46,9 +46,6 @@ RotationBuilderUtils = {
 		["b_t_needsdebuff"] = false,
 		["b_t_notaboss"] = false,
 		["b_t_spellsteal"] = false,
-		["b_toggle"] = false,
-		["b_toggleoff"] = false,
-		["b_toggleon"] = false,
 		["v_actionicon"] = "",
 		["v_breakchanneling"] = "",
 		["v_charges"] = "",
@@ -62,7 +59,6 @@ RotationBuilderUtils = {
 		["v_gspellcosttype"] = "",
 		["v_gunitpower"] = "",
 		["v_gunitpowertype"] = "",
-		["v_keybind"] = "<keybind>",
 		["v_lastcasted"] = "",
 		["v_maxcasts"] = "",
 		["v_othercharges"] = "",
@@ -89,8 +85,6 @@ RotationBuilderUtils = {
 		["v_t_hp"] = "",
 		["v_t_needsbuff"] = "",
 		["v_t_needsdebuff"] = "",
-		["v_toggleicon"] = "",
-		["v_togglename"] = "Toggle 1",
 	}
 }
 
