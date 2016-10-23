@@ -3693,41 +3693,6 @@
 									</Size>
 								</ThumbTexture>
 							</Slider>
-							<EditBox name="ROB_OptionsTabToggleIconsAlpha" inherits="InputBoxTemplate" autoFocus="false">
-								<Size>
-									<AbsDimension x="30" y="20" />
-								</Size>
-								<Anchors>
-									<Anchor point="TOPLEFT" relativeTo="ROB_OptionsTabIconOptionsFrame" relativePoint="TOPLEFT">
-										<Offset>
-											<AbsDimension x="520" y="-5" />
-										</Offset>
-									</Anchor>
-								</Anchors>
-								<Layers>
-									<Layer level="ARTWORK">
-										<FontString name="ROB_OptionsTabToggleIconsAlphaLabel" inherits="GameFontNormalSmall" justifyH="LEFT" justifyV="TOP">
-											<Anchors>
-												<Anchor point="RIGhT" relativePoint="LEFT">
-													<Offset>
-														<AbsDimension x="-5" y="0" />
-													</Offset>
-												</Anchor>
-											</Anchors>
-										</FontString>
-									</Layer>
-								</Layers>
-								<Scripts>
-									<OnLoad>ROB_OptionsTabToggleIconsAlphaLabel:SetText(RotationBuilderUtils:localize('ROB_OPTION_ICONS_T_A'));</OnLoad>
-									<OnTextChanged>ROB_OptionsTabToggleIconsAlpha_OnTextChanged(self)
-									</OnTextChanged>
-									<OnEnter>
-										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-										GameTooltip:SetText(RotationBuilderUtils:localize('ROB_OPTION_ICONS_T_ATT'));
-									</OnEnter>
-									<OnLeave>GameTooltip:Hide();</OnLeave>
-								</Scripts>
-							</EditBox>
 							<EditBox name="ROB_OptionsTabCurrentIconAlpha" inherits="InputBoxTemplate" autoFocus="false">
 								<Size>
 									<AbsDimension x="30" y="20" />
