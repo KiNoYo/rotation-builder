@@ -1200,6 +1200,26 @@ function ROB_NextActionLocation_Selected(self)
 	ROB_SetNextActionLocation()
 end
 
+function ROB_OptionsNextActionLocationDropDownButton_OnLoad(frame)
+	local ToggleName = ""
+	UIDropDownMenu_SetWidth(frame, 75)
+	UIDropDownMenu_JustifyText(frame, "LEFT");
+
+	local i=0
+	for i=1, 4 do
+		table.wipe(ROB_DropDownTableTemp)
+		if (i == 1) then ToggleName = "BOTTOM"; end
+		if (i == 2) then ToggleName = "RIGHT"; end
+		if (i == 3) then ToggleName = "TOP"; end
+		if (i == 4) then ToggleName = "LEFT"; end
+
+		ROB_DropDownTableTemp.text  = ToggleName
+		ROB_DropDownTableTemp.value = ToggleName
+		ROB_DropDownTableTemp.func  = ROB_NextActionLocation_Selected
+		UIDropDownMenu_AddButton(ROB_DropDownTableTemp);
+	end
+end
+
 local function ClearBindings(...)
 	for i = 1, select('#', ...) do
 		SetBinding(select(i, ...), nil)
