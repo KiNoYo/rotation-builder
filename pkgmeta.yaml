@@ -1,0 +1,20 @@
+package-as: RotationBuilder
+
+enable-nolib-creation: no
+
+externals:
+  libs/LibStub:
+    url: https://repos.wowace.com/wow/ace3/tags/Release-r1151/LibStub
+    tag: latest
+  libs/AceLocale-3.0:
+    url: https://repos.wowace.com/wow/ace3/tags/Release-r1151/AceLocale-3.0
+    tag: latest
+  libs/AceSerializer-3.0:
+    url: https://repos.wowace.com/wow/ace3/tags/Release-r1151/AceSerializer-3.0
+    tag: latest
+
+ignore:
+  - .docmeta
+
+move-folders:
+  RotationBuilder/rotations/RotationBuilder_Rogue: RotationBuilder_Rogue
