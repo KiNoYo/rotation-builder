@@ -12,6 +12,9 @@ RotationBuilder = {
 
 	-- The list of rotations generator.
 	defaultRotationGenerator = {},
+
+	-- If we seek a multi-target rotation.
+	multiTargetEnabled = false,
 };
 
 --- Import a rotation.
@@ -38,7 +41,7 @@ function RotationBuilder:importRotation(serializedRotation)
 			print(RotationBuilderUtils:localize('ROB_UI_IMPORT_ERROR2')..":"..rotationName);
 			return
 		end
-		
+
 		local tempRotation = RotationBuilderUtils:restoreTable({}, deSerialized);
 		ROB_Rotations[rotationName] = tempRotation;
 
@@ -164,12 +167,19 @@ function RotationBuilder:findRotationBySpecializationID(specializationID)
 		-- If no rotation is defined, then return nil.
 		return nil;
 	end
+	local tmpRotation = nil;
 	for key, value in pairs(ROB_Rotations) do
 		if (value["specID"] == specializationID) then
-			return key;
+			if(value["isMultiTarget"] and RotationBuilder["multiTargetEnabled"]) then
+				return key;
+			end
+			if(not value["isMultiTarget"] and not RotationBuilder["multiTargetEnabled"]) then
+				return key;
+			end
+			tmpRotation = key;
 		end
 	end
-	return nil;
+	return tmpRotation;
 end
 
 --- Initialize the RotationBuilder Object.

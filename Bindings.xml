@@ -1,5 +1,8 @@
 <Bindings>
-	<Binding name="Rotation Builder" description="Toggle Rotation Builder" header="ROB">
+	<Binding name="ROB_OPEN" description="Open Rotation Builder option panel" header="ROB" category="ADDONS">
 		ROB_OnToggle();
+	</Binding>
+	<Binding name="ROB_MULTI_TARGET" description="Enable/Disable the AOE rotation" category="ADDONS">
+		ROB_ToggleMultiTargetRotation();
 	</Binding>
 </Bindings>

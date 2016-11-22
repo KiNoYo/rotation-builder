@@ -1223,6 +1223,22 @@
 							<OnLoad>ROB_RotationSpecROLabel:SetText(RotationBuilderUtils:localize('ROB_UI_RS_LABEL'));</OnLoad>
 						</Scripts>
 					</Frame>
+					<CheckButton name="ROB_RotationMultiTargetCheckbox" inherits="ROB_CheckButtonTemplate">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="ROB_RotationTab" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="260" y="-130" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnLoad>ROB_RotationMultiTargetCheckboxText:SetText(RotationBuilderUtils:localize('ui/rotations/toggleMultiTarget/text'))</OnLoad>
+							<OnClick>ROB_RotationMultiTargetCheckbox_OnToggle(self);</OnClick>
+						</Scripts>
+					</CheckButton>
 					<Button name="ROB_AddActionButton" inherits="UIPanelButtonTemplate" toplevel="true" frameStrata="DIALOG">
 						<Size>
 							<AbsDimension x="55" y="20" />
