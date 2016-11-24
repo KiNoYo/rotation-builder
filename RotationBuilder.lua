@@ -18,6 +18,11 @@
 
 -- TODO PEL : Put globals in another file for better code separation.
 ROB_VERSION = GetAddOnMetadata(ROB_PROJECT_NAME, "Version");
+BINDING_HEADER_ROB = RotationBuilderUtils:localize('ROB_ADDON_NAME');
+BINDING_NAME_ROB_OPEN = RotationBuilderUtils:localize('ROB_UI_TOGGLE');
+BINDING_NAME_ROB_MULTI_TARGET = RotationBuilderUtils:localize('ui/keybinds/toggleMultiTarget/text');
+BINDING_NAME_ROB_CUSTOM_CASE_1 = RotationBuilderUtils:localize('ui/keybinds/toggleCustomCase/text')..1;
+BINDING_NAME_ROB_CUSTOM_CASE_2 = RotationBuilderUtils:localize('ui/keybinds/toggleCustomCase/text')..2;
 ROB_UPDATE_INTERVAL                 = 0.2;      -- How often the OnUpdate code will run (in seconds)
 
 -- Scroll Frame Lines
@@ -151,7 +156,8 @@ local ROB_Initialized               = false
 local ROB_SortedRotations           = {};      -- Sorted rotation table
 local ROB_EditingRotationTable      = nil;     -- Rotation table being edited
 ROB_SelectedRotationName            = nil;     -- Selected Rotation Name
-ROB_SelectedRotationSpec			= nil;     -- Selected Rotation Specialization
+ROB_SelectedRotationSpec = nil; -- Selected Rotation Specialization
+ROB_RotationMultiTargetEnabled = false; -- If we are seeking for a multi-target rotation.
 local ROB_SelectedRotationIndex     = nil;     -- Selected Rotation Index
 local ROB_SelectedActionIndex       = nil;     -- Selected Action Index
 local ROB_CurrentActionName         = nil;     -- The current selected ActionName
@@ -548,6 +554,26 @@ function ROB_OnActiveTalentGroupChanged()
 	ROB_SwitchRotation(RotationBuilder:findRotationBySpecializationID(GetSpecialization()), true);
 end
 
+--- Change the selected rotation to match the one with the correct specialization and multi-target enable.
+function ROB_ToggleMultiTargetRotation()
+	RotationBuilder["multiTargetEnabled"] = not RotationBuilder["multiTargetEnabled"];
+	if (RotationBuilder["multiTargetEnabled"]) then
+		print(RotationBuilderUtils:localize('msg/action/keybinds/multiTarget/enabled'));
+	else
+		print(RotationBuilderUtils:localize('msg/action/keybinds/multiTarget/disabled'));
+	end
+	ROB_SwitchRotation(RotationBuilder:findRotationBySpecializationID(GetSpecialization()), true);
+end
+
+function ROB_ToggleCustomCase(toggle)
+	RotationBuilder["customCase"]["case"..toggle] = not RotationBuilder["customCase"]["case"..toggle];
+	if(RotationBuilder["customCase"]["case"..toggle]) then
+		print(RotationBuilderUtils:localize('msg/action/keybinds/customCase/enabled')..toggle)
+	else
+		print(RotationBuilderUtils:localize('msg/action/keybinds/customCase/disabled')..toggle)
+	end
+end
+
 function ROB_OnCommand(cmd)
 	local help, helpIx, msg;
 
@@ -639,6 +665,7 @@ function ROB_RotationListButton_OnClick(self)
 	ROB_SelectedRotationIndex = self:GetID() + FauxScrollFrame_GetOffset(ROB_RotationScrollFrame);
 	ROB_SelectedRotationName = ROB_SortedRotations[ROB_SelectedRotationIndex];
 	ROB_SelectedRotationSpec = tonumber(ROB_Rotations[ROB_SortedRotations[ROB_SelectedRotationIndex]]["specID"]);
+	ROB_RotationMultiTargetEnabled = ROB_Rotations[ROB_SortedRotations[ROB_SelectedRotationIndex]]["isMultiTarget"];
 	ROB_SwitchRotation(ROB_SelectedRotationName, true);
 
 	-- update rotation list
@@ -723,10 +750,12 @@ function ROB_RotationCreateButton_OnClick(self)
 	-- new name prompt
 	ROB_SelectedRotationName = "<rotation name>";
 	ROB_SelectedRotationSpec = ""
+	ROB_RotationMultiTargetEnabled = false;
 
 	-- UPDATE_ROTATION_OPTIONS1
 	ROB_RotationNameInputBox:SetText(ROB_SelectedRotationName);
 	ROB_RotationSpecInputBox:SetText(ROB_SelectedRotationSpec);
+	ROB_RotationMultiTargetCheckbox:SetChecked(ROB_RotationMultiTargetEnabled);
 
 	-- update the action list
 	ROB_ActionList_Update();
@@ -750,12 +779,14 @@ function ROB_ModifyRotationButton_OnClick(self)
 	if not ROB_SelectedRotationSpec then
 		ROB_SelectedRotationSpec = ""
 	end
+	ROB_RotationMultiTargetEnabled = ROB_Rotations[ROB_SelectedRotationName]["isMultiTarget"];
 
 	ROB_EditingRotationTable = ROB_CopyTable(ROB_Rotations[ROB_SelectedRotationName]);
 
 	-- UPDATE_ROTATION_OPTIONS2
 	ROB_RotationNameInputBox:SetText(ROB_SelectedRotationName);
 	ROB_RotationSpecInputBox:SetText(ROB_SelectedRotationSpec);
+	ROB_RotationMultiTargetCheckbox:SetChecked(ROB_RotationMultiTargetEnabled);
 
 	--Always clear the current action because it may be leftover from a previous rotation
 	ROB_CurrentActionName = nil
@@ -815,13 +846,18 @@ function ROB_RotationSpecInputBox_OnTextChanged(self)
 	ROB_Rotation_Edit_UpdateUI();
 end
 
+function ROB_RotationMultiTargetCheckbox_OnToggle(self)
+	ROB_RotationMultiTargetEnabled = self:GetChecked();
+	ROB_Rotation_Edit_UpdateUI();
+end
+
 function ROB_Save_OnClick(self)
 	local _lastEditedRotation = ROB_SelectedRotationName
 
 	-- Replace the old rotation with the new one.
 	ROB_Rotations[ROB_SelectedRotationName] = ROB_EditingRotationTable;
 	ROB_Rotations[ROB_SelectedRotationName]["specID"] = ROB_SelectedRotationSpec;
-
+	ROB_Rotations[ROB_SelectedRotationName]["isMultiTarget"] = ROB_RotationMultiTargetEnabled;
 	-- update rotation list
 	ROB_SortRotationList();
 
@@ -1536,6 +1572,7 @@ function ROB_RotationModifyButtons_UpdateUI()
 		end
 		ROB_RotationNameROText:SetText(RotationBuilderUtils:localize(rotationName));
 		ROB_RotationSpecROText:SetText(specName);
+		ROB_RotationMultiTargetCheckbox:SetChecked(ROB_Rotations[rotationName]["isMultiTarget"]);
 	else
 		-- enable create, disable modify and remove
 		ROB_RotationCreateButton:Enable();
@@ -1546,7 +1583,7 @@ function ROB_RotationModifyButtons_UpdateUI()
 		-- reset rotation values
 		ROB_RotationNameROText:SetText("");
 		ROB_RotationSpecROText:SetText("");
-
+		ROB_RotationMultiTargetCheckbox:SetChecked(false);
 	end
 end
 
@@ -1576,25 +1613,12 @@ function ROB_Rotation_Edit_UpdateUI()
 
 	if (ROB_EditingRotationTable ~= nil) then
 		-- have we a list name?
-		--if (ROB_SelectedRotationName ~= "") then
 		-- enable save
 		ROB_RotationSaveButton:Show();
 		ROB_RotationDiscardButton:Show();
 		ROB_AddActionButton:Show();
 		ROB_CopyActionButton:Show();
 		ROB_PasteActionButton:Show();
-		--else
-		-- hide save
-		--ROB_RotationSaveButton:Hide();
-		--ROB_RotationDiscardButton:Hide();
-		--ROB_AddActionButton:Hide();
-		--ROB_CopyActionButton:Hide();
-		--ROB_PasteActionButton:Hide();
-		--end
-
-		-- enable discard
-
-
 		-- selected action row is after top row or before last row?
 		if (ROB_SelectedActionIndex == nil) then
 			-- disable item row move buttons
@@ -1613,8 +1637,6 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_ActionListMoveUpButton:Enable();
 			ROB_ActionListMoveDownButton:Enable();
 		end
-
-
 
 		if (ROB_EditingRotationTable.ActionList[ROB_CurrentActionName] ~= nil) then
 			local _ActionDB = ROB_EditingRotationTable.ActionList[ROB_CurrentActionName]
@@ -1644,6 +1666,11 @@ function ROB_Rotation_Edit_UpdateUI()
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_DebugCheckButton",_ActionDB.b_debug,false)
 			ROB_Rotation_GUI_SetChecked("ROB_AO_DisableCheckButton",_ActionDB.b_disabled,false)
+
+			ROB_Rotation_GUI_SetChecked("ROB_AO_IsCustomCase1",_ActionDB.b_isCustomCase1,false);
+			ROB_Rotation_GUI_SetChecked("ROB_AO_IsCustomCase2",_ActionDB.b_isCustomCase2,false);
+			ROB_Rotation_GUI_SetChecked("ROB_AO_NotCustomCase1",_ActionDB.b_notCustomCase1,false);
+			ROB_Rotation_GUI_SetChecked("ROB_AO_NotCustomCase2",_ActionDB.b_notCustomCase2,false);
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_GSpellCostCheckButton",_ActionDB.b_gspellcost,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_GSpellCostTypeInputBox",_ActionDB.v_gspellcosttype,"")
@@ -1836,8 +1863,6 @@ function ROB_CopyTable(object)
 	end
 	return _copy(object)
 end
-
-
 
 function ROB_SpellIsInRotation(_spellname)
 	local _foundspell = false
@@ -2372,7 +2397,6 @@ function ROB_SetButtonTexture(_button, _texture)
 		return
 	end
 	if (_G[_button:GetName().."Icon"]) then
-		--print("_button.icon worked")
 		_G[_button:GetName().."Icon"]:SetTexture(_texture)
 	end
 end
@@ -2497,26 +2521,14 @@ function ROB_SetCurrentActionLabel(_compareaction)
 end
 
 function ROB_SpellsMatch(_spell1, _spell2)
-	--print("Checking if ROB_SpellsMatch "..tostring(_spell1)..":"..tostring(_spell2))
 	if not _spell1 then return false end
 	if not _spell2 then return false end
 	if _spell1 == "" then return false end
 	if _spell2 == "" then return false end
 
-
-	--print("Checking if ROB_SpellsMatch1 "..tostring(_spell1)..":"..tostring(_spell2))
-	--Try to compare just the strings first
 	if tostring(_spell1) == tostring(_spell2) then return true end
-	--print("Checking if ROB_SpellsMatch2 "..tostring(_spell1)..":"..tostring(_spell2))
-	--Try to compare the getspellinfo
-	--	if (GetSpellInfo(_spell1) and GetSpellInfo(_spell2) and (GetSpellInfo(_spell21) == GetSpellInfo(_spell2))) then
-	--		return true
-	--	end
-	--print("Checking if ROB_SpellsMatch3 "..tostring(_spell1)..":"..tostring(_spell2))
 	if GetSpellInfo(_spell2) and _spell1 == GetSpellInfo(_spell2) then return true end
-	--print("Checking if ROB_SpellsMatch4 "..tostring(_spell1)..":"..tostring(_spell2))
 	if GetSpellInfo(_spell1) and GetSpellInfo(_spell1) == _spell2 then return true end
-	--print("Checking if ROB_SpellsMatch5 "..tostring(_spell1)..":"..tostring(_spell2))
 
 	return false
 end
@@ -2574,6 +2586,23 @@ function ROB_SpellReady(actionName,isNextSpell)
 
 	if (ActionDB.b_debug ~= nil) then
 		debug = ActionDB.b_debug;
+	end
+
+	-- TODO PEL - we need to check here the cution case toggle.
+	if(ActionDB.b_isCustomCase1 and not RotationBuilder:isCustomCase1Enable()) then
+		return false;
+	end
+
+	if(ActionDB.b_notCustomCase1 and RotationBuilder:isCustomCase1Enable()) then
+		return false;
+	end
+
+	if(ActionDB.b_isCustomCase2 and not RotationBuilder:isCustomCase2Enable()) then
+		return false;
+	end
+
+	if(ActionDB.b_notCustomCase2 and RotationBuilder:isCustomCase2Enable()) then
+		return false;
 	end
 
 	-- CHECK : Check if the player know the spell
