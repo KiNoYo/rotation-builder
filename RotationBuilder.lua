@@ -21,6 +21,8 @@ ROB_VERSION = GetAddOnMetadata(ROB_PROJECT_NAME, "Version");
 BINDING_HEADER_ROB = RotationBuilderUtils:localize('ROB_ADDON_NAME');
 BINDING_NAME_ROB_OPEN = RotationBuilderUtils:localize('ROB_UI_TOGGLE');
 BINDING_NAME_ROB_MULTI_TARGET = RotationBuilderUtils:localize('ui/keybinds/toggleMultiTarget/text');
+BINDING_NAME_ROB_CUSTOM_CASE_1 = RotationBuilderUtils:localize('ui/keybinds/toggleCustomCase/text')..1;
+BINDING_NAME_ROB_CUSTOM_CASE_2 = RotationBuilderUtils:localize('ui/keybinds/toggleCustomCase/text')..2;
 ROB_UPDATE_INTERVAL                 = 0.2;      -- How often the OnUpdate code will run (in seconds)
 
 -- Scroll Frame Lines
@@ -556,11 +558,20 @@ end
 function ROB_ToggleMultiTargetRotation()
 	RotationBuilder["multiTargetEnabled"] = not RotationBuilder["multiTargetEnabled"];
 	if (RotationBuilder["multiTargetEnabled"]) then
-		print(RotationBuilderUtils:localize('msg/action/toggleMultiTarget/true'));
+		print(RotationBuilderUtils:localize('msg/action/keybinds/multiTarget/enabled'));
 	else
-		print(RotationBuilderUtils:localize('msg/action/toggleMultiTarget/false'));
+		print(RotationBuilderUtils:localize('msg/action/keybinds/multiTarget/disabled'));
 	end
 	ROB_SwitchRotation(RotationBuilder:findRotationBySpecializationID(GetSpecialization()), true);
+end
+
+function ROB_ToggleCustomCase(toggle)
+	RotationBuilder["customCase"]["case"..toggle] = not RotationBuilder["customCase"]["case"..toggle];
+	if(RotationBuilder["customCase"]["case"..toggle]) then
+		print(RotationBuilderUtils:localize('msg/action/keybinds/customCase/enabled')..toggle)
+	else
+		print(RotationBuilderUtils:localize('msg/action/keybinds/customCase/disabled')..toggle)
+	end
 end
 
 function ROB_OnCommand(cmd)
@@ -1602,25 +1613,12 @@ function ROB_Rotation_Edit_UpdateUI()
 
 	if (ROB_EditingRotationTable ~= nil) then
 		-- have we a list name?
-		--if (ROB_SelectedRotationName ~= "") then
 		-- enable save
 		ROB_RotationSaveButton:Show();
 		ROB_RotationDiscardButton:Show();
 		ROB_AddActionButton:Show();
 		ROB_CopyActionButton:Show();
 		ROB_PasteActionButton:Show();
-		--else
-		-- hide save
-		--ROB_RotationSaveButton:Hide();
-		--ROB_RotationDiscardButton:Hide();
-		--ROB_AddActionButton:Hide();
-		--ROB_CopyActionButton:Hide();
-		--ROB_PasteActionButton:Hide();
-		--end
-
-		-- enable discard
-
-
 		-- selected action row is after top row or before last row?
 		if (ROB_SelectedActionIndex == nil) then
 			-- disable item row move buttons
@@ -1639,8 +1637,6 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_ActionListMoveUpButton:Enable();
 			ROB_ActionListMoveDownButton:Enable();
 		end
-
-
 
 		if (ROB_EditingRotationTable.ActionList[ROB_CurrentActionName] ~= nil) then
 			local _ActionDB = ROB_EditingRotationTable.ActionList[ROB_CurrentActionName]
@@ -1670,6 +1666,11 @@ function ROB_Rotation_Edit_UpdateUI()
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_DebugCheckButton",_ActionDB.b_debug,false)
 			ROB_Rotation_GUI_SetChecked("ROB_AO_DisableCheckButton",_ActionDB.b_disabled,false)
+
+			ROB_Rotation_GUI_SetChecked("ROB_AO_IsCustomCase1",_ActionDB.b_isCustomCase1,false);
+			ROB_Rotation_GUI_SetChecked("ROB_AO_IsCustomCase2",_ActionDB.b_isCustomCase2,false);
+			ROB_Rotation_GUI_SetChecked("ROB_AO_NotCustomCase1",_ActionDB.b_notCustomCase1,false);
+			ROB_Rotation_GUI_SetChecked("ROB_AO_NotCustomCase2",_ActionDB.b_notCustomCase2,false);
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_GSpellCostCheckButton",_ActionDB.b_gspellcost,false)
 			ROB_Rotation_GUI_SetText("ROB_AO_GSpellCostTypeInputBox",_ActionDB.v_gspellcosttype,"")
@@ -1862,8 +1863,6 @@ function ROB_CopyTable(object)
 	end
 	return _copy(object)
 end
-
-
 
 function ROB_SpellIsInRotation(_spellname)
 	local _foundspell = false
@@ -2587,6 +2586,23 @@ function ROB_SpellReady(actionName,isNextSpell)
 
 	if (ActionDB.b_debug ~= nil) then
 		debug = ActionDB.b_debug;
+	end
+
+	-- TODO PEL - we need to check here the cution case toggle.
+	if(ActionDB.b_isCustomCase1 and not RotationBuilder:isCustomCase1Enable()) then
+		return false;
+	end
+
+	if(ActionDB.b_notCustomCase1 and RotationBuilder:isCustomCase1Enable()) then
+		return false;
+	end
+
+	if(ActionDB.b_isCustomCase2 and not RotationBuilder:isCustomCase2Enable()) then
+		return false;
+	end
+
+	if(ActionDB.b_notCustomCase2 and RotationBuilder:isCustomCase2Enable()) then
+		return false;
 	end
 
 	-- CHECK : Check if the player know the spell

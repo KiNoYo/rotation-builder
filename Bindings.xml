@@ -5,4 +5,10 @@
 	<Binding name="ROB_MULTI_TARGET" description="Enable/Disable the AOE rotation" category="ADDONS">
 		ROB_ToggleMultiTargetRotation();
 	</Binding>
+	<Binding name="ROB_CUSTOM_CASE_1" description="Enable/Disable custom case 1" category="ADDONS">
+		ROB_ToggleCustomCase(1);
+	</Binding>
+	<Binding name="ROB_CUSTOM_CASE_2" description="Enable/Disable custom case 2" category="ADDONS">
+		ROB_ToggleCustomCase(2);
+	</Binding>
 </Bindings>

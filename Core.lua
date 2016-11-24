@@ -15,6 +15,11 @@ RotationBuilder = {
 
 	-- If we seek a multi-target rotation.
 	multiTargetEnabled = false,
+
+	customCase = {
+		case1 = false,
+		case2 = false,
+	},
 };
 
 --- Import a rotation.
@@ -180,6 +185,14 @@ function RotationBuilder:findRotationBySpecializationID(specializationID)
 		end
 	end
 	return tmpRotation;
+end
+
+function RotationBuilder:isCustomCase1Enable()
+	return self.customCase.case1;
+end
+
+function RotationBuilder:isCustomCase2Enable()
+	return self.customCase.case2;
 end
 
 --- Initialize the RotationBuilder Object.

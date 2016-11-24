@@ -1562,6 +1562,27 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</EditBox>
+							<CheckButton name="ROB_AO_IsCustomCase1" inherits="ROB_CheckButtonTemplate">
+								<Size>
+									<AbsDimension x="20" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="350" y="-80" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>ROB_AO_IsCustomCase1Text:SetText(RotationBuilderUtils:localize('ui/spells/general/isCustomCase/text')..1);</OnLoad>
+									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_isCustomCase1");</OnClick>
+									<OnEnter>
+										GameTooltip:SetOwner(self,"ANCHOR_TOPLEFT");
+										GameTooltip:SetText(RotationBuilderUtils:localize('ui/spells/general/isCustomCase/tooltip'));
+									</OnEnter>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</CheckButton>
 							<CheckButton name="ROB_AO_MaxCastsCheckButton" inherits="ROB_CheckButtonTemplate">
 								<Size>
 									<AbsDimension x="20" y="20" />
@@ -1604,6 +1625,27 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</EditBox>
+							<CheckButton name="ROB_AO_NotCustomCase1" inherits="ROB_CheckButtonTemplate">
+								<Size>
+									<AbsDimension x="20" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="350" y="-100" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>ROB_AO_NotCustomCase1Text:SetText(RotationBuilderUtils:localize('ui/spells/general/notCustomCase/text')..1);</OnLoad>
+									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_notCustomCase1");</OnClick>
+									<OnEnter>
+										GameTooltip:SetOwner(self,"ANCHOR_TOPLEFT");
+										GameTooltip:SetText(RotationBuilderUtils:localize('ui/spells/general/notCustomCase/tooltip'));
+									</OnEnter>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</CheckButton>
 							<CheckButton name="ROB_AO_CheckOtherCDCheckButton" inherits="ROB_CheckButtonTemplate">
 								<Size>
 									<AbsDimension x="20" y="20" />
@@ -1666,6 +1708,27 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</EditBox>
+							<CheckButton name="ROB_AO_IsCustomCase2" inherits="ROB_CheckButtonTemplate">
+								<Size>
+									<AbsDimension x="20" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="350" y="-120" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>ROB_AO_IsCustomCase2Text:SetText(RotationBuilderUtils:localize('ui/spells/general/isCustomCase/text')..2);</OnLoad>
+									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_isCustomCase2");</OnClick>
+									<OnEnter>
+										GameTooltip:SetOwner(self,"ANCHOR_TOPLEFT");
+										GameTooltip:SetText(RotationBuilderUtils:localize('ui/spells/general/isCustomCase/tooltip'));
+									</OnEnter>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</CheckButton>
 							<CheckButton name="ROB_AO_CheckOtherCD2CheckButton" inherits="ROB_CheckButtonTemplate">
 								<Size>
 									<AbsDimension x="20" y="20" />
@@ -1728,6 +1791,27 @@
 									<OnLeave>GameTooltip:Hide();</OnLeave>
 								</Scripts>
 							</EditBox>
+							<CheckButton name="ROB_AO_NotCustomCase2" inherits="ROB_CheckButtonTemplate">
+								<Size>
+									<AbsDimension x="20" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_GeneralActionOptionsTab" relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="350" y="-140" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>ROB_AO_NotCustomCase2Text:SetText(RotationBuilderUtils:localize('ui/spells/general/notCustomCase/text')..2);</OnLoad>
+									<OnClick>ROB_AO_CheckButton_OnToggle(self,"b_notCustomCase2");</OnClick>
+									<OnEnter>
+										GameTooltip:SetOwner(self,"ANCHOR_TOPLEFT");
+										GameTooltip:SetText(RotationBuilderUtils:localize('ui/spells/general/notCustomCase/tooltip'));
+									</OnEnter>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</CheckButton>
 							<CheckButton name="ROB_AO_LastCastedCheckButton" inherits="ROB_CheckButtonTemplate">
 								<Size>
 									<AbsDimension x="20" y="20" />
