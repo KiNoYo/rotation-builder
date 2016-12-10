@@ -463,7 +463,7 @@ local paladinRotationsGenerator = function ()
 			["isMultiTarget"] = true,
 		},
 		["defaultRotation/paladin/protection"] = {
-			["version"] = 4,
+			["version"] = 5,
 			["SortedActions"] = {
 				"defaultRotation/paladin/rebuke", -- [1]
 				"defaultRotation/paladin/lay_on_hands", -- [2]
@@ -536,7 +536,7 @@ local paladinRotationsGenerator = function ()
 					["b_isCustomCase1"] = true,
 				},
 				["defaultRotation/paladin/shield_of_the_righteous"] = {
-					["v_p_needbuff"] = "132403&209202",
+					["v_p_needbuff"] = "132403|209202",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "53600",
 					["b_p_needbuff"] = true,
@@ -550,7 +550,7 @@ local paladinRotationsGenerator = function ()
 		},
 		["defaultRotation/paladin/protection_multi"] = {
 			["bindindex"] = 0,
-			["version"] = 1,
+			["version"] = 2,
 			["SortedActions"] = {
 				"defaultRotation/paladin/rebuke", -- [1]
 				"defaultRotation/paladin/lay_on_hands", -- [2]
@@ -630,7 +630,7 @@ local paladinRotationsGenerator = function ()
 					["b_p_hp"] = true,
 				},
 				["defaultRotation/paladin/shield_of_the_righteous"] = {
-					["v_p_needbuff"] = "132403&209202",
+					["v_p_needbuff"] = "132403|209202",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "53600",
 					["b_p_needbuff"] = true,

@@ -298,7 +298,7 @@ local deathKnightRotationsGenerator = function ()
 		},
 		["defaultRotation/deathknight/blood_multi"] = {
 			["bindindex"] = 0,
-			["version"] = 1,
+			["version"] = 2,
 			["SortedActions"] = {
 				"defaultRotation/deathknight/mind_freeze", -- [1]
 				"defaultRotation/deathknight/marrowrend_bone_shield", -- [2]
@@ -328,11 +328,11 @@ local deathKnightRotationsGenerator = function ()
 				["defaultRotation/deathknight/death_strike"] = {
 					["b_gspellcost"] = true,
 					["v_durationstartedtime"] = 0,
-					["v_p_unitpowertype"] = "6>",
+					["v_p_unitpowertype"] = "6",
 					["b_p_unitpower"] = true,
 					["v_spellname"] = "49998",
 					["v_gspellcost"] = "45",
-					["v_p_unitpower"] = "110",
+					["v_p_unitpower"] = ">110",
 					["v_gspellcosttype"] = "6",
 				},
 				["defaultRotation/deathknight/death_and_decay_crimson scourge"] = {
@@ -627,7 +627,7 @@ local deathKnightRotationsGenerator = function ()
 			["isMultiTarget"] = true,
 		},
 		["defaultRotation/deathknight/blood"] = {
-			["version"] = 4,
+			["version"] = 5,
 			["SortedActions"] = {
 				"defaultRotation/deathknight/mind_freeze", -- [1]
 				"defaultRotation/deathknight/marrowrend_bone_shield", -- [2]
@@ -658,11 +658,11 @@ local deathKnightRotationsGenerator = function ()
 				["defaultRotation/deathknight/death_strike"] = {
 					["b_gspellcost"] = true,
 					["b_p_unitpower"] = true,
-					["v_p_unitpowertype"] = "6>",
+					["v_p_unitpowertype"] = "6",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "49998",
 					["v_gspellcost"] = "45",
-					["v_p_unitpower"] = "110",
+					["v_p_unitpower"] = ">110",
 					["v_gspellcosttype"] = "6",
 				},
 				["defaultRotation/deathknight/mark_of_blood"] = {
