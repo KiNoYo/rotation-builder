@@ -1,4 +1,4 @@
-## Interface: 70000
+## Interface: 70100
 ## Title: RotationBuilder_Rogue
 ## Version: 1.0
 ## Author: Pelerinage, Tylocaptain
