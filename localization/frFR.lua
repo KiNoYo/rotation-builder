@@ -639,8 +639,7 @@ L["defaultRotation/warrior/warbreaker"] = "Brise-Guerre"
 L["defaultRotation/warrior/whirlwind"] = "Tourbillon"
 L["defaultRotation/warrior/whirlwind_focused_rage"] = "Tourbillon (Rage concentrée)"
 L["defaultRotation/warrior/whirlwind_meat_cleaver"] = "Tourbillon (Fendoir à viande)"
---Translation missing 
--- L["message/core/fullCleanUp"] = "We have cleaned your RotationBuilder data with this new revision. This was need because ever your installation was too old and some error could have occured, or a new functionality needed it."
+L["message/core/fullCleanUp"] = "Nous avons nettoyé vos donnée de RotationBuilder avec cette nouvelle version. Ceci était requis parceque soit votre version était trop vielle et une erreur aurait pu apparaître, ou une nouvelle fonctionalité en avais besoin"
 L["msg/action/keybinds/customCase/disabled"] = "Désactiver cas particulier : "
 L["msg/action/keybinds/customCase/enabled"] = "Activer cas particulier : "
 L["msg/action/keybinds/multiTarget/disabled"] = "Mode rotation multi-cibles désactivé"
@@ -658,10 +657,8 @@ L["ROB_FRAME_CLOSE_TT"] = "Fermer la Fenêtre de Rotation Builder"
 L["ROB_FRAME_OPTIONS_TT"] = "Montrer Options"
 L["ROB_FRAME_ROTATIONS_TT"] = "Montrer Rotations"
 L["ROB_LOADED"] = "Rotation Builder v%s chargé"
---Translation missing 
--- L["ROB_OPTION_ENEMY"] = "Target is hostile or neutral"
---Translation missing 
--- L["ROB_OPTION_ENEMY_TT"] = "Only display the icons if the target is hostile or neutral"
+L["ROB_OPTION_ENEMY"] = "Cibles hostiles ou neutres"
+L["ROB_OPTION_ENEMY_TT"] = "N'affiche les îcones que pour les cibles hostiles ou neutres"
 L["ROB_OPTION_EXPORTBINDS"] = "Export des raccourcis"
 L["ROB_OPTION_EXPORTBINDS_TT"] = "Ajoute l'export des raccourcis clavier à la fonction \"Exporter\""
 L["ROB_OPTION_HIDECD"] = "Masquer les rechargements"
@@ -718,125 +715,77 @@ L["ROB_UI_A_PASTE_TT"] = "Coller l'action copiée du presse-papier vers la rotat
 L["ROB_UI_ACTION_COLUMN"] = "Actions"
 L["ROB_UI_ADD_ACTION_CFAIL"] = "Les noms d'action ne peuvent utiliser les caractères suivant : [],="
 L["ROB_UI_ADD_ROTATION_CFAIL"] = "Les noms de rotation ne peuvent utiliser les caractères suivant : [],"
---Translation missing 
--- L["ROB_UI_AO_G_CHARGES"] = "Spell Charges:"
---Translation missing 
--- L["ROB_UI_AO_G_CHARGES_TT"] = [=[Check this option if this action has charges
-This is used for calculating the next ready action]=]
---Translation missing 
--- L["ROB_UI_AO_G_CHARGESIB_TT"] = [=[Input the number of charges
+L["ROB_UI_AO_G_CHARGES"] = "Charges du sort:"
+L["ROB_UI_AO_G_CHARGES_TT"] = [=[Cochez cette option pour vérifier le nombre de charges du sort
+Ceci est utilisé pour calculer la prochaine action disponible]=]
+L["ROB_UI_AO_G_CHARGESIB_TT"] = [=[Entrez le nombre de charges
 Example: |cFF00FF001|r]=]
---Translation missing 
--- L["ROB_UI_AO_G_DEBUG"] = "Debug"
---Translation missing 
--- L["ROB_UI_AO_G_DEBUG_TT"] = "Turn on debug for this spell"
---Translation missing 
--- L["ROB_UI_AO_G_DISABLE"] = "Disable"
---Translation missing 
--- L["ROB_UI_AO_G_DISABLE_TT"] = "Temporarily disable this action so you dont have to delete it"
---Translation missing 
--- L["ROB_UI_AO_G_DURATION"] = "Wait to recast:"
---Translation missing 
--- L["ROB_UI_AO_G_DURATION_TT"] = [=[Wait specified seconds to display this action after you have casted it
-Useful for giving air born spells time to land before calculating next action]=]
---Translation missing 
--- L["ROB_UI_AO_G_DURATIONIB_TT"] = "Input the number of seconds to wait before redisplaying action"
---Translation missing 
--- L["ROB_UI_AO_G_GSPELLCOST"] = "Cost Power:"
---Translation missing 
--- L["ROB_UI_AO_G_GSPELLCOST_TT"] = [=[Check this option if this action use a type of power
-This is used for calculating the next ready action]=]
---Translation missing 
--- L["ROB_UI_AO_G_GSPELLCOST1_TT"] = [=[Input the type of power used
-|cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBO POINTS |cFF00FF006|r=RUNIC POWER |cFF00FF007|r=SOUL SHARDS
-|cFF00FF008|r=ASTRAL POWER |cFF00FF009|r=HOLY POWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY |cFF00FF0016|r=ARCANE POWER
-|cFF00FF0017|r=FURY  |cFF00FF0018|r=PAIN]=]
---Translation missing 
--- L["ROB_UI_AO_G_GSPELLCOST2_TT"] = [=[Input the amount of power used
+L["ROB_UI_AO_G_DEBUG"] = "Debug"
+L["ROB_UI_AO_G_DEBUG_TT"] = "Active les message de debug pour cette action"
+L["ROB_UI_AO_G_DISABLE"] = "Désactiver"
+L["ROB_UI_AO_G_DISABLE_TT"] = "Désactive cette action quand on ne veut pas la supprimer"
+L["ROB_UI_AO_G_DURATION"] = "Attendre avant de relancer:"
+L["ROB_UI_AO_G_DURATION_TT"] = [=[Attendre le nombre de secondes indiqué avant de relancer cette action
+Utile pour donner le temps aux sort en vol d'atteindre leur cible avant de calculer l'action suivante]=]
+L["ROB_UI_AO_G_DURATIONIB_TT"] = "Entrez le nombre de secondes avant de réafficher cette action"
+L["ROB_UI_AO_G_GSPELLCOST"] = "Coûte des ressources:"
+L["ROB_UI_AO_G_GSPELLCOST_TT"] = [=[Cochez cette option si l'action utilise une ressource
+Ceci est utilisé pour calculer la prochaine action disponible]=]
+L["ROB_UI_AO_G_GSPELLCOST1_TT"] = [=[Entrez le type de ressource
+|cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCALISATION |cFF00FF003|r=ENERGIE  |cFF00FF004|r=POINTS DE COMBO |cFF00FF006|r=PUISSANCE RUNIQUE |cFF00FF007|r=ECLATS D'AME
+|cFF00FF008|r=PUISSANCE ASTRALE |cFF00FF009|r=PUISSANCE SACRE |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=DEMENCE |cFF00FF0016|r=PUISSANCE DES ARCANES
+|cFF00FF0017|r=FUREUR  |cFF00FF0018|r=SOUFFRANCE]=]
+L["ROB_UI_AO_G_GSPELLCOST2_TT"] = [=[Entrez la quantitée de ressource
 Example1: |cFF00FF003|r
 Example2: |cFF00FF0090%|r]=]
---Translation missing 
--- L["ROB_UI_AO_G_GUNITPOWER"] = "Generates Power:"
---Translation missing 
--- L["ROB_UI_AO_G_GUNITPOWER_TT"] = [=[Check this option if this action generates a type of power
-This is used for calculating the next ready action]=]
---Translation missing 
--- L["ROB_UI_AO_G_GUNITPOWER1_TT"] = [=[Input the type of power generated
-|cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBO POINTS |cFF00FF006|r=RUNIC POWER |cFF00FF007|r=SOUL SHARDS
-|cFF00FF008|r=ASTRAT POWER |cFF00FF009|r=HOLY POWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY |cFF00FF0016|r=ARCANE POWER
-|cFF00FF0017|r=FURY  |cFF00FF0018|r=PAIN]=]
---Translation missing 
--- L["ROB_UI_AO_G_GUNITPOWER2_TT"] = [=[Input the amount of power generated
+L["ROB_UI_AO_G_GUNITPOWER"] = "Génère des ressources:"
+L["ROB_UI_AO_G_GUNITPOWER_TT"] = [=[Coché cette option si l'action génère des ressources
+Ceci est utilisé pour calculer la prochaine action disponible]=]
+L["ROB_UI_AO_G_GUNITPOWER1_TT"] = [=[Entrez le type de ressource
+|cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCALISATION |cFF00FF003|r=ENERGIE  |cFF00FF004|r=POINTS DE COMBO |cFF00FF006|r=PUISSANCE RUNIQUE |cFF00FF007|r=ECLATS D'AME
+|cFF00FF008|r=PUISSANCE ASTRALE |cFF00FF009|r=PUISSANCE SACRE |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=DEMENCE |cFF00FF0016|r=PUISSANCE DES ARCANES
+|cFF00FF0017|r=FUREUR  |cFF00FF0018|r=SOUFFRANCE]=]
+L["ROB_UI_AO_G_GUNITPOWER2_TT"] = [=[Entrez la quantitée de ressource
 Example1: |cFF00FF003|r
 Example2: |cFF00FF0090%|r]=]
---Translation missing 
--- L["ROB_UI_AO_G_HASPROC"] = "Has Proc"
---Translation missing 
--- L["ROB_UI_AO_G_HASPROC_TT"] = "Only display action when it has a proc"
---Translation missing 
--- L["ROB_UI_AO_G_ICON_L"] = "Icon:"
---Translation missing 
--- L["ROB_UI_AO_G_ICON_TT"] = [=[Input the spell name or spell id of the icon you want to display for this action
-If left blank the spellname will be used]=]
---Translation missing 
--- L["ROB_UI_AO_G_INCOMBAT"] = "In combat"
---Translation missing 
--- L["ROB_UI_AO_G_INCOMBAT_TT"] = "Only display this action if player is in combat"
---Translation missing 
--- L["ROB_UI_AO_G_LASTCAST"] = "Last casted:"
---Translation missing 
--- L["ROB_UI_AO_G_LASTCAST_TT"] = "Only display action if the last casted spell was this"
---Translation missing 
--- L["ROB_UI_AO_G_LASTCASTIB_TT"] = "Input the name of the last casted spell to check"
---Translation missing 
--- L["ROB_UI_AO_G_MAXCASTS"] = "Max sequential casts:"
---Translation missing 
--- L["ROB_UI_AO_G_MAXCASTS_TT"] = "Only display this action specified sequential times"
---Translation missing 
--- L["ROB_UI_AO_G_MAXCASTSIB_TT"] = "Input the number of casts allowed in succession"
---Translation missing 
--- L["ROB_UI_AO_G_MOVING"] = "Moving"
---Translation missing 
--- L["ROB_UI_AO_G_MOVING_TT"] = "Only display this action if player is moving"
---Translation missing 
--- L["ROB_UI_AO_G_NMOVING"] = "Not Moving"
---Translation missing 
--- L["ROB_UI_AO_G_NMOVING_TT"] = "Only display this action if player is not moving"
---Translation missing 
--- L["ROB_UI_AO_G_NOTINCOMBAT"] = "Not in combat"
---Translation missing 
--- L["ROB_UI_AO_G_NOTINCOMBAT_TT"] = "Only display this action if player is not in combat"
---Translation missing 
--- L["ROB_UI_AO_G_NOTINSPELLBOOK"] = "Not a character spell"
---Translation missing 
--- L["ROB_UI_AO_G_NOTINSPELLBOOK_TT"] = [=[Only display this action if the spell is not one of your character spell
-Example : If it is one of your familiar spell (hunter's pet, warlock's demon, mage's water elemental, ...]=]
---Translation missing 
--- L["ROB_UI_AO_G_NOTSPELL"] = "Not a spell"
---Translation missing 
--- L["ROB_UI_AO_G_NOTSPELL_TT"] = [=[Ignore spell mana type checks and just use the keybind to perform the action
-Check this when spellname=Trinket0Slot or HandsSlot]=]
---Translation missing 
--- L["ROB_UI_AO_G_OTHERCD"] = "Check other cooldown:"
---Translation missing 
--- L["ROB_UI_AO_G_OTHERCD_TT"] = "Only display this action when other cooldown specified passes check"
---Translation missing 
--- L["ROB_UI_AO_G_OTHERCDNIB_TT"] = "Input the name or spell id of the other cooldown to check"
---Translation missing 
--- L["ROB_UI_AO_G_OTHERCDVIB_TT"] = [=[Input the value of the other cooldown to check
-Example1: |cFF00FF00<3|r means only display action when other action has less than 3 seconds left
-Example2: |cFF00FF00>3|r means only display action when other action has more than 3 seconds left
-Example3: |cFF00FF00<=3|r means only display action when other action has less than or equal to 3 seconds left
-Example4: |cFF00FF00=3|r means only display this action when other action has exactly 3 seconds left]=]
---Translation missing 
--- L["ROB_UI_AO_G_OTHERCHARGES"] = "Other Spell Charges:"
---Translation missing 
--- L["ROB_UI_AO_G_OTHERCHARGES_TT"] = [=[Check this option if you want to check another spell charges
-This is used for calculating the next ready action]=]
---Translation missing 
--- L["ROB_UI_AO_G_OTHERCHARGESNIB_TT"] = "Input the spell name or spell id of which you want to check the charges"
---Translation missing 
--- L["ROB_UI_AO_G_SID_VFAIL"] = "Spell or Slot not found"
+L["ROB_UI_AO_G_HASPROC"] = "A un proc"
+L["ROB_UI_AO_G_HASPROC_TT"] = "N'affiche l'action que si elle a un proc"
+L["ROB_UI_AO_G_ICON_L"] = "Icône:"
+L["ROB_UI_AO_G_ICON_TT"] = [=[Entrez le nom/id du sort dont vous voulez afficher l'icône
+Le nom du sort sera utiliser si cette case reste vide]=]
+L["ROB_UI_AO_G_INCOMBAT"] = "En combat"
+L["ROB_UI_AO_G_INCOMBAT_TT"] = "N'affiche l'action que si le joueur est en combat"
+L["ROB_UI_AO_G_LASTCAST"] = "Dernier sort lancé:"
+L["ROB_UI_AO_G_LASTCAST_TT"] = "N'affiche l'action que si ceci était le dernier sort lancé"
+L["ROB_UI_AO_G_LASTCASTIB_TT"] = "Entrez le nom/id du dernier sort lancé"
+L["ROB_UI_AO_G_MAXCASTS"] = "Max d'utilisation séquentielle:"
+L["ROB_UI_AO_G_MAXCASTS_TT"] = "N'affiche cette action que X fois de suite"
+L["ROB_UI_AO_G_MAXCASTSIB_TT"] = "Entrez le nombre de succession"
+L["ROB_UI_AO_G_MOVING"] = "En mouvement"
+L["ROB_UI_AO_G_MOVING_TT"] = "N'affiche l'action que si le joueur est en mouvement"
+L["ROB_UI_AO_G_NMOVING"] = "A l'arrêt"
+L["ROB_UI_AO_G_NMOVING_TT"] = "N'affiche l'action que si le joueur ne bouge pas"
+L["ROB_UI_AO_G_NOTINCOMBAT"] = "Hors combat"
+L["ROB_UI_AO_G_NOTINCOMBAT_TT"] = "N'affiche l'action que si le joueur est hors combat"
+L["ROB_UI_AO_G_NOTINSPELLBOOK"] = "Pas un sort du personnage"
+L["ROB_UI_AO_G_NOTINSPELLBOOK_TT"] = [=[N'affiche l'action que si le sort n'est pas un sort de votre personnage
+Example : Si c'est un sort de familier (familier du chasseur, démon du démoniste, élémentaire d'eau du mage, ...]=] 
+L["ROB_UI_AO_G_NOTSPELL"] = "Pas un sort"
+L["ROB_UI_AO_G_NOTSPELL_TT"] = [=[Ignore les conditions de ressources, utilisez juste votre objet
+Utilisez ceci quand le nom est Trinket0Slot ou HandsSlot, ...]=]
+L["ROB_UI_AO_G_OTHERCD"] = "Cooldown d'un autre sort:"
+L["ROB_UI_AO_G_OTHERCD_TT"] = "N'affiche cette action que si le cooldown de l'autre sort à les conditions requises"
+L["ROB_UI_AO_G_OTHERCDNIB_TT"] = "Entrez le nom/id du sort dont le cooldown doit être vérifié"
+L["ROB_UI_AO_G_OTHERCDVIB_TT"] = [=[Entrez la valeur du cooldown à vérifier
+Example1: |cFF00FF00<3|r n'affiche l'action que si le cooldown est inférieur à 3 secondes
+Example2: |cFF00FF00>3|r n'affiche l'action que si le cooldown est supérieur à 3 secondes
+Example3: |cFF00FF00<=3|r  n'affiche l'action que si le cooldown est inférieur ou égal à 3 secondes
+Example4: |cFF00FF00=3|r  n'affiche l'action que si le cooldown est strictement égal à 3 secondes]=]
+L["ROB_UI_AO_G_OTHERCHARGES"] = "Charges d'un autre sort:"
+L["ROB_UI_AO_G_OTHERCHARGES_TT"] = [=[Cochez cette option pour vérifier les charges d'un autre sort
+Ceci est utilisé pour calculé la prochaine action disponible]=]
+L["ROB_UI_AO_G_OTHERCHARGESNIB_TT"] = "Entrez le nom/id du sort pour lequel vérifier les charges"
+L["ROB_UI_AO_G_SID_VFAIL"] = "Sort ou Emplacement non trouvé"
 L["ROB_UI_AO_G_SPELLNAME_L"] = [=[Nom de sort
 ou emplacement d'inventaire :]=]
 L["ROB_UI_AO_G_SPELLNAME_TT"] = [=[Entrez le nom d'un sort ou d'un emplacement d'inventaire
@@ -847,221 +796,157 @@ Exemple 4 : |cFF00FF00Grondement|r
 Exemple 5 : |cFF00FF0089;7|r id pour Grondement]=]
 L["ROB_UI_AO_GENERAL_LABEL"] = "Options General :"
 L["ROB_UI_AO_GENERAL_TAB"] = "General"
---Translation missing 
--- L["ROB_UI_AO_P_HAVEBUFF"] = "Have Buff:"
---Translation missing 
--- L["ROB_UI_AO_P_HAVEBUFF_TT"] = "Only display action when player has the specified buff or buffs"
---Translation missing 
--- L["ROB_UI_AO_P_HAVEBUFFIB_TT"] = [=[Input the name of the buff or buffs
-Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
-Example1: |cFF00FF00Earth Shield#2|r display action when player has 2 stacks of Earth Shield
-Example2: |cFF00FF00_Earth Shield#2|r display action when player has a player casted Earth Shield at 2 stacks
-Example3: |cFF00FF00_Earth Shield#2^3|r display action when player has a player casted Earth Shield at 2 stacks with >=3 seconds left
-Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when player has Earth Shield or Inner Fire
-Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when player has both Earth Shield and Inner Fire]=]
---Translation missing 
--- L["ROB_UI_AO_P_HAVEDB"] = "Have Debuff:"
---Translation missing 
--- L["ROB_UI_AO_P_HAVEDB_TT"] = "Only display action when player has the specified debuff or debuffs"
---Translation missing 
--- L["ROB_UI_AO_P_HAVEDBIB_TT"] = [=[Input the name of the debuff or debuffs
-Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
-Example1: |cFF00FF00Dark Plague#2|r display action when player has the debuff Dark Plague 2 stacks
-Example2: |cFF00FF00_Dark Plague#2|r display action when player has a player casted Dark Plague at 2 stacks
-Example3: |cFF00FF00_Dark Plague#2^3|r display action when player has a player casted Dark Plague at 2 stacks with >=3 seconds left
-Example4: |cFF00FF00Dark Plague|Forbearance|r display action when player has Dark Plague or Forbearance debuffs
-Example5: |cFF00FF00Dark Plague&Forbearance|r display action when player has both Dark Plague and Forbearance debuffs]=]
---Translation missing 
--- L["ROB_UI_AO_P_HP"] = "HP:"
---Translation missing 
--- L["ROB_UI_AO_P_HP_TT"] = "Only display action when player meets specified hit points"
---Translation missing 
--- L["ROB_UI_AO_P_HPIB_TT"] = [=[Input the percent of player hit points to check
-Example1: |cFF00FF00<90%|r means only display this action when player is under 90% hitpoints
-Example2: |cFF00FF00>90%|r means only display this action when player is over 90% hitpoints
-Example3: |cFF00FF00<=90%|r means only display this action when player is under or equal to 90% hitpoints
-Example4: |cFF00FF00>=90%|r means only display this action when player is over or equal to 90% hitpoints
-Example5: |cFF00FF00=90%|r means only display this action when player is at exactly 90% hitpoints]=]
+L["ROB_UI_AO_P_HAVEBUFF"] = "A le buff:"
+L["ROB_UI_AO_P_HAVEBUFF_TT"] = "N'affiche cette action que si le joueur a le(s) buff(s) spécifié(s)"
+L["ROB_UI_AO_P_HAVEBUFFIB_TT"] = [=[Entrez le(s) nom/id(s) du(des) buff(s)
+Syntaxe: |cFF00FF00| |r= OU |cFF00FF00&|r = ET |cFF00FF00_|r = placé par le joueur |cFF00FF00#|r = nombre de cumul |cFF00FF00^|r = rafraichir à x secondes
+Example1: |cFF00FF00Earth Shield#2|r n'affiche cette action que si le joueur a le buff Earth Shield avec 2 cumuls
+Example2: |cFF00FF00_Earth Shield#2|r n'affiche cette action que si le joueur a le buff Earth Shield avec 2 cumul placé par vous
+Example3: |cFF00FF00_Earth Shield#2^3|r n'affiche cette action que si le joueur a le buff Earth Shield avec 2 cumul placé par vous avec 3+ secondes restantes
+Example4: |cFF00FF00Earth Shield||Inner Fire|r n'affiche cette action que si le joueur a le buff Earth Shield ou Inner Fire
+Example5: |cFF00FF00Earth Shield&Inner Fire|r n'affiche cette action que si le joueur a les buffs Earth Shield et Inner Fire]=]
+L["ROB_UI_AO_P_HAVEDB"] = "A le debuff:"
+L["ROB_UI_AO_P_HAVEDB_TT"] = "N'affiche cette action que si le joueur a le(s) debuff(s) spécifié(s)"
+L["ROB_UI_AO_P_HAVEDBIB_TT"] = [=[Entrez le(s) nom/id(s) du(des) debuff(s)
+Syntaxe: |cFF00FF00| |r= OU |cFF00FF00&|r = ET |cFF00FF00_|r = placé par le joueur |cFF00FF00#|r = nombre de cumul |cFF00FF00^|r = rafraichir à x secondes
+Example1: |cFF00FF00Dark Plague#2|r n'affiche cette action que si le joueur a le debuff Dark Plague avec 2 cumuls
+Example2: |cFF00FF00_Dark Plague#2|r n'affiche cette action que si le joueur a le debuff Dark Plague avec 2 cumul placé par vous
+Example3: |cFF00FF00_Dark Plague#2^3|r n'affiche cette action que si le joueur a le debuff Dark Plague avec 2 cumul placé par vous avec 3+ secondes restantes
+Example4: |cFF00FF00Dark Plague|Forbearance|r n'affiche cette action que si le joueur a le debuff Dark Plague ou Forbearance
+Example5: |cFF00FF00Dark Plague&Forbearance|r n'affiche cette action que si le joueur a les debuffs Dark Plague et Forbearance]=]
+L["ROB_UI_AO_P_HP"] = "HP:"
+L["ROB_UI_AO_P_HP_TT"] = "N'affiche cette action que si le joueur à la quantitée spécifiée de vie"
+L["ROB_UI_AO_P_HPIB_TT"] = [=[Entrez la valeur de vie à vérifier
+Example1: |cFF00FF00<90%|r n'affiche l'action que si le joueur à moins de 90% de vie
+Example2: |cFF00FF00>90%|r n'affiche l'action que si le joueur à plus de 90% de vie
+Example3: |cFF00FF00<=90%|r n'affiche l'action que si le joueur à moins ou tout juste 90% de vie
+Example4: |cFF00FF00>=90%|r n'affiche l'action que si le joueur à plus ou tout juste 90% de vie
+Example5: |cFF00FF00=90%|r n'affiche l'action que si le joueur à tout juste 90% de vie]=]
 L["ROB_UI_AO_P_ISSTEALTHED"] = "Camouflé"
 L["ROB_UI_AO_P_ISSTEALTHED_TT"] = "N'affiche l'action que lorsque le joueur est camouflé"
---Translation missing 
--- L["ROB_UI_AO_P_KNOWNOTSPELL"] = "Do not know Spell"
---Translation missing 
--- L["ROB_UI_AO_P_KNOWNOTSPELL_TT"] = "Only display action when specified spell is unknown"
---Translation missing 
--- L["ROB_UI_AO_P_KNOWNOTSPELLIB_TT"] = "Input the spell name or spell id of the spell you want check"
---Translation missing 
--- L["ROB_UI_AO_P_KNOWSPELL"] = "Know Spell"
---Translation missing 
--- L["ROB_UI_AO_P_KNOWSPELL_TT"] = "Only display action when specified spell is known"
---Translation missing 
--- L["ROB_UI_AO_P_KNOWSPELLIB_TT"] = "Input the spell name or spell id of the spell you want check"
---Translation missing 
--- L["ROB_UI_AO_P_NEEDBUFF"] = "Need Buff:"
---Translation missing 
--- L["ROB_UI_AO_P_NEEDBUFF_TT"] = "Only display action when player needs specified buff or buffs"
---Translation missing 
--- L["ROB_UI_AO_P_NEEDBUFFIB_TT"] = [=[Input the name of the buff or buffs
-Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
-Example1: |cFF00FF00Earth Shield#2|r display action when player is missing 2 stacks of Earth Shield
-Example2: |cFF00FF00_Earth Shield#2|r display action when player is missing a player casted Earth Shield at 2 stacks
-Example3: |cFF00FF00_Earth Shield#2^3|r display action when player is missing a player casted Earth Shield at 2 stacks with >=3 seconds left
-Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when player is missing Earth Shield or Inner Fire
-Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when player is missing both Earth Shield and Inner Fire]=]
---Translation missing 
--- L["ROB_UI_AO_P_NEEDDB"] = "Need Debuff:"
---Translation missing 
--- L["ROB_UI_AO_P_NEEDDB_TT"] = "Only display action when player is missing the specified debuff or debuffs"
---Translation missing 
--- L["ROB_UI_AO_P_NEEDDBIB_TT"] = [=[Input the name of the debuff or debuffs
-Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
-Example1: |cFF00FF00Dark Plague#2|r display action when player is missing the debuff Dark Plague 2 stacks
-Example2: |cFF00FF00_Dark Plague#2|r display action when player is missing a player casted Dark Plague at 2 stacks
-Example3: |cFF00FF00_Dark Plague#2^3|r display action when player is missing a player casted Dark Plague at 2 stacks with >=3 seconds left
-Example4: |cFF00FF00Dark Plague|Forbearance|r display action when player is missing Dark Plague or Forbearance debuffs
-Example5: |cFF00FF00Dark Plague&Forbearance|r display action when player is missing both Dark Plague and Forbearance debuffs]=]
---Translation missing 
--- L["ROB_UI_AO_P_POWER"] = "Power:"
---Translation missing 
--- L["ROB_UI_AO_P_POWER_TT"] = "Only display action when player has the specified power"
---Translation missing 
--- L["ROB_UI_AO_P_POWER1_TT"] = [=[Input the type of unit power
-|cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBO POINTS |cFF00FF006|r=RUNIC POWER |cFF00FF007|r=SOUL SHARDS
-|cFF00FF008|r=ASTRAL POWER |cFF00FF009|r=HOLY POWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY |cFF00FF0016|r=ARCANE POWER
-|cFF00FF0017|r=FURY  |cFF00FF0018|r=PAIN]=]
---Translation missing 
--- L["ROB_UI_AO_P_POWER2"] = "Power 2:"
---Translation missing 
--- L["ROB_UI_AO_P_POWER2_TT"] = [=[Input the amount of power required
+L["ROB_UI_AO_P_KNOWNOTSPELL"] = "Ne connait pas le sort"
+L["ROB_UI_AO_P_KNOWNOTSPELL_TT"] = "N'affiche cette action que si le sort/talent n'est pas connu"
+L["ROB_UI_AO_P_KNOWNOTSPELLIB_TT"] = "Entrez le nom/id du sort à vérifier"
+L["ROB_UI_AO_P_KNOWSPELL"] = "Connait le sort"
+L["ROB_UI_AO_P_KNOWSPELL_TT"] = "N'affiche cette action que si le sort/talent est connu"
+L["ROB_UI_AO_P_KNOWSPELLIB_TT"] = "Entrez le nom/id du sort à vérifier"
+L["ROB_UI_AO_P_NEEDBUFF"] = "A besoin du buff:"
+L["ROB_UI_AO_P_NEEDBUFF_TT"] = "N'affiche cette action que si le joueur n'a pas le(s) buff(s) spécifié(s)"
+L["ROB_UI_AO_P_NEEDBUFFIB_TT"] = [=[Entrez le(s) nom/id(s) du(des) buff(s)
+Syntaxe: |cFF00FF00| |r= OU |cFF00FF00&|r = ET |cFF00FF00_|r = placé par le joueur |cFF00FF00#|r = nombre de cumul |cFF00FF00^|r = rafraichir à x secondes
+Example1: |cFF00FF00Earth Shield#2|r n'affiche cette action que si le joueur a besoin du buff Earth Shield avec 2 cumuls
+Example2: |cFF00FF00_Earth Shield#2|r n'affiche cette action que si le joueur a besoin du buff Earth Shield avec 2 cumul placé par vous
+Example3: |cFF00FF00_Earth Shield#2^3|r n'affiche cette action que si le joueur a besoin du buff Earth Shield avec 2 cumul placé par vous avec 3+ secondes restantes
+Example4: |cFF00FF00Earth Shield||Inner Fire|r n'affiche cette action que si le joueur a besoin du buff Earth Shield ou Inner Fire
+Example5: |cFF00FF00Earth Shield&Inner Fire|r n'affiche cette action que si le joueur a besoin des buffs Earth Shield et Inner Fire]=]
+L["ROB_UI_AO_P_NEEDDB"] = "A besoin du debuff:"
+L["ROB_UI_AO_P_NEEDDB_TT"] = "N'affiche cette action que si le joueur n'a pas le(s) debuff(s) spécifié(s)"
+L["ROB_UI_AO_P_NEEDDBIB_TT"] = [=[Entrez le(s) nom/id(s) du(des) debuff(s)
+Syntaxe: |cFF00FF00| |r= OU |cFF00FF00&|r = ET |cFF00FF00_|r = placé par le joueur |cFF00FF00#|r = nombre de cumul |cFF00FF00^|r = rafraichir à x secondes
+Example1: |cFF00FF00Dark Plague#2|r n'affiche cette action que si le joueur a besoin du debuff Dark Plague avec 2 cumuls
+Example2: |cFF00FF00_Dark Plague#2|r n'affiche cette action que si le joueur a besoin du debuff Dark Plague avec 2 cumul placé par vous
+Example3: |cFF00FF00_Dark Plague#2^3|r n'affiche cette action que si le joueur a besoin du debuff Dark Plague avec 2 cumul placé par vous avec 3+ secondes restantes
+Example4: |cFF00FF00Dark Plague|Forbearance|r n'affiche cette action que si le joueur a besoin du debuff Dark Plague ou Forbearance
+Example5: |cFF00FF00Dark Plague&Forbearance|r n'affiche cette action que si le joueur a besoin des debuffs Dark Plague et Forbearance]=]
+L["ROB_UI_AO_P_POWER"] = "Ressource:"
+L["ROB_UI_AO_P_POWER_TT"] = "N'affiche cette action que quand le joueur a la quantitée de ressource spécifiée"
+L["ROB_UI_AO_P_POWER1_TT"] = [=[Entrez le type de ressource
+|cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCALISATION |cFF00FF003|r=ENERGIE  |cFF00FF004|r=POINTS DE COMBO |cFF00FF006|r=PUISSANCE RUNIQUE |cFF00FF007|r=ECLATS D'AME
+|cFF00FF008|r=PUISSANCE ASTRALE |cFF00FF009|r=PUISSANCE SACRE |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=DEMENCE |cFF00FF0016|r=PUISSANCE DES ARCANES
+|cFF00FF0017|r=FUREUR  |cFF00FF0018|r=SOUFFRANCE]=]
+L["ROB_UI_AO_P_POWER2"] = "Ressource 2:"
+L["ROB_UI_AO_P_POWER2_TT"] = [=[Entez la quantitée de ressources requise
 Example1: |cFF00FF00>20|r
 Example2: |cFF00FF00<=20|r
 Example3: |cFF00FF00=20|r
 Example4: |cFF00FF00<90%|r]=]
---Translation missing 
--- L["ROB_UI_AO_P_RUNES"] = "Runes:"
---Translation missing 
--- L["ROB_UI_AO_P_RUNES_TT"] = "Only display action when player has specified runes"
---Translation missing 
--- L["ROB_UI_AO_P_RUNESIB_TT"] = [=[Input the number of runes
-Example1: |cFF00FF00>1|r means only display this action when player has more than 1 rune
-Example2: |cFF00FF00<=1|r means only display this action when player has less than or equal to 1 rune
-Example3: |cFF00FF00>=1|r means only display this action when player has 1 or more runes]=]
---Translation missing 
--- L["ROB_UI_AO_PET_HAVEBUFF"] = "Has Buff:"
---Translation missing 
--- L["ROB_UI_AO_PET_HAVEBUFF_TT"] = "Only display action when your pet has the specified buff or buffs"
---Translation missing 
--- L["ROB_UI_AO_PET_HAVEBUFFIB_TT"] = [=[Input the name of the buff or buffs
-Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
-Example1: |cFF00FF00Earth Shield#2|r display action when your pet has 2 stacks of Earth Shield
-Example2: |cFF00FF00_Earth Shield#2|r display action when your pet has a player casted Earth Shield at 2 stacks
-Example3: |cFF00FF00_Earth Shield#2^3|r display action when your pet has a player casted Earth Shield at 2 stacks with >=3 seconds left
-Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when your pet has Earth Shield or Inner Fire
-Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when your pet has both Earth Shield and Inner Fire]=]
---Translation missing 
--- L["ROB_UI_AO_PET_HP_TT"] = "Only display action when pet meets specified hit points"
---Translation missing 
--- L["ROB_UI_AO_PET_HPIB_TT"] = [=[Input the pet hit points to check
-Example1: |cFF00FF00<90%|r means only display this action when pet is under 90% hitpoints
-Example2: |cFF00FF00>90%|r means only display this action when pet is over 90% hitpoints
-Example3: |cFF00FF00<=90%|r means only display this action when pet is under or equal to 90% hitpoints
-Example4: |cFF00FF00>=90%|r means only display this action when pet is over or equal to 90% hitpoints
-Example5: |cFF00FF00=90%|r means only display this action when pet is at exactly 90% hitpoints]=]
---Translation missing 
--- L["ROB_UI_AO_PET_NEEDBUFF"] = "Needs Buff:"
---Translation missing 
--- L["ROB_UI_AO_PET_NEEDBUFF_TT"] = "Only display action when your pet needs specified buff or buffs"
---Translation missing 
--- L["ROB_UI_AO_PET_NEEDBUFFIB_TT"] = [=[Input the name of the buff or buffs
-Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
-Example1: |cFF00FF00Earth Shield#2|r display action when your pet is missing 2 stacks of Earth Shield
-Example2: |cFF00FF00_Earth Shield#2|r display action when your pet is missing a player casted Earth Shield at 2 stacks
-Example3: |cFF00FF00_Earth Shield#2^3|r display action when your pet is missing a player casted Earth Shield at 2 stacks with >=3 seconds left
-Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when your pet is missing Earth Shield or Inner Fire
-Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when your pet is missing both Earth Shield and Inner Fire]=]
---Translation missing 
--- L["ROB_UI_AO_PET_TAB"] = "Pet"
---Translation missing 
--- L["ROB_UI_AO_PLAYER_TAB"] = "Player"
---Translation missing 
--- L["ROB_UI_AO_T_BOSS"] = "Boss"
---Translation missing 
--- L["ROB_UI_AO_T_BOSS_TT"] = "Only display action if target is a boss"
---Translation missing 
--- L["ROB_UI_AO_T_DISPEL"] = "Dispel"
---Translation missing 
--- L["ROB_UI_AO_T_DISPEL_TT"] = "Only display this action if the target has a dispelable buff"
---Translation missing 
--- L["ROB_UI_AO_T_HAVEBUFF"] = "Has Buff:"
---Translation missing 
--- L["ROB_UI_AO_T_HAVEBUFF_TT"] = "Only display action when target has the specified buff or buffs"
---Translation missing 
--- L["ROB_UI_AO_T_HAVEBUFFIB_TT"] = [=[Input the name of the buff or buffs
-Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
-Example1: |cFF00FF00Earth Shield#2|r display action when target has 2 stacks of Earth Shield
-Example2: |cFF00FF00_Earth Shield#2|r display action when target has a player casted Earth Shield at 2 stacks
-Example3: |cFF00FF00_Earth Shield#2^3|r display action when target has a player casted Earth Shield at 2 stacks with >=3 seconds left
-Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when target has Earth Shield or Inner Fire
-Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when target has both Earth Shield and Inner Fire]=]
---Translation missing 
--- L["ROB_UI_AO_T_HAVEDB"] = "Have Debuff:"
---Translation missing 
--- L["ROB_UI_AO_T_HAVEDB_TT"] = "Only display action when target has the specified debuff or debuffs"
---Translation missing 
--- L["ROB_UI_AO_T_HAVEDBIB_TT"] = [=[Input the name of the debuff or debuffs
-Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
-Example1: |cFF00FF00Dark Plague#2|r display action when target has the debuff Dark Plague 2 stacks
-Example2: |cFF00FF00_Dark Plague#2|r display action when target has a player casted Dark Plague at 2 stacks
-Example3: |cFF00FF00_Dark Plague#2^3|r display action when target has a player casted Dark Plague at 2 stacks with >=3 seconds left
-Example4: |cFF00FF00Dark Plague|Forbearance|r display action when target has Dark Plague or Forbearance debuffs
-Example5: |cFF00FF00Dark Plague&Forbearance|r display action when target has both Dark Plague and Forbearance debuffs]=]
---Translation missing 
--- L["ROB_UI_AO_T_HP_TT"] = "Only display action when target meets specified hit points"
---Translation missing 
--- L["ROB_UI_AO_T_HPIB_TT"] = [=[Input the target hit points to check
-Example1: |cFF00FF00<90%|r means only display this action when target is under 90% hitpoints
-Example2: |cFF00FF00>90%|r means only display this action when target is over 90% hitpoints
-Example3: |cFF00FF00<=90%|r means only display this action when target is under or equal to 90% hitpoints
-Example4: |cFF00FF00>=90%|r means only display this action when target is over or equal to 90% hitpoints
-Example5: |cFF00FF00=90%|r means only display this action when target is at exactly 90% hitpoints]=]
---Translation missing 
--- L["ROB_UI_AO_T_INTERRUPT"] = "Interrupt"
---Translation missing 
--- L["ROB_UI_AO_T_INTERRUPT_TT"] = "Only display this action if the target is casting an interruptible spell"
---Translation missing 
--- L["ROB_UI_AO_T_NEEDBUFF"] = "Needs Buff:"
---Translation missing 
--- L["ROB_UI_AO_T_NEEDBUFF_TT"] = "Only display action when target needs specified buff or buffs"
---Translation missing 
--- L["ROB_UI_AO_T_NEEDBUFFIB_TT"] = [=[Input the name of the buff or buffs
-Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
-Example1: |cFF00FF00Earth Shield#2|r display action when target is missing 2 stacks of Earth Shield
-Example2: |cFF00FF00_Earth Shield#2|r display action when target is missing a player casted Earth Shield at 2 stacks
-Example3: |cFF00FF00_Earth Shield#2^3|r display action when target is missing a player casted Earth Shield at 2 stacks with >=3 seconds left
-Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when target is missing Earth Shield or Inner Fire
-Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when target is missing both Earth Shield and Inner Fire]=]
---Translation missing 
--- L["ROB_UI_AO_T_NEEDDB"] = "Need Debuff:"
---Translation missing 
--- L["ROB_UI_AO_T_NEEDDB_TT"] = "Only display action when target is missing the specified debuff or debuffs"
---Translation missing 
--- L["ROB_UI_AO_T_NEEDDBIB_TT"] = [=[Input the name of the debuff or debuffs
-Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
-Example1: |cFF00FF00Dark Plague#2|r display action when target is missing the debuff Dark Plague 2 stacks
-Example2: |cFF00FF00_Dark Plague#2|r display action when target is missing a player casted Dark Plague at 2 stacks
-Example3: |cFF00FF00_Dark Plague#2^3|r display action when target is missing a player casted Dark Plague at 2 stacks with >=3 seconds left
-Example4: |cFF00FF00Dark Plague|Forbearance|r display action when target is missing Dark Plague or Forbearance debuffs
-Example5: |cFF00FF00Dark Plague&Forbearance|r display action when target is missing both Dark Plague and Forbearance debuffs]=]
---Translation missing 
--- L["ROB_UI_AO_T_NOTABOSS"] = "Not a Boss"
---Translation missing 
--- L["ROB_UI_AO_T_NOTABOSS_TT"] = "Only display action if target is not a boss"
---Translation missing 
--- L["ROB_UI_AO_T_SPELLSTEAL"] = "Spellsteal"
---Translation missing 
--- L["ROB_UI_AO_T_SPELLSTEAL_TT"] = "Only display this action if the target has a stealable buff"
---Translation missing 
--- L["ROB_UI_AO_TARGET_TAB"] = "Target"
+L["ROB_UI_AO_P_RUNES"] = "Runes:"
+L["ROB_UI_AO_P_RUNES_TT"] = "N'affiche cette action que quand le joueur a le nombre spécifié de runes"
+L["ROB_UI_AO_P_RUNESIB_TT"] = [=[Entrez le nombre de runes
+Example1: |cFF00FF00>1|r n'affiche l'action que quand le joueur à plus d'une rune
+Example2: |cFF00FF00<=1|r n'affiche l'action que quand le joueur à une rune ou moins
+Example3: |cFF00FF00>=1|r n'affiche l'action que quand le joueur à une rune ou plus]=]
+L["ROB_UI_AO_PET_HAVEBUFF"] = "A le buff:"
+L["ROB_UI_AO_PET_HAVEBUFF_TT"] = "N'affiche cette action que si le familier a le(s) buff(s) spécifié(s)"
+L["ROB_UI_AO_PET_HAVEBUFFIB_TT"] = [=[Entrez le(s) nom/id(s) du(des) buff(s)
+Syntaxe: |cFF00FF00| |r= OU |cFF00FF00&|r = ET |cFF00FF00_|r = placé par le joueur |cFF00FF00#|r = nombre de cumul |cFF00FF00^|r = rafraichir à x secondes
+Example1: |cFF00FF00Earth Shield#2|r n'affiche cette action que si le familier a le buff Earth Shield avec 2 cumuls
+Example2: |cFF00FF00_Earth Shield#2|r n'affiche cette action que si le familier a le buff Earth Shield avec 2 cumul placé par vous
+Example3: |cFF00FF00_Earth Shield#2^3|r n'affiche cette action que si le familier a le buff Earth Shield avec 2 cumul placé par vous avec 3+ secondes restantes
+Example4: |cFF00FF00Earth Shield||Inner Fire|r n'affiche cette action que si le familier a le du buff Earth Shield ou Inner Fire
+Example5: |cFF00FF00Earth Shield&Inner Fire|r n'affiche cette action que si le familier a les buffs Earth Shield et Inner Fire]=]
+L["ROB_UI_AO_PET_HP_TT"] = "N'affiche cette action que si le familier à la quantitée spécifiée de vie"
+L["ROB_UI_AO_PET_HPIB_TT"] = [=[Entrez la valeur de vie à vérifier
+Example1: |cFF00FF00<90%|r n'affiche l'action que si le familier à moins de 90% de vie
+Example2: |cFF00FF00>90%|r n'affiche l'action que si le familier à plus de 90% de vie
+Example3: |cFF00FF00<=90%|r n'affiche l'action que si le familier à moins ou tout juste 90% de vie
+Example4: |cFF00FF00>=90%|r n'affiche l'action que si le familier à plus ou tout juste 90% de vie
+Example5: |cFF00FF00=90%|r n'affiche l'action que si le familier à tout juste 90% de vie]=]
+L["ROB_UI_AO_PET_NEEDBUFF"] = "A besoin du buff:"
+L["ROB_UI_AO_PET_NEEDBUFF_TT"] = "N'affiche cette action que si le familier n'a pas le(s) buff(s) spécifié(s)"
+L["ROB_UI_AO_PET_NEEDBUFFIB_TT"] = [=[Entrez le(s) nom/id(s) du(des) buff(s)
+Syntaxe: |cFF00FF00| |r= OU |cFF00FF00&|r = ET |cFF00FF00_|r = placé par le joueur |cFF00FF00#|r = nombre de cumul |cFF00FF00^|r = rafraichir à x secondes
+Example1: |cFF00FF00Earth Shield#2|r n'affiche cette action que si le familier a besoin du buff Earth Shield avec 2 cumuls
+Example2: |cFF00FF00_Earth Shield#2|r n'affiche cette action que si le familier a besoin du buff Earth Shield avec 2 cumul placé par vous
+Example3: |cFF00FF00_Earth Shield#2^3|r n'affiche cette action que si le familier a besoin du buff Earth Shield avec 2 cumul placé par vous avec 3+ secondes restantes
+Example4: |cFF00FF00Earth Shield||Inner Fire|r n'affiche cette action que si le familier a besoin du buff Earth Shield ou Inner Fire
+Example5: |cFF00FF00Earth Shield&Inner Fire|r n'affiche cette action que si le familier a besoin des buffs Earth Shield et Inner Fire]=]
+L["ROB_UI_AO_PET_TAB"] = "Familier"
+L["ROB_UI_AO_PLAYER_TAB"] = "Joueur"
+L["ROB_UI_AO_T_BOSS"] = "Boss"
+L["ROB_UI_AO_T_BOSS_TT"] = "N'affiche cette action que si la cible est un boss"
+L["ROB_UI_AO_T_DISPEL"] = "Dissipation"
+L["ROB_UI_AO_T_DISPEL_TT"] = "N'affiche cette action que si la cible à un buff dissipable"
+L["ROB_UI_AO_T_HAVEBUFF"] = "A le buff:"
+L["ROB_UI_AO_T_HAVEBUFF_TT"] = "N'affiche cette action que si la cible a le(s) buff(s) spécifié(s)"
+L["ROB_UI_AO_T_HAVEBUFFIB_TT"] = [=[Entrez le(s) nom/id(s) du(des) buff(s)
+Syntaxe: |cFF00FF00| |r= OU |cFF00FF00&|r = ET |cFF00FF00_|r = placé par le joueur |cFF00FF00#|r = nombre de cumul |cFF00FF00^|r = rafraichir à x secondes
+Example1: |cFF00FF00Earth Shield#2|r n'affiche cette action que si la cible a le buff Earth Shield avec 2 cumuls
+Example2: |cFF00FF00_Earth Shield#2|r n'affiche cette action que si la cible a le buff Earth Shield avec 2 cumul placé par vous
+Example3: |cFF00FF00_Earth Shield#2^3|r n'affiche cette action que si la cible a le buff Earth Shield avec 2 cumul placé par vous avec 3+ secondes restantes
+Example4: |cFF00FF00Earth Shield||Inner Fire|r n'affiche cette action que si la cible a le du buff Earth Shield ou Inner Fire
+Example5: |cFF00FF00Earth Shield&Inner Fire|r n'affiche cette action que si la cible a les buffs Earth Shield et Inner Fire]=]
+L["ROB_UI_AO_T_HAVEDB"] = "A le debuff:"
+L["ROB_UI_AO_T_HAVEDB_TT"] = "N'affiche cette action que si la cible a le(s) debuff(s) spécifié(s)"
+L["ROB_UI_AO_T_HAVEDBIB_TT"] = [=[Entrez le(s) nom/id(s) du(des) debuff(s)
+Syntaxe: |cFF00FF00| |r= OU |cFF00FF00&|r = ET |cFF00FF00_|r = placé par le joueur |cFF00FF00#|r = nombre de cumul |cFF00FF00^|r = rafraichir à x secondes
+Example1: |cFF00FF00Dark Plague#2|r n'affiche cette action que si la cible a le debuff Dark Plague avec 2 cumuls
+Example2: |cFF00FF00_Dark Plague#2|r n'affiche cette action que si la cible a le debuff Dark Plague avec 2 cumul placé par vous
+Example3: |cFF00FF00_Dark Plague#2^3|r n'affiche cette action que si la cible a le debuff Dark Plague avec 2 cumul placé par vous avec 3+ secondes restantes
+Example4: |cFF00FF00Dark Plague|Forbearance|r n'affiche cette action que si la cible a le debuff Dark Plague ou Forbearance
+Example5: |cFF00FF00Dark Plague&Forbearance|r n'affiche cette action que si la cible a les debuffs Dark Plague et Forbearance]=]
+L["ROB_UI_AO_T_HP_TT"] = "N'affiche cette action que si la cible à la quantitée spécifiée de vie"
+L["ROB_UI_AO_T_HPIB_TT"] = [=[Entrez la valeur de vie à vérifier
+Example1: |cFF00FF00<90%|r n'affiche l'action que si la cible à moins de 90% de vie
+Example2: |cFF00FF00>90%|r n'affiche l'action que si la cible à plus de 90% de vie
+Example3: |cFF00FF00<=90%|r n'affiche l'action que si la cible à moins ou tout juste 90% de vie
+Example4: |cFF00FF00>=90%|r n'affiche l'action que si la cible à plus ou tout juste 90% de vie
+Example5: |cFF00FF00=90%|r n'affiche l'action que si la cible à tout juste 90% de vie]=]
+L["ROB_UI_AO_T_INTERRUPT"] = "Interruption"
+L["ROB_UI_AO_T_INTERRUPT_TT"] = "N'affiche cette action que si la cible lance un sort interruptible"
+L["ROB_UI_AO_T_NEEDBUFF"] = "A besoin du buff:"
+L["ROB_UI_AO_T_NEEDBUFF_TT"] = "N'affiche cette action que si la cible n'a pas le(s) buff(s) spécifié(s)"
+L["ROB_UI_AO_T_NEEDBUFFIB_TT"] = [=[Entrez le(s) nom/id(s) du(des) buff(s)
+Syntaxe: |cFF00FF00| |r= OU |cFF00FF00&|r = ET |cFF00FF00_|r = placé par le joueur |cFF00FF00#|r = nombre de cumul |cFF00FF00^|r = rafraichir à x secondes
+Example1: |cFF00FF00Earth Shield#2|r n'affiche cette action que si la cible a besoin du buff Earth Shield avec 2 cumuls
+Example2: |cFF00FF00_Earth Shield#2|r n'affiche cette action que si la cible a besoin du buff Earth Shield avec 2 cumul placé par vous
+Example3: |cFF00FF00_Earth Shield#2^3|r n'affiche cette action que si la cible a besoin du buff Earth Shield avec 2 cumul placé par vous avec 3+ secondes restantes
+Example4: |cFF00FF00Earth Shield||Inner Fire|r n'affiche cette action que si la cible a besoin du buff Earth Shield ou Inner Fire
+Example5: |cFF00FF00Earth Shield&Inner Fire|r n'affiche cette action que si la cible a besoin des buffs Earth Shield et Inner Fire]=]
+L["ROB_UI_AO_T_NEEDDB"] = "A besoin du debuff:"
+L["ROB_UI_AO_T_NEEDDB_TT"] = "N'affiche cette action que si la cible n'a pas le(s) debuff(s) spécifié(s)"
+L["ROB_UI_AO_T_NEEDDBIB_TT"] = [=[Entrez le(s) nom/id(s) du(des) debuff(s)
+Syntaxe: |cFF00FF00| |r= OU |cFF00FF00&|r = ET |cFF00FF00_|r = placé par le joueur |cFF00FF00#|r = nombre de cumul |cFF00FF00^|r = rafraichir à x secondes
+Example1: |cFF00FF00Dark Plague#2|r n'affiche cette action que si la cible a besoin du debuff Dark Plague avec 2 cumuls
+Example2: |cFF00FF00_Dark Plague#2|r n'affiche cette action que si la cible a besoin du debuff Dark Plague avec 2 cumul placé par vous
+Example3: |cFF00FF00_Dark Plague#2^3|r n'affiche cette action que si la cible a besoin du debuff Dark Plague avec 2 cumul placé par vous avec 3+ secondes restantes
+Example4: |cFF00FF00Dark Plague|Forbearance|r n'affiche cette action que si la cible a besoin du debuff Dark Plague ou Forbearance
+Example5: |cFF00FF00Dark Plague&Forbearance|r n'affiche cette action que si la cible a besoin des debuffs Dark Plague et Forbearance]=]
+L["ROB_UI_AO_T_NOTABOSS"] = "N'est pas un boss"
+L["ROB_UI_AO_T_NOTABOSS_TT"] = "N'affiche cette action que si la cible n'est pas un boss"
+L["ROB_UI_AO_T_SPELLSTEAL"] = "Vol de sort"
+L["ROB_UI_AO_T_SPELLSTEAL_TT"] = "N'affiche cette action que si la cible à un buff volable"
+L["ROB_UI_AO_TARGET_TAB"] = "Cible"
 L["ROB_UI_CANCEL_BUTTON"] = "Annuler"
 L["ROB_UI_CLOSE_BUTTON"] = "Fermer"
 L["ROB_UI_CREATE"] = "Créer"
