@@ -97,6 +97,8 @@ ROB_NewActionDefaults = {
 	b_notinspellbook=false,
 	b_incombat=false,
 	b_notincombat=false,
+	b_spellInRange=false,
+	b_hasMinRange=false,
 
 	--Player Options---------------
 	b_p_hp=false,
@@ -1697,6 +1699,7 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetChecked("ROB_AO_GNotInCombatCheckButton",_ActionDB.b_notincombat,false)
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_G_SpellInRangeCheckButton",_ActionDB.b_spellInRange,false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_G_HasMinRangeCheckButton",_ActionDB.b_hasMinRange,false)
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_MovingCheckButton",_ActionDB.b_moving,false)
 			ROB_Rotation_GUI_SetChecked("ROB_AO_NMovingCheckButton",_ActionDB.b_notmoving,false)
@@ -2951,6 +2954,12 @@ function ROB_SpellReady(actionName,isNextSpell)
 		local result = IsSpellInRange(spellBookId, "spell", "target");
 		if(0 == result) then
 			return false;
+		end
+		if(ActionDB.b_hasMinRange) then
+			local result = CheckInteractDistance("target",2);
+			if(result) then
+				return false;
+			end
 		end
 	end
 

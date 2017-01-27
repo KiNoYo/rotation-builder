@@ -11,8 +11,8 @@ L["defaultRotation/deathknight/blood"] = "Sang 7.1.5"
 L["defaultRotation/deathknight/blood_boil"] = "Furoncle sanglant"
 L["defaultRotation/deathknight/blood_boil_blood_plague"] = "Furoncle sanglant (Peste de sang)"
 L["defaultRotation/deathknight/blood_multi"] = "Sang Multi 7.1.5"
-L["defaultRotation/deathknight/blooddrinker"] = "Buveur de sang"
 L["defaultRotation/deathknight/blood_tap"] = "Drain sanglant"
+L["defaultRotation/deathknight/blooddrinker"] = "Buveur de sang"
 L["defaultRotation/deathknight/bonestorm"] = "Tempête d'os"
 L["defaultRotation/deathknight/breath_of_sindragosa"] = "Souffle de Sindragosa"
 L["defaultRotation/deathknight/consumption"] = "Consomption"
@@ -37,25 +37,25 @@ L["defaultRotation/deathknight/festering_strike_apocalypse"] = "Frappe purulente
 L["defaultRotation/deathknight/festering_strike_dark_arbiter"] = "Frappe purulente (Sombre médiateur)"
 L["defaultRotation/deathknight/frost"] = "Givre 7.1.5"
 L["defaultRotation/deathknight/frost_multi"] = "Givre Multi 7.1.5"
-L["defaultRotation/deathknight/frostscythe"] = "Faux de givre"
-L["defaultRotation/deathknight/frostscythe_breath_of_sindragosa"] = "Faux de givre (Souffle de Sindragosa)"
-L["defaultRotation/deathknight/frostscythe_killing_machine"] = "Faux de givre (Machine à tuer)"
 L["defaultRotation/deathknight/frost_strike"] = "Frappe de givre"
 L["defaultRotation/deathknight/frost_strike_breath_of_sindragosa"] = "Frappe de givre (Souffle de Sindragosa)"
 L["defaultRotation/deathknight/frost_strike_icy_talons"] = "Frappe de givre (Serres glaciales)"
 L["defaultRotation/deathknight/frost_strike_obliteration"] = "Frappe de givre (Oblitération)"
 L["defaultRotation/deathknight/frost_strike_runic_power"] = "Frappe de givre (Puissance runique)"
 L["defaultRotation/deathknight/frost_strike_shattering_strikes"] = "Frappe de givre (Attaques fracassantes)"
+L["defaultRotation/deathknight/frostscythe"] = "Faux de givre"
+L["defaultRotation/deathknight/frostscythe_breath_of_sindragosa"] = "Faux de givre (Souffle de Sindragosa)"
+L["defaultRotation/deathknight/frostscythe_killing_machine"] = "Faux de givre (Machine à tuer)"
 L["defaultRotation/deathknight/glacial_advance"] = "Avancée glaciale"
 L["defaultRotation/deathknight/heart_strike"] = "Frappe au coeur"
 L["defaultRotation/deathknight/horn_of_winter"] = "Cor de l'hiver"
 L["defaultRotation/deathknight/horn_of_winter_breath_of_sindragosa"] = "Cor de l'hiver (Souffle de Sindragosa)"
+L["defaultRotation/deathknight/horn_of_winter_breath_of_sindragosa_hungering_rune"] = "Cor de l'hiver (Souffle de Sindragosa (Arme runique affamée))"
 L["defaultRotation/deathknight/howling_blast"] = "Rafale hurlante"
 L["defaultRotation/deathknight/howling_blast_breath_of_sindragosa"] = "Rafale hurlante (Souffle de Sindragosa)"
 L["defaultRotation/deathknight/howling_blast_frost_fever"] = "Rafale hurlante (Fièvre de givre)"
 L["defaultRotation/deathknight/hungering_rune"] = "Arme runique affamée"
 L["defaultRotation/deathknight/hungering_rune_breath_of_sindragosa"] = "Arme runique affamée (Souffle de Sindragosa)"
-L["defaultRotation/deathknight/horn_of_winter_breath_of_sindragosa_hungering_rune"] = "Cor de l'hiver (Souffle de Sindragosa (Arme runique affamée))"
 L["defaultRotation/deathknight/mark_of_blood"] = "Marque de sang"
 L["defaultRotation/deathknight/marrowrend"] = "Déchirure de moelle"
 L["defaultRotation/deathknight/marrowrend_bone_shield"] = "Déchirure de moelle (Bouclier d'os)"
@@ -86,8 +86,8 @@ L["defaultRotation/deathknight/vampiric_blood"] = "Sang vampirique"
 L["defaultRotation/demonhunter/annihilation"] = "Annihiler"
 L["defaultRotation/demonhunter/annihilation_chaos_cleave"] = "Annihiler (Enchaînement du chaos)"
 L["defaultRotation/demonhunter/annihilation_demon_blades"] = "Annihiler (Lames du démon)"
-L["defaultRotation/demonhunter/blade_dance"]= "Danse des lames"
-L["defaultRotation/demonhunter/chaos_blades"]= "Lames du chaos"
+L["defaultRotation/demonhunter/blade_dance"] = "Danse des lames"
+L["defaultRotation/demonhunter/chaos_blades"] = "Lames du chaos"
 L["defaultRotation/demonhunter/chaos_strike"] = "Frappe du chaos"
 L["defaultRotation/demonhunter/chaos_strike_chaos_cleave"] = "Frappe du chaos (Enchaînement du chaos)"
 L["defaultRotation/demonhunter/chaos_strike_demon_blades"] = "Frappe du chaos (Lames du démon)"
@@ -95,37 +95,37 @@ L["defaultRotation/demonhunter/consume_magic"] = "Manavore"
 L["defaultRotation/demonhunter/death_sweep"] = "Balayage mortel"
 L["defaultRotation/demonhunter/demon_bite"] = "Morsure du démon"
 L["defaultRotation/demonhunter/demon_spikes"] = "Pointes démoniaques"
-L["defaultRotation/demonhunter/eye_beam"]= "Rayon accablant"
-L["defaultRotation/demonhunter/fel_barrage"]= "Barrage gangrené"
-L["defaultRotation/demonhunter/fel_devastation"]= "Dévastation gangrenée"
-L["defaultRotation/demonhunter/fel_eruption"]= "Éruption gangrenée"
-L["defaultRotation/demonhunter/fel_rush_fel_mastery"] = "Ruée fulgurante (Maîtrise de la corruption)"
-L["defaultRotation/demonhunter/fel_rush_momentum_fel_mastery"]= "Ruée fulgurante (Inertie + Maîtrise de la corruption)"
-L["defaultRotation/demonhunter/fel_rush_momentum"]= "Ruée fulgurante (Inertie)"
+L["defaultRotation/demonhunter/eye_beam"] = "Rayon accablant"
+L["defaultRotation/demonhunter/fel_barrage"] = "Barrage gangrené"
+L["defaultRotation/demonhunter/fel_devastation"] = "Dévastation gangrenée"
+L["defaultRotation/demonhunter/fel_eruption"] = "Éruption gangrenée"
 L["defaultRotation/demonhunter/fel_rush"] = "Ruée fulgurante"
-L["defaultRotation/demonhunter/felblade"]= "Gangrelame"
-L["defaultRotation/demonhunter/fracture"]= "Fracture"
-L["defaultRotation/demonhunter/fury_of_the_illidari"]= "Fureur des Illidari"
-L["defaultRotation/demonhunter/havoc_multi"] = "Dévastation Multi 7.1.5"
+L["defaultRotation/demonhunter/fel_rush_fel_mastery"] = "Ruée fulgurante (Maîtrise de la corruption)"
+L["defaultRotation/demonhunter/fel_rush_momentum"] = "Ruée fulgurante (Inertie)"
+L["defaultRotation/demonhunter/fel_rush_momentum_fel_mastery"] = "Ruée fulgurante (Inertie + Maîtrise de la corruption)"
+L["defaultRotation/demonhunter/felblade"] = "Gangrelame"
+L["defaultRotation/demonhunter/fracture"] = "Fracture"
+L["defaultRotation/demonhunter/fury_of_the_illidari"] = "Fureur des Illidari"
 L["defaultRotation/demonhunter/havoc"] = "Dévastation 7.1.5"
+L["defaultRotation/demonhunter/havoc_multi"] = "Dévastation Multi 7.1.5"
 L["defaultRotation/demonhunter/immolation_aura"] = "Aura d'immolation"
 L["defaultRotation/demonhunter/infernal_strike"] = "Frappe infernale"
 L["defaultRotation/demonhunter/metamorphosis"] = "Métamorphose"
-L["defaultRotation/demonhunter/nemesis"]= "Némésis"
-L["defaultRotation/demonhunter/shear_blade_turning"]= "Entaille (Déviation de lame)"
+L["defaultRotation/demonhunter/nemesis"] = "Némésis"
 L["defaultRotation/demonhunter/shear"] = "Entaille"
+L["defaultRotation/demonhunter/shear_blade_turning"] = "Entaille (Déviation de lame)"
 L["defaultRotation/demonhunter/sigil_of_flame"] = "Sigil de feu"
-L["defaultRotation/demonhunter/soul_barrier"]= "Barrière d’âme"
+L["defaultRotation/demonhunter/soul_barrier"] = "Barrière d’âme"
 L["defaultRotation/demonhunter/soul_cleave"] = "Division de l'âme"
-L["defaultRotation/demonhunter/soul_rending"]= "Déchirement d’âme"
-L["defaultRotation/demonhunter/spirit_bomb"]= "Bombe spirituelle"
-L["defaultRotation/demonhunter/throw_glaive_bloodlet"]= "Lancer de glaive (Suppuration)"
+L["defaultRotation/demonhunter/soul_rending"] = "Déchirement d’âme"
+L["defaultRotation/demonhunter/spirit_bomb"] = "Bombe spirituelle"
 L["defaultRotation/demonhunter/throw_glaive"] = "Lancer de glaive"
-L["defaultRotation/demonhunter/vengeance_multi"] = "Vengeance Multi 7.1.5"
+L["defaultRotation/demonhunter/throw_glaive_bloodlet"] = "Lancer de glaive (Suppuration)"
 L["defaultRotation/demonhunter/vengeance"] = "Vengeance 7.1.5"
-L["defaultRotation/demonhunter/vengeful_retreat_momentum_prepared"]= "Retraite vengeresse (Inertie + Combativité)"
-L["defaultRotation/demonhunter/vengeful_retreat_momentum"]= "Retraite vengeresse (Inertie)"
+L["defaultRotation/demonhunter/vengeance_multi"] = "Vengeance Multi 7.1.5"
 L["defaultRotation/demonhunter/vengeful_retreat"] = "Retraite vengeresse"
+L["defaultRotation/demonhunter/vengeful_retreat_momentum"] = "Retraite vengeresse (Inertie)"
+L["defaultRotation/demonhunter/vengeful_retreat_momentum_prepared"] = "Retraite vengeresse (Inertie + Combativité)"
 L["defaultRotation/druid/ashamane_frenzy"] = "Frénésie d'Ashamane"
 L["defaultRotation/druid/ashamane_frenzy_bloodtalons"] = "Frénésie d'Ashamane (Griffes de sang)"
 L["defaultRotation/druid/astral_communion"] = "Communion astrale"
@@ -260,15 +260,15 @@ L["defaultRotation/mage/counterspell"] = "Contresort"
 L["defaultRotation/mage/ebonbolt"] = "Eclair d'ébène"
 L["defaultRotation/mage/evocation"] = "Evocation"
 L["defaultRotation/mage/fire"] = "Feu 7.0.3"
-L["defaultRotation/mage/fireball"] = "Boule de feu"
 L["defaultRotation/mage/fire_blast"] = "Trait de feu"
+L["defaultRotation/mage/fireball"] = "Boule de feu"
 L["defaultRotation/mage/flame_on"] = "Enflammé"
 L["defaultRotation/mage/flurry"] = "Rafale"
 L["defaultRotation/mage/frost"] = "Givre 7.1.5"
+L["defaultRotation/mage/frost_bomb"] = "Bombe de givre"
 L["defaultRotation/mage/frost_multi"] = "Givre Multi 7.1.5"
 L["defaultRotation/mage/frostbolt"] = "Eclair de givre"
 L["defaultRotation/mage/frostbolt_brain_freeze"] = "Eclair de givre (Gel mental)"
-L["defaultRotation/mage/frost_bomb"] = "Bombe de givre"
 L["defaultRotation/mage/frozen_orb"] = "Orbe gelé"
 L["defaultRotation/mage/glacial_spike"] = "Pointe glaciaire"
 L["defaultRotation/mage/ice_barrier"] = "Barrière de glace"
@@ -338,12 +338,12 @@ L["defaultRotation/paladin/crusade"] = "Croisade"
 L["defaultRotation/paladin/crusader_strike"] = "Frappe du croisé"
 L["defaultRotation/paladin/divine_hammer"] = "Marteau divin"
 L["defaultRotation/paladin/divine_storm"] = "Tempête divine"
-L["defaultRotation/paladin/eye_of_tyr"] = "Oeil de Tyr"
 L["defaultRotation/paladin/execution_sentence"] = "Condamnation à mort"
+L["defaultRotation/paladin/eye_of_tyr"] = "Oeil de Tyr"
 L["defaultRotation/paladin/greater_blessing_of_kings"] = "Bénédiction des rois supérieure"
 L["defaultRotation/paladin/greater_blessing_of_wisdom"] = "Bénédiction de sagesse supérieure"
-L["defaultRotation/paladin/hammer_of_the_righteous"] = "Marteau du vertueux"
 L["defaultRotation/paladin/hammer_of_justice"] = "Marteau de la justice"
+L["defaultRotation/paladin/hammer_of_the_righteous"] = "Marteau du vertueux"
 L["defaultRotation/paladin/hand_of_the_protector"] = "Main du protecteur"
 L["defaultRotation/paladin/holy"] = "Sacré 7.1.5"
 L["defaultRotation/paladin/holy_multi"] = "Sacré Multi 7.1.5"
@@ -371,23 +371,23 @@ L["defaultRotation/priest/flash_heal"] = "Soins rapides"
 L["defaultRotation/priest/holy"] = "Sacré 7.0.3"
 L["defaultRotation/priest/holy_fire"] = "Flammes sacrées"
 L["defaultRotation/priest/holy_word_chastise"] = "Mot sacré : Châtier"
-L["defaultRotation/priest/mindbender"] = "Torve-esprit"
 L["defaultRotation/priest/mind_blast"] = "Attaque mentale"
 L["defaultRotation/priest/mind_flay"] = "Fouet mental"
+L["defaultRotation/priest/mindbender"] = "Torve-esprit"
 L["defaultRotation/priest/penance"] = "Pénitence"
 L["defaultRotation/priest/power_infusion"] = "Infusion de puissance"
 L["defaultRotation/priest/purge_the_wicked"] = "Purge du mal"
 L["defaultRotation/priest/schism"] = "Schisme"
 L["defaultRotation/priest/shadow"] = "Ombre 7.1.5"
-L["defaultRotation/priest/shadow_multi"] = "Ombre Multi 7.1.5"
 L["defaultRotation/priest/shadow_crash"] = "Déferlante d'ombre"
-L["defaultRotation/priest/shadowfiend"] = "Ombrefiel"
-L["defaultRotation/priest/shadowform"] = "Forme d'Ombre"
+L["defaultRotation/priest/shadow_multi"] = "Ombre Multi 7.1.5"
 L["defaultRotation/priest/shadow_word_death"] = "Mot de l'ombre : mort"
 L["defaultRotation/priest/shadow_word_death_2_charges"] = "Mot de l'ombre : mort (2 Charges)"
 L["defaultRotation/priest/shadow_word_pain"] = "Mot de l'ombre : douleur"
 L["defaultRotation/priest/shadow_word_solace"] = "Mot de pouvoir : Réconfort"
 L["defaultRotation/priest/shadow_word_void"] = "Mot de l'ombre : Vide"
+L["defaultRotation/priest/shadowfiend"] = "Ombrefiel"
+L["defaultRotation/priest/shadowform"] = "Forme d'Ombre"
 L["defaultRotation/priest/silence"] = "Silence"
 L["defaultRotation/priest/smite"] = "Châtiment"
 L["defaultRotation/priest/surrender_to_madness"] = "Sombre dans la folie"
@@ -408,6 +408,7 @@ L["defaultRotation/rogue/between_the_eyes_deeper_stratagem"] = "Entre les deux y
 L["defaultRotation/rogue/cannonball_barrage"] = "Barrage de canons"
 L["defaultRotation/rogue/crimson_vial"] = "Fiole cramoisie"
 L["defaultRotation/rogue/crimson_vial_iron_stomach"] = "Fiole cramoisie (Estomac de fer)"
+L["defaultRotation/rogue/curse_of_the_dreadblades"] = "Malédiction des lames d'effroi"
 L["defaultRotation/rogue/deadly_poison"] = "Poison mortel"
 L["defaultRotation/rogue/death_from_above"] = "La mort venue d'en haut"
 L["defaultRotation/rogue/death_from_above_deeper_stratagem"] = "La mort venue d'en haut (Stratagème approfondi)"
@@ -419,16 +420,18 @@ L["defaultRotation/rogue/eviscerate"] = "Eviscération"
 L["defaultRotation/rogue/eviscerate_deeper_stratagem"] = "Eviscération (Stratagème approfondi)"
 L["defaultRotation/rogue/exsanguinate"] = "Exsangue"
 L["defaultRotation/rogue/garrote"] = "Garrot"
-L["defaultRotation/rogue/garrote_stealth"] = "Garrot (Camouflage)"
 L["defaultRotation/rogue/garrote_deeper_stratagem"] = "Garrot (Stratagème approfondi)"
+L["defaultRotation/rogue/garrote_stealth"] = "Garrot (Camouflage)"
 L["defaultRotation/rogue/ghostly_strike"] = "Frappe fantomatique"
 L["defaultRotation/rogue/ghostly_strike_anticipation"] = "Frappe fantomatique (Anticipation)"
 L["defaultRotation/rogue/ghostly_strike_deeper_stratagem"] = "Frappe fantomatique (Stratagème approfondi)"
+L["defaultRotation/rogue/goremaw_s_bite"] = "Morsure de Gueulétripe"
 L["defaultRotation/rogue/hemorrhage"] = "Hémorragie"
 L["defaultRotation/rogue/hemorrhage_deeper_stratagem"] = "Hémorragie (Stratagème approfondi)"
 L["defaultRotation/rogue/hemorrhage_refresh"] = "Hémorragie (Rafraîchir)"
 L["defaultRotation/rogue/kick"] = "Coup de pied"
 L["defaultRotation/rogue/killing_spree"] = "Série meurtrière"
+L["defaultRotation/rogue/kingsbane"] = "Plaie des rois"
 L["defaultRotation/rogue/leeching_poison"] = "Poison sangsue"
 L["defaultRotation/rogue/marked_for_death"] = "Désigné pour mourir"
 L["defaultRotation/rogue/marked_for_death_anticipation"] = "Désigné pour mourir (Anticipation)"
@@ -458,13 +461,10 @@ L["defaultRotation/rogue/shadowstrikes"] = "Frappe-ténèbres"
 L["defaultRotation/rogue/subtlety"] = "Finesse 7.1.0"
 L["defaultRotation/rogue/symbols_of_death"] = "Symboles de mort"
 L["defaultRotation/rogue/vendetta"] = "Vendetta"
-L["defaultRotation/rogue/kingsbane"] = "Plaie des rois"
-L["defaultRotation/rogue/goremaw_s_bite"] = "Morsure de Gueulétripe"
-L["defaultRotation/rogue/curse_of_the_dreadblades"] = "Malédiction des lames d'effroi"
 L["defaultRotation/shaman/ascendance"] = "Ascendance"
+L["defaultRotation/shaman/boulderfist"] = "Rochepoing"
 L["defaultRotation/shaman/boulderfist_2_charges"] = "Rochepoing (2 Charges)"
 L["defaultRotation/shaman/boulderfist_landslide"] = "Rochepoing (Glissement de terrain)"
-L["defaultRotation/shaman/boulderfist"] = "Rochepoing"
 L["defaultRotation/shaman/chain_heal"] = "Salve de guérison"
 L["defaultRotation/shaman/chain_lightning"] = "Chaîne d'éclairs"
 L["defaultRotation/shaman/cloudburst_totem"] = "Totem d'explosion nuageuse"
@@ -474,12 +474,12 @@ L["defaultRotation/shaman/earth_shock"] = "Horion de terre"
 L["defaultRotation/shaman/earthen_shield_totem"] = "Totem de bouclier terrestre"
 L["defaultRotation/shaman/earthen_spike"] = "Pointe terrestre"
 L["defaultRotation/shaman/earthquake"] = "Séisme"
+L["defaultRotation/shaman/elemental"] = "Elémentaire 7.1.5"
 L["defaultRotation/shaman/elemental_blast"] = "Explosion élémentaire"
 L["defaultRotation/shaman/elemental_mastery"] = "Maîtrise élémentaire"
 L["defaultRotation/shaman/elemental_multi"] = "Elémentaire Multi 7.1.5"
-L["defaultRotation/shaman/elemental"] = "Elémentaire 7.1.5"
-L["defaultRotation/shaman/enhancement_multi"] = "Amélioration Multi 7.1.5"
 L["defaultRotation/shaman/enhancement"] = "Amélioration 7.1.5"
+L["defaultRotation/shaman/enhancement_multi"] = "Amélioration Multi 7.1.5"
 L["defaultRotation/shaman/feral_lunge"] = "Impulsion farouche"
 L["defaultRotation/shaman/feral_spirit"] = "Esprit farouche"
 L["defaultRotation/shaman/fire_elemental"] = "Elémentaire de feu"
@@ -495,19 +495,19 @@ L["defaultRotation/shaman/icefury"] = "Furie-de-glace"
 L["defaultRotation/shaman/lava_burst"] = "Explosion de lave"
 L["defaultRotation/shaman/lava_burst_echo_of_the_elements"] = "Explosion de lave (Echo des éléments)"
 L["defaultRotation/shaman/lava_burst_lava_surge"] = "Explosion de lave (Vague de lave)"
-L["defaultRotation/shaman/lava_lash_hot_hand"] = "Fouet de lave (Main brûlante)"
 L["defaultRotation/shaman/lava_lash"] = "Fouet de lave"
+L["defaultRotation/shaman/lava_lash_hot_hand"] = "Fouet de lave (Main brûlante)"
 L["defaultRotation/shaman/lightning_bolt"] = "Eclair"
 L["defaultRotation/shaman/lightning_bolt_power_of_the_maelstrom"] = "Eclair (Pouvoir du Maelström)"
 L["defaultRotation/shaman/lightning_shield"] = "Bouclier de foudre"
 L["defaultRotation/shaman/liquid_magma_totem"] = "Totem de magma liquide"
 L["defaultRotation/shaman/purge"] = "Purge"
 L["defaultRotation/shaman/rainfall"] = "Averse"
-L["defaultRotation/shaman/restoration_multi"] = "Restauration Multi 7.1.5"
 L["defaultRotation/shaman/restoration"] = "Restauration 7.1.5"
+L["defaultRotation/shaman/restoration_multi"] = "Restauration Multi 7.1.5"
 L["defaultRotation/shaman/riptide"] = "Remous"
-L["defaultRotation/shaman/rockbiter_landslide"] = "Croque-roc (Glissement de terrain)"
 L["defaultRotation/shaman/rockbiter"] = "Croque-roc"
+L["defaultRotation/shaman/rockbiter_landslide"] = "Croque-roc (Glissement de terrain)"
 L["defaultRotation/shaman/stormkeeper"] = "Gardien des tempêtes"
 L["defaultRotation/shaman/stormstrike"] = "Frappe-tempête"
 L["defaultRotation/shaman/stormstrike_stormbringer"] = "Frappe-tempête (Porte-tempête)"
@@ -568,17 +568,21 @@ L["defaultRotation/warlock/summon_doomguard"] = "Invocation : Garde funeste"
 L["defaultRotation/warlock/summon_doomguard_grimoire_of_supremacy"] = "Invocation : Garde funeste (Grimoire de suprématie)"
 L["defaultRotation/warlock/summon_felguard"] = "Invocation : gangregarde"
 L["defaultRotation/warlock/summon_felhunter"] = "Invocation : chasseur corrompu"
+L["defaultRotation/warlock/summon_imp"] = "Invocation : diablotin"
 L["defaultRotation/warlock/summon_infernal"] = "Invocation : Infernal"
 L["defaultRotation/warlock/summon_infernal_grimoire_of_supremacy"] = "Invocation : Infernal (Grimoire de suprématie)"
-L["defaultRotation/warlock/summon_imp"] = "Invocation : diablotin"
 L["defaultRotation/warlock/unstable_affliction"] = "Affliction instable"
 L["defaultRotation/warlock/unstable_affliction_3+_soul_shards"] = "Affliction instable (3+ Eclats d'âme)"
 L["defaultRotation/warlock/unstable_affliction_contagion"] = "Affliction instable (Contagion)"
 L["defaultRotation/warlock/unstable_affliction_second"] = "Affliction instable (Second)"
-L["defaultRotation/warrior/arms"] = "Armes 7.1.0"
-L["defaultRotation/warrior/arms_multi"] = "Armes Multi 7.1.0"
+L["defaultRotation/warrior/arms"] = "Armes 7.1.5"
+L["defaultRotation/warrior/arms_multi"] = "Armes Multi 7.1.5"
 L["defaultRotation/warrior/avatar"] = "Avatar"
 L["defaultRotation/warrior/battle_cry"] = "Cri de bataille"
+L["defaultRotation/warrior/battle_cry_avatar"] = "Cri de bataille (Avatar)"
+L["defaultRotation/warrior/battle_cry_ravager"] = "Cri de bataille (Ravageur)"
+L["defaultRotation/warrior/battle_cry_reckless_abandon"] = "Cri de bataille (Fougue téméraire)"
+L["defaultRotation/warrior/battle_cry_renewed_fury"] = "Cri de bataille (Regain de fureur)"
 L["defaultRotation/warrior/berserker_rage"] = "Rage de berserker"
 L["defaultRotation/warrior/bladestorm"] = "Tempête de lames"
 L["defaultRotation/warrior/bloodbath"] = "Bain de sang"
@@ -587,33 +591,34 @@ L["defaultRotation/warrior/bloodthirst_enrage"] = "Sanguinaire (Enrager)"
 L["defaultRotation/warrior/charge"] = "Charge"
 L["defaultRotation/warrior/cleave"] = "Enchaînement"
 L["defaultRotation/warrior/colossus_smash"] = "Frappe du colosse"
-L["defaultRotation/warrior/colossus_smash_focused_rage"] = "Frappe du colosse (Rage concentrée)"
 L["defaultRotation/warrior/devastate"] = "Dévaster"
 L["defaultRotation/warrior/dragon_roar"] = "Rugissement de dragon"
 L["defaultRotation/warrior/dragon_roar_berserker_rage"] = "Rugissement de dragon (Rage de berserker)"
 L["defaultRotation/warrior/dragon_roar_rampage"] = "Rugissement de dragon (Saccager)"
+L["defaultRotation/warrior/dragon_roar_rampage_carnage"] = "Rugissement de dragon (Saccager (Carnage))"
 L["defaultRotation/warrior/dragon_roar_rampage_massacre"] = "Rugissement de dragon (Saccager (Massacre))"
 L["defaultRotation/warrior/dragon_roar_rampage_rage"] = "Rugissement de dragon (Saccager (Rage))"
 L["defaultRotation/warrior/execute"] = "Exécution"
 L["defaultRotation/warrior/execute_massacre"] = "Exécution (Massacre)"
 L["defaultRotation/warrior/execute_massacre_enrage"] = "Exécution (Massacre (Enrager))"
-L["defaultRotation/warrior/execute_shattered_defenses"] = "Exécution (Défenses brisées)"
 L["defaultRotation/warrior/focused_rage"] = "Rage concentrée"
 L["defaultRotation/warrior/focused_rage_colossus_smash"] = "Rage concentrée (Frappe du colosse)"
-L["defaultRotation/warrior/focused_rage_deadly_calm"] = "Rage concentrée (Calme mortel)"
+L["defaultRotation/warrior/focused_rage_deadly_calm"] = "Rage concentrée (Sérénité meurtrière)"
 L["defaultRotation/warrior/furious_slash"] = "Entaille furieuse"
 L["defaultRotation/warrior/furious_slash_frenzy"] = "Entaille furieuse (Frénésie)"
-L["defaultRotation/warrior/fury"] = "Fureur 7.1.0"
-L["defaultRotation/warrior/fury_multi"] = "Fureur Multi 7.1.0"
+L["defaultRotation/warrior/fury"] = "Fureur 7.1.5"
+L["defaultRotation/warrior/fury_multi"] = "Fureur Multi 7.1.5"
 L["defaultRotation/warrior/ignore_pain"] = "Dur au mal"
 L["defaultRotation/warrior/ignore_pain_vengeance"] = "Dur au mal (Vengeance)"
 L["defaultRotation/warrior/impending_victory"] = "Victoire imminente"
+L["defaultRotation/warrior/intercept"] = "Interception"
 L["defaultRotation/warrior/mortal_strike"] = "Frappe mortelle"
 L["defaultRotation/warrior/neltharion_fury"] = "Fureur de Neltharion"
 L["defaultRotation/warrior/odyn_fury"] = "Fureur d'Odyn"
 L["defaultRotation/warrior/overpower"] = "Fulgurance"
-L["defaultRotation/warrior/protection"] = "Protection 7.1.0"
-L["defaultRotation/warrior/protection_multi"] = "Protection Multi 7.1.0"
+L["defaultRotation/warrior/overpower_focused_rage"] = "Fulgurance (Rage concentrée)"
+L["defaultRotation/warrior/protection"] = "Protection 7.1.5"
+L["defaultRotation/warrior/protection_multi"] = "Protection Multi 7.1.5"
 L["defaultRotation/warrior/pummel"] = "Volée de coups"
 L["defaultRotation/warrior/raging_blow"] = "Coup déchainé"
 L["defaultRotation/warrior/raging_blow_inner_rage"] = "Coup déchainé (Rage intérieure)"
@@ -623,6 +628,7 @@ L["defaultRotation/warrior/rampage_rage"] = "Saccager (Rage)"
 L["defaultRotation/warrior/ravager"] = "Ravageur"
 L["defaultRotation/warrior/rend"] = "Pourfendre"
 L["defaultRotation/warrior/revenge"] = "Revanche"
+L["defaultRotation/warrior/revenge_vengeance"] = "Revanche (Vengeance)"
 L["defaultRotation/warrior/shield_block"] = "Maîtrise du blocage"
 L["defaultRotation/warrior/shield_slam"] = "Heurt de bouclier"
 L["defaultRotation/warrior/slam"] = "Heurtoir"
@@ -630,30 +636,38 @@ L["defaultRotation/warrior/slam_focused_rage"] = "Heurtoir (Rage concentrée)"
 L["defaultRotation/warrior/thunder_clap"] = "Coup de tonnerre"
 L["defaultRotation/warrior/victory_rush"] = "Ivresse de la victoire"
 L["defaultRotation/warrior/warbreaker"] = "Brise-Guerre"
-L["defaultRotation/warrior/warbreaker_focused_rage"] = "Brise-Guerre (Rage concentrée)"
 L["defaultRotation/warrior/whirlwind"] = "Tourbillon"
 L["defaultRotation/warrior/whirlwind_focused_rage"] = "Tourbillon (Rage concentrée)"
 L["defaultRotation/warrior/whirlwind_meat_cleaver"] = "Tourbillon (Fendoir à viande)"
-L["defaultRotation/warrior/whirlwind_wrecking_ball"] = "Tourbillon (Boulet de démolition)"
--- L["message/core/fullCleanUp"] = ""
+--Translation missing 
+-- L["message/core/fullCleanUp"] = "We have cleaned your RotationBuilder data with this new revision. This was need because ever your installation was too old and some error could have occured, or a new functionality needed it."
+L["msg/action/keybinds/customCase/disabled"] = "Désactiver cas particulier : "
+L["msg/action/keybinds/customCase/enabled"] = "Activer cas particulier : "
+L["msg/action/keybinds/multiTarget/disabled"] = "Mode rotation multi-cibles désactivé"
+L["msg/action/keybinds/multiTarget/enabled"] = "Mode rotation multi-cibles activé"
 L["msg/action/switch_rotation"] = "Changement de la rotation pour : "
 L["ROB_ACTION_MOVEDOWN_TT"] = "Déplacer l'action sélectionnée d'une position vers le bas"
 L["ROB_ACTION_MOVEUP_TT"] = "Déplacer l'action sélectionnée d'une position vers le haut"
 L["ROB_ACTION_REMOVE_TT"] = "Retirer l'action de la liste"
 L["ROB_ADDON_NAME"] = "RotationBuilder"
+L["ROB_AO_G_HasMinRangeCheckButton"] = "Le sort a une portée minimum"
+L["ROB_AO_G_HasMinRangeCheckButton_TT"] = "N'affiche cette action que si la cible est plus loin que 8 mètres"
+L["ROB_AO_G_SpellInRangeCheckButton"] = "Cible à porté"
+L["ROB_AO_G_SpellInRangeCheckButton_TT"] = "N'affiche cette action que si la cible est à porté"
 L["ROB_FRAME_CLOSE_TT"] = "Fermer la Fenêtre de Rotation Builder"
 L["ROB_FRAME_OPTIONS_TT"] = "Montrer Options"
 L["ROB_FRAME_ROTATIONS_TT"] = "Montrer Rotations"
 L["ROB_LOADED"] = "Rotation Builder v%s chargé"
--- L["ROB_OPTION_ENEMY"] = ""
--- L["ROB_OPTION_ENEMY_TT"] = ""
+--Translation missing 
+-- L["ROB_OPTION_ENEMY"] = "Target is hostile or neutral"
+--Translation missing 
+-- L["ROB_OPTION_ENEMY_TT"] = "Only display the icons if the target is hostile or neutral"
 L["ROB_OPTION_EXPORTBINDS"] = "Export des raccourcis"
 L["ROB_OPTION_EXPORTBINDS_TT"] = "Ajoute l'export des raccourcis clavier à la fonction \"Exporter\""
 L["ROB_OPTION_HIDECD"] = "Masquer les rechargements"
 L["ROB_OPTION_HIDECD_TT"] = "Masque le temps de rechargements des techniques et les animations"
 L["ROB_OPTION_ICONS"] = "Options de l'icone :"
 L["ROB_OPTION_ICONS_C_A"] = "Transparence de l'action actuelle :"
-L["ROB_OPTION_ICONSCALE"] = "Taille de l'icone :"
 L["ROB_OPTION_ICONS_CV"] = "1"
 L["ROB_OPTION_ICONS_MAX"] = "3.5"
 L["ROB_OPTION_ICONS_MIN"] = ".1"
@@ -663,16 +677,17 @@ L["ROB_OPTION_ICONS_T_ATT"] = [=[Entrez une valeur entre |cFF00FF00.1|r et |cFF0
 pour régler le niveau de transparence de l'icone.
 — |cFF00FF00 1|r pour que celle-ci soit plainement visible.
 — |cFF00FF00 .1|r pour qu'elle soit pratiquement invisible.]=]
+L["ROB_OPTION_ICONSCALE"] = "Taille de l'icone :"
 L["ROB_OPTION_IMPORT"] = "Options d'Import/Export :"
 L["ROB_OPTION_LOADDEFAULT"] = "Charger"
 L["ROB_OPTION_LOADDEFAULT_TT"] = "Charge les rotations pas défaut de votre classe"
 L["ROB_OPTION_LOCKICONS"] = "Vérouiller les icones"
 L["ROB_OPTION_LOCKICONS_TT"] = "Vérouiller les icones pour éviter leur déplacement"
 L["ROB_OPTION_MINIMAP"] = "Bouton de la Minimap :"
+L["ROB_OPTION_MINIMAP_TT"] = "Activer le bouton de la Minimap"
 L["ROB_OPTION_MINIMAPO"] = "Options de la Minimap :"
 L["ROB_OPTION_MINIMAPPOS"] = "Position autour de la Minimap"
 L["ROB_OPTION_MINIMAPRAD"] = "Rayon hors de la Minimap"
-L["ROB_OPTION_MINIMAP_TT"] = "Activer le bouton de la Minimap"
 L["ROB_OPTION_MMPOS_CV"] = "300"
 L["ROB_OPTION_MMPOS_MAX"] = "360"
 L["ROB_OPTION_MMPOS_MIN"] = "1"
@@ -698,61 +713,130 @@ L["ROB_UI_A_ADD"] = "Ajouter"
 L["ROB_UI_A_ADD_TT"] = "Ajouter une nouvelle action dans la rotation"
 L["ROB_UI_A_COPY"] = "Copier"
 L["ROB_UI_A_COPY_TT"] = "Copier l'action sélectionnée dans le presse-papier"
+L["ROB_UI_A_PASTE"] = "Coller"
+L["ROB_UI_A_PASTE_TT"] = "Coller l'action copiée du presse-papier vers la rotation"
 L["ROB_UI_ACTION_COLUMN"] = "Actions"
 L["ROB_UI_ADD_ACTION_CFAIL"] = "Les noms d'action ne peuvent utiliser les caractères suivant : [],="
 L["ROB_UI_ADD_ROTATION_CFAIL"] = "Les noms de rotation ne peuvent utiliser les caractères suivant : [],"
--- L["ROB_UI_AO_G_CHARGES"] = ""
--- L["ROB_UI_AO_G_CHARGESIB_TT"] = ""
--- L["ROB_UI_AO_G_CHARGES_TT"] = ""
--- L["ROB_UI_AO_G_DEBUG"] = ""
--- L["ROB_UI_AO_G_DEBUG_TT"] = ""
--- L["ROB_UI_AO_G_DISABLE"] = ""
--- L["ROB_UI_AO_G_DISABLE_TT"] = ""
--- L["ROB_UI_AO_G_DURATION"] = ""
--- L["ROB_UI_AO_G_DURATIONIB_TT"] = ""
--- L["ROB_UI_AO_G_DURATION_TT"] = ""
-L["ROB_UI_AO_GENERAL_LABEL"] = "Options General :"
-L["ROB_UI_AO_GENERAL_TAB"] = "General"
--- L["ROB_UI_AO_G_GSPELLCOST"] = ""
--- L["ROB_UI_AO_G_GSPELLCOST1_TT"] = ""
--- L["ROB_UI_AO_G_GSPELLCOST2_TT"] = ""
--- L["ROB_UI_AO_G_GSPELLCOST_TT"] = ""
--- L["ROB_UI_AO_G_GUNITPOWER"] = ""
--- L["ROB_UI_AO_G_GUNITPOWER1_TT"] = ""
--- L["ROB_UI_AO_G_GUNITPOWER2_TT"] = ""
--- L["ROB_UI_AO_G_GUNITPOWER_TT"] = ""
--- L["ROB_UI_AO_G_HASPROC"] = ""
--- L["ROB_UI_AO_G_HASPROC_TT"] = ""
--- L["ROB_UI_AO_G_ICON_L"] = ""
--- L["ROB_UI_AO_G_ICON_TT"] = ""
--- L["ROB_UI_AO_G_INCOMBAT"] = ""
--- L["ROB_UI_AO_G_INCOMBAT_TT"] = ""
--- L["ROB_UI_AO_G_LASTCAST"] = ""
--- L["ROB_UI_AO_G_LASTCASTIB_TT"] = ""
--- L["ROB_UI_AO_G_LASTCAST_TT"] = ""
--- L["ROB_UI_AO_G_MAXCASTS"] = ""
--- L["ROB_UI_AO_G_MAXCASTSIB_TT"] = ""
--- L["ROB_UI_AO_G_MAXCASTS_TT"] = ""
--- L["ROB_UI_AO_G_MOVING"] = ""
--- L["ROB_UI_AO_G_MOVING_TT"] = ""
--- L["ROB_UI_AO_G_NMOVING"] = ""
--- L["ROB_UI_AO_G_NMOVING_TT"] = ""
--- L["ROB_UI_AO_G_NOTINCOMBAT"] = ""
--- L["ROB_UI_AO_G_NOTINCOMBAT_TT"] = ""
-L["ROB_AO_G_SpellInRangeCheckButton"] = "Cible à porté"
-L["ROB_AO_G_SpellInRangeCheckButton_TT"] = "N'affiche cette action que si la cible est à porté"
--- L["ROB_UI_AO_G_NOTINSPELLBOOK"] = ""
--- L["ROB_UI_AO_G_NOTINSPELLBOOK_TT"] = ""
--- L["ROB_UI_AO_G_NOTSPELL"] = ""
--- L["ROB_UI_AO_G_NOTSPELL_TT"] = ""
--- L["ROB_UI_AO_G_OTHERCD"] = ""
--- L["ROB_UI_AO_G_OTHERCDNIB_TT"] = ""
--- L["ROB_UI_AO_G_OTHERCD_TT"] = ""
--- L["ROB_UI_AO_G_OTHERCDVIB_TT"] = ""
--- L["ROB_UI_AO_G_OTHERCHARGES"] = ""
--- L["ROB_UI_AO_G_OTHERCHARGESNIB_TT"] = ""
--- L["ROB_UI_AO_G_OTHERCHARGES_TT"] = ""
--- L["ROB_UI_AO_G_SID_VFAIL"] = ""
+--Translation missing 
+-- L["ROB_UI_AO_G_CHARGES"] = "Spell Charges:"
+--Translation missing 
+-- L["ROB_UI_AO_G_CHARGES_TT"] = [=[Check this option if this action has charges
+This is used for calculating the next ready action]=]
+--Translation missing 
+-- L["ROB_UI_AO_G_CHARGESIB_TT"] = [=[Input the number of charges
+Example: |cFF00FF001|r]=]
+--Translation missing 
+-- L["ROB_UI_AO_G_DEBUG"] = "Debug"
+--Translation missing 
+-- L["ROB_UI_AO_G_DEBUG_TT"] = "Turn on debug for this spell"
+--Translation missing 
+-- L["ROB_UI_AO_G_DISABLE"] = "Disable"
+--Translation missing 
+-- L["ROB_UI_AO_G_DISABLE_TT"] = "Temporarily disable this action so you dont have to delete it"
+--Translation missing 
+-- L["ROB_UI_AO_G_DURATION"] = "Wait to recast:"
+--Translation missing 
+-- L["ROB_UI_AO_G_DURATION_TT"] = [=[Wait specified seconds to display this action after you have casted it
+Useful for giving air born spells time to land before calculating next action]=]
+--Translation missing 
+-- L["ROB_UI_AO_G_DURATIONIB_TT"] = "Input the number of seconds to wait before redisplaying action"
+--Translation missing 
+-- L["ROB_UI_AO_G_GSPELLCOST"] = "Cost Power:"
+--Translation missing 
+-- L["ROB_UI_AO_G_GSPELLCOST_TT"] = [=[Check this option if this action use a type of power
+This is used for calculating the next ready action]=]
+--Translation missing 
+-- L["ROB_UI_AO_G_GSPELLCOST1_TT"] = [=[Input the type of power used
+|cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBO POINTS |cFF00FF006|r=RUNIC POWER |cFF00FF007|r=SOUL SHARDS
+|cFF00FF008|r=ASTRAL POWER |cFF00FF009|r=HOLY POWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY |cFF00FF0016|r=ARCANE POWER
+|cFF00FF0017|r=FURY  |cFF00FF0018|r=PAIN]=]
+--Translation missing 
+-- L["ROB_UI_AO_G_GSPELLCOST2_TT"] = [=[Input the amount of power used
+Example1: |cFF00FF003|r
+Example2: |cFF00FF0090%|r]=]
+--Translation missing 
+-- L["ROB_UI_AO_G_GUNITPOWER"] = "Generates Power:"
+--Translation missing 
+-- L["ROB_UI_AO_G_GUNITPOWER_TT"] = [=[Check this option if this action generates a type of power
+This is used for calculating the next ready action]=]
+--Translation missing 
+-- L["ROB_UI_AO_G_GUNITPOWER1_TT"] = [=[Input the type of power generated
+|cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBO POINTS |cFF00FF006|r=RUNIC POWER |cFF00FF007|r=SOUL SHARDS
+|cFF00FF008|r=ASTRAT POWER |cFF00FF009|r=HOLY POWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY |cFF00FF0016|r=ARCANE POWER
+|cFF00FF0017|r=FURY  |cFF00FF0018|r=PAIN]=]
+--Translation missing 
+-- L["ROB_UI_AO_G_GUNITPOWER2_TT"] = [=[Input the amount of power generated
+Example1: |cFF00FF003|r
+Example2: |cFF00FF0090%|r]=]
+--Translation missing 
+-- L["ROB_UI_AO_G_HASPROC"] = "Has Proc"
+--Translation missing 
+-- L["ROB_UI_AO_G_HASPROC_TT"] = "Only display action when it has a proc"
+--Translation missing 
+-- L["ROB_UI_AO_G_ICON_L"] = "Icon:"
+--Translation missing 
+-- L["ROB_UI_AO_G_ICON_TT"] = [=[Input the spell name or spell id of the icon you want to display for this action
+If left blank the spellname will be used]=]
+--Translation missing 
+-- L["ROB_UI_AO_G_INCOMBAT"] = "In combat"
+--Translation missing 
+-- L["ROB_UI_AO_G_INCOMBAT_TT"] = "Only display this action if player is in combat"
+--Translation missing 
+-- L["ROB_UI_AO_G_LASTCAST"] = "Last casted:"
+--Translation missing 
+-- L["ROB_UI_AO_G_LASTCAST_TT"] = "Only display action if the last casted spell was this"
+--Translation missing 
+-- L["ROB_UI_AO_G_LASTCASTIB_TT"] = "Input the name of the last casted spell to check"
+--Translation missing 
+-- L["ROB_UI_AO_G_MAXCASTS"] = "Max sequential casts:"
+--Translation missing 
+-- L["ROB_UI_AO_G_MAXCASTS_TT"] = "Only display this action specified sequential times"
+--Translation missing 
+-- L["ROB_UI_AO_G_MAXCASTSIB_TT"] = "Input the number of casts allowed in succession"
+--Translation missing 
+-- L["ROB_UI_AO_G_MOVING"] = "Moving"
+--Translation missing 
+-- L["ROB_UI_AO_G_MOVING_TT"] = "Only display this action if player is moving"
+--Translation missing 
+-- L["ROB_UI_AO_G_NMOVING"] = "Not Moving"
+--Translation missing 
+-- L["ROB_UI_AO_G_NMOVING_TT"] = "Only display this action if player is not moving"
+--Translation missing 
+-- L["ROB_UI_AO_G_NOTINCOMBAT"] = "Not in combat"
+--Translation missing 
+-- L["ROB_UI_AO_G_NOTINCOMBAT_TT"] = "Only display this action if player is not in combat"
+--Translation missing 
+-- L["ROB_UI_AO_G_NOTINSPELLBOOK"] = "Not a character spell"
+--Translation missing 
+-- L["ROB_UI_AO_G_NOTINSPELLBOOK_TT"] = [=[Only display this action if the spell is not one of your character spell
+Example : If it is one of your familiar spell (hunter's pet, warlock's demon, mage's water elemental, ...]=]
+--Translation missing 
+-- L["ROB_UI_AO_G_NOTSPELL"] = "Not a spell"
+--Translation missing 
+-- L["ROB_UI_AO_G_NOTSPELL_TT"] = [=[Ignore spell mana type checks and just use the keybind to perform the action
+Check this when spellname=Trinket0Slot or HandsSlot]=]
+--Translation missing 
+-- L["ROB_UI_AO_G_OTHERCD"] = "Check other cooldown:"
+--Translation missing 
+-- L["ROB_UI_AO_G_OTHERCD_TT"] = "Only display this action when other cooldown specified passes check"
+--Translation missing 
+-- L["ROB_UI_AO_G_OTHERCDNIB_TT"] = "Input the name or spell id of the other cooldown to check"
+--Translation missing 
+-- L["ROB_UI_AO_G_OTHERCDVIB_TT"] = [=[Input the value of the other cooldown to check
+Example1: |cFF00FF00<3|r means only display action when other action has less than 3 seconds left
+Example2: |cFF00FF00>3|r means only display action when other action has more than 3 seconds left
+Example3: |cFF00FF00<=3|r means only display action when other action has less than or equal to 3 seconds left
+Example4: |cFF00FF00=3|r means only display this action when other action has exactly 3 seconds left]=]
+--Translation missing 
+-- L["ROB_UI_AO_G_OTHERCHARGES"] = "Other Spell Charges:"
+--Translation missing 
+-- L["ROB_UI_AO_G_OTHERCHARGES_TT"] = [=[Check this option if you want to check another spell charges
+This is used for calculating the next ready action]=]
+--Translation missing 
+-- L["ROB_UI_AO_G_OTHERCHARGESNIB_TT"] = "Input the spell name or spell id of which you want to check the charges"
+--Translation missing 
+-- L["ROB_UI_AO_G_SID_VFAIL"] = "Spell or Slot not found"
 L["ROB_UI_AO_G_SPELLNAME_L"] = [=[Nom de sort
 ou emplacement d'inventaire :]=]
 L["ROB_UI_AO_G_SPELLNAME_TT"] = [=[Entrez le nom d'un sort ou d'un emplacement d'inventaire
@@ -761,74 +845,223 @@ Exemple 2 : |cFF00FF00Trinket1Slot|r pour le second emplacement de bijou
 Exemple 3 : |cFF00FF00HandsSlot|r
 Exemple 4 : |cFF00FF00Grondement|r
 Exemple 5 : |cFF00FF0089;7|r id pour Grondement]=]
--- L["ROB_UI_AO_PET_HAVEBUFF"] = ""
--- L["ROB_UI_AO_PET_HAVEBUFFIB_TT"] = ""
--- L["ROB_UI_AO_PET_HAVEBUFF_TT"] = ""
--- L["ROB_UI_AO_PET_HPIB_TT"] = ""
--- L["ROB_UI_AO_PET_HP_TT"] = ""
--- L["ROB_UI_AO_PET_NEEDBUFF"] = ""
--- L["ROB_UI_AO_PET_NEEDBUFFIB_TT"] = ""
--- L["ROB_UI_AO_PET_NEEDBUFF_TT"] = ""
--- L["ROB_UI_AO_PET_TAB"] = ""
--- L["ROB_UI_AO_P_HAVEBUFF"] = ""
--- L["ROB_UI_AO_P_HAVEBUFFIB_TT"] = ""
--- L["ROB_UI_AO_P_HAVEBUFF_TT"] = ""
--- L["ROB_UI_AO_P_HAVEDB"] = ""
--- L["ROB_UI_AO_P_HAVEDBIB_TT"] = ""
--- L["ROB_UI_AO_P_HAVEDB_TT"] = ""
--- L["ROB_UI_AO_P_HP"] = ""
--- L["ROB_UI_AO_P_HPIB_TT"] = ""
--- L["ROB_UI_AO_P_HP_TT"] = ""
+L["ROB_UI_AO_GENERAL_LABEL"] = "Options General :"
+L["ROB_UI_AO_GENERAL_TAB"] = "General"
+--Translation missing 
+-- L["ROB_UI_AO_P_HAVEBUFF"] = "Have Buff:"
+--Translation missing 
+-- L["ROB_UI_AO_P_HAVEBUFF_TT"] = "Only display action when player has the specified buff or buffs"
+--Translation missing 
+-- L["ROB_UI_AO_P_HAVEBUFFIB_TT"] = [=[Input the name of the buff or buffs
+Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
+Example1: |cFF00FF00Earth Shield#2|r display action when player has 2 stacks of Earth Shield
+Example2: |cFF00FF00_Earth Shield#2|r display action when player has a player casted Earth Shield at 2 stacks
+Example3: |cFF00FF00_Earth Shield#2^3|r display action when player has a player casted Earth Shield at 2 stacks with >=3 seconds left
+Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when player has Earth Shield or Inner Fire
+Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when player has both Earth Shield and Inner Fire]=]
+--Translation missing 
+-- L["ROB_UI_AO_P_HAVEDB"] = "Have Debuff:"
+--Translation missing 
+-- L["ROB_UI_AO_P_HAVEDB_TT"] = "Only display action when player has the specified debuff or debuffs"
+--Translation missing 
+-- L["ROB_UI_AO_P_HAVEDBIB_TT"] = [=[Input the name of the debuff or debuffs
+Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
+Example1: |cFF00FF00Dark Plague#2|r display action when player has the debuff Dark Plague 2 stacks
+Example2: |cFF00FF00_Dark Plague#2|r display action when player has a player casted Dark Plague at 2 stacks
+Example3: |cFF00FF00_Dark Plague#2^3|r display action when player has a player casted Dark Plague at 2 stacks with >=3 seconds left
+Example4: |cFF00FF00Dark Plague|Forbearance|r display action when player has Dark Plague or Forbearance debuffs
+Example5: |cFF00FF00Dark Plague&Forbearance|r display action when player has both Dark Plague and Forbearance debuffs]=]
+--Translation missing 
+-- L["ROB_UI_AO_P_HP"] = "HP:"
+--Translation missing 
+-- L["ROB_UI_AO_P_HP_TT"] = "Only display action when player meets specified hit points"
+--Translation missing 
+-- L["ROB_UI_AO_P_HPIB_TT"] = [=[Input the percent of player hit points to check
+Example1: |cFF00FF00<90%|r means only display this action when player is under 90% hitpoints
+Example2: |cFF00FF00>90%|r means only display this action when player is over 90% hitpoints
+Example3: |cFF00FF00<=90%|r means only display this action when player is under or equal to 90% hitpoints
+Example4: |cFF00FF00>=90%|r means only display this action when player is over or equal to 90% hitpoints
+Example5: |cFF00FF00=90%|r means only display this action when player is at exactly 90% hitpoints]=]
 L["ROB_UI_AO_P_ISSTEALTHED"] = "Camouflé"
 L["ROB_UI_AO_P_ISSTEALTHED_TT"] = "N'affiche l'action que lorsque le joueur est camouflé"
--- L["ROB_UI_AO_P_KNOWNOTSPELL"] = ""
--- L["ROB_UI_AO_P_KNOWNOTSPELLIB_TT"] = ""
--- L["ROB_UI_AO_P_KNOWNOTSPELL_TT"] = ""
--- L["ROB_UI_AO_P_KNOWSPELL"] = ""
--- L["ROB_UI_AO_P_KNOWSPELLIB_TT"] = ""
--- L["ROB_UI_AO_P_KNOWSPELL_TT"] = ""
--- L["ROB_UI_AO_PLAYER_TAB"] = ""
--- L["ROB_UI_AO_P_NEEDBUFF"] = ""
--- L["ROB_UI_AO_P_NEEDBUFFIB_TT"] = ""
--- L["ROB_UI_AO_P_NEEDBUFF_TT"] = ""
--- L["ROB_UI_AO_P_NEEDDB"] = ""
--- L["ROB_UI_AO_P_NEEDDBIB_TT"] = ""
--- L["ROB_UI_AO_P_NEEDDB_TT"] = ""
--- L["ROB_UI_AO_P_POWER"] = ""
--- L["ROB_UI_AO_P_POWER1_TT"] = ""
--- L["ROB_UI_AO_P_POWER2"] = ""
--- L["ROB_UI_AO_P_POWER2_TT"] = ""
--- L["ROB_UI_AO_P_POWER_TT"] = ""
--- L["ROB_UI_AO_P_RUNES"] = ""
--- L["ROB_UI_AO_P_RUNESIB_TT"] = ""
--- L["ROB_UI_AO_P_RUNES_TT"] = ""
--- L["ROB_UI_AO_TARGET_TAB"] = ""
--- L["ROB_UI_AO_T_BOSS"] = ""
--- L["ROB_UI_AO_T_BOSS_TT"] = ""
--- L["ROB_UI_AO_T_DISPEL"] = ""
--- L["ROB_UI_AO_T_DISPEL_TT"] = ""
--- L["ROB_UI_AO_T_HAVEBUFF"] = ""
--- L["ROB_UI_AO_T_HAVEBUFFIB_TT"] = ""
--- L["ROB_UI_AO_T_HAVEBUFF_TT"] = ""
--- L["ROB_UI_AO_T_HAVEDB"] = ""
--- L["ROB_UI_AO_T_HAVEDBIB_TT"] = ""
--- L["ROB_UI_AO_T_HAVEDB_TT"] = ""
--- L["ROB_UI_AO_T_HPIB_TT"] = ""
--- L["ROB_UI_AO_T_HP_TT"] = ""
--- L["ROB_UI_AO_T_INTERRUPT"] = ""
--- L["ROB_UI_AO_T_INTERRUPT_TT"] = ""
--- L["ROB_UI_AO_T_NEEDBUFF"] = ""
--- L["ROB_UI_AO_T_NEEDBUFFIB_TT"] = ""
--- L["ROB_UI_AO_T_NEEDBUFF_TT"] = ""
--- L["ROB_UI_AO_T_NEEDDB"] = ""
--- L["ROB_UI_AO_T_NEEDDBIB_TT"] = ""
--- L["ROB_UI_AO_T_NEEDDB_TT"] = ""
--- L["ROB_UI_AO_T_NOTABOSS"] = ""
--- L["ROB_UI_AO_T_NOTABOSS_TT"] = ""
--- L["ROB_UI_AO_T_SPELLSTEAL"] = ""
--- L["ROB_UI_AO_T_SPELLSTEAL_TT"] = ""
-L["ROB_UI_A_PASTE"] = "Coller"
-L["ROB_UI_A_PASTE_TT"] = "Coller l'action copiée du presse-papier vers la rotation"
+--Translation missing 
+-- L["ROB_UI_AO_P_KNOWNOTSPELL"] = "Do not know Spell"
+--Translation missing 
+-- L["ROB_UI_AO_P_KNOWNOTSPELL_TT"] = "Only display action when specified spell is unknown"
+--Translation missing 
+-- L["ROB_UI_AO_P_KNOWNOTSPELLIB_TT"] = "Input the spell name or spell id of the spell you want check"
+--Translation missing 
+-- L["ROB_UI_AO_P_KNOWSPELL"] = "Know Spell"
+--Translation missing 
+-- L["ROB_UI_AO_P_KNOWSPELL_TT"] = "Only display action when specified spell is known"
+--Translation missing 
+-- L["ROB_UI_AO_P_KNOWSPELLIB_TT"] = "Input the spell name or spell id of the spell you want check"
+--Translation missing 
+-- L["ROB_UI_AO_P_NEEDBUFF"] = "Need Buff:"
+--Translation missing 
+-- L["ROB_UI_AO_P_NEEDBUFF_TT"] = "Only display action when player needs specified buff or buffs"
+--Translation missing 
+-- L["ROB_UI_AO_P_NEEDBUFFIB_TT"] = [=[Input the name of the buff or buffs
+Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
+Example1: |cFF00FF00Earth Shield#2|r display action when player is missing 2 stacks of Earth Shield
+Example2: |cFF00FF00_Earth Shield#2|r display action when player is missing a player casted Earth Shield at 2 stacks
+Example3: |cFF00FF00_Earth Shield#2^3|r display action when player is missing a player casted Earth Shield at 2 stacks with >=3 seconds left
+Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when player is missing Earth Shield or Inner Fire
+Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when player is missing both Earth Shield and Inner Fire]=]
+--Translation missing 
+-- L["ROB_UI_AO_P_NEEDDB"] = "Need Debuff:"
+--Translation missing 
+-- L["ROB_UI_AO_P_NEEDDB_TT"] = "Only display action when player is missing the specified debuff or debuffs"
+--Translation missing 
+-- L["ROB_UI_AO_P_NEEDDBIB_TT"] = [=[Input the name of the debuff or debuffs
+Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
+Example1: |cFF00FF00Dark Plague#2|r display action when player is missing the debuff Dark Plague 2 stacks
+Example2: |cFF00FF00_Dark Plague#2|r display action when player is missing a player casted Dark Plague at 2 stacks
+Example3: |cFF00FF00_Dark Plague#2^3|r display action when player is missing a player casted Dark Plague at 2 stacks with >=3 seconds left
+Example4: |cFF00FF00Dark Plague|Forbearance|r display action when player is missing Dark Plague or Forbearance debuffs
+Example5: |cFF00FF00Dark Plague&Forbearance|r display action when player is missing both Dark Plague and Forbearance debuffs]=]
+--Translation missing 
+-- L["ROB_UI_AO_P_POWER"] = "Power:"
+--Translation missing 
+-- L["ROB_UI_AO_P_POWER_TT"] = "Only display action when player has the specified power"
+--Translation missing 
+-- L["ROB_UI_AO_P_POWER1_TT"] = [=[Input the type of unit power
+|cFF00FF000|r=MANA |cFF00FF001|r=RAGE |cFF00FF002|r=FOCUS |cFF00FF003|r=ENERGY  |cFF00FF004|r=COMBO POINTS |cFF00FF006|r=RUNIC POWER |cFF00FF007|r=SOUL SHARDS
+|cFF00FF008|r=ASTRAL POWER |cFF00FF009|r=HOLY POWER |cFF00FF0011|r=MAELSTROM |cFF00FF0012|r=CHI |cFF00FF0013|r=INSANITY |cFF00FF0016|r=ARCANE POWER
+|cFF00FF0017|r=FURY  |cFF00FF0018|r=PAIN]=]
+--Translation missing 
+-- L["ROB_UI_AO_P_POWER2"] = "Power 2:"
+--Translation missing 
+-- L["ROB_UI_AO_P_POWER2_TT"] = [=[Input the amount of power required
+Example1: |cFF00FF00>20|r
+Example2: |cFF00FF00<=20|r
+Example3: |cFF00FF00=20|r
+Example4: |cFF00FF00<90%|r]=]
+--Translation missing 
+-- L["ROB_UI_AO_P_RUNES"] = "Runes:"
+--Translation missing 
+-- L["ROB_UI_AO_P_RUNES_TT"] = "Only display action when player has specified runes"
+--Translation missing 
+-- L["ROB_UI_AO_P_RUNESIB_TT"] = [=[Input the number of runes
+Example1: |cFF00FF00>1|r means only display this action when player has more than 1 rune
+Example2: |cFF00FF00<=1|r means only display this action when player has less than or equal to 1 rune
+Example3: |cFF00FF00>=1|r means only display this action when player has 1 or more runes]=]
+--Translation missing 
+-- L["ROB_UI_AO_PET_HAVEBUFF"] = "Has Buff:"
+--Translation missing 
+-- L["ROB_UI_AO_PET_HAVEBUFF_TT"] = "Only display action when your pet has the specified buff or buffs"
+--Translation missing 
+-- L["ROB_UI_AO_PET_HAVEBUFFIB_TT"] = [=[Input the name of the buff or buffs
+Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
+Example1: |cFF00FF00Earth Shield#2|r display action when your pet has 2 stacks of Earth Shield
+Example2: |cFF00FF00_Earth Shield#2|r display action when your pet has a player casted Earth Shield at 2 stacks
+Example3: |cFF00FF00_Earth Shield#2^3|r display action when your pet has a player casted Earth Shield at 2 stacks with >=3 seconds left
+Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when your pet has Earth Shield or Inner Fire
+Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when your pet has both Earth Shield and Inner Fire]=]
+--Translation missing 
+-- L["ROB_UI_AO_PET_HP_TT"] = "Only display action when pet meets specified hit points"
+--Translation missing 
+-- L["ROB_UI_AO_PET_HPIB_TT"] = [=[Input the pet hit points to check
+Example1: |cFF00FF00<90%|r means only display this action when pet is under 90% hitpoints
+Example2: |cFF00FF00>90%|r means only display this action when pet is over 90% hitpoints
+Example3: |cFF00FF00<=90%|r means only display this action when pet is under or equal to 90% hitpoints
+Example4: |cFF00FF00>=90%|r means only display this action when pet is over or equal to 90% hitpoints
+Example5: |cFF00FF00=90%|r means only display this action when pet is at exactly 90% hitpoints]=]
+--Translation missing 
+-- L["ROB_UI_AO_PET_NEEDBUFF"] = "Needs Buff:"
+--Translation missing 
+-- L["ROB_UI_AO_PET_NEEDBUFF_TT"] = "Only display action when your pet needs specified buff or buffs"
+--Translation missing 
+-- L["ROB_UI_AO_PET_NEEDBUFFIB_TT"] = [=[Input the name of the buff or buffs
+Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
+Example1: |cFF00FF00Earth Shield#2|r display action when your pet is missing 2 stacks of Earth Shield
+Example2: |cFF00FF00_Earth Shield#2|r display action when your pet is missing a player casted Earth Shield at 2 stacks
+Example3: |cFF00FF00_Earth Shield#2^3|r display action when your pet is missing a player casted Earth Shield at 2 stacks with >=3 seconds left
+Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when your pet is missing Earth Shield or Inner Fire
+Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when your pet is missing both Earth Shield and Inner Fire]=]
+--Translation missing 
+-- L["ROB_UI_AO_PET_TAB"] = "Pet"
+--Translation missing 
+-- L["ROB_UI_AO_PLAYER_TAB"] = "Player"
+--Translation missing 
+-- L["ROB_UI_AO_T_BOSS"] = "Boss"
+--Translation missing 
+-- L["ROB_UI_AO_T_BOSS_TT"] = "Only display action if target is a boss"
+--Translation missing 
+-- L["ROB_UI_AO_T_DISPEL"] = "Dispel"
+--Translation missing 
+-- L["ROB_UI_AO_T_DISPEL_TT"] = "Only display this action if the target has a dispelable buff"
+--Translation missing 
+-- L["ROB_UI_AO_T_HAVEBUFF"] = "Has Buff:"
+--Translation missing 
+-- L["ROB_UI_AO_T_HAVEBUFF_TT"] = "Only display action when target has the specified buff or buffs"
+--Translation missing 
+-- L["ROB_UI_AO_T_HAVEBUFFIB_TT"] = [=[Input the name of the buff or buffs
+Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
+Example1: |cFF00FF00Earth Shield#2|r display action when target has 2 stacks of Earth Shield
+Example2: |cFF00FF00_Earth Shield#2|r display action when target has a player casted Earth Shield at 2 stacks
+Example3: |cFF00FF00_Earth Shield#2^3|r display action when target has a player casted Earth Shield at 2 stacks with >=3 seconds left
+Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when target has Earth Shield or Inner Fire
+Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when target has both Earth Shield and Inner Fire]=]
+--Translation missing 
+-- L["ROB_UI_AO_T_HAVEDB"] = "Have Debuff:"
+--Translation missing 
+-- L["ROB_UI_AO_T_HAVEDB_TT"] = "Only display action when target has the specified debuff or debuffs"
+--Translation missing 
+-- L["ROB_UI_AO_T_HAVEDBIB_TT"] = [=[Input the name of the debuff or debuffs
+Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
+Example1: |cFF00FF00Dark Plague#2|r display action when target has the debuff Dark Plague 2 stacks
+Example2: |cFF00FF00_Dark Plague#2|r display action when target has a player casted Dark Plague at 2 stacks
+Example3: |cFF00FF00_Dark Plague#2^3|r display action when target has a player casted Dark Plague at 2 stacks with >=3 seconds left
+Example4: |cFF00FF00Dark Plague|Forbearance|r display action when target has Dark Plague or Forbearance debuffs
+Example5: |cFF00FF00Dark Plague&Forbearance|r display action when target has both Dark Plague and Forbearance debuffs]=]
+--Translation missing 
+-- L["ROB_UI_AO_T_HP_TT"] = "Only display action when target meets specified hit points"
+--Translation missing 
+-- L["ROB_UI_AO_T_HPIB_TT"] = [=[Input the target hit points to check
+Example1: |cFF00FF00<90%|r means only display this action when target is under 90% hitpoints
+Example2: |cFF00FF00>90%|r means only display this action when target is over 90% hitpoints
+Example3: |cFF00FF00<=90%|r means only display this action when target is under or equal to 90% hitpoints
+Example4: |cFF00FF00>=90%|r means only display this action when target is over or equal to 90% hitpoints
+Example5: |cFF00FF00=90%|r means only display this action when target is at exactly 90% hitpoints]=]
+--Translation missing 
+-- L["ROB_UI_AO_T_INTERRUPT"] = "Interrupt"
+--Translation missing 
+-- L["ROB_UI_AO_T_INTERRUPT_TT"] = "Only display this action if the target is casting an interruptible spell"
+--Translation missing 
+-- L["ROB_UI_AO_T_NEEDBUFF"] = "Needs Buff:"
+--Translation missing 
+-- L["ROB_UI_AO_T_NEEDBUFF_TT"] = "Only display action when target needs specified buff or buffs"
+--Translation missing 
+-- L["ROB_UI_AO_T_NEEDBUFFIB_TT"] = [=[Input the name of the buff or buffs
+Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
+Example1: |cFF00FF00Earth Shield#2|r display action when target is missing 2 stacks of Earth Shield
+Example2: |cFF00FF00_Earth Shield#2|r display action when target is missing a player casted Earth Shield at 2 stacks
+Example3: |cFF00FF00_Earth Shield#2^3|r display action when target is missing a player casted Earth Shield at 2 stacks with >=3 seconds left
+Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when target is missing Earth Shield or Inner Fire
+Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when target is missing both Earth Shield and Inner Fire]=]
+--Translation missing 
+-- L["ROB_UI_AO_T_NEEDDB"] = "Need Debuff:"
+--Translation missing 
+-- L["ROB_UI_AO_T_NEEDDB_TT"] = "Only display action when target is missing the specified debuff or debuffs"
+--Translation missing 
+-- L["ROB_UI_AO_T_NEEDDBIB_TT"] = [=[Input the name of the debuff or debuffs
+Syntax: |cFF00FF00| |r= OR |cFF00FF00&|r = AND |cFF00FF00_|r = casted by player |cFF00FF00#|r = number of stacks |cFF00FF00^|r = refresh at seconds
+Example1: |cFF00FF00Dark Plague#2|r display action when target is missing the debuff Dark Plague 2 stacks
+Example2: |cFF00FF00_Dark Plague#2|r display action when target is missing a player casted Dark Plague at 2 stacks
+Example3: |cFF00FF00_Dark Plague#2^3|r display action when target is missing a player casted Dark Plague at 2 stacks with >=3 seconds left
+Example4: |cFF00FF00Dark Plague|Forbearance|r display action when target is missing Dark Plague or Forbearance debuffs
+Example5: |cFF00FF00Dark Plague&Forbearance|r display action when target is missing both Dark Plague and Forbearance debuffs]=]
+--Translation missing 
+-- L["ROB_UI_AO_T_NOTABOSS"] = "Not a Boss"
+--Translation missing 
+-- L["ROB_UI_AO_T_NOTABOSS_TT"] = "Only display action if target is not a boss"
+--Translation missing 
+-- L["ROB_UI_AO_T_SPELLSTEAL"] = "Spellsteal"
+--Translation missing 
+-- L["ROB_UI_AO_T_SPELLSTEAL_TT"] = "Only display this action if the target has a stealable buff"
+--Translation missing 
+-- L["ROB_UI_AO_TARGET_TAB"] = "Target"
 L["ROB_UI_CANCEL_BUTTON"] = "Annuler"
 L["ROB_UI_CLOSE_BUTTON"] = "Fermer"
 L["ROB_UI_CREATE"] = "Créer"
@@ -868,18 +1101,14 @@ L["ROB_UI_SAVE_TT"] = "Sauvegarder rotation sélectionnée"
 L["ROB_UI_TITLE"] = "Rotation Builder"
 L["ROB_UI_TOGGLE"] = "Ouvrir la fenêtre des options de Rotation Builder"
 L["ROB_UI_VERSION_LABEL"] = "Version :"
+L["ui/keybinds/toggleCustomCase/text"] = "Activer/Désactiver cas particulier :"
+L["ui/keybinds/toggleMultiTarget/text"] = "Activer/Désactiver le mode multi-cibles"
 L["ui/options/importExport/useOld/text"] = "Ancien import/export"
 L["ui/options/importExport/useOld/tooltip"] = "Utilisez l'ancien système d'import/export (Pour des raisons de compatibilité)"
-L["ui/keybinds/toggleMultiTarget/text"] = "Activer/Désactiver le mode multi-cibles"
-L["ui/keybinds/toggleCustomCase/text"] = "Activer/Désactiver cas particulier :"
 L["ui/rotations/toggleMultiTarget/text"] = "Activer/Désactiver le mode multi-cibles"
 L["ui/spells/general/isCustomCase/text"] = "Cas personalisé "
-L["ui/spells/general/notCustomCase/text"] = "Pas cas personalisé "
 L["ui/spells/general/isCustomCase/tooltip"] = "N’afficher cette action qu’uniquement si ce cas personalisé est activé"
+L["ui/spells/general/notCustomCase/text"] = "Pas cas personalisé "
 L["ui/spells/general/notCustomCase/tooltip"] = "N’afficher cette action qu’uniquement si ce cas personalisé est désactivé"
-L["msg/action/keybinds/multiTarget/enabled"] = "Mode rotation multi-cibles activé"
-L["msg/action/keybinds/multiTarget/disabled"] = "Mode rotation multi-cibles désactivé"
-L["msg/action/keybinds/customCase/enabled"] = "Activer cas particulier : "
-L["msg/action/keybinds/customCase/disabled"] = "Désactiver cas particulier : "
 --@end-do-not-package@
 --@localization(locale="frFR", format="lua_additive_table")@

@@ -17,6 +17,7 @@ RotationBuilderUtils = {
 		["b_hasproc"] = false,
 		["b_incombat"] = false,
 		["b_spellInRange"] = false,
+		["b_hasMinRange"] = false,
 		["b_interrupt"] = false,
 		["b_lastcasted"] = false,
 		["b_maxcasts"] = false,
