@@ -2,27 +2,26 @@
 local druidRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/druid/restoration_multi"] = {
-			["version"] = 1,
+			["version"] = 3,
 			["bindindex"] = 0,
 			["SortedActions"] = {
-				"defaultRotation/druid/cenarion_ward", -- [1]
-				"defaultRotation/druid/renewal", -- [2]
-				"defaultRotation/druid/moonkin_form", -- [3]
-				"defaultRotation/druid/cat_form", -- [4]
-				"defaultRotation/druid/bear_form", -- [5]
-				"defaultRotation/druid/ironfur", -- [6]
-				"defaultRotation/druid/frenzied_regeneration", -- [7]
-				"defaultRotation/druid/wild_charge", -- [8]
-				"defaultRotation/druid/moonfire", -- [9]
-				"defaultRotation/druid/sunfire", -- [10]
-				"defaultRotation/druid/starsurge", -- [11]
-				"defaultRotation/druid/lunar_strike", -- [12]
-				"defaultRotation/druid/rake", -- [13]
-				"defaultRotation/druid/rip", -- [14]
-				"defaultRotation/druid/ferocious_bite", -- [15]
-				"defaultRotation/druid/swipe", -- [16]
-				"defaultRotation/druid/thrash", -- [17]
-				"defaultRotation/druid/mangle", -- [18]
+				"defaultRotation/druid/renewal", -- [1]
+				"defaultRotation/druid/moonkin_form", -- [2]
+				"defaultRotation/druid/cat_form", -- [3]
+				"defaultRotation/druid/bear_form", -- [4]
+				"defaultRotation/druid/ironfur", -- [5]
+				"defaultRotation/druid/frenzied_regeneration", -- [6]
+				"defaultRotation/druid/wild_charge", -- [7]
+				"defaultRotation/druid/moonfire", -- [8]
+				"defaultRotation/druid/sunfire", -- [9]
+				"defaultRotation/druid/starsurge", -- [10]
+				"defaultRotation/druid/lunar_strike", -- [11]
+				"defaultRotation/druid/rake", -- [12]
+				"defaultRotation/druid/rip", -- [13]
+				"defaultRotation/druid/ferocious_bite", -- [14]
+				"defaultRotation/druid/swipe", -- [15]
+				"defaultRotation/druid/thrash", -- [16]
+				"defaultRotation/druid/mangle", -- [17]
 			},
 			["specID"] = 4,
 			["ActionList"] = {
@@ -40,10 +39,6 @@ local druidRotationsGenerator = function ()
 					["v_p_havebuff"] = "5487",
 					["v_gunitpower"] = "5",
 					["b_p_havebuff"] = true,
-				},
-				["defaultRotation/druid/cenarion_ward"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "102351",
 				},
 				["defaultRotation/druid/ironfur"] = {
 					["v_p_needbuff"] = "192081",
@@ -78,6 +73,7 @@ local druidRotationsGenerator = function ()
 					["v_p_havebuff"] = "5487",
 					["v_gunitpower"] = "4",
 					["b_p_havebuff"] = true,
+					["b_notinspellbook"] = true,
 				},
 				["defaultRotation/druid/swipe"] = {
 					["b_gspellcost"] = true,
@@ -194,25 +190,24 @@ local druidRotationsGenerator = function ()
 		},
 		["defaultRotation/druid/restoration"] = {
 			["SortedActions"] = {
-				"defaultRotation/druid/cenarion_ward", -- [1]
-				"defaultRotation/druid/renewal", -- [2]
-				"defaultRotation/druid/moonkin_form", -- [3]
-				"defaultRotation/druid/cat_form", -- [4]
-				"defaultRotation/druid/bear_form", -- [5]
-				"defaultRotation/druid/ironfur", -- [6]
-				"defaultRotation/druid/frenzied_regeneration", -- [7]
-				"defaultRotation/druid/wild_charge", -- [8]
-				"defaultRotation/druid/moonfire", -- [9]
-				"defaultRotation/druid/sunfire", -- [10]
-				"defaultRotation/druid/starsurge", -- [11]
-				"defaultRotation/druid/lunar_strike", -- [12]
-				"defaultRotation/druid/solar_wrath", -- [13]
-				"defaultRotation/druid/rake", -- [14]
-				"defaultRotation/druid/rip", -- [15]
-				"defaultRotation/druid/ferocious_bite", -- [16]
-				"defaultRotation/druid/shred", -- [17]
-				"defaultRotation/druid/mangle", -- [18]
-				"defaultRotation/druid/thrash", -- [19]
+				"defaultRotation/druid/renewal", -- [1]
+				"defaultRotation/druid/moonkin_form", -- [2]
+				"defaultRotation/druid/cat_form", -- [3]
+				"defaultRotation/druid/bear_form", -- [4]
+				"defaultRotation/druid/ironfur", -- [5]
+				"defaultRotation/druid/frenzied_regeneration", -- [6]
+				"defaultRotation/druid/wild_charge", -- [7]
+				"defaultRotation/druid/moonfire", -- [8]
+				"defaultRotation/druid/sunfire", -- [9]
+				"defaultRotation/druid/starsurge", -- [10]
+				"defaultRotation/druid/lunar_strike", -- [11]
+				"defaultRotation/druid/solar_wrath", -- [12]
+				"defaultRotation/druid/rake", -- [13]
+				"defaultRotation/druid/rip", -- [14]
+				"defaultRotation/druid/ferocious_bite", -- [15]
+				"defaultRotation/druid/shred", -- [16]
+				"defaultRotation/druid/mangle", -- [17]
+				"defaultRotation/druid/thrash", -- [18]
 			},
 			["specID"] = 4,
 			["ActionList"] = {
@@ -280,6 +275,7 @@ local druidRotationsGenerator = function ()
 					["v_p_havebuff"] = "5487",
 					["v_gunitpower"] = "4",
 					["v_durationstartedtime"] = 0,
+					["b_notinspellbook"] = true,
 				},
 				["defaultRotation/druid/rake"] = {
 					["b_gspellcost"] = true,
@@ -344,10 +340,6 @@ local druidRotationsGenerator = function ()
 					["b_p_knowspell"] = true,
 					["v_p_knowspell"] = "197491",
 				},
-				["defaultRotation/druid/cenarion_ward"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "102351",
-				},
 				["defaultRotation/druid/wild_charge"] = {
 					["b_spellInRange"] = true,
 					["v_durationstartedtime"] = 0,
@@ -387,7 +379,7 @@ local druidRotationsGenerator = function ()
 				},
 			},
 			["bindindex"] = 0,
-			["version"] = 5,
+			["version"] = 7,
 		},
 		["defaultRotation/druid/guardian_multi"] = {
 			["SortedActions"] = {
@@ -415,7 +407,7 @@ local druidRotationsGenerator = function ()
 				"defaultRotation/druid/ferocious_bite", -- [22]
 				"defaultRotation/druid/swipe_feral", -- [23]
 			},
-			["version"] = 1,
+			["version"] = 2,
 			["bindindex"] = 0,
 			["ActionList"] = {
 				["defaultRotation/druid/lunar_strike"] = {
@@ -466,6 +458,7 @@ local druidRotationsGenerator = function ()
 					["v_p_havebuff"] = "5487",
 					["v_gunitpower"] = "4",
 					["v_durationstartedtime"] = 0,
+					["b_notinspellbook"] = true,
 				},
 				["defaultRotation/druid/swipe"] = {
 					["v_durationstartedtime"] = 0,
@@ -636,7 +629,7 @@ local druidRotationsGenerator = function ()
 			["isMultiTarget"] = true,
 		},
 		["defaultRotation/druid/guardian"] = {
-			["version"] = 5,
+			["version"] = 6,
 			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/druid/lunar_strike"] = {
@@ -708,6 +701,7 @@ local druidRotationsGenerator = function ()
 					["v_gunitpower"] = "4",
 					["v_p_havebuff"] = "5487",
 					["b_gunitpower"] = true,
+					["b_notinspellbook"] = true,
 				},
 				["defaultRotation/druid/swipe"] = {
 					["b_p_havebuff"] = true,
@@ -1043,6 +1037,7 @@ local druidRotationsGenerator = function ()
 					["v_p_havebuff"] = "5487",
 					["v_gunitpower"] = "4",
 					["v_durationstartedtime"] = 0,
+					["b_notinspellbook"] = true,
 				},
 				["defaultRotation/druid/swipe"] = {
 					["b_gspellcost"] = true,
@@ -1282,10 +1277,10 @@ local druidRotationsGenerator = function ()
 					["v_spellname"] = "108238",
 				},
 			},
-			["version"] = 1,
+			["version"] = 2,
 		},
 		["defaultRotation/druid/balance"] = {
-			["version"] = 5,
+			["version"] = 6,
 			["bindindex"] = 0,
 			["ActionList"] = {
 				["defaultRotation/druid/lunar_strike"] = {
@@ -1358,6 +1353,7 @@ local druidRotationsGenerator = function ()
 					["v_gunitpower"] = "4",
 					["v_p_havebuff"] = "5487",
 					["b_gunitpower"] = true,
+					["b_notinspellbook"] = true,
 				},
 				["defaultRotation/druid/rake"] = {
 					["v_t_needsdebuff"] = "_155722^4.5",

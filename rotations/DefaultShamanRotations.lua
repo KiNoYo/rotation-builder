@@ -6,15 +6,9 @@ local shamanRotationsGenerator = function ()
 			["SortedActions"] = {
 				"defaultRotation/shaman/wind_shear", -- [1]
 				"defaultRotation/shaman/purge", -- [2]
-				"defaultRotation/shaman/riptide", -- [3]
-				"defaultRotation/shaman/chain_heal", -- [4]
-				"defaultRotation/shaman/earthen_shield_totem", -- [5]
-				"defaultRotation/shaman/cloudburst_totem", -- [6]
-				"defaultRotation/shaman/healing_stream_totem", -- [7]
-				"defaultRotation/shaman/healing_rain", -- [8]
-				"defaultRotation/shaman/flame_shock", -- [9]
-				"defaultRotation/shaman/lava_burst", -- [10]
-				"defaultRotation/shaman/lightning_bolt", -- [11]
+				"defaultRotation/shaman/flame_shock", -- [3]
+				"defaultRotation/shaman/lava_burst", -- [4]
+				"defaultRotation/shaman/lightning_bolt", -- [5]
 			},
 			["ActionList"] = {
 				["defaultRotation/shaman/lightning_bolt"] = {
@@ -25,39 +19,15 @@ local shamanRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "51505",
 				},
-				["defaultRotation/shaman/healing_stream_totem"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "5394",
-				},
-				["defaultRotation/shaman/chain_heal"] = {
-					["v_p_needbuff"] = "53390",
-					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "1064",
-				},
-				["defaultRotation/shaman/cloudburst_totem"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "157153",
-				},
 				["defaultRotation/shaman/purge"] = {
 					["b_t_dispel"] = true,
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "370",
 				},
-				["defaultRotation/shaman/riptide"] = {
-					["v_p_needbuff"] = "53390",
-					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "61295",
-				},
 				["defaultRotation/shaman/wind_shear"] = {
 					["b_t_interrupt"] = true,
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "57994",
-				},
-				["defaultRotation/shaman/healing_rain"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "73920",
 				},
 				["defaultRotation/shaman/flame_shock"] = {
 					["v_t_needsdebuff"] = "_188838^6.3",
@@ -65,55 +35,25 @@ local shamanRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "188838",
 				},
-				["defaultRotation/shaman/earthen_shield_totem"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "198838",
-				},
 			},
 			["specID"] = 3,
-			["version"] = 6,
+			["version"] = 7,
 		},
 		["defaultRotation/shaman/restoration_multi"] = {
 			["bindindex"] = 0,
-			["version"] = 1,
+			["version"] = 2,
 			["SortedActions"] = {
 				"defaultRotation/shaman/wind_shear", -- [1]
 				"defaultRotation/shaman/purge", -- [2]
-				"defaultRotation/shaman/riptide", -- [3]
-				"defaultRotation/shaman/chain_heal", -- [4]
-				"defaultRotation/shaman/earthen_shield_totem", -- [5]
-				"defaultRotation/shaman/cloudburst_totem", -- [6]
-				"defaultRotation/shaman/healing_stream_totem", -- [7]
-				"defaultRotation/shaman/healing_rain", -- [8]
-				"defaultRotation/shaman/flame_shock", -- [9]
-				"defaultRotation/shaman/lava_burst", -- [10]
-				"defaultRotation/shaman/chain_lightning", -- [11]
+				"defaultRotation/shaman/flame_shock", -- [3]
+				"defaultRotation/shaman/lava_burst", -- [4]
+				"defaultRotation/shaman/chain_lightning", -- [5]
 			},
 			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/shaman/lava_burst"] = {
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "51505",
-				},
-				["defaultRotation/shaman/riptide"] = {
-					["v_p_needbuff"] = "53390",
-					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "61295",
-				},
-				["defaultRotation/shaman/healing_stream_totem"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "5394",
-				},
-				["defaultRotation/shaman/chain_heal"] = {
-					["v_p_needbuff"] = "53390",
-					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "1064",
-				},
-				["defaultRotation/shaman/cloudburst_totem"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "157153",
 				},
 				["defaultRotation/shaman/purge"] = {
 					["b_t_dispel"] = true,
@@ -129,19 +69,11 @@ local shamanRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "188443",
 				},
-				["defaultRotation/shaman/healing_rain"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "73920",
-				},
 				["defaultRotation/shaman/flame_shock"] = {
 					["v_t_needsdebuff"] = "_188838^6.3",
 					["b_t_needsdebuff"] = true,
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "188838",
-				},
-				["defaultRotation/shaman/earthen_shield_totem"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "198838",
 				},
 			},
 			["isMultiTarget"] = true,
