@@ -158,8 +158,8 @@ local ROB_Initialized               = false
 local ROB_SortedRotations           = {};      -- Sorted rotation table
 local ROB_EditingRotationTable      = nil;     -- Rotation table being edited
 ROB_SelectedRotationName            = nil;     -- Selected Rotation Name
-ROB_SelectedRotationSpec = nil; -- Selected Rotation Specialization
-ROB_RotationMultiTargetEnabled = false; -- If we are seeking for a multi-target rotation.
+ROB_SelectedRotationSpec			= nil;     -- Selected Rotation Specialization
+ROB_RotationMultiTargetEnabled		= false;   -- If we are seeking for a multi-target rotation.
 local ROB_SelectedRotationIndex     = nil;     -- Selected Rotation Index
 local ROB_SelectedActionIndex       = nil;     -- Selected Action Index
 local ROB_CurrentActionName         = nil;     -- The current selected ActionName
@@ -748,6 +748,7 @@ end
 function ROB_RotationCreateButton_OnClick(self)
 	-- start a new empty list
 	ROB_EditingRotationTable = ROB_NewRotation();
+	ROB_RotationMultiTargetCheckbox:Show();
 
 	-- new name prompt
 	ROB_SelectedRotationName = "<rotation name>";
@@ -781,6 +782,7 @@ function ROB_ModifyRotationButton_OnClick(self)
 	if not ROB_SelectedRotationSpec then
 		ROB_SelectedRotationSpec = ""
 	end
+	ROB_RotationMultiTargetCheckbox:Show();
 	ROB_RotationMultiTargetEnabled = ROB_Rotations[ROB_SelectedRotationName]["isMultiTarget"];
 
 	ROB_EditingRotationTable = ROB_CopyTable(ROB_Rotations[ROB_SelectedRotationName]);
@@ -866,6 +868,7 @@ function ROB_Save_OnClick(self)
 	-- and discard to reset editing
 	ROB_Discard_OnClick(self);
 
+	ROB_RotationMultiTargetCheckbox:Hide();
 	ROB_SwitchRotation(_lastEditedRotation, true)
 end
 
@@ -1556,6 +1559,7 @@ function ROB_RotationModifyButtons_UpdateUI()
 		ROB_RotationExportButton:Disable();
 		ROB_RotationListModifyButton:Hide();
 		ROB_RotationListDeleteButton:Hide();
+		ROB_RotationMultiTargetCheckbox:Show();
 	elseif (ROB_SelectedRotationIndex ~= nil) then
 		-- enable create, modify and remove
 		ROB_RotationCreateButton:Enable();
@@ -1563,6 +1567,7 @@ function ROB_RotationModifyButtons_UpdateUI()
 		ROB_RotationExportButton:Enable();
 		ROB_RotationListModifyButton:Show();
 		ROB_RotationListDeleteButton:Show();
+		ROB_RotationMultiTargetCheckbox:Hide();
 		-- retrieve rotation value from saved options
 		local rotationName = ROB_SortedRotations[ROB_SelectedRotationIndex];
 		local specID = tonumber(ROB_Rotations[rotationName]["specID"])
@@ -1582,6 +1587,7 @@ function ROB_RotationModifyButtons_UpdateUI()
 		ROB_RotationExportButton:Enable();
 		ROB_RotationListModifyButton:Hide();
 		ROB_RotationListDeleteButton:Hide();
+		ROB_RotationMultiTargetCheckbox:Hide();
 		-- reset rotation values
 		ROB_RotationNameROText:SetText("");
 		ROB_RotationSpecROText:SetText("");
