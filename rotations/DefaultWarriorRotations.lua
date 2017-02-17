@@ -776,7 +776,7 @@ local warriorRotationsGenerator = function ()
 				"defaultRotation/warrior/revenge", -- [15]
 				"defaultRotation/warrior/devastate", -- [16]
 			},
-			["version"] = 5,
+			["version"] = 6,
 			["ActionList"] = {
 				["defaultRotation/warrior/intercept"] = {
 					["b_spellInRange"] = true,
@@ -792,11 +792,9 @@ local warriorRotationsGenerator = function ()
 					["b_p_needbuff"] = true,
 					["b_p_havebuff"] = true,
 					["v_p_unitpower"] = ">=13",
-					["v_p_hp"] = "<85%",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "190456",
 					["v_p_unitpowertype"] = "1",
-					["b_p_hp"] = true,
 					["v_p_havebuff"] = "202574",
 					["b_p_unitpower"] = true,
 				},
@@ -847,11 +845,9 @@ local warriorRotationsGenerator = function ()
 				["defaultRotation/warrior/ignore_pain"] = {
 					["v_p_needbuff"] = "190456^4.5||202574||190456",
 					["b_p_needbuff"] = true,
-					["v_p_hp"] = "<85%",
 					["b_p_unitpower"] = true,
 					["v_spellname"] = "190456",
 					["v_durationstartedtime"] = 0,
-					["b_p_hp"] = true,
 					["v_p_unitpower"] = ">=20",
 					["v_p_unitpowertype"] = "1",
 				},
@@ -911,7 +907,7 @@ local warriorRotationsGenerator = function ()
 			["bindindex"] = 0,
 		},
 		["defaultRotation/warrior/protection_multi"] = {
-			["version"] = 2,
+			["version"] = 3,
 			["SortedActions"] = {
 				"defaultRotation/warrior/pummel", -- [1]
 				"defaultRotation/warrior/intercept", -- [2]
@@ -996,11 +992,9 @@ local warriorRotationsGenerator = function ()
 				["defaultRotation/warrior/ignore_pain"] = {
 					["v_p_needbuff"] = "190456^4.5||202574||190456",
 					["b_p_needbuff"] = true,
-					["v_p_hp"] = "<85%",
 					["v_p_unitpowertype"] = "1",
 					["v_spellname"] = "190456",
 					["v_durationstartedtime"] = 0,
-					["b_p_hp"] = true,
 					["v_p_unitpower"] = ">=20",
 					["b_p_unitpower"] = true,
 				},
@@ -1026,11 +1020,9 @@ local warriorRotationsGenerator = function ()
 					["b_p_needbuff"] = true,
 					["b_p_havebuff"] = true,
 					["v_p_unitpower"] = ">=13",
-					["v_p_hp"] = "<85%",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "190456",
 					["b_p_unitpower"] = true,
-					["b_p_hp"] = true,
 					["v_p_havebuff"] = "202574",
 					["v_p_unitpowertype"] = "1",
 				},
