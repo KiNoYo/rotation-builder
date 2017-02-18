@@ -1900,6 +1900,10 @@ function ROB_SpellHasCharges(spellId, number)
 	local parsedCharges = number;
 	local charges, _, _, _ = GetSpellCharges(spellId);
 
+	-- TODO : special case for discipline atonement their is a count displayed as charges on another spell but to recover this number the getSpellCount function must be used
+	if(tonumber(spellId) == 200829) then
+		charges = GetSpellCount(spellId);
+	end
 	if charges == nil then
 		return false;
 	end
