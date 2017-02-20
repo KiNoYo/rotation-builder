@@ -837,7 +837,7 @@ local warlockRotationsGenerator = function ()
 			["isMultiTarget"] = true,
 		},
 		["defaultRotation/warlock/destruction"] = {
-			["version"] = 4,
+			["version"] = 5,
 			["bindindex"] = 0,
 			["specID"] = 3,
 			["ActionList"] = {
@@ -851,7 +851,7 @@ local warlockRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 				},
 				["defaultRotation/warlock/immolate"] = {
-					["v_t_needsdebuff"] = "_348^5.4",
+					["v_t_needsdebuff"] = "_157736^5.4",
 					["b_t_needsdebuff"] = true,
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "348",
@@ -952,7 +952,7 @@ local warlockRotationsGenerator = function ()
 					["v_gunitpowertype"] = "7",
 					["v_durationstartedtime"] = 0,
 					["v_gunitpower"] = "1",
-					["v_t_hasdebuff"] = "_348^5.4",
+					["v_t_hasdebuff"] = "_157736^5.4",
 				},
 				["defaultRotation/warlock/conflagrate"] = {
 					["v_p_knownotspell"] = "205184||17877",
@@ -1033,7 +1033,7 @@ local warlockRotationsGenerator = function ()
 		},
 		["defaultRotation/warlock/destruction_multi"] = {
 			["bindindex"] = 0,
-			["version"] = 1,
+			["version"] = 2,
 			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/warlock/shadowburn"] = {
@@ -1046,7 +1046,7 @@ local warlockRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 				},
 				["defaultRotation/warlock/immolate"] = {
-					["v_t_needsdebuff"] = "_348^5.4",
+					["v_t_needsdebuff"] = "_157736^5.4",
 					["b_t_needsdebuff"] = true,
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "348",
@@ -1139,7 +1139,7 @@ local warlockRotationsGenerator = function ()
 					["v_gunitpowertype"] = "7",
 					["b_gunitpower"] = true,
 					["v_gunitpower"] = "1",
-					["v_t_hasdebuff"] = "_348^5.4",
+					["v_t_hasdebuff"] = "_157736^5.4",
 				},
 				["defaultRotation/warlock/rain_of_fire"] = {
 					["b_gspellcost"] = true,

@@ -2162,34 +2162,28 @@ function ROB_SpellPassesOtherCooldownCheck(othercd, checkstring, notaspell)
 end
 
 function ROB_UnitHasDispelableBuff()
-	local buffs, i = { }, 1;
-	local buff, _, _, _, bufftype, _, _, _, _, _, _ ,_ ,_ ,_ ,_ ,_ ,_ ,_ ,_ = UnitBuff("TARGET", i, "HELPFUL");
-	while buff do
-	if(bufftype == "MAGIC") then
-		buffs[#buffs + 1] = buff;
+	for i=1, 40 do
+		local name, _, _, _, type, _, _, _, _, _, _ ,_ ,_ ,_ ,_ ,_ ,_ ,_ ,_ = UnitAura("TARGET", i, "HELPFUL");
+		if name == nil then
+			break;
+		end
+		if buff == "MAGIC" then
+			return true;
+		end
 	end
-	i = i + 1;
-	buff = UnitBuff("player", i, "HELPFUL");
-	end;
-	if #buffs >= 1 then
-		return true;
-	end;
 	return false;
 end
 
 function ROB_UnitHasStealableBuff()
-	local buffs, i = { }, 1;
-	local buff, _, _, _, _, _, _, _, stealable, _, _ ,_ ,_ ,_ ,_ ,_ ,_ ,_ ,_ = UnitBuff("TARGET", i, "HELPFUL");
-	while buff do
-	if (stealable == 1) then
-		buffs[#buffs + 1] = buff;
+	for i=1, 40 do
+		local name, _, _, _, _, _, _, _, stealable, _, _ ,_ ,_ ,_ ,_ ,_ ,_ ,_ ,_ = UnitAura("TARGET", i, "HELPFUL");
+		if name == nil then
+			break;
+		end
+		if stealable then
+			return true;
+		end
 	end
-	i = i + 1;
-	buff = UnitBuff("player", i, "HELPFUL");
-	end;
-	if #buffs >= 1 then
-		return true;
-	end;
 	return false;
 end
 
