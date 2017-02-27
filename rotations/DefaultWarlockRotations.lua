@@ -228,7 +228,7 @@ local warlockRotationsGenerator = function ()
 			},
 		},
 		["defaultRotation/warlock/affliction_multi"] = {
-			["version"] = 2,
+			["version"] = 3,
 			["SortedActions"] = {
 				"defaultRotation/warlock/spell_lock", -- [1]
 				"defaultRotation/warlock/summon_infernal_grimoire_of_supremacy", -- [2]
@@ -363,8 +363,10 @@ local warlockRotationsGenerator = function ()
 					["v_p_hp"] = ">50%",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "1454",
-					["b_p_needbuff"] = true,
+					["v_p_knowspell"] = "235157",
 					["b_p_hp"] = true,
+					["b_p_needbuff"] = true,
+					["b_p_knowspell"] = true,
 				},
 				["defaultRotation/warlock/grimoire_of_sacrifice"] = {
 					["v_p_needbuff"] = "196099",

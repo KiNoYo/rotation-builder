@@ -324,7 +324,7 @@ local shamanRotationsGenerator = function ()
 			["bindindex"] = 0,
 		},
 		["defaultRotation/shaman/enhancement_multi"] = {
-			["version"] = 3,
+			["version"] = 4,
 			["SortedActions"] = {
 				"defaultRotation/shaman/wind_shear", -- [1]
 				"defaultRotation/shaman/purge", -- [2]
@@ -417,7 +417,7 @@ local shamanRotationsGenerator = function ()
 					["b_p_unitpower"] = true,
 					["v_spellname"] = "51533",
 					["v_p_unitpowertype"] = "11",
-					["v_checkothercdvalue"] = "=0",
+					["v_checkothercdvalue"] = "<1.5",
 					["v_p_unitpower"] = ">=20",
 					["v_checkothercdname"] = "187874",
 				},

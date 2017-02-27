@@ -2,7 +2,7 @@
 local paladinRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/paladin/retribution"] = {
-			["version"] = 6,
+			["version"] = 7,
 			["SortedActions"] = {
 				"defaultRotation/paladin/rebuke", -- [1]
 				"defaultRotation/paladin/holy_wrath", -- [2]
@@ -55,9 +55,11 @@ local paladinRotationsGenerator = function ()
 				},
 				["defaultRotation/paladin/hammer_of_justice"] = {
 					["b_p_havebuff"] = true,
+					["b_t_hasdebuff"] = true,
 					["v_spellname"] = "853",
 					["b_t_notaboss"] = true,
 					["v_p_havebuff"] = "223819",
+					["v_t_hasdebuff"] = "_197277",
 					["v_durationstartedtime"] = 0,
 				},
 				["defaultRotation/paladin/templar_verdict"] = {
@@ -242,7 +244,7 @@ local paladinRotationsGenerator = function ()
 				"defaultRotation/paladin/zeal", -- [19]
 				"defaultRotation/paladin/crusader_strike", -- [20]
 			},
-			["version"] = 2,
+			["version"] = 3,
 			["ActionList"] = {
 				["defaultRotation/paladin/justicar_vengeance"] = {
 					["v_durationstartedtime"] = 0,
@@ -273,9 +275,11 @@ local paladinRotationsGenerator = function ()
 				},
 				["defaultRotation/paladin/hammer_of_justice"] = {
 					["b_p_havebuff"] = true,
+					["b_t_hasdebuff"] = true,
 					["v_spellname"] = "853",
 					["b_t_notaboss"] = true,
 					["v_p_havebuff"] = "223819",
+					["v_t_hasdebuff"] = "_197277",
 					["v_durationstartedtime"] = 0,
 				},
 				["defaultRotation/paladin/crusade"] = {
