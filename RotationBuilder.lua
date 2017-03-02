@@ -42,6 +42,7 @@ local ROB_Options_Default           = {
 	OldImportExport                  = false;
 	HideCD                           = false;
 	Enemy                            = false;
+	OnOff							 = false;
 	IconsX                           = 0;
 	IconsY                           = 0;
 	IconScale                        = 1;
@@ -153,7 +154,7 @@ ROB_NewActionDefaults = {
 
 ROB_ActionClipboard                 = nil;
 
-local ROB_Initialized               = false
+local ROB_Initialized               = false;
 
 local ROB_SortedRotations           = {};      -- Sorted rotation table
 local ROB_EditingRotationTable      = nil;     -- Rotation table being edited
@@ -278,15 +279,16 @@ local function ROB_MenuInit(self, _level)
 	end
 end
 
+-- TODO - ROB icon click for left button to change to on/off
 function ROB_MenuOnClick(self, button)
 	if button == "LeftButton" then
-		GameTooltip:Hide()
-		if (not ROB_MENU_FRAME) then
-			ROB_MENU_FRAME = CreateFrame("Frame", "ROB_Menu", UIParent, "UIDropDownMenuTemplate")
+		if(ROB_Options.OnOff) then
+			ROB_Options.OnOff = false;
+			ROB_OptionsTabOnOffButton:SetChecked(false);
+		else
+			ROB_Options.OnOff = true;
+			ROB_OptionsTabOnOffButton:SetChecked(true);
 		end
-
-		ROB_MenuCreate()
-		UIDropDownMenu_Initialize(ROB_MENU_FRAME, ROB_MenuInit, "MENU")
 	elseif button == "RightButton" then
 		ROB_OnToggle();
 	end
@@ -532,6 +534,8 @@ function ROB_PLAYER_Enter()
 	ROB_UPDATE_INTERVAL = 1 / ROB_Options.updaterate
 	ROB_OptionsTabUpdateRateSlider:SetValue(ROB_Options.updaterate);
 	ROB_OptionsTabUpdateRateSliderText:SetText(ROB_Options.updaterate);
+	
+	ROB_OptionsTabOnOffButton:SetChecked(ROB_Options.OnOff);
 
 	ROB_MiniMapButton_Update();
 
@@ -585,6 +589,12 @@ function ROB_OnCommand(cmd)
 		help = true;
 	elseif   (cmd == "show") then
 		ROB_OnToggle(self, true);
+	elseif   (cmd == "on") then
+		ROB_Options.OnOff = false;
+		ROB_OptionsTabOnOffButton:SetChecked(false);
+	elseif   (cmd == "off") then
+		ROB_Options.OnOff = true;
+		ROB_OptionsTabOnOffButton:SetChecked(true);
 	elseif   (string.sub(cmd,1,2) == "r ") then
 		ROB_SwitchRotation(string.sub(cmd,3), true);
 	elseif   (cmd == "hide") then
@@ -599,6 +609,8 @@ function ROB_OnCommand(cmd)
 		print("Rotation Builder commands:")
 		print(" help - display this help")
 		print(" show - show Rotation Builder")
+		print(" on - activate Rotation Builder")
+		print(" off - deactivate Rotation Builder")
 		print(" r ShadowMelt - Selects the ShadowMelt rotation")
 		print(" hide - hide Rotation Builder")
 		print(" resetui - reset Rotation Builder window positions")
@@ -1327,6 +1339,10 @@ end
 
 function ROB_OptionsTabEnemyButton_OnToggle(self)
 	ROB_Options.Enemy = self:GetChecked();
+end
+
+function ROB_OptionsTabOnOffButton_OnToggle(self)
+	ROB_Options.OnOff = self:GetChecked();
 end
 
 function ROB_Option_MiniMapButtonPos_OnValueChanged(self)
@@ -3057,22 +3073,28 @@ end
 function ROB_OnUpdate(self, elapsed)
 	self.TimeSinceLastUpdate = self.TimeSinceLastUpdate + elapsed;
 	while (self.TimeSinceLastUpdate > ROB_UPDATE_INTERVAL) do
-		if (ROB_SelectedRotationName and ROB_Rotations[ROB_SelectedRotationName] ~= nil and ROB_Rotations[ROB_SelectedRotationName].SortedActions ~= nil) then
+		if(not ROB_Options.OnOff) then
+			ROB_CurrentActionButton:Show();
+			ROB_NextActionButton:Show();
+			if (ROB_SelectedRotationName and ROB_Rotations[ROB_SelectedRotationName] ~= nil and ROB_Rotations[ROB_SelectedRotationName].SortedActions ~= nil) then
 
-			-- Update the GCD in the case that the character haste as changed
-			ROB_ACTION_GCD = ROB_GetGCD();
+				-- Update the GCD in the case that the character haste as changed
+				ROB_ACTION_GCD = ROB_GetGCD();
 
-			--Get the first spell that is ready and set the texture
-			ROB_GetCurrentAction();
+				--Get the first spell that is ready and set the texture
+				ROB_GetCurrentAction();
 
-			--Now get the next ready action
-			ROB_GetNextAction();
+				--Now get the next ready action
+				ROB_GetNextAction();
+			else
+				--No rotation selected so hide both icon frames
+				ROB_CurrentActionButton:Hide();
+				ROB_NextActionButton:Hide();
+			end
 		else
-			--No rotation selected so hide both icon frames
 			ROB_CurrentActionButton:Hide();
 			ROB_NextActionButton:Hide();
 		end
-
 		ROB_DebugOnUpdate();
 		self.TimeSinceLastUpdate = self.TimeSinceLastUpdate - ROB_UPDATE_INTERVAL;
 	end

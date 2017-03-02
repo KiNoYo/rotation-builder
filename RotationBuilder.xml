@@ -4117,7 +4117,27 @@
 									<OnClick>ROB_Options_UIScaleSub_OnClick(self);</OnClick>
 								</Scripts>
 							</Button>
-
+							<CheckButton name="ROB_OptionsTabOnOffButton" inherits="ROB_CheckButtonTemplate">
+								<Size>
+									<AbsDimension x="20" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_OptionsTabUIOptionsFrame" relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="5" y="-50" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>ROB_OptionsTabOnOffButtonText:SetText(RotationBuilderUtils:localize('ui/options/ui/onOff/text'))</OnLoad>
+									<OnClick>ROB_OptionsTabOnOffButton_OnToggle(self);</OnClick>
+									<OnEnter>
+										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
+										GameTooltip:SetText(RotationBuilderUtils:localize('ui/options/ui/onOff/tooltip'));
+									</OnEnter>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</CheckButton>
 							<Button name="ROB_OptionsTabResetUI" inherits="UIPanelButtonTemplate">
 								<Size>
 									<AbsDimension x="120" y="20" />
