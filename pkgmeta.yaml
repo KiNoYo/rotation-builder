@@ -3,13 +3,13 @@ package-as: RotationBuilder
 enable-nolib-creation: no
 
 externals:
-  libs/LibStub:
+  libs/Ace-3.0/LibStub:
     url: https://repos.wowace.com/wow/ace3/tags/Release-r1158/LibStub
     tag: latest
-  libs/AceLocale-3.0:
+  libs/Ace-3.0/AceLocale-3.0:
     url: https://repos.wowace.com/wow/ace3/tags/Release-r1158/AceLocale-3.0
     tag: latest
-  libs/AceSerializer-3.0:
+  libs/Ace-3.0/AceSerializer-3.0:
     url: https://repos.wowace.com/wow/ace3/tags/Release-r1158/AceSerializer-3.0
     tag: latest
 

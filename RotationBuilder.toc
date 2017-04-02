@@ -6,9 +6,9 @@
 ## SavedVariablesPerCharacter: ROB_Options ROB_Rotations ROB_Exports
 
 -- Library
-libs\LibStub\LibStub.lua
-libs\AceLocale-3.0\AceLocale-3.0.lua
-libs\AceSerializer-3.0\AceSerializer-3.0.lua
+libs\Ace-3.0\LibStub\LibStub.lua
+libs\Ace-3.0\AceLocale-3.0\AceLocale-3.0.lua
+libs\Ace-3.0\AceSerializer-3.0\AceSerializer-3.0.lua
 
 -- Localization
 localization\enUS.lua
