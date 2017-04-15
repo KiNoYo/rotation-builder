@@ -2434,6 +2434,11 @@ function ROB_SetButtonTexture(_button, _texture)
 	end
 end
 
+-- Check if the current unit do not exist or is dead or that's not an enemy (only if the option is enable).
+function ROB_ShouldNotDisplayAction()
+	return not UnitExists("target") or (ROB_Options.Enemy and UnitIsFriend("player","target"));
+end
+
 function ROB_SetNextActionTexture(_compareaction)
 	local _ActionDB = ROB_Rotations[ROB_SelectedRotationName].ActionList[_compareaction]
 	local _r = nil
@@ -2441,7 +2446,7 @@ function ROB_SetNextActionTexture(_compareaction)
 	local _b = nil
 	local _texture = nil
 
-	if (not UnitExists("target") or (ROB_Options.Enemy and UnitIsFriend("player","target"))) then
+	if (ROB_ShouldNotDisplayAction()) then
 		ROB_SetButtonTexture(ROB_NextActionButton, nil)
 	else
 		if (not _compareaction) then
@@ -2453,7 +2458,7 @@ function ROB_SetNextActionTexture(_compareaction)
 end
 
 function ROB_SetCurrentActionTexture(_compareaction)
-	if (not UnitExists("target") or (ROB_Options.Enemy and UnitIsFriend("player","target"))) then
+	if (ROB_ShouldNotDisplayAction()) then
 		ROB_SetButtonTexture(ROB_CurrentActionButton, nil)
 		ROB_CurrentActionButtonCooldown:Hide();
 	else
@@ -2474,7 +2479,7 @@ function ROB_SetNextActionTint(_compareaction)
 	local _g = nil
 	local _b = nil
 	local _texture = nil
-	if (not UnitExists("target") or (ROB_Options.Enemy and UnitIsFriend("player","target"))) then
+	if (ROB_ShouldNotDisplayAction()) then
 		ROB_NextActionTint:SetTexture()
 	else
 		if (not _compareaction) then
@@ -2498,7 +2503,7 @@ function ROB_SetCurrentActionTint(_compareaction)
 	local _g = nil
 	local _b = nil
 	local _texture = nil
-	if (not UnitExists("target") or (ROB_Options.Enemy and UnitIsFriend("player","target"))) then
+	if (ROB_ShouldNotDisplayAction()) then
 		ROB_CurrentActionTint:SetTexture()
 	else
 		if (not _compareaction) then
@@ -2525,7 +2530,7 @@ function ROB_SetNextActionLabel(_compareaction)
 	local _texture = nil
 
 
-	if (not UnitExists("target") or (ROB_Options.Enemy and UnitIsFriend("player","target"))) then
+	if (ROB_ShouldNotDisplayAction()) then
 		ROB_NextActionButtonHotKey:SetText()
 	else
 		if (not _compareaction) then
@@ -2543,7 +2548,7 @@ function ROB_SetCurrentActionLabel(_compareaction)
 	local _texture = nil
 
 
-	if (not UnitExists("target") or (ROB_Options.Enemy and UnitIsFriend("player","target"))) then
+	if (ROB_ShouldNotDisplayAction()) then
 		ROB_CurrentActionButtonHotKey:SetText()
 	else
 		if (not _compareaction) then
