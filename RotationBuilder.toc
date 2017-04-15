@@ -1,6 +1,6 @@
 ## Interface: 70200
 ## Title: RotationBuilder
-## Version: 1.66.0
+## Version: 1.67.0
 ## Author: Previous : Soulwhip, Current : Pelerinage, Tylorcaptain
 ## Notes: Builds rotations for any class or spec
 ## SavedVariablesPerCharacter: ROB_Options ROB_Rotations ROB_Exports
