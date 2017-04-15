@@ -42,7 +42,8 @@ local ROB_Options_Default           = {
 	OldImportExport                  = false;
 	HideCD                           = false;
 	Enemy                            = false;
-	OnOff							 = false;
+	DisplayOnDeadTarget              = true;
+	OnOff                            = false;
 	IconsX                           = 0;
 	IconsY                           = 0;
 	IconScale                        = 1;
@@ -530,6 +531,7 @@ function ROB_PLAYER_Enter()
 	ROB_OptionsTabExportBindsButton:SetChecked(ROB_Options.ExportBinds);
 	ROB_OptionsTabHideCooldownsButton:SetChecked(ROB_Options.HideCD);
 	ROB_OptionsTabEnemyButton:SetChecked(ROB_Options.Enemy);
+	ROB_OptionsTabDisplayOnDeadTargetButton:SetChecked(ROB_Options.DisplayOnDeadTarget);
 
 	ROB_UPDATE_INTERVAL = 1 / ROB_Options.updaterate
 	ROB_OptionsTabUpdateRateSlider:SetValue(ROB_Options.updaterate);
@@ -1339,6 +1341,10 @@ end
 
 function ROB_OptionsTabEnemyButton_OnToggle(self)
 	ROB_Options.Enemy = self:GetChecked();
+end
+
+function ROB_OptionsTabDisplayOnDeadTargetButton_OnToggle(self)
+	ROB_Options.DisplayOnDeadTarget = self:GetChecked();
 end
 
 function ROB_OptionsTabOnOffButton_OnToggle(self)
@@ -2436,7 +2442,7 @@ end
 
 -- Check if the current unit do not exist or is dead or that's not an enemy (only if the option is enable).
 function ROB_ShouldNotDisplayAction()
-	return not UnitExists("target") or (ROB_Options.Enemy and UnitIsFriend("player","target"));
+	return not UnitExists("target") or (not ROB_Options.DisplayOnDeadTarget and UnitIsDead("target")) or (ROB_Options.Enemy and UnitIsFriend("player","target"));
 end
 
 function ROB_SetNextActionTexture(_compareaction)

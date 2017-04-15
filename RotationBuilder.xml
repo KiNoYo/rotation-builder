@@ -3815,6 +3815,29 @@
 									</Size>
 								</ThumbTexture>
 							</Slider>
+							<CheckButton name="ROB_OptionsTabDisplayOnDeadTargetButton" inherits="ROB_CheckButtonTemplate">
+								<Size>
+									<AbsDimension x="20" y="20" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="ROB_OptionsTabIconOptionsFrame" relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="520" y="-5" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>ROB_OptionsTabDisplayOnDeadTargetButtonText:SetText(RotationBuilderUtils:localize('ROB_OPTION_DISPLAY_ON_DEAD_TARGET'))
+									</OnLoad>
+									<OnClick>ROB_OptionsTabDisplayOnDeadTargetButton_OnToggle(self);
+									</OnClick>
+									<OnEnter>
+										GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
+										GameTooltip:SetText(RotationBuilderUtils:localize('ROB_OPTION_DISPLAY_ON_DEAD_TARGET_TT'));
+									</OnEnter>
+									<OnLeave>GameTooltip:Hide();</OnLeave>
+								</Scripts>
+							</CheckButton>
 							<EditBox name="ROB_OptionsTabCurrentIconAlpha" inherits="InputBoxTemplate" autoFocus="false">
 								<Size>
 									<AbsDimension x="30" y="20" />
