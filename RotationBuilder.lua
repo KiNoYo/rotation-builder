@@ -534,7 +534,7 @@ function ROB_PLAYER_Enter()
 	ROB_UPDATE_INTERVAL = 1 / ROB_Options.updaterate
 	ROB_OptionsTabUpdateRateSlider:SetValue(ROB_Options.updaterate);
 	ROB_OptionsTabUpdateRateSliderText:SetText(ROB_Options.updaterate);
-	
+
 	ROB_OptionsTabOnOffButton:SetChecked(ROB_Options.OnOff);
 
 	ROB_MiniMapButton_Update();
@@ -2413,11 +2413,13 @@ function ROB_GetActionTexture(actionName)
 	if not ActionDB then
 		return nil;
 	end
-	if (ActionDB.b_notaspell) then
-		local slotId, _ = GetInventorySlotInfo(ActionDB.v_spellname);
-		return GetInventoryItemTexture("PLAYER", slotId);
-	elseif (ActionDB.v_actionicon == "" or ActionDB.v_actionicon == nil or GetSpellTexture(ActionDB.v_actionicon) == "") then
-		return GetSpellTexture(ActionDB.v_spellname);
+	if (ActionDB.v_actionicon == "" or ActionDB.v_actionicon == nil or GetSpellTexture(ActionDB.v_actionicon) == "") then
+		if (ActionDB.b_notaspell) then
+			local slotId, _ = GetInventorySlotInfo(ActionDB.v_spellname);
+			return GetInventoryItemTexture("player", slotId);
+		else
+			return GetSpellTexture(ActionDB.v_spellname);
+		end
 	else
 		return GetSpellTexture(ActionDB.v_actionicon);
 	end
@@ -2641,19 +2643,28 @@ function ROB_SpellReady(actionName,isNextSpell)
 	if spellName == nil then
 		spellName = "";
 	end
-	if (not ActionDB.b_notinspellbook and not IsSpellKnown(spellName, isNextSpell)) then
+
+	if (ActionDB.b_notaspell) then
+		slotId, _ = GetInventorySlotInfo(spellName);
+	end
+
+	if (not ActionDB.b_notaspell and not ActionDB.b_notinspellbook and not IsSpellKnown(spellName, isNextSpell)) then
 		ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have this spell in your spellbook", debug);
 		return false;
 	end
 
 	-- CHECK : Check if the player has the resources to cast the spell only for the current action
 	usable, _ = IsUsableSpell(spellName);
-	if (not isNextSpell and not usable) then
+	if (not ActionDB.b_notaspell and not isNextSpell and not usable) then
 		ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have the necessary ressources", debug);
 		return false;
 	end
 
-	start, duration, _ = GetSpellCooldown(spellName);
+	if(ActionDB.b_notaspell) then
+		start, duration, _ = GetInventoryItemCooldown("player", slotId);
+	else
+		start, duration, _ = GetSpellCooldown(spellName);
+	end
 	cooldown = start + duration - GetTime();
 	if (cooldown < 0) then
 		cooldown = 0;
@@ -2700,7 +2711,6 @@ function ROB_SpellReady(actionName,isNextSpell)
 
 	-- CHECK: Check if the item is usable
 	if (ActionDB.b_notaspell) then
-		slotId, _ = GetInventorySlotInfo(spellName);
 		itemId = GetInventoryItemID("player",slotId);
 		itemName, _, _, _, _, _, _, _, _, _, _ = GetItemInfo(itemId);
 		if (itemName == nil) then
