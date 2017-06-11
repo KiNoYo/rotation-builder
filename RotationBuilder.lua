@@ -23,180 +23,180 @@ BINDING_NAME_ROB_OPEN = RotationBuilderUtils:localize('ROB_UI_TOGGLE');
 BINDING_NAME_ROB_MULTI_TARGET = RotationBuilderUtils:localize('ui/keybinds/toggleMultiTarget/text');
 BINDING_NAME_ROB_CUSTOM_CASE_1 = RotationBuilderUtils:localize('ui/keybinds/toggleCustomCase/text')..1;
 BINDING_NAME_ROB_CUSTOM_CASE_2 = RotationBuilderUtils:localize('ui/keybinds/toggleCustomCase/text')..2;
-ROB_UPDATE_INTERVAL                 = 0.2;      -- How often the OnUpdate code will run (in seconds)
+ROB_UPDATE_INTERVAL = 0.2; -- How often the OnUpdate code will run (in seconds)
 
 -- Scroll Frame Lines
-local ROB_ROTATION_LIST_LINES       = 9;
-local ROB_ACTION_LIST_LINES         = 21;
-ROB_ROTATION_LIST_FRAME_HEIGHT      = 16;
-ROB_ACTION_LIST_FRAME_HEIGHT        = 20;
+local ROB_ROTATION_LIST_LINES = 9;
+local ROB_ACTION_LIST_LINES = 21;
+ROB_ROTATION_LIST_FRAME_HEIGHT = 16;
+ROB_ACTION_LIST_FRAME_HEIGHT = 20;
 
 -- Initial Options
-local ROB_Options_Default           = {
-	MiniMap                          = true;
-	MiniMapPos                       = 300;
-	MiniMapRad                       = 80;
-	LockIcons                        = true;
-	AllowOverwrite                   = false;
-	ExportBinds                      = false;
-	OldImportExport                  = false;
-	HideCD                           = false;
-	Enemy                            = false;
-	DisplayOnDeadTarget              = true;
-	OnOff                            = false;
-	IconsX                           = 0;
-	IconsY                           = 0;
-	IconScale                        = 1;
-	UIScale                          = 1;
-	CurrentIconA                     = 1;
-	NextIconA                        = 1;
-	NextIconLocation                 = "BOTTOM";
-	loaddefault                      = true;
-	lastrotation                     = "";
-	updaterate                       = 5;
-	CABSkin                          = {};
-	NABSkin                          = {};
-	T1Skin                           = {};
-	T2Skin                           = {};
-	T3Skin                           = {};
-	T4Skin                           = {};
+local ROB_Options_Default = {
+	MiniMap = true;
+	MiniMapPos = 300;
+	MiniMapRad = 80;
+	LockIcons = true;
+	AllowOverwrite = false;
+	ExportBinds = false;
+	OldImportExport = false;
+	HideCD = false;
+	Enemy = false;
+	DisplayOnDeadTarget = true;
+	OnOff = false;
+	IconsX = 0;
+	IconsY = 0;
+	IconScale = 1;
+	UIScale = 1;
+	CurrentIconA = 1;
+	NextIconA = 1;
+	NextIconLocation = "BOTTOM";
+	loaddefault = true;
+	lastrotation = "";
+	updaterate = 5;
+	CABSkin = {};
+	NABSkin = {};
+	T1Skin = {};
+	T2Skin = {};
+	T3Skin = {};
+	T4Skin = {};
 }
 
 ROB_NewActionDefaults = {
 	--General Options---------------
-	v_spellname="<spell name>",
-	v_actionicon="",
-	b_maxcasts=false,
-	v_maxcasts="",
-	b_lastcasted=false,
-	v_lastcasted="",
-	b_moving=false,
-	b_notmoving=false,
-	b_gspellcost=false,
-	v_gspellcosttype="",
-	v_gspellcost="",
-	b_gunitpower=false,
-	v_gunitpowertype="",
-	v_gunitpower="",
-	b_charges=false,
-	v_charges="",
-	b_othercharges=false,
-	v_othercharges="",
-	v_otherchargesname="",
-	b_checkothercd=false,
-	v_checkothercdname="",
-	v_checkothercdvalue="",
-	b_checkothercd2=false,
-	v_checkothercd2name="",
-	v_checkothercd2value="",
-	b_duration=false,
-	v_duration="",
-	v_durationstartedtime=0,
-	b_notaspell=false,
-	b_debug=false,
-	b_disabled=false,
-	b_hasproc=false,
-	b_notinspellbook=false,
-	b_incombat=false,
-	b_notincombat=false,
-	b_spellInRange=false,
-	b_hasMinRange=false,
+	v_spellname = "<spell name>",
+	v_actionicon = "",
+	b_maxcasts = false,
+	v_maxcasts = "",
+	b_lastcasted = false,
+	v_lastcasted = "",
+	b_moving = false,
+	b_notmoving = false,
+	b_gspellcost = false,
+	v_gspellcosttype = "",
+	v_gspellcost = "",
+	b_gunitpower = false,
+	v_gunitpowertype = "",
+	v_gunitpower = "",
+	b_charges = false,
+	v_charges = "",
+	b_othercharges = false,
+	v_othercharges = "",
+	v_otherchargesname = "",
+	b_checkothercd = false,
+	v_checkothercdname = "",
+	v_checkothercdvalue = "",
+	b_checkothercd2 = false,
+	v_checkothercd2name = "",
+	v_checkothercd2value = "",
+	b_duration = false,
+	v_duration = "",
+	v_durationstartedtime = 0,
+	b_notaspell = false,
+	b_debug = false,
+	b_disabled = false,
+	b_hasproc = false,
+	b_notinspellbook = false,
+	b_incombat = false,
+	b_notincombat = false,
+	b_spellInRange = false,
+	b_hasMinRange = false,
 
 	--Player Options---------------
-	b_p_hp=false,
-	v_p_hp="",
-	b_p_needbuff=false,
-	v_p_needbuff="",
-	b_p_havebuff=false,
-	v_p_havebuff="",
-	b_p_needdebuff=false,
-	v_p_needdebuff="",
-	b_p_havedebuff=false,
-	v_p_havedebuff="",
-	b_p_unitpower=false,
-	v_p_unitpower="",
-	v_p_unitpowertype="",
-	b_p_unitpower2=false,
-	v_p_unitpower2="",
-	v_p_unitpower2type="",
-	b_p_runes=false,
-	v_p_runes="",
-	b_p_knowspell=false,
-	v_p_knowspell="",
-	b_p_knownotspell=false,
-	v_p_knownotspell="",
-	b_p_isstealthed=false,
+	b_p_hp = false,
+	v_p_hp = "",
+	b_p_needbuff = false,
+	v_p_needbuff = "",
+	b_p_havebuff = false,
+	v_p_havebuff = "",
+	b_p_needdebuff = false,
+	v_p_needdebuff = "",
+	b_p_havedebuff = false,
+	v_p_havedebuff = "",
+	b_p_unitpower = false,
+	v_p_unitpower = "",
+	v_p_unitpowertype = "",
+	b_p_unitpower2 = false,
+	v_p_unitpower2 = "",
+	v_p_unitpower2type = "",
+	b_p_runes = false,
+	v_p_runes = "",
+	b_p_knowspell = false,
+	v_p_knowspell = "",
+	b_p_knownotspell = false,
+	v_p_knownotspell = "",
+	b_p_isstealthed = false,
 
 	--Target Options---------------
-	b_t_hp=false,
-	v_t_hp="",
-	b_t_needsbuff=false,
-	v_t_needsbuff="",
-	b_t_hasbuff=false,
-	v_t_hasbuff="",
-	b_t_needsdebuff=false,
-	v_t_needsdebuff="",
-	b_t_hasdebuff=false,
-	v_t_hasdebuff="",
-	b_t_boss=false,
-	b_t_notaboss=false,
-	b_t_interrupt=false,
-	b_t_dispel=false,
-	b_t_spellsteal=false,
+	b_t_hp = false,
+	v_t_hp = "",
+	b_t_needsbuff = false,
+	v_t_needsbuff = "",
+	b_t_hasbuff = false,
+	v_t_hasbuff = "",
+	b_t_needsdebuff = false,
+	v_t_needsdebuff = "",
+	b_t_hasdebuff = false,
+	v_t_hasdebuff = "",
+	b_t_boss = false,
+	b_t_notaboss = false,
+	b_t_interrupt = false,
+	b_t_dispel = false,
+	b_t_spellsteal = false,
 
 	--Pet Options---------------
-	b_pet_hp=false,
-	v_pet_hp="",
-	b_pet_needsbuff=false,
-	v_pet_needsbuff="",
-	b_pet_hasbuff=false,
-	v_pet_hasbuff="",
+	b_pet_hp = false,
+	v_pet_hp = "",
+	b_pet_needsbuff = false,
+	v_pet_needsbuff = "",
+	b_pet_hasbuff = false,
+	v_pet_hasbuff = "",
 }
 
-ROB_ActionClipboard                 = nil;
+ROB_ActionClipboard = nil;
 
-local ROB_Initialized               = false;
+local ROB_Initialized = false;
 
-local ROB_SortedRotations           = {};      -- Sorted rotation table
-local ROB_EditingRotationTable      = nil;     -- Rotation table being edited
-ROB_SelectedRotationName            = nil;     -- Selected Rotation Name
-ROB_SelectedRotationSpec			= nil;     -- Selected Rotation Specialization
-ROB_RotationMultiTargetEnabled		= false;   -- If we are seeking for a multi-target rotation.
-local ROB_SelectedRotationIndex     = nil;     -- Selected Rotation Index
-local ROB_SelectedActionIndex       = nil;     -- Selected Action Index
-local ROB_CurrentActionName         = nil;     -- The current selected ActionName
+local ROB_SortedRotations = {}; -- Sorted rotation table
+local ROB_EditingRotationTable = nil; -- Rotation table being edited
+ROB_SelectedRotationName = nil; -- Selected Rotation Name
+ROB_SelectedRotationSpec = nil; -- Selected Rotation Specialization
+ROB_RotationMultiTargetEnabled = false; -- If we are seeking for a multi-target rotation.
+local ROB_SelectedRotationIndex = nil; -- Selected Rotation Index
+local ROB_SelectedActionIndex = nil; -- Selected Action Index
+local ROB_CurrentActionName = nil; -- The current selected ActionName
 
-local ROB_DropDownTableTemp         = {};      -- Temporary drop down table to reuse
-local ROB_DropDownStoreToTemp       = nil;     -- Temporary name of where to save dropdown selected value
+local ROB_DropDownTableTemp = {}; -- Temporary drop down table to reuse
+local ROB_DropDownStoreToTemp = nil; -- Temporary name of where to save dropdown selected value
 
-local ROB_LAST_CASTED               = nil;     -- Last casted spell
-local ROB_LAST_CASTED_TYPE          = nil;     -- Used to track if we updated the sequential casts on start or succeeded
-local ROB_LAST_CASTED_COUNT         = 0;       -- How many time the last spell casted has been sequentially cast
+local ROB_LAST_CASTED = nil; -- Last casted spell
+local ROB_LAST_CASTED_TYPE = nil; -- Used to track if we updated the sequential casts on start or succeeded
+local ROB_LAST_CASTED_COUNT = 0; -- How many time the last spell casted has been sequentially cast
 
-ROB_CURRENT_ACTION                  = nil;     -- The name of current ready action
-local ROB_NEXT_ACTION               = nil;     -- The name of the next action ready
-local ROB_ACTION_CD                 = nil;     -- The cooldown of the current spell being checked
-local ROB_ACTION_TIMELEFT           = nil;     -- The timeleft on the action debuff or buff used to sort which action is next
-local ROB_TARGET_LAST_CASTED        = nil;     -- Used to output what spell was itnerrupted
-local ROB_FOCUS_LAST_CASTED         = nil;     -- Used to output what spell was itnerrupted
-local ROB_ACTION_GCD                = 0;
-local ROB_ACTION_CASTTIME           = 0;
-local ROB_ACTION_TEXTURE			= nil;
-local ROB_ACTION_COOLDOWN_COUNTER   = 0;
-local ROB_IN_COMBAT                 = false;
+ROB_CURRENT_ACTION = nil; -- The name of current ready action
+local ROB_NEXT_ACTION = nil; -- The name of the next action ready
+local ROB_ACTION_CD = nil; -- The cooldown of the current spell being checked
+local ROB_ACTION_TIMELEFT = nil; -- The timeleft on the action debuff or buff used to sort which action is next
+local ROB_TARGET_LAST_CASTED = nil; -- Used to output what spell was itnerrupted
+local ROB_FOCUS_LAST_CASTED = nil; -- Used to output what spell was itnerrupted
+local ROB_ACTION_GCD = 0;
+local ROB_ACTION_CASTTIME = 0;
+local ROB_ACTION_TEXTURE = nil;
+local ROB_ACTION_COOLDOWN_COUNTER = 0;
+local ROB_IN_COMBAT = false;
 
 --libDataBroker stuff
-local ROB_MENU_FRAME                = nil;
-local ROB_MENU                      = {};
-local ROB_MENU_READY                = false;   -- The libDataBroker menu
+local ROB_MENU_FRAME = nil;
+local ROB_MENU = {};
+local ROB_MENU_READY = false; -- The libDataBroker menu
 
-local ROB_LAST_DEBUG                = GetTime();     -- Last time we output debug
-local ROB_LAST_DEBUG_MSG            = nil;     -- Last message we output debug
+local ROB_LAST_DEBUG = GetTime(); -- Last time we output debug
+local ROB_LAST_DEBUG_MSG = nil; -- Last message we output debug
 
 --libMasque stuff
-local ROB_LM                        = nil;     -- libMasque formerly called Button Facade
-local ROB_LM_BG_CURRENT_ACTION      = nil;     -- Current action button group for libMasque
-local ROB_LM_BG_NEXT_ACTION         = nil;     -- Next action button group for libMasque
+local ROB_LM = nil; -- libMasque formerly called Button Facade
+local ROB_LM_BG_CURRENT_ACTION = nil; -- Current action button group for libMasque
+local ROB_LM_BG_NEXT_ACTION = nil; -- Next action button group for libMasque
 
 local _InvSlots = {
 	["AmmoSlot"] = 0,
@@ -222,7 +222,7 @@ local _InvSlots = {
 }
 
 function ROB_NewRotation()
-	return { SortedActions={}, ActionList={}, bindindex=0};
+	return { SortedActions = {}, ActionList = {}, bindindex = 0};
 end
 
 function ROB_LoadDefaultRotations()
@@ -250,8 +250,8 @@ local function ROB_SortMenu(item1, item2)
 	return item1.id < item2.id
 end
 
-local function ROB_MenuChangeRotation(self,_arg1)
-	ROB_SwitchRotation(_arg1,true)
+local function ROB_MenuChangeRotation(self, _arg1)
+	ROB_SwitchRotation(_arg1, true)
 end
 
 local function ROB_MenuCreate(self, _level)
@@ -362,19 +362,19 @@ function ROB_OnLoad(self)
 	-- create a dialog for list deletion
 	StaticPopupDialogs["ROB_PROMPT_LIST_DELETE"] =
 	{
-		text                 = TEXT(RotationBuilderUtils:localize('ROB_PROMPT_LIST_DELETE')),
-		button1              = TEXT(YES),
-		button2              = TEXT(CANCEL),
-		OnAccept             =  function(self)
+		text = TEXT(RotationBuilderUtils:localize('ROB_PROMPT_LIST_DELETE')),
+		button1 = TEXT(YES),
+		button2 = TEXT(CANCEL),
+		OnAccept = function(self)
 			ROB_RotationDelete_OnAccept();
 		end,
-		OnCancel             =  function(self)
+		OnCancel = function(self)
 			ROB_RotationDelete_OnCancel();
 		end,
-		timeout              = 0,
-		exclusive            = 1,
-		whileDead            = 1,
-		hideOnEscape         = 1
+		timeout = 0,
+		exclusive = 1,
+		whileDead = 1,
+		hideOnEscape = 1
 	}
 	print(string.format(RotationBuilderUtils:localize("ROB_LOADED"), ROB_VERSION));
 end
@@ -421,7 +421,7 @@ function ROB_OnEvent(self, event, ...)
 					end
 					_channelstart = true
 					if (event == "UNIT_SPELLCAST_SUCCEEDED" and ROB_LAST_CASTED_TYPE and ROB_LAST_CASTED_TYPE == "CHANNEL") then
-					--If ROB_LAST_CASTED_TYPE was CHANNEL then dont update the last casted because blizzard fires a UNIT_SPELLCAST_SUCCEEDED while channel is still going
+						--If ROB_LAST_CASTED_TYPE was CHANNEL then dont update the last casted because blizzard fires a UNIT_SPELLCAST_SUCCEEDED while channel is still going
 					else
 						ROB_LAST_CASTED_TYPE = nil
 					end
@@ -585,23 +585,23 @@ end
 function ROB_OnCommand(cmd)
 	local help, helpIx, msg;
 
-	if    (cmd == "") then
+	if (cmd == "") then
 		help = true;
-	elseif   (cmd == "help") then
+	elseif (cmd == "help") then
 		help = true;
-	elseif   (cmd == "show") then
+	elseif (cmd == "show") then
 		ROB_OnToggle(self, true);
-	elseif   (cmd == "on") then
+	elseif (cmd == "on") then
 		ROB_Options.OnOff = false;
 		ROB_OptionsTabOnOffButton:SetChecked(false);
-	elseif   (cmd == "off") then
+	elseif (cmd == "off") then
 		ROB_Options.OnOff = true;
 		ROB_OptionsTabOnOffButton:SetChecked(true);
-	elseif   (string.sub(cmd,1,2) == "r ") then
-		ROB_SwitchRotation(string.sub(cmd,3), true);
-	elseif   (cmd == "hide") then
+	elseif (string.sub(cmd, 1, 2) == "r ") then
+		ROB_SwitchRotation(string.sub(cmd, 3), true);
+	elseif (cmd == "hide") then
 		ROB_OnToggle(self, false);
-	elseif   (cmd == "resetui") then
+	elseif (cmd == "resetui") then
 		ROB_Options_ResetUI_OnClick(self);
 	else
 		help = true;
@@ -623,11 +623,11 @@ function ROB_OnToggle(self, visible)
 	_G["ROB_SpellNameInputBox"]:SetFocus()
 	_G["ROB_SpellNameInputBox"]:ClearFocus()
 
-	if    ((visible == false) or ((visible == nil) and ROB_Frame:IsVisible())) then
+	if ((visible == false) or ((visible == nil) and ROB_Frame:IsVisible())) then
 		PlaySound("igMiniMapClose");
 		ROB_Frame:Hide();
 
-	elseif   ((visible == true) or ((visible == nil) and not ROB_Frame:IsVisible())) then
+	elseif ((visible == true) or ((visible == nil) and not ROB_Frame:IsVisible())) then
 		PlaySound("igMiniMapOpen");
 		ROB_Frame:Show();
 		ROB_RotationTab:Show()
@@ -697,7 +697,7 @@ function ROB_RotationListButton_OnClick(self)
 	ROB_Rotation_Edit_UpdateUI();
 end
 
-function ROB_SwitchRotation(RotationID,_byName)
+function ROB_SwitchRotation(RotationID, _byName)
 	local _MatchingRotationName;
 	if(not RotationID or RotationID == "") then
 		return;
@@ -1106,14 +1106,14 @@ function ROB_SpellValidate(_spell)
 
 	--Get the spell id
 	if (GetSpellLink(_spell)) then
-		_parsedSpellID = string.sub(GetSpellLink(_spell),string.find(GetSpellLink(_spell), ":")+1)
-		_parsedSpellID = string.sub(_parsedSpellID,1,   string.find(_parsedSpellID, ":") -1)
+		_parsedSpellID = string.sub(GetSpellLink(_spell), string.find(GetSpellLink(_spell), ":") + 1)
+		_parsedSpellID = string.sub(_parsedSpellID, 1, string.find(_parsedSpellID, ":") - 1)
 		_link, _ = GetSpellLink(_spell)
 	else
 		--Is it a inventory slot?
-		if (_InvSlots[_spell] and GetInventoryItemID("player",_InvSlots[_spell])) then
-			_parsedSpellID = GetInventoryItemID("player",_InvSlots[_spell])
-			_link = GetInventoryItemLink("player",_InvSlots[_spell])
+		if (_InvSlots[_spell] and GetInventoryItemID("player", _InvSlots[_spell])) then
+			_parsedSpellID = GetInventoryItemID("player", _InvSlots[_spell])
+			_link = GetInventoryItemLink("player", _InvSlots[_spell])
 			--if it found the itemid from the inventory slot then it must have been spelled correctly
 			_spellingCheckPassed = true
 		end
@@ -1161,13 +1161,13 @@ end
 
 -- ADD_OPTION_FUNCTIONS_BELOW_THIS
 
-function ROB_AO_CheckButton_OnToggle(self,field)
+function ROB_AO_CheckButton_OnToggle(self, field)
 	if (ROB_CurrentActionName and field) then
 		ROB_EditingRotationTable.ActionList[ROB_CurrentActionName][field] = (self:GetChecked());
 	end
 end
 
-function ROB_AO_InputBox_OnTextChanged(self,field,validate)
+function ROB_AO_InputBox_OnTextChanged(self, field, validate)
 	local _inputstring = nil
 	if (self:GetText() == nil or ROB_CurrentActionName == nil or ROB_EditingRotationTable == nil) then
 		return
@@ -1240,13 +1240,13 @@ function ROB_SetNextActionLocation()
 
 
 	if (ROB_Options.NextIconLocation == "BOTTOM" or ROB_Options.NextIconLocation == "TOP") then
-		if (ROB_Options.NextIconLocation == "BOTTOM") then ROB_NextActionButton:SetPoint("TOP","ROB_CurrentActionButton","BOTTOM"); end
-		if (ROB_Options.NextIconLocation == "TOP") then ROB_NextActionButton:SetPoint("BOTTOM","ROB_CurrentActionButton","TOP"); end
+		if (ROB_Options.NextIconLocation == "BOTTOM") then ROB_NextActionButton:SetPoint("TOP", "ROB_CurrentActionButton", "BOTTOM"); end
+		if (ROB_Options.NextIconLocation == "TOP") then ROB_NextActionButton:SetPoint("BOTTOM", "ROB_CurrentActionButton", "TOP"); end
 	end
 
 	if (ROB_Options.NextIconLocation == "RIGHT" or ROB_Options.NextIconLocation == "LEFT") then
-		if (ROB_Options.NextIconLocation == "RIGHT") then ROB_NextActionButton:SetPoint("LEFT","ROB_CurrentActionButton","RIGHT"); end
-		if (ROB_Options.NextIconLocation == "LEFT") then ROB_NextActionButton:SetPoint("RIGHT","ROB_CurrentActionButton","LEFT"); end
+		if (ROB_Options.NextIconLocation == "RIGHT") then ROB_NextActionButton:SetPoint("LEFT", "ROB_CurrentActionButton", "RIGHT"); end
+		if (ROB_Options.NextIconLocation == "LEFT") then ROB_NextActionButton:SetPoint("RIGHT", "ROB_CurrentActionButton", "LEFT"); end
 	end
 end
 
@@ -1260,17 +1260,17 @@ function ROB_OptionsNextActionLocationDropDownButton_OnLoad(frame)
 	UIDropDownMenu_SetWidth(frame, 75)
 	UIDropDownMenu_JustifyText(frame, "LEFT");
 
-	local i=0
-	for i=1, 4 do
+	local i = 0
+	for i = 1, 4 do
 		table.wipe(ROB_DropDownTableTemp)
 		if (i == 1) then ToggleName = "BOTTOM"; end
 		if (i == 2) then ToggleName = "RIGHT"; end
 		if (i == 3) then ToggleName = "TOP"; end
 		if (i == 4) then ToggleName = "LEFT"; end
 
-		ROB_DropDownTableTemp.text  = ToggleName
+		ROB_DropDownTableTemp.text = ToggleName
 		ROB_DropDownTableTemp.value = ToggleName
-		ROB_DropDownTableTemp.func  = ROB_NextActionLocation_Selected
+		ROB_DropDownTableTemp.func = ROB_NextActionLocation_Selected
 		UIDropDownMenu_AddButton(ROB_DropDownTableTemp);
 	end
 end
@@ -1424,7 +1424,7 @@ end
 
 function ROB_MiniMapButton_Update()
 	-- update the MiniMap button position
-	ROB_MiniMapButton:SetPoint("TOPLEFT", "Minimap", "TOPLEFT",(52 - (ROB_Options.MiniMapRad * cos(ROB_Options.MiniMapPos))),((ROB_Options.MiniMapRad * sin(ROB_Options.MiniMapPos)) - 52));
+	ROB_MiniMapButton:SetPoint("TOPLEFT", "Minimap", "TOPLEFT", (52 - (ROB_Options.MiniMapRad * cos(ROB_Options.MiniMapPos))), ((ROB_Options.MiniMapRad * sin(ROB_Options.MiniMapPos)) - 52));
 
 	-- show/hide the button according to toggle
 	if (ROB_Options.MiniMap == false) then
@@ -1444,7 +1444,7 @@ function ROB_RotationList_Update()
 	offset = FauxScrollFrame_GetOffset(ROB_RotationScrollFrame);
 
 	-- handle each list row
-	for row=1, ROB_ROTATION_LIST_LINES, 1 do
+	for row = 1, ROB_ROTATION_LIST_LINES, 1 do
 		-- calculate actual the list item index
 		listIx = row + offset;
 
@@ -1501,7 +1501,7 @@ function ROB_ActionList_Update()
 	end
 
 	-- Build the Action List
-	for row=1, ROB_ACTION_LIST_LINES, 1 do
+	for row = 1, ROB_ACTION_LIST_LINES, 1 do
 		-- calculate actual the Action index
 		ActionID = row + offset;
 		-- retrieve the source row
@@ -1518,9 +1518,9 @@ function ROB_ActionList_Update()
 			rowAction:SetText(RotationBuilderUtils:localize(savedActionName));
 
 			if (selectedrotation.ActionList[savedActionName].b_disabled) then
-				rowAction:SetTextColor(.5,.5,.5)
+				rowAction:SetTextColor(.5, .5, .5)
 			else
-				rowAction:SetTextColor(1,1,1)
+				rowAction:SetTextColor(1, 1, 1)
 			end
 
 
@@ -1617,7 +1617,7 @@ function ROB_RotationModifyButtons_UpdateUI()
 	end
 end
 
-function ROB_Rotation_GUI_SetText(_controlname,_value,_default)
+function ROB_Rotation_GUI_SetText(_controlname, _value, _default)
 	if (_value ~= nil) then
 		_G[_controlname]:SetText(_value)
 	else
@@ -1625,7 +1625,7 @@ function ROB_Rotation_GUI_SetText(_controlname,_value,_default)
 	end
 end
 
-function ROB_Rotation_GUI_SetChecked(_controlname,_value,_default)
+function ROB_Rotation_GUI_SetChecked(_controlname, _value, _default)
 	if (_value ~= nil) then
 		_G[_controlname]:SetChecked(_value)
 	else
@@ -1654,11 +1654,11 @@ function ROB_Rotation_Edit_UpdateUI()
 			-- disable item row move buttons
 			ROB_ActionListMoveUpButton:Disable();
 			ROB_ActionListMoveDownButton:Disable();
-		elseif   (ROB_SelectedActionIndex <= 1) then
+		elseif (ROB_SelectedActionIndex <= 1) then
 			-- disable item row move up and enable row move down buttons
 			ROB_ActionListMoveUpButton:Disable();
 			ROB_ActionListMoveDownButton:Enable();
-		elseif   (ROB_SelectedActionIndex >= #ROB_EditingRotationTable.SortedActions) then
+		elseif (ROB_SelectedActionIndex >= #ROB_EditingRotationTable.SortedActions) then
 			-- enable item row move up and disable row move down buttons
 			ROB_ActionListMoveUpButton:Enable();
 			ROB_ActionListMoveDownButton:Disable();
@@ -1671,136 +1671,136 @@ function ROB_Rotation_Edit_UpdateUI()
 		if (ROB_EditingRotationTable.ActionList[ROB_CurrentActionName] ~= nil) then
 			local _ActionDB = ROB_EditingRotationTable.ActionList[ROB_CurrentActionName]
 			-- RETRIEVE_NEW_OPTIONS_BELOW
-			ROB_Rotation_GUI_SetText("ROB_SpellNameInputBox",_ActionDB.v_spellname,"<spell name>")
+			ROB_Rotation_GUI_SetText("ROB_SpellNameInputBox", _ActionDB.v_spellname, "<spell name>")
 			ROB_SpellValidate(_ActionDB.v_spellname);
 
-			ROB_Rotation_GUI_SetText("ROB_AO_ActionIconInputBox",_ActionDB.v_actionicon,"")
+			ROB_Rotation_GUI_SetText("ROB_AO_ActionIconInputBox", _ActionDB.v_actionicon, "")
 			ROB_AO_ActionIconTexture:SetTexture(GetTexturePath(_ActionDB.v_actionicon));
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_MaxCastsCheckButton",_ActionDB.b_maxcasts,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_MaxCastsInputBox",_ActionDB.v_maxcasts,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_MaxCastsCheckButton", _ActionDB.b_maxcasts, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_MaxCastsInputBox", _ActionDB.v_maxcasts, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_LastCastedCheckButton",_ActionDB.b_lastcasted,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_LastCastedInputBox",_ActionDB.v_lastcasted,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_LastCastedCheckButton", _ActionDB.b_lastcasted, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_LastCastedInputBox", _ActionDB.v_lastcasted, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_CheckOtherCDCheckButton",_ActionDB.b_checkothercd,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_CheckOtherCDNameInputBox",_ActionDB.v_checkothercdname,"")
-			ROB_Rotation_GUI_SetText("ROB_AO_CheckOtherCDValueInputBox",_ActionDB.v_checkothercdvalue,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_CheckOtherCDCheckButton", _ActionDB.b_checkothercd, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_CheckOtherCDNameInputBox", _ActionDB.v_checkothercdname, "")
+			ROB_Rotation_GUI_SetText("ROB_AO_CheckOtherCDValueInputBox", _ActionDB.v_checkothercdvalue, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_CheckOtherCD2CheckButton",_ActionDB.b_checkothercd2,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_CheckOtherCD2NameInputBox",_ActionDB.v_checkothercd2name,"")
-			ROB_Rotation_GUI_SetText("ROB_AO_CheckOtherCD2ValueInputBox",_ActionDB.v_checkothercd2value,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_CheckOtherCD2CheckButton", _ActionDB.b_checkothercd2, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_CheckOtherCD2NameInputBox", _ActionDB.v_checkothercd2name, "")
+			ROB_Rotation_GUI_SetText("ROB_AO_CheckOtherCD2ValueInputBox", _ActionDB.v_checkothercd2value, "")
 
-			ROB_Rotation_GUI_SetText("ROB_AO_DurationInputBox",_ActionDB.v_duration,"")
-			ROB_Rotation_GUI_SetChecked("ROB_AO_DurationCheckButton",_ActionDB.b_duration,false)
+			ROB_Rotation_GUI_SetText("ROB_AO_DurationInputBox", _ActionDB.v_duration, "")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_DurationCheckButton", _ActionDB.b_duration, false)
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_DebugCheckButton",_ActionDB.b_debug,false)
-			ROB_Rotation_GUI_SetChecked("ROB_AO_DisableCheckButton",_ActionDB.b_disabled,false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_DebugCheckButton", _ActionDB.b_debug, false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_DisableCheckButton", _ActionDB.b_disabled, false)
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_IsCustomCase1",_ActionDB.b_isCustomCase1,false);
-			ROB_Rotation_GUI_SetChecked("ROB_AO_IsCustomCase2",_ActionDB.b_isCustomCase2,false);
-			ROB_Rotation_GUI_SetChecked("ROB_AO_NotCustomCase1",_ActionDB.b_notCustomCase1,false);
-			ROB_Rotation_GUI_SetChecked("ROB_AO_NotCustomCase2",_ActionDB.b_notCustomCase2,false);
+			ROB_Rotation_GUI_SetChecked("ROB_AO_IsCustomCase1", _ActionDB.b_isCustomCase1, false);
+			ROB_Rotation_GUI_SetChecked("ROB_AO_IsCustomCase2", _ActionDB.b_isCustomCase2, false);
+			ROB_Rotation_GUI_SetChecked("ROB_AO_NotCustomCase1", _ActionDB.b_notCustomCase1, false);
+			ROB_Rotation_GUI_SetChecked("ROB_AO_NotCustomCase2", _ActionDB.b_notCustomCase2, false);
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_GSpellCostCheckButton",_ActionDB.b_gspellcost,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_GSpellCostTypeInputBox",_ActionDB.v_gspellcosttype,"")
-			ROB_Rotation_GUI_SetText("ROB_AO_GSpellCostInputBox",_ActionDB.v_gspellcost,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_GSpellCostCheckButton", _ActionDB.b_gspellcost, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_GSpellCostTypeInputBox", _ActionDB.v_gspellcosttype, "")
+			ROB_Rotation_GUI_SetText("ROB_AO_GSpellCostInputBox", _ActionDB.v_gspellcost, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_GUnitPowerCheckButton",_ActionDB.b_gunitpower,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_GUnitPowerTypeInputBox",_ActionDB.v_gunitpowertype,"")
-			ROB_Rotation_GUI_SetText("ROB_AO_GUnitPowerInputBox",_ActionDB.v_gunitpower,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_GUnitPowerCheckButton", _ActionDB.b_gunitpower, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_GUnitPowerTypeInputBox", _ActionDB.v_gunitpowertype, "")
+			ROB_Rotation_GUI_SetText("ROB_AO_GUnitPowerInputBox", _ActionDB.v_gunitpower, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_GChargesCheckButton",_ActionDB.b_charges,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_GChargesInputBox",_ActionDB.v_charges,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_GChargesCheckButton", _ActionDB.b_charges, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_GChargesInputBox", _ActionDB.v_charges, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_GOtherChargesCheckButton",_ActionDB.b_othercharges,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_GOtherChargesInputBox",_ActionDB.v_othercharges,"")
-			ROB_Rotation_GUI_SetText("ROB_AO_GOtherChargesNameInputBox",_ActionDB.v_otherchargesname,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_GOtherChargesCheckButton", _ActionDB.b_othercharges, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_GOtherChargesInputBox", _ActionDB.v_othercharges, "")
+			ROB_Rotation_GUI_SetText("ROB_AO_GOtherChargesNameInputBox", _ActionDB.v_otherchargesname, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_GHasProcCheckButton",_ActionDB.b_hasproc,false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_GHasProcCheckButton", _ActionDB.b_hasproc, false)
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_NotASpellCheckButton",_ActionDB.b_notaspell,false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_NotASpellCheckButton", _ActionDB.b_notaspell, false)
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_GNotInSpellbookCheckButton",_ActionDB.b_notinspellbook,false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_GNotInSpellbookCheckButton", _ActionDB.b_notinspellbook, false)
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_GInCombatCheckButton",_ActionDB.b_incombat,false)
-			ROB_Rotation_GUI_SetChecked("ROB_AO_GNotInCombatCheckButton",_ActionDB.b_notincombat,false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_GInCombatCheckButton", _ActionDB.b_incombat, false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_GNotInCombatCheckButton", _ActionDB.b_notincombat, false)
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_G_SpellInRangeCheckButton",_ActionDB.b_spellInRange,false)
-			ROB_Rotation_GUI_SetChecked("ROB_AO_G_HasMinRangeCheckButton",_ActionDB.b_hasMinRange,false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_G_SpellInRangeCheckButton", _ActionDB.b_spellInRange, false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_G_HasMinRangeCheckButton", _ActionDB.b_hasMinRange, false)
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_MovingCheckButton",_ActionDB.b_moving,false)
-			ROB_Rotation_GUI_SetChecked("ROB_AO_NMovingCheckButton",_ActionDB.b_notmoving,false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_MovingCheckButton", _ActionDB.b_moving, false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_NMovingCheckButton", _ActionDB.b_notmoving, false)
 
 			--Player options-------------------------
-			ROB_Rotation_GUI_SetChecked("ROB_AO_NeedBuffCheckButton",_ActionDB.b_p_needbuff,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_NeedBuffInputBox",_ActionDB.v_p_needbuff,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_NeedBuffCheckButton", _ActionDB.b_p_needbuff, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_NeedBuffInputBox", _ActionDB.v_p_needbuff, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_HaveBuffCheckButton",_ActionDB.b_p_havebuff,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_HaveBuffInputBox",_ActionDB.v_p_havebuff,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_HaveBuffCheckButton", _ActionDB.b_p_havebuff, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_HaveBuffInputBox", _ActionDB.v_p_havebuff, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_NeedDebuffCheckButton",_ActionDB.b_p_needdebuff,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_NeedDebuffInputBox",_ActionDB.v_p_needdebuff,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_NeedDebuffCheckButton", _ActionDB.b_p_needdebuff, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_NeedDebuffInputBox", _ActionDB.v_p_needdebuff, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_HaveDebuffCheckButton",_ActionDB.b_p_havedebuff,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_HaveDebuffInputBox",_ActionDB.v_p_havedebuff,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_HaveDebuffCheckButton", _ActionDB.b_p_havedebuff, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_HaveDebuffInputBox", _ActionDB.v_p_havedebuff, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_PlayerHPCheckButton",_ActionDB.b_p_hp,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_PlayerHPInputBox",_ActionDB.v_p_hp,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_PlayerHPCheckButton", _ActionDB.b_p_hp, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_PlayerHPInputBox", _ActionDB.v_p_hp, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_UnitPowerCheckButton",_ActionDB.b_p_unitpower,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_UnitPowerTypeInputBox",_ActionDB.v_p_unitpowertype,"")
-			ROB_Rotation_GUI_SetText("ROB_AO_UnitPowerInputBox",_ActionDB.v_p_unitpower,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_UnitPowerCheckButton", _ActionDB.b_p_unitpower, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_UnitPowerTypeInputBox", _ActionDB.v_p_unitpowertype, "")
+			ROB_Rotation_GUI_SetText("ROB_AO_UnitPowerInputBox", _ActionDB.v_p_unitpower, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_UnitPower2CheckButton",_ActionDB.b_p_unitpower2,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_UnitPower2TypeInputBox",_ActionDB.v_p_unitpower2type,"")
-			ROB_Rotation_GUI_SetText("ROB_AO_UnitPower2InputBox",_ActionDB.v_p_unitpower2,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_UnitPower2CheckButton", _ActionDB.b_p_unitpower2, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_UnitPower2TypeInputBox", _ActionDB.v_p_unitpower2type, "")
+			ROB_Rotation_GUI_SetText("ROB_AO_UnitPower2InputBox", _ActionDB.v_p_unitpower2, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_RunesCheckButton",_ActionDB.b_p_runes,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_RunesInputBox",_ActionDB.v_p_runes,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_RunesCheckButton", _ActionDB.b_p_runes, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_RunesInputBox", _ActionDB.v_p_runes, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_KnowSpellCheckButton",_ActionDB.b_p_knowspell,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_KnowSpellInputBox",_ActionDB.v_p_knowspell,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_KnowSpellCheckButton", _ActionDB.b_p_knowspell, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_KnowSpellInputBox", _ActionDB.v_p_knowspell, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_KnowNotSpellCheckButton",_ActionDB.b_p_knownotspell,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_KnowNotSpellInputBox",_ActionDB.v_p_knownotspell,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_KnowNotSpellCheckButton", _ActionDB.b_p_knownotspell, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_KnowNotSpellInputBox", _ActionDB.v_p_knownotspell, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_IsStealthedCheckButton",_ActionDB.b_p_isstealthed,false);
+			ROB_Rotation_GUI_SetChecked("ROB_AO_IsStealthedCheckButton", _ActionDB.b_p_isstealthed, false);
 
 			--Target options-------------------------
-			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetHPCheckButton",_ActionDB.b_t_hp,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_TargetHPInputBox",_ActionDB.v_t_hp,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetHPCheckButton", _ActionDB.b_t_hp, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_TargetHPInputBox", _ActionDB.v_t_hp, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetNeedsBuffCheckButton",_ActionDB.b_t_needsbuff,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_TargetNeedsBuffInputBox",_ActionDB.v_t_needsbuff,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetNeedsBuffCheckButton", _ActionDB.b_t_needsbuff, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_TargetNeedsBuffInputBox", _ActionDB.v_t_needsbuff, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetHasBuffCheckButton",_ActionDB.b_t_hasbuff,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_TargetHasBuffInputBox",_ActionDB.v_t_hasbuff,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetHasBuffCheckButton", _ActionDB.b_t_hasbuff, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_TargetHasBuffInputBox", _ActionDB.v_t_hasbuff, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetNeedsDebuffCheckButton",_ActionDB.b_t_needsdebuff,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_TargetNeedsDebuffInputBox",_ActionDB.v_t_needsdebuff,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetNeedsDebuffCheckButton", _ActionDB.b_t_needsdebuff, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_TargetNeedsDebuffInputBox", _ActionDB.v_t_needsdebuff, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetHasDebuffCheckButton",_ActionDB.b_t_hasdebuff,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_TargetHasDebuffInputBox",_ActionDB.v_t_hasdebuff,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetHasDebuffCheckButton", _ActionDB.b_t_hasdebuff, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_TargetHasDebuffInputBox", _ActionDB.v_t_hasdebuff, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetBossCheckButton",_ActionDB.b_t_boss,false)
-			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetNotABossCheckButton",_ActionDB.b_t_notaboss,false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetBossCheckButton", _ActionDB.b_t_boss, false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetNotABossCheckButton", _ActionDB.b_t_notaboss, false)
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetInterruptCheckButton",_ActionDB.b_t_interrupt,false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetInterruptCheckButton", _ActionDB.b_t_interrupt, false)
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetDispelCheckButton",_ActionDB.b_t_dispel,false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetDispelCheckButton", _ActionDB.b_t_dispel, false)
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetSpellstealCheckButton",_ActionDB.b_t_spellsteal,false)
+			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetSpellstealCheckButton", _ActionDB.b_t_spellsteal, false)
 
 			--Pet options-------------------------
-			ROB_Rotation_GUI_SetChecked("ROB_AO_PetHPCheckButton",_ActionDB.b_pet_hp,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_PetHPInputBox",_ActionDB.v_pet_hp,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_PetHPCheckButton", _ActionDB.b_pet_hp, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_PetHPInputBox", _ActionDB.v_pet_hp, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_PetNeedsBuffCheckButton",_ActionDB.b_pet_needsbuff,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_PetNeedsBuffInputBox",_ActionDB.v_pet_needsbuff,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_PetNeedsBuffCheckButton", _ActionDB.b_pet_needsbuff, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_PetNeedsBuffInputBox", _ActionDB.v_pet_needsbuff, "")
 
-			ROB_Rotation_GUI_SetChecked("ROB_AO_PetHasBuffCheckButton",_ActionDB.b_pet_hasbuff,false)
-			ROB_Rotation_GUI_SetText("ROB_AO_PetHasBuffInputBox",_ActionDB.v_pet_hasbuff,"")
+			ROB_Rotation_GUI_SetChecked("ROB_AO_PetHasBuffCheckButton", _ActionDB.b_pet_hasbuff, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_PetHasBuffInputBox", _ActionDB.v_pet_hasbuff, "")
 
 			-- show action options frames because we have a current selected action
 			if ((not ROB_GeneralActionOptionsTab:IsShown()) and (not ROB_PlayerActionOptionsTab:IsShown()) and (not ROB_TargetActionOptionsTab:IsShown()) and (not ROB_PetActionOptionsTab:IsShown())) then
@@ -1915,7 +1915,7 @@ function ROB_SpellIsInRotation(_spellname)
 end
 
 function ROB_GetGCD()
-	return RotationBuilderUtils:truncate(1.5/(GetHaste()/100+1),3);
+	return RotationBuilderUtils:truncate(1.5 / (GetHaste() / 100 + 1), 3);
 end
 
 function ROB_SpellHasCharges(spellId, number)
@@ -1966,12 +1966,12 @@ function ROB_SpellHasCharges(spellId, number)
 end
 
 function ROB_UnitPassesLifeCheck(checkstring, unitName, checkMax)
-	local life		= nil;
-	local unitHP	= 0;
+	local life = nil;
+	local unitHP = 0;
 
 	if (string.find(checkstring, "%%")) then
-		unitHP	= math.floor(UnitHealth(unitName) / UnitHealthMax(unitName) * 100);
-		life	= string.sub(checkstring, 1, (string.find(checkstring, "%%") - 1));
+		unitHP = math.floor(UnitHealth(unitName) / UnitHealthMax(unitName) * 100);
+		life = string.sub(checkstring, 1, (string.find(checkstring, "%%") - 1));
 	else
 		if (checkMax) then
 			unitHP = UnitHealthMax(unitName);
@@ -2014,19 +2014,19 @@ function ROB_UnitPassesLifeCheck(checkstring, unitName, checkMax)
 end
 
 function ROB_UnitPassesPowerCheck(checkstring, unitName, powerType)
-	local power		= nil;
-	local unitPower	= 0;
+	local power = nil;
+	local unitPower = 0;
 
 	if (string.find(checkstring, "%%")) then
-		unitPower	= math.floor(UnitPower(unitName, powerType)/UnitPowerMax(unitName, powerType) * 100);
-		power		= string.sub(checkstring, 1, (string.find(checkstring, "%%") - 1));
+		unitPower = math.floor(UnitPower(unitName, powerType) / UnitPowerMax(unitName, powerType) * 100);
+		power = string.sub(checkstring, 1, (string.find(checkstring, "%%") - 1));
 	else
-		unitPower	= UnitPower(unitName, powerType);
-		power		= checkstring;
+		unitPower = UnitPower(unitName, powerType);
+		power = checkstring;
 	end
 	--After we get our unit power see if we should add some to predict next spell
 	if (isNextSpell and ROB_CURRENT_ACTION) then
-		local cost		= 0;
+		local cost = 0;
 		if(ActionDB.b_gspellcost and ActionDB.v_gspellcosttype == powerType and ActionDB.v_gspellcost ~= "" and ActionDB.v_gspellcost ~= nil) then
 			cost = ActionDB.v_gspellcost;
 		end
@@ -2057,7 +2057,7 @@ function ROB_UnitPassesPowerCheck(checkstring, unitName, powerType)
 		end
 	end
 	if (string.sub(power, 1, 2) == ">=") then
-		power= tonumber(string.sub(power, 3));
+		power = tonumber(string.sub(power, 3));
 		if (unitPower >= power) then
 			return true;
 		end
@@ -2079,7 +2079,7 @@ end
 
 function ROB_UnitPassesRuneCheck(runes, isNextSpell)
 	local rune = runes;
-	local count	= 0;
+	local count = 0;
 
 	local _, class = UnitClass("PLAYER");
 	if (class == "DEATHKNIGHT") then
@@ -2134,9 +2134,9 @@ function ROB_UnitPassesRuneCheck(runes, isNextSpell)
 end
 
 function ROB_SpellPassesOtherCooldownCheck(othercd, checkstring, notaspell)
-	local cooldown	= nil;
-	local start		= 0;
-	local duration	= 0;
+	local cooldown = nil;
+	local start = 0;
+	local duration = 0;
 
 	if(notaspell) then
 		start, duration, _ = GetItemCooldown(othercd);
@@ -2184,8 +2184,8 @@ function ROB_SpellPassesOtherCooldownCheck(othercd, checkstring, notaspell)
 end
 
 function ROB_UnitHasDispelableBuff()
-	for i=1, 40 do
-		local name, _, _, _, type, _, _, _, _, _, _ ,_ ,_ ,_ ,_ ,_ ,_ ,_ ,_ = UnitAura("TARGET", i, "HELPFUL");
+	for i = 1, 40 do
+		local name, _, _, _, type, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = UnitAura("TARGET", i, "HELPFUL");
 		if name == nil then
 			break;
 		end
@@ -2197,8 +2197,8 @@ function ROB_UnitHasDispelableBuff()
 end
 
 function ROB_UnitHasStealableBuff()
-	for i=1, 40 do
-		local name, _, _, _, _, _, _, _, stealable, _, _ ,_ ,_ ,_ ,_ ,_ ,_ ,_ ,_ = UnitAura("TARGET", i, "HELPFUL");
+	for i = 1, 40 do
+		local name, _, _, _, _, _, _, _, stealable, _, _, _, _, _, _, _, _, _, _ = UnitAura("TARGET", i, "HELPFUL");
 		if name == nil then
 			break;
 		end
@@ -2210,71 +2210,71 @@ function ROB_UnitHasStealableBuff()
 end
 
 function UnitAuraByID(unit, targetSpellID, filter)
-    for i=1, 40 do
-        local name, rank, icon, count, dispelType, duration, expires, caster, isStealable, shouldConsolidate, spellID = UnitAura(unit, i, filter);
+	for i = 1, 40 do
+		local name, rank, icon, count, dispelType, duration, expires, caster, isStealable, shouldConsolidate, spellID = UnitAura(unit, i, filter);
 		if name == nil then
 			break;
 		end
-        if spellID == targetSpellID then
-            return name, rank, icon, count, dispelType, duration, expires, caster, isStealable, shouldConsolidate, spellID;
-        end
-    end
+		if spellID == targetSpellID then
+			return name, rank, icon, count, dispelType, duration, expires, caster, isStealable, shouldConsolidate, spellID;
+		end
+	end
 end
 
 function ROB_UnitHasAura(needed, unitName, buffType)
-	local exist			= false;
-	local hasSource		= false;
-	local hasStack		= false;
-	local hasTime		= false;
-	local unparsed		= nil;
-	local remaining		= needed;
-	local stacks		= 0;
-	local count			= 0;
-	local found			= 0;
-	local done			= false;
-	local stringType	= 0;
-	local sourceUnit	= nil;
-	local seconds		= 0;
-	local timeLeft		= 0;
+	local exist = false;
+	local hasSource = false;
+	local hasStack = false;
+	local hasTime = false;
+	local unparsed = nil;
+	local remaining = needed;
+	local stacks = 0;
+	local count = 0;
+	local found = 0;
+	local done = false;
+	local stringType = 0;
+	local sourceUnit = nil;
+	local seconds = 0;
+	local timeLeft = 0;
 
 	while not done do
 		unparsed = nil;
 		if (string.find(remaining, "|")) then
-			unparsed	= string.sub(remaining, 1, string.find(remaining, "|") - 1);
-			count		= count + 1;
-			remaining	= string.sub(remaining, string.find(remaining, "|") + 1);
-			stringType	= 1;
+			unparsed = string.sub(remaining, 1, string.find(remaining, "|") - 1);
+			count = count + 1;
+			remaining = string.sub(remaining, string.find(remaining, "|") + 1);
+			stringType = 1;
 		elseif (string.find(remaining, "&")) then
-			unparsed	= string.sub(remaining, 1, string.find(remaining, "&") - 1);
-			count		= count + 1;
-			remaining	= string.sub(remaining,string.find(remaining, "&") + 1);
-			stringType	= 2;
+			unparsed = string.sub(remaining, 1, string.find(remaining, "&") - 1);
+			count = count + 1;
+			remaining = string.sub(remaining, string.find(remaining, "&") + 1);
+			stringType = 2;
 		else
-			unparsed	= remaining;
-			count		= count + 1;
-			done		= true;
+			unparsed = remaining;
+			count = count + 1;
+			done = true;
 		end
-		exist		= false;
-		hasSource	= false;
-		hasStack	= false;
-		hasTime		= false;
+		exist = false;
+		hasSource = false;
+		hasStack = false;
+		hasTime = false;
 		--if the buff has a _ in it that means source needs to be the player
 		if (string.find(unparsed, "_")) then
-			unparsed	= string.sub(unparsed, 2);
-			sourceUnit	= "player";
+			unparsed = string.sub(unparsed, 2);
+			sourceUnit = "player";
 		else
-			unparsed	= unparsed;
-			sourceUnit	= nil;
+			unparsed = unparsed;
+			sourceUnit = nil;
 		end
 		if (string.find(unparsed, "%^")) then
-			seconds		= tonumber(string.sub(unparsed, (string.find(unparsed, "%^") + 1)));
-			unparsed	= string.sub(unparsed, 1, (string.find(unparsed, "%^") - 1));
+			seconds = tonumber(string.sub(unparsed, (string.find(unparsed, "%^") + 1)));
+			unparsed = string.sub(unparsed, 1, (string.find(unparsed, "%^") - 1));
 		else
 			seconds = 0;
 		end
 		if (string.find(unparsed, "#")) then
-			stacks		= tonumber(string.sub(unparsed,(string.find(unparsed, "#") + 1)));
-			unparsed	= string.sub(unparsed, 1, (string.find(unparsed, "#") - 1));
+			stacks = tonumber(string.sub(unparsed, (string.find(unparsed, "#") + 1)));
+			unparsed = string.sub(unparsed, 1, (string.find(unparsed, "#") - 1));
 		else
 			stacks = 0;
 		end
@@ -2327,29 +2327,29 @@ function ROB_UnitHasAura(needed, unitName, buffType)
 end
 
 function ROB_UnitKnowSpell(needed)
-	local unparsed		= nil;
-	local remaining		= needed;
-	local count			= 0;
-	local found			= 0;
-	local done			= false;
-	local stringType	= 0;
+	local unparsed = nil;
+	local remaining = needed;
+	local count = 0;
+	local found = 0;
+	local done = false;
+	local stringType = 0;
 
 	while not done and remaining ~= nil do
 		unparsed = nil;
 		if (string.find(remaining, "|")) then
-			unparsed	= string.sub(remaining, 1, string.find(remaining, "|") - 1);
-			count		= count + 1;
-			remaining	= string.sub(remaining, string.find(remaining, "|") + 1);
-			stringType	= 1;
+			unparsed = string.sub(remaining, 1, string.find(remaining, "|") - 1);
+			count = count + 1;
+			remaining = string.sub(remaining, string.find(remaining, "|") + 1);
+			stringType = 1;
 		elseif (string.find(remaining, "&")) then
-			unparsed	= string.sub(remaining, 1, string.find(remaining, "&") - 1);
-			count		= count + 1;
-			remaining	= string.sub(remaining, string.find(remaining, "&") + 1);
-			stringType	= 2;
+			unparsed = string.sub(remaining, 1, string.find(remaining, "&") - 1);
+			count = count + 1;
+			remaining = string.sub(remaining, string.find(remaining, "&") + 1);
+			stringType = 2;
 		else
-			unparsed	= remaining;
-			count		= count + 1;
-			done		= true;
+			unparsed = remaining;
+			count = count + 1;
+			done = true;
 		end
 		if (unparsed ~= nil and unparsed ~= "") then
 			if (IsSpellKnown(unparsed, true)) then
@@ -2395,8 +2395,8 @@ function ROB_SpellHasProc(spellId)
 end
 
 function ROB_Interrupt()
-	local _,_,_,_,_,_,_,_,notinterruptible = UnitCastingInfo("TARGET");
-	local _,_,_,_,_,_,_,notinterruptible2 = UnitChannelInfo("TARGET");
+	local _, _, _, _, _, _, _, _, notinterruptible = UnitCastingInfo("TARGET");
+	local _, _, _, _, _, _, _, notinterruptible2 = UnitChannelInfo("TARGET");
 
 	if (notinterruptible == false or notinterruptible2 == false) then
 		return true;
@@ -2442,7 +2442,7 @@ end
 
 -- Check if the current unit do not exist or is dead or that's not an enemy (only if the option is enable).
 function ROB_ShouldNotDisplayAction()
-	return not UnitExists("target") or (not ROB_Options.DisplayOnDeadTarget and UnitIsDead("target")) or (ROB_Options.Enemy and UnitIsFriend("player","target"));
+	return not UnitExists("target") or (not ROB_Options.DisplayOnDeadTarget and UnitIsDead("target")) or (ROB_Options.Enemy and UnitIsFriend("player", "target"));
 end
 
 function ROB_SetNextActionTexture(_compareaction)
@@ -2590,7 +2590,7 @@ function ROB_IconCooldown(action)
 			CD = start + duration - now;
 			if (CD > 0) then
 				ROB_CurrentActionButtonCooldown:SetCooldown(now, CD);
-				ROB_CurrentActionButtonCooldown:SetSwipeColor(0,0,0);
+				ROB_CurrentActionButtonCooldown:SetSwipeColor(0, 0, 0);
 				ROB_CurrentActionButtonCooldown:SetDrawEdge(false);
 			end
 		end
@@ -2599,32 +2599,32 @@ function ROB_IconCooldown(action)
 	end
 end
 
-function ROB_SpellReady(actionName,isNextSpell)
---	local GCDleft        = nil
---	local cooldownLeft   = nil
---	local startGCD       = nil
---	local inGCD          = nil
---	local myHPP          = math.floor(UnitHealth("player")/UnitHealthMax("player") * 100)
---	local moHPP          = math.floor(UnitHealth("mouseover")/UnitHealthMax("mouseover") * 100)
---	local targetHPP      = math.floor(UnitHealth("target")/UnitHealthMax("target") * 100)
---	local targetCasting  = nil
---	local focusCasting   = nil
---	local hasbeencasting = nil
---	local startTime      = nil
---	local endTime        = nil
---	local timeLeft       = nil
---	local spellincdbuffer= false
---	local equipSlot, texture
-	local debug				= false;
-	local spellName			= nil;
-	local usable			= false;
-	local start				= 0;
-	local duration			= 0;
-	local cooldown			= 0;
-	local slotId			= nil;
-	local itemId			= nil;
-	local itemName			= nil;
---	local name, icon, castTime
+function ROB_SpellReady(actionName, isNextSpell)
+	--	local GCDleft        = nil
+	--	local cooldownLeft   = nil
+	--	local startGCD       = nil
+	--	local inGCD          = nil
+	--	local myHPP          = math.floor(UnitHealth("player")/UnitHealthMax("player") * 100)
+	--	local moHPP          = math.floor(UnitHealth("mouseover")/UnitHealthMax("mouseover") * 100)
+	--	local targetHPP      = math.floor(UnitHealth("target")/UnitHealthMax("target") * 100)
+	--	local targetCasting  = nil
+	--	local focusCasting   = nil
+	--	local hasbeencasting = nil
+	--	local startTime      = nil
+	--	local endTime        = nil
+	--	local timeLeft       = nil
+	--	local spellincdbuffer= false
+	--	local equipSlot, texture
+	local debug = false;
+	local spellName = nil;
+	local usable = false;
+	local start = 0;
+	local duration = 0;
+	local cooldown = 0;
+	local slotId = nil;
+	local itemId = nil;
+	local itemName = nil;
+	--	local name, icon, castTime
 
 	local ActionDB = ROB_Rotations[ROB_SelectedRotationName].ActionList[actionName]
 
@@ -2722,7 +2722,7 @@ function ROB_SpellReady(actionName,isNextSpell)
 
 	-- CHECK: Check if the item is usable
 	if (ActionDB.b_notaspell) then
-		itemId = GetInventoryItemID("player",slotId);
+		itemId = GetInventoryItemID("player", slotId);
 		itemName, _, _, _, _, _, _, _, _, _, _ = GetItemInfo(itemId);
 		if (itemName == nil) then
 			-- If the name isn't foud, then we can't find the item
@@ -2810,13 +2810,13 @@ function ROB_SpellReady(actionName,isNextSpell)
 
 	-- CHECK: Check Moving
 	if (ActionDB.b_moving and GetUnitSpeed("player") == 0) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you aren't moving", debug);
+		ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you aren't moving", debug);
 		return false;
 	end
 
 	-- CHECK: Not Moving
 	if (ActionDB.b_notmoving and GetUnitSpeed("player") > 0) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you are moving", debug);
+		ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you are moving", debug);
 		return false;
 	end
 
@@ -3005,7 +3005,7 @@ function ROB_SpellReady(actionName,isNextSpell)
 			return false;
 		end
 		if(ActionDB.b_hasMinRange) then
-			local result = CheckInteractDistance("target",2);
+			local result = CheckInteractDistance("target", 2);
 			if(result) then
 				return false;
 			end
@@ -3023,14 +3023,14 @@ function ROB_GetCurrentAction()
 	local foundReadyActionTimeleft = 86400;
 
 	for _, actionName in pairs(ROB_Rotations[ROB_SelectedRotationName].SortedActions) do
-		if (ROB_SpellReady(actionName,false) and (not foundReadyAction)) then
+		if (ROB_SpellReady(actionName, false) and (not foundReadyAction)) then
 			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E2')..actionName.." Spell name/ID : "..ROB_Rotations[ROB_SelectedRotationName].ActionList[actionName].v_spellname.." is ready", ROB_Rotations[ROB_SelectedRotationName].ActionList[actionName].b_debug);
 			foundReadyAction = true;
 			foundReadyActionName = actionName;
 			foundReadyActionCD = ROB_ACTION_CD;
 			break
 		elseif (foundReadyAction) then
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E2')..actionName.." Spell name/ID : "..ROB_Rotations[ROB_SelectedRotationName].ActionList[actionName].v_spellname.." is not showing because it is waiting for the ready action : "..foundReadyActionName.." to be casted",ROB_Rotations[ROB_SelectedRotationName].ActionList[actionName].b_debug)
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E2')..actionName.." Spell name/ID : "..ROB_Rotations[ROB_SelectedRotationName].ActionList[actionName].v_spellname.." is not showing because it is waiting for the ready action : "..foundReadyActionName.." to be casted", ROB_Rotations[ROB_SelectedRotationName].ActionList[actionName].b_debug)
 		end
 	end
 
