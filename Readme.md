@@ -19,7 +19,7 @@ Rotation Builder allows you to build rotations dynamically without having to und
 - 7.1.5 MAGE
 - 7.1.5 PALADIN
 - 7.1.5 PRIEST
-- 7.1.5 ROGUE
+- 7.2.5 ROGUE
 - 7.1.5 SHAMAN
 - 7.1.5 WARLOCK
 - 7.1.5 WARRIOR
@@ -32,5 +32,5 @@ Rotation Builder allows you to build rotations dynamically without having to und
 - [x] Hide Rotations Builders icons on dead targets
 - [x] Fix trinkets management
 - [ ] Add back the bindings
-- [ ] Update to the 7.2.0 version of WoW
+- [ ] Update to the 7.2.5 version of WoW
 - [ ] Fix bug forbidding us to delete the content of the icon input field of a spell
