@@ -1,4 +1,4 @@
-## Interface: 70205
+## Interface: 70200
 ## Title: RotationBuilder
 ## Version: 1.68.0
 ## Author: Previous : Soulwhip, Current : Pelerinage, Tylorcaptain
