@@ -2632,7 +2632,7 @@ function ROB_SpellReady(actionName, isNextSpell)
 		debug = ActionDB.b_debug;
 	end
 
-	-- TODO PEL - we need to check here the cution case toggle.
+	-- TODO PEL - we need to check here the custom case toggle.
 	if(ActionDB.b_isCustomCase1 and not RotationBuilder:isCustomCase1Enable()) then
 		return false;
 	end
