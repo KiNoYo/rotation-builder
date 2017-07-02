@@ -16,8 +16,9 @@ RotationBuilder = {
 	-- If we seek a multi-target rotation.
 	multiTargetEnabled = false,
 
+	-- TODO Vladilen : We set custom case 1 as enabled by default
 	customCase = {
-		case1 = false,
+		case1 = true,
 		case2 = false,
 	},
 };
