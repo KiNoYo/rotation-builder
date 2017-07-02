@@ -15,7 +15,7 @@ Rotation Builder allows you to build rotations dynamically without having to und
 ## Default rotations available
 
 - 7.1.5 DRUID
-- 7.1.5 HUNTER
+- 7.2.5 HUNTER
 - 7.1.5 MAGE
 - 7.1.5 PALADIN
 - 7.1.5 PRIEST
