@@ -20,7 +20,7 @@ Rotation Builder allows you to build rotations dynamically without having to und
 - 7.1.5 PALADIN
 - 7.2.5 PRIEST
 - 7.2.5 ROGUE
-- 7.1.5 SHAMAN
+- 7.2.5 SHAMAN
 - 7.1.5 WARLOCK
 - 7.1.5 WARRIOR
 - 7.1.5 DEATHKNIGHT
