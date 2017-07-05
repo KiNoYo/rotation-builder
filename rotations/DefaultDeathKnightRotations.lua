@@ -17,7 +17,7 @@ local deathKnightRotationsGenerator = function ()
 				"defaultRotation/deathknight/blood_tap", -- [12]
 				"defaultRotation/deathknight/death_and_decay", -- [13]
 				"defaultRotation/deathknight/heart_strike", -- [14]
-				"defaultRotation/deathknight/death_and_decay_crimson scourge", -- [15]
+				"defaultRotation/deathknight/death_and_decay_crimson_scourge", -- [15]
 				"defaultRotation/deathknight/consumption", -- [16]
 				"defaultRotation/deathknight/blood_boil", -- [17]
 			},
@@ -26,11 +26,9 @@ local deathKnightRotationsGenerator = function ()
 				["defaultRotation/deathknight/heart_strike"] = {
 					["v_gunitpowertype"] = "6",
 					["b_p_runes"] = true,
-					["v_p_hp"] = "<70%",
 					["b_gunitpower"] = true,
 					["v_spellname"] = "206930",
 					["v_p_runes"] = ">2",
-					["b_p_hp"] = true,
 					["v_gunitpower"] = "5",
 					["v_durationstartedtime"] = 0,
 				},
@@ -104,7 +102,7 @@ local deathKnightRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "205223",
 				},
-				["defaultRotation/deathknight/death_and_decay_crimson scourge"] = {
+				["defaultRotation/deathknight/death_and_decay_crimson_scourge"] = {
 					["v_p_knownotspell"] = "194662",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "43265",
@@ -159,7 +157,7 @@ local deathKnightRotationsGenerator = function ()
 				"defaultRotation/deathknight/death_strike_healing", -- [5]
 				"defaultRotation/deathknight/blood_boil_blood_plague", -- [6]
 				"defaultRotation/deathknight/blood_mirror", -- [7]
-				"defaultRotation/deathknight/death_and_decay_crimson scourge", -- [8]
+				"defaultRotation/deathknight/death_and_decay_crimson_scourge", -- [8]
 				"defaultRotation/deathknight/bonestorm", -- [9]
 				"defaultRotation/deathknight/death_strike", -- [10]
 				"defaultRotation/deathknight/mark_of_blood", -- [11]
@@ -174,11 +172,9 @@ local deathKnightRotationsGenerator = function ()
 				["defaultRotation/deathknight/heart_strike"] = {
 					["v_gunitpowertype"] = "6",
 					["b_p_runes"] = true,
-					["v_p_hp"] = "<70%",
 					["b_gunitpower"] = true,
 					["v_spellname"] = "206930",
 					["v_p_runes"] = ">2",
-					["b_p_hp"] = true,
 					["v_gunitpower"] = "5",
 					["v_durationstartedtime"] = 0,
 				},
@@ -208,7 +204,7 @@ local deathKnightRotationsGenerator = function ()
 					["b_p_hp"] = true,
 					["v_gspellcosttype"] = "6",
 				},
-				["defaultRotation/deathknight/death_and_decay_crimson scourge"] = {
+				["defaultRotation/deathknight/death_and_decay_crimson_scourge"] = {
 					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "81141",
 					["b_p_havebuff"] = true,
