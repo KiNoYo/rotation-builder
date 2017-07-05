@@ -85,19 +85,33 @@ local paladinRotationsGenerator = function ()
 		},
 		["defaultRotation/paladin/protection"] = {
 			["version"] = 7,
+			["SortedActions"] = {
+				"defaultRotation/paladin/rebuke", -- [1]
+				"defaultRotation/paladin/lay_on_hands", -- [2]
+				"defaultRotation/paladin/hand_of_the_protector", -- [3]
+				"defaultRotation/paladin/light_of_the_protector", -- [4]
+				"defaultRotation/paladin/avenging_wrath", -- [5]
+				"defaultRotation/paladin/shield_of_the_righteous", -- [6]
+				"defaultRotation/paladin/eye_of_tyr", -- [7]
+				"defaultRotation/paladin/judgment", -- [8]
+				"defaultRotation/paladin/consecration", -- [9]
+				"defaultRotation/paladin/avenger_shield", -- [10]
+				"defaultRotation/paladin/blessed_hammer", -- [11]
+			},
+			["specID"] = 2,
 			["ActionList"] = {
 				["defaultRotation/paladin/rebuke"] = {
-					["v_spellname"] = "96231",
-					["v_durationstartedtime"] = 0,
 					["b_t_interrupt"] = true,
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "96231",
 				},
 				["defaultRotation/paladin/consecration"] = {
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "26573",
 				},
 				["defaultRotation/paladin/avenging_wrath"] = {
-					["v_durationstartedtime"] = 0,
 					["b_isCustomCase1"] = true,
+					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "31884",
 				},
 				["defaultRotation/paladin/lay_on_hands"] = {
@@ -125,50 +139,36 @@ local paladinRotationsGenerator = function ()
 					["v_othercharges"] = "0",
 					["v_spellname"] = "209202",
 					["b_p_needbuff"] = true,
-					["v_otherchargesname"] = "53600",
-					["b_othercharges"] = true,
 					["v_durationstartedtime"] = 0,
+					["b_othercharges"] = true,
+					["v_otherchargesname"] = "53600",
 				},
 				["defaultRotation/paladin/light_of_the_protector"] = {
 					["v_p_knownotspell"] = "213652",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "184092",
 					["b_p_hp"] = true,
-					["v_p_hp"] = "<40%",
 					["b_p_knownotspell"] = true,
+					["v_p_hp"] = "<40%",
+				},
+				["defaultRotation/paladin/hand_of_the_protector"] = {
+					["v_p_hp"] = "<40%",
+					["b_p_hp"] = true,
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "213652",
 				},
 				["defaultRotation/paladin/shield_of_the_righteous"] = {
 					["v_p_needbuff"] = "132403",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "53600",
 					["b_p_needbuff"] = true,
-					["v_t_needsdebuff"] = "_209202",
 					["b_t_needsdebuff"] = true,
-				},
-				["defaultRotation/paladin/hand_of_the_protector"] = {
-					["b_p_hp"] = true,
-					["v_p_hp"] = "<40%",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "213652",
+					["v_t_needsdebuff"] = "_209202",
 				},
 				["defaultRotation/paladin/judgment"] = {
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "20271",
 				},
-			},
-			["specID"] = 2,
-			["SortedActions"] = {
-				"defaultRotation/paladin/rebuke", -- [1]
-				"defaultRotation/paladin/lay_on_hands", -- [2]
-				"defaultRotation/paladin/hand_of_the_protector", -- [3]
-				"defaultRotation/paladin/light_of_the_protector", -- [4]
-				"defaultRotation/paladin/avenging_wrath", -- [5]
-				"defaultRotation/paladin/shield_of_the_righteous", -- [6]
-				"defaultRotation/paladin/eye_of_tyr", -- [7]
-				"defaultRotation/paladin/blessed_hammer", -- [8]
-				"defaultRotation/paladin/judgment", -- [9]
-				"defaultRotation/paladin/consecration", -- [10]
-				"defaultRotation/paladin/avenger_shield", -- [11]
 			},
 			["bindindex"] = 0,
 		},
