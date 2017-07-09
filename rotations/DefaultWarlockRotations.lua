@@ -191,6 +191,8 @@ local warlockRotationsGenerator = function ()
 					["v_gspellcost"] = "1",
 				},
 				["defaultRotation/warlock/reap_souls"] = {
+					["v_p_havebuff"] = "216695#2",
+					["b_p_havebuff"] = true,
 					["v_t_hasdebuff"] = "_233490&_233496",
 					["v_spellname"] = "216698",
 					["v_durationstartedtime"] = 0,
@@ -361,10 +363,8 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "980",
 				},
 				["defaultRotation/warlock/reap_souls"] = {
-					["v_p_needbuff"] = "216708",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "216698",
-					["b_p_needbuff"] = true,
 					["v_p_havebuff"] = "216695#2",
 					["b_p_havebuff"] = true,
 				},
