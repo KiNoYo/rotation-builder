@@ -191,7 +191,7 @@ local warlockRotationsGenerator = function ()
 					["v_gspellcost"] = "1",
 				},
 				["defaultRotation/warlock/reap_souls"] = {
-					["v_p_havebuff"] = "216695#2",
+					["v_p_havebuff"] = "216695#1",
 					["b_p_havebuff"] = true,
 					["v_t_hasdebuff"] = "_233490&_233496",
 					["v_spellname"] = "216698",
