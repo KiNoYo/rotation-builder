@@ -14,7 +14,7 @@ Rotation Builder allows you to build rotations dynamically without having to und
 
 ## Default rotations available
 
-- 7.1.5 DRUID
+- 7.2.5 DRUID
 - 7.2.5 HUNTER
 - 7.2.5 MAGE
 - 7.2.5 PALADIN
@@ -31,6 +31,6 @@ Rotation Builder allows you to build rotations dynamically without having to und
 
 - [x] Hide Rotation Builder icons on dead targets
 - [x] Fix trinkets management
+- [x] Update to the 7.2.5 version of WoW
 - [ ] Add back the keybindings
-- [ ] Update to the 7.2.5 version of WoW
 - [ ] Fix bug preventing us fron deleting the content of the icon input field of a spell
