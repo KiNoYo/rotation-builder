@@ -29,8 +29,5 @@ Rotation Builder allows you to build rotations dynamically without having to und
 
 ## TODO
 
-- [x] Hide Rotation Builder icons on dead targets
-- [x] Fix trinkets management
-- [x] Update to the 7.2.5 version of WoW
 - [ ] Add back the keybindings
 - [ ] Fix bug preventing us fron deleting the content of the icon input field of a spell
