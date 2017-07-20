@@ -10,7 +10,7 @@ Be careful when translating phrases from the overview interface : rotations loca
 
 ## What is Rotation Builder?
 
-Rotation Builder allows you to build rotations dynamically without having to understand the Lua script language. The built rotation then displays the current action and the next action on your screen to tell you what to push next. Actions can be heavily customized with the General, Player, Target, Pet, and Focus tabs. The priority of actions can also be changed dynamically just by clicking the up and down arrows next to the action name in the Action list.
+Rotation Builder allows you to build rotations dynamically without having to understand the Lua script language. The built rotation then displays the current action and the next action on your screen to tell you what to push next. Actions can be heavily customized with the General, Player, Target and Pet tabs. The priority of actions can also be changed dynamically just by clicking the up and down arrows next to the action name in the Action list.
 
 ## Default rotations available
 
@@ -29,8 +29,8 @@ Rotation Builder allows you to build rotations dynamically without having to und
 
 ## TODO
 
-- [x] Hide Rotations Builders icons on dead targets
+- [x] Hide Rotation Builder icons on dead targets
 - [x] Fix trinkets management
-- [ ] Add back the bindings
+- [ ] Add back the keybindings
 - [ ] Update to the 7.2.5 version of WoW
-- [ ] Fix bug forbidding us to delete the content of the icon input field of a spell
+- [ ] Fix bug preventing us fron deleting the content of the icon input field of a spell
