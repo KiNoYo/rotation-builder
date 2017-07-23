@@ -1271,6 +1271,7 @@ local mageRotationsGenerator = function ()
 			},
 			["specID"] = 3,
 			["version"] = 6,
+			["isMultiTarget"] = true,
 		},
 	}
 
