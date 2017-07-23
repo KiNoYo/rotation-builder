@@ -1270,7 +1270,7 @@ local mageRotationsGenerator = function ()
 				},
 			},
 			["specID"] = 3,
-			["version"] = 6,
+			["version"] = 7,
 			["isMultiTarget"] = true,
 		},
 	}
