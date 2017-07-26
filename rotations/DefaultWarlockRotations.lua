@@ -2,34 +2,7 @@
 local warlockRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/warlock/affliction"] = {
-			["version"] = 6,
-			["SortedActions"] = {
-				"defaultRotation/warlock/shadow_lock", -- [1]
-				"defaultRotation/warlock/spell_lock", -- [2]
-				"defaultRotation/warlock/summon_doomguard_grimoire_of_supremacy", -- [3]
-				"defaultRotation/warlock/summon_felhunter", -- [4]
-				"defaultRotation/warlock/grimoire_of_sacrifice", -- [5]
-				"defaultRotation/warlock/mortal_coil", -- [6]
-				"defaultRotation/warlock/life_tap_empowered_life_tap", -- [7]
-				"defaultRotation/warlock/life_tap", -- [8]
-				"defaultRotation/warlock/agony", -- [9]
-				"defaultRotation/warlock/corruption_absolute_corruption", -- [10]
-				"defaultRotation/warlock/corruption", -- [11]
-				"defaultRotation/warlock/siphon_life", -- [12]
-				"defaultRotation/warlock/summon_doomguard", -- [13]
-				"defaultRotation/warlock/soul_harvest", -- [14]
-				"defaultRotation/warlock/phantom_singularity", -- [15]
-				"defaultRotation/warlock/grimoire_felhunter", -- [16]
-				"defaultRotation/warlock/haunt", -- [17]
-				"defaultRotation/warlock/reap_souls_4_tormented_souls", -- [18]
-				"defaultRotation/warlock/reap_souls", -- [19]
-				"defaultRotation/warlock/unstable_affliction_contagion", -- [20]
-				"defaultRotation/warlock/unstable_affliction_empowered_life_tap", -- [21]
-				"defaultRotation/warlock/unstable_affliction_3+_soul_shards", -- [22]
-				"defaultRotation/warlock/unstable_affliction_second", -- [23]
-				"defaultRotation/warlock/drain_soul", -- [24]
-				"defaultRotation/warlock/unstable_affliction", -- [25]
-			},
+			["version"] = 7,
 			["ActionList"] = {
 				["defaultRotation/warlock/corruption"] = {
 					["v_t_needsdebuff"] = "_146739^4.2",
@@ -44,59 +17,60 @@ local warlockRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "196098",
 				},
-				["defaultRotation/warlock/siphon_life"] = {
-					["v_t_needsdebuff"] = "_63106^4.5",
-					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "63106",
-				},
 				["defaultRotation/warlock/reap_souls_4_tormented_souls"] = {
 					["v_p_havebuff"] = "216695#4",
 					["b_p_havebuff"] = true,
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "216698",
 				},
-				["defaultRotation/warlock/grimoire_of_sacrifice"] = {
-					["b_p_needbuff"] = true,
-					["v_p_needbuff"] = "196099",
+				["defaultRotation/warlock/siphon_life"] = {
+					["v_t_needsdebuff"] = "_63106^4.5",
+					["b_t_needsdebuff"] = true,
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "108503",
+					["v_spellname"] = "63106",
+				},
+				["defaultRotation/warlock/unstable_affliction_empowered_life_tap"] = {
+					["b_gspellcost"] = true,
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "30108",
+					["v_gspellcost"] = "1",
+					["b_p_havebuff"] = true,
+					["v_p_havebuff"] = "235156",
+					["v_gspellcosttype"] = "7",
 				},
 				["defaultRotation/warlock/phantom_singularity"] = {
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "205179",
 				},
 				["defaultRotation/warlock/unstable_affliction_second"] = {
-					["v_t_needsdebuff"] = "_233496",
+					["b_gspellcost"] = true,
 					["b_t_hasdebuff"] = true,
 					["v_gspellcosttype"] = "7",
 					["v_p_unitpowertype"] = "7",
+					["v_durationstartedtime"] = 0,
 					["b_t_needsdebuff"] = true,
-					["b_gspellcost"] = true,
 					["b_p_unitpower"] = true,
 					["v_spellname"] = "30108",
 					["v_gspellcost"] = "1",
-					["v_durationstartedtime"] = 0,
+					["v_t_needsdebuff"] = "_233496",
 					["v_p_unitpower"] = ">=2",
 					["v_t_hasdebuff"] = "_233490",
 				},
-				["defaultRotation/warlock/shadow_lock"] = {
-					["v_p_knowspell"] = "152107",
-					["v_pet_needsbuff"] = "171011",
-					["b_p_knowspell"] = true,
-					["v_pet_hp"] = ">0",
-					["v_durationstartedtime"] = 0,
+				["defaultRotation/warlock/spell_lock"] = {
 					["b_t_interrupt"] = true,
-					["b_pet_needsbuff"] = true,
+					["v_p_knownotspell"] = "152107",
+					["v_durationstartedtime"] = 0,
+					["v_pet_hp"] = ">0",
+					["v_spellname"] = "119910",
+					["b_p_knownotspell"] = true,
 					["b_notinspellbook"] = true,
-					["v_spellname"] = "171138",
 					["b_pet_hp"] = true,
 				},
-				["defaultRotation/warlock/agony"] = {
-					["v_t_needsdebuff"] = "_980^5.4",
-					["b_t_needsdebuff"] = true,
+				["defaultRotation/warlock/grimoire_of_sacrifice"] = {
+					["b_p_needbuff"] = true,
+					["v_p_needbuff"] = "196099",
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "980",
+					["v_spellname"] = "108503",
 				},
 				["defaultRotation/warlock/summon_doomguard"] = {
 					["b_gspellcost"] = true,
@@ -120,14 +94,17 @@ local warlockRotationsGenerator = function ()
 					["v_gspellcost"] = "1",
 					["b_pet_hp"] = true,
 				},
-				["defaultRotation/warlock/unstable_affliction_empowered_life_tap"] = {
-					["b_gspellcost"] = true,
+				["defaultRotation/warlock/shadow_lock"] = {
+					["v_p_knowspell"] = "152107",
+					["v_pet_hp"] = ">0",
+					["v_pet_needsbuff"] = "171011",
+					["v_spellname"] = "171138",
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "30108",
-					["v_gspellcost"] = "1",
-					["b_p_havebuff"] = true,
-					["v_p_havebuff"] = "235156",
-					["v_gspellcosttype"] = "7",
+					["b_t_interrupt"] = true,
+					["b_pet_needsbuff"] = true,
+					["b_notinspellbook"] = true,
+					["b_p_knowspell"] = true,
+					["b_pet_hp"] = true,
 				},
 				["defaultRotation/warlock/mortal_coil"] = {
 					["b_p_hp"] = true,
@@ -135,15 +112,11 @@ local warlockRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "6789",
 				},
-				["defaultRotation/warlock/spell_lock"] = {
-					["b_t_interrupt"] = true,
-					["v_p_knownotspell"] = "152107",
+				["defaultRotation/warlock/agony"] = {
+					["v_t_needsdebuff"] = "_980^5.4",
+					["b_t_needsdebuff"] = true,
 					["v_durationstartedtime"] = 0,
-					["v_pet_hp"] = ">0",
-					["v_spellname"] = "119910",
-					["b_notinspellbook"] = true,
-					["b_p_knownotspell"] = true,
-					["b_pet_hp"] = true,
+					["v_spellname"] = "980",
 				},
 				["defaultRotation/warlock/grimoire_felhunter"] = {
 					["b_gspellcost"] = true,
@@ -154,21 +127,33 @@ local warlockRotationsGenerator = function ()
 				},
 				["defaultRotation/warlock/unstable_affliction_3+_soul_shards"] = {
 					["b_gspellcost"] = true,
-					["v_durationstartedtime"] = 0,
-					["b_t_needsdebuff"] = true,
+					["v_gspellcosttype"] = "7",
+					["v_p_unitpowertype"] = "7",
 					["v_t_needsdebuff"] = "_233490&_233496&_233497&_233498&_233499",
 					["b_p_unitpower"] = true,
 					["v_spellname"] = "30108",
-					["v_gspellcosttype"] = "7",
-					["v_p_unitpowertype"] = "7",
-					["v_p_unitpower"] = ">3",
 					["v_gspellcost"] = "1",
+					["v_durationstartedtime"] = 0,
+					["v_p_unitpower"] = ">3",
+					["b_t_needsdebuff"] = true,
 				},
 				["defaultRotation/warlock/drain_soul"] = {
 					["v_t_hasdebuff"] = "_233490||_233496||_233497||_233498||_233499",
 					["v_spellname"] = "198590",
 					["v_durationstartedtime"] = 0,
 					["b_t_hasdebuff"] = true,
+				},
+				["defaultRotation/warlock/unstable_affliction"] = {
+					["b_gspellcost"] = true,
+					["v_durationstartedtime"] = 0,
+					["v_p_unitpowertype"] = "7",
+					["v_t_needsdebuff"] = "_233490||_233496||_233497||_233498||_233499",
+					["b_p_unitpower"] = true,
+					["v_spellname"] = "30108",
+					["b_t_needsdebuff"] = true,
+					["v_gspellcosttype"] = "7",
+					["v_p_unitpower"] = "<=3",
+					["v_gspellcost"] = "1",
 				},
 				["defaultRotation/warlock/corruption_absolute_corruption"] = {
 					["v_t_needsdebuff"] = "_146739",
@@ -178,25 +163,13 @@ local warlockRotationsGenerator = function ()
 					["b_t_needsdebuff"] = true,
 					["b_p_knowspell"] = true,
 				},
-				["defaultRotation/warlock/unstable_affliction"] = {
-					["b_gspellcost"] = true,
-					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_t_needsdebuff"] = "_233490||_233496||_233497||_233498||_233499",
-					["v_p_unitpowertype"] = "7",
-					["v_spellname"] = "30108",
-					["b_t_needsdebuff"] = true,
-					["v_gspellcosttype"] = "7",
-					["v_p_unitpower"] = "<=3",
-					["v_gspellcost"] = "1",
-				},
 				["defaultRotation/warlock/reap_souls"] = {
-					["v_p_havebuff"] = "216695#1",
 					["b_p_havebuff"] = true,
-					["v_t_hasdebuff"] = "_233490&_233496",
-					["v_spellname"] = "216698",
-					["v_durationstartedtime"] = 0,
 					["b_t_hasdebuff"] = true,
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "216698",
+					["v_p_havebuff"] = "216695#2",
+					["v_t_hasdebuff"] = "_233490&_233496",
 				},
 				["defaultRotation/warlock/haunt"] = {
 					["v_durationstartedtime"] = 0,
@@ -233,19 +206,48 @@ local warlockRotationsGenerator = function ()
 					["v_gspellcosttype"] = "7",
 				},
 				["defaultRotation/warlock/summon_felhunter"] = {
-					["b_gspellcost"] = true,
+					["v_p_needbuff"] = "196099",
+					["b_p_needbuff"] = true,
 					["v_gspellcost"] = "1",
+					["v_pet_hp"] = "=0",
 					["v_p_knownotspell"] = "152107",
 					["v_durationstartedtime"] = 0,
-					["v_pet_hp"] = "=0",
+					["v_spellname"] = "691",
 					["v_gspellcosttype"] = "7",
 					["b_p_knownotspell"] = true,
-					["v_spellname"] = "691",
+					["b_gspellcost"] = true,
 					["b_pet_hp"] = true,
 				},
 			},
 			["specID"] = 1,
 			["bindindex"] = 0,
+			["SortedActions"] = {
+				"defaultRotation/warlock/shadow_lock", -- [1]
+				"defaultRotation/warlock/spell_lock", -- [2]
+				"defaultRotation/warlock/summon_doomguard_grimoire_of_supremacy", -- [3]
+				"defaultRotation/warlock/summon_felhunter", -- [4]
+				"defaultRotation/warlock/grimoire_of_sacrifice", -- [5]
+				"defaultRotation/warlock/mortal_coil", -- [6]
+				"defaultRotation/warlock/life_tap_empowered_life_tap", -- [7]
+				"defaultRotation/warlock/life_tap", -- [8]
+				"defaultRotation/warlock/agony", -- [9]
+				"defaultRotation/warlock/corruption_absolute_corruption", -- [10]
+				"defaultRotation/warlock/corruption", -- [11]
+				"defaultRotation/warlock/siphon_life", -- [12]
+				"defaultRotation/warlock/summon_doomguard", -- [13]
+				"defaultRotation/warlock/soul_harvest", -- [14]
+				"defaultRotation/warlock/phantom_singularity", -- [15]
+				"defaultRotation/warlock/grimoire_felhunter", -- [16]
+				"defaultRotation/warlock/haunt", -- [17]
+				"defaultRotation/warlock/reap_souls_4_tormented_souls", -- [18]
+				"defaultRotation/warlock/reap_souls", -- [19]
+				"defaultRotation/warlock/unstable_affliction_contagion", -- [20]
+				"defaultRotation/warlock/unstable_affliction_empowered_life_tap", -- [21]
+				"defaultRotation/warlock/unstable_affliction_3+_soul_shards", -- [22]
+				"defaultRotation/warlock/unstable_affliction_second", -- [23]
+				"defaultRotation/warlock/drain_soul", -- [24]
+				"defaultRotation/warlock/unstable_affliction", -- [25]
+			},
 		},
 		["defaultRotation/warlock/affliction_multi"] = {
 			["version"] = 4,
@@ -872,32 +874,8 @@ local warlockRotationsGenerator = function ()
 			["isMultiTarget"] = true,
 		},
 		["defaultRotation/warlock/destruction"] = {
-			["version"] = 6,
-			["SortedActions"] = {
-				"defaultRotation/warlock/shadow_lock", -- [1]
-				"defaultRotation/warlock/summon_doomguard_grimoire_of_supremacy", -- [2]
-				"defaultRotation/warlock/summon_imp", -- [3]
-				"defaultRotation/warlock/grimoire_of_sacrifice", -- [4]
-				"defaultRotation/warlock/mortal_coil", -- [5]
-				"defaultRotation/warlock/cauterize_master", -- [6]
-				"defaultRotation/warlock/drain_life", -- [7]
-				"defaultRotation/warlock/immolate", -- [8]
-				"defaultRotation/warlock/life_tap_empowered_life_tap", -- [9]
-				"defaultRotation/warlock/life_tap", -- [10]
-				"defaultRotation/warlock/summon_infernal_lord_of_flames", -- [11]
-				"defaultRotation/warlock/soul_harvest", -- [12]
-				"defaultRotation/warlock/chaos_bolt_5_soul_shards", -- [13]
-				"defaultRotation/warlock/conflagrate_roaring_blaze", -- [14]
-				"defaultRotation/warlock/dimensional_rift_moving", -- [15]
-				"defaultRotation/warlock/dimensional_rift", -- [16]
-				"defaultRotation/warlock/summon_doomguard", -- [17]
-				"defaultRotation/warlock/grimoire_imp", -- [18]
-				"defaultRotation/warlock/channel_demonfire", -- [19]
-				"defaultRotation/warlock/shadowburn", -- [20]
-				"defaultRotation/warlock/conflagrate", -- [21]
-				"defaultRotation/warlock/chaos_bolt", -- [22]
-				"defaultRotation/warlock/incinerate", -- [23]
-			},
+			["version"] = 7,
+			["specID"] = 3,
 			["ActionList"] = {
 				["defaultRotation/warlock/shadowburn"] = {
 					["v_t_needsdebuff"] = "_17877",
@@ -914,40 +892,14 @@ local warlockRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "348",
 				},
-				["defaultRotation/warlock/soul_harvest"] = {
-					["b_isCustomCase1"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "196098",
-				},
-				["defaultRotation/warlock/drain_life"] = {
-					["b_p_hp"] = true,
-					["v_p_hp"] = "<30%",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "234153",
-				},
-				["defaultRotation/warlock/summon_imp"] = {
-					["b_gspellcost"] = true,
-					["v_gspellcost"] = "1",
-					["v_p_knownotspell"] = "152107",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "688",
-					["v_gspellcosttype"] = "7",
+				["defaultRotation/warlock/conflagrate"] = {
+					["v_p_knownotspell"] = "205184||17877",
+					["b_gunitpower"] = true,
+					["v_spellname"] = "17962",
+					["v_gunitpowertype"] = "7",
 					["b_p_knownotspell"] = true,
-					["v_pet_hp"] = "=0",
-					["b_pet_hp"] = true,
-				},
-				["defaultRotation/warlock/cauterize_master"] = {
-					["v_p_needbuff"] = "119899",
-					["b_p_needbuff"] = true,
-					["b_p_hp"] = true,
-					["v_p_hp"] = "<80%",
-					["v_p_knownotspell"] = "152107||108503",
+					["v_gunitpower"] = "1",
 					["v_durationstartedtime"] = 0,
-					["v_pet_hp"] = ">0",
-					["b_notinspellbook"] = true,
-					["b_p_knownotspell"] = true,
-					["v_spellname"] = "119905",
-					["b_pet_hp"] = true,
 				},
 				["defaultRotation/warlock/dimensional_rift_moving"] = {
 					["b_moving"] = true,
@@ -956,6 +908,32 @@ local warlockRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_p_unitpower"] = "<5",
 					["v_p_unitpowertype"] = "7",
+				},
+				["defaultRotation/warlock/summon_imp"] = {
+					["v_p_needbuff"] = "196099",
+					["b_p_needbuff"] = true,
+					["v_gspellcosttype"] = "7",
+					["v_pet_hp"] = "=0",
+					["v_p_knownotspell"] = "152107",
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "688",
+					["v_gspellcost"] = "1",
+					["b_p_knownotspell"] = true,
+					["b_gspellcost"] = true,
+					["b_pet_hp"] = true,
+				},
+				["defaultRotation/warlock/cauterize_master"] = {
+					["v_p_needbuff"] = "119899",
+					["b_p_needbuff"] = true,
+					["b_notinspellbook"] = true,
+					["v_p_hp"] = "<80%",
+					["v_p_knownotspell"] = "152107||108503",
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "119905",
+					["b_p_hp"] = true,
+					["b_p_knownotspell"] = true,
+					["v_pet_hp"] = ">0",
+					["b_pet_hp"] = true,
 				},
 				["defaultRotation/warlock/chaos_bolt"] = {
 					["b_gspellcost"] = true,
@@ -986,14 +964,20 @@ local warlockRotationsGenerator = function ()
 					["v_spellname"] = "157757",
 					["b_pet_hp"] = true,
 				},
+				["defaultRotation/warlock/drain_life"] = {
+					["b_p_hp"] = true,
+					["v_p_hp"] = "<30%",
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "234153",
+				},
 				["defaultRotation/warlock/conflagrate_roaring_blaze"] = {
 					["b_t_hasdebuff"] = true,
-					["v_gunitpowertype"] = "7",
-					["b_p_knowspell"] = true,
-					["b_gunitpower"] = true,
-					["v_spellname"] = "17962",
 					["v_p_knowspell"] = "205184",
+					["b_p_knowspell"] = true,
 					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "17962",
+					["v_gunitpowertype"] = "7",
+					["b_gunitpower"] = true,
 					["v_gunitpower"] = "1",
 					["v_t_hasdebuff"] = "_157736^5.4",
 				},
@@ -1010,21 +994,14 @@ local warlockRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "29722",
 				},
+				["defaultRotation/warlock/soul_harvest"] = {
+					["b_isCustomCase1"] = true,
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "196098",
+				},
 				["defaultRotation/warlock/channel_demonfire"] = {
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "196447",
-				},
-				["defaultRotation/warlock/summon_infernal_lord_of_flames"] = {
-					["b_gspellcost"] = true,
-					["v_p_needdebuff"] = "224103",
-					["b_p_needdebuff"] = true,
-					["v_p_knownotspell"] = "152107",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "1122",
-					["v_gspellcost"] = "1",
-					["b_p_knownotspell"] = true,
-					["v_gspellcosttype"] = "7",
-					["b_isCustomCase1"] = true,
 				},
 				["defaultRotation/warlock/dimensional_rift"] = {
 					["v_durationstartedtime"] = 0,
@@ -1043,9 +1020,9 @@ local warlockRotationsGenerator = function ()
 				},
 				["defaultRotation/warlock/shadow_lock"] = {
 					["v_p_knowspell"] = "152107",
+					["v_spellname"] = "171138",
 					["v_pet_needsbuff"] = "171011",
 					["b_p_knowspell"] = true,
-					["v_spellname"] = "171138",
 					["v_durationstartedtime"] = 0,
 					["v_pet_hp"] = ">0",
 					["b_pet_needsbuff"] = true,
@@ -1086,18 +1063,45 @@ local warlockRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "108503",
 				},
-				["defaultRotation/warlock/conflagrate"] = {
-					["v_p_knownotspell"] = "205184||17877",
-					["b_gunitpower"] = true,
-					["v_spellname"] = "17962",
-					["v_gunitpowertype"] = "7",
-					["b_p_knownotspell"] = true,
-					["v_gunitpower"] = "1",
+				["defaultRotation/warlock/summon_infernal_lord_of_flames"] = {
+					["b_gspellcost"] = true,
+					["v_p_needdebuff"] = "224103",
+					["b_p_needdebuff"] = true,
+					["v_p_knownotspell"] = "152107",
 					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "1122",
+					["v_gspellcost"] = "1",
+					["b_p_knownotspell"] = true,
+					["v_gspellcosttype"] = "7",
+					["b_isCustomCase1"] = true,
 				},
 			},
-			["specID"] = 3,
 			["bindindex"] = 0,
+			["SortedActions"] = {
+				"defaultRotation/warlock/shadow_lock", -- [1]
+				"defaultRotation/warlock/summon_doomguard_grimoire_of_supremacy", -- [2]
+				"defaultRotation/warlock/summon_imp", -- [3]
+				"defaultRotation/warlock/grimoire_of_sacrifice", -- [4]
+				"defaultRotation/warlock/mortal_coil", -- [5]
+				"defaultRotation/warlock/cauterize_master", -- [6]
+				"defaultRotation/warlock/drain_life", -- [7]
+				"defaultRotation/warlock/immolate", -- [8]
+				"defaultRotation/warlock/life_tap_empowered_life_tap", -- [9]
+				"defaultRotation/warlock/life_tap", -- [10]
+				"defaultRotation/warlock/summon_infernal_lord_of_flames", -- [11]
+				"defaultRotation/warlock/soul_harvest", -- [12]
+				"defaultRotation/warlock/chaos_bolt_5_soul_shards", -- [13]
+				"defaultRotation/warlock/conflagrate_roaring_blaze", -- [14]
+				"defaultRotation/warlock/dimensional_rift_moving", -- [15]
+				"defaultRotation/warlock/dimensional_rift", -- [16]
+				"defaultRotation/warlock/summon_doomguard", -- [17]
+				"defaultRotation/warlock/grimoire_imp", -- [18]
+				"defaultRotation/warlock/channel_demonfire", -- [19]
+				"defaultRotation/warlock/shadowburn", -- [20]
+				"defaultRotation/warlock/conflagrate", -- [21]
+				"defaultRotation/warlock/chaos_bolt", -- [22]
+				"defaultRotation/warlock/incinerate", -- [23]
+			},
 		},
 		["defaultRotation/warlock/destruction_multi"] = {
 			["bindindex"] = 0,
