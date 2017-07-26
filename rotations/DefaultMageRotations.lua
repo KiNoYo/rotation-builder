@@ -874,7 +874,6 @@ local mageRotationsGenerator = function ()
 			["isMultiTarget"] = true,
 		},
 		["defaultRotation/mage/frost"] = {
-			["bindindex"] = 0,
 			["SortedActions"] = {
 				"defaultRotation/mage/ice_lance_winter_chill", -- [1]
 				"defaultRotation/mage/ice_nova_winter_chill", -- [2]
@@ -889,20 +888,20 @@ local mageRotationsGenerator = function ()
 				"defaultRotation/mage/water_jet", -- [11]
 				"defaultRotation/mage/rune_of_power_ray_of_frost", -- [12]
 				"defaultRotation/mage/ray_of_frost", -- [13]
-				"defaultRotation/mage/flurry_glacial_spike", -- [14]
-				"defaultRotation/mage/flurry", -- [15]
-				"defaultRotation/mage/frost_bomb", -- [16]
-				"defaultRotation/mage/ice_lance_fingers_of_frost", -- [17]
-				"defaultRotation/mage/ebonbolt", -- [18]
-				"defaultRotation/mage/rune_of_power_frozen_orb", -- [19]
-				"defaultRotation/mage/frozen_orb", -- [20]
-				"defaultRotation/mage/ice_nova", -- [21]
-				"defaultRotation/mage/ice_lance", -- [22]
-				"defaultRotation/mage/glacial_spike", -- [23]
-				"defaultRotation/mage/frostbolt", -- [24]
+				"defaultRotation/mage/ice_lance_brain_freeze", -- [14]
+				"defaultRotation/mage/flurry_glacial_spike", -- [15]
+				"defaultRotation/mage/flurry", -- [16]
+				"defaultRotation/mage/frost_bomb", -- [17]
+				"defaultRotation/mage/ice_lance_fingers_of_frost", -- [18]
+				"defaultRotation/mage/ebonbolt", -- [19]
+				"defaultRotation/mage/rune_of_power_frozen_orb", -- [20]
+				"defaultRotation/mage/frozen_orb", -- [21]
+				"defaultRotation/mage/ice_nova", -- [22]
+				"defaultRotation/mage/ice_lance", -- [23]
+				"defaultRotation/mage/glacial_spike", -- [24]
+				"defaultRotation/mage/frostbolt", -- [25]
 			},
-			["specID"] = 3,
-			["version"] = 6,
+			["version"] = 7,
 			["ActionList"] = {
 				["defaultRotation/mage/flurry"] = {
 					["v_p_knownotspell"] = "199786",
@@ -929,24 +928,26 @@ local mageRotationsGenerator = function ()
 					["b_checkothercd"] = true,
 					["v_checkothercdname"] = "205021",
 				},
-				["defaultRotation/mage/rune_of_power"] = {
-					["b_charges"] = true,
-					["v_charges"] = "2",
+				["defaultRotation/mage/ice_lance_winter_chill"] = {
+					["v_maxcasts"] = "1",
+					["b_t_hasdebuff"] = true,
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "116011",
+					["v_spellname"] = "30455",
+					["b_maxcasts"] = true,
+					["v_t_hasdebuff"] = "_228358",
 				},
 				["defaultRotation/mage/frostbolt"] = {
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "116",
 				},
 				["defaultRotation/mage/glacial_spike"] = {
-					["b_hasproc"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "199786",
+					["v_durationstartedtime"] = 0,
+					["b_hasproc"] = true,
 				},
 				["defaultRotation/mage/icy_veins"] = {
-					["b_isCustomCase1"] = true,
 					["v_durationstartedtime"] = 0,
+					["b_isCustomCase1"] = true,
 					["v_spellname"] = "12472",
 				},
 				["defaultRotation/mage/ice_barrier"] = {
@@ -967,24 +968,29 @@ local mageRotationsGenerator = function ()
 					["v_p_havebuff"] = "44544#1",
 					["b_p_havebuff"] = true,
 				},
-				["defaultRotation/mage/spellsteal"] = {
-					["b_t_spellsteal"] = true,
+				["defaultRotation/mage/rune_of_power_icy_veins"] = {
+					["v_p_needbuff"] = "116014",
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "30449",
+					["v_spellname"] = "116011",
+					["b_p_needbuff"] = true,
+					["v_p_havebuff"] = "12472",
+					["b_p_havebuff"] = true,
+				},
+				["defaultRotation/mage/rune_of_power"] = {
+					["v_spellname"] = "116011",
+					["v_charges"] = "2",
+					["v_durationstartedtime"] = 0,
+					["b_charges"] = true,
 				},
 				["defaultRotation/mage/ray_of_frost"] = {
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "205021",
 				},
-				["defaultRotation/mage/flurry_glacial_spike"] = {
-					["v_p_needbuff"] = "205473#3",
-					["b_p_knowspell"] = true,
-					["b_p_havebuff"] = true,
-					["v_spellname"] = "44614",
-					["v_p_knowspell"] = "199786",
-					["v_durationstartedtime"] = 0,
-					["v_p_havebuff"] = "190446",
+				["defaultRotation/mage/ebonbolt"] = {
+					["v_p_needbuff"] = "190446",
 					["b_p_needbuff"] = true,
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "214634",
 				},
 				["defaultRotation/mage/rune_of_power_frozen_orb"] = {
 					["v_p_needbuff"] = "116014",
@@ -995,30 +1001,41 @@ local mageRotationsGenerator = function ()
 					["b_checkothercd"] = true,
 					["v_checkothercdname"] = "84714",
 				},
-				["defaultRotation/mage/ice_lance"] = {
+				["defaultRotation/mage/ice_lance_fingers_of_frost"] = {
+					["b_checkothercd"] = true,
 					["b_hasproc"] = true,
-					["v_durationstartedtime"] = 0,
+					["b_p_havebuff"] = true,
 					["v_spellname"] = "30455",
-				},
-				["defaultRotation/mage/frozen_orb"] = {
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "84714",
+					["v_checkothercdvalue"] = ">10",
+					["v_p_havebuff"] = "44544#3",
+					["v_checkothercdname"] = "12472",
 				},
 				["defaultRotation/mage/ice_nova_winter_chill"] = {
-					["v_t_hasdebuff"] = "_228358",
+					["b_t_hasdebuff"] = true,
 					["v_spellname"] = "157997",
 					["v_durationstartedtime"] = 0,
-					["b_t_hasdebuff"] = true,
-				},
-				["defaultRotation/mage/mirror_image"] = {
-					["b_isCustomCase1"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "55342",
+					["v_t_hasdebuff"] = "_228358",
 				},
 				["defaultRotation/mage/counterspell"] = {
-					["b_t_interrupt"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "2139",
+					["v_durationstartedtime"] = 0,
+					["b_t_interrupt"] = true,
+				},
+				["defaultRotation/mage/flurry_glacial_spike"] = {
+					["v_p_needbuff"] = "205473#3",
+					["v_p_knowspell"] = "199786",
+					["b_p_havebuff"] = true,
+					["v_spellname"] = "44614",
+					["b_p_needbuff"] = true,
+					["v_durationstartedtime"] = 0,
+					["v_p_havebuff"] = "190446",
+					["b_p_knowspell"] = true,
+				},
+				["defaultRotation/mage/mirror_image"] = {
+					["v_durationstartedtime"] = 0,
+					["b_isCustomCase1"] = true,
+					["v_spellname"] = "55342",
 				},
 				["defaultRotation/mage/water_jet"] = {
 					["v_p_needbuff"] = "44544",
@@ -1026,44 +1043,35 @@ local mageRotationsGenerator = function ()
 					["v_p_knownotspell"] = "205024",
 					["v_durationstartedtime"] = 0,
 					["v_pet_hp"] = ">0",
-					["b_notinspellbook"] = true,
 					["b_p_knownotspell"] = true,
+					["b_notinspellbook"] = true,
 					["v_spellname"] = "135029",
 					["b_pet_hp"] = true,
 				},
-				["defaultRotation/mage/ice_lance_fingers_of_frost"] = {
-					["b_checkothercd"] = true,
-					["v_checkothercdname"] = "12472",
-					["b_p_havebuff"] = true,
-					["v_spellname"] = "30455",
+				["defaultRotation/mage/ice_lance_brain_freeze"] = {
 					["v_durationstartedtime"] = 0,
-					["v_checkothercdvalue"] = ">10",
-					["v_p_havebuff"] = "44544#3",
+					["v_spellname"] = "30455",
+					["b_p_havebuff"] = true,
+					["v_p_havebuff"] = "190446",
 					["b_hasproc"] = true,
 				},
-				["defaultRotation/mage/ebonbolt"] = {
-					["v_p_needbuff"] = "190446",
-					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "214634",
-				},
-				["defaultRotation/mage/ice_lance_winter_chill"] = {
-					["v_maxcasts"] = "1",
-					["b_t_hasdebuff"] = true,
-					["v_durationstartedtime"] = 0,
+				["defaultRotation/mage/ice_lance"] = {
 					["v_spellname"] = "30455",
-					["b_maxcasts"] = true,
-					["v_t_hasdebuff"] = "_228358",
-				},
-				["defaultRotation/mage/rune_of_power_icy_veins"] = {
-					["v_p_needbuff"] = "116014",
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "116011",
-					["b_p_needbuff"] = true,
-					["v_p_havebuff"] = "12472",
-					["b_p_havebuff"] = true,
+					["b_hasproc"] = true,
+				},
+				["defaultRotation/mage/frozen_orb"] = {
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "84714",
+				},
+				["defaultRotation/mage/spellsteal"] = {
+					["b_t_spellsteal"] = true,
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "30449",
 				},
 			},
+			["specID"] = 3,
+			["bindindex"] = 0,
 		},
 		["defaultRotation/mage/frost_multi"] = {
 			["bindindex"] = 0,
@@ -1081,37 +1089,39 @@ local mageRotationsGenerator = function ()
 				"defaultRotation/mage/water_jet", -- [11]
 				"defaultRotation/mage/rune_of_power_ray_of_frost", -- [12]
 				"defaultRotation/mage/ray_of_frost", -- [13]
-				"defaultRotation/mage/flurry_glacial_spike", -- [14]
-				"defaultRotation/mage/flurry", -- [15]
-				"defaultRotation/mage/blizzard_frozen_rain", -- [16]
-				"defaultRotation/mage/frost_bomb", -- [17]
-				"defaultRotation/mage/ice_lance_fingers_of_frost", -- [18]
-				"defaultRotation/mage/ebonbolt", -- [19]
-				"defaultRotation/mage/rune_of_power_frozen_orb", -- [20]
-				"defaultRotation/mage/frozen_orb", -- [21]
-				"defaultRotation/mage/ice_nova", -- [22]
-				"defaultRotation/mage/comet_storm", -- [23]
-				"defaultRotation/mage/blizzard", -- [24]
-				"defaultRotation/mage/ice_lance", -- [25]
-				"defaultRotation/mage/glacial_spike", -- [26]
-				"defaultRotation/mage/frostbolt", -- [27]
+				"defaultRotation/mage/ice_lance_brain_freeze", -- [14]
+				"defaultRotation/mage/flurry_glacial_spike", -- [15]
+				"defaultRotation/mage/flurry", -- [16]
+				"defaultRotation/mage/blizzard_frozen_rain", -- [17]
+				"defaultRotation/mage/frost_bomb", -- [18]
+				"defaultRotation/mage/ice_lance_fingers_of_frost", -- [19]
+				"defaultRotation/mage/ebonbolt", -- [20]
+				"defaultRotation/mage/rune_of_power_frozen_orb", -- [21]
+				"defaultRotation/mage/frozen_orb", -- [22]
+				"defaultRotation/mage/ice_nova", -- [23]
+				"defaultRotation/mage/comet_storm", -- [24]
+				"defaultRotation/mage/blizzard", -- [25]
+				"defaultRotation/mage/ice_lance", -- [26]
+				"defaultRotation/mage/glacial_spike", -- [27]
+				"defaultRotation/mage/frostbolt", -- [28]
 			},
+			["version"] = 8,
 			["ActionList"] = {
-				["defaultRotation/mage/flurry"] = {
-					["v_p_knownotspell"] = "199786",
+				["defaultRotation/mage/counterspell"] = {
+					["v_spellname"] = "2139",
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "44614",
-					["b_p_knownotspell"] = true,
-					["v_p_havebuff"] = "190446",
-					["b_p_havebuff"] = true,
+					["b_t_interrupt"] = true,
 				},
-				["defaultRotation/mage/summon_water_elemental"] = {
-					["v_p_knownotspell"] = "205024",
+				["defaultRotation/mage/ice_lance_brain_freeze"] = {
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "31687",
-					["b_p_knownotspell"] = true,
-					["v_pet_hp"] = "=0",
-					["b_pet_hp"] = true,
+					["v_spellname"] = "30455",
+					["b_p_havebuff"] = true,
+					["v_p_havebuff"] = "190446",
+					["b_hasproc"] = true,
+				},
+				["defaultRotation/mage/blizzard_frozen_rain"] = {
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "190356",
 				},
 				["defaultRotation/mage/rune_of_power_ray_of_frost"] = {
 					["v_p_needbuff"] = "116014",
@@ -1131,13 +1141,13 @@ local mageRotationsGenerator = function ()
 					["v_spellname"] = "116",
 				},
 				["defaultRotation/mage/glacial_spike"] = {
-					["b_hasproc"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "199786",
+					["v_durationstartedtime"] = 0,
+					["b_hasproc"] = true,
 				},
 				["defaultRotation/mage/icy_veins"] = {
-					["b_isCustomCase1"] = true,
 					["v_durationstartedtime"] = 0,
+					["b_isCustomCase1"] = true,
 					["v_spellname"] = "12472",
 				},
 				["defaultRotation/mage/ice_barrier"] = {
@@ -1158,43 +1168,37 @@ local mageRotationsGenerator = function ()
 					["v_p_havebuff"] = "44544#1",
 					["b_p_havebuff"] = true,
 				},
-				["defaultRotation/mage/blizzard_frozen_rain"] = {
+				["defaultRotation/mage/spellsteal"] = {
+					["b_t_spellsteal"] = true,
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "190356",
-				},
-				["defaultRotation/mage/rune_of_power_icy_veins"] = {
-					["v_p_needbuff"] = "116014",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "116011",
-					["b_p_needbuff"] = true,
-					["v_p_havebuff"] = "12472",
-					["b_p_havebuff"] = true,
-				},
-				["defaultRotation/mage/rune_of_power"] = {
-					["b_charges"] = true,
-					["v_charges"] = "2",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "116011",
-				},
-				["defaultRotation/mage/ebonbolt"] = {
-					["v_p_needbuff"] = "190446",
-					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "214634",
-				},
-				["defaultRotation/mage/flurry_glacial_spike"] = {
-					["v_p_needbuff"] = "205473#3",
-					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "44614",
-					["v_p_knowspell"] = "199786",
-					["b_p_knowspell"] = true,
-					["v_p_havebuff"] = "190446",
-					["b_p_needbuff"] = true,
+					["v_spellname"] = "30449",
 				},
 				["defaultRotation/mage/frozen_orb"] = {
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "84714",
+				},
+				["defaultRotation/mage/ice_lance"] = {
+					["b_hasproc"] = true,
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "30455",
+				},
+				["defaultRotation/mage/rune_of_power"] = {
+					["v_spellname"] = "116011",
+					["v_charges"] = "2",
+					["v_durationstartedtime"] = 0,
+					["b_charges"] = true,
+				},
+				["defaultRotation/mage/ray_of_frost"] = {
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "205021",
+				},
+				["defaultRotation/mage/flurry"] = {
+					["v_p_knownotspell"] = "199786",
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "44614",
+					["b_p_knownotspell"] = true,
+					["v_p_havebuff"] = "190446",
+					["b_p_havebuff"] = true,
 				},
 				["defaultRotation/mage/rune_of_power_frozen_orb"] = {
 					["v_p_needbuff"] = "116014",
@@ -1205,16 +1209,6 @@ local mageRotationsGenerator = function ()
 					["b_checkothercd"] = true,
 					["v_checkothercdname"] = "84714",
 				},
-				["defaultRotation/mage/ice_nova_winter_chill"] = {
-					["v_t_hasdebuff"] = "_228358",
-					["v_spellname"] = "157997",
-					["v_durationstartedtime"] = 0,
-					["b_t_hasdebuff"] = true,
-				},
-				["defaultRotation/mage/comet_storm"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "153595",
-				},
 				["defaultRotation/mage/ice_lance_winter_chill"] = {
 					["v_durationstartedtime"] = 0,
 					["b_t_hasdebuff"] = true,
@@ -1224,14 +1218,29 @@ local mageRotationsGenerator = function ()
 					["v_t_hasdebuff"] = "_228358",
 				},
 				["defaultRotation/mage/mirror_image"] = {
-					["b_isCustomCase1"] = true,
 					["v_durationstartedtime"] = 0,
+					["b_isCustomCase1"] = true,
 					["v_spellname"] = "55342",
 				},
-				["defaultRotation/mage/counterspell"] = {
-					["b_t_interrupt"] = true,
+				["defaultRotation/mage/comet_storm"] = {
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "2139",
+					["v_spellname"] = "153595",
+				},
+				["defaultRotation/mage/flurry_glacial_spike"] = {
+					["v_p_needbuff"] = "205473#3",
+					["b_p_needbuff"] = true,
+					["b_p_havebuff"] = true,
+					["v_spellname"] = "44614",
+					["v_p_knowspell"] = "199786",
+					["b_p_knowspell"] = true,
+					["v_p_havebuff"] = "190446",
+					["v_durationstartedtime"] = 0,
+				},
+				["defaultRotation/mage/ice_nova_winter_chill"] = {
+					["b_t_hasdebuff"] = true,
+					["v_spellname"] = "157997",
+					["v_durationstartedtime"] = 0,
+					["v_t_hasdebuff"] = "_228358",
 				},
 				["defaultRotation/mage/water_jet"] = {
 					["v_p_needbuff"] = "44544",
@@ -1239,38 +1248,45 @@ local mageRotationsGenerator = function ()
 					["v_p_knownotspell"] = "205024",
 					["v_durationstartedtime"] = 0,
 					["v_pet_hp"] = ">0",
-					["v_spellname"] = "135029",
 					["b_p_knownotspell"] = true,
 					["b_notinspellbook"] = true,
+					["v_spellname"] = "135029",
 					["b_pet_hp"] = true,
 				},
 				["defaultRotation/mage/ice_lance_fingers_of_frost"] = {
 					["b_checkothercd"] = true,
-					["v_checkothercdname"] = "12472",
+					["b_hasproc"] = true,
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "30455",
 					["b_p_havebuff"] = true,
 					["v_checkothercdvalue"] = ">10",
 					["v_p_havebuff"] = "44544#3",
-					["b_hasproc"] = true,
+					["v_checkothercdname"] = "12472",
 				},
-				["defaultRotation/mage/ice_lance"] = {
-					["v_spellname"] = "30455",
+				["defaultRotation/mage/ebonbolt"] = {
+					["v_p_needbuff"] = "190446",
+					["b_p_needbuff"] = true,
 					["v_durationstartedtime"] = 0,
-					["b_hasproc"] = true,
+					["v_spellname"] = "214634",
 				},
-				["defaultRotation/mage/ray_of_frost"] = {
+				["defaultRotation/mage/summon_water_elemental"] = {
+					["v_p_knownotspell"] = "205024",
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "205021",
+					["v_spellname"] = "31687",
+					["b_p_knownotspell"] = true,
+					["v_pet_hp"] = "=0",
+					["b_pet_hp"] = true,
 				},
-				["defaultRotation/mage/spellsteal"] = {
-					["b_t_spellsteal"] = true,
+				["defaultRotation/mage/rune_of_power_icy_veins"] = {
+					["v_p_needbuff"] = "116014",
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "30449",
+					["v_spellname"] = "116011",
+					["b_p_needbuff"] = true,
+					["v_p_havebuff"] = "12472",
+					["b_p_havebuff"] = true,
 				},
 			},
 			["specID"] = 3,
-			["version"] = 7,
 			["isMultiTarget"] = true,
 		},
 	}
