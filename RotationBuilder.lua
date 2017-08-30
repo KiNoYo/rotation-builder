@@ -624,11 +624,11 @@ function ROB_OnToggle(self, visible)
 	_G["ROB_SpellNameInputBox"]:ClearFocus()
 
 	if ((visible == false) or ((visible == nil) and ROB_Frame:IsVisible())) then
-		PlaySound("igMiniMapClose");
+		PlaySound(822, "SFX");
 		ROB_Frame:Hide();
 
 	elseif ((visible == true) or ((visible == nil) and not ROB_Frame:IsVisible())) then
-		PlaySound("igMiniMapOpen");
+		PlaySound(821, "SFX");
 		ROB_Frame:Show();
 		ROB_RotationTab:Show()
 		ROB_MainWindowSwitchToTab(ROB_FrameTab1)
@@ -1305,10 +1305,10 @@ function ROB_Option_MiniMapButton_OnToggle(self)
 	-- and show/hide the actual button
 	if (ROB_Options.MiniMap == true) then
 		-- on she goes
-		PlaySound("igMainMenuOptionCheckBoxOn");
+		PlaySound(856, "SFX");
 	else
 		-- off she goes
-		PlaySound("igMainMenuOptionCheckBoxOff");
+		PlaySound(857, "SFX");
 	end
 
 	-- and show/hide the MiniMap button
