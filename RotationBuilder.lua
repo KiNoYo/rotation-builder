@@ -2184,7 +2184,7 @@ function ROB_SpellPassesOtherCooldownCheck(othercd, checkstring, notaspell)
 	return false;
 end
 
-function ROB_UnitHasDispelableBuff()
+function ROB_UnitHasDispellableBuff()
 	for i = 1, 40 do
 		local name, _, _, _, type, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = UnitAura("TARGET", i, "HELPFUL");
 		if name == nil then
@@ -2745,11 +2745,11 @@ function ROB_SpellReady(actionName, isNextSpell)
 		end
 	end
 
-	-- CHECK: Check if the target has a dispelable buff
+	-- CHECK: Check if the target has a dispellable buff
 	if (ActionDB.b_t_dispel) then
-		if (not ROB_UnitHasDispelableBuff()) then
-			-- If there is no dispelable buff on the target
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because there is currently no dispelable buff on the target", debug);
+		if (not ROB_UnitHasDispellableBuff()) then
+			-- If there is no dispellable buff on the target
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because there is currently no dispellable buff on the target", debug);
 			return false;
 		end
 	end
