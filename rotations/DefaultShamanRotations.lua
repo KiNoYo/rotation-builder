@@ -383,45 +383,55 @@ local shamanRotationsGenerator = function ()
 				"defaultRotation/shaman/rainfall", -- [6]
 				"defaultRotation/shaman/rockbiter_landslide", -- [7]
 				"defaultRotation/shaman/fury_of_air", -- [8]
-				"defaultRotation/shaman/feral_spirit", -- [9]
-				"defaultRotation/shaman/earthen_spike", -- [10]
-				"defaultRotation/shaman/windstrike", -- [11]
-				"defaultRotation/shaman/frostbrand", -- [12]
-				"defaultRotation/shaman/flametongue", -- [13]
-				"defaultRotation/shaman/doom_winds", -- [14]
-				"defaultRotation/shaman/ascendance", -- [15]
-				"defaultRotation/shaman/windsong", -- [16]
-				"defaultRotation/shaman/sundering", -- [17]
-				"defaultRotation/shaman/stormstrike_stormbringer", -- [18]
-				"defaultRotation/shaman/lightning_bolt", -- [19]
-				"defaultRotation/shaman/lava_lash_hot_hand", -- [20]
-				"defaultRotation/shaman/crash_lightning", -- [21]
+				"defaultRotation/shaman/crash_lightning_crash_lightning", -- [9]
+				"defaultRotation/shaman/feral_spirit", -- [10]
+				"defaultRotation/shaman/earthen_spike", -- [11]
+				"defaultRotation/shaman/windstrike", -- [12]
+				"defaultRotation/shaman/frostbrand", -- [13]
+				"defaultRotation/shaman/flametongue", -- [14]
+				"defaultRotation/shaman/doom_winds", -- [15]
+				"defaultRotation/shaman/ascendance", -- [16]
+				"defaultRotation/shaman/windsong", -- [17]
+				"defaultRotation/shaman/sundering", -- [18]
+				"defaultRotation/shaman/stormstrike_stormbringer", -- [19]
+				"defaultRotation/shaman/lightning_bolt", -- [20]
+				"defaultRotation/shaman/lava_lash_hot_hand", -- [21]
 				"defaultRotation/shaman/stormstrike", -- [22]
-				"defaultRotation/shaman/rockbiter", -- [23]
-				"defaultRotation/shaman/lava_lash", -- [24]
+				"defaultRotation/shaman/crash_lightning", -- [23]
+				"defaultRotation/shaman/rockbiter", -- [24]
+				"defaultRotation/shaman/lava_lash", -- [25]
 			},
+			["specID"] = 2,
 			["ActionList"] = {
+				["defaultRotation/shaman/crash_lightning_crash_lightning"] = {
+					["b_gspellcost"] = true,
+					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "187874",
+					["v_gspellcosttype"] = "11",
+					["v_gspellcost"] = "20",
+					["v_p_needbuff"] = "187878",
+					["b_p_needbuff"] = true,
+				},
 				["defaultRotation/shaman/lightning_bolt"] = {
 					["b_gspellcost"] = true,
 					["v_p_knowspell"] = "210727",
 					["b_p_knowspell"] = true,
-					["v_gspellcost"] = "40",
+					["v_gspellcosttype"] = "11",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "187837",
-					["v_gspellcosttype"] = "11",
+					["v_gspellcost"] = "40",
 					["b_p_unitpower"] = true,
 					["v_p_unitpower"] = ">50",
 					["v_p_unitpowertype"] = "11",
 				},
-				["defaultRotation/shaman/rockbiter"] = {
-					["v_p_unitpowertype"] = "11",
-					["v_gunitpower"] = "29",
-					["b_gunitpower"] = true,
-					["v_spellname"] = "193786",
-					["v_gunitpowertype"] = "11",
-					["b_p_unitpower"] = true,
-					["v_p_unitpower"] = "<40",
+				["defaultRotation/shaman/crash_lightning_alpha_wolf"] = {
+					["b_gspellcost"] = true,
 					["v_durationstartedtime"] = 0,
+					["v_spellname"] = "187874",
+					["b_lastcasted"] = true,
+					["v_lastcasted"] = "51533",
+					["v_gspellcosttype"] = "11",
+					["v_gspellcost"] = "20",
 				},
 				["defaultRotation/shaman/lava_lash_hot_hand"] = {
 					["v_spellname"] = "60103",
@@ -439,13 +449,13 @@ local shamanRotationsGenerator = function ()
 				},
 				["defaultRotation/shaman/lava_lash"] = {
 					["b_gspellcost"] = true,
-					["v_gspellcosttype"] = "11",
-					["b_p_unitpower"] = true,
-					["v_spellname"] = "60103",
 					["v_gspellcost"] = "30",
+					["v_p_unitpowertype"] = "11",
+					["v_spellname"] = "60103",
+					["v_gspellcosttype"] = "11",
 					["v_durationstartedtime"] = 0,
 					["v_p_unitpower"] = ">=40",
-					["v_p_unitpowertype"] = "11",
+					["b_p_unitpower"] = true,
 				},
 				["defaultRotation/shaman/earthen_spike"] = {
 					["b_gspellcost"] = true,
@@ -454,16 +464,10 @@ local shamanRotationsGenerator = function ()
 					["v_gspellcost"] = "20",
 					["v_gspellcosttype"] = "11",
 				},
-				["defaultRotation/shaman/rockbiter_landslide"] = {
-					["v_p_needbuff"] = "202004",
-					["b_p_needbuff"] = true,
-					["b_p_knowspell"] = true,
-					["b_gunitpower"] = true,
-					["v_spellname"] = "193786",
+				["defaultRotation/shaman/purge"] = {
+					["b_t_dispel"] = true,
 					["v_durationstartedtime"] = 0,
-					["v_p_knowspell"] = "197992",
-					["v_gunitpower"] = "29",
-					["v_gunitpowertype"] = "11",
+					["v_spellname"] = "370",
 				},
 				["defaultRotation/shaman/feral_spirit"] = {
 					["b_checkothercd"] = true,
@@ -475,18 +479,9 @@ local shamanRotationsGenerator = function ()
 					["v_p_unitpower"] = ">=20",
 					["v_checkothercdname"] = "187874",
 				},
-				["defaultRotation/shaman/crash_lightning_alpha_wolf"] = {
-					["b_gspellcost"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "187874",
-					["b_lastcasted"] = true,
-					["v_lastcasted"] = "51533",
-					["v_gspellcosttype"] = "11",
-					["v_gspellcost"] = "20",
-				},
 				["defaultRotation/shaman/fury_of_air"] = {
-					["b_p_needbuff"] = true,
 					["v_p_needbuff"] = "197211",
+					["b_p_needbuff"] = true,
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "197211",
 				},
@@ -499,9 +494,19 @@ local shamanRotationsGenerator = function ()
 					["v_p_knowspell"] = "210853",
 				},
 				["defaultRotation/shaman/ascendance"] = {
-					["b_isCustomCase1"] = true,
 					["v_durationstartedtime"] = 0,
+					["b_isCustomCase1"] = true,
 					["v_spellname"] = "114051",
+				},
+				["defaultRotation/shaman/rockbiter"] = {
+					["b_gunitpower"] = true,
+					["v_gunitpower"] = "29",
+					["v_p_unitpowertype"] = "11",
+					["v_spellname"] = "193786",
+					["v_gunitpowertype"] = "11",
+					["b_p_unitpower"] = true,
+					["v_p_unitpower"] = "<40",
+					["v_durationstartedtime"] = 0,
 				},
 				["defaultRotation/shaman/feral_lunge"] = {
 					["b_spellInRange"] = true,
@@ -516,8 +521,8 @@ local shamanRotationsGenerator = function ()
 					["v_gspellcost"] = "20",
 				},
 				["defaultRotation/shaman/flametongue"] = {
-					["v_p_needbuff"] = "194084^4.8",
 					["b_p_needbuff"] = true,
+					["v_p_needbuff"] = "194084^4.8",
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "193796",
 				},
@@ -525,21 +530,21 @@ local shamanRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "204945",
 				},
-				["defaultRotation/shaman/windstrike"] = {
-					["b_gspellcost"] = true,
-					["v_gspellcost"] = "40",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "115356",
-					["v_gspellcosttype"] = "11",
-					["b_notinspellbook"] = true,
-					["v_p_havebuff"] = "114051",
-					["b_p_havebuff"] = true,
-				},
 				["defaultRotation/shaman/rainfall"] = {
-					["b_p_needbuff"] = true,
 					["v_p_needbuff"] = "_215864",
+					["b_p_needbuff"] = true,
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "215864",
+				},
+				["defaultRotation/shaman/windstrike"] = {
+					["b_gspellcost"] = true,
+					["v_gspellcosttype"] = "11",
+					["b_p_havebuff"] = true,
+					["v_spellname"] = "115356",
+					["v_gspellcost"] = "40",
+					["b_notinspellbook"] = true,
+					["v_p_havebuff"] = "114051",
+					["v_durationstartedtime"] = 0,
 				},
 				["defaultRotation/shaman/sundering"] = {
 					["b_gspellcost"] = true,
@@ -549,8 +554,8 @@ local shamanRotationsGenerator = function ()
 					["v_gspellcosttype"] = "11",
 				},
 				["defaultRotation/shaman/lightning_shield"] = {
-					["b_p_needbuff"] = true,
 					["v_p_needbuff"] = "192106",
+					["b_p_needbuff"] = true,
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "192106",
 				},
@@ -573,13 +578,18 @@ local shamanRotationsGenerator = function ()
 					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "201898",
 				},
-				["defaultRotation/shaman/purge"] = {
-					["b_t_dispel"] = true,
+				["defaultRotation/shaman/rockbiter_landslide"] = {
+					["v_p_needbuff"] = "202004",
+					["v_p_knowspell"] = "197992",
+					["b_p_knowspell"] = true,
 					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "370",
+					["v_spellname"] = "193786",
+					["v_gunitpowertype"] = "11",
+					["b_gunitpower"] = true,
+					["v_gunitpower"] = "29",
+					["b_p_needbuff"] = true,
 				},
 			},
-			["specID"] = 2,
 			["bindindex"] = 0,
 			["isMultiTarget"] = true,
 		},
