@@ -2186,7 +2186,7 @@ end
 
 function ROB_UnitHasDispellableBuff()
 	for i = 1, 40 do
-		local name, _, _, _, type, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = UnitAura("TARGET", i, "HELPFUL");
+		local name, _, _, _, buff, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = UnitAura("TARGET", i, "HELPFUL");
 		if name == nil then
 			break;
 		end
