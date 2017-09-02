@@ -342,8 +342,11 @@ local shamanRotationsGenerator = function ()
 				},
 				["defaultRotation/shaman/feral_spirit"] = {
 					["v_durationstartedtime"] = 0,
-					["b_isCustomCase1"] = true,
+					["v_p_unitpowertype"] = "11",
 					["v_spellname"] = "51533",
+					["b_p_unitpower"] = true,
+					["v_p_unitpower"] = ">=20",
+					["b_isCustomCase1"] = true,
 				},
 			},
 			["SortedActions"] = {
@@ -470,14 +473,12 @@ local shamanRotationsGenerator = function ()
 					["v_spellname"] = "370",
 				},
 				["defaultRotation/shaman/feral_spirit"] = {
-					["b_checkothercd"] = true,
 					["v_durationstartedtime"] = 0,
 					["v_p_unitpowertype"] = "11",
 					["v_spellname"] = "51533",
 					["b_p_unitpower"] = true,
-					["v_checkothercdvalue"] = "<1.5",
 					["v_p_unitpower"] = ">=20",
-					["v_checkothercdname"] = "187874",
+					["b_isCustomCase1"] = true,
 				},
 				["defaultRotation/shaman/fury_of_air"] = {
 					["v_p_needbuff"] = "197211",
