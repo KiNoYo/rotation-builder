@@ -738,10 +738,10 @@ function ROB_SwitchRotation(RotationID, _byName)
 
 		ROB_CURRENT_ACTION = nil
 		ROB_NEXT_ACTION = nil
-		ROB_SetButtonTexture(ROB_CurrentActionButton, GetTexturePath(""))
+		ROB_SetButtonTexture(ROB_CurrentActionButton, ROB_GetTexturePath(""))
 		ROB_CurrentActionButtonHotKey:SetText("")
 		ROB_CurrentActionButton:Show()
-		ROB_SetButtonTexture(ROB_NextActionButton, GetTexturePath(""))
+		ROB_SetButtonTexture(ROB_NextActionButton, ROB_GetTexturePath(""))
 		ROB_NextActionButtonHotKey:SetText("")
 		ROB_NextActionButton:Show()
 
@@ -1074,7 +1074,7 @@ function ROB_PasteActionButton_OnClick(self)
 	ROB_GetString("Enter new name for action", "", true, ROB_PasteActionOnAccept, _cancelcallback)
 end
 
-function GetTexturePath(v_spellname)
+function ROB_GetTexturePath(v_spellname)
 	if not v_spellname then return ""; end
 	local _, texpath = GetSpellTexture(v_spellname);
 
@@ -1130,7 +1130,7 @@ function ROB_SpellValidate(_spell)
 	end
 
 	if (_parsedSpellID and _spellingCheckPassed) then
-		ROB_SpellNameInputBoxIcon:SetTexture(GetTexturePath(ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_spellname))
+		ROB_SpellNameInputBoxIcon:SetTexture(ROB_GetTexturePath(ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_spellname))
 		ROB_SpellNameValidateText:SetText(_link.." ".._parsedSpellID)
 		GameTooltip:SetHyperlink(_link)
 	else
@@ -1186,7 +1186,7 @@ function ROB_AO_ActionIcon_OnTextChanged(self)
 	else
 		ROB_AO_ActionIconTexture:Show();
 		ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_actionicon = self:GetText()
-		ROB_AO_ActionIconTexture:SetTexture(GetTexturePath(ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_actionicon))
+		ROB_AO_ActionIconTexture:SetTexture(ROB_GetTexturePath(ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_actionicon))
 	end
 end
 
@@ -1275,13 +1275,15 @@ function ROB_OptionsNextActionLocationDropDownButton_OnLoad(frame)
 	end
 end
 
-local function ClearBindings(...)
+-- TODO : unused
+local function ROB_ClearBindings(...)
 	for i = 1, select('#', ...) do
 		SetBinding(select(i, ...), nil)
 	end
 end
 
-local function Keybinding_OnClick(frame, button)
+-- TODO : unused
+local function ROB_Keybinding_OnClick(frame, button)
 	if button == "LeftButton" or button == "RightButton" then
 		local self = frame.obj
 		if self.waitingForKey then
@@ -1675,7 +1677,7 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_SpellValidate(_ActionDB.v_spellname);
 
 			ROB_Rotation_GUI_SetText("ROB_AO_ActionIconInputBox", _ActionDB.v_actionicon, "")
-			ROB_AO_ActionIconTexture:SetTexture(GetTexturePath(_ActionDB.v_actionicon));
+			ROB_AO_ActionIconTexture:SetTexture(ROB_GetTexturePath(_ActionDB.v_actionicon));
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_MaxCastsCheckButton", _ActionDB.b_maxcasts, false)
 			ROB_Rotation_GUI_SetText("ROB_AO_MaxCastsInputBox", _ActionDB.v_maxcasts, "")
@@ -2210,7 +2212,7 @@ function ROB_UnitHasStealableBuff()
 	return false;
 end
 
-function UnitAuraByID(unit, targetSpellID, filter)
+function ROB_UnitAuraByID(unit, targetSpellID, filter)
 	for i = 1, 40 do
 		local name, rank, icon, count, dispelType, duration, expires, caster, isStealable, shouldConsolidate, spellID = UnitAura(unit, i, filter);
 		if name == nil then
@@ -2281,7 +2283,7 @@ function ROB_UnitHasAura(needed, unitName, buffType)
 		end
 		if (unparsed ~= nil) then
 			--Unitbuff can not take a spellid as a parameter so we have to try the _unparsedBuff first and if that fails then try to convert the _unparsedBuff to a spellname
-			local name, _, _, counter, _, _, expirationTime, unitCaster, _, _, spellID = UnitAuraByID(unitName, tonumber(unparsed), buffType);
+			local name, _, _, counter, _, _, expirationTime, unitCaster, _, _, spellID = ROB_UnitAuraByID(unitName, tonumber(unparsed), buffType);
 			if (name ~= nil) then
 				exists = true;
 				if (sourceUnit ~= nil) then
@@ -2353,7 +2355,7 @@ function ROB_UnitKnowSpell(needed)
 			done = true;
 		end
 		if (unparsed ~= nil and unparsed ~= "") then
-			if (IsSpellKnown(unparsed, true)) then
+			if (ROB_IsSpellKnown(unparsed, true)) then
 				found = found + 1;
 			end
 		end
@@ -2364,7 +2366,7 @@ function ROB_UnitKnowSpell(needed)
 	return false;
 end
 
-function IsSpellKnown(spell, isNextSpell)
+function ROB_IsSpellKnown(spell, isNextSpell)
 	local spellName = nil;
 	local spellId = nil;
 
@@ -2660,7 +2662,7 @@ function ROB_SpellReady(actionName, isNextSpell)
 		slotId, _ = GetInventorySlotInfo(spellName);
 	end
 
-	if (not ActionDB.b_notaspell and not ActionDB.b_notinspellbook and not IsSpellKnown(spellName, isNextSpell)) then
+	if (not ActionDB.b_notaspell and not ActionDB.b_notinspellbook and not ROB_IsSpellKnown(spellName, isNextSpell)) then
 		ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you don't have this spell in your spellbook", debug);
 		return false;
 	end
