@@ -103,8 +103,8 @@ function RotationBuilderUtils:copyTable(tableToCopy, strip)
 
 	-- We must analyze each data in the table
 	for key, value in pairs(tableToCopy) do
-		if ((not strip) or (value and "" ~= value)) then
-			-- We ignore all data which are nil, false or empty string if we must strip the table.
+		if ((not strip) or (value and ("" ~= value or 0 ~= value))) then
+			-- We ignore all data which are nil, false, 0 or empty string if we must strip the table.
 			if(type(value) == "table") then
 				-- Deep copy.
 				tableToReturn[key] = self:copyTable(value, strip);
