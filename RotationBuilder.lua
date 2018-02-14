@@ -1105,7 +1105,7 @@ function ROB_SpellValidate(_spell)
 	local _link = nil
 
 	--Get the spell id
-	if (GetSpellLink(_spell)) then
+	if (GetSpellLink(_spell) ~= "") then
 		_parsedSpellID = string.sub(GetSpellLink(_spell), string.find(GetSpellLink(_spell), ":") + 1)
 		_parsedSpellID = string.sub(_parsedSpellID, 1, string.find(_parsedSpellID, ":") - 1)
 		_link, _ = GetSpellLink(_spell)
@@ -1124,7 +1124,7 @@ function ROB_SpellValidate(_spell)
 		if (GetSpellInfo(_spell) == _spell) then _spellingCheckPassed = true; end
 	else
 		--The spell does not match the spell name check if the spell id matches the spelllink idwhat is it?
-		if (GetSpellLink(_spell) and _spell == _parsedSpellID) then
+		if (GetSpellLink(_spell) ~= "" and _spell == _parsedSpellID) then
 			_spellingCheckPassed = true
 		end
 	end
