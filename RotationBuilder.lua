@@ -2188,7 +2188,7 @@ end
 
 function ROB_UnitHasDispellableBuff()
 	for i = 1, 40 do
-		local name, _, _, _, buff, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = UnitAura("TARGET", i, "HELPFUL");
+		local name, _, _, buff, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = UnitAura("TARGET", i, "HELPFUL");
 		if name == nil then
 			break;
 		end
@@ -2201,7 +2201,7 @@ end
 
 function ROB_UnitHasStealableBuff()
 	for i = 1, 40 do
-		local name, _, _, _, _, _, _, _, stealable, _, _, _, _, _, _, _, _, _, _ = UnitAura("TARGET", i, "HELPFUL");
+		local name, _, _, _, _, _, _, stealable, _, _, _, _, _, _, _, _, _, _ = UnitAura("TARGET", i, "HELPFUL");
 		if name == nil then
 			break;
 		end
@@ -2214,12 +2214,12 @@ end
 
 function ROB_UnitAuraByID(unit, targetSpellID, filter)
 	for i = 1, 40 do
-		local name, rank, icon, count, dispelType, duration, expires, caster, isStealable, shouldConsolidate, spellID = UnitAura(unit, i, filter);
+		local name, icon, count, dispelType, duration, expires, caster, isStealable, shouldConsolidate, spellID = UnitAura(unit, i, filter);
 		if name == nil then
 			break;
 		end
 		if spellID == targetSpellID then
-			return name, rank, icon, count, dispelType, duration, expires, caster, isStealable, shouldConsolidate, spellID;
+			return name, icon, count, dispelType, duration, expires, caster, isStealable, shouldConsolidate, spellID;
 		end
 	end
 end
@@ -2283,7 +2283,7 @@ function ROB_UnitHasAura(needed, unitName, buffType)
 		end
 		if (unparsed ~= nil) then
 			--Unitbuff can not take a spellid as a parameter so we have to try the _unparsedBuff first and if that fails then try to convert the _unparsedBuff to a spellname
-			local name, _, _, counter, _, _, expirationTime, unitCaster, _, _, spellID = ROB_UnitAuraByID(unitName, tonumber(unparsed), buffType);
+			local name, _, counter, _, _, expirationTime, unitCaster, _, _, spellID = ROB_UnitAuraByID(unitName, tonumber(unparsed), buffType);
 			if (name ~= nil) then
 				exists = true;
 				if (sourceUnit ~= nil) then
