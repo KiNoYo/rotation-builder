@@ -384,10 +384,6 @@ function ROB_OnEvent(self, event, ...)
 	local _spellname = nil
 	local _channelstart = false
 
-	local _eventSpellname = arg12
-	local _eventEvent = arg2
-	local _sourceFlags = arg6
-
 	if (event == "ADDON_LOADED") then
 		ROB_ADDON_Load(...);
 	elseif (event == "PLAYER_ENTERING_WORLD") then
@@ -402,7 +398,7 @@ function ROB_OnEvent(self, event, ...)
 		ROB_IN_COMBAT = false;
 	elseif (event == "UNIT_SPELLCAST_SUCCEEDED" or event == "UNIT_SPELLCAST_START" or event == "UNIT_SPELLCAST_CHANNEL_START" or event == "UNIT_SPELLCAST_CHANNEL_STOP") then
 		if (arg1 == "player") then
-			if (ROB_SpellIsInRotation(arg2)) then
+			if (ROB_SpellIsInRotation(arg3)) then
 				if (event == "UNIT_SPELLCAST_START") then
 					ROB_LAST_CASTED_TYPE = "NORMAL"
 				end
@@ -410,14 +406,14 @@ function ROB_OnEvent(self, event, ...)
 					ROB_LAST_CASTED_TYPE = "CHANNEL"
 				end
 				if ((event == "UNIT_SPELLCAST_SUCCEEDED" and ROB_LAST_CASTED_TYPE == nil) or (event == "UNIT_SPELLCAST_SUCCEEDED" and ROB_LAST_CASTED_TYPE == "NORMAL") or (event == "UNIT_SPELLCAST_SUCCEEDED" and ROB_LAST_CASTED_TYPE == "CHANNEL" and _channelstart == false)) then
-					if (arg2 == ROB_LAST_CASTED) then
+					if (arg3 == ROB_LAST_CASTED) then
 						--increment the last casted count
 						ROB_LAST_CASTED_COUNT = ROB_LAST_CASTED_COUNT + 1
-						if (ROB_SpellIsInRotation(arg2)) then ROB_LAST_CASTED = arg2; end
+						if (ROB_SpellIsInRotation(arg3)) then ROB_LAST_CASTED = arg3; end
 					else
 						--start the count over
 						ROB_LAST_CASTED_COUNT = 1
-						if (ROB_SpellIsInRotation(arg2)) then ROB_LAST_CASTED = arg2; end
+						if (ROB_SpellIsInRotation(arg3)) then ROB_LAST_CASTED = arg3; end
 					end
 					_channelstart = true
 					if (event == "UNIT_SPELLCAST_SUCCEEDED" and ROB_LAST_CASTED_TYPE and ROB_LAST_CASTED_TYPE == "CHANNEL") then
@@ -1897,17 +1893,16 @@ function ROB_CopyTable(object)
 	return _copy(object)
 end
 
-function ROB_SpellIsInRotation(_spellname)
+function ROB_SpellIsInRotation(_spellid)
 	local _foundspell = false
-	local _spellname2 = nil
 	if (ROB_SelectedRotationName and (ROB_Rotations[ROB_SelectedRotationName] ~= nil) and (ROB_Rotations[ROB_SelectedRotationName].SortedActions ~= nil)) then
 		for key, value in pairs(ROB_Rotations[ROB_SelectedRotationName].SortedActions) do
-			if (string.find(tostring(_spellname), tostring(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname))) then
+			if (string.find(tostring(_spellid), tostring(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellid))) then
 				_foundspell = true
 			end
-			if (GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname)) then
-				_spellname2 = GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellname)
-				if (string.find(tostring(_spellname), tostring(_spellname2))) then
+			if (GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellid)) then
+				local _, _, _, _, _, _, _spellid2 = GetSpellInfo(ROB_Rotations[ROB_SelectedRotationName].ActionList[value].v_spellid)
+				if (string.find(tostring(_spellid), tostring(_spellid2))) then
 					_foundspell = true
 				end
 			end
