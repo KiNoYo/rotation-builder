@@ -2398,8 +2398,8 @@ function ROB_SpellHasProc(spellId)
 end
 
 function ROB_Interrupt()
-	local _, _, _, _, _, _, _, _, notinterruptible = UnitCastingInfo("TARGET");
-	local _, _, _, _, _, _, _, notinterruptible2 = UnitChannelInfo("TARGET");
+	local _, _, _, _, _, _, _, notinterruptible = UnitCastingInfo("TARGET");
+	local _, _, _, _, _, _, notinterruptible2 = UnitChannelInfo("TARGET");
 
 	if (notinterruptible == false or notinterruptible2 == false) then
 		return true;
