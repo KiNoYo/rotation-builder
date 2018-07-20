@@ -362,9 +362,9 @@ function ROB_OnLoad(self)
 	-- create a dialog for list deletion
 	StaticPopupDialogs["ROB_PROMPT_LIST_DELETE"] =
 	{
-		text = TEXT(RotationBuilderUtils:localize('ROB_PROMPT_LIST_DELETE')),
-		button1 = TEXT(YES),
-		button2 = TEXT(CANCEL),
+		text = RotationBuilderUtils:localize("ROB_PROMPT_LIST_DELETE"),
+		button1 = RotationBuilderUtils:localize("ROB_UI_YES_BUTTON"),
+		button2 = RotationBuilderUtils:localize("ROB_UI_CANCEL_BUTTON"),
 		OnAccept = function(self)
 			ROB_RotationDelete_OnAccept();
 		end,
