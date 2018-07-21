@@ -64,6 +64,7 @@ RotationBuilderUtils = {
 		["v_gspellcosttype"] = "",
 		["v_gunitpower"] = "",
 		["v_gunitpowertype"] = "",
+		["v_keybind"] = "<keybind>",
 		["v_lastcasted"] = "",
 		["v_maxcasts"] = "",
 		["v_othercharges"] = "",
@@ -103,7 +104,7 @@ function RotationBuilderUtils:copyTable(tableToCopy, strip)
 
 	-- We must analyze each data in the table
 	for key, value in pairs(tableToCopy) do
-		if (not strip or (value and "" ~= value and 0 ~= value)) then
+		if (not strip or (value and "" ~= value and 0 ~= value and "v_durationstartedtime" ~= key and ("v_keybind" ~= key or "<keybind>" ~= value))) then
 			-- We ignore all data which are nil, false, 0 or empty string if we must strip the table.
 			if(value and type(value) == "table") then
 				-- Deep copy.
