@@ -81,23 +81,79 @@ local shamanRotationsGenerator = function ()
 			["isMultiTarget"] = true,
 		},
 		["defaultRotation/shaman/enhancement"] = {
-			["version"] = 12,
+			["SortedActions"] = {
+				"defaultRotation/shaman/wind_shear", -- [1]
+				"defaultRotation/shaman/purge", -- [2]
+				"defaultRotation/shaman/lightning_shield", -- [3]
+				"defaultRotation/shaman/earth_shield", -- [4]
+				"defaultRotation/shaman/feral_lunge", -- [5]
+				"defaultRotation/shaman/rockbiter_landslide", -- [6]
+				"defaultRotation/shaman/fury_of_air", -- [7]
+				"defaultRotation/shaman/totem_mastery", -- [8]
+				"defaultRotation/shaman/skyfury_totem", -- [9]
+				"defaultRotation/shaman/bloodlust", -- [10]
+				"defaultRotation/shaman/heroism", -- [11]
+				"defaultRotation/shaman/windstrike", -- [12]
+				"defaultRotation/shaman/flametongue_flametongue", -- [13]
+				"defaultRotation/shaman/feral_spirit_elemental_spirits", -- [14]
+				"defaultRotation/shaman/feral_spirit", -- [15]
+				"defaultRotation/shaman/earthen_spike", -- [16]
+				"defaultRotation/shaman/frostbrand", -- [17]
+				"defaultRotation/shaman/ascendance", -- [18]
+				"defaultRotation/shaman/stormstrike_stormbringer", -- [19]
+				"defaultRotation/shaman/lava_lash_hot_hand", -- [20]
+				"defaultRotation/shaman/stormstrike", -- [21]
+				"defaultRotation/shaman/lightning_bolt_fury_of_air", -- [22]
+				"defaultRotation/shaman/lightning_bolt", -- [23]
+				"defaultRotation/shaman/flametongue_searing_assault", -- [24]
+				"defaultRotation/shaman/sundering", -- [25]
+				"defaultRotation/shaman/rockbiter_2_charges", -- [26]
+				"defaultRotation/shaman/flametongue_refresh", -- [27]
+				"defaultRotation/shaman/frostbrand_refresh", -- [28]
+				"defaultRotation/shaman/lava_lash_fury_of_air", -- [29]
+				"defaultRotation/shaman/lava_lash", -- [30]
+				"defaultRotation/shaman/rockbiter", -- [31]
+				"defaultRotation/shaman/flametongue", -- [32]
+			},
+			["specID"] = 2,
+			["version"] = 13,
 			["ActionList"] = {
+				["defaultRotation/shaman/frostbrand_refresh"] = {
+					["b_p_knowspell"] = true,
+					["b_p_needbuff"] = true,
+					["v_p_needbuff"] = "196834^4.5",
+					["v_spellname"] = "196834",
+					["v_p_knowspell"] = "210853",
+					["v_gspellcost"] = "20",
+					["v_gspellcosttype"] = "11",
+					["b_gspellcost"] = true,
+				},
 				["defaultRotation/shaman/lightning_bolt"] = {
 					["b_gspellcost"] = true,
 					["v_p_knowspell"] = "210727",
+					["v_gspellcosttype"] = "11",
 					["b_p_knowspell"] = true,
-					["v_p_unitpowertype"] = "11",
+					["v_p_knownotspell"] = "197211",
+					["b_p_unitpower"] = true,
 					["v_spellname"] = "187837",
 					["v_gspellcost"] = "40",
-					["v_gspellcosttype"] = "11",
+					["b_p_knownotspell"] = true,
 					["v_p_unitpower"] = ">40",
-					["b_p_unitpower"] = true,
+					["v_p_unitpowertype"] = "11",
 				},
-				["defaultRotation/shaman/lightning_shield"] = {
-					["v_p_needbuff"] = "192106",
+				["defaultRotation/shaman/flametongue_refresh"] = {
+					["v_p_needbuff"] = "194084^4.5",
+					["v_p_knownotspell"] = "192087",
+					["v_spellname"] = "193796",
 					["b_p_needbuff"] = true,
-					["v_spellname"] = "192106",
+					["b_p_knownotspell"] = true,
+				},
+				["defaultRotation/shaman/flametongue_searing_assault"] = {
+					["b_p_knowspell"] = true,
+					["v_spellname"] = "193796",
+					["v_p_knowspell"] = "192087",
+					["b_t_needsdebuff"] = true,
+					["v_t_needsdebuff"] = "_268429",
 				},
 				["defaultRotation/shaman/feral_spirit_elemental_spirits"] = {
 					["v_p_knowspell"] = "262624",
@@ -105,9 +161,9 @@ local shamanRotationsGenerator = function ()
 					["v_spellname"] = "51533",
 				},
 				["defaultRotation/shaman/stormstrike"] = {
+					["b_gspellcost"] = true,
 					["v_gspellcost"] = "30",
 					["v_gspellcosttype"] = "11",
-					["b_gspellcost"] = true,
 					["v_spellname"] = "17364",
 				},
 				["defaultRotation/shaman/earth_shield"] = {
@@ -122,89 +178,90 @@ local shamanRotationsGenerator = function ()
 				},
 				["defaultRotation/shaman/lava_lash"] = {
 					["b_gspellcost"] = true,
-					["v_p_unitpowertype"] = "11",
-					["v_spellname"] = "60103",
 					["v_gspellcosttype"] = "11",
+					["v_p_knownotspell"] = "197211",
 					["b_p_unitpower"] = true,
-					["v_p_unitpower"] = ">40",
+					["v_spellname"] = "60103",
 					["v_gspellcost"] = "40",
+					["b_p_knownotspell"] = true,
+					["v_p_unitpower"] = ">40",
+					["v_p_unitpowertype"] = "11",
 				},
-				["defaultRotation/shaman/earthen_spike"] = {
-					["v_gspellcosttype"] = "11",
-					["v_gspellcost"] = "20",
-					["b_gspellcost"] = true,
-					["v_spellname"] = "188089",
-				},
-				["defaultRotation/shaman/rockbiter_landslide"] = {
-					["v_p_needbuff"] = "202004",
-					["v_p_knowspell"] = "197992",
-					["b_charges"] = true,
-					["b_p_knowspell"] = true,
-					["b_gunitpower"] = true,
-					["v_spellname"] = "193786",
-					["v_charges"] = "2",
+				["defaultRotation/shaman/flametongue_flametongue"] = {
 					["b_p_needbuff"] = true,
-					["v_gunitpower"] = "25",
-					["v_gunitpowertype"] = "11",
+					["v_p_needbuff"] = "194084",
+					["v_spellname"] = "193796",
 				},
-				["defaultRotation/shaman/feral_spirit"] = {
-					["b_isCustomCase1"] = true,
-					["v_spellname"] = "51533",
+				["defaultRotation/shaman/purge"] = {
+					["v_spellname"] = "370",
+					["b_t_dispel"] = true,
 				},
-				["defaultRotation/shaman/frostbrand"] = {
-					["v_p_needbuff"] = "196834",
-					["v_gspellcosttype"] = "11",
-					["b_gspellcost"] = true,
-					["v_spellname"] = "196834",
-					["v_p_knowspell"] = "210853",
-					["v_gspellcost"] = "20",
-					["b_p_needbuff"] = true,
-					["b_p_knowspell"] = true,
+				["defaultRotation/shaman/wind_shear"] = {
+					["b_t_interrupt"] = true,
+					["v_spellname"] = "57994",
 				},
 				["defaultRotation/shaman/heroism"] = {
 					["v_p_knowspell"] = "193876",
 					["b_p_knowspell"] = true,
 					["v_spellname"] = "32182",
 				},
-				["defaultRotation/shaman/rockbiter_2_charges"] = {
-					["v_gunitpowertype"] = "11",
-					["b_charges"] = true,
-					["v_charges"] = "2",
-					["b_p_unitpower"] = true,
-					["v_spellname"] = "193786",
+				["defaultRotation/shaman/lightning_bolt_fury_of_air"] = {
+					["b_gspellcost"] = true,
+					["v_p_knowspell"] = "210727&197211",
+					["b_p_knowspell"] = true,
 					["v_p_unitpowertype"] = "11",
-					["b_gunitpower"] = true,
-					["v_p_unitpower"] = "<70",
-					["v_gunitpower"] = "25",
+					["v_spellname"] = "187837",
+					["v_gspellcost"] = "40",
+					["b_p_unitpower"] = true,
+					["v_p_unitpower"] = ">50",
+					["v_gspellcosttype"] = "11",
+				},
+				["defaultRotation/shaman/frostbrand"] = {
+					["b_p_knowspell"] = true,
+					["v_gspellcost"] = "20",
+					["v_p_needbuff"] = "196834",
+					["v_spellname"] = "196834",
+					["b_p_needbuff"] = true,
+					["v_p_knowspell"] = "210853",
+					["v_gspellcosttype"] = "11",
+					["b_gspellcost"] = true,
+				},
+				["defaultRotation/shaman/fury_of_air"] = {
+					["b_p_needbuff"] = true,
+					["v_p_needbuff"] = "197211",
+					["v_spellname"] = "197211",
+				},
+				["defaultRotation/shaman/feral_spirit"] = {
+					["b_isCustomCase1"] = true,
+					["v_spellname"] = "51533",
 				},
 				["defaultRotation/shaman/bloodlust"] = {
 					["v_p_knowspell"] = "193876",
 					["b_p_knowspell"] = true,
 					["v_spellname"] = "2825",
 				},
+				["defaultRotation/shaman/ascendance"] = {
+					["b_isCustomCase1"] = true,
+					["v_spellname"] = "114051",
+				},
 				["defaultRotation/shaman/windstrike"] = {
 					["b_gspellcost"] = true,
 					["b_p_havebuff"] = true,
 					["v_spellname"] = "115356",
-					["v_gspellcost"] = "30",
+					["v_gspellcosttype"] = "11",
 					["b_notinspellbook"] = true,
 					["v_p_havebuff"] = "114051",
-					["v_gspellcosttype"] = "11",
-				},
-				["defaultRotation/shaman/flametongue_searing_assault"] = {
-					["v_t_needsdebuff"] = "_268429",
-					["v_spellname"] = "193796",
-					["v_p_knowspell"] = "192087",
-					["b_p_knowspell"] = true,
-					["b_t_needsdebuff"] = true,
+					["v_gspellcost"] = "30",
 				},
 				["defaultRotation/shaman/feral_lunge"] = {
 					["b_spellInRange"] = true,
 					["v_spellname"] = "196884",
 				},
-				["defaultRotation/shaman/lava_lash_hot_hand"] = {
-					["b_hasproc"] = true,
-					["v_spellname"] = "60103",
+				["defaultRotation/shaman/sundering"] = {
+					["b_gspellcost"] = true,
+					["v_gspellcost"] = "20",
+					["v_gspellcosttype"] = "11",
+					["v_spellname"] = "197214",
 				},
 				["defaultRotation/shaman/flametongue"] = {
 					["v_p_knownotspell"] = "192087",
@@ -214,87 +271,71 @@ local shamanRotationsGenerator = function ()
 				["defaultRotation/shaman/skyfury_totem"] = {
 					["v_spellname"] = "204330",
 				},
-				["defaultRotation/shaman/purge"] = {
-					["v_spellname"] = "370",
-					["b_t_dispel"] = true,
-				},
-				["defaultRotation/shaman/flametongue_refresh"] = {
-					["v_p_needbuff"] = "194084^4.5",
-					["v_p_knownotspell"] = "192087",
-					["v_spellname"] = "193796",
+				["defaultRotation/shaman/lightning_shield"] = {
+					["v_p_needbuff"] = "192106",
 					["b_p_needbuff"] = true,
-					["b_p_knownotspell"] = true,
+					["v_spellname"] = "192106",
 				},
-				["defaultRotation/shaman/flametongue_flametongue"] = {
+				["defaultRotation/shaman/lava_lash_fury_of_air"] = {
+					["b_gspellcost"] = true,
+					["v_p_knowspell"] = "197211",
+					["b_p_knowspell"] = true,
+					["v_p_unitpowertype"] = "11",
+					["v_spellname"] = "60103",
+					["v_gspellcost"] = "40",
+					["b_p_unitpower"] = true,
+					["v_p_unitpower"] = ">50",
+					["v_gspellcosttype"] = "11",
+				},
+				["defaultRotation/shaman/rockbiter_2_charges"] = {
+					["v_gunitpowertype"] = "11",
+					["b_charges"] = true,
+					["v_gunitpower"] = "25",
+					["v_p_unitpowertype"] = "11",
+					["v_spellname"] = "193786",
+					["v_charges"] = "2",
+					["b_gunitpower"] = true,
+					["v_p_unitpower"] = "<70",
+					["b_p_unitpower"] = true,
+				},
+				["defaultRotation/shaman/rockbiter_landslide"] = {
+					["v_p_needbuff"] = "202004",
+					["v_gunitpowertype"] = "11",
+					["b_charges"] = true,
+					["b_p_knowspell"] = true,
+					["b_gunitpower"] = true,
+					["v_spellname"] = "193786",
+					["v_p_knowspell"] = "197992",
 					["b_p_needbuff"] = true,
-					["v_p_needbuff"] = "194084",
-					["v_spellname"] = "193796",
+					["v_gunitpower"] = "25",
+					["v_charges"] = "2",
 				},
-				["defaultRotation/shaman/ascendance"] = {
-					["b_isCustomCase1"] = true,
-					["v_spellname"] = "114051",
+				["defaultRotation/shaman/earthen_spike"] = {
+					["b_gspellcost"] = true,
+					["v_gspellcosttype"] = "11",
+					["v_gspellcost"] = "20",
+					["v_spellname"] = "188089",
+				},
+				["defaultRotation/shaman/stormstrike_stormbringer"] = {
+					["v_p_needbuff"] = "114051",
+					["b_hasproc"] = true,
+					["b_p_needbuff"] = true,
+					["v_spellname"] = "17364",
 				},
 				["defaultRotation/shaman/rockbiter"] = {
 					["v_gunitpowertype"] = "11",
-					["b_gunitpower"] = true,
 					["v_gunitpower"] = "25",
+					["b_gunitpower"] = true,
 					["v_spellname"] = "193786",
 				},
-				["defaultRotation/shaman/stormstrike_stormbringer"] = {
-					["b_p_needbuff"] = true,
+				["defaultRotation/shaman/lava_lash_hot_hand"] = {
+					["v_spellname"] = "60103",
 					["b_hasproc"] = true,
-					["v_p_needbuff"] = "114051",
-					["v_spellname"] = "17364",
-				},
-				["defaultRotation/shaman/frostbrand_refresh"] = {
-					["b_gspellcost"] = true,
-					["b_p_knowspell"] = true,
-					["v_gspellcost"] = "20",
-					["v_spellname"] = "196834",
-					["b_p_needbuff"] = true,
-					["v_gspellcosttype"] = "11",
-					["v_p_knowspell"] = "210853",
-					["v_p_needbuff"] = "196834^4.5",
-				},
-				["defaultRotation/shaman/wind_shear"] = {
-					["b_t_interrupt"] = true,
-					["v_spellname"] = "57994",
 				},
 			},
-			["SortedActions"] = {
-				"defaultRotation/shaman/wind_shear", -- [1]
-				"defaultRotation/shaman/purge", -- [2]
-				"defaultRotation/shaman/lightning_shield", -- [3]
-				"defaultRotation/shaman/earth_shield", -- [4]
-				"defaultRotation/shaman/feral_lunge", -- [5]
-				"defaultRotation/shaman/rockbiter_landslide", -- [6]
-				"defaultRotation/shaman/totem_mastery", -- [7]
-				"defaultRotation/shaman/skyfury_totem", -- [8]
-				"defaultRotation/shaman/bloodlust", -- [9]
-				"defaultRotation/shaman/heroism", -- [10]
-				"defaultRotation/shaman/windstrike", -- [11]
-				"defaultRotation/shaman/flametongue_flametongue", -- [12]
-				"defaultRotation/shaman/feral_spirit_elemental_spirits", -- [13]
-				"defaultRotation/shaman/feral_spirit", -- [14]
-				"defaultRotation/shaman/earthen_spike", -- [15]
-				"defaultRotation/shaman/frostbrand", -- [16]
-				"defaultRotation/shaman/ascendance", -- [17]
-				"defaultRotation/shaman/stormstrike_stormbringer", -- [18]
-				"defaultRotation/shaman/lava_lash_hot_hand", -- [19]
-				"defaultRotation/shaman/stormstrike", -- [20]
-				"defaultRotation/shaman/lightning_bolt", -- [21]
-				"defaultRotation/shaman/flametongue_searing_assault", -- [22]
-				"defaultRotation/shaman/rockbiter_2_charges", -- [23]
-				"defaultRotation/shaman/flametongue_refresh", -- [24]
-				"defaultRotation/shaman/frostbrand_refresh", -- [25]
-				"defaultRotation/shaman/lava_lash", -- [26]
-				"defaultRotation/shaman/rockbiter", -- [27]
-				"defaultRotation/shaman/flametongue", -- [28]
-			},
-			["specID"] = 2,
 		},
 		["defaultRotation/shaman/enhancement_multi"] = {
-			["version"] = 7,
+			["version"] = 8,
 			["SortedActions"] = {
 				"defaultRotation/shaman/wind_shear", -- [1]
 				"defaultRotation/shaman/purge", -- [2]
@@ -318,15 +359,15 @@ local shamanRotationsGenerator = function ()
 				"defaultRotation/shaman/stormstrike_stormbringer", -- [20]
 				"defaultRotation/shaman/lava_lash_hot_hand", -- [21]
 				"defaultRotation/shaman/stormstrike", -- [22]
-				"defaultRotation/shaman/lightning_bolt_fury_of_air", -- [23]
-				"defaultRotation/shaman/lightning_bolt", -- [24]
-				"defaultRotation/shaman/flametongue_searing_assault", -- [25]
-				"defaultRotation/shaman/sundering", -- [26]
-				"defaultRotation/shaman/rockbiter_2_charges", -- [27]
-				"defaultRotation/shaman/flametongue_refresh", -- [28]
-				"defaultRotation/shaman/frostbrand_refresh", -- [29]
-				"defaultRotation/shaman/lava_lash_fury_of_air", -- [30]
-				"defaultRotation/shaman/crash_lightning", -- [31]
+				"defaultRotation/shaman/crash_lightning", -- [23]
+				"defaultRotation/shaman/lightning_bolt_fury_of_air", -- [24]
+				"defaultRotation/shaman/lightning_bolt", -- [25]
+				"defaultRotation/shaman/flametongue_searing_assault", -- [26]
+				"defaultRotation/shaman/sundering", -- [27]
+				"defaultRotation/shaman/rockbiter_2_charges", -- [28]
+				"defaultRotation/shaman/flametongue_refresh", -- [29]
+				"defaultRotation/shaman/frostbrand_refresh", -- [30]
+				"defaultRotation/shaman/lava_lash_fury_of_air", -- [31]
 				"defaultRotation/shaman/lava_lash", -- [32]
 				"defaultRotation/shaman/rockbiter", -- [33]
 				"defaultRotation/shaman/flametongue", -- [34]
@@ -335,10 +376,10 @@ local shamanRotationsGenerator = function ()
 				["defaultRotation/shaman/lightning_bolt"] = {
 					["b_gspellcost"] = true,
 					["v_p_knowspell"] = "210727",
-					["b_p_unitpower"] = true,
+					["v_p_unitpowertype"] = "11",
 					["b_p_knowspell"] = true,
 					["v_p_knownotspell"] = "197211",
-					["v_p_unitpowertype"] = "11",
+					["b_p_unitpower"] = true,
 					["v_spellname"] = "187837",
 					["v_gspellcost"] = "40",
 					["b_p_knownotspell"] = true,
@@ -368,14 +409,14 @@ local shamanRotationsGenerator = function ()
 				},
 				["defaultRotation/shaman/lava_lash"] = {
 					["b_gspellcost"] = true,
-					["v_p_unitpowertype"] = "11",
-					["v_p_knownotspell"] = "197211",
-					["b_p_unitpower"] = true,
-					["v_spellname"] = "60103",
 					["v_gspellcost"] = "40",
+					["v_p_knownotspell"] = "197211",
+					["v_p_unitpowertype"] = "11",
+					["v_spellname"] = "60103",
+					["v_gspellcosttype"] = "11",
 					["b_p_knownotspell"] = true,
 					["v_p_unitpower"] = ">40",
-					["v_gspellcosttype"] = "11",
+					["b_p_unitpower"] = true,
 				},
 				["defaultRotation/shaman/flametongue_flametongue"] = {
 					["b_p_needbuff"] = true,
@@ -394,12 +435,12 @@ local shamanRotationsGenerator = function ()
 				["defaultRotation/shaman/frostbrand"] = {
 					["b_p_knowspell"] = true,
 					["v_p_knowspell"] = "210853",
-					["v_p_needbuff"] = "196834",
+					["b_gspellcost"] = true,
 					["v_spellname"] = "196834",
 					["b_p_needbuff"] = true,
-					["v_gspellcosttype"] = "11",
 					["v_gspellcost"] = "20",
-					["b_gspellcost"] = true,
+					["v_gspellcosttype"] = "11",
+					["v_p_needbuff"] = "196834",
 				},
 				["defaultRotation/shaman/bloodlust"] = {
 					["v_p_knowspell"] = "193876",
@@ -419,8 +460,8 @@ local shamanRotationsGenerator = function ()
 					["v_spellname"] = "60103",
 				},
 				["defaultRotation/shaman/stormstrike"] = {
-					["v_gspellcost"] = "30",
 					["b_gspellcost"] = true,
+					["v_gspellcost"] = "30",
 					["v_gspellcosttype"] = "11",
 					["v_spellname"] = "17364",
 				},
@@ -430,22 +471,22 @@ local shamanRotationsGenerator = function ()
 					["v_spellname"] = "32182",
 				},
 				["defaultRotation/shaman/earthen_spike"] = {
+					["b_gspellcost"] = true,
 					["v_gspellcosttype"] = "11",
 					["v_gspellcost"] = "20",
-					["b_gspellcost"] = true,
 					["v_spellname"] = "188089",
 				},
 				["defaultRotation/shaman/rockbiter_landslide"] = {
 					["v_p_needbuff"] = "202004",
-					["v_gunitpowertype"] = "11",
+					["v_p_knowspell"] = "197992",
 					["b_charges"] = true,
 					["b_p_knowspell"] = true,
 					["b_gunitpower"] = true,
-					["v_spellname"] = "193786",
 					["v_charges"] = "2",
+					["v_spellname"] = "193786",
 					["b_p_needbuff"] = true,
 					["v_gunitpower"] = "25",
-					["v_p_knowspell"] = "197992",
+					["v_gunitpowertype"] = "11",
 				},
 				["defaultRotation/shaman/feral_spirit"] = {
 					["b_isCustomCase1"] = true,
@@ -454,13 +495,13 @@ local shamanRotationsGenerator = function ()
 				["defaultRotation/shaman/rockbiter_2_charges"] = {
 					["v_gunitpowertype"] = "11",
 					["b_charges"] = true,
-					["v_p_unitpowertype"] = "11",
 					["b_p_unitpower"] = true,
-					["v_spellname"] = "193786",
+					["v_p_unitpowertype"] = "11",
 					["v_charges"] = "2",
-					["b_gunitpower"] = true,
 					["v_p_unitpower"] = "<70",
+					["b_gunitpower"] = true,
 					["v_gunitpower"] = "25",
+					["v_spellname"] = "193786",
 				},
 				["defaultRotation/shaman/ascendance"] = {
 					["b_isCustomCase1"] = true,
@@ -483,27 +524,27 @@ local shamanRotationsGenerator = function ()
 					["v_spellname"] = "197214",
 				},
 				["defaultRotation/shaman/flametongue"] = {
-					["v_p_knownotspell"] = "192087",
 					["b_p_knownotspell"] = true,
+					["v_p_knownotspell"] = "192087",
 					["v_spellname"] = "193796",
 				},
 				["defaultRotation/shaman/lava_lash_fury_of_air"] = {
 					["b_gspellcost"] = true,
 					["v_p_knowspell"] = "197211",
 					["b_p_knowspell"] = true,
-					["v_p_unitpowertype"] = "11",
-					["v_spellname"] = "60103",
-					["v_gspellcost"] = "40",
-					["v_gspellcosttype"] = "11",
-					["v_p_unitpower"] = ">50",
 					["b_p_unitpower"] = true,
+					["v_spellname"] = "60103",
+					["v_gspellcosttype"] = "11",
+					["v_gspellcost"] = "40",
+					["v_p_unitpower"] = ">50",
+					["v_p_unitpowertype"] = "11",
 				},
 				["defaultRotation/shaman/crash_lightning_crash_lightning"] = {
-					["b_gspellcost"] = true,
+					["v_p_needbuff"] = "187874",
 					["v_spellname"] = "187874",
 					["v_gspellcosttype"] = "11",
 					["v_gspellcost"] = "20",
-					["v_p_needbuff"] = "187874",
+					["b_gspellcost"] = true,
 					["b_p_needbuff"] = true,
 				},
 				["defaultRotation/shaman/flametongue_refresh"] = {
@@ -517,10 +558,10 @@ local shamanRotationsGenerator = function ()
 					["b_gspellcost"] = true,
 					["b_p_havebuff"] = true,
 					["v_spellname"] = "115356",
-					["v_gspellcosttype"] = "11",
+					["v_gspellcost"] = "30",
 					["b_notinspellbook"] = true,
 					["v_p_havebuff"] = "114051",
-					["v_gspellcost"] = "30",
+					["v_gspellcosttype"] = "11",
 				},
 				["defaultRotation/shaman/wind_shear"] = {
 					["v_spellname"] = "57994",
@@ -530,18 +571,18 @@ local shamanRotationsGenerator = function ()
 					["b_gspellcost"] = true,
 					["v_p_knowspell"] = "210727&197211",
 					["b_p_knowspell"] = true,
-					["v_p_unitpowertype"] = "11",
-					["v_spellname"] = "187837",
-					["v_gspellcost"] = "40",
-					["v_gspellcosttype"] = "11",
-					["v_p_unitpower"] = ">50",
 					["b_p_unitpower"] = true,
+					["v_spellname"] = "187837",
+					["v_gspellcosttype"] = "11",
+					["v_gspellcost"] = "40",
+					["v_p_unitpower"] = ">50",
+					["v_p_unitpowertype"] = "11",
 				},
 				["defaultRotation/shaman/stormstrike_stormbringer"] = {
-					["b_p_needbuff"] = true,
-					["v_spellname"] = "17364",
 					["v_p_needbuff"] = "114051",
 					["b_hasproc"] = true,
+					["b_p_needbuff"] = true,
+					["v_spellname"] = "17364",
 				},
 				["defaultRotation/shaman/flametongue_searing_assault"] = {
 					["v_t_needsdebuff"] = "_268429",
@@ -551,14 +592,14 @@ local shamanRotationsGenerator = function ()
 					["b_t_needsdebuff"] = true,
 				},
 				["defaultRotation/shaman/frostbrand_refresh"] = {
-					["b_gspellcost"] = true,
 					["b_p_knowspell"] = true,
 					["v_gspellcost"] = "20",
+					["b_gspellcost"] = true,
 					["v_spellname"] = "196834",
-					["v_gspellcosttype"] = "11",
 					["v_p_knowspell"] = "210853",
-					["v_p_needbuff"] = "196834^4.5",
 					["b_p_needbuff"] = true,
+					["v_gspellcosttype"] = "11",
+					["v_p_needbuff"] = "196834^4.5",
 				},
 			},
 			["specID"] = 2,
