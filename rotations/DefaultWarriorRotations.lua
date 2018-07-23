@@ -2,505 +2,359 @@
 local warriorRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/warrior/fury"] = {
-			["bindindex"] = 0,
-			["SortedActions"] = {
-				"defaultRotation/warrior/charge", -- [1]
-				"defaultRotation/warrior/pummel", -- [2]
-				"defaultRotation/warrior/rampage_massacre", -- [3]
-				"defaultRotation/warrior/furious_slash_frenzy", -- [4]
-				"defaultRotation/warrior/dragon_roar_berserker_rage", -- [5]
-				"defaultRotation/warrior/dragon_roar_rampage_massacre", -- [6]
-				"defaultRotation/warrior/dragon_roar_rampage_rage", -- [7]
-				"defaultRotation/warrior/dragon_roar_rampage_carnage", -- [8]
-				"defaultRotation/warrior/dragon_roar_rampage", -- [9]
-				"defaultRotation/warrior/dragon_roar", -- [10]
-				"defaultRotation/warrior/battle_cry_reckless_abandon", -- [11]
-				"defaultRotation/warrior/battle_cry", -- [12]
-				"defaultRotation/warrior/avatar", -- [13]
-				"defaultRotation/warrior/bloodbath", -- [14]
-				"defaultRotation/warrior/berserker_rage", -- [15]
-				"defaultRotation/warrior/execute_massacre_enrage", -- [16]
-				"defaultRotation/warrior/rampage_rage", -- [17]
-				"defaultRotation/warrior/rampage", -- [18]
-				"defaultRotation/warrior/bloodthirst_enrage", -- [19]
-				"defaultRotation/warrior/odyn_fury", -- [20]
-				"defaultRotation/warrior/execute_massacre", -- [21]
-				"defaultRotation/warrior/execute_frothing_berserker", -- [22]
-				"defaultRotation/warrior/execute", -- [23]
-				"defaultRotation/warrior/bloodthirst", -- [24]
-				"defaultRotation/warrior/raging_blow_inner_rage", -- [25]
-				"defaultRotation/warrior/raging_blow", -- [26]
-				"defaultRotation/warrior/whirlwind", -- [27]
-				"defaultRotation/warrior/furious_slash", -- [28]
-			},
 			["ActionList"] = {
 				["defaultRotation/warrior/dragon_roar"] = {
-					["v_p_needbuff"] = "184362",
-					["v_durationstartedtime"] = 0,
+					["b_p_havebuff"] = true,
 					["v_spellname"] = "118000",
-					["b_p_needbuff"] = true,
-					["v_checkothercdvalue"] = "=0",
-					["b_checkothercd"] = true,
-					["v_checkothercdname"] = "1719",
-				},
-				["defaultRotation/warrior/berserker_rage"] = {
-					["v_p_needbuff"] = "184362",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "18499",
-					["v_p_knowspell"] = "206320",
-					["b_p_needbuff"] = true,
-					["b_p_knowspell"] = true,
-				},
-				["defaultRotation/warrior/dragon_roar_rampage_carnage"] = {
-					["v_p_needbuff"] = "184362",
-					["v_p_knowspell"] = "202922",
-					["b_p_unitpower"] = true,
-					["b_p_knowspell"] = true,
-					["v_p_knownotspell"] = "215571",
-					["v_p_unitpowertype"] = "1",
-					["v_spellname"] = "118000",
-					["v_durationstartedtime"] = 0,
-					["b_p_knownotspell"] = true,
-					["v_p_unitpower"] = ">=70",
-					["b_p_needbuff"] = true,
-				},
-				["defaultRotation/warrior/raging_blow"] = {
-					["v_durationstartedtime"] = 0,
-					["v_p_knownotspell"] = "215573",
-					["b_gunitpower"] = true,
-					["v_spellname"] = "85288",
 					["v_gunitpowertype"] = "1",
-					["b_p_knownotspell"] = true,
-					["v_gunitpower"] = "5",
-					["b_hasproc"] = true,
-				},
-				["defaultRotation/warrior/dragon_roar_rampage_massacre"] = {
-					["v_p_havebuff"] = "206316",
-					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "118000",
-				},
-				["defaultRotation/warrior/dragon_roar_rampage"] = {
-					["v_p_needbuff"] = "184362",
-					["b_p_needbuff"] = true,
-					["v_p_knownotspell"] = "202922||215571",
-					["v_p_unitpowertype"] = "1",
-					["v_spellname"] = "118000",
-					["v_durationstartedtime"] = 0,
-					["b_p_knownotspell"] = true,
-					["v_p_unitpower"] = ">=85",
-					["b_p_unitpower"] = true,
-				},
-				["defaultRotation/warrior/rampage_massacre"] = {
-					["v_p_needbuff"] = "184362^2",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "184367",
-					["b_p_needbuff"] = true,
-					["v_p_havebuff"] = "206316",
-					["b_p_havebuff"] = true,
-				},
-				["defaultRotation/warrior/avatar"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "107574",
-				},
-				["defaultRotation/warrior/furious_slash_frenzy"] = {
-					["v_p_needbuff"] = "202539#3^3",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "100130",
-					["b_p_needbuff"] = true,
-					["v_p_knowspell"] = "206313",
-					["b_p_knowspell"] = true,
-				},
-				["defaultRotation/warrior/execute"] = {
-					["b_gspellcost"] = true,
-					["b_hasproc"] = true,
-					["v_gspellcost"] = "25",
-					["v_p_knownotspell"] = "215571",
-					["b_p_havebuff"] = true,
-					["v_spellname"] = "5308",
-					["v_gspellcosttype"] = "1",
-					["b_p_knownotspell"] = true,
 					["v_p_havebuff"] = "184362",
-					["v_durationstartedtime"] = 0,
-				},
-				["defaultRotation/warrior/furious_slash"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "100130",
-				},
-				["defaultRotation/warrior/execute_frothing_berserker"] = {
-					["b_gspellcost"] = true,
-					["v_p_knowspell"] = "215571",
-					["v_gspellcosttype"] = "1",
-					["v_p_havebuff"] = "184362",
-					["b_hasproc"] = true,
-					["b_p_knowspell"] = true,
-					["v_p_unitpowertype"] = "1",
-					["b_p_havebuff"] = true,
-					["v_spellname"] = "5308",
-					["v_gspellcost"] = "25",
-					["v_durationstartedtime"] = 0,
-					["v_p_unitpower"] = "=100",
-					["b_p_unitpower"] = true,
-				},
-				["defaultRotation/warrior/bloodbath"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "12292",
-				},
-				["defaultRotation/warrior/bloodthirst"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "23881",
-					["v_gunitpowertype"] = "1",
 					["v_gunitpower"] = "10",
 					["b_gunitpower"] = true,
 				},
-				["defaultRotation/warrior/rampage_rage"] = {
-					["b_gspellcost"] = true,
-					["v_gspellcost"] = "85",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "184367",
-					["v_gspellcosttype"] = "1",
-					["v_p_unitpowertype"] = "1",
-					["v_p_unitpower"] = "=100",
-					["b_p_unitpower"] = true,
+				["defaultRotation/warrior/raging_blow"] = {
+					["v_gunitpowertype"] = "1",
+					["b_gunitpower"] = true,
+					["v_gunitpower"] = "12",
+					["v_spellname"] = "85288",
 				},
-				["defaultRotation/warrior/pummel"] = {
-					["v_spellname"] = "6552",
-					["v_durationstartedtime"] = 0,
-					["b_t_interrupt"] = true,
-				},
-				["defaultRotation/warrior/odyn_fury"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "205545",
-				},
-				["defaultRotation/warrior/execute_massacre_enrage"] = {
-					["b_gspellcost"] = true,
-					["v_p_knowspell"] = "206315",
-					["b_hasproc"] = true,
-					["b_p_knowspell"] = true,
-					["v_durationstartedtime"] = 0,
+				["defaultRotation/warrior/execute"] = {
+					["b_gunitpower"] = true,
+					["b_p_havebuff"] = true,
 					["v_spellname"] = "5308",
-					["v_gspellcosttype"] = "1",
-					["b_p_needbuff"] = true,
-					["v_gspellcost"] = "25",
-					["v_p_needbuff"] = "184362||206316",
+					["v_gunitpowertype"] = "1",
+					["v_gunitpower"] = "20",
+					["v_p_havebuff"] = "184362",
+					["b_hasproc"] = true,
 				},
-				["defaultRotation/warrior/raging_blow_inner_rage"] = {
-					["b_p_knowspell"] = true,
-					["v_durationstartedtime"] = 0,
+				["defaultRotation/warrior/battle_shout"] = {
+					["b_p_needbuff"] = true,
+					["v_p_needbuff"] = "6673",
+					["v_spellname"] = "6673",
+				},
+				["defaultRotation/warrior/furious_slash"] = {
+					["v_gunitpowertype"] = "1",
+					["b_gunitpower"] = true,
+					["v_gunitpower"] = "4",
+					["v_spellname"] = "100130",
+				},
+				["defaultRotation/warrior/raging_blow_2_charges"] = {
+					["b_gunitpower"] = true,
 					["v_spellname"] = "85288",
 					["v_gunitpowertype"] = "1",
-					["v_p_knowspell"] = "215573",
-					["v_gunitpower"] = "5",
-					["b_gunitpower"] = true,
-				},
-				["defaultRotation/warrior/dragon_roar_berserker_rage"] = {
-					["v_p_needbuff"] = "184362",
-					["v_p_knowspell"] = "206320",
-					["b_checkothercd"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "118000",
-					["b_p_knowspell"] = true,
-					["v_checkothercdvalue"] = "=0",
-					["b_p_needbuff"] = true,
-					["v_checkothercdname"] = "18499",
-				},
-				["defaultRotation/warrior/battle_cry"] = {
-					["v_p_needbuff"] = "184362",
-					["v_p_knownotspell"] = "202751",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "1719",
-					["b_p_needbuff"] = true,
-					["b_p_knownotspell"] = true,
-				},
-				["defaultRotation/warrior/charge"] = {
-					["b_spellInRange"] = true,
-					["b_gunitpower"] = true,
-					["v_spellname"] = "100",
-					["v_gunitpowertype"] = "1",
-					["v_gunitpower"] = "35",
-					["v_durationstartedtime"] = 0,
-				},
-				["defaultRotation/warrior/rampage"] = {
-					["b_gspellcost"] = true,
-					["b_p_needbuff"] = true,
-					["v_p_knownotspell"] = "215571",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "184367",
-					["v_gspellcosttype"] = "1",
-					["b_p_knownotspell"] = true,
-					["v_p_needbuff"] = "184362",
-					["v_gspellcost"] = "85",
-				},
-				["defaultRotation/warrior/battle_cry_reckless_abandon"] = {
-					["v_p_needbuff"] = "184362",
-					["v_p_knowspell"] = "202751",
-					["b_p_knowspell"] = true,
-					["v_p_unitpowertype"] = "1",
-					["v_spellname"] = "1719",
-					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_p_unitpower"] = "<50",
-					["b_p_needbuff"] = true,
-				},
-				["defaultRotation/warrior/dragon_roar_rampage_rage"] = {
-					["v_p_unitpowertype"] = "1",
-					["v_spellname"] = "118000",
-					["b_p_unitpower"] = true,
-					["v_p_unitpower"] = "=100",
-					["v_durationstartedtime"] = 0,
+					["v_charges"] = "2",
+					["v_gunitpower"] = "12",
+					["b_charges"] = true,
 				},
 				["defaultRotation/warrior/bloodthirst_enrage"] = {
 					["v_p_needbuff"] = "184362",
 					["b_gunitpower"] = true,
 					["v_spellname"] = "23881",
 					["v_gunitpowertype"] = "1",
+					["v_gunitpower"] = "8",
 					["b_p_needbuff"] = true,
-					["v_gunitpower"] = "10",
-					["v_durationstartedtime"] = 0,
-				},
-				["defaultRotation/warrior/execute_massacre"] = {
-					["b_gspellcost"] = true,
-					["v_p_knowspell"] = "206315",
-					["b_hasproc"] = true,
-					["b_p_knowspell"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "5308",
-					["v_gspellcost"] = "25",
-					["b_p_havebuff"] = true,
-					["v_p_havebuff"] = "184362",
-					["v_gspellcosttype"] = "1",
-				},
-				["defaultRotation/warrior/whirlwind"] = {
-					["v_spellname"] = "190411",
-					["v_durationstartedtime"] = 0,
-					["b_hasproc"] = true,
-				},
-			},
-			["version"] = 6,
-			["specID"] = 2,
-		},
-		["defaultRotation/warrior/fury_multi"] = {
-			["version"] = 3,
-			["SortedActions"] = {
-				"defaultRotation/warrior/charge", -- [1]
-				"defaultRotation/warrior/pummel", -- [2]
-				"defaultRotation/warrior/bladestorm", -- [3]
-				"defaultRotation/warrior/whirlwind_meat_cleaver", -- [4]
-				"defaultRotation/warrior/rampage_massacre", -- [5]
-				"defaultRotation/warrior/dragon_roar_berserker_rage", -- [6]
-				"defaultRotation/warrior/dragon_roar_rampage_massacre", -- [7]
-				"defaultRotation/warrior/dragon_roar_rampage_rage", -- [8]
-				"defaultRotation/warrior/dragon_roar_rampage_carnage", -- [9]
-				"defaultRotation/warrior/dragon_roar_rampage", -- [10]
-				"defaultRotation/warrior/dragon_roar", -- [11]
-				"defaultRotation/warrior/battle_cry_reckless_abandon", -- [12]
-				"defaultRotation/warrior/battle_cry", -- [13]
-				"defaultRotation/warrior/avatar", -- [14]
-				"defaultRotation/warrior/bloodbath", -- [15]
-				"defaultRotation/warrior/berserker_rage", -- [16]
-				"defaultRotation/warrior/rampage_frothing_berserker", -- [17]
-				"defaultRotation/warrior/rampage_rage", -- [18]
-				"defaultRotation/warrior/rampage", -- [19]
-				"defaultRotation/warrior/odyn_fury", -- [20]
-				"defaultRotation/warrior/execute", -- [21]
-				"defaultRotation/warrior/bloodthirst", -- [22]
-				"defaultRotation/warrior/whirlwind", -- [23]
-			},
-			["specID"] = 2,
-			["ActionList"] = {
-				["defaultRotation/warrior/dragon_roar"] = {
-					["v_p_needbuff"] = "184362",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "118000",
-					["b_p_needbuff"] = true,
-					["v_checkothercdvalue"] = "=0",
-					["b_checkothercd"] = true,
-					["v_checkothercdname"] = "1719",
-				},
-				["defaultRotation/warrior/berserker_rage"] = {
-					["v_p_needbuff"] = "184362",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "18499",
-					["b_p_needbuff"] = true,
-					["v_p_knowspell"] = "206320",
-					["b_p_knowspell"] = true,
-				},
-				["defaultRotation/warrior/dragon_roar_rampage_carnage"] = {
-					["v_p_needbuff"] = "184362",
-					["v_p_knowspell"] = "202922",
-					["v_durationstartedtime"] = 0,
-					["b_p_knowspell"] = true,
-					["v_p_knownotspell"] = "215571",
-					["v_p_unitpowertype"] = "1",
-					["v_spellname"] = "118000",
-					["b_p_unitpower"] = true,
-					["b_p_knownotspell"] = true,
-					["v_p_unitpower"] = ">=70",
-					["b_p_needbuff"] = true,
-				},
-				["defaultRotation/warrior/rampage_rage"] = {
-					["b_gspellcost"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_p_havebuff"] = "85739",
-					["b_p_havebuff"] = true,
-					["v_gspellcosttype"] = "1",
-					["v_p_knownotspell"] = "215571",
-					["v_p_unitpowertype"] = "1",
-					["v_spellname"] = "184367",
-					["v_gspellcost"] = "85",
-					["b_p_knownotspell"] = true,
-					["v_p_unitpower"] = "=100",
-					["b_p_unitpower"] = true,
-				},
-				["defaultRotation/warrior/dragon_roar_rampage"] = {
-					["v_p_needbuff"] = "184362",
-					["b_p_needbuff"] = true,
-					["v_p_knownotspell"] = "202922||215571",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "118000",
-					["v_p_unitpowertype"] = "1",
-					["b_p_knownotspell"] = true,
-					["v_p_unitpower"] = ">=85",
-					["b_p_unitpower"] = true,
-				},
-				["defaultRotation/warrior/rampage_massacre"] = {
-					["v_durationstartedtime"] = 0,
-					["v_p_havebuff"] = "206316",
-					["b_p_havebuff"] = true,
-					["v_spellname"] = "184367",
-				},
-				["defaultRotation/warrior/avatar"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "107574",
-				},
-				["defaultRotation/warrior/bloodbath"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "12292",
 				},
 				["defaultRotation/warrior/bloodthirst"] = {
-					["v_p_needbuff"] = "184362",
 					["v_gunitpowertype"] = "1",
-					["v_p_havebuff"] = "85739",
+					["v_gunitpower"] = "8",
 					["b_gunitpower"] = true,
 					["v_spellname"] = "23881",
-					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "10",
-					["b_p_needbuff"] = true,
 				},
-				["defaultRotation/warrior/rampage_frothing_berserker"] = {
-					["b_gspellcost"] = true,
-					["v_p_knowspell"] = "215571",
-					["b_p_knowspell"] = true,
-					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "184367",
-					["v_gspellcosttype"] = "1",
-					["v_p_unitpowertype"] = "1",
-					["v_p_unitpower"] = "=100",
-					["v_gspellcost"] = "85",
-				},
-				["defaultRotation/warrior/bladestorm"] = {
-					["v_durationstartedtime"] = 0,
-					["v_p_havebuff"] = "1719",
-					["b_p_havebuff"] = true,
-					["v_spellname"] = "46924",
-				},
-				["defaultRotation/warrior/dragon_roar_rampage_rage"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "118000",
-					["b_p_unitpower"] = true,
-					["v_p_unitpower"] = "=100",
-					["v_p_unitpowertype"] = "1",
-				},
-				["defaultRotation/warrior/execute"] = {
-					["b_gspellcost"] = true,
-					["v_p_knowspell"] = "206315",
-					["b_hasproc"] = true,
-					["b_p_knowspell"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "5308",
-					["v_gspellcosttype"] = "1",
-					["v_gspellcost"] = "25",
-					["v_p_needbuff"] = "206316",
-					["b_p_needbuff"] = true,
-				},
-				["defaultRotation/warrior/dragon_roar_rampage_massacre"] = {
-					["v_durationstartedtime"] = 0,
-					["v_p_havebuff"] = "206316",
-					["b_p_havebuff"] = true,
-					["v_spellname"] = "118000",
-				},
-				["defaultRotation/warrior/dragon_roar_berserker_rage"] = {
-					["v_p_needbuff"] = "184362",
-					["b_p_needbuff"] = true,
-					["b_p_knowspell"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "118000",
-					["v_p_knowspell"] = "206320",
-					["v_checkothercdvalue"] = "=0",
-					["b_checkothercd"] = true,
-					["v_checkothercdname"] = "18499",
-				},
-				["defaultRotation/warrior/battle_cry"] = {
-					["v_p_needbuff"] = "184362",
-					["v_p_knownotspell"] = "202751",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "1719",
-					["b_p_needbuff"] = true,
+				["defaultRotation/warrior/whirlwind"] = {
+					["v_p_knownotspell"] = "100130",
+					["b_gunitpower"] = true,
+					["v_spellname"] = "190411",
+					["v_gunitpowertype"] = "1",
 					["b_p_knownotspell"] = true,
+					["v_gunitpower"] = "3",
+				},
+				["defaultRotation/warrior/victory_rush"] = {
+					["v_p_knownotspell"] = "202168",
+					["v_spellname"] = "34428",
+					["v_p_hp"] = "<80%",
+					["b_p_hp"] = true,
+					["b_p_knownotspell"] = true,
+					["b_hasproc"] = true,
+				},
+				["defaultRotation/warrior/rampage_carnage"] = {
+					["b_gspellcost"] = true,
+					["v_gspellcosttype"] = "1",
+					["b_p_knowspell"] = true,
+					["v_spellname"] = "184367",
+					["v_gspellcost"] = "75",
+					["v_p_knowspell"] = "202922",
+					["v_p_needbuff"] = "184362",
+					["b_p_needbuff"] = true,
+				},
+				["defaultRotation/warrior/recklessness"] = {
+					["v_spellname"] = "1719",
+				},
+				["defaultRotation/warrior/pummel"] = {
+					["b_t_interrupt"] = true,
+					["v_spellname"] = "6552",
 				},
 				["defaultRotation/warrior/charge"] = {
 					["b_spellInRange"] = true,
-					["v_durationstartedtime"] = 0,
+					["b_hasMinRange"] = true,
 					["v_spellname"] = "100",
 					["v_gunitpowertype"] = "1",
-					["v_gunitpower"] = "35",
+					["v_gunitpower"] = "20",
 					["b_gunitpower"] = true,
 				},
 				["defaultRotation/warrior/rampage"] = {
 					["v_p_needbuff"] = "184362",
-					["b_p_needbuff"] = true,
-					["v_p_knownotspell"] = "215571",
-					["v_durationstartedtime"] = 0,
+					["v_p_knownotspell"] = "202922&215571",
+					["v_gspellcosttype"] = "1",
 					["v_spellname"] = "184367",
 					["v_gspellcost"] = "85",
 					["b_p_knownotspell"] = true,
+					["b_p_needbuff"] = true,
 					["b_gspellcost"] = true,
+				},
+				["defaultRotation/warrior/siegebreaker"] = {
+					["v_gunitpowertype"] = "1",
+					["b_gunitpower"] = true,
+					["v_gunitpower"] = "10",
+					["v_spellname"] = "280772",
+				},
+				["defaultRotation/warrior/furious_slash_furious_slash"] = {
+					["v_p_needbuff"] = "202539#3^2",
+					["b_gunitpower"] = true,
+					["v_spellname"] = "100130",
+					["v_gunitpowertype"] = "1",
+					["v_gunitpower"] = "4",
+					["b_p_needbuff"] = true,
+				},
+				["defaultRotation/warrior/bladestorm"] = {
+					["b_p_havebuff"] = true,
+					["v_spellname"] = "46924",
+					["v_gunitpowertype"] = "1",
+					["v_p_havebuff"] = "184362",
+					["v_gunitpower"] = "25",
+					["b_gunitpower"] = true,
+				},
+				["defaultRotation/warrior/rampage_rage"] = {
+					["b_gspellcost"] = true,
+					["v_p_unitpowertype"] = "1",
+					["v_spellname"] = "184367",
+					["v_gspellcost"] = "85",
+					["v_gspellcosttype"] = "1",
+					["v_p_unitpower"] = ">95",
+					["b_p_unitpower"] = true,
+				},
+				["defaultRotation/warrior/impending_victory"] = {
+					["b_gspellcost"] = true,
+					["v_p_hp"] = "<80%",
+					["v_spellname"] = "202168",
+					["v_gspellcost"] = "10",
+					["b_p_hp"] = true,
 					["v_gspellcosttype"] = "1",
 				},
-				["defaultRotation/warrior/battle_cry_reckless_abandon"] = {
+			},
+			["specID"] = 2,
+			["version"] = 7,
+			["SortedActions"] = {
+				"defaultRotation/warrior/charge", -- [1]
+				"defaultRotation/warrior/pummel", -- [2]
+				"defaultRotation/warrior/battle_shout", -- [3]
+				"defaultRotation/warrior/furious_slash_furious_slash", -- [4]
+				"defaultRotation/warrior/recklessness", -- [5]
+				"defaultRotation/warrior/siegebreaker", -- [6]
+				"defaultRotation/warrior/rampage_rage", -- [7]
+				"defaultRotation/warrior/impending_victory", -- [8]
+				"defaultRotation/warrior/victory_rush", -- [9]
+				"defaultRotation/warrior/rampage_carnage", -- [10]
+				"defaultRotation/warrior/rampage", -- [11]
+				"defaultRotation/warrior/execute", -- [12]
+				"defaultRotation/warrior/bloodthirst_enrage", -- [13]
+				"defaultRotation/warrior/raging_blow_2_charges", -- [14]
+				"defaultRotation/warrior/bloodthirst", -- [15]
+				"defaultRotation/warrior/dragon_roar", -- [16]
+				"defaultRotation/warrior/bladestorm", -- [17]
+				"defaultRotation/warrior/raging_blow", -- [18]
+				"defaultRotation/warrior/furious_slash", -- [19]
+				"defaultRotation/warrior/whirlwind", -- [20]
+			},
+		},
+		["defaultRotation/warrior/fury_multi"] = {
+			["version"] = 4,
+			["SortedActions"] = {
+				"defaultRotation/warrior/charge", -- [1]
+				"defaultRotation/warrior/pummel", -- [2]
+				"defaultRotation/warrior/battle_shout", -- [3]
+				"defaultRotation/warrior/furious_slash_furious_slash", -- [4]
+				"defaultRotation/warrior/recklessness", -- [5]
+				"defaultRotation/warrior/siegebreaker", -- [6]
+				"defaultRotation/warrior/rampage_rage", -- [7]
+				"defaultRotation/warrior/impending_victory", -- [8]
+				"defaultRotation/warrior/victory_rush", -- [9]
+				"defaultRotation/warrior/rampage_carnage", -- [10]
+				"defaultRotation/warrior/rampage", -- [11]
+				"defaultRotation/warrior/bladestorm", -- [12]
+				"defaultRotation/warrior/dragon_roar", -- [13]
+				"defaultRotation/warrior/whirlwind_whirlwind", -- [14]
+				"defaultRotation/warrior/execute", -- [15]
+				"defaultRotation/warrior/bloodthirst_enrage", -- [16]
+				"defaultRotation/warrior/raging_blow_2_charges", -- [17]
+				"defaultRotation/warrior/bloodthirst", -- [18]
+				"defaultRotation/warrior/raging_blow", -- [19]
+				"defaultRotation/warrior/furious_slash", -- [20]
+				"defaultRotation/warrior/whirlwind", -- [21]
+			},
+			["specID"] = 2,
+			["ActionList"] = {
+				["defaultRotation/warrior/dragon_roar"] = {
+					["b_p_havebuff"] = true,
+					["v_spellname"] = "118000",
+					["v_gunitpowertype"] = "1",
+					["v_p_havebuff"] = "184362",
+					["v_gunitpower"] = "10",
+					["b_gunitpower"] = true,
+				},
+				["defaultRotation/warrior/raging_blow"] = {
+					["v_gunitpowertype"] = "1",
+					["b_gunitpower"] = true,
+					["v_gunitpower"] = "12",
+					["v_spellname"] = "85288",
+				},
+				["defaultRotation/warrior/rampage_rage"] = {
+					["b_gspellcost"] = true,
+					["v_p_unitpowertype"] = "1",
+					["v_spellname"] = "184367",
+					["v_gspellcost"] = "85",
+					["v_gspellcosttype"] = "1",
+					["v_p_unitpower"] = ">95",
+					["b_p_unitpower"] = true,
+				},
+				["defaultRotation/warrior/battle_shout"] = {
+					["b_p_needbuff"] = true,
+					["v_p_needbuff"] = "6673",
+					["v_spellname"] = "6673",
+				},
+				["defaultRotation/warrior/furious_slash"] = {
+					["v_gunitpowertype"] = "1",
+					["b_gunitpower"] = true,
+					["v_gunitpower"] = "4",
+					["v_spellname"] = "100130",
+				},
+				["defaultRotation/warrior/raging_blow_2_charges"] = {
+					["b_gunitpower"] = true,
+					["v_spellname"] = "85288",
+					["v_gunitpowertype"] = "1",
+					["v_charges"] = "2",
+					["v_gunitpower"] = "12",
+					["b_charges"] = true,
+				},
+				["defaultRotation/warrior/bloodthirst_enrage"] = {
+					["v_p_needbuff"] = "184362",
+					["b_gunitpower"] = true,
+					["v_spellname"] = "23881",
+					["v_gunitpowertype"] = "1",
+					["v_gunitpower"] = "8",
+					["b_p_needbuff"] = true,
+				},
+				["defaultRotation/warrior/bloodthirst"] = {
+					["v_gunitpowertype"] = "1",
+					["b_gunitpower"] = true,
+					["v_gunitpower"] = "8",
+					["v_spellname"] = "23881",
+				},
+				["defaultRotation/warrior/impending_victory"] = {
+					["b_gspellcost"] = true,
+					["v_p_hp"] = "<80%",
+					["v_spellname"] = "202168",
+					["v_gspellcost"] = "10",
+					["b_p_hp"] = true,
+					["v_gspellcosttype"] = "1",
+				},
+				["defaultRotation/warrior/bladestorm"] = {
+					["b_gunitpower"] = true,
+					["v_spellname"] = "46924",
+					["v_gunitpowertype"] = "1",
+					["v_p_havebuff"] = "184362",
+					["v_gunitpower"] = "25",
+					["b_p_havebuff"] = true,
+				},
+				["defaultRotation/warrior/recklessness"] = {
+					["v_spellname"] = "1719",
+				},
+				["defaultRotation/warrior/rampage_carnage"] = {
+					["b_gspellcost"] = true,
+					["v_gspellcost"] = "75",
+					["b_p_knowspell"] = true,
+					["v_spellname"] = "184367",
+					["v_gspellcosttype"] = "1",
+					["v_p_knowspell"] = "202922",
 					["v_p_needbuff"] = "184362",
 					["b_p_needbuff"] = true,
-					["b_p_knowspell"] = true,
-					["v_p_unitpowertype"] = "1",
-					["v_spellname"] = "1719",
-					["b_p_unitpower"] = true,
-					["v_p_knowspell"] = "202751",
-					["v_p_unitpower"] = "<50",
-					["v_durationstartedtime"] = 0,
 				},
-				["defaultRotation/warrior/whirlwind_meat_cleaver"] = {
+				["defaultRotation/warrior/whirlwind_whirlwind"] = {
 					["v_p_needbuff"] = "85739",
-					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
+					["b_gunitpower"] = true,
 					["v_spellname"] = "190411",
+					["v_gunitpowertype"] = "1",
+					["v_gunitpower"] = "3",
+					["b_p_needbuff"] = true,
 				},
-				["defaultRotation/warrior/odyn_fury"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "205545",
+				["defaultRotation/warrior/siegebreaker"] = {
+					["v_gunitpowertype"] = "1",
+					["b_gunitpower"] = true,
+					["v_gunitpower"] = "10",
+					["v_spellname"] = "280772",
+				},
+				["defaultRotation/warrior/charge"] = {
+					["b_spellInRange"] = true,
+					["b_hasMinRange"] = true,
+					["v_spellname"] = "100",
+					["v_gunitpowertype"] = "1",
+					["v_gunitpower"] = "20",
+					["b_gunitpower"] = true,
+				},
+				["defaultRotation/warrior/rampage"] = {
+					["v_p_needbuff"] = "184362",
+					["v_p_knownotspell"] = "202922&215571",
+					["v_gspellcosttype"] = "1",
+					["v_spellname"] = "184367",
+					["v_gspellcost"] = "85",
+					["b_p_knownotspell"] = true,
+					["b_p_needbuff"] = true,
+					["b_gspellcost"] = true,
+				},
+				["defaultRotation/warrior/execute"] = {
+					["b_gspellcost"] = true,
+					["b_p_havebuff"] = true,
+					["v_spellname"] = "5308",
+					["v_gspellcosttype"] = "1",
+					["v_gspellcost"] = "20",
+					["v_p_havebuff"] = "184362",
+					["b_hasproc"] = true,
+				},
+				["defaultRotation/warrior/furious_slash_furious_slash"] = {
+					["v_p_needbuff"] = "202539#3^2",
+					["b_gunitpower"] = true,
+					["v_spellname"] = "100130",
+					["v_gunitpowertype"] = "1",
+					["v_gunitpower"] = "4",
+					["b_p_needbuff"] = true,
 				},
 				["defaultRotation/warrior/pummel"] = {
-					["b_t_interrupt"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "6552",
+					["b_t_interrupt"] = true,
+				},
+				["defaultRotation/warrior/victory_rush"] = {
+					["v_p_knownotspell"] = "202168",
+					["v_spellname"] = "34428",
+					["v_p_hp"] = "<80%",
+					["b_p_hp"] = true,
+					["b_p_knownotspell"] = true,
+					["b_hasproc"] = true,
 				},
 				["defaultRotation/warrior/whirlwind"] = {
-					["v_durationstartedtime"] = 0,
+					["v_gunitpowertype"] = "1",
+					["b_gunitpower"] = true,
+					["v_gunitpower"] = "3",
 					["v_spellname"] = "190411",
 				},
 			},
-			["bindindex"] = 0,
 			["isMultiTarget"] = true,
 		},
 		["defaultRotation/warrior/arms"] = {
