@@ -2,178 +2,132 @@
 local priestRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/priest/discipline"] = {
-			["bindindex"] = 0,
+			["version"] = 6,
 			["ActionList"] = {
 				["defaultRotation/priest/dispel_magic"] = {
 					["b_t_dispel"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "528",
 				},
 				["defaultRotation/priest/purge_the_wicked"] = {
 					["b_t_needsdebuff"] = true,
 					["v_t_needsdebuff"] = "_204213^6",
-					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "204197",
 				},
-				["defaultRotation/priest/light_wrath_atonement"] = {
-					["b_isCustomCase2"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "207946",
-					["v_otherchargesname"] = "200829",
-					["b_othercharges"] = true,
-					["v_othercharges"] = ">=12",
+				["defaultRotation/priest/smite"] = {
+					["v_spellname"] = "585",
 				},
 				["defaultRotation/priest/shadowfiend"] = {
-					["v_p_knownotspell"] = "123040",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "34433",
 					["b_p_knownotspell"] = true,
+					["v_p_knownotspell"] = "123040",
 					["b_isCustomCase1"] = true,
+					["v_spellname"] = "34433",
 				},
 				["defaultRotation/priest/mindbender"] = {
-					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "123040",
-				},
-				["defaultRotation/priest/light_wrath"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "207946",
-					["v_otherchargesname"] = "200829",
-					["b_notCustomCase2"] = true,
-					["b_othercharges"] = true,
-					["v_othercharges"] = ">=5",
 				},
 				["defaultRotation/priest/shadow_word_pain"] = {
 					["v_t_needsdebuff"] = "_589^5.4",
 					["v_p_knownotspell"] = "204197",
-					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "589",
 					["b_t_needsdebuff"] = true,
 					["b_p_knownotspell"] = true,
 				},
-				["defaultRotation/priest/smite"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "585",
+				["defaultRotation/priest/penance"] = {
+					["v_spellname"] = "47540",
 				},
 				["defaultRotation/priest/schism"] = {
-					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "214621",
 				},
 				["defaultRotation/priest/shadow_word_solace"] = {
-					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "129250",
 				},
-				["defaultRotation/priest/penance"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "47540",
+				["defaultRotation/priest/power_word_fortitude"] = {
+					["b_p_needbuff"] = true,
+					["v_p_needbuff"] = "21562",
+					["v_spellname"] = "21562",
 				},
 			},
-			["specID"] = 1,
-			["version"] = 5,
 			["SortedActions"] = {
 				"defaultRotation/priest/dispel_magic", -- [1]
 				"defaultRotation/priest/purge_the_wicked", -- [2]
-				"defaultRotation/priest/shadow_word_pain", -- [3]
-				"defaultRotation/priest/shadowfiend", -- [4]
-				"defaultRotation/priest/light_wrath_atonement", -- [5]
-				"defaultRotation/priest/light_wrath", -- [6]
-				"defaultRotation/priest/mindbender", -- [7]
-				"defaultRotation/priest/schism", -- [8]
-				"defaultRotation/priest/penance", -- [9]
-				"defaultRotation/priest/shadow_word_solace", -- [10]
-				"defaultRotation/priest/smite", -- [11]
+				"defaultRotation/priest/power_word_fortitude", -- [3]
+				"defaultRotation/priest/shadow_word_pain", -- [4]
+				"defaultRotation/priest/shadowfiend", -- [5]
+				"defaultRotation/priest/mindbender", -- [6]
+				"defaultRotation/priest/schism", -- [7]
+				"defaultRotation/priest/penance", -- [8]
+				"defaultRotation/priest/shadow_word_solace", -- [9]
+				"defaultRotation/priest/smite", -- [10]
 			},
+			["specID"] = 1,
 		},
 		["defaultRotation/priest/discipline_multi"] = {
-			["version"] = 2,
-			["bindindex"] = 0,
+			["version"] = 3,
 			["SortedActions"] = {
 				"defaultRotation/priest/dispel_magic", -- [1]
 				"defaultRotation/priest/purge_the_wicked", -- [2]
-				"defaultRotation/priest/shadow_word_pain", -- [3]
-				"defaultRotation/priest/shadowfiend", -- [4]
-				"defaultRotation/priest/light_wrath_atonement", -- [5]
-				"defaultRotation/priest/light_wrath", -- [6]
-				"defaultRotation/priest/mindbender", -- [7]
-				"defaultRotation/priest/halo", -- [8]
-				"defaultRotation/priest/divine_star", -- [9]
-				"defaultRotation/priest/schism", -- [10]
-				"defaultRotation/priest/penance", -- [11]
-				"defaultRotation/priest/shadow_word_solace", -- [12]
-				"defaultRotation/priest/smite", -- [13]
+				"defaultRotation/priest/power_word_fortitude", -- [3]
+				"defaultRotation/priest/shadow_word_pain", -- [4]
+				"defaultRotation/priest/shadowfiend", -- [5]
+				"defaultRotation/priest/mindbender", -- [6]
+				"defaultRotation/priest/halo", -- [7]
+				"defaultRotation/priest/divine_star", -- [8]
+				"defaultRotation/priest/schism", -- [9]
+				"defaultRotation/priest/penance", -- [10]
+				"defaultRotation/priest/shadow_word_solace", -- [11]
+				"defaultRotation/priest/holy_nova", -- [12]
 			},
-			["specID"] = 1,
 			["ActionList"] = {
-				["defaultRotation/priest/dispel_magic"] = {
-					["b_t_dispel"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "528",
+				["defaultRotation/priest/power_word_fortitude"] = {
+					["b_p_needbuff"] = true,
+					["v_p_needbuff"] = "21562",
+					["v_spellname"] = "21562",
 				},
 				["defaultRotation/priest/purge_the_wicked"] = {
-					["v_t_needsdebuff"] = "_204213^6",
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
+					["v_t_needsdebuff"] = "_204213^6",
 					["v_spellname"] = "204197",
 				},
-				["defaultRotation/priest/smite"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "585",
-				},
 				["defaultRotation/priest/shadowfiend"] = {
-					["v_p_knownotspell"] = "123040",
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "34433",
 					["b_p_knownotspell"] = true,
+					["v_p_knownotspell"] = "123040",
 					["b_isCustomCase1"] = true,
+					["v_spellname"] = "34433",
 				},
 				["defaultRotation/priest/mindbender"] = {
-					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "123040",
 				},
-				["defaultRotation/priest/light_wrath_atonement"] = {
-					["b_isCustomCase2"] = true,
-					["v_othercharges"] = ">=12",
-					["v_spellname"] = "207946",
-					["v_durationstartedtime"] = 0,
-					["b_othercharges"] = true,
-					["v_otherchargesname"] = "200829",
+				["defaultRotation/priest/penance"] = {
+					["v_spellname"] = "47540",
 				},
-				["defaultRotation/priest/shadow_word_solace"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "129250",
+				["defaultRotation/priest/holy_nova"] = {
+					["v_spellname"] = "132157",
 				},
 				["defaultRotation/priest/divine_star"] = {
-					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "110744",
 				},
 				["defaultRotation/priest/shadow_word_pain"] = {
 					["v_t_needsdebuff"] = "_589^5.4",
 					["v_p_knownotspell"] = "204197",
-					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "589",
 					["b_t_needsdebuff"] = true,
 					["b_p_knownotspell"] = true,
 				},
-				["defaultRotation/priest/penance"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "47540",
+				["defaultRotation/priest/dispel_magic"] = {
+					["v_spellname"] = "528",
+					["b_t_dispel"] = true,
 				},
 				["defaultRotation/priest/schism"] = {
-					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "214621",
 				},
-				["defaultRotation/priest/light_wrath"] = {
-					["v_durationstartedtime"] = 0,
-					["v_spellname"] = "207946",
-					["v_otherchargesname"] = "200829",
-					["b_notCustomCase2"] = true,
-					["b_othercharges"] = true,
-					["v_othercharges"] = ">=5",
+				["defaultRotation/priest/shadow_word_solace"] = {
+					["v_spellname"] = "129250",
 				},
 				["defaultRotation/priest/halo"] = {
-					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "120517",
 				},
 			},
+			["specID"] = 1,
 			["isMultiTarget"] = true,
 		},
 		["defaultRotation/priest/holy"] = {
