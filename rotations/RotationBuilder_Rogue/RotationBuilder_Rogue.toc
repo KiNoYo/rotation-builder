@@ -1,6 +1,6 @@
-## Interface: 70300
+## Interface: 80000
 ## Title: RotationBuilder_Rogue
-## Version: 1.73.1
+## Version: 1.73.2
 ## Author: Pelerinage, Tylocaptain
 ## Notes: Rogue's rotation for RotationBuilder
 ## Dependencies: RotationBuilder
