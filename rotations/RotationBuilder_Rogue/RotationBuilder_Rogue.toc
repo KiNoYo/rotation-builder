@@ -5,12 +5,12 @@
 ## Notes: Rogue's rotation for RotationBuilder
 ## Dependencies: RotationBuilder
 
--- Library
+# Library
 ..\RotationBuilder\libs\AceLocale-3.0\AceLocale-3.0.lua
 
--- Localization
+# Localization
 localization\enUS.lua
 localization\frFR.lua
 
--- Rotations
+# Rotations
 RotationsRogue.lua
