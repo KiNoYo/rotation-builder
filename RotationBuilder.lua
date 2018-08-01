@@ -143,6 +143,7 @@ ROB_NewActionDefaults = {
 	b_t_interrupt = false,
 	b_t_dispel = false,
 	b_t_spellsteal = false,
+	b_t_enrage = false,
 
 	--Pet Options---------------
 	b_pet_hp = false,
@@ -1790,6 +1791,8 @@ function ROB_Rotation_Edit_UpdateUI()
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetSpellstealCheckButton", _ActionDB.b_t_spellsteal, false)
 
+			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetEnrageCheckButton", _ActionDB.b_t_enrage, false)
+
 			--Pet options-------------------------
 			ROB_Rotation_GUI_SetChecked("ROB_AO_PetHPCheckButton", _ActionDB.b_pet_hp, false)
 			ROB_Rotation_GUI_SetText("ROB_AO_PetHPInputBox", _ActionDB.v_pet_hp, "")
@@ -2188,6 +2191,19 @@ function ROB_UnitHasDispellableBuff()
 			break;
 		end
 		if buff == "MAGIC" then
+			return true;
+		end
+	end
+	return false;
+end
+
+function ROB_UnitIsEnraged()
+	for i = 1, 40 do
+		local name, _, _, buff, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = UnitAura("TARGET", i, "HELPFUL");
+		if name == nil then
+			break;
+		end
+		if buff == "" then
 			return true;
 		end
 	end
@@ -2756,6 +2772,15 @@ function ROB_SpellReady(actionName, isNextSpell)
 		if (not ROB_UnitHasStealableBuff()) then
 			-- If there is no stealable buff on the target
 			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because there is currently no stealable buff on the target", debug);
+			return false;
+		end
+	end
+
+	-- CHECK: Check if the target is enraged
+	if (ActionDB.b_t_enrage) then
+		if (not ROB_UnitIsEnraged()) then
+			-- If the target is not enraged
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the target is not currently enraged", debug);
 			return false;
 		end
 	end

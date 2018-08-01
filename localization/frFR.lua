@@ -991,6 +991,8 @@ L["ROB_UI_AO_T_BOSS"] = "Boss"
 L["ROB_UI_AO_T_BOSS_TT"] = "N'affiche cette action que si la cible est un boss"
 L["ROB_UI_AO_T_DISPEL"] = "Dissipation"
 L["ROB_UI_AO_T_DISPEL_TT"] = "N'affiche cette action que si la cible à un buff dissipable"
+L["ROB_UI_AO_T_ENRAGE"] = "Enragé"
+L["ROB_UI_AO_T_ENRAGE_TT"] = "N'affiche cette action que si la cible est enragé"
 L["ROB_UI_AO_T_HAVEBUFF"] = "A le buff:"
 L["ROB_UI_AO_T_HAVEBUFF_TT"] = "N'affiche cette action que si la cible a le(s) buff(s) spécifié(s)"
 L["ROB_UI_AO_T_HAVEBUFFIB_TT"] = [=[Entrez le(s) nom/id(s) du(des) buff(s)

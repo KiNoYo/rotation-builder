@@ -991,6 +991,8 @@ L["ROB_UI_AO_T_BOSS"] = "Boss"
 L["ROB_UI_AO_T_BOSS_TT"] = "Only display action if target is a boss"
 L["ROB_UI_AO_T_DISPEL"] = "Dispel"
 L["ROB_UI_AO_T_DISPEL_TT"] = "Only display this action if the target has a dispelable buff"
+L["ROB_UI_AO_T_ENRAGE"] = "Enraged"
+L["ROB_UI_AO_T_ENRAGE_TT"] = "Only display this action if the target is enraged"
 L["ROB_UI_AO_T_HAVEBUFF"] = "Has Buff:"
 L["ROB_UI_AO_T_HAVEBUFF_TT"] = "Only display action when target has the specified buff or buffs"
 L["ROB_UI_AO_T_HAVEBUFFIB_TT"] = [=[Input the name of the buff or buffs

@@ -43,6 +43,7 @@ RotationBuilderUtils = {
 		["b_pet_needsbuff"] = false,
 		["b_t_boss"] = false,
 		["b_t_dispel"] = false,
+		["b_t_enrage"] = false,
 		["b_t_hasbuff"] = false,
 		["b_t_hasdebuff"] = false,
 		["b_t_hp"] = false,
