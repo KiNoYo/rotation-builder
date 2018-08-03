@@ -21,7 +21,7 @@ Rotation Builder allows you to build rotations dynamically without having to und
 - 8.0.1 PRIEST
 - 8.0.1 ROGUE
 - 8.0.1 SHAMAN
-- 7.2.5 WARLOCK
+- 8.0.1 WARLOCK
 - 8.0.1 WARRIOR
 - 7.2.5 DEATHKNIGHT
 - 7.2.5 MONK
