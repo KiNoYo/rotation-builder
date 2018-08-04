@@ -16,6 +16,7 @@ local paladinRotationsGenerator = function ()
 				["defaultRotation/paladin/consecration"] = {
 					["b_pet_needstotem"] = true,
 					["v_pet_needstotem"] = "2",
+					["v_pet_needstotemname"] = "26573",
 					["v_spellname"] = "26573",
 				},
 				["defaultRotation/paladin/crusader_strike"] = {
@@ -53,7 +54,7 @@ local paladinRotationsGenerator = function ()
 				"defaultRotation/paladin/crusader_strike", -- [9]
 			},
 			["specID"] = 1,
-			["version"] = 6,
+			["version"] = 7,
 		},
 		["defaultRotation/paladin/holy_multi"] = {
 			["ActionList"] = {
@@ -70,6 +71,7 @@ local paladinRotationsGenerator = function ()
 				["defaultRotation/paladin/consecration"] = {
 					["b_pet_needstotem"] = true,
 					["v_pet_needstotem"] = "2",
+					["v_pet_needstotemname"] = "26573",
 					["v_spellname"] = "26573",
 				},
 				["defaultRotation/paladin/crusader_strike"] = {
@@ -108,7 +110,7 @@ local paladinRotationsGenerator = function ()
 			},
 			["isMultiTarget"] = true,
 			["specID"] = 1,
-			["version"] = 3,
+			["version"] = 4,
 		},
 		["defaultRotation/paladin/protection"] = {
 			["ActionList"] = {
@@ -141,6 +143,7 @@ local paladinRotationsGenerator = function ()
 					["b_pet_needstotem"] = true,
 					["v_p_havebuff"] = "_188370",
 					["v_pet_needstotem"] = "2",
+					["v_pet_needstotemname"] = "26573",
 					["v_spellname"] = "26573",
 				},
 				["defaultRotation/paladin/hammer_of_the_righteous"] = {
@@ -196,7 +199,7 @@ local paladinRotationsGenerator = function ()
 				"defaultRotation/paladin/hammer_of_the_righteous", -- [13]
 			},
 			["specID"] = 2,
-			["version"] = 8,
+			["version"] = 9,
 		},
 		["defaultRotation/paladin/protection_multi"] = {
 			["ActionList"] = {
@@ -227,6 +230,7 @@ local paladinRotationsGenerator = function ()
 					["b_pet_needstotem"] = true,
 					["v_p_havebuff"] = "_188370",
 					["v_pet_needstotem"] = "2",
+					["v_pet_needstotemname"] = "26573",
 					["v_spellname"] = "26573",
 				},
 				["defaultRotation/paladin/hammer_of_the_righteous"] = {
@@ -283,7 +287,7 @@ local paladinRotationsGenerator = function ()
 			},
 			["isMultiTarget"] = true,
 			["specID"] = 2,
-			["version"] = 5,
+			["version"] = 6,
 		},
 		["defaultRotation/paladin/retribution"] = {
 			["ActionList"] = {
