@@ -737,10 +737,10 @@ function ROB_SwitchRotation(RotationID, _byName)
 
 		ROB_CURRENT_ACTION = nil
 		ROB_NEXT_ACTION = nil
-		ROB_SetButtonTexture(ROB_CurrentActionButton, ROB_GetTexturePath(""))
+		ROB_SetButtonTexture(ROB_CurrentActionButton, GetSpellTexture(""))
 		ROB_CurrentActionButtonHotKey:SetText("")
 		ROB_CurrentActionButton:Show()
-		ROB_SetButtonTexture(ROB_NextActionButton, ROB_GetTexturePath(""))
+		ROB_SetButtonTexture(ROB_NextActionButton, GetSpellTexture(""))
 		ROB_NextActionButtonHotKey:SetText("")
 		ROB_NextActionButton:Show()
 
@@ -1073,14 +1073,6 @@ function ROB_PasteActionButton_OnClick(self)
 	ROB_GetString("Enter new name for action", "", true, ROB_PasteActionOnAccept, _cancelcallback)
 end
 
-function ROB_GetTexturePath(v_spellname)
-	if not v_spellname then return ""; end
-	local _, texpath = GetSpellTexture(v_spellname);
-
-	if not texpath then texpath = "" end
-	return texpath;
-end
-
 function ROB_IconsFrameOnMouseDown(self, button)
 	if (button == "LeftButton" and (not self.isMoving) and (ROB_Options.LockIcons == false)) then
 		self:StartMoving();
@@ -1129,7 +1121,7 @@ function ROB_SpellValidate(_spell)
 	end
 
 	if (_parsedSpellID and _spellingCheckPassed) then
-		ROB_SpellNameInputBoxIcon:SetTexture(ROB_GetTexturePath(ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_spellname))
+		ROB_SpellNameInputBoxIcon:SetTexture(GetSpellTexture(ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_spellname))
 		ROB_SpellNameValidateText:SetText(_link.." ".._parsedSpellID)
 		GameTooltip:SetHyperlink(_link)
 	else
@@ -1185,7 +1177,7 @@ function ROB_AO_ActionIcon_OnTextChanged(self)
 	else
 		ROB_AO_ActionIconTexture:Show();
 		ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_actionicon = self:GetText()
-		ROB_AO_ActionIconTexture:SetTexture(ROB_GetTexturePath(ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_actionicon))
+		ROB_AO_ActionIconTexture:SetTexture(GetSpellTexture(ROB_EditingRotationTable.ActionList[ROB_CurrentActionName].v_actionicon))
 	end
 end
 
@@ -1676,7 +1668,7 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_SpellValidate(_ActionDB.v_spellname);
 
 			ROB_Rotation_GUI_SetText("ROB_AO_ActionIconInputBox", _ActionDB.v_actionicon, "")
-			ROB_AO_ActionIconTexture:SetTexture(ROB_GetTexturePath(_ActionDB.v_actionicon));
+			ROB_AO_ActionIconTexture:SetTexture(GetSpellTexture(_ActionDB.v_actionicon));
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_MaxCastsCheckButton", _ActionDB.b_maxcasts, false)
 			ROB_Rotation_GUI_SetText("ROB_AO_MaxCastsInputBox", _ActionDB.v_maxcasts, "")
