@@ -23,7 +23,7 @@ Rotation Builder allows you to build rotations dynamically without having to und
 - 8.0.1 SHAMAN
 - 8.0.1 WARLOCK
 - 8.0.1 WARRIOR
-- 7.2.5 DEATHKNIGHT
+- 8.0.1 DEATHKNIGHT
 - 7.2.5 MONK
 - 7.2.5 DEMON HUNTER
 
