@@ -154,6 +154,10 @@ ROB_NewActionDefaults = {
 	v_pet_hasbuff = "",
 	b_pet_needstotem = false,
 	v_pet_needstotem = "",
+	v_pet_needstotemname = "",
+	b_pet_hastotem = false,
+	v_pet_hastotem = "",
+	v_pet_hastotemname = "",
 }
 
 ROB_ActionClipboard = nil;
@@ -1799,6 +1803,11 @@ function ROB_Rotation_Edit_UpdateUI()
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_PetNeedsTotemCheckButton", _ActionDB.b_pet_needstotem, false)
 			ROB_Rotation_GUI_SetText("ROB_AO_PetNeedsTotemInputBox", _ActionDB.v_pet_needstotem, "")
+			ROB_Rotation_GUI_SetText("ROB_AO_PetNeedsTotemNameInputBox", _ActionDB.v_pet_needstotemname, "")
+
+			ROB_Rotation_GUI_SetChecked("ROB_AO_PetHasTotemCheckButton", _ActionDB.b_pet_hastotem, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_PetHasTotemInputBox", _ActionDB.v_pet_hastotem, "")
+			ROB_Rotation_GUI_SetText("ROB_AO_PetHasTotemNameInputBox", _ActionDB.v_pet_hastotemname, "")
 
 			-- show action options frames because we have a current selected action
 			if ((not ROB_GeneralActionOptionsTab:IsShown()) and (not ROB_PlayerActionOptionsTab:IsShown()) and (not ROB_TargetActionOptionsTab:IsShown()) and (not ROB_PetActionOptionsTab:IsShown())) then
@@ -2933,6 +2942,49 @@ function ROB_SpellReady(actionName, isNextSpell)
 		end
 	end
 
+	-- CHECK: Needs Totem
+	if (ActionDB.b_pet_needstotem) then
+		for i = 1, 4 do
+			local active, name, start, duration, icon = GetTotemInfo(i);
+			local _, _, _, _, _, _, spellID = GetSpellInfo(name);
+			local _, _, otherIcon, _, _, _, otherSpellID = GetSpellInfo(ActionDB.v_pet_needstotemname);
+			if (active and (spellID == otherSpellID or icon == otherIcon)) then
+				if (ActionDB.v_pet_needstotem ~= nil and ActionDB.v_pet_needstotem ~= "") then
+					if ((start + duration - GetTime()) >= tonumber(ActionDB.v_pet_needstotem)) then
+						ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the totem/statue does have enougth remaining time", debug);
+						return false;
+					end
+				else
+					ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the totem/statue is already active", debug);
+					return false;
+				end
+			end
+		end
+	end
+
+	-- CHECK: Have Totem
+	if (ActionDB.b_pet_hastotem) then
+		local found = false;
+		for i = 1, 4 do
+			local active, name, start, duration, icon = GetTotemInfo(i);
+			local _, _, _, _, _, _, spellID = GetSpellInfo(name);
+			local _, _, otherIcon, _, _, _, otherSpellID = GetSpellInfo(ActionDB.v_pet_hastotemname);
+			if (active and (spellID == otherSpellID or icon == otherIcon)) then
+				found = true;
+				if (ActionDB.v_pet_hastotem ~= nil and ActionDB.v_pet_hastotem ~= "") then
+					if ((start + duration - GetTime()) < tonumber(ActionDB.v_pet_hastotem)) then
+						ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the totem/statue does have enougth remaining time", debug);
+						return false;
+					end
+				end
+			end
+		end
+		if (not found) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the totem/statue is not active", debug);
+			return false;
+		end
+	end
+
 	-- CHECK: Life
 	if (ActionDB.b_p_hp and ActionDB.v_p_hp ~= nil and ActionDB.v_p_hp ~= "") then
 		if (not ROB_UnitPassesLifeCheck(ActionDB.v_p_hp, "PLAYER")) then
@@ -3027,22 +3079,6 @@ function ROB_SpellReady(actionName, isNextSpell)
 		if(ActionDB.b_hasMinRange) then
 			local result = CheckInteractDistance("target", 2);
 			if(result) then
-				return false;
-			end
-		end
-	end
-
-	-- CHECK: Needs Totem
-	if (ActionDB.b_pet_needstotem) then
-		local active, _, start, duration, _ = GetTotemInfo(1);
-		if (active) then
-			if (ActionDB.v_pet_needstotem ~= nil and ActionDB.v_pet_needstotem ~= "") then
-				if ((start + duration - GetTime()) > tonumber(ActionDB.v_pet_needstotem)) then
-					ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the totem/statue does have enougth remaining time", debug);
-					return false;
-				end
-			else
-				ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the totem/statue is already active", debug);
 				return false;
 			end
 		end
