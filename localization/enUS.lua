@@ -971,6 +971,9 @@ Example2: |cFF00FF00_Earth Shield#2|r display action when your pet is missing a 
 Example3: |cFF00FF00_Earth Shield#2^3|r display action when your pet is missing a player casted Earth Shield at 2 stacks with >=3 seconds left
 Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when your pet is missing Earth Shield or Inner Fire
 Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when your pet is missing both Earth Shield and Inner Fire]=]
+L["ROB_UI_AO_PET_NEEDSTOTEM"] = "Needs Totem:"
+L["ROB_UI_AO_PET_NEEDSTOTEM_TT"] = "Only display action when you need a totem/statue active"
+L["ROB_UI_AO_PET_NEEDSTOTEMIB_TT"] = "Input the minimum remaining duration needed for the totem/statue"
 L["ROB_UI_AO_PET_TAB"] = "Pet"
 L["ROB_UI_AO_PLAYER_TAB"] = "Player"
 L["ROB_UI_AO_T_BOSS"] = "Boss"

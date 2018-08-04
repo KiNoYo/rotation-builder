@@ -971,6 +971,9 @@ Example2: |cFF00FF00_Earth Shield#2|r n'affiche cette action que si le familier 
 Example3: |cFF00FF00_Earth Shield#2^3|r n'affiche cette action que si le familier a besoin du buff Earth Shield avec 2 cumul placé par vous avec 3+ secondes restantes
 Example4: |cFF00FF00Earth Shield||Inner Fire|r n'affiche cette action que si le familier a besoin du buff Earth Shield ou Inner Fire
 Example5: |cFF00FF00Earth Shield&Inner Fire|r n'affiche cette action que si le familier a besoin des buffs Earth Shield et Inner Fire]=]
+L["ROB_UI_AO_PET_NEEDSTOTEM"] = "A besoin du Totem:"
+L["ROB_UI_AO_PET_NEEDSTOTEM_TT"] = "N'affiche cette action que si le/la totem/statue ou autre doit être active"
+L["ROB_UI_AO_PET_NEEDSTOTEMIB_TT"] = "Entrez la durée minimale restante nécessaire pour le/la totem/statue ou autre"
 L["ROB_UI_AO_PET_TAB"] = "Familier"
 L["ROB_UI_AO_PLAYER_TAB"] = "Joueur"
 L["ROB_UI_AO_T_BOSS"] = "Boss"

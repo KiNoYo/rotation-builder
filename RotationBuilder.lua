@@ -152,6 +152,8 @@ ROB_NewActionDefaults = {
 	v_pet_needsbuff = "",
 	b_pet_hasbuff = false,
 	v_pet_hasbuff = "",
+	b_pet_needstotem = false,
+	v_pet_needstotem = "",
 }
 
 ROB_ActionClipboard = nil;
@@ -1803,6 +1805,9 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetChecked("ROB_AO_PetHasBuffCheckButton", _ActionDB.b_pet_hasbuff, false)
 			ROB_Rotation_GUI_SetText("ROB_AO_PetHasBuffInputBox", _ActionDB.v_pet_hasbuff, "")
 
+			ROB_Rotation_GUI_SetChecked("ROB_AO_PetNeedsTotemCheckButton", _ActionDB.b_pet_needstotem, false)
+			ROB_Rotation_GUI_SetText("ROB_AO_PetNeedsTotemInputBox", _ActionDB.v_pet_needstotem, "")
+
 			-- show action options frames because we have a current selected action
 			if ((not ROB_GeneralActionOptionsTab:IsShown()) and (not ROB_PlayerActionOptionsTab:IsShown()) and (not ROB_TargetActionOptionsTab:IsShown()) and (not ROB_PetActionOptionsTab:IsShown())) then
 				ROB_GeneralActionOptionsTab:Show()
@@ -3030,6 +3035,22 @@ function ROB_SpellReady(actionName, isNextSpell)
 		if(ActionDB.b_hasMinRange) then
 			local result = CheckInteractDistance("target", 2);
 			if(result) then
+				return false;
+			end
+		end
+	end
+
+	-- CHECK: Needs Totem
+	if (ActionDB.b_pet_needstotem) then
+		local active, _, start, duration, _ = GetTotemInfo(1);
+		if (active) then
+			if (ActionDB.v_pet_needstotem ~= nil and ActionDB.v_pet_needstotem ~= "") then
+				if ((start + duration - GetTime()) > tonumber(ActionDB.v_pet_needstotem)) then
+					ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the totem/statue does have enougth remaining time", debug);
+					return false;
+				end
+			else
+				ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because the totem/statue is already active", debug);
 				return false;
 			end
 		end
