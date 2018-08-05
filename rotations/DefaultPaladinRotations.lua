@@ -156,6 +156,11 @@ local paladinRotationsGenerator = function ()
 					["v_p_hp"] = "<50%",
 					["v_spellname"] = "213652",
 				},
+				["defaultRotation/paladin/inquisition"] = {
+					["b_t_needsdebuff"] = true,
+					["v_spellname"] = "207028",
+					["v_t_needsdebuff"] = "_206891",
+				},
 				["defaultRotation/paladin/judgment"] = {
 					["v_spellname"] = "275779",
 				},
@@ -188,18 +193,19 @@ local paladinRotationsGenerator = function ()
 				"defaultRotation/paladin/lay_on_hands", -- [2]
 				"defaultRotation/paladin/hand_of_the_protector", -- [3]
 				"defaultRotation/paladin/light_of_the_protector", -- [4]
-				"defaultRotation/paladin/bastion_of_light", -- [5]
-				"defaultRotation/paladin/avenging_wrath", -- [6]
-				"defaultRotation/paladin/consecration_refresh", -- [7]
-				"defaultRotation/paladin/consecration", -- [8]
-				"defaultRotation/paladin/shield_of_the_righteous", -- [9]
-				"defaultRotation/paladin/judgment", -- [10]
-				"defaultRotation/paladin/avenger_shield", -- [11]
-				"defaultRotation/paladin/blessed_hammer", -- [12]
-				"defaultRotation/paladin/hammer_of_the_righteous", -- [13]
+				"defaultRotation/paladin/inquisition", -- [5]
+				"defaultRotation/paladin/bastion_of_light", -- [6]
+				"defaultRotation/paladin/avenging_wrath", -- [7]
+				"defaultRotation/paladin/consecration_refresh", -- [8]
+				"defaultRotation/paladin/consecration", -- [9]
+				"defaultRotation/paladin/shield_of_the_righteous", -- [10]
+				"defaultRotation/paladin/judgment", -- [11]
+				"defaultRotation/paladin/avenger_shield", -- [12]
+				"defaultRotation/paladin/blessed_hammer", -- [13]
+				"defaultRotation/paladin/hammer_of_the_righteous", -- [14]
 			},
 			["specID"] = 2,
-			["version"] = 9,
+			["version"] = 10,
 		},
 		["defaultRotation/paladin/protection_multi"] = {
 			["ActionList"] = {
@@ -243,6 +249,11 @@ local paladinRotationsGenerator = function ()
 					["v_p_hp"] = "<50%",
 					["v_spellname"] = "213652",
 				},
+				["defaultRotation/paladin/inquisition"] = {
+					["b_t_needsdebuff"] = true,
+					["v_spellname"] = "207028",
+					["v_t_needsdebuff"] = "_206891",
+				},
 				["defaultRotation/paladin/judgment"] = {
 					["v_spellname"] = "275779",
 				},
@@ -275,19 +286,20 @@ local paladinRotationsGenerator = function ()
 				"defaultRotation/paladin/lay_on_hands", -- [2]
 				"defaultRotation/paladin/hand_of_the_protector", -- [3]
 				"defaultRotation/paladin/light_of_the_protector", -- [4]
-				"defaultRotation/paladin/bastion_of_light", -- [5]
-				"defaultRotation/paladin/avenging_wrath", -- [6]
-				"defaultRotation/paladin/consecration_refresh", -- [7]
-				"defaultRotation/paladin/consecration", -- [8]
-				"defaultRotation/paladin/shield_of_the_righteous", -- [9]
-				"defaultRotation/paladin/judgment", -- [10]
-				"defaultRotation/paladin/avenger_shield", -- [11]
-				"defaultRotation/paladin/blessed_hammer", -- [12]
-				"defaultRotation/paladin/hammer_of_the_righteous", -- [13]
+				"defaultRotation/paladin/inquisition", -- [5]
+				"defaultRotation/paladin/bastion_of_light", -- [6]
+				"defaultRotation/paladin/avenging_wrath", -- [7]
+				"defaultRotation/paladin/consecration_refresh", -- [8]
+				"defaultRotation/paladin/consecration", -- [9]
+				"defaultRotation/paladin/shield_of_the_righteous", -- [10]
+				"defaultRotation/paladin/judgment", -- [11]
+				"defaultRotation/paladin/avenger_shield", -- [12]
+				"defaultRotation/paladin/blessed_hammer", -- [13]
+				"defaultRotation/paladin/hammer_of_the_righteous", -- [14]
 			},
 			["isMultiTarget"] = true,
 			["specID"] = 2,
-			["version"] = 6,
+			["version"] = 7,
 		},
 		["defaultRotation/paladin/retribution"] = {
 			["ActionList"] = {
