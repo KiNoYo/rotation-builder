@@ -92,6 +92,11 @@ local deathKnightRotationsGenerator = function ()
 					["b_t_interrupt"] = true,
 					["v_spellname"] = "47528",
 				},
+				["defaultRotation/deathknight/murderous_intent"] = {
+					["b_t_needsdebuff"] = true,
+					["v_spellname"] = "207018",
+					["v_t_needsdebuff"] = "_206891",
+				},
 				["defaultRotation/deathknight/rune_strike"] = {
 					["v_spellname"] = "210764",
 				},
@@ -105,23 +110,24 @@ local deathKnightRotationsGenerator = function ()
 				"defaultRotation/deathknight/mind_freeze", -- [1]
 				"defaultRotation/deathknight/vampiric_blood", -- [2]
 				"defaultRotation/deathknight/marrowrend_bone_shield", -- [3]
-				"defaultRotation/deathknight/death_strike_blood_shield", -- [4]
-				"defaultRotation/deathknight/blood_boil_blood_plague", -- [5]
-				"defaultRotation/deathknight/death_and_decay_rapid_decomposition", -- [6]
-				"defaultRotation/deathknight/mark_of_blood", -- [7]
-				"defaultRotation/deathknight/death_strike", -- [8]
-				"defaultRotation/deathknight/blooddrinker", -- [9]
-				"defaultRotation/deathknight/marrowrend", -- [10]
-				"defaultRotation/deathknight/consumption", -- [11]
-				"defaultRotation/deathknight/death_and_decay", -- [12]
-				"defaultRotation/deathknight/heart_strike", -- [13]
-				"defaultRotation/deathknight/death_and_decay_crimson_scourge", -- [14]
-				"defaultRotation/deathknight/blood_boil_2_charges", -- [15]
-				"defaultRotation/deathknight/rune_strike", -- [16]
-				"defaultRotation/deathknight/blood_boil", -- [17]
+				"defaultRotation/deathknight/murderous_intent", -- [4]
+				"defaultRotation/deathknight/death_strike_blood_shield", -- [5]
+				"defaultRotation/deathknight/blood_boil_blood_plague", -- [6]
+				"defaultRotation/deathknight/death_and_decay_rapid_decomposition", -- [7]
+				"defaultRotation/deathknight/mark_of_blood", -- [8]
+				"defaultRotation/deathknight/death_strike", -- [9]
+				"defaultRotation/deathknight/blooddrinker", -- [10]
+				"defaultRotation/deathknight/marrowrend", -- [11]
+				"defaultRotation/deathknight/consumption", -- [12]
+				"defaultRotation/deathknight/death_and_decay", -- [13]
+				"defaultRotation/deathknight/heart_strike", -- [14]
+				"defaultRotation/deathknight/death_and_decay_crimson_scourge", -- [15]
+				"defaultRotation/deathknight/blood_boil_2_charges", -- [16]
+				"defaultRotation/deathknight/rune_strike", -- [17]
+				"defaultRotation/deathknight/blood_boil", -- [18]
 			},
 			["specID"] = 1,
-			["version"] = 8,
+			["version"] = 9,
 		},
 		["defaultRotation/deathknight/blood_multi"] = {
 			["ActionList"] = {
@@ -214,6 +220,11 @@ local deathKnightRotationsGenerator = function ()
 					["b_t_interrupt"] = true,
 					["v_spellname"] = "47528",
 				},
+				["defaultRotation/deathknight/murderous_intent"] = {
+					["b_t_needsdebuff"] = true,
+					["v_spellname"] = "207018",
+					["v_t_needsdebuff"] = "_206891",
+				},
 				["defaultRotation/deathknight/rune_strike"] = {
 					["v_spellname"] = "210764",
 				},
@@ -227,24 +238,25 @@ local deathKnightRotationsGenerator = function ()
 				"defaultRotation/deathknight/mind_freeze", -- [1]
 				"defaultRotation/deathknight/vampiric_blood", -- [2]
 				"defaultRotation/deathknight/marrowrend_bone_shield", -- [3]
-				"defaultRotation/deathknight/death_strike_blood_shield", -- [4]
-				"defaultRotation/deathknight/blood_boil_blood_plague", -- [5]
-				"defaultRotation/deathknight/death_and_decay_crimson_scourge", -- [6]
-				"defaultRotation/deathknight/mark_of_blood", -- [7]
-				"defaultRotation/deathknight/bonestorm", -- [8]
-				"defaultRotation/deathknight/death_strike", -- [9]
-				"defaultRotation/deathknight/consumption", -- [10]
-				"defaultRotation/deathknight/blooddrinker", -- [11]
-				"defaultRotation/deathknight/marrowrend", -- [12]
-				"defaultRotation/deathknight/death_and_decay", -- [13]
-				"defaultRotation/deathknight/heart_strike", -- [14]
-				"defaultRotation/deathknight/blood_boil_2_charges", -- [15]
-				"defaultRotation/deathknight/rune_strike", -- [16]
-				"defaultRotation/deathknight/blood_boil", -- [17]
+				"defaultRotation/deathknight/murderous_intent", -- [4]
+				"defaultRotation/deathknight/death_strike_blood_shield", -- [5]
+				"defaultRotation/deathknight/blood_boil_blood_plague", -- [6]
+				"defaultRotation/deathknight/death_and_decay_crimson_scourge", -- [7]
+				"defaultRotation/deathknight/mark_of_blood", -- [8]
+				"defaultRotation/deathknight/bonestorm", -- [9]
+				"defaultRotation/deathknight/death_strike", -- [10]
+				"defaultRotation/deathknight/consumption", -- [11]
+				"defaultRotation/deathknight/blooddrinker", -- [12]
+				"defaultRotation/deathknight/marrowrend", -- [13]
+				"defaultRotation/deathknight/death_and_decay", -- [14]
+				"defaultRotation/deathknight/heart_strike", -- [15]
+				"defaultRotation/deathknight/blood_boil_2_charges", -- [16]
+				"defaultRotation/deathknight/rune_strike", -- [17]
+				"defaultRotation/deathknight/blood_boil", -- [18]
 			},
 			["isMultiTarget"] = true,
 			["specID"] = 1,
-			["version"] = 5,
+			["version"] = 6,
 		},
 		["defaultRotation/deathknight/frost"] = {
 			["ActionList"] = {
