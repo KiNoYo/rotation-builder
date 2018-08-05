@@ -785,6 +785,11 @@ local warriorRotationsGenerator = function ()
 					["v_gunitpowertype"] = "1",
 					["v_spellname"] = "198304",
 				},
+				["defaultRotation/warrior/oppressor"] = {
+					["b_t_needsdebuff"] = true,
+					["v_spellname"] = "205800",
+					["v_t_needsdebuff"] = "_206891",
+				},
 				["defaultRotation/warrior/pummel"] = {
 					["b_t_interrupt"] = true,
 					["v_spellname"] = "6552",
@@ -877,27 +882,28 @@ local warriorRotationsGenerator = function ()
 				"defaultRotation/warrior/intercept", -- [1]
 				"defaultRotation/warrior/shield_bash_interrupt", -- [2]
 				"defaultRotation/warrior/pummel", -- [3]
-				"defaultRotation/warrior/shield_block_bolster", -- [4]
-				"defaultRotation/warrior/shield_block", -- [5]
-				"defaultRotation/warrior/ignore_pain", -- [6]
-				"defaultRotation/warrior/ignore_pain_rage", -- [7]
-				"defaultRotation/warrior/revenge_rage", -- [8]
-				"defaultRotation/warrior/avatar", -- [9]
-				"defaultRotation/warrior/demoralizing_shout", -- [10]
-				"defaultRotation/warrior/ravager", -- [11]
-				"defaultRotation/warrior/impending_victory", -- [12]
-				"defaultRotation/warrior/victory_rush", -- [13]
-				"defaultRotation/warrior/shield_bash", -- [14]
-				"defaultRotation/warrior/shield_slam", -- [15]
-				"defaultRotation/warrior/dragon_roar", -- [16]
-				"defaultRotation/warrior/thunder_clap", -- [17]
-				"defaultRotation/warrior/revenge_vengeance", -- [18]
-				"defaultRotation/warrior/revenge", -- [19]
-				"defaultRotation/warrior/ignore_pain_vengeance", -- [20]
-				"defaultRotation/warrior/devastate", -- [21]
+				"defaultRotation/warrior/oppressor", -- [4]
+				"defaultRotation/warrior/shield_block_bolster", -- [5]
+				"defaultRotation/warrior/shield_block", -- [6]
+				"defaultRotation/warrior/ignore_pain", -- [7]
+				"defaultRotation/warrior/ignore_pain_rage", -- [8]
+				"defaultRotation/warrior/revenge_rage", -- [9]
+				"defaultRotation/warrior/avatar", -- [10]
+				"defaultRotation/warrior/demoralizing_shout", -- [11]
+				"defaultRotation/warrior/ravager", -- [12]
+				"defaultRotation/warrior/impending_victory", -- [13]
+				"defaultRotation/warrior/victory_rush", -- [14]
+				"defaultRotation/warrior/shield_bash", -- [15]
+				"defaultRotation/warrior/shield_slam", -- [16]
+				"defaultRotation/warrior/dragon_roar", -- [17]
+				"defaultRotation/warrior/thunder_clap", -- [18]
+				"defaultRotation/warrior/revenge_vengeance", -- [19]
+				"defaultRotation/warrior/revenge", -- [20]
+				"defaultRotation/warrior/ignore_pain_vengeance", -- [21]
+				"defaultRotation/warrior/devastate", -- [22]
 			},
 			["specID"] = 3,
-			["version"] = 8,
+			["version"] = 9,
 		},
 		["defaultRotation/warrior/protection_multi"] = {
 			["ActionList"] = {
@@ -967,6 +973,11 @@ local warriorRotationsGenerator = function ()
 					["v_gunitpower"] = "15",
 					["v_gunitpowertype"] = "1",
 					["v_spellname"] = "198304",
+				},
+				["defaultRotation/warrior/oppressor"] = {
+					["b_t_needsdebuff"] = true,
+					["v_spellname"] = "205800",
+					["v_t_needsdebuff"] = "_206891",
 				},
 				["defaultRotation/warrior/pummel"] = {
 					["b_t_interrupt"] = true,
@@ -1081,30 +1092,31 @@ local warriorRotationsGenerator = function ()
 				"defaultRotation/warrior/intercept", -- [1]
 				"defaultRotation/warrior/shield_bash_interrupt", -- [2]
 				"defaultRotation/warrior/pummel", -- [3]
-				"defaultRotation/warrior/shield_block_bolster", -- [4]
-				"defaultRotation/warrior/shield_block", -- [5]
-				"defaultRotation/warrior/ignore_pain", -- [6]
-				"defaultRotation/warrior/ignore_pain_rage", -- [7]
-				"defaultRotation/warrior/revenge_rage", -- [8]
-				"defaultRotation/warrior/avatar", -- [9]
-				"defaultRotation/warrior/demoralizing_shout", -- [10]
-				"defaultRotation/warrior/ravager", -- [11]
-				"defaultRotation/warrior/impending_victory", -- [12]
-				"defaultRotation/warrior/victory_rush", -- [13]
-				"defaultRotation/warrior/revenge_vengeance_best_served_cold", -- [14]
-				"defaultRotation/warrior/revenge_best_served_cold", -- [15]
-				"defaultRotation/warrior/thunder_clap", -- [16]
-				"defaultRotation/warrior/revenge_vengeance", -- [17]
-				"defaultRotation/warrior/revenge", -- [18]
-				"defaultRotation/warrior/ignore_pain_vengeance", -- [19]
-				"defaultRotation/warrior/dragon_roar", -- [20]
-				"defaultRotation/warrior/shield_bash", -- [21]
-				"defaultRotation/warrior/shield_slam", -- [22]
-				"defaultRotation/warrior/devastate", -- [23]
+				"defaultRotation/warrior/oppressor", -- [4]
+				"defaultRotation/warrior/shield_block_bolster", -- [5]
+				"defaultRotation/warrior/shield_block", -- [6]
+				"defaultRotation/warrior/ignore_pain", -- [7]
+				"defaultRotation/warrior/ignore_pain_rage", -- [8]
+				"defaultRotation/warrior/revenge_rage", -- [9]
+				"defaultRotation/warrior/avatar", -- [10]
+				"defaultRotation/warrior/demoralizing_shout", -- [11]
+				"defaultRotation/warrior/ravager", -- [12]
+				"defaultRotation/warrior/impending_victory", -- [13]
+				"defaultRotation/warrior/victory_rush", -- [14]
+				"defaultRotation/warrior/revenge_vengeance_best_served_cold", -- [15]
+				"defaultRotation/warrior/revenge_best_served_cold", -- [16]
+				"defaultRotation/warrior/thunder_clap", -- [17]
+				"defaultRotation/warrior/revenge_vengeance", -- [18]
+				"defaultRotation/warrior/revenge", -- [19]
+				"defaultRotation/warrior/ignore_pain_vengeance", -- [20]
+				"defaultRotation/warrior/dragon_roar", -- [21]
+				"defaultRotation/warrior/shield_bash", -- [22]
+				"defaultRotation/warrior/shield_slam", -- [23]
+				"defaultRotation/warrior/devastate", -- [24]
 			},
 			["isMultiTarget"] = true,
 			["specID"] = 3,
-			["version"] = 5,
+			["version"] = 6,
 		},
 	}
 
