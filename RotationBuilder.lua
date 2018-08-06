@@ -2905,6 +2905,33 @@ function ROB_SpellReady(actionName, isNextSpell)
 			return false;
 		end
 	end
+	
+	-- CHECK: Special Roll the Bones
+	if (spellName == "193316") then
+		-- Check if the player know the talent Loaded Dice
+		-- It's associated buff is 256171
+		-- 193356 : Broadside
+		-- 193357 : Ruthless Precision
+		-- 193358 : Grand Melee
+		-- 193359 : True Bearing
+		-- 199600 : Buried Treasure
+		-- 199603 : Skull and Crossbones
+		local count = 0;
+		if (ROB_UnitHasAura("193356^10.8", "PLAYER", "HELPFUL")) then count = count + 1 end
+		if (ROB_UnitHasAura("193357^10.8", "PLAYER", "HELPFUL")) then count = count + 1 end
+		if (ROB_UnitHasAura("193358^10.8", "PLAYER", "HELPFUL")) then count = count + 1 end
+		if (ROB_UnitHasAura("193359^10.8", "PLAYER", "HELPFUL")) then count = count + 1 end
+		if (ROB_UnitHasAura("199600^10.8", "PLAYER", "HELPFUL")) then count = count + 1 end
+		if (ROB_UnitHasAura("199603^10.8", "PLAYER", "HELPFUL")) then count = count + 1 end
+		if ((ROB_UnitHasAura("193357", "PLAYER", "HELPFUL") and ROB_UnitHasAura("193358", "PLAYER", "HELPFUL")) or (ROB_UnitHasAura("256171", "PLAYER", "HELPFUL") and count >= 2) or ROB_UnitHasAura("193357^10.8", "PLAYER", "HELPFUL") or ROB_UnitHasAura("193358^10.8", "PLAYER", "HELPFUL") or count >= 2) then
+			-- Don't display the spell if we have both Ruthless Precision and Grand Melee, better to wait until they fall off
+			-- Don't display the spell if we have at least 2 buffs with the required time and Loaded Dice
+			-- Or either Ruthless Precision or Grand Melee are present with the required time
+			-- Or we have at least 2 buffs with the required time
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you have the required buffs", debug);
+			return false;
+		end
+	end
 
 	-- CHECK: Have Buff
 	if (ActionDB.b_p_havebuff and ActionDB.v_p_havebuff ~= nil and ActionDB.v_p_havebuff ~= "") then
