@@ -1,12 +1,12 @@
 # README
 
-As the original author soulwhip discontinued this addon and we simply loved it, we decided to bring it back. There is still a lot of work to be done (you may take a look at the current todo list below)
+As the original author soulwhip discontinued this addon and we simply loved it, we decided to bring it back.
 
 ## We need you!
 
 You can help us with localizations by going the [Localization page](https://wow.curseforge.com/projects/rotation-builder/localization).
 
-Be careful when translating phrases from the overview interface : rotations localizations are too big to be shown properly in it. You will have to edit them individually.
+Be careful when translating phrases from the overview interface : rotations localizations are too big to be shown properly in it. **You will have to edit them individually**.
 
 ## What is Rotation Builder?
 
@@ -29,5 +29,5 @@ Rotation Builder allows you to build rotations dynamically without having to und
 
 ## TODO
 
-- [ ] Add back the keybindings
+- [x] Add back the keybindings
 - [ ] Fix bug preventing us fron deleting the content of the icon input field of a spell
