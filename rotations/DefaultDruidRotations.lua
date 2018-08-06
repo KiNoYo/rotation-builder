@@ -3,46 +3,15 @@ local druidRotationsGenerator = function ()
 	local rotation = {
 		["defaultRotation/druid/balance"] = {
 			["ActionList"] = {
-				["defaultRotation/druid/astral_communion"] = {
-					["b_gunitpower"] = true,
-					["b_p_havebuff"] = true,
-					["b_p_knownotspell"] = true,
-					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "75",
-					["v_gunitpowertype"] = "8",
-					["v_p_havebuff"] = "24858",
-					["v_p_knownotspell"] = "202770",
-					["v_p_unitpower"] = "<15",
-					["v_p_unitpowertype"] = "8",
-					["v_spellname"] = "202359",
-				},
-				["defaultRotation/druid/astral_communion_fury_of_elune"] = {
-					["b_gunitpower"] = true,
-					["b_p_havebuff"] = true,
-					["b_p_knowspell"] = true,
-					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "75",
-					["v_gunitpowertype"] = "8",
-					["v_p_havebuff"] = "24858&202770",
-					["v_p_knowspell"] = "202770",
-					["v_p_unitpower"] = "<40",
-					["v_p_unitpowertype"] = "8",
-					["v_spellname"] = "202359",
-				},
-				["defaultRotation/druid/blessing_of_the_ancients"] = {
-					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_p_needbuff"] = "202737",
-					["v_spellname"] = "202360",
-				},
 				["defaultRotation/druid/celestial_alignment"] = {
+					["b_isCustomCase1"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_knownotspell"] = true,
-					["v_durationstartedtime"] = 0,
+					["b_p_unitpower"] = true,
 					["v_p_havebuff"] = "24858",
 					["v_p_knownotspell"] = "102560",
+					["v_p_unitpower"] = ">=40",
+					["v_p_unitpowertype"] = "8",
 					["v_spellname"] = "194223",
 				},
 				["defaultRotation/druid/ferocious_bite"] = {
@@ -50,7 +19,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_hasdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "25",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -60,7 +28,6 @@ local druidRotationsGenerator = function ()
 					["v_t_hasdebuff"] = "_1079^7.2",
 				},
 				["defaultRotation/druid/force_of_nature"] = {
-					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "205636",
 				},
 				["defaultRotation/druid/frenzied_regeneration"] = {
@@ -68,7 +35,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_hp"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "10",
 					["v_gspellcosttype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -76,33 +42,56 @@ local druidRotationsGenerator = function ()
 					["v_p_needbuff"] = "22842",
 					["v_spellname"] = "22842",
 				},
+				["defaultRotation/druid/full_moon"] = {
+					["b_gunitpower"] = true,
+					["b_p_havebuff"] = true,
+					["b_p_unitpower"] = true,
+					["v_gunitpower"] = "40",
+					["v_gunitpowertype"] = "8",
+					["v_p_havebuff"] = "24858",
+					["v_p_unitpower"] = "<60",
+					["v_p_unitpowertype"] = "8",
+					["v_spellname"] = "274283",
+				},
 				["defaultRotation/druid/fury_of_elune"] = {
-					["b_othercharges"] = true,
+					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_hasdebuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_othercharges"] = ">=2",
-					["v_otherchargesname"] = "202767",
+					["v_gunitpower"] = "40",
+					["v_gunitpowertype"] = "8",
 					["v_p_havebuff"] = "24858",
-					["v_p_unitpower"] = ">95",
+					["v_p_unitpower"] = "<60",
 					["v_p_unitpowertype"] = "8",
 					["v_spellname"] = "202770",
 					["v_t_hasdebuff"] = "_164812^15&_164815^15",
 				},
+				["defaultRotation/druid/half_moon"] = {
+					["b_gunitpower"] = true,
+					["b_p_havebuff"] = true,
+					["b_p_unitpower"] = true,
+					["v_gunitpower"] = "20",
+					["v_gunitpowertype"] = "8",
+					["v_p_havebuff"] = "24858",
+					["v_p_unitpower"] = "<80",
+					["v_p_unitpowertype"] = "8",
+					["v_spellname"] = "274282",
+				},
 				["defaultRotation/druid/incarnation_chosen_of_elune"] = {
+					["b_isCustomCase1"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_knowspell"] = true,
-					["v_durationstartedtime"] = 0,
+					["b_p_unitpower"] = true,
 					["v_p_havebuff"] = "24858",
 					["v_p_knowspell"] = "102560",
+					["v_p_unitpower"] = ">=40",
+					["v_p_unitpowertype"] = "8",
 					["v_spellname"] = "102560",
 				},
 				["defaultRotation/druid/ironfur"] = {
 					["b_gspellcost"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "45",
 					["v_gspellcosttype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -111,17 +100,14 @@ local druidRotationsGenerator = function ()
 				},
 				["defaultRotation/druid/lunar_strike"] = {
 					["b_gunitpower"] = true,
-					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "15",
+					["b_hasproc"] = true,
+					["v_gunitpower"] = "12",
 					["v_gunitpowertype"] = "8",
-					["v_p_havebuff"] = "24858&164547",
 					["v_spellname"] = "194153",
 				},
 				["defaultRotation/druid/mangle"] = {
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gunitpower"] = "5",
 					["v_gunitpowertype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -130,104 +116,35 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/moonfire"] = {
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["b_p_knownotspell"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gunitpower"] = "3",
 					["v_gunitpowertype"] = "8",
 					["v_p_havebuff"] = "24858",
-					["v_p_knownotspell"] = "202770",
 					["v_spellname"] = "8921",
 					["v_t_needsdebuff"] = "_164812^6.6",
-				},
-				["defaultRotation/druid/moonfire_fury_of_elune"] = {
-					["b_checkothercd"] = true,
-					["b_gunitpower"] = true,
-					["b_othercharges"] = true,
-					["b_p_havebuff"] = true,
-					["b_p_knowspell"] = true,
-					["b_p_unitpower"] = true,
-					["b_t_needsdebuff"] = true,
-					["v_checkothercdname"] = "202770",
-					["v_checkothercdvalue"] = "<5",
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "3",
-					["v_gunitpowertype"] = "8",
-					["v_othercharges"] = ">=2",
-					["v_otherchargesname"] = "202767",
-					["v_p_havebuff"] = "24858",
-					["v_p_knowspell"] = "202770",
-					["v_p_unitpower"] = ">90",
-					["v_p_unitpowertype"] = "8",
-					["v_spellname"] = "8921",
-					["v_t_needsdebuff"] = "_164812^15",
 				},
 				["defaultRotation/druid/moonfire_gardian"] = {
 					["b_p_havebuff"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "5487",
 					["v_spellname"] = "8921",
 					["v_t_needsdebuff"] = "_164812^4.8",
 				},
 				["defaultRotation/druid/moonkin_form"] = {
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_needbuff"] = "24858||5487||768",
 					["v_spellname"] = "24858",
 				},
 				["defaultRotation/druid/new_moon"] = {
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["b_p_knownotspell"] = true,
-					["v_durationstartedtime"] = 0,
+					["b_p_unitpower"] = true,
 					["v_gunitpower"] = "10",
 					["v_gunitpowertype"] = "8",
 					["v_p_havebuff"] = "24858",
-					["v_p_knownotspell"] = "202770",
-					["v_spellname"] = "202767",
-				},
-				["defaultRotation/druid/new_moon_fury_of_elune"] = {
-					["b_gunitpower"] = true,
-					["b_p_havebuff"] = true,
-					["b_p_knowspell"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "10",
-					["v_gunitpowertype"] = "8",
-					["v_p_havebuff"] = "202770",
-					["v_p_knowspell"] = "202770",
-					["v_spellname"] = "202767",
-				},
-				["defaultRotation/druid/new_moon_fury_of_elune_reload"] = {
-					["b_checkothercd"] = true,
-					["b_gunitpower"] = true,
-					["b_p_havebuff"] = true,
-					["b_p_knowspell"] = true,
-					["v_checkothercdname"] = "202770",
-					["v_checkothercdvalue"] = ">=10",
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "10",
-					["v_gunitpowertype"] = "8",
-					["v_p_havebuff"] = "24858",
-					["v_p_knowspell"] = "202770",
-					["v_spellname"] = "202767",
-				},
-				["defaultRotation/druid/new_moon_fury_of_elune_soon"] = {
-					["b_checkothercd"] = true,
-					["b_gunitpower"] = true,
-					["b_othercharges"] = true,
-					["b_p_havebuff"] = true,
-					["b_p_knowspell"] = true,
-					["v_checkothercdname"] = "202770",
-					["v_checkothercdvalue"] = "<10",
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "10",
-					["v_gunitpowertype"] = "8",
-					["v_othercharges"] = "3",
-					["v_otherchargesname"] = "202767",
-					["v_p_havebuff"] = "24858",
-					["v_p_knowspell"] = "202770",
-					["v_spellname"] = "202767",
+					["v_p_unitpower"] = "<90",
+					["v_p_unitpowertype"] = "8",
+					["v_spellname"] = "274281",
 				},
 				["defaultRotation/druid/rake"] = {
 					["b_gspellcost"] = true,
@@ -235,7 +152,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "35",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
@@ -248,7 +164,6 @@ local druidRotationsGenerator = function ()
 				},
 				["defaultRotation/druid/renewal"] = {
 					["b_p_hp"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_hp"] = "<50%",
 					["v_spellname"] = "108238",
 				},
@@ -257,7 +172,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "30",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -270,7 +184,6 @@ local druidRotationsGenerator = function ()
 					["b_gspellcost"] = true,
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "40",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
@@ -281,15 +194,13 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/solar_beam"] = {
 					["b_p_havebuff"] = true,
 					["b_t_interrupt"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "24858",
 					["v_spellname"] = "78675",
 				},
 				["defaultRotation/druid/solar_wrath"] = {
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "10",
+					["v_gunitpower"] = "8",
 					["v_gunitpowertype"] = "8",
 					["v_p_havebuff"] = "24858",
 					["v_spellname"] = "190984",
@@ -297,30 +208,11 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/starsurge"] = {
 					["b_gspellcost"] = true,
 					["b_p_havebuff"] = true,
-					["b_p_knownotspell"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "40",
 					["v_gspellcosttype"] = "8",
 					["v_p_havebuff"] = "24858",
-					["v_p_knownotspell"] = "202770",
 					["v_p_needbuff"] = "164545#3||164547#3",
-					["v_spellname"] = "78674",
-				},
-				["defaultRotation/druid/starsurge_fury_of_elune"] = {
-					["b_checkothercd"] = true,
-					["b_gspellcost"] = true,
-					["b_p_havebuff"] = true,
-					["b_p_knowspell"] = true,
-					["b_p_needbuff"] = true,
-					["v_checkothercdname"] = "202770",
-					["v_checkothercdvalue"] = ">=10",
-					["v_durationstartedtime"] = 0,
-					["v_gspellcost"] = "40",
-					["v_gspellcosttype"] = "8",
-					["v_p_havebuff"] = "24858",
-					["v_p_knowspell"] = "202770",
-					["v_p_needbuff"] = "164545#3||164547#3||202770",
 					["v_spellname"] = "78674",
 				},
 				["defaultRotation/druid/stellar_flare"] = {
@@ -328,7 +220,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_needbuff"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "10",
 					["v_gspellcosttype"] = "8",
 					["v_p_havebuff"] = "24858",
@@ -339,43 +230,17 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/sunfire"] = {
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["b_p_needbuff"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gunitpower"] = "3",
 					["v_gunitpowertype"] = "8",
 					["v_p_havebuff"] = "24858",
-					["v_p_needbuff"] = "202770",
 					["v_spellname"] = "93402",
 					["v_t_needsdebuff"] = "_164815^5.4",
-				},
-				["defaultRotation/druid/sunfire_fury_of_elune"] = {
-					["b_checkothercd"] = true,
-					["b_gunitpower"] = true,
-					["b_othercharges"] = true,
-					["b_p_havebuff"] = true,
-					["b_p_knowspell"] = true,
-					["b_p_unitpower"] = true,
-					["b_t_needsdebuff"] = true,
-					["v_checkothercdname"] = "202770",
-					["v_checkothercdvalue"] = "<5",
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "3",
-					["v_gunitpowertype"] = "8",
-					["v_othercharges"] = ">=2",
-					["v_otherchargesname"] = "202767",
-					["v_p_havebuff"] = "24858",
-					["v_p_knowspell"] = "202770",
-					["v_p_unitpower"] = ">90",
-					["v_p_unitpowertype"] = "8",
-					["v_spellname"] = "93402",
-					["v_t_needsdebuff"] = "_164815^15",
 				},
 				["defaultRotation/druid/thrash"] = {
 					["b_gunitpower"] = true,
 					["b_notinspellbook"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gunitpower"] = "4",
 					["v_gunitpowertype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -383,94 +248,59 @@ local druidRotationsGenerator = function ()
 				},
 				["defaultRotation/druid/warrior_of_elune"] = {
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "24858",
 					["v_spellname"] = "202425",
+				},
+				["defaultRotation/druid/wild_charge"] = {
+					["b_p_havebuff"] = true,
+					["b_spellInRange"] = true,
+					["v_p_havebuff"] = "768||5487",
+					["v_spellname"] = "102401",
 				},
 			},
 			["SortedActions"] = {
 				"defaultRotation/druid/moonkin_form", -- [1]
 				"defaultRotation/druid/solar_beam", -- [2]
-				"defaultRotation/druid/blessing_of_the_ancients", -- [3]
-				"defaultRotation/druid/renewal", -- [4]
-				"defaultRotation/druid/incarnation_chosen_of_elune", -- [5]
-				"defaultRotation/druid/celestial_alignment", -- [6]
-				"defaultRotation/druid/fury_of_elune", -- [7]
-				"defaultRotation/druid/astral_communion_fury_of_elune", -- [8]
-				"defaultRotation/druid/astral_communion", -- [9]
-				"defaultRotation/druid/new_moon_fury_of_elune", -- [10]
-				"defaultRotation/druid/force_of_nature", -- [11]
-				"defaultRotation/druid/warrior_of_elune", -- [12]
-				"defaultRotation/druid/moonfire_fury_of_elune", -- [13]
-				"defaultRotation/druid/moonfire", -- [14]
-				"defaultRotation/druid/sunfire_fury_of_elune", -- [15]
-				"defaultRotation/druid/sunfire", -- [16]
-				"defaultRotation/druid/stellar_flare", -- [17]
-				"defaultRotation/druid/starsurge_fury_of_elune", -- [18]
-				"defaultRotation/druid/starsurge", -- [19]
-				"defaultRotation/druid/new_moon_fury_of_elune_soon", -- [20]
-				"defaultRotation/druid/new_moon_fury_of_elune_reload", -- [21]
-				"defaultRotation/druid/new_moon", -- [22]
-				"defaultRotation/druid/lunar_strike", -- [23]
-				"defaultRotation/druid/solar_wrath", -- [24]
-				"defaultRotation/druid/ironfur", -- [25]
-				"defaultRotation/druid/frenzied_regeneration", -- [26]
-				"defaultRotation/druid/moonfire_gardian", -- [27]
-				"defaultRotation/druid/mangle", -- [28]
-				"defaultRotation/druid/thrash", -- [29]
-				"defaultRotation/druid/rake", -- [30]
-				"defaultRotation/druid/rip", -- [31]
-				"defaultRotation/druid/ferocious_bite", -- [32]
-				"defaultRotation/druid/shred", -- [33]
+				"defaultRotation/druid/renewal", -- [3]
+				"defaultRotation/druid/incarnation_chosen_of_elune", -- [4]
+				"defaultRotation/druid/celestial_alignment", -- [5]
+				"defaultRotation/druid/fury_of_elune", -- [6]
+				"defaultRotation/druid/force_of_nature", -- [7]
+				"defaultRotation/druid/warrior_of_elune", -- [8]
+				"defaultRotation/druid/moonfire", -- [9]
+				"defaultRotation/druid/sunfire", -- [10]
+				"defaultRotation/druid/stellar_flare", -- [11]
+				"defaultRotation/druid/starsurge", -- [12]
+				"defaultRotation/druid/full_moon", -- [13]
+				"defaultRotation/druid/half_moon", -- [14]
+				"defaultRotation/druid/new_moon", -- [15]
+				"defaultRotation/druid/lunar_strike", -- [16]
+				"defaultRotation/druid/solar_wrath", -- [17]
+				"defaultRotation/druid/wild_charge", -- [18]
+				"defaultRotation/druid/ironfur", -- [19]
+				"defaultRotation/druid/frenzied_regeneration", -- [20]
+				"defaultRotation/druid/moonfire_gardian", -- [21]
+				"defaultRotation/druid/mangle", -- [22]
+				"defaultRotation/druid/thrash", -- [23]
+				"defaultRotation/druid/rake", -- [24]
+				"defaultRotation/druid/rip", -- [25]
+				"defaultRotation/druid/ferocious_bite", -- [26]
+				"defaultRotation/druid/shred", -- [27]
 			},
-			["bindindex"] = 0,
 			["specID"] = 1,
-			["version"] = 9,
+			["version"] = 10,
 		},
 		["defaultRotation/druid/balance_multi"] = {
 			["ActionList"] = {
-				["defaultRotation/druid/astral_communion"] = {
-					["b_gunitpower"] = true,
-					["b_p_havebuff"] = true,
-					["b_p_knownotspell"] = true,
-					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "75",
-					["v_gunitpowertype"] = "8",
-					["v_p_havebuff"] = "24858",
-					["v_p_knownotspell"] = "202770",
-					["v_p_unitpower"] = "<15",
-					["v_p_unitpowertype"] = "8",
-					["v_spellname"] = "202359",
-				},
-				["defaultRotation/druid/astral_communion_fury_of_elune"] = {
-					["b_gunitpower"] = true,
-					["b_p_havebuff"] = true,
-					["b_p_knowspell"] = true,
-					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "75",
-					["v_gunitpowertype"] = "8",
-					["v_p_havebuff"] = "24858&202770",
-					["v_p_knowspell"] = "202770",
-					["v_p_unitpower"] = "<40",
-					["v_p_unitpowertype"] = "8",
-					["v_spellname"] = "202359",
-				},
-				["defaultRotation/druid/blessing_of_the_ancients"] = {
-					["b_p_havebuff"] = true,
-					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_p_havebuff"] = "24858",
-					["v_p_needbuff"] = "202737",
-					["v_spellname"] = "202360",
-				},
 				["defaultRotation/druid/celestial_alignment"] = {
+					["b_isCustomCase1"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_knownotspell"] = true,
-					["v_durationstartedtime"] = 0,
+					["b_p_unitpower"] = true,
 					["v_p_havebuff"] = "24858",
 					["v_p_knownotspell"] = "102560",
+					["v_p_unitpower"] = ">=40",
+					["v_p_unitpowertype"] = "8",
 					["v_spellname"] = "194223",
 				},
 				["defaultRotation/druid/ferocious_bite"] = {
@@ -478,7 +308,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_hasdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "25",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -488,7 +317,6 @@ local druidRotationsGenerator = function ()
 					["v_t_hasdebuff"] = "_1079^7.2",
 				},
 				["defaultRotation/druid/force_of_nature"] = {
-					["v_durationstartedtime"] = 0,
 					["v_spellname"] = "205636",
 				},
 				["defaultRotation/druid/frenzied_regeneration"] = {
@@ -496,7 +324,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_hp"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "10",
 					["v_gspellcosttype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -504,34 +331,56 @@ local druidRotationsGenerator = function ()
 					["v_p_needbuff"] = "22842",
 					["v_spellname"] = "22842",
 				},
+				["defaultRotation/druid/full_moon"] = {
+					["b_gunitpower"] = true,
+					["b_p_havebuff"] = true,
+					["b_p_unitpower"] = true,
+					["v_gunitpower"] = "40",
+					["v_gunitpowertype"] = "8",
+					["v_p_havebuff"] = "24858",
+					["v_p_unitpower"] = "<60",
+					["v_p_unitpowertype"] = "8",
+					["v_spellname"] = "274283",
+				},
 				["defaultRotation/druid/fury_of_elune"] = {
-					["b_othercharges"] = true,
+					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_hasdebuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_lastcasted"] = "202359",
-					["v_othercharges"] = ">=2",
-					["v_otherchargesname"] = "202767",
+					["v_gunitpower"] = "40",
+					["v_gunitpowertype"] = "8",
 					["v_p_havebuff"] = "24858",
-					["v_p_unitpower"] = ">95",
+					["v_p_unitpower"] = "<60",
 					["v_p_unitpowertype"] = "8",
 					["v_spellname"] = "202770",
 					["v_t_hasdebuff"] = "_164812^15&_164815^15",
 				},
+				["defaultRotation/druid/half_moon"] = {
+					["b_gunitpower"] = true,
+					["b_p_havebuff"] = true,
+					["b_p_unitpower"] = true,
+					["v_gunitpower"] = "20",
+					["v_gunitpowertype"] = "8",
+					["v_p_havebuff"] = "24858",
+					["v_p_unitpower"] = "<80",
+					["v_p_unitpowertype"] = "8",
+					["v_spellname"] = "274282",
+				},
 				["defaultRotation/druid/incarnation_chosen_of_elune"] = {
+					["b_isCustomCase1"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_knowspell"] = true,
-					["v_durationstartedtime"] = 0,
+					["b_p_unitpower"] = true,
 					["v_p_havebuff"] = "24858",
 					["v_p_knowspell"] = "102560",
+					["v_p_unitpower"] = ">=40",
+					["v_p_unitpowertype"] = "8",
 					["v_spellname"] = "102560",
 				},
 				["defaultRotation/druid/ironfur"] = {
 					["b_gspellcost"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "45",
 					["v_gspellcosttype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -541,7 +390,6 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/lunar_strike"] = {
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gunitpower"] = "15",
 					["v_gunitpowertype"] = "8",
 					["v_p_havebuff"] = "24858",
@@ -550,7 +398,6 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/mangle"] = {
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gunitpower"] = "5",
 					["v_gunitpowertype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -559,104 +406,35 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/moonfire"] = {
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["b_p_needbuff"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gunitpower"] = "3",
 					["v_gunitpowertype"] = "8",
 					["v_p_havebuff"] = "24858",
-					["v_p_needbuff"] = "202767",
 					["v_spellname"] = "8921",
 					["v_t_needsdebuff"] = "_164812^6.6",
-				},
-				["defaultRotation/druid/moonfire_fury_of_elune"] = {
-					["b_checkothercd"] = true,
-					["b_gunitpower"] = true,
-					["b_othercharges"] = true,
-					["b_p_havebuff"] = true,
-					["b_p_knowspell"] = true,
-					["b_p_unitpower"] = true,
-					["b_t_needsdebuff"] = true,
-					["v_checkothercdname"] = "202770",
-					["v_checkothercdvalue"] = "<5",
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "3",
-					["v_gunitpowertype"] = "8",
-					["v_othercharges"] = ">=2",
-					["v_otherchargesname"] = "202767",
-					["v_p_havebuff"] = "24858",
-					["v_p_knowspell"] = "202770",
-					["v_p_unitpower"] = ">90",
-					["v_p_unitpowertype"] = "8",
-					["v_spellname"] = "8921",
-					["v_t_needsdebuff"] = "_164812^15",
 				},
 				["defaultRotation/druid/moonfire_gardian"] = {
 					["b_p_havebuff"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "5487",
 					["v_spellname"] = "8921",
 					["v_t_needsdebuff"] = "_164812^4.8",
 				},
 				["defaultRotation/druid/moonkin_form"] = {
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_needbuff"] = "24858||5487||768",
 					["v_spellname"] = "24858",
 				},
 				["defaultRotation/druid/new_moon"] = {
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["b_p_knownotspell"] = true,
-					["v_durationstartedtime"] = 0,
+					["b_p_unitpower"] = true,
 					["v_gunitpower"] = "10",
 					["v_gunitpowertype"] = "8",
 					["v_p_havebuff"] = "24858",
-					["v_p_knownotspell"] = "202770",
-					["v_spellname"] = "202767",
-				},
-				["defaultRotation/druid/new_moon_fury_of_elune"] = {
-					["b_gunitpower"] = true,
-					["b_p_havebuff"] = true,
-					["b_p_knowspell"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "10",
-					["v_gunitpowertype"] = "8",
-					["v_p_havebuff"] = "24858&202770",
-					["v_p_knowspell"] = "202770",
-					["v_spellname"] = "202767",
-				},
-				["defaultRotation/druid/new_moon_fury_of_elune_reload"] = {
-					["b_checkothercd"] = true,
-					["b_gunitpower"] = true,
-					["b_p_havebuff"] = true,
-					["b_p_knowspell"] = true,
-					["v_checkothercdname"] = "202770",
-					["v_checkothercdvalue"] = ">=10",
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "10",
-					["v_gunitpowertype"] = "8",
-					["v_p_havebuff"] = "24858",
-					["v_p_knowspell"] = "202770",
-					["v_spellname"] = "202767",
-				},
-				["defaultRotation/druid/new_moon_fury_of_elune_soon"] = {
-					["b_checkothercd"] = true,
-					["b_gunitpower"] = true,
-					["b_othercharges"] = true,
-					["b_p_havebuff"] = true,
-					["b_p_knowspell"] = true,
-					["v_checkothercdname"] = "202770",
-					["v_checkothercdvalue"] = "<10",
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "10",
-					["v_gunitpowertype"] = "8",
-					["v_othercharges"] = "3",
-					["v_otherchargesname"] = "202767",
-					["v_p_havebuff"] = "24858",
-					["v_p_knowspell"] = "202770",
-					["v_spellname"] = "202767",
+					["v_p_unitpower"] = "<90",
+					["v_p_unitpowertype"] = "8",
+					["v_spellname"] = "274281",
 				},
 				["defaultRotation/druid/rake"] = {
 					["b_gspellcost"] = true,
@@ -664,7 +442,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "35",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
@@ -677,7 +454,6 @@ local druidRotationsGenerator = function ()
 				},
 				["defaultRotation/druid/renewal"] = {
 					["b_p_hp"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_hp"] = "<50%",
 					["v_spellname"] = "108238",
 				},
@@ -686,7 +462,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "30",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -698,91 +473,49 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/solar_beam"] = {
 					["b_p_havebuff"] = true,
 					["b_t_interrupt"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "24858",
 					["v_spellname"] = "78675",
+				},
+				["defaultRotation/druid/solar_wrath"] = {
+					["b_gunitpower"] = true,
+					["b_hasproc"] = true,
+					["v_gunitpower"] = "10",
+					["v_gunitpowertype"] = "8",
+					["v_spellname"] = "190984",
 				},
 				["defaultRotation/druid/starfall"] = {
 					["b_gspellcost"] = true,
 					["b_p_havebuff"] = true,
-					["b_p_knownotspell"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "60",
 					["v_gspellcosttype"] = "8",
 					["v_p_havebuff"] = "24858",
-					["v_p_knownotspell"] = "202770",
-					["v_spellname"] = "191034",
-				},
-				["defaultRotation/druid/starfall_fury_of_elune"] = {
-					["b_checkothercd"] = true,
-					["b_gspellcost"] = true,
-					["b_p_havebuff"] = true,
-					["b_p_knowspell"] = true,
-					["b_p_needbuff"] = true,
-					["v_checkothercdname"] = "202770",
-					["v_checkothercdvalue"] = ">=10",
-					["v_durationstartedtime"] = 0,
-					["v_gspellcost"] = "60",
-					["v_gspellcosttype"] = "8",
-					["v_p_havebuff"] = "24858",
-					["v_p_knowspell"] = "202770",
-					["v_p_needbuff"] = "202770",
 					["v_spellname"] = "191034",
 				},
 				["defaultRotation/druid/stellar_flare"] = {
 					["b_gspellcost"] = true,
 					["b_p_havebuff"] = true,
-					["b_p_needbuff"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "10",
 					["v_gspellcosttype"] = "8",
 					["v_p_havebuff"] = "24858",
-					["v_p_needbuff"] = "202770",
 					["v_spellname"] = "202347",
 					["v_t_needsdebuff"] = "_202347^7.2",
 				},
 				["defaultRotation/druid/sunfire"] = {
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["b_p_needbuff"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gunitpower"] = "3",
 					["v_gunitpowertype"] = "8",
 					["v_p_havebuff"] = "24858",
-					["v_p_needbuff"] = "202767",
 					["v_spellname"] = "93402",
 					["v_t_needsdebuff"] = "_164815^5.4",
-				},
-				["defaultRotation/druid/sunfire_fury_of_elune"] = {
-					["b_checkothercd"] = true,
-					["b_gunitpower"] = true,
-					["b_othercharges"] = true,
-					["b_p_havebuff"] = true,
-					["b_p_knowspell"] = true,
-					["b_p_unitpower"] = true,
-					["b_t_needsdebuff"] = true,
-					["v_checkothercdname"] = "202770",
-					["v_checkothercdvalue"] = "<5",
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "3",
-					["v_gunitpowertype"] = "8",
-					["v_othercharges"] = ">=2",
-					["v_otherchargesname"] = "202767",
-					["v_p_havebuff"] = "24858",
-					["v_p_knowspell"] = "202770",
-					["v_p_unitpower"] = ">90",
-					["v_p_unitpowertype"] = "8",
-					["v_spellname"] = "93402",
-					["v_t_needsdebuff"] = "_164815^15",
 				},
 				["defaultRotation/druid/swipe"] = {
 					["b_gspellcost"] = true,
 					["b_gunitpower"] = true,
 					["b_notinspellbook"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "45",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
@@ -794,7 +527,6 @@ local druidRotationsGenerator = function ()
 					["b_gunitpower"] = true,
 					["b_notinspellbook"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gunitpower"] = "4",
 					["v_gunitpowertype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -802,97 +534,79 @@ local druidRotationsGenerator = function ()
 				},
 				["defaultRotation/druid/warrior_of_elune"] = {
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "24858",
 					["v_spellname"] = "202425",
+				},
+				["defaultRotation/druid/wild_charge"] = {
+					["b_p_havebuff"] = true,
+					["b_spellInRange"] = true,
+					["v_p_havebuff"] = "768||5487",
+					["v_spellname"] = "102401",
 				},
 			},
 			["SortedActions"] = {
 				"defaultRotation/druid/moonkin_form", -- [1]
 				"defaultRotation/druid/solar_beam", -- [2]
-				"defaultRotation/druid/blessing_of_the_ancients", -- [3]
-				"defaultRotation/druid/renewal", -- [4]
-				"defaultRotation/druid/incarnation_chosen_of_elune", -- [5]
-				"defaultRotation/druid/celestial_alignment", -- [6]
-				"defaultRotation/druid/fury_of_elune", -- [7]
-				"defaultRotation/druid/astral_communion_fury_of_elune", -- [8]
-				"defaultRotation/druid/astral_communion", -- [9]
-				"defaultRotation/druid/new_moon_fury_of_elune", -- [10]
-				"defaultRotation/druid/force_of_nature", -- [11]
-				"defaultRotation/druid/warrior_of_elune", -- [12]
-				"defaultRotation/druid/moonfire_fury_of_elune", -- [13]
-				"defaultRotation/druid/moonfire", -- [14]
-				"defaultRotation/druid/sunfire_fury_of_elune", -- [15]
-				"defaultRotation/druid/sunfire", -- [16]
-				"defaultRotation/druid/stellar_flare", -- [17]
-				"defaultRotation/druid/starfall_fury_of_elune", -- [18]
-				"defaultRotation/druid/starfall", -- [19]
-				"defaultRotation/druid/new_moon_fury_of_elune_soon", -- [20]
-				"defaultRotation/druid/new_moon_fury_of_elune_reload", -- [21]
-				"defaultRotation/druid/new_moon", -- [22]
-				"defaultRotation/druid/lunar_strike", -- [23]
-				"defaultRotation/druid/ironfur", -- [24]
-				"defaultRotation/druid/frenzied_regeneration", -- [25]
-				"defaultRotation/druid/moonfire_gardian", -- [26]
-				"defaultRotation/druid/thrash", -- [27]
-				"defaultRotation/druid/mangle", -- [28]
-				"defaultRotation/druid/rake", -- [29]
-				"defaultRotation/druid/rip", -- [30]
-				"defaultRotation/druid/ferocious_bite", -- [31]
-				"defaultRotation/druid/swipe", -- [32]
+				"defaultRotation/druid/renewal", -- [3]
+				"defaultRotation/druid/incarnation_chosen_of_elune", -- [4]
+				"defaultRotation/druid/celestial_alignment", -- [5]
+				"defaultRotation/druid/fury_of_elune", -- [6]
+				"defaultRotation/druid/force_of_nature", -- [7]
+				"defaultRotation/druid/warrior_of_elune", -- [8]
+				"defaultRotation/druid/moonfire", -- [9]
+				"defaultRotation/druid/sunfire", -- [10]
+				"defaultRotation/druid/stellar_flare", -- [11]
+				"defaultRotation/druid/starfall", -- [12]
+				"defaultRotation/druid/full_moon", -- [13]
+				"defaultRotation/druid/half_moon", -- [14]
+				"defaultRotation/druid/new_moon", -- [15]
+				"defaultRotation/druid/solar_wrath", -- [16]
+				"defaultRotation/druid/lunar_strike", -- [17]
+				"defaultRotation/druid/frenzied_regeneration", -- [18]
+				"defaultRotation/druid/wild_charge", -- [19]
+				"defaultRotation/druid/ironfur", -- [20]
+				"defaultRotation/druid/moonfire_gardian", -- [21]
+				"defaultRotation/druid/thrash", -- [22]
+				"defaultRotation/druid/mangle", -- [23]
+				"defaultRotation/druid/rake", -- [24]
+				"defaultRotation/druid/rip", -- [25]
+				"defaultRotation/druid/ferocious_bite", -- [26]
+				"defaultRotation/druid/swipe", -- [27]
 			},
-			["bindindex"] = 0,
 			["specID"] = 1,
-			["version"] = 9,
+			["version"] = 10,
 		},
 		["defaultRotation/druid/feral"] = {
 			["ActionList"] = {
-				["defaultRotation/druid/ashamane_frenzy"] = {
-					["b_gunitpower"] = true,
-					["b_p_havebuff"] = true,
-					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "3",
-					["v_gunitpowertype"] = "4",
-					["v_p_havebuff"] = "768",
-					["v_p_unitpower"] = "<3",
-					["v_p_unitpowertype"] = "4",
-					["v_spellname"] = "210722",
-				},
 				["defaultRotation/druid/berserk"] = {
+					["b_isCustomCase1"] = true,
 					["b_p_havebuff"] = true,
-					["b_p_knownotspell"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "768",
-					["v_p_knownotspell"] = "102543",
 					["v_spellname"] = "106951",
 				},
 				["defaultRotation/druid/cat_form"] = {
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_needbuff"] = "768||197625||5487",
 					["v_spellname"] = "768",
 				},
-				["defaultRotation/druid/elune_guidance"] = {
+				["defaultRotation/druid/feral_frenzy"] = {
+					["b_gspellcost"] = true,
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
-					["b_p_unitpower2"] = true,
-					["v_durationstartedtime"] = 0,
+					["v_gspellcost"] = "25",
+					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "5",
 					["v_gunitpowertype"] = "4",
 					["v_p_havebuff"] = "768",
 					["v_p_unitpower"] = "=0",
-					["v_p_unitpower2"] = ">=50",
-					["v_p_unitpower2type"] = "3",
 					["v_p_unitpowertype"] = "4",
-					["v_spellname"] = "202060",
+					["v_spellname"] = "274837",
 				},
 				["defaultRotation/druid/ferocious_bite"] = {
 					["b_gspellcost"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "25",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -908,7 +622,6 @@ local druidRotationsGenerator = function ()
 					["b_t_hasdebuff"] = true,
 					["b_t_hp"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "25",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -928,7 +641,6 @@ local druidRotationsGenerator = function ()
 					["b_t_hasdebuff"] = true,
 					["b_t_hp"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "25",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -946,7 +658,6 @@ local druidRotationsGenerator = function ()
 					["b_p_knowspell"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_hasdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "25",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -961,7 +672,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_hp"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "10",
 					["v_gspellcosttype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -970,8 +680,8 @@ local druidRotationsGenerator = function ()
 					["v_spellname"] = "22842",
 				},
 				["defaultRotation/druid/incarnation_king_of_the_jungle"] = {
+					["b_isCustomCase1"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "768",
 					["v_spellname"] = "102543",
 				},
@@ -979,7 +689,6 @@ local druidRotationsGenerator = function ()
 					["b_gspellcost"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "45",
 					["v_gspellcosttype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -987,15 +696,14 @@ local druidRotationsGenerator = function ()
 					["v_spellname"] = "192081",
 				},
 				["defaultRotation/druid/lunar_strike"] = {
+					["b_hasproc"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_p_havebuff"] = "197625&164547",
+					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "197628",
 				},
 				["defaultRotation/druid/mangle"] = {
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gunitpower"] = "5",
 					["v_gunitpowertype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -1008,7 +716,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_knowspell"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "30",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
@@ -1021,7 +728,6 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/moonfire_balance"] = {
 					["b_p_havebuff"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625||5487",
 					["v_spellname"] = "8921",
 					["v_t_needsdebuff"] = "_164812^4.8",
@@ -1033,7 +739,6 @@ local druidRotationsGenerator = function ()
 					["b_p_knownotspell"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "35",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
@@ -1052,7 +757,6 @@ local druidRotationsGenerator = function ()
 					["b_p_knowspell"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "35",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
@@ -1069,29 +773,20 @@ local druidRotationsGenerator = function ()
 					["b_p_hp"] = true,
 					["b_p_knownotspell"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_hp"] = "<90%",
 					["v_p_knownotspell"] = "155672",
 					["v_p_needbuff"] = "_8936^3.6",
 					["v_spellname"] = "8936",
 				},
 				["defaultRotation/druid/regrowth_bloodtalons"] = {
+					["b_debug"] = true,
 					["b_hasproc"] = true,
-					["b_p_havebuff"] = true,
 					["b_p_knowspell"] = true,
-					["b_p_needbuff"] = true,
-					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_p_havebuff"] = "69369^1",
 					["v_p_knowspell"] = "155672",
-					["v_p_needbuff"] = "145152",
-					["v_p_unitpower"] = "=5",
-					["v_p_unitpowertype"] = "4",
 					["v_spellname"] = "8936",
 				},
 				["defaultRotation/druid/renewal"] = {
 					["b_p_hp"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_hp"] = "<60%",
 					["v_spellname"] = "108238",
 				},
@@ -1101,7 +796,6 @@ local druidRotationsGenerator = function ()
 					["b_p_knownotspell"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "30",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -1111,13 +805,15 @@ local druidRotationsGenerator = function ()
 					["v_spellname"] = "1079",
 					["v_t_needsdebuff"] = "_1079^7.2",
 				},
+				["defaultRotation/druid/rip_and_tear"] = {
+					["v_spellname"] = "203242",
+				},
 				["defaultRotation/druid/rip_jagged_wounds"] = {
 					["b_gspellcost"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_knowspell"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "30",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -1132,7 +828,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_needbuff"] = true,
 					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "40",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -1146,7 +841,6 @@ local druidRotationsGenerator = function ()
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "40",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
@@ -1159,26 +853,22 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/skull_bash"] = {
 					["b_p_havebuff"] = true,
 					["b_t_interrupt"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "768||5487",
 					["v_spellname"] = "106839",
 				},
 				["defaultRotation/druid/solar_wrath"] = {
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "197629",
 				},
 				["defaultRotation/druid/starsurge"] = {
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "197626",
 				},
 				["defaultRotation/druid/sunfire"] = {
 					["b_p_havebuff"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "197630",
 					["v_t_needsdebuff"] = "_164815^3.6",
@@ -1187,7 +877,6 @@ local druidRotationsGenerator = function ()
 					["b_notinspellbook"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_knownotspell"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "5487",
 					["v_p_knownotspell"] = "202028",
 					["v_spellname"] = "213771",
@@ -1196,25 +885,25 @@ local druidRotationsGenerator = function ()
 					["b_gunitpower"] = true,
 					["b_notinspellbook"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gunitpower"] = "4",
 					["v_gunitpowertype"] = "1",
 					["v_p_havebuff"] = "5487",
 					["v_spellname"] = "77758",
 				},
 				["defaultRotation/druid/tiger_fury"] = {
+					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
+					["v_gunitpower"] = "50",
+					["v_gunitpowertype"] = "3",
 					["v_p_havebuff"] = "768",
-					["v_p_unitpower"] = "<=20",
+					["v_p_unitpower"] = "<50",
 					["v_p_unitpowertype"] = "3",
 					["v_spellname"] = "5217",
 				},
 				["defaultRotation/druid/wild_charge"] = {
 					["b_p_havebuff"] = true,
 					["b_spellInRange"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "768||5487",
 					["v_spellname"] = "102401",
 				},
@@ -1226,20 +915,20 @@ local druidRotationsGenerator = function ()
 				"defaultRotation/druid/regrowth", -- [4]
 				"defaultRotation/druid/renewal", -- [5]
 				"defaultRotation/druid/wild_charge", -- [6]
-				"defaultRotation/druid/incarnation_king_of_the_jungle", -- [7]
-				"defaultRotation/druid/berserk", -- [8]
-				"defaultRotation/druid/savage_roar", -- [9]
-				"defaultRotation/druid/ferocious_bite_sabertooth", -- [10]
-				"defaultRotation/druid/ferocious_bite_rip_jagged_wounds", -- [11]
-				"defaultRotation/druid/ferocious_bite_rip", -- [12]
-				"defaultRotation/druid/rip_jagged_wounds", -- [13]
-				"defaultRotation/druid/rip", -- [14]
-				"defaultRotation/druid/ferocious_bite", -- [15]
-				"defaultRotation/druid/tiger_fury", -- [16]
-				"defaultRotation/druid/rake_jagged_wounds", -- [17]
-				"defaultRotation/druid/rake", -- [18]
-				"defaultRotation/druid/elune_guidance", -- [19]
-				"defaultRotation/druid/ashamane_frenzy", -- [20]
+				"defaultRotation/druid/rip_and_tear", -- [7]
+				"defaultRotation/druid/incarnation_king_of_the_jungle", -- [8]
+				"defaultRotation/druid/berserk", -- [9]
+				"defaultRotation/druid/savage_roar", -- [10]
+				"defaultRotation/druid/ferocious_bite_sabertooth", -- [11]
+				"defaultRotation/druid/ferocious_bite_rip_jagged_wounds", -- [12]
+				"defaultRotation/druid/ferocious_bite_rip", -- [13]
+				"defaultRotation/druid/rip_jagged_wounds", -- [14]
+				"defaultRotation/druid/rip", -- [15]
+				"defaultRotation/druid/ferocious_bite", -- [16]
+				"defaultRotation/druid/tiger_fury", -- [17]
+				"defaultRotation/druid/feral_frenzy", -- [18]
+				"defaultRotation/druid/rake_jagged_wounds", -- [19]
+				"defaultRotation/druid/rake", -- [20]
 				"defaultRotation/druid/moonfire", -- [21]
 				"defaultRotation/druid/shred", -- [22]
 				"defaultRotation/druid/moonfire_balance", -- [23]
@@ -1253,46 +942,15 @@ local druidRotationsGenerator = function ()
 				"defaultRotation/druid/thrash", -- [31]
 				"defaultRotation/druid/swipe_guardian", -- [32]
 			},
-			["bindindex"] = 0,
 			["specID"] = 2,
-			["version"] = 9,
+			["version"] = 10,
 		},
 		["defaultRotation/druid/feral_multi"] = {
 			["ActionList"] = {
-				["defaultRotation/druid/ashamane_frenzy"] = {
-					["b_gunitpower"] = true,
-					["b_p_havebuff"] = true,
-					["b_p_knownotspell"] = true,
-					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "3",
-					["v_gunitpowertype"] = "4",
-					["v_p_havebuff"] = "768",
-					["v_p_knownotspell"] = "155672",
-					["v_p_unitpower"] = "<3",
-					["v_p_unitpowertype"] = "4",
-					["v_spellname"] = "210722",
-				},
-				["defaultRotation/druid/ashamane_frenzy_bloodtalons"] = {
-					["b_gunitpower"] = true,
-					["b_p_havebuff"] = true,
-					["b_p_knowspell"] = true,
-					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "3",
-					["v_gunitpowertype"] = "4",
-					["v_p_havebuff"] = "145152&768",
-					["v_p_knowspell"] = "155672",
-					["v_p_unitpower"] = "<3",
-					["v_p_unitpowertype"] = "4",
-					["v_spellname"] = "210722",
-				},
 				["defaultRotation/druid/berserk"] = {
+					["b_isCustomCase1"] = true,
 					["b_p_havebuff"] = true,
-					["b_p_knownotspell"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "768",
-					["v_p_knownotspell"] = "102543",
 					["v_spellname"] = "106951",
 				},
 				["defaultRotation/druid/brutal_slash"] = {
@@ -1300,7 +958,6 @@ local druidRotationsGenerator = function ()
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_knowspell"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "20",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
@@ -1313,24 +970,22 @@ local druidRotationsGenerator = function ()
 				},
 				["defaultRotation/druid/cat_form"] = {
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_needbuff"] = "768||197625||5487",
 					["v_spellname"] = "768",
 				},
-				["defaultRotation/druid/elune_guidance"] = {
+				["defaultRotation/druid/feral_frenzy"] = {
+					["b_gspellcost"] = true,
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
-					["b_p_unitpower2"] = true,
-					["v_durationstartedtime"] = 0,
+					["v_gspellcost"] = "25",
+					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "5",
 					["v_gunitpowertype"] = "4",
 					["v_p_havebuff"] = "768",
 					["v_p_unitpower"] = "=0",
-					["v_p_unitpower2"] = ">=50",
-					["v_p_unitpower2type"] = "3",
 					["v_p_unitpowertype"] = "4",
-					["v_spellname"] = "202060",
+					["v_spellname"] = "274837",
 				},
 				["defaultRotation/druid/ferocious_bite"] = {
 					["b_gspellcost"] = true,
@@ -1338,7 +993,6 @@ local druidRotationsGenerator = function ()
 					["b_p_knownotspell"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_hasdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "25",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -1356,7 +1010,6 @@ local druidRotationsGenerator = function ()
 					["b_t_hasdebuff"] = true,
 					["b_t_hp"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "25",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -1376,7 +1029,6 @@ local druidRotationsGenerator = function ()
 					["b_t_hasdebuff"] = true,
 					["b_t_hp"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "25",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -1393,7 +1045,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_hasdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "25",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -1408,7 +1059,6 @@ local druidRotationsGenerator = function ()
 					["b_p_knowspell"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_hasdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "25",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "52610^10&768",
@@ -1423,7 +1073,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_hp"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "10",
 					["v_gspellcosttype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -1432,8 +1081,8 @@ local druidRotationsGenerator = function ()
 					["v_spellname"] = "22842",
 				},
 				["defaultRotation/druid/incarnation_king_of_the_jungle"] = {
+					["b_isCustomCase1"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "768",
 					["v_spellname"] = "102543",
 				},
@@ -1441,7 +1090,6 @@ local druidRotationsGenerator = function ()
 					["b_gspellcost"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "45",
 					["v_gspellcosttype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -1450,14 +1098,12 @@ local druidRotationsGenerator = function ()
 				},
 				["defaultRotation/druid/lunar_strike"] = {
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "197628",
 				},
 				["defaultRotation/druid/mangle"] = {
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gunitpower"] = "5",
 					["v_gunitpowertype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -1470,7 +1116,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_knowspell"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "30",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
@@ -1483,7 +1128,6 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/moonfire_balance"] = {
 					["b_p_havebuff"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625||5487",
 					["v_spellname"] = "8921",
 					["v_t_needsdebuff"] = "_164812^4.8",
@@ -1492,28 +1136,8 @@ local druidRotationsGenerator = function ()
 					["b_gspellcost"] = true,
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["b_p_knownotspell"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_gspellcost"] = "35",
-					["v_gspellcosttype"] = "3",
-					["v_gunitpower"] = "1",
-					["v_gunitpowertype"] = "4",
-					["v_p_havebuff"] = "768",
-					["v_p_knownotspell"] = "202032",
-					["v_p_unitpower"] = "<5",
-					["v_p_unitpowertype"] = "4",
-					["v_spellname"] = "1822",
-					["v_t_needsdebuff"] = "_155722^4.5",
-				},
-				["defaultRotation/druid/rake"] = {
-					["b_gspellcost"] = true,
-					["b_gunitpower"] = true,
-					["b_p_havebuff"] = true,
-					["b_p_unitpower"] = true,
-					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "35",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
@@ -1532,7 +1156,6 @@ local druidRotationsGenerator = function ()
 					["b_p_knowspell"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "35",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
@@ -1549,28 +1172,19 @@ local druidRotationsGenerator = function ()
 					["b_p_hp"] = true,
 					["b_p_knownotspell"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_hp"] = "<90%",
 					["v_p_knownotspell"] = "155672",
 					["v_p_needbuff"] = "_8936^3.6",
 					["v_spellname"] = "8936",
 				},
 				["defaultRotation/druid/regrowth_bloodtalons"] = {
-					["b_p_havebuff"] = true,
+					["b_hasproc"] = true,
 					["b_p_knowspell"] = true,
-					["b_p_needbuff"] = true,
-					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_p_havebuff"] = "69369^1",
 					["v_p_knowspell"] = "155672",
-					["v_p_needbuff"] = "145152",
-					["v_p_unitpower"] = "=5",
-					["v_p_unitpowertype"] = "4",
 					["v_spellname"] = "8936",
 				},
 				["defaultRotation/druid/renewal"] = {
 					["b_p_hp"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_hp"] = "<60%",
 					["v_spellname"] = "108238",
 				},
@@ -1580,7 +1194,6 @@ local druidRotationsGenerator = function ()
 					["b_p_knownotspell"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "30",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -1590,13 +1203,15 @@ local druidRotationsGenerator = function ()
 					["v_spellname"] = "1079",
 					["v_t_needsdebuff"] = "_1079^7.2",
 				},
+				["defaultRotation/druid/rip_and_tear"] = {
+					["v_spellname"] = "203242",
+				},
 				["defaultRotation/druid/rip_jagged_wounds"] = {
 					["b_gspellcost"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_knowspell"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "30",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -1611,7 +1226,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_needbuff"] = true,
 					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "40",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -1625,7 +1239,6 @@ local druidRotationsGenerator = function ()
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "40",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
@@ -1638,26 +1251,23 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/skull_bash"] = {
 					["b_p_havebuff"] = true,
 					["b_t_interrupt"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "768||5487",
 					["v_spellname"] = "106839",
 				},
 				["defaultRotation/druid/solar_wrath"] = {
+					["b_hasproc"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_p_havebuff"] = "197625&164545",
+					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "197629",
 				},
 				["defaultRotation/druid/starsurge"] = {
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "197626",
 				},
 				["defaultRotation/druid/sunfire"] = {
 					["b_p_havebuff"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "197630",
 					["v_t_needsdebuff"] = "_164815^3.6",
@@ -1669,7 +1279,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_knownotspell"] = true,
 					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "45",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
@@ -1684,7 +1293,6 @@ local druidRotationsGenerator = function ()
 					["b_notinspellbook"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_knownotspell"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "5487",
 					["v_p_knownotspell"] = "202028",
 					["v_spellname"] = "213771",
@@ -1695,7 +1303,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_knownotspell"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "50",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -1707,7 +1314,6 @@ local druidRotationsGenerator = function ()
 					["b_gunitpower"] = true,
 					["b_notinspellbook"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gunitpower"] = "4",
 					["v_gunitpowertype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -1719,7 +1325,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_knowspell"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "50",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -1728,18 +1333,19 @@ local druidRotationsGenerator = function ()
 					["v_t_needsdebuff"] = "_106830^3",
 				},
 				["defaultRotation/druid/tiger_fury"] = {
+					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
+					["v_gunitpower"] = "50",
+					["v_gunitpowertype"] = "3",
 					["v_p_havebuff"] = "768",
-					["v_p_unitpower"] = "<=20",
+					["v_p_unitpower"] = "<50",
 					["v_p_unitpowertype"] = "3",
 					["v_spellname"] = "5217",
 				},
 				["defaultRotation/druid/wild_charge"] = {
 					["b_p_havebuff"] = true,
 					["b_spellInRange"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "768||5487",
 					["v_spellname"] = "102401",
 				},
@@ -1751,9 +1357,9 @@ local druidRotationsGenerator = function ()
 				"defaultRotation/druid/regrowth", -- [4]
 				"defaultRotation/druid/renewal", -- [5]
 				"defaultRotation/druid/wild_charge", -- [6]
-				"defaultRotation/druid/incarnation_king_of_the_jungle", -- [7]
-				"defaultRotation/druid/berserk", -- [8]
-				"defaultRotation/druid/elune_guidance", -- [9]
+				"defaultRotation/druid/rip_and_tear", -- [7]
+				"defaultRotation/druid/incarnation_king_of_the_jungle", -- [8]
+				"defaultRotation/druid/berserk", -- [9]
 				"defaultRotation/druid/savage_roar", -- [10]
 				"defaultRotation/druid/rake_jagged_wounds", -- [11]
 				"defaultRotation/druid/rake", -- [12]
@@ -1765,36 +1371,42 @@ local druidRotationsGenerator = function ()
 				"defaultRotation/druid/tiger_fury", -- [18]
 				"defaultRotation/druid/ferocious_bite_savage_roar", -- [19]
 				"defaultRotation/druid/ferocious_bite", -- [20]
-				"defaultRotation/druid/ashamane_frenzy_bloodtalons", -- [21]
-				"defaultRotation/druid/ashamane_frenzy", -- [22]
+				"defaultRotation/druid/feral_frenzy", -- [21]
+				"defaultRotation/druid/rake", -- [22]
 				"defaultRotation/druid/moonfire", -- [23]
-				"defaultRotation/druid/rake", -- [24]
-				"defaultRotation/druid/thrash_jagged_wounds", -- [25]
-				"defaultRotation/druid/thrash", -- [26]
-				"defaultRotation/druid/brutal_slash", -- [27]
-				"defaultRotation/druid/swipe", -- [28]
-				"defaultRotation/druid/shred", -- [29]
-				"defaultRotation/druid/moonfire_balance", -- [30]
-				"defaultRotation/druid/sunfire", -- [31]
-				"defaultRotation/druid/starsurge", -- [32]
-				"defaultRotation/druid/solar_wrath", -- [33]
-				"defaultRotation/druid/lunar_strike", -- [34]
-				"defaultRotation/druid/ironfur", -- [35]
-				"defaultRotation/druid/frenzied_regeneration", -- [36]
-				"defaultRotation/druid/mangle", -- [37]
-				"defaultRotation/druid/thrash_guardian", -- [38]
-				"defaultRotation/druid/swipe_guardian", -- [39]
+				"defaultRotation/druid/thrash_jagged_wounds", -- [24]
+				"defaultRotation/druid/thrash", -- [25]
+				"defaultRotation/druid/brutal_slash", -- [26]
+				"defaultRotation/druid/swipe", -- [27]
+				"defaultRotation/druid/shred", -- [28]
+				"defaultRotation/druid/moonfire_balance", -- [29]
+				"defaultRotation/druid/sunfire", -- [30]
+				"defaultRotation/druid/starsurge", -- [31]
+				"defaultRotation/druid/solar_wrath", -- [32]
+				"defaultRotation/druid/lunar_strike", -- [33]
+				"defaultRotation/druid/ironfur", -- [34]
+				"defaultRotation/druid/frenzied_regeneration", -- [35]
+				"defaultRotation/druid/mangle", -- [36]
+				"defaultRotation/druid/thrash_guardian", -- [37]
+				"defaultRotation/druid/swipe_guardian", -- [38]
 			},
-			["bindindex"] = 0,
 			["isMultiTarget"] = true,
 			["specID"] = 2,
-			["version"] = 9,
+			["version"] = 10,
 		},
 		["defaultRotation/druid/guardian"] = {
 			["ActionList"] = {
+				["defaultRotation/druid/alpha_challenge"] = {
+					["b_debug"] = true,
+					["b_p_havebuff"] = true,
+					["b_spellInRange"] = true,
+					["b_t_needsdebuff"] = true,
+					["v_p_havebuff"] = "5487",
+					["v_spellname"] = "207017",
+					["v_t_needsdebuff"] = "_206891",
+				},
 				["defaultRotation/druid/bear_form"] = {
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_needbuff"] = "5487||768||197625",
 					["v_spellname"] = "5487",
 				},
@@ -1802,7 +1414,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_needbuff"] = true,
 					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "5487",
 					["v_p_needbuff"] = "61336",
 					["v_p_unitpower"] = "<50",
@@ -1814,7 +1425,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_hasdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "25",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -1825,15 +1435,13 @@ local druidRotationsGenerator = function ()
 				},
 				["defaultRotation/druid/frenzied_regeneration"] = {
 					["b_gspellcost"] = true,
-					["b_isCustomCase1"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_hp"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "10",
 					["v_gspellcosttype"] = "1",
 					["v_p_havebuff"] = "5487",
-					["v_p_hp"] = "<70%",
+					["v_p_hp"] = "<50%",
 					["v_p_needbuff"] = "22842",
 					["v_spellname"] = "22842",
 				},
@@ -1841,7 +1449,6 @@ local druidRotationsGenerator = function ()
 					["b_gspellcost"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "45",
 					["v_gspellcosttype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -1850,20 +1457,18 @@ local druidRotationsGenerator = function ()
 				},
 				["defaultRotation/druid/lunar_beam"] = {
 					["b_p_hp"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_hp"] = "<70%",
 					["v_spellname"] = "204066",
 				},
 				["defaultRotation/druid/lunar_strike"] = {
+					["b_hasproc"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_p_havebuff"] = "197625&164547",
+					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "197628",
 				},
 				["defaultRotation/druid/mangle"] = {
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gunitpower"] = "5",
 					["v_gunitpowertype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -1873,7 +1478,6 @@ local druidRotationsGenerator = function ()
 					["b_gspellcost"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "20",
 					["v_gspellcosttype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -1884,7 +1488,6 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/moonfire"] = {
 					["b_p_havebuff"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "5487",
 					["v_spellname"] = "8921",
 					["v_t_needsdebuff"] = "_164812^4.8",
@@ -1892,7 +1495,6 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/moonfire_balance"] = {
 					["b_p_havebuff"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "8921",
 					["v_t_needsdebuff"] = "_164812^4.8",
@@ -1901,7 +1503,6 @@ local druidRotationsGenerator = function ()
 					["b_gunitpower"] = true,
 					["b_hasproc"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gunitpower"] = "8",
 					["v_gunitpowertype"] = "1",
 					["v_p_havebuff"] = "197625||5487",
@@ -1909,18 +1510,19 @@ local druidRotationsGenerator = function ()
 				},
 				["defaultRotation/druid/pulverize"] = {
 					["b_p_havebuff"] = true,
+					["b_p_needbuff"] = true,
 					["b_t_hasdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "5487",
+					["v_p_needbuff"] = "158792^6",
 					["v_spellname"] = "80313",
 					["v_t_hasdebuff"] = "_192090#2",
 				},
-				["defaultRotation/druid/rage_of_the_sleeper"] = {
-					["b_isCustomCase1"] = true,
+				["defaultRotation/druid/pulverize_stacks"] = {
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
+					["b_t_hasdebuff"] = true,
 					["v_p_havebuff"] = "5487",
-					["v_spellname"] = "200851",
+					["v_spellname"] = "80313",
+					["v_t_hasdebuff"] = "_192090#3",
 				},
 				["defaultRotation/druid/rake"] = {
 					["b_gspellcost"] = true,
@@ -1928,7 +1530,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "35",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
@@ -1944,7 +1545,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "30",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -1957,7 +1557,6 @@ local druidRotationsGenerator = function ()
 					["b_gspellcost"] = true,
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "40",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
@@ -1967,34 +1566,30 @@ local druidRotationsGenerator = function ()
 				},
 				["defaultRotation/druid/skull_bash"] = {
 					["b_p_havebuff"] = true,
+					["b_spellInRange"] = true,
 					["b_t_interrupt"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "768||5487",
 					["v_spellname"] = "106839",
 				},
 				["defaultRotation/druid/solar_wrath"] = {
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "197629",
 				},
 				["defaultRotation/druid/starsurge"] = {
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "197626",
 				},
 				["defaultRotation/druid/sunfire"] = {
 					["b_p_havebuff"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "197630",
 					["v_t_needsdebuff"] = "_164815^3.6",
 				},
 				["defaultRotation/druid/swipe"] = {
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "5487",
 					["v_spellname"] = "213764",
 				},
@@ -2002,7 +1597,6 @@ local druidRotationsGenerator = function ()
 					["b_gunitpower"] = true,
 					["b_notinspellbook"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gunitpower"] = "4",
 					["v_gunitpowertype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -2011,7 +1605,6 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/wild_charge"] = {
 					["b_p_havebuff"] = true,
 					["b_spellInRange"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "768||5487",
 					["v_spellname"] = "102401",
 				},
@@ -2023,34 +1616,42 @@ local druidRotationsGenerator = function ()
 				"defaultRotation/druid/ironfur", -- [4]
 				"defaultRotation/druid/frenzied_regeneration", -- [5]
 				"defaultRotation/druid/wild_charge", -- [6]
-				"defaultRotation/druid/rage_of_the_sleeper", -- [7]
-				"defaultRotation/druid/bristling_fur", -- [8]
-				"defaultRotation/druid/maul", -- [9]
-				"defaultRotation/druid/moonfire_galactic_guardian", -- [10]
-				"defaultRotation/druid/mangle", -- [11]
-				"defaultRotation/druid/thrash", -- [12]
-				"defaultRotation/druid/pulverize", -- [13]
-				"defaultRotation/druid/moonfire", -- [14]
-				"defaultRotation/druid/swipe", -- [15]
-				"defaultRotation/druid/moonfire_balance", -- [16]
-				"defaultRotation/druid/sunfire", -- [17]
-				"defaultRotation/druid/starsurge", -- [18]
-				"defaultRotation/druid/lunar_strike", -- [19]
-				"defaultRotation/druid/solar_wrath", -- [20]
-				"defaultRotation/druid/rake", -- [21]
-				"defaultRotation/druid/rip", -- [22]
-				"defaultRotation/druid/ferocious_bite", -- [23]
-				"defaultRotation/druid/shred", -- [24]
+				"defaultRotation/druid/alpha_challenge", -- [7]
+				"defaultRotation/druid/pulverize", -- [8]
+				"defaultRotation/druid/bristling_fur", -- [9]
+				"defaultRotation/druid/maul", -- [10]
+				"defaultRotation/druid/moonfire_galactic_guardian", -- [11]
+				"defaultRotation/druid/mangle", -- [12]
+				"defaultRotation/druid/pulverize_stacks", -- [13]
+				"defaultRotation/druid/thrash", -- [14]
+				"defaultRotation/druid/moonfire", -- [15]
+				"defaultRotation/druid/swipe", -- [16]
+				"defaultRotation/druid/moonfire_balance", -- [17]
+				"defaultRotation/druid/sunfire", -- [18]
+				"defaultRotation/druid/starsurge", -- [19]
+				"defaultRotation/druid/lunar_strike", -- [20]
+				"defaultRotation/druid/solar_wrath", -- [21]
+				"defaultRotation/druid/rake", -- [22]
+				"defaultRotation/druid/rip", -- [23]
+				"defaultRotation/druid/ferocious_bite", -- [24]
+				"defaultRotation/druid/shred", -- [25]
 			},
-			["bindindex"] = 0,
 			["specID"] = 3,
-			["version"] = 9,
+			["version"] = 10,
 		},
 		["defaultRotation/druid/guardian_multi"] = {
 			["ActionList"] = {
+				["defaultRotation/druid/alpha_challenge"] = {
+					["b_debug"] = true,
+					["b_p_havebuff"] = true,
+					["b_spellInRange"] = true,
+					["b_t_needsdebuff"] = true,
+					["v_p_havebuff"] = "5487",
+					["v_spellname"] = "207017",
+					["v_t_needsdebuff"] = "_206891",
+				},
 				["defaultRotation/druid/bear_form"] = {
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_needbuff"] = "5487||768||197625",
 					["v_spellname"] = "5487",
 				},
@@ -2058,7 +1659,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_needbuff"] = true,
 					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "5487",
 					["v_p_needbuff"] = "61336",
 					["v_p_unitpower"] = "<50",
@@ -2070,7 +1670,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_hasdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "25",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -2084,11 +1683,10 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_hp"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "10",
 					["v_gspellcosttype"] = "1",
 					["v_p_havebuff"] = "5487",
-					["v_p_hp"] = "<70%",
+					["v_p_hp"] = "<50%",
 					["v_p_needbuff"] = "22842",
 					["v_spellname"] = "22842",
 				},
@@ -2096,7 +1694,6 @@ local druidRotationsGenerator = function ()
 					["b_gspellcost"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "45",
 					["v_gspellcosttype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -2105,20 +1702,17 @@ local druidRotationsGenerator = function ()
 				},
 				["defaultRotation/druid/lunar_beam"] = {
 					["b_p_hp"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_hp"] = "<70%",
 					["v_spellname"] = "204066",
 				},
 				["defaultRotation/druid/lunar_strike"] = {
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "197628",
 				},
 				["defaultRotation/druid/mangle"] = {
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gunitpower"] = "5",
 					["v_gunitpowertype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -2128,7 +1722,6 @@ local druidRotationsGenerator = function ()
 					["b_gspellcost"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "20",
 					["v_gspellcosttype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -2140,7 +1733,6 @@ local druidRotationsGenerator = function ()
 					["b_gunitpower"] = true,
 					["b_hasproc"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gunitpower"] = "8",
 					["v_gunitpowertype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -2149,7 +1741,6 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/moonfire_balance"] = {
 					["b_p_havebuff"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "8921",
 					["v_t_needsdebuff"] = "_164812^4.8",
@@ -2157,23 +1748,24 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/moonfire_galactic_guardian"] = {
 					["b_hasproc"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625||5487 ",
 					["v_spellname"] = "8921",
 				},
 				["defaultRotation/druid/pulverize"] = {
 					["b_p_havebuff"] = true,
+					["b_p_needbuff"] = true,
 					["b_t_hasdebuff"] = true,
-					["v_durationstartedtime"] = 0,
+					["v_p_havebuff"] = "5487",
+					["v_p_needbuff"] = "158792^6",
+					["v_spellname"] = "80313",
+					["v_t_hasdebuff"] = "_192090#2||_192090#3",
+				},
+				["defaultRotation/druid/pulverize_stacks"] = {
+					["b_p_havebuff"] = true,
+					["b_t_hasdebuff"] = true,
 					["v_p_havebuff"] = "5487",
 					["v_spellname"] = "80313",
-					["v_t_hasdebuff"] = "_192090#2",
-				},
-				["defaultRotation/druid/rage_of_the_sleeper"] = {
-					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_p_havebuff"] = "5487",
-					["v_spellname"] = "200851",
+					["v_t_hasdebuff"] = "_192090#3",
 				},
 				["defaultRotation/druid/rake"] = {
 					["b_gspellcost"] = true,
@@ -2181,7 +1773,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "35",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
@@ -2197,7 +1788,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "30",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -2208,34 +1798,31 @@ local druidRotationsGenerator = function ()
 				},
 				["defaultRotation/druid/skull_bash"] = {
 					["b_p_havebuff"] = true,
+					["b_spellInRange"] = true,
 					["b_t_interrupt"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "768||5487",
 					["v_spellname"] = "106839",
 				},
 				["defaultRotation/druid/solar_wrath"] = {
+					["b_hasproc"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_p_havebuff"] = "197625&164545",
+					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "197629",
 				},
 				["defaultRotation/druid/starsurge"] = {
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "197626",
 				},
 				["defaultRotation/druid/sunfire"] = {
 					["b_p_havebuff"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "197630",
 					["v_t_needsdebuff"] = "_164815^3.6",
 				},
 				["defaultRotation/druid/swipe"] = {
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "5487",
 					["v_spellname"] = "213764",
 				},
@@ -2244,7 +1831,6 @@ local druidRotationsGenerator = function ()
 					["b_gunitpower"] = true,
 					["b_notinspellbook"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "45",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
@@ -2256,7 +1842,17 @@ local druidRotationsGenerator = function ()
 					["b_gunitpower"] = true,
 					["b_notinspellbook"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
+					["b_t_needsdebuff"] = true,
+					["v_gunitpower"] = "1",
+					["v_gunitpowertype"] = "4",
+					["v_p_havebuff"] = "768",
+					["v_spellname"] = "106830",
+					["v_t_needsdebuff"] = "_106830^4",
+				},
+				["defaultRotation/druid/thrash_guardian"] = {
+					["b_gunitpower"] = true,
+					["b_notinspellbook"] = true,
+					["b_p_havebuff"] = true,
 					["v_gunitpower"] = "4",
 					["v_gunitpowertype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -2265,7 +1861,6 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/wild_charge"] = {
 					["b_p_havebuff"] = true,
 					["b_spellInRange"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "768||5487",
 					["v_spellname"] = "102401",
 				},
@@ -2277,36 +1872,36 @@ local druidRotationsGenerator = function ()
 				"defaultRotation/druid/ironfur", -- [4]
 				"defaultRotation/druid/frenzied_regeneration", -- [5]
 				"defaultRotation/druid/wild_charge", -- [6]
-				"defaultRotation/druid/rage_of_the_sleeper", -- [7]
-				"defaultRotation/druid/bristling_fur", -- [8]
-				"defaultRotation/druid/maul", -- [9]
-				"defaultRotation/druid/moonfire", -- [10]
-				"defaultRotation/druid/thrash", -- [11]
-				"defaultRotation/druid/mangle", -- [12]
-				"defaultRotation/druid/pulverize", -- [13]
-				"defaultRotation/druid/swipe", -- [14]
-				"defaultRotation/druid/moonfire_galactic_guardian", -- [15]
-				"defaultRotation/druid/moonfire_balance", -- [16]
-				"defaultRotation/druid/sunfire", -- [17]
-				"defaultRotation/druid/starsurge", -- [18]
-				"defaultRotation/druid/solar_wrath", -- [19]
-				"defaultRotation/druid/lunar_strike", -- [20]
-				"defaultRotation/druid/rake", -- [21]
-				"defaultRotation/druid/rip", -- [22]
-				"defaultRotation/druid/ferocious_bite", -- [23]
-				"defaultRotation/druid/swipe_feral", -- [24]
+				"defaultRotation/druid/alpha_challenge", -- [7]
+				"defaultRotation/druid/pulverize", -- [8]
+				"defaultRotation/druid/bristling_fur", -- [9]
+				"defaultRotation/druid/maul", -- [10]
+				"defaultRotation/druid/moonfire", -- [11]
+				"defaultRotation/druid/pulverize_stacks", -- [12]
+				"defaultRotation/druid/thrash_guardian", -- [13]
+				"defaultRotation/druid/mangle", -- [14]
+				"defaultRotation/druid/swipe", -- [15]
+				"defaultRotation/druid/moonfire_galactic_guardian", -- [16]
+				"defaultRotation/druid/moonfire_balance", -- [17]
+				"defaultRotation/druid/sunfire", -- [18]
+				"defaultRotation/druid/starsurge", -- [19]
+				"defaultRotation/druid/solar_wrath", -- [20]
+				"defaultRotation/druid/lunar_strike", -- [21]
+				"defaultRotation/druid/rake", -- [22]
+				"defaultRotation/druid/rip", -- [23]
+				"defaultRotation/druid/ferocious_bite", -- [24]
+				"defaultRotation/druid/thrash", -- [25]
+				"defaultRotation/druid/swipe_feral", -- [26]
 			},
-			["bindindex"] = 0,
 			["isMultiTarget"] = true,
 			["specID"] = 3,
-			["version"] = 9,
+			["version"] = 10,
 		},
 		["defaultRotation/druid/restoration"] = {
 			["ActionList"] = {
 				["defaultRotation/druid/bear_form"] = {
 					["b_p_knowspell"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_knowspell"] = "197491",
 					["v_p_needbuff"] = "5487",
 					["v_spellname"] = "5487",
@@ -2314,23 +1909,15 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/cat_form"] = {
 					["b_p_knowspell"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_knowspell"] = "197490",
 					["v_p_needbuff"] = "768",
 					["v_spellname"] = "768",
-				},
-				["defaultRotation/druid/cenarion_ward"] = {
-					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_p_needbuff"] = "197625||768||5487",
-					["v_spellname"] = "102351",
 				},
 				["defaultRotation/druid/ferocious_bite"] = {
 					["b_gspellcost"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_hasdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "25",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -2344,7 +1931,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_hp"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "10",
 					["v_gspellcosttype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -2356,7 +1942,6 @@ local druidRotationsGenerator = function ()
 					["b_gspellcost"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "45",
 					["v_gspellcosttype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -2365,15 +1950,13 @@ local druidRotationsGenerator = function ()
 				},
 				["defaultRotation/druid/lunar_strike"] = {
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625&164547",
 					["v_spellname"] = "197628",
 				},
 				["defaultRotation/druid/mangle"] = {
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "5",
+					["v_gunitpower"] = "8",
 					["v_gunitpowertype"] = "1",
 					["v_p_havebuff"] = "5487",
 					["v_spellname"] = "33917",
@@ -2381,7 +1964,6 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/moonfire"] = {
 					["b_p_needbuff"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_needbuff"] = "768",
 					["v_spellname"] = "8921",
 					["v_t_needsdebuff"] = "_164812^4.8",
@@ -2389,7 +1971,6 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/moonkin_form"] = {
 					["b_p_knowspell"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_knowspell"] = "197632",
 					["v_p_needbuff"] = "197625",
 					["v_spellname"] = "197625",
@@ -2400,7 +1981,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "35",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
@@ -2413,7 +1993,6 @@ local druidRotationsGenerator = function ()
 				},
 				["defaultRotation/druid/renewal"] = {
 					["b_p_hp"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_hp"] = "<50%",
 					["v_spellname"] = "108238",
 				},
@@ -2422,7 +2001,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "30",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -2435,7 +2013,6 @@ local druidRotationsGenerator = function ()
 					["b_gspellcost"] = true,
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "40",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
@@ -2445,20 +2022,17 @@ local druidRotationsGenerator = function ()
 				},
 				["defaultRotation/druid/solar_wrath"] = {
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_needbuff"] = "768||5487",
 					["v_spellname"] = "5176",
 				},
 				["defaultRotation/druid/starsurge"] = {
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "197626",
 				},
 				["defaultRotation/druid/sunfire"] = {
 					["b_p_needbuff"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_needbuff"] = "768||5487",
 					["v_spellname"] = "93402",
 					["v_t_needsdebuff"] = "_164815^3.6",
@@ -2467,7 +2041,6 @@ local druidRotationsGenerator = function ()
 					["b_gunitpower"] = true,
 					["b_notinspellbook"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gunitpower"] = "4",
 					["v_gunitpowertype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -2476,42 +2049,38 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/wild_charge"] = {
 					["b_p_havebuff"] = true,
 					["b_spellInRange"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "768||5487",
 					["v_spellname"] = "102401",
 				},
 			},
 			["SortedActions"] = {
 				"defaultRotation/druid/renewal", -- [1]
-				"defaultRotation/druid/cenarion_ward", -- [2]
-				"defaultRotation/druid/moonkin_form", -- [3]
-				"defaultRotation/druid/cat_form", -- [4]
-				"defaultRotation/druid/bear_form", -- [5]
+				"defaultRotation/druid/moonkin_form", -- [2]
+				"defaultRotation/druid/cat_form", -- [3]
+				"defaultRotation/druid/bear_form", -- [4]
+				"defaultRotation/druid/frenzied_regeneration", -- [5]
 				"defaultRotation/druid/ironfur", -- [6]
-				"defaultRotation/druid/frenzied_regeneration", -- [7]
-				"defaultRotation/druid/wild_charge", -- [8]
-				"defaultRotation/druid/moonfire", -- [9]
-				"defaultRotation/druid/sunfire", -- [10]
+				"defaultRotation/druid/wild_charge", -- [7]
+				"defaultRotation/druid/moonfire", -- [8]
+				"defaultRotation/druid/sunfire", -- [9]
+				"defaultRotation/druid/starsurge", -- [10]
 				"defaultRotation/druid/lunar_strike", -- [11]
-				"defaultRotation/druid/starsurge", -- [12]
-				"defaultRotation/druid/solar_wrath", -- [13]
-				"defaultRotation/druid/rake", -- [14]
-				"defaultRotation/druid/rip", -- [15]
-				"defaultRotation/druid/ferocious_bite", -- [16]
-				"defaultRotation/druid/shred", -- [17]
-				"defaultRotation/druid/mangle", -- [18]
-				"defaultRotation/druid/thrash", -- [19]
+				"defaultRotation/druid/solar_wrath", -- [12]
+				"defaultRotation/druid/rip", -- [13]
+				"defaultRotation/druid/ferocious_bite", -- [14]
+				"defaultRotation/druid/rake", -- [15]
+				"defaultRotation/druid/shred", -- [16]
+				"defaultRotation/druid/mangle", -- [17]
+				"defaultRotation/druid/thrash", -- [18]
 			},
-			["bindindex"] = 0,
 			["specID"] = 4,
-			["version"] = 9,
+			["version"] = 10,
 		},
 		["defaultRotation/druid/restoration_multi"] = {
 			["ActionList"] = {
 				["defaultRotation/druid/bear_form"] = {
 					["b_p_knowspell"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_knowspell"] = "197491",
 					["v_p_needbuff"] = "5487",
 					["v_spellname"] = "5487",
@@ -2519,23 +2088,15 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/cat_form"] = {
 					["b_p_knowspell"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_knowspell"] = "197490",
 					["v_p_needbuff"] = "768",
 					["v_spellname"] = "768",
-				},
-				["defaultRotation/druid/cenarion_ward"] = {
-					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_p_needbuff"] = "197625||768||5487",
-					["v_spellname"] = "102351",
 				},
 				["defaultRotation/druid/ferocious_bite"] = {
 					["b_gspellcost"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_hasdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "25",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -2549,7 +2110,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_hp"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "10",
 					["v_gspellcosttype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -2561,7 +2121,6 @@ local druidRotationsGenerator = function ()
 					["b_gspellcost"] = true,
 					["b_p_havebuff"] = true,
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "45",
 					["v_gspellcosttype"] = "1",
 					["v_p_havebuff"] = "5487",
@@ -2570,15 +2129,13 @@ local druidRotationsGenerator = function ()
 				},
 				["defaultRotation/druid/lunar_strike"] = {
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "197628",
 				},
 				["defaultRotation/druid/mangle"] = {
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "5",
+					["v_gunitpower"] = "8",
 					["v_gunitpowertype"] = "1",
 					["v_p_havebuff"] = "5487",
 					["v_spellname"] = "33917",
@@ -2586,14 +2143,12 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/moonfire"] = {
 					["b_p_needbuff"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_needbuff"] = "768",
 					["v_spellname"] = "8921",
 					["v_t_needsdebuff"] = "_164812^4.8",
 				},
 				["defaultRotation/druid/moonkin_form"] = {
 					["b_p_needbuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_needbuff"] = "197625",
 					["v_spellname"] = "197625",
 				},
@@ -2601,22 +2156,17 @@ local druidRotationsGenerator = function ()
 					["b_gspellcost"] = true,
 					["b_gunitpower"] = true,
 					["b_p_havebuff"] = true,
-					["b_p_unitpower"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "35",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
 					["v_gunitpowertype"] = "4",
 					["v_p_havebuff"] = "768",
-					["v_p_unitpower"] = "<5",
-					["v_p_unitpowertype"] = "4",
 					["v_spellname"] = "1822",
 					["v_t_needsdebuff"] = "_155722^4.5",
 				},
 				["defaultRotation/druid/renewal"] = {
 					["b_p_hp"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_hp"] = "<50%",
 					["v_spellname"] = "108238",
 				},
@@ -2625,7 +2175,6 @@ local druidRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["b_p_unitpower"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_gspellcost"] = "30",
 					["v_gspellcosttype"] = "3",
 					["v_p_havebuff"] = "768",
@@ -2634,16 +2183,19 @@ local druidRotationsGenerator = function ()
 					["v_spellname"] = "1079",
 					["v_t_needsdebuff"] = "_1079^7.2",
 				},
+				["defaultRotation/druid/solar_wrath"] = {
+					["b_p_havebuff"] = true,
+					["v_p_havebuff"] = "197625&164545",
+					["v_spellname"] = "5176",
+				},
 				["defaultRotation/druid/starsurge"] = {
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "197625",
 					["v_spellname"] = "197626",
 				},
 				["defaultRotation/druid/sunfire"] = {
 					["b_p_needbuff"] = true,
 					["b_t_needsdebuff"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_needbuff"] = "768||5487",
 					["v_spellname"] = "93402",
 					["v_t_needsdebuff"] = "_164815^3.6",
@@ -2651,9 +2203,9 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/swipe"] = {
 					["b_gspellcost"] = true,
 					["b_gunitpower"] = true,
+					["b_notinspellbook"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_gspellcost"] = "45",
+					["v_gspellcost"] = "40",
 					["v_gspellcosttype"] = "3",
 					["v_gunitpower"] = "1",
 					["v_gunitpowertype"] = "4",
@@ -2664,8 +2216,7 @@ local druidRotationsGenerator = function ()
 					["b_gunitpower"] = true,
 					["b_notinspellbook"] = true,
 					["b_p_havebuff"] = true,
-					["v_durationstartedtime"] = 0,
-					["v_gunitpower"] = "4",
+					["v_gunitpower"] = "5",
 					["v_gunitpowertype"] = "1",
 					["v_p_havebuff"] = "5487",
 					["v_spellname"] = "77758",
@@ -2673,35 +2224,33 @@ local druidRotationsGenerator = function ()
 				["defaultRotation/druid/wild_charge"] = {
 					["b_p_havebuff"] = true,
 					["b_spellInRange"] = true,
-					["v_durationstartedtime"] = 0,
 					["v_p_havebuff"] = "768||5487",
 					["v_spellname"] = "102401",
 				},
 			},
 			["SortedActions"] = {
 				"defaultRotation/druid/renewal", -- [1]
-				"defaultRotation/druid/cenarion_ward", -- [2]
-				"defaultRotation/druid/moonkin_form", -- [3]
-				"defaultRotation/druid/cat_form", -- [4]
-				"defaultRotation/druid/bear_form", -- [5]
+				"defaultRotation/druid/moonkin_form", -- [2]
+				"defaultRotation/druid/cat_form", -- [3]
+				"defaultRotation/druid/bear_form", -- [4]
+				"defaultRotation/druid/frenzied_regeneration", -- [5]
 				"defaultRotation/druid/ironfur", -- [6]
-				"defaultRotation/druid/frenzied_regeneration", -- [7]
-				"defaultRotation/druid/wild_charge", -- [8]
+				"defaultRotation/druid/wild_charge", -- [7]
+				"defaultRotation/druid/sunfire", -- [8]
 				"defaultRotation/druid/moonfire", -- [9]
-				"defaultRotation/druid/sunfire", -- [10]
-				"defaultRotation/druid/starsurge", -- [11]
+				"defaultRotation/druid/starsurge", -- [10]
+				"defaultRotation/druid/solar_wrath", -- [11]
 				"defaultRotation/druid/lunar_strike", -- [12]
-				"defaultRotation/druid/rake", -- [13]
-				"defaultRotation/druid/rip", -- [14]
-				"defaultRotation/druid/ferocious_bite", -- [15]
+				"defaultRotation/druid/rip", -- [13]
+				"defaultRotation/druid/ferocious_bite", -- [14]
+				"defaultRotation/druid/rake", -- [15]
 				"defaultRotation/druid/swipe", -- [16]
 				"defaultRotation/druid/thrash", -- [17]
 				"defaultRotation/druid/mangle", -- [18]
 			},
-			["bindindex"] = 0,
 			["isMultiTarget"] = true,
 			["specID"] = 4,
-			["version"] = 9,
+			["version"] = 10,
 		},
 	}
 
