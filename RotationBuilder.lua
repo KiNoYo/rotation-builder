@@ -2151,7 +2151,14 @@ function ROB_SpellPassesOtherCooldownCheck(othercd, checkstring, notaspell)
 	if(notaspell) then
 		start, duration, _ = GetItemCooldown(othercd);
 	else
-		start, duration, _, _ = GetSpellCooldown(othercd);
+		cCharge, mCharge, start, duration, _ = GetSpellCharges(othercd);
+		if (not cCharges) then
+			start, duration, _, _ = GetSpellCooldown(othercd);
+		else
+			if (cCharge == mCharges) then
+				return false;
+			end
+		end
 	end
 	if (start == nil) then
 		return false;
