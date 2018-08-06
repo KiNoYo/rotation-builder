@@ -877,6 +877,8 @@ Example4: |cFF00FF00>=90%|r means only display this action when player is over o
 Example5: |cFF00FF00=90%|r means only display this action when player is at exactly 90% hitpoints]=]
 L["ROB_UI_AO_P_ISSTEALTHED"] = "Is stealthed"
 L["ROB_UI_AO_P_ISSTEALTHED_TT"] = "Only display action when the player is stealthed"
+L["ROB_UI_AO_P_ISNOTSTEALTHED"] = "Is not stealthed"
+L["ROB_UI_AO_P_ISNOTSTEALTHED_TT"] = "Only display action when the player is not stealthed"
 L["ROB_UI_AO_P_KNOWNOTSPELL"] = "Do not know Spell"
 L["ROB_UI_AO_P_KNOWNOTSPELL_TT"] = "Only display action when specified spell is unknown"
 L["ROB_UI_AO_P_KNOWNOTSPELLIB_TT"] = "Input the spell name or spell id of the spell you want check"

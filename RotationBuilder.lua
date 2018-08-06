@@ -126,6 +126,7 @@ ROB_NewActionDefaults = {
 	b_p_knownotspell = false,
 	v_p_knownotspell = "",
 	b_p_isstealthed = false,
+	b_p_isnotstealthed = false,
 
 	--Target Options---------------
 	b_t_hp = false,
@@ -1763,6 +1764,8 @@ function ROB_Rotation_Edit_UpdateUI()
 			ROB_Rotation_GUI_SetText("ROB_AO_KnowNotSpellInputBox", _ActionDB.v_p_knownotspell, "")
 
 			ROB_Rotation_GUI_SetChecked("ROB_AO_IsStealthedCheckButton", _ActionDB.b_p_isstealthed, false);
+			
+			ROB_Rotation_GUI_SetChecked("ROB_AO_IsNotStealthedCheckButton", _ActionDB.b_p_isnotstealthed, false);
 
 			--Target options-------------------------
 			ROB_Rotation_GUI_SetChecked("ROB_AO_TargetHPCheckButton", _ActionDB.b_t_hp, false)
@@ -3058,6 +3061,14 @@ function ROB_SpellReady(actionName, isNextSpell)
 	if (ActionDB.b_p_isstealthed) then
 		if (not ROB_PlayerIsStealthed()) then
 			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you are not stealthed", debug);
+			return false;
+		end
+	end
+
+	-- CHECK: Is Not Stealthed
+	if (ActionDB.b_p_isnotstealthed) then
+		if (ROB_PlayerIsStealthed()) then
+			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you are stealthed", debug);
 			return false;
 		end
 	end

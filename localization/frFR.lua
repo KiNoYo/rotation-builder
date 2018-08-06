@@ -877,6 +877,8 @@ Example4: |cFF00FF00>=90%|r n'affiche l'action que si le joueur à plus ou tout 
 Example5: |cFF00FF00=90%|r n'affiche l'action que si le joueur à tout juste 90% de vie]=]
 L["ROB_UI_AO_P_ISSTEALTHED"] = "Camouflé"
 L["ROB_UI_AO_P_ISSTEALTHED_TT"] = "N'affiche l'action que lorsque le joueur est camouflé"
+L["ROB_UI_AO_P_ISNOTSTEALTHED"] = "Non camouflé"
+L["ROB_UI_AO_P_ISNOTSTEALTHED_TT"] = "N'affiche l'action que lorsque le joueur n'est pas camouflé"
 L["ROB_UI_AO_P_KNOWNOTSPELL"] = "Ne connait pas le sort"
 L["ROB_UI_AO_P_KNOWNOTSPELL_TT"] = "N'affiche cette action que si le sort/talent n'est pas connu"
 L["ROB_UI_AO_P_KNOWNOTSPELLIB_TT"] = "Entrez le nom/id du sort à vérifier"

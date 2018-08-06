@@ -31,6 +31,7 @@ RotationBuilderUtils = {
 		["b_p_havedebuff"] = false,
 		["b_p_hp"] = false,
 		["b_p_isstealthed"] = false,
+		["b_p_isnotstealthed"] = false,
 		["b_p_knownotspell"] = false,
 		["b_p_knowspell"] = false,
 		["b_p_needbuff"] = false,
