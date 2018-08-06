@@ -2401,7 +2401,9 @@ function ROB_IsSpellKnown(spell, isNextSpell)
 end
 
 function ROB_PlayerIsStealthed()
-	if IsStealthed() then
+	-- 115192 is the Rogue Subterfuge talent buff
+	-- 185422 is the Rogue Shadow Dance buff
+	if IsStealthed() or ROB_UnitHasAura(115192, "PLAYER", "HELPFUL") or ROB_UnitHasAura(185422, "PLAYER", "HELPFUL") then
 		return true;
 	end
 	return false;
