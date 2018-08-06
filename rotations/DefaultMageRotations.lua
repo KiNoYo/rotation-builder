@@ -531,13 +531,11 @@ local mageRotationsGenerator = function ()
 					["b_p_knownotspell"] = true,
 					["v_p_knownotspell"] = "116011",
 					["v_spellname"] = "153561",
-					["v_togglename"] = "Toggle 1",
 				},
 				["defaultRotation/mage/meteor_rune_of_power"] = {
 					["b_p_havebuff"] = true,
 					["v_p_havebuff"] = "116014",
 					["v_spellname"] = "153561",
-					["v_togglename"] = "Toggle 1",
 				},
 				["defaultRotation/mage/mirror_image"] = {
 					["b_isCustomCase1"] = true,
@@ -610,7 +608,7 @@ local mageRotationsGenerator = function ()
 				"defaultRotation/mage/fireball", -- [18]
 			},
 			["specID"] = 2,
-			["version"] = 6,
+			["version"] = 7,
 		},
 		["defaultRotation/mage/fire_multi"] = {
 			["ActionList"] = {
@@ -654,13 +652,11 @@ local mageRotationsGenerator = function ()
 					["b_p_knownotspell"] = true,
 					["v_p_knownotspell"] = "116011",
 					["v_spellname"] = "153561",
-					["v_togglename"] = "Toggle 1",
 				},
 				["defaultRotation/mage/meteor_rune_of_power"] = {
 					["b_p_havebuff"] = true,
 					["v_p_havebuff"] = "116014",
 					["v_spellname"] = "153561",
-					["v_togglename"] = "Toggle 1",
 				},
 				["defaultRotation/mage/mirror_image"] = {
 					["b_isCustomCase1"] = true,
@@ -731,7 +727,7 @@ local mageRotationsGenerator = function ()
 			},
 			["isMultiTarget"] = true,
 			["specID"] = 2,
-			["version"] = 3,
+			["version"] = 4,
 		},
 		["defaultRotation/mage/frost"] = {
 			["ActionList"] = {
