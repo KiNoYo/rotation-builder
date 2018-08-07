@@ -701,10 +701,10 @@ L["ROB_FRAME_CLOSE_TT"] = "Fermer la Fenêtre de Rotation Builder"
 L["ROB_FRAME_OPTIONS_TT"] = "Montrer Options"
 L["ROB_FRAME_ROTATIONS_TT"] = "Montrer Rotations"
 L["ROB_LOADED"] = "Rotation Builder v%s chargé"
-L["ROB_OPTION_ENEMY"] = "Cibles hostiles ou neutres"
-L["ROB_OPTION_ENEMY_TT"] = "N'affiche les îcones que pour les cibles hostiles ou neutres"
 L["ROB_OPTION_DISPLAY_ON_DEAD_TARGET"] = "Afficher sur cibles mortes"
 L["ROB_OPTION_DISPLAY_ON_DEAD_TARGET_TT"] = "Affiche les îcones également pour les cibles mortes"
+L["ROB_OPTION_ENEMY"] = "Cibles hostiles ou neutres"
+L["ROB_OPTION_ENEMY_TT"] = "N'affiche les îcones que pour les cibles hostiles ou neutres"
 L["ROB_OPTION_EXPORTBINDS"] = "Export des raccourcis"
 L["ROB_OPTION_EXPORTBINDS_TT"] = "Ajoute l'export des raccourcis clavier à la fonction \"Exporter\""
 L["ROB_OPTION_HIDECD"] = "Masquer les rechargements"
@@ -868,10 +868,10 @@ Example2: |cFF00FF00>90%|r n'affiche l'action que si le joueur à plus de 90% de
 Example3: |cFF00FF00<=90%|r n'affiche l'action que si le joueur à moins ou tout juste 90% de vie
 Example4: |cFF00FF00>=90%|r n'affiche l'action que si le joueur à plus ou tout juste 90% de vie
 Example5: |cFF00FF00=90%|r n'affiche l'action que si le joueur à tout juste 90% de vie]=]
-L["ROB_UI_AO_P_ISSTEALTHED"] = "Camouflé"
-L["ROB_UI_AO_P_ISSTEALTHED_TT"] = "N'affiche l'action que lorsque le joueur est camouflé"
 L["ROB_UI_AO_P_ISNOTSTEALTHED"] = "Non camouflé"
 L["ROB_UI_AO_P_ISNOTSTEALTHED_TT"] = "N'affiche l'action que lorsque le joueur n'est pas camouflé"
+L["ROB_UI_AO_P_ISSTEALTHED"] = "Camouflé"
+L["ROB_UI_AO_P_ISSTEALTHED_TT"] = "N'affiche l'action que lorsque le joueur est camouflé"
 L["ROB_UI_AO_P_KNOWNOTSPELL"] = "Ne connait pas le sort"
 L["ROB_UI_AO_P_KNOWNOTSPELL_TT"] = "N'affiche cette action que si le sort/talent n'est pas connu"
 L["ROB_UI_AO_P_KNOWNOTSPELLIB_TT"] = "Entrez le nom/id du sort à vérifier"
@@ -914,6 +914,10 @@ L["ROB_UI_AO_P_RUNESIB_TT"] = [=[Entrez le nombre de runes
 Example1: |cFF00FF00>1|r n'affiche l'action que quand le joueur à plus d'une rune
 Example2: |cFF00FF00<=1|r n'affiche l'action que quand le joueur à une rune ou moins
 Example3: |cFF00FF00>=1|r n'affiche l'action que quand le joueur à une rune ou plus]=]
+L["ROB_UI_AO_PET_HASTOTEM"] = "A un Totem"
+L["ROB_UI_AO_PET_HASTOTEM_TT"] = "N'affiche cette action que si le/la totem/statue ou autre est actif"
+L["ROB_UI_AO_PET_HASTOTEMIB_TT"] = "Entrez la durée minimale restante nécessaire pour le/la totem/statue ou autre"
+L["ROB_UI_AO_PET_HASTOTEMNAME_TT"] = "Entrez le nom/id du totem/statue"
 L["ROB_UI_AO_PET_HAVEBUFF"] = "A le buff:"
 L["ROB_UI_AO_PET_HAVEBUFF_TT"] = "N'affiche cette action que si le familier a le(s) buff(s) spécifié(s)"
 L["ROB_UI_AO_PET_HAVEBUFFIB_TT"] = [=[Entrez le(s) nom/id(s) du(des) buff(s)
@@ -923,10 +927,6 @@ Example2: |cFF00FF00_Earth Shield#2|r n'affiche cette action que si le familier 
 Example3: |cFF00FF00_Earth Shield#2^3|r n'affiche cette action que si le familier a le buff Earth Shield avec 2 cumul placé par vous avec 3+ secondes restantes
 Example4: |cFF00FF00Earth Shield||Inner Fire|r n'affiche cette action que si le familier a le du buff Earth Shield ou Inner Fire
 Example5: |cFF00FF00Earth Shield&Inner Fire|r n'affiche cette action que si le familier a les buffs Earth Shield et Inner Fire]=]
-L["ROB_UI_AO_PET_HASTOTEM"] = "A un Totem"
-L["ROB_UI_AO_PET_HASTOTEM_TT"] = "N'affiche cette action que si le/la totem/statue ou autre est actif"
-L["ROB_UI_AO_PET_HASTOTEMIB_TT"] = "Entrez la durée minimale restante nécessaire pour le/la totem/statue ou autre"
-L["ROB_UI_AO_PET_HASTOTEMNAME_TT"] = "Entrez le nom/id du totem/statue"
 L["ROB_UI_AO_PET_HP_TT"] = "N'affiche cette action que si le familier à la quantitée spécifiée de vie"
 L["ROB_UI_AO_PET_HPIB_TT"] = [=[Entrez la valeur de vie à vérifier
 Example1: |cFF00FF00<90%|r n'affiche l'action que si le familier à moins de 90% de vie

@@ -701,10 +701,10 @@ L["ROB_FRAME_CLOSE_TT"] = "Close Rotation Builder Window"
 L["ROB_FRAME_OPTIONS_TT"] = "Show Options"
 L["ROB_FRAME_ROTATIONS_TT"] = "Show Rotations"
 L["ROB_LOADED"] = "Rotation Builder v%s loaded"
-L["ROB_OPTION_ENEMY"] = "Target is hostile or neutral"
-L["ROB_OPTION_ENEMY_TT"] = "Only display the icons if the target is hostile or neutral"
 L["ROB_OPTION_DISPLAY_ON_DEAD_TARGET"] = "Display on dead target"
 L["ROB_OPTION_DISPLAY_ON_DEAD_TARGET_TT"] = "Also display the icons if the target is dead"
+L["ROB_OPTION_ENEMY"] = "Target is hostile or neutral"
+L["ROB_OPTION_ENEMY_TT"] = "Only display the icons if the target is hostile or neutral"
 L["ROB_OPTION_EXPORTBINDS"] = "Export binds"
 L["ROB_OPTION_EXPORTBINDS_TT"] = "Export action key binds with export"
 L["ROB_OPTION_HIDECD"] = "Hide Cooldowns"
@@ -867,10 +867,10 @@ Example2: |cFF00FF00>90%|r means only display this action when player is over 90
 Example3: |cFF00FF00<=90%|r means only display this action when player is under or equal to 90% hitpoints
 Example4: |cFF00FF00>=90%|r means only display this action when player is over or equal to 90% hitpoints
 Example5: |cFF00FF00=90%|r means only display this action when player is at exactly 90% hitpoints]=]
-L["ROB_UI_AO_P_ISSTEALTHED"] = "Is stealthed"
-L["ROB_UI_AO_P_ISSTEALTHED_TT"] = "Only display action when the player is stealthed"
 L["ROB_UI_AO_P_ISNOTSTEALTHED"] = "Is not stealthed"
 L["ROB_UI_AO_P_ISNOTSTEALTHED_TT"] = "Only display action when the player is not stealthed"
+L["ROB_UI_AO_P_ISSTEALTHED"] = "Is stealthed"
+L["ROB_UI_AO_P_ISSTEALTHED_TT"] = "Only display action when the player is stealthed"
 L["ROB_UI_AO_P_KNOWNOTSPELL"] = "Do not know Spell"
 L["ROB_UI_AO_P_KNOWNOTSPELL_TT"] = "Only display action when specified spell is unknown"
 L["ROB_UI_AO_P_KNOWNOTSPELLIB_TT"] = "Input the spell name or spell id of the spell you want check"
@@ -913,6 +913,10 @@ L["ROB_UI_AO_P_RUNESIB_TT"] = [=[Input the number of runes
 Example1: |cFF00FF00>1|r means only display this action when player has more than 1 rune
 Example2: |cFF00FF00<=1|r means only display this action when player has less than or equal to 1 rune
 Example3: |cFF00FF00>=1|r means only display this action when player has 1 or more runes]=]
+L["ROB_UI_AO_PET_HASTOTEM"] = "Have a Totem"
+L["ROB_UI_AO_PET_HASTOTEM_TT"] = "Only display action when you have a totem/statue active"
+L["ROB_UI_AO_PET_HASTOTEMIB_TT"] = "Input the minimum remaining duration needed for the totem/statue"
+L["ROB_UI_AO_PET_HASTOTEMNAME_TT"] = "Input the name/id of the totem/statue"
 L["ROB_UI_AO_PET_HAVEBUFF"] = "Has Buff:"
 L["ROB_UI_AO_PET_HAVEBUFF_TT"] = "Only display action when your pet has the specified buff or buffs"
 L["ROB_UI_AO_PET_HAVEBUFFIB_TT"] = [=[Input the name of the buff or buffs
@@ -922,10 +926,6 @@ Example2: |cFF00FF00_Earth Shield#2|r display action when your pet has a player 
 Example3: |cFF00FF00_Earth Shield#2^3|r display action when your pet has a player casted Earth Shield at 2 stacks with >=3 seconds left
 Example4: |cFF00FF00Earth Shield||Inner Fire|r display action when your pet has Earth Shield or Inner Fire
 Example5: |cFF00FF00Earth Shield&Inner Fire|r display action when your pet has both Earth Shield and Inner Fire]=]
-L["ROB_UI_AO_PET_HASTOTEM"] = "Have a Totem"
-L["ROB_UI_AO_PET_HASTOTEM_TT"] = "Only display action when you have a totem/statue active"
-L["ROB_UI_AO_PET_HASTOTEMIB_TT"] = "Input the minimum remaining duration needed for the totem/statue"
-L["ROB_UI_AO_PET_HASTOTEMNAME_TT"] = "Input the name/id of the totem/statue"
 L["ROB_UI_AO_PET_HP_TT"] = "Only display action when pet meets specified hit points"
 L["ROB_UI_AO_PET_HPIB_TT"] = [=[Input the pet hit points to check
 Example1: |cFF00FF00<90%|r means only display this action when pet is under 90% hitpoints
