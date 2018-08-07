@@ -156,7 +156,7 @@ local paladinRotationsGenerator = function ()
 					["v_p_hp"] = "<50%",
 					["v_spellname"] = "213652",
 				},
-				["defaultRotation/paladin/inquisition"] = {
+				["defaultRotation/paladin/inquisition_pvp"] = {
 					["b_t_needsdebuff"] = true,
 					["v_spellname"] = "207028",
 					["v_t_needsdebuff"] = "_206891",
@@ -193,7 +193,7 @@ local paladinRotationsGenerator = function ()
 				"defaultRotation/paladin/lay_on_hands", -- [2]
 				"defaultRotation/paladin/hand_of_the_protector", -- [3]
 				"defaultRotation/paladin/light_of_the_protector", -- [4]
-				"defaultRotation/paladin/inquisition", -- [5]
+				"defaultRotation/paladin/inquisition_pvp", -- [5]
 				"defaultRotation/paladin/bastion_of_light", -- [6]
 				"defaultRotation/paladin/avenging_wrath", -- [7]
 				"defaultRotation/paladin/consecration_refresh", -- [8]
@@ -205,7 +205,7 @@ local paladinRotationsGenerator = function ()
 				"defaultRotation/paladin/hammer_of_the_righteous", -- [14]
 			},
 			["specID"] = 2,
-			["version"] = 10,
+			["version"] = 11,
 		},
 		["defaultRotation/paladin/protection_multi"] = {
 			["ActionList"] = {
@@ -249,7 +249,7 @@ local paladinRotationsGenerator = function ()
 					["v_p_hp"] = "<50%",
 					["v_spellname"] = "213652",
 				},
-				["defaultRotation/paladin/inquisition"] = {
+				["defaultRotation/paladin/inquisition_pvp"] = {
 					["b_t_needsdebuff"] = true,
 					["v_spellname"] = "207028",
 					["v_t_needsdebuff"] = "_206891",
@@ -286,7 +286,7 @@ local paladinRotationsGenerator = function ()
 				"defaultRotation/paladin/lay_on_hands", -- [2]
 				"defaultRotation/paladin/hand_of_the_protector", -- [3]
 				"defaultRotation/paladin/light_of_the_protector", -- [4]
-				"defaultRotation/paladin/inquisition", -- [5]
+				"defaultRotation/paladin/inquisition_pvp", -- [5]
 				"defaultRotation/paladin/bastion_of_light", -- [6]
 				"defaultRotation/paladin/avenging_wrath", -- [7]
 				"defaultRotation/paladin/consecration_refresh", -- [8]
@@ -299,7 +299,7 @@ local paladinRotationsGenerator = function ()
 			},
 			["isMultiTarget"] = true,
 			["specID"] = 2,
-			["version"] = 7,
+			["version"] = 8,
 		},
 		["defaultRotation/paladin/retribution"] = {
 			["ActionList"] = {
