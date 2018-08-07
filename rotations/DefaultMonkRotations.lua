@@ -449,6 +449,11 @@ local monkRotationsGenerator = function ()
 					["v_p_havebuff"] = "152173",
 					["v_spellname"] = "113656",
 				},
+				["defaultRotation/monk/fortifying_brew_pvp"] = {
+					["b_p_hp"] = true,
+					["v_p_hp"] = "<30%",
+					["v_spellname"] = "201318",
+				},
 				["defaultRotation/monk/invoke_xuen_the_white_tiger"] = {
 					["b_isCustomCase1"] = true,
 					["v_spellname"] = "123904",
@@ -550,29 +555,30 @@ local monkRotationsGenerator = function ()
 			},
 			["SortedActions"] = {
 				"defaultRotation/monk/spear_hand_strike", -- [1]
-				"defaultRotation/monk/invoke_xuen_the_white_tiger", -- [2]
-				"defaultRotation/monk/touch_of_death", -- [3]
-				"defaultRotation/monk/serenity", -- [4]
-				"defaultRotation/monk/storm_earth_and_fire_fists_of_fury", -- [5]
-				"defaultRotation/monk/storm_earth_and_fire", -- [6]
-				"defaultRotation/monk/energising_elixir", -- [7]
-				"defaultRotation/monk/rising_sun_kick_serenity", -- [8]
-				"defaultRotation/monk/fists_of_fury_serenity", -- [9]
-				"defaultRotation/monk/blackout_kick_serenity", -- [10]
-				"defaultRotation/monk/fists_of_fury", -- [11]
-				"defaultRotation/monk/fist_of_the_white_tiger", -- [12]
-				"defaultRotation/monk/rising_sun_kick_whirling_dragon_punch", -- [13]
-				"defaultRotation/monk/whirling_dragon_punch", -- [14]
-				"defaultRotation/monk/tiger_palm_energy", -- [15]
-				"defaultRotation/monk/chi_burst", -- [16]
-				"defaultRotation/monk/chi_wave", -- [17]
-				"defaultRotation/monk/blackout_kick_blackout_kick", -- [18]
-				"defaultRotation/monk/blackout_kick", -- [19]
-				"defaultRotation/monk/tiger_palm", -- [20]
-				"defaultRotation/monk/rising_sun_kick", -- [21]
+				"defaultRotation/monk/fortifying_brew_pvp", -- [2]
+				"defaultRotation/monk/invoke_xuen_the_white_tiger", -- [3]
+				"defaultRotation/monk/touch_of_death", -- [4]
+				"defaultRotation/monk/serenity", -- [5]
+				"defaultRotation/monk/storm_earth_and_fire_fists_of_fury", -- [6]
+				"defaultRotation/monk/storm_earth_and_fire", -- [7]
+				"defaultRotation/monk/energising_elixir", -- [8]
+				"defaultRotation/monk/rising_sun_kick_serenity", -- [9]
+				"defaultRotation/monk/fists_of_fury_serenity", -- [10]
+				"defaultRotation/monk/blackout_kick_serenity", -- [11]
+				"defaultRotation/monk/fists_of_fury", -- [12]
+				"defaultRotation/monk/fist_of_the_white_tiger", -- [13]
+				"defaultRotation/monk/rising_sun_kick_whirling_dragon_punch", -- [14]
+				"defaultRotation/monk/whirling_dragon_punch", -- [15]
+				"defaultRotation/monk/tiger_palm_energy", -- [16]
+				"defaultRotation/monk/chi_burst", -- [17]
+				"defaultRotation/monk/chi_wave", -- [18]
+				"defaultRotation/monk/blackout_kick_blackout_kick", -- [19]
+				"defaultRotation/monk/blackout_kick", -- [20]
+				"defaultRotation/monk/tiger_palm", -- [21]
+				"defaultRotation/monk/rising_sun_kick", -- [22]
 			},
 			["specID"] = 3,
-			["version"] = 6,
+			["version"] = 7,
 		},
 		["defaultRotation/monk/windwalker_multi"] = {
 			["ActionList"] = {
@@ -640,6 +646,11 @@ local monkRotationsGenerator = function ()
 					["b_p_havebuff"] = true,
 					["v_p_havebuff"] = "152173",
 					["v_spellname"] = "113656",
+				},
+				["defaultRotation/monk/fortifying_brew_pvp"] = {
+					["b_p_hp"] = true,
+					["v_p_hp"] = "<30%",
+					["v_spellname"] = "201318",
 				},
 				["defaultRotation/monk/invoke_xuen_the_white_tiger"] = {
 					["b_isCustomCase1"] = true,
@@ -751,33 +762,34 @@ local monkRotationsGenerator = function ()
 				},
 			},
 			["SortedActions"] = {
-				"defaultRotation/monk/spear_hand_strike", -- [1]
-				"defaultRotation/monk/invoke_xuen_the_white_tiger", -- [2]
-				"defaultRotation/monk/touch_of_death", -- [3]
-				"defaultRotation/monk/serenity", -- [4]
-				"defaultRotation/monk/storm_earth_and_fire_fists_of_fury", -- [5]
-				"defaultRotation/monk/storm_earth_and_fire", -- [6]
-				"defaultRotation/monk/energising_elixir", -- [7]
-				"defaultRotation/monk/rushing_jade_wind", -- [8]
-				"defaultRotation/monk/rising_sun_kick_serenity", -- [9]
-				"defaultRotation/monk/fists_of_fury_serenity", -- [10]
-				"defaultRotation/monk/blackout_kick_serenity", -- [11]
-				"defaultRotation/monk/whirling_dragon_punch", -- [12]
-				"defaultRotation/monk/fists_of_fury", -- [13]
-				"defaultRotation/monk/fist_of_the_white_tiger", -- [14]
-				"defaultRotation/monk/spinning_crane_kick_serenity", -- [15]
-				"defaultRotation/monk/rising_sun_kick_whirling_dragon_punch", -- [16]
-				"defaultRotation/monk/tiger_palm_energy", -- [17]
-				"defaultRotation/monk/chi_burst", -- [18]
-				"defaultRotation/monk/chi_wave", -- [19]
-				"defaultRotation/monk/spinning_crane_kick", -- [20]
-				"defaultRotation/monk/blackout_kick_blackout_kick", -- [21]
-				"defaultRotation/monk/blackout_kick", -- [22]
-				"defaultRotation/monk/tiger_palm", -- [23]
+				"defaultRotation/monk/fortifying_brew_pvp", -- [1]
+				"defaultRotation/monk/spear_hand_strike", -- [2]
+				"defaultRotation/monk/invoke_xuen_the_white_tiger", -- [3]
+				"defaultRotation/monk/touch_of_death", -- [4]
+				"defaultRotation/monk/serenity", -- [5]
+				"defaultRotation/monk/storm_earth_and_fire_fists_of_fury", -- [6]
+				"defaultRotation/monk/storm_earth_and_fire", -- [7]
+				"defaultRotation/monk/energising_elixir", -- [8]
+				"defaultRotation/monk/rushing_jade_wind", -- [9]
+				"defaultRotation/monk/rising_sun_kick_serenity", -- [10]
+				"defaultRotation/monk/fists_of_fury_serenity", -- [11]
+				"defaultRotation/monk/blackout_kick_serenity", -- [12]
+				"defaultRotation/monk/whirling_dragon_punch", -- [13]
+				"defaultRotation/monk/fists_of_fury", -- [14]
+				"defaultRotation/monk/fist_of_the_white_tiger", -- [15]
+				"defaultRotation/monk/spinning_crane_kick_serenity", -- [16]
+				"defaultRotation/monk/rising_sun_kick_whirling_dragon_punch", -- [17]
+				"defaultRotation/monk/tiger_palm_energy", -- [18]
+				"defaultRotation/monk/chi_burst", -- [19]
+				"defaultRotation/monk/chi_wave", -- [20]
+				"defaultRotation/monk/spinning_crane_kick", -- [21]
+				"defaultRotation/monk/blackout_kick_blackout_kick", -- [22]
+				"defaultRotation/monk/blackout_kick", -- [23]
+				"defaultRotation/monk/tiger_palm", -- [24]
 			},
 			["isMultiTarget"] = true,
 			["specID"] = 3,
-			["version"] = 3,
+			["version"] = 4,
 		},
 	}
 
