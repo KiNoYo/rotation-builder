@@ -252,9 +252,10 @@ local shamanRotationsGenerator = function ()
 					["v_spellname"] = "114051",
 				},
 				["defaultRotation/shaman/bloodlust"] = {
+					["b_notinspellbook"] = true,
 					["b_p_knowspell"] = true,
 					["v_p_knowspell"] = "193876",
-					["v_spellname"] = "2825",
+					["v_spellname"] = "204361",
 				},
 				["defaultRotation/shaman/earth_shield"] = {
 					["b_p_needbuff"] = true,
@@ -325,9 +326,10 @@ local shamanRotationsGenerator = function ()
 					["v_spellname"] = "196834",
 				},
 				["defaultRotation/shaman/heroism"] = {
+					["b_notinspellbook"] = true,
 					["b_p_knowspell"] = true,
 					["v_p_knowspell"] = "193876",
-					["v_spellname"] = "32182",
+					["v_spellname"] = "204362",
 				},
 				["defaultRotation/shaman/lava_lash"] = {
 					["b_gspellcost"] = true,
@@ -491,7 +493,7 @@ local shamanRotationsGenerator = function ()
 				"defaultRotation/shaman/flametongue", -- [31]
 			},
 			["specID"] = 2,
-			["version"] = 14,
+			["version"] = 15,
 		},
 		["defaultRotation/shaman/enhancement_multi"] = {
 			["ActionList"] = {
@@ -502,7 +504,7 @@ local shamanRotationsGenerator = function ()
 				["defaultRotation/shaman/bloodlust"] = {
 					["b_p_knowspell"] = true,
 					["v_p_knowspell"] = "193876",
-					["v_spellname"] = "2825",
+					["v_spellname"] = "204361",
 				},
 				["defaultRotation/shaman/crash_lightning"] = {
 					["b_gspellcost"] = true,
@@ -592,9 +594,10 @@ local shamanRotationsGenerator = function ()
 					["v_spellname"] = "197211",
 				},
 				["defaultRotation/shaman/heroism"] = {
+					["b_notinspellbook"] = true,
 					["b_p_knowspell"] = true,
 					["v_p_knowspell"] = "193876",
-					["v_spellname"] = "32182",
+					["v_spellname"] = "204362",
 				},
 				["defaultRotation/shaman/lava_lash"] = {
 					["b_gspellcost"] = true,
@@ -762,7 +765,7 @@ local shamanRotationsGenerator = function ()
 			},
 			["isMultiTarget"] = true,
 			["specID"] = 2,
-			["version"] = 8,
+			["version"] = 9,
 		},
 		["defaultRotation/shaman/restoration"] = {
 			["ActionList"] = {
