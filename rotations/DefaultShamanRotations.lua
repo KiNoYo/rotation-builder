@@ -844,7 +844,7 @@ local shamanRotationsGenerator = function ()
 			},
 			["isMultiTarget"] = true,
 			["specID"] = 3,
-			["version"] = 5,
+			["version"] = 6,
 		},
 	}
 
