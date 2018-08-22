@@ -810,7 +810,7 @@ local shamanRotationsGenerator = function ()
 			["ActionList"] = {
 				["defaultRotation/shaman/chain_lightning"] = {
 					["b_notCustomCase2"] = true,
-					["v_spellname"] = "188443",
+					["v_spellname"] = "421",
 				},
 				["defaultRotation/shaman/flame_shock"] = {
 					["b_notCustomCase2"] = true,
