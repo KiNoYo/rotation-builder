@@ -264,7 +264,7 @@
 				</Anchors>
 				<Layers>
 					<Layer level="OVERLAY">
-						<Texture name="ROB_CurrentActionTint" file=""></Texture>
+						<Texture name="ROB_CurrentActionTint" file="Interface\\Icons\\INV_Misc_PocketWatch_01"></Texture>
 					</Layer>
 				</Layers>
 				<Frames>
@@ -284,7 +284,7 @@
 				</Anchors>
 				<Layers>
 					<Layer level="OVERLAY">
-						<Texture name="ROB_NextActionTint" file=""></Texture>
+						<Texture name="ROB_NextActionTint" file="Interface\\Icons\\INV_Misc_PocketWatch_01"></Texture>
 					</Layer>
 				</Layers>
 				<Frames>
@@ -1472,7 +1472,7 @@
 								</Size>
 								<Layers>
 									<Layer level="ARTWORK">
-										<Texture name="ROB_AO_ActionIconTexture" file=""></Texture>
+										<Texture name="ROB_AO_ActionIconTexture" file="Interface\\Icons\\INV_Misc_PocketWatch_01"></Texture>
 									</Layer>
 								</Layers>
 							</Frame>
