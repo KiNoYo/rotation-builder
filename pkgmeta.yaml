@@ -4,13 +4,13 @@ enable-nolib-creation: no
 
 externals:
   libs/Ace-3.0/LibStub:
-    url: https://repos.wowace.com/wow/ace3/tags/Release-r1158/LibStub
+    url: https://repos.wowace.com/wow/ace3/tags/Release-r1182/LibStub
     tag: latest
   libs/Ace-3.0/AceLocale-3.0:
-    url: https://repos.wowace.com/wow/ace3/tags/Release-r1158/AceLocale-3.0
+    url: https://repos.wowace.com/wow/ace3/tags/Release-r1182/AceLocale-3.0
     tag: latest
   libs/Ace-3.0/AceSerializer-3.0:
-    url: https://repos.wowace.com/wow/ace3/tags/Release-r1158/AceSerializer-3.0
+    url: https://repos.wowace.com/wow/ace3/tags/Release-r1182/AceSerializer-3.0
     tag: latest
 
 ignore:
