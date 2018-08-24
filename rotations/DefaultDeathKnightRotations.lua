@@ -266,6 +266,13 @@ local deathKnightRotationsGenerator = function ()
 					["v_p_unitpowertype"] = "6",
 					["v_spellname"] = "152279",
 				},
+				["defaultRotation/deathknight/chains_of_ice"] = {
+					["b_p_havebuff"] = true,
+					["b_p_knowspell"] = true,
+					["v_p_havebuff"] = "281209#20&51271",
+					["v_p_knowspell"] = "281208",
+					["v_spellname"] = "45524",
+				},
 				["defaultRotation/deathknight/death_pact"] = {
 					["b_p_hp"] = true,
 					["v_p_hp"] = "<30%",
@@ -537,26 +544,27 @@ local deathKnightRotationsGenerator = function ()
 				"defaultRotation/deathknight/pillar_of_frost", -- [8]
 				"defaultRotation/deathknight/horn_of_winter_breath_of_sindragosa", -- [9]
 				"defaultRotation/deathknight/horn_of_winter", -- [10]
-				"defaultRotation/deathknight/remorseless_winter", -- [11]
-				"defaultRotation/deathknight/obliterate_obliteration", -- [12]
-				"defaultRotation/deathknight/frost_strike_rime", -- [13]
-				"defaultRotation/deathknight/frost_strike_runic_power", -- [14]
-				"defaultRotation/deathknight/howling_blast", -- [15]
-				"defaultRotation/deathknight/howling_blast_frost_fever", -- [16]
-				"defaultRotation/deathknight/obliterate_breath_of_sindragosa", -- [17]
-				"defaultRotation/deathknight/frost_strike_obliteration", -- [18]
-				"defaultRotation/deathknight/obliterate_4+_runes", -- [19]
-				"defaultRotation/deathknight/frost_strike_breath_of_sindragosa_runic_power", -- [20]
-				"defaultRotation/deathknight/frost_strike_90+_runic_power", -- [21]
-				"defaultRotation/deathknight/obliterate_killing_machine", -- [22]
-				"defaultRotation/deathknight/frost_strike_80+_runic_power", -- [23]
-				"defaultRotation/deathknight/frost_strike_75+_runic_power", -- [24]
-				"defaultRotation/deathknight/obliterate", -- [25]
-				"defaultRotation/deathknight/frost_strike_breath_of_sindragosa", -- [26]
-				"defaultRotation/deathknight/frost_strike", -- [27]
+				"defaultRotation/deathknight/chains_of_ice", -- [11]
+				"defaultRotation/deathknight/remorseless_winter", -- [12]
+				"defaultRotation/deathknight/obliterate_obliteration", -- [13]
+				"defaultRotation/deathknight/frost_strike_rime", -- [14]
+				"defaultRotation/deathknight/frost_strike_runic_power", -- [15]
+				"defaultRotation/deathknight/howling_blast", -- [16]
+				"defaultRotation/deathknight/howling_blast_frost_fever", -- [17]
+				"defaultRotation/deathknight/obliterate_breath_of_sindragosa", -- [18]
+				"defaultRotation/deathknight/frost_strike_obliteration", -- [19]
+				"defaultRotation/deathknight/obliterate_4+_runes", -- [20]
+				"defaultRotation/deathknight/frost_strike_breath_of_sindragosa_runic_power", -- [21]
+				"defaultRotation/deathknight/frost_strike_90+_runic_power", -- [22]
+				"defaultRotation/deathknight/obliterate_killing_machine", -- [23]
+				"defaultRotation/deathknight/frost_strike_80+_runic_power", -- [24]
+				"defaultRotation/deathknight/frost_strike_75+_runic_power", -- [25]
+				"defaultRotation/deathknight/obliterate", -- [26]
+				"defaultRotation/deathknight/frost_strike_breath_of_sindragosa", -- [27]
+				"defaultRotation/deathknight/frost_strike", -- [28]
 			},
 			["specID"] = 2,
-			["version"] = 7,
+			["version"] = 8,
 		},
 		["defaultRotation/deathknight/frost_multi"] = {
 			["ActionList"] = {
@@ -565,6 +573,13 @@ local deathKnightRotationsGenerator = function ()
 					["v_p_unitpower"] = ">70",
 					["v_p_unitpowertype"] = "6",
 					["v_spellname"] = "152279",
+				},
+				["defaultRotation/deathknight/chains_of_ice"] = {
+					["b_p_havebuff"] = true,
+					["b_p_knowspell"] = true,
+					["v_p_havebuff"] = "281209#20&51271",
+					["v_p_knowspell"] = "281208",
+					["v_spellname"] = "45524",
 				},
 				["defaultRotation/deathknight/death_pact"] = {
 					["b_p_hp"] = true,
@@ -886,30 +901,31 @@ local deathKnightRotationsGenerator = function ()
 				"defaultRotation/deathknight/pillar_of_frost", -- [8]
 				"defaultRotation/deathknight/horn_of_winter_breath_of_sindragosa", -- [9]
 				"defaultRotation/deathknight/horn_of_winter", -- [10]
-				"defaultRotation/deathknight/frostscythe_breath_of_sindragosa", -- [11]
-				"defaultRotation/deathknight/obliterate_breath_of_sindragosa", -- [12]
-				"defaultRotation/deathknight/remorseless_winter_breath_of_sindragosa", -- [13]
-				"defaultRotation/deathknight/frostscythe_obliteration", -- [14]
-				"defaultRotation/deathknight/obliterate_obliteration", -- [15]
-				"defaultRotation/deathknight/glacial_advance_rime", -- [16]
-				"defaultRotation/deathknight/frost_strike_rime", -- [17]
-				"defaultRotation/deathknight/glacial_advance_runic_power", -- [18]
-				"defaultRotation/deathknight/frost_strike_runic_power", -- [19]
-				"defaultRotation/deathknight/howling_blast", -- [20]
-				"defaultRotation/deathknight/frost_strike_breath_of_sindragosa_runic_power", -- [21]
-				"defaultRotation/deathknight/frost_strike_90+_runic_power", -- [22]
-				"defaultRotation/deathknight/frostscythe_killing_machine", -- [23]
-				"defaultRotation/deathknight/obliterate_killing_machine", -- [24]
-				"defaultRotation/deathknight/remorseless_winter", -- [25]
-				"defaultRotation/deathknight/frostscythe", -- [26]
-				"defaultRotation/deathknight/frost_strike_obliteration", -- [27]
-				"defaultRotation/deathknight/obliterate", -- [28]
-				"defaultRotation/deathknight/glacial_advance", -- [29]
-				"defaultRotation/deathknight/frost_strike", -- [30]
+				"defaultRotation/deathknight/chains_of_ice", -- [11]
+				"defaultRotation/deathknight/frostscythe_breath_of_sindragosa", -- [12]
+				"defaultRotation/deathknight/obliterate_breath_of_sindragosa", -- [13]
+				"defaultRotation/deathknight/remorseless_winter_breath_of_sindragosa", -- [14]
+				"defaultRotation/deathknight/frostscythe_obliteration", -- [15]
+				"defaultRotation/deathknight/obliterate_obliteration", -- [16]
+				"defaultRotation/deathknight/glacial_advance_rime", -- [17]
+				"defaultRotation/deathknight/frost_strike_rime", -- [18]
+				"defaultRotation/deathknight/glacial_advance_runic_power", -- [19]
+				"defaultRotation/deathknight/frost_strike_runic_power", -- [20]
+				"defaultRotation/deathknight/howling_blast", -- [21]
+				"defaultRotation/deathknight/frost_strike_breath_of_sindragosa_runic_power", -- [22]
+				"defaultRotation/deathknight/frost_strike_90+_runic_power", -- [23]
+				"defaultRotation/deathknight/frostscythe_killing_machine", -- [24]
+				"defaultRotation/deathknight/obliterate_killing_machine", -- [25]
+				"defaultRotation/deathknight/remorseless_winter", -- [26]
+				"defaultRotation/deathknight/frostscythe", -- [27]
+				"defaultRotation/deathknight/frost_strike_obliteration", -- [28]
+				"defaultRotation/deathknight/obliterate", -- [29]
+				"defaultRotation/deathknight/glacial_advance", -- [30]
+				"defaultRotation/deathknight/frost_strike", -- [31]
 			},
 			["isMultiTarget"] = true,
 			["specID"] = 2,
-			["version"] = 4,
+			["version"] = 5,
 		},
 		["defaultRotation/deathknight/unholy"] = {
 			["ActionList"] = {
