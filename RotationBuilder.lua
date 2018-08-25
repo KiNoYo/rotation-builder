@@ -2776,17 +2776,18 @@ function ROB_SpellReady(actionName, isNextSpell)
 		end
 	end
 
+	-- TODO : no longer seems to work properly currently using the spellsteal function instead
 	-- CHECK: Check if the target has a dispellable buff
-	if (ActionDB.b_t_dispel) then
-		if (not ROB_UnitHasDispellableBuff()) then
-			-- If there is no dispellable buff on the target
-			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because there is currently no dispellable buff on the target", debug);
-			return false;
-		end
-	end
+	-- if (ActionDB.b_t_dispel) then
+		-- if (not ROB_UnitHasDispellableBuff()) then
+			-- -- If there is no dispellable buff on the target
+			-- ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because there is currently no dispellable buff on the target", debug);
+			-- return false;
+		-- end
+	-- end
 
 	-- CHECK: Check if the target has a stealable buff
-	if (ActionDB.b_t_spellsteal) then
+	if (ActionDB.b_t_spellsteal or ActionDB.b_t_dispel) then
 		if (not ROB_UnitHasStealableBuff()) then
 			-- If there is no stealable buff on the target
 			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because there is currently no stealable buff on the target", debug);
