@@ -41,7 +41,9 @@ local rogueRotationsGenerator = function ()
 					["v_spellname"] = "2823",
 				},
 				["rotation/rogue/deadly_poison_leeching_poison"] = {
+					["b_p_knowspell"] = true,
 					["b_p_needbuff"] = true,
+					["v_p_knowspell"] = "280716",
 					["v_p_needbuff"] = "108211",
 					["v_spellname"] = "2823",
 				},
@@ -231,7 +233,7 @@ local rogueRotationsGenerator = function ()
 				"rotation/rogue/mutilate", -- [21]
 			},
 			["specID"] = 1,
-			["version"] = 11,
+			["version"] = 12,
 		},
 		["rotation/rogue/assassination_multi"] = {
 			["ActionList"] = {
@@ -258,7 +260,9 @@ local rogueRotationsGenerator = function ()
 					["v_spellname"] = "2823",
 				},
 				["rotation/rogue/deadly_poison_leeching_poison"] = {
+					["b_p_knowspell"] = true,
 					["b_p_needbuff"] = true,
+					["v_p_knowspell"] = "280716",
 					["v_p_needbuff"] = "108211",
 					["v_spellname"] = "2823",
 				},
@@ -373,7 +377,7 @@ local rogueRotationsGenerator = function ()
 			},
 			["isMultiTarget"] = true,
 			["specID"] = 1,
-			["version"] = 11,
+			["version"] = 12,
 		},
 		["rotation/rogue/outlaw"] = {
 			["ActionList"] = {
