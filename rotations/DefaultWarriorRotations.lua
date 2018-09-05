@@ -854,7 +854,7 @@ local warriorRotationsGenerator = function ()
 					["v_gspellcost"] = "30",
 					["v_gspellcosttype"] = "1",
 					["v_p_knowspell"] = "280001",
-					["v_p_needbuff"] = "132404&12975",
+					["v_p_needbuff"] = "132404|12975",
 					["v_spellname"] = "2565",
 				},
 				["defaultRotation/warrior/shield_slam"] = {
@@ -903,7 +903,7 @@ local warriorRotationsGenerator = function ()
 				"defaultRotation/warrior/devastate", -- [22]
 			},
 			["specID"] = 3,
-			["version"] = 9,
+			["version"] = 10,
 		},
 		["defaultRotation/warrior/protection_multi"] = {
 			["ActionList"] = {
@@ -1067,7 +1067,7 @@ local warriorRotationsGenerator = function ()
 					["v_gspellcost"] = "30",
 					["v_gspellcosttype"] = "1",
 					["v_p_knowspell"] = "280001",
-					["v_p_needbuff"] = "132404&12975",
+					["v_p_needbuff"] = "132404|12975",
 					["v_spellname"] = "2565",
 				},
 				["defaultRotation/warrior/shield_slam"] = {
@@ -1116,7 +1116,7 @@ local warriorRotationsGenerator = function ()
 			},
 			["isMultiTarget"] = true,
 			["specID"] = 3,
-			["version"] = 6,
+			["version"] = 7,
 		},
 	}
 
