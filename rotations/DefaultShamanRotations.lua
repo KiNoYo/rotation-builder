@@ -499,7 +499,7 @@ local shamanRotationsGenerator = function ()
 				"defaultRotation/shaman/flametongue", -- [32]
 			},
 			["specID"] = 2,
-			["version"] = 15,
+			["version"] = 16,
 		},
 		["defaultRotation/shaman/enhancement_multi"] = {
 			["ActionList"] = {
@@ -771,7 +771,7 @@ local shamanRotationsGenerator = function ()
 			},
 			["isMultiTarget"] = true,
 			["specID"] = 2,
-			["version"] = 9,
+			["version"] = 10,
 		},
 		["defaultRotation/shaman/restoration"] = {
 			["ActionList"] = {
