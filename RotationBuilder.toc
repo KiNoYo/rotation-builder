@@ -3,7 +3,8 @@
 ## Version: 1.73.3
 ## Author: Previous : Soulwhip, Current : Pelerinage, Tylorcaptain
 ## Notes: Builds rotations for any class or spec
-## SavedVariablesPerCharacter: ROB_Options ROB_Rotations ROB_Exports
+## SavedVariables: ROB_Options
+## SavedVariablesPerCharacter: ROB_Last_Selected ROB_Rotations ROB_Exports
 
 # Library
 libs\Ace-3.0\LibStub\LibStub.lua

@@ -52,7 +52,6 @@ local ROB_Options_Default = {
 	NextIconA = 1;
 	NextIconLocation = "BOTTOM";
 	loaddefault = true;
-	lastrotation = "";
 	updaterate = 5;
 	CABSkin = {};
 	NABSkin = {};
@@ -465,6 +464,7 @@ function ROB_ADDON_Load(addon)
 end
 
 function ROB_PLAYER_Enter()
+	local unknown = false;
 	if (ROB_Initialized) then
 		return;
 	end
@@ -474,10 +474,12 @@ function ROB_PLAYER_Enter()
 	-- Load or update default rotations.
 	ROB_LoadDefaultRotations();
 
-	if (ROB_Options["lastrotation"] and ROB_Options["lastrotation"] ~= nil and ROB_Options["lastrotation"] ~= "") then
+	if (ROB_Last_Selected and ROB_Last_Selected ~= nil and ROB_Last_Selected ~= "") then
 		--Weve loaded once before do we have a last loaded rotation?
-		ROB_SwitchRotation(ROB_Options["lastrotation"], true);
-	else
+		unknown = not ROB_SwitchRotation(ROB_Last_Selected, true);
+	end
+	
+	if (unknown) then
 		-- If we don't have a previously selected rotation, then select the one which match the specialization if it exist.
 		ROB_SwitchRotation(RotationBuilder:findRotationBySpecializationID(GetSpecialization()), true);
 	end
@@ -704,7 +706,7 @@ end
 function ROB_SwitchRotation(RotationID, _byName)
 	local _MatchingRotationName;
 	if(not RotationID or RotationID == "") then
-		return;
+		return false;
 	end
 
 	--if we are modififying a rotation dont switch to a different one
@@ -727,7 +729,7 @@ function ROB_SwitchRotation(RotationID, _byName)
 		end
 		if (not _MatchingRotationName) then
 			print(RotationBuilderUtils:localize('ROB_UI_DEBUG_PREFIX')..RotationBuilderUtils:localize('ROB_UI_ROTATION_E1'))
-			return;
+			return false;
 		end
 		ROB_SelectedRotationName = _MatchingRotationName
 	end
@@ -749,9 +751,10 @@ function ROB_SwitchRotation(RotationID, _byName)
 		ROB_NextActionButtonHotKey:SetText("")
 		ROB_NextActionButton:Show()
 
-		ROB_Options["lastrotation"] = ROB_SelectedRotationName
+		ROB_Last_Selected = ROB_SelectedRotationName
 	else
 		print(RotationBuilderUtils:localize('ROB_UI_DEBUG_PREFIX')..RotationID.." "..RotationBuilderUtils:localize('ROB_UI_ROTATION_E2'))
+		return false;
 	end
 
 	ROB_RotationModifyButtons_UpdateUI()
@@ -761,6 +764,8 @@ function ROB_SwitchRotation(RotationID, _byName)
 	ROB_ActionList_Update();
 	-- update rotation ui stuff
 	ROB_Rotation_Edit_UpdateUI();
+	
+	return true;
 end
 
 function ROB_RotationCreateButton_OnClick(self)

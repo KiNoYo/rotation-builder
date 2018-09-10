@@ -1,6 +1,7 @@
 -- Saved Options
 ROB_Options                         = {};
 ROB_Rotations                       = {};
+ROB_Last_Selected					= "";
 --@do-not-package@
 -- Register minified rotation on export for development purpose.
 ROB_Exports                         = {};
