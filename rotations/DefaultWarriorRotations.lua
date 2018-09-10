@@ -187,7 +187,7 @@ local warriorRotationsGenerator = function ()
 				"defaultRotation/warrior/slam", -- [22]
 			},
 			["specID"] = 1,
-			["version"] = 8,
+			["version"] = 9,
 		},
 		["defaultRotation/warrior/arms_multi"] = {
 			["ActionList"] = {
@@ -370,7 +370,7 @@ local warriorRotationsGenerator = function ()
 			},
 			["isMultiTarget"] = true,
 			["specID"] = 1,
-			["version"] = 4,
+			["version"] = 5,
 		},
 		["defaultRotation/warrior/fury"] = {
 			["ActionList"] = {
