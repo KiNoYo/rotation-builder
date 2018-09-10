@@ -120,6 +120,11 @@ local warriorRotationsGenerator = function ()
 					["v_spellname"] = "772",
 					["v_t_needsdebuff"] = "_208086",
 				},
+				["defaultRotation/warrior/sharpen_blade"] = {
+					["b_p_needbuff"] = true,
+					["v_p_needbuff"] = "198817",
+					["v_spellname"] = "198817",
+				},
 				["defaultRotation/warrior/skullsplitter"] = {
 					["b_gunitpower"] = true,
 					["b_p_unitpower"] = true,
@@ -163,22 +168,23 @@ local warriorRotationsGenerator = function ()
 				"defaultRotation/warrior/battle_shout", -- [3]
 				"defaultRotation/warrior/impending_victory", -- [4]
 				"defaultRotation/warrior/victory_rush", -- [5]
-				"defaultRotation/warrior/rend", -- [6]
-				"defaultRotation/warrior/skullsplitter", -- [7]
-				"defaultRotation/warrior/avatar", -- [8]
-				"defaultRotation/warrior/warbreaker", -- [9]
-				"defaultRotation/warrior/colossus_smash", -- [10]
-				"defaultRotation/warrior/execute_sudden_death", -- [11]
-				"defaultRotation/warrior/mortal_strike_massacre", -- [12]
-				"defaultRotation/warrior/mortal_strike", -- [13]
-				"defaultRotation/warrior/ravager", -- [14]
-				"defaultRotation/warrior/bladestorm", -- [15]
-				"defaultRotation/warrior/mortal_strike_execute", -- [16]
-				"defaultRotation/warrior/overpower", -- [17]
-				"defaultRotation/warrior/execute_colossus_smash", -- [18]
-				"defaultRotation/warrior/execute", -- [19]
-				"defaultRotation/warrior/whirlwind", -- [20]
-				"defaultRotation/warrior/slam", -- [21]
+				"defaultRotation/warrior/sharpen_blade", -- [6]
+				"defaultRotation/warrior/rend", -- [7]
+				"defaultRotation/warrior/skullsplitter", -- [8]
+				"defaultRotation/warrior/avatar", -- [9]
+				"defaultRotation/warrior/warbreaker", -- [10]
+				"defaultRotation/warrior/colossus_smash", -- [11]
+				"defaultRotation/warrior/execute_sudden_death", -- [12]
+				"defaultRotation/warrior/mortal_strike_massacre", -- [13]
+				"defaultRotation/warrior/mortal_strike", -- [14]
+				"defaultRotation/warrior/ravager", -- [15]
+				"defaultRotation/warrior/bladestorm", -- [16]
+				"defaultRotation/warrior/mortal_strike_execute", -- [17]
+				"defaultRotation/warrior/overpower", -- [18]
+				"defaultRotation/warrior/execute_colossus_smash", -- [19]
+				"defaultRotation/warrior/execute", -- [20]
+				"defaultRotation/warrior/whirlwind", -- [21]
+				"defaultRotation/warrior/slam", -- [22]
 			},
 			["specID"] = 1,
 			["version"] = 8,
@@ -294,6 +300,11 @@ local warriorRotationsGenerator = function ()
 					["v_spellname"] = "772",
 					["v_t_needsdebuff"] = "_208086",
 				},
+				["defaultRotation/warrior/sharpen_blade"] = {
+					["b_p_needbuff"] = true,
+					["v_p_needbuff"] = "198817",
+					["v_spellname"] = "198817",
+				},
 				["defaultRotation/warrior/skullsplitter"] = {
 					["b_gunitpower"] = true,
 					["b_p_unitpower"] = true,
@@ -338,23 +349,24 @@ local warriorRotationsGenerator = function ()
 				"defaultRotation/warrior/battle_shout", -- [3]
 				"defaultRotation/warrior/impending_victory", -- [4]
 				"defaultRotation/warrior/victory_rush", -- [5]
-				"defaultRotation/warrior/sweeping_strikes", -- [6]
-				"defaultRotation/warrior/rend", -- [7]
-				"defaultRotation/warrior/skullsplitter", -- [8]
-				"defaultRotation/warrior/avatar", -- [9]
-				"defaultRotation/warrior/warbreaker", -- [10]
-				"defaultRotation/warrior/colossus_smash", -- [11]
-				"defaultRotation/warrior/ravager", -- [12]
-				"defaultRotation/warrior/bladestorm", -- [13]
-				"defaultRotation/warrior/cleave", -- [14]
-				"defaultRotation/warrior/mortal_strike_execute", -- [15]
-				"defaultRotation/warrior/execute_sudden_death", -- [16]
-				"defaultRotation/warrior/execute_colossus_smash", -- [17]
-				"defaultRotation/warrior/execute", -- [18]
-				"defaultRotation/warrior/mortal_strike", -- [19]
-				"defaultRotation/warrior/whirlwind_colossus_smash", -- [20]
-				"defaultRotation/warrior/overpower", -- [21]
-				"defaultRotation/warrior/whirlwind", -- [22]
+				"defaultRotation/warrior/sharpen_blade", -- [6]
+				"defaultRotation/warrior/sweeping_strikes", -- [7]
+				"defaultRotation/warrior/rend", -- [8]
+				"defaultRotation/warrior/skullsplitter", -- [9]
+				"defaultRotation/warrior/avatar", -- [10]
+				"defaultRotation/warrior/warbreaker", -- [11]
+				"defaultRotation/warrior/colossus_smash", -- [12]
+				"defaultRotation/warrior/ravager", -- [13]
+				"defaultRotation/warrior/bladestorm", -- [14]
+				"defaultRotation/warrior/cleave", -- [15]
+				"defaultRotation/warrior/mortal_strike_execute", -- [16]
+				"defaultRotation/warrior/execute_sudden_death", -- [17]
+				"defaultRotation/warrior/execute_colossus_smash", -- [18]
+				"defaultRotation/warrior/execute", -- [19]
+				"defaultRotation/warrior/mortal_strike", -- [20]
+				"defaultRotation/warrior/whirlwind_colossus_smash", -- [21]
+				"defaultRotation/warrior/overpower", -- [22]
+				"defaultRotation/warrior/whirlwind", -- [23]
 			},
 			["isMultiTarget"] = true,
 			["specID"] = 1,

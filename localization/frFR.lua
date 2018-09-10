@@ -669,6 +669,7 @@ L["defaultRotation/warrior/revenge_best_served_cold"] = "Revanche (Un plat qui s
 L["defaultRotation/warrior/revenge_rage"] = "Revanche (Rage)"
 L["defaultRotation/warrior/revenge_vengeance"] = "Revanche (Vengeance)"
 L["defaultRotation/warrior/revenge_vengeance_best_served_cold"] = "Revanche (Vengeance (Un plat qui se mange froid))"
+L["defaultRotation/warrior/sharpen_blade"] = "Affûtage de lame (JcJ)"
 L["defaultRotation/warrior/shield_bash"] = "Coup de bouclier (JcJ)"
 L["defaultRotation/warrior/shield_bash_interrupt"] = "Coup de bouclier (Interruption (JcJ))"
 L["defaultRotation/warrior/shield_block"] = "Maîtrise du blocage"

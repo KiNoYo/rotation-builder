@@ -669,6 +669,7 @@ L["defaultRotation/warrior/revenge_best_served_cold"] = "Revenge (Best Served Co
 L["defaultRotation/warrior/revenge_rage"] = "Revenge (Rage)"
 L["defaultRotation/warrior/revenge_vengeance"] = "Revenge (Vengeance)"
 L["defaultRotation/warrior/revenge_vengeance_best_served_cold"] = "Revenge (Vengeance (Best Served Cold))"
+L["defaultRotation/warrior/sharpen_blade"] = "Sharpen Blade (PvP)"
 L["defaultRotation/warrior/shield_bash"] = "Shield Bash (PvP)"
 L["defaultRotation/warrior/shield_bash_interrupt"] = "Shield Bash (Interrupt (PvP))"
 L["defaultRotation/warrior/shield_block"] = "Shield Block"
