@@ -254,7 +254,7 @@ local shamanRotationsGenerator = function ()
 				["defaultRotation/shaman/bloodlust"] = {
 					["b_notinspellbook"] = true,
 					["b_p_knowspell"] = true,
-					["v_p_knowspell"] = "193876",
+					["v_p_knowspell"] = "193876&2825",
 					["v_spellname"] = "204361",
 				},
 				["defaultRotation/shaman/earth_shield"] = {
@@ -328,7 +328,7 @@ local shamanRotationsGenerator = function ()
 				["defaultRotation/shaman/heroism"] = {
 					["b_notinspellbook"] = true,
 					["b_p_knowspell"] = true,
-					["v_p_knowspell"] = "193876",
+					["v_p_knowspell"] = "193876&32182",
 					["v_spellname"] = "204362",
 				},
 				["defaultRotation/shaman/lava_lash"] = {
