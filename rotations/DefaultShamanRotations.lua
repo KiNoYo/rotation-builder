@@ -325,6 +325,11 @@ local shamanRotationsGenerator = function ()
 					["v_p_needbuff"] = "196834^4.5",
 					["v_spellname"] = "196834",
 				},
+				["defaultRotation/shaman/fury_of_air"] = {
+					["b_p_havebuff"] = true,
+					["v_p_havebuff"] = "197211",
+					["v_spellname"] = "197211",
+				},
 				["defaultRotation/shaman/heroism"] = {
 					["b_notinspellbook"] = true,
 					["b_p_knowspell"] = true,
@@ -466,31 +471,32 @@ local shamanRotationsGenerator = function ()
 				"defaultRotation/shaman/earth_shield", -- [4]
 				"defaultRotation/shaman/feral_lunge", -- [5]
 				"defaultRotation/shaman/rockbiter_landslide", -- [6]
-				"defaultRotation/shaman/totem_mastery", -- [7]
-				"defaultRotation/shaman/skyfury_totem", -- [8]
-				"defaultRotation/shaman/bloodlust", -- [9]
-				"defaultRotation/shaman/heroism", -- [10]
-				"defaultRotation/shaman/windstrike", -- [11]
-				"defaultRotation/shaman/flametongue_flametongue", -- [12]
-				"defaultRotation/shaman/feral_spirit_elemental_spirits", -- [13]
-				"defaultRotation/shaman/feral_spirit", -- [14]
-				"defaultRotation/shaman/earthen_spike", -- [15]
-				"defaultRotation/shaman/frostbrand", -- [16]
-				"defaultRotation/shaman/ascendance", -- [17]
-				"defaultRotation/shaman/stormstrike_stormbringer", -- [18]
-				"defaultRotation/shaman/lava_lash_hot_hand", -- [19]
-				"defaultRotation/shaman/stormstrike", -- [20]
-				"defaultRotation/shaman/lightning_bolt_fury_of_air", -- [21]
-				"defaultRotation/shaman/lightning_bolt", -- [22]
-				"defaultRotation/shaman/flametongue_searing_assault", -- [23]
-				"defaultRotation/shaman/sundering", -- [24]
-				"defaultRotation/shaman/rockbiter_2_charges", -- [25]
-				"defaultRotation/shaman/flametongue_refresh", -- [26]
-				"defaultRotation/shaman/frostbrand_refresh", -- [27]
-				"defaultRotation/shaman/lava_lash_fury_of_air", -- [28]
-				"defaultRotation/shaman/lava_lash", -- [29]
-				"defaultRotation/shaman/rockbiter", -- [30]
-				"defaultRotation/shaman/flametongue", -- [31]
+				"defaultRotation/shaman/fury_of_air", -- [7]
+				"defaultRotation/shaman/totem_mastery", -- [8]
+				"defaultRotation/shaman/skyfury_totem", -- [9]
+				"defaultRotation/shaman/bloodlust", -- [10]
+				"defaultRotation/shaman/heroism", -- [11]
+				"defaultRotation/shaman/windstrike", -- [12]
+				"defaultRotation/shaman/flametongue_flametongue", -- [13]
+				"defaultRotation/shaman/feral_spirit_elemental_spirits", -- [14]
+				"defaultRotation/shaman/feral_spirit", -- [15]
+				"defaultRotation/shaman/earthen_spike", -- [16]
+				"defaultRotation/shaman/frostbrand", -- [17]
+				"defaultRotation/shaman/ascendance", -- [18]
+				"defaultRotation/shaman/stormstrike_stormbringer", -- [19]
+				"defaultRotation/shaman/lava_lash_hot_hand", -- [20]
+				"defaultRotation/shaman/stormstrike", -- [21]
+				"defaultRotation/shaman/lightning_bolt_fury_of_air", -- [22]
+				"defaultRotation/shaman/lightning_bolt", -- [23]
+				"defaultRotation/shaman/flametongue_searing_assault", -- [24]
+				"defaultRotation/shaman/sundering", -- [25]
+				"defaultRotation/shaman/rockbiter_2_charges", -- [26]
+				"defaultRotation/shaman/flametongue_refresh", -- [27]
+				"defaultRotation/shaman/frostbrand_refresh", -- [28]
+				"defaultRotation/shaman/lava_lash_fury_of_air", -- [29]
+				"defaultRotation/shaman/lava_lash", -- [30]
+				"defaultRotation/shaman/rockbiter", -- [31]
+				"defaultRotation/shaman/flametongue", -- [32]
 			},
 			["specID"] = 2,
 			["version"] = 15,
