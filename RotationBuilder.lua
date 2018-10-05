@@ -2923,17 +2923,17 @@ function ROB_SpellReady(actionName, isNextSpell)
 		-- 199600 : Buried Treasure
 		-- 199603 : Skull and Crossbones
 		local count = 0;
-		if (ROB_UnitHasAura("193356^10.8", "PLAYER", "HELPFUL")) then count = count + 1 end
-		if (ROB_UnitHasAura("193357^10.8", "PLAYER", "HELPFUL")) then count = count + 1 end
-		if (ROB_UnitHasAura("193358^10.8", "PLAYER", "HELPFUL")) then count = count + 1 end
-		if (ROB_UnitHasAura("193359^10.8", "PLAYER", "HELPFUL")) then count = count + 1 end
-		if (ROB_UnitHasAura("199600^10.8", "PLAYER", "HELPFUL")) then count = count + 1 end
-		if (ROB_UnitHasAura("199603^10.8", "PLAYER", "HELPFUL")) then count = count + 1 end
-		if ((ROB_UnitHasAura("193357", "PLAYER", "HELPFUL") and ROB_UnitHasAura("193358", "PLAYER", "HELPFUL")) or (ROB_UnitHasAura("256171", "PLAYER", "HELPFUL") and count >= 2) or ROB_UnitHasAura("193357^10.8", "PLAYER", "HELPFUL") or ROB_UnitHasAura("193358^10.8", "PLAYER", "HELPFUL") or count >= 2) then
+		if (ROB_UnitHasAura("193356", "PLAYER", "HELPFUL")) then count = count + 1 end
+		if (ROB_UnitHasAura("193357", "PLAYER", "HELPFUL")) then count = count + 1 end
+		if (ROB_UnitHasAura("193358", "PLAYER", "HELPFUL")) then count = count + 1 end
+		if (ROB_UnitHasAura("193359", "PLAYER", "HELPFUL")) then count = count + 1 end
+		if (ROB_UnitHasAura("199600", "PLAYER", "HELPFUL")) then count = count + 1 end
+		if (ROB_UnitHasAura("199603", "PLAYER", "HELPFUL")) then count = count + 1 end
+		if ((ROB_UnitHasAura("193357", "PLAYER", "HELPFUL") and ROB_UnitHasAura("193358", "PLAYER", "HELPFUL")) or (ROB_UnitHasAura("256171", "PLAYER", "HELPFUL") and count >= 2) or ROB_UnitHasAura("193357", "PLAYER", "HELPFUL") or ROB_UnitHasAura("193358", "PLAYER", "HELPFUL") or count >= 2) then
 			-- Don't display the spell if we have both Ruthless Precision and Grand Melee, better to wait until they fall off
-			-- Don't display the spell if we have at least 2 buffs with the required time and Loaded Dice
-			-- Or either Ruthless Precision or Grand Melee are present with the required time
-			-- Or we have at least 2 buffs with the required time
+			-- Don't display the spell if we have at least 2 buffs and Loaded Dice
+			-- Or either Ruthless Precision or Grand Melee are present and no Loaded Dice
+			-- Or we have at least 2 buffs
 			ROB_Debug(RotationBuilderUtils:localize('ROB_UI_DEBUG_E1')..actionName.." Spell name/ID : "..spellName.." because you have the required buffs", debug);
 			return false;
 		end
