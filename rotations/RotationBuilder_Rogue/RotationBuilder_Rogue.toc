@@ -6,7 +6,7 @@
 ## Dependencies: RotationBuilder
 
 # Library
-..\RotationBuilder\libs\AceLocale-3.0\AceLocale-3.0.lua
+..\RotationBuilder\libs\Ace-3.0\AceLocale-3.0\AceLocale-3.0.lua
 
 # Localization
 localization\enUS.lua
